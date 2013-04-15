@@ -11,7 +11,7 @@
         <title>Theme switcher</title>
         <description>The named switcher that will be used</description>
     </field>
-    <value>themeswitcher_mobile</value>
+    <value>themeswitcher_mobile_cookie</value>
   </record>
 
   <!-- resources config -->

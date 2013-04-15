@@ -2,25 +2,13 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
-
-  <!-- EXAMPLE:
+-
   <browser:viewlet
-      name="collective.someviewlet"
+      name="rcse.desktop.footer.links"
       manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-      class=".viewlets.MyViewlet"
-      layer=".interfaces.ILayer"
+      template="templates/links.pt"
+      layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
-  <include package="plone.app.contentmenu" />
-  <browser:page
-      for="*"
-      name="myview"
-      menu="plone_displayviews"
-      title="Galleria"
-      class=".myfile.MyView"
-      layer=".interfaces.ILayer"
-      permission="zope2.View"
-      />
-  -->
 
 </configure>
