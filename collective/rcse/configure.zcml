@@ -28,10 +28,12 @@
 
   <interface
       interface=".layer.DesktopLayer"
+      type="zope.publisher.interfaces.browser.IBrowserSkinType"
       name="collective.rcse.desktop"
       />
   <interface
       interface=".layer.MobileLayer"
+      type="zope.publisher.interfaces.browser.IBrowserSkinType"
       name="collective.rcse.mobile"
       />
 

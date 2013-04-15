@@ -1,0 +1,21 @@
+<a href="#" data-role="button" class="button">Add content</a>
+<div class="ui-grid-a">
+  <div class="ui-block-a">
+    <a href="#" data-role="button" data-icon="edit" data-iconpos="top" class="button">Blog</a>
+  </div>
+  <div class="ui-block-b">
+    <a href="#" data-role="button" data-icon="edit" data-iconpos="top" class="button">Favorite</a>
+  </div>
+  <div class="ui-block-a">
+    <a href="#" data-role="button" data-icon="edit" data-iconpos="top" class="button">Discussion</a>
+  </div>
+  <div class="ui-block-b">
+    <a href="#" data-role="button" data-icon="edit" data-iconpos="top" class="button">Event</a>
+  </div>
+  <div class="ui-block-a">
+    <a href="#" data-role="button" data-icon="edit" data-iconpos="top" class="button">Group</a>
+  </div>
+  <div class="ui-block-b">
+    <a href="#" data-role="button" data-icon="edit" data-iconpos="top" class="button">Image</a>
+  </div>
+</div>

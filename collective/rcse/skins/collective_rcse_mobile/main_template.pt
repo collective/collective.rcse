@@ -45,7 +45,7 @@
         <metal:styleslot define-slot="style_slot" />
         <metal:javascriptslot define-slot="javascript_head_slot" />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content="Plone - http://plone.org" />
     </tal:notajax>
 </head>
@@ -54,36 +54,46 @@
 
 <div data-role="page" tal:attributes="id uuid" class="page">
 
-    <div data-role="header">
-        <a tal:attributes="href string:#panel-left-${uuid}"
-           data-role="button" data-icon="bars"
-           data-iconpos="left" class="ui-btn-left">
-           Column 1
-        </a>
-        <a tal:attributes="href string:${portal_state/navigation_root_url}/menu"
-           data-role="button" data-icon="bars"
-           data-iconpos="left" class="ui-btn-right">
-            Column 2
-        </a>
-    </div>
+  <div data-role="header">
+    <metal:block define-slot="header">
+       <a tal:attributes="href string:#panel-left"
+         data-role="button" data-icon="bars"
+         data-iconpos="notext" class="ui-btn-left">
+         Column 1
+      </a>
+      <a tal:attributes="href string:#panel-right"
+         data-role="button" data-icon="grid"
+         data-iconpos="notext" class="ui-btn-right">
+          Column 2
+      </a>
+      <h1>&nbsp;</h1>
+    </metal:block>
+  </div>
 
-    <div data-role="content">
-      <h1 tal:content="context/Title">Foo</h1>
-      <metal:text define-slot="content-core" tal:content="nothing">
-          Page body text
-      </metal:text>
+  <div data-role="content">
+    <metal:block define-slot="content">
+    <div metal:define-macro="content">
+      <metal:slot define-slot="body">
+        <metal:bodytext define-slot="main">
+          <metal:text define-slot="content-core" tal:content="nothing">
+            Page body text
+          </metal:text>
+        </metal:bodytext>
+      </metal:slot>
     </div>
+    </metal:block>
+  </div>
 
-    <div data-role="footer">
-        &nbsp;
-    </div>
+  <div data-role="footer" class="ui-bar">
+    <div tal:content="structure provider:rcse.mobile.footer" />
+  </div>
 
-    <div data-role="panel" class="panel-left" tal:attributes="id string:panel-left-${uuid}">
-      <tal:block replace="structure provider:plone.leftcolumn" />
-    </div>
-    <div data-role="panel" class="panel-right" tal:attributes="id string:panel-right-${uuid}">
-      <tal:block replace="structure provider:plone.rightcolumn" />
-    </div>
+  <div data-role="panel" id="panel-left">
+    <div tal:content="structure provider:rcse.mobile.panelleft" />
+  </div>
+  <div data-role="panel" data-position="right" id="panel-right" >
+    <div tal:content="structure provider:rcse.mobile.panelright" />
+  </div>
 
 </div>
 
@@ -100,5 +110,4 @@ function openrightpanel( event ){
 
 </body>
 </html>
-
 </metal:page>

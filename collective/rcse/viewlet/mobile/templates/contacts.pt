@@ -1,0 +1,10 @@
+<div data-role="collapsible" data-collapsed="false" i18n:domain="collective.rcse">
+    <h4 i18n:translate="">Contacts</h4>
+    <ul data-role="listview" data-inset="true" data-filter="true">
+      <li>contact 1</li>
+      <li>contact 2</li>
+      <li>contact 3</li>
+      <li>contact 4</li>
+      <li>contact 5</li>
+    </ul>
+</div>

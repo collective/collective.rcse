@@ -1,0 +1,1 @@
+<a data-ajax="false" tal:attributes="href string:${view/themeswitcher_desktop_url}" i18n:translate="">Switch to desktop version</a>
