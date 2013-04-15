@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<object name="portal_skins"  default_skin="collective.rcse.desktop">
+
+ <object name="collective_rcse_mobile" meta_type="Filesystem Directory View"
+    directory="collective.rcse:skins/collective_rcse_mobile"/>
+ <object name="collective_rcse_desktop" meta_type="Filesystem Directory View"
+    directory="collective.rcse:skins/collective_rcse_desktop"/>
+
+ <skin-path name="collective.rcse.mobile" based-on="Plone Classic Theme">
+  <layer name="collective_rcse_mobile" insert-after="custom"/>
+ </skin-path>
+
+ <skin-path name="collective.rcse.desktop" based-on="plonetheme.foundation">
+  <layer name="collective_rcse_desktop" insert-after="custom"/>
+ </skin-path>
+
+</object>

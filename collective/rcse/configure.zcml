@@ -8,8 +8,13 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="collective.rcse">
 
-  <include package=".browser" />
-
+  <include package=".page" />
+  <include package=".viewlet" />
+  <cmf:registerDirectory
+      name="skins"
+      directory="skins"
+      recursive="True"
+      />
   <i18n:registerTranslations directory="locales" />
 
   <genericsetup:registerProfile
@@ -22,8 +27,12 @@
   <include file="upgrades.zcml" />
 
   <interface
-      interface=".layer.Layer"
-      name="collective.rcse"
+      interface=".layer.DesktopLayer"
+      name="collective.rcse.desktop"
+      />
+  <interface
+      interface=".layer.MobileLayer"
+      name="collective.rcse.mobile"
       />
 
   <!-- EXAMPLE:

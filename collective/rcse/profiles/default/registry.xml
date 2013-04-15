@@ -1,0 +1,35 @@
+<registry>
+  <!-- collective.themeswitcher config -->
+  <record name="collective.themeswitcher.theme.mobile">
+    <field type="plone.registry.field.ASCIILine">
+        <title>Mobile theme</title>
+    </field>
+    <value>collective.rcse.mobile</value>
+  </record>
+  <record name="collective.themeswitcher.switcher">
+    <field type="plone.registry.field.TextLine">
+        <title>Theme switcher</title>
+        <description>The named switcher that will be used</description>
+    </field>
+    <value>themeswitcher_mobile</value>
+  </record>
+
+  <!-- resources config -->
+  <record name="Products.ResourceRegistries.interfaces.settings.IResourceRegistriesSettings.resourceBundlesForThemes">
+    <value>
+      <element key="collective.rcse.desktop">
+        <element>polyfill</element>
+        <element>jquery</element>
+        <element>jquery</element>
+        <element>foundation</element>
+        <element>ckeditor</element>
+      </element>
+      <element key="collective.rcse.mobile">
+        <element>polyfill</element>
+        <element>jquery</element>
+        <element>jquerymobile</element>
+      </element>
+    </value>
+  </record>
+
+</registry>

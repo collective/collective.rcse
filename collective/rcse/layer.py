@@ -1,5 +1,10 @@
 from zope import interface
+from plonetheme.foundation.browser.layer import Layer
 
 
-class Layer(interface.Interface):
-    """Marker interface that defines a Zope 3 browser layer."""
+class MobileLayer(interface.Interface):
+    """Marker interface which is used in the mobile theme."""
+
+
+class DesktopLayer(Layer):
+    """Marker interface which is used in the desktop theme"""

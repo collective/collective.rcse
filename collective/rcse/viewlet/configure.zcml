@@ -1,0 +1,19 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="collective.rcse">
+
+  <include package=".mobile"/>
+  <include package=".desktop"/>
+
+  <!-- EXAMPLE:
+  <browser:viewlet
+      name="collective.someviewlet"
+      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      class=".viewlets.MyViewlet"
+      layer=".interfaces.ILayer"
+      permission="zope2.View"
+      />
+  -->
+
+</configure>
