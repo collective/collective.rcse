@@ -1,0 +1,4 @@
+<layers>
+    <layer name="collective.rcse"
+           interface="collective.rcse.layer.Layer" />
+</layers>
