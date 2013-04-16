@@ -10,6 +10,11 @@
 
   <include package=".page" />
   <include package=".viewlet" />
+  <include package="z3c.jbot" file="meta.zcml" />
+
+  <browser:jbot directory="jbot/mobile" layer=".layer.MobileLayer" />
+  <browser:jbot directory="jbot/desktop" layer=".layer.DesktopLayer" />
+
   <cmf:registerDirectory
       name="skins"
       directory="skins"

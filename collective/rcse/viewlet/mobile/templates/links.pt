@@ -1,1 +1,1 @@
-<a data-ajax="false" tal:attributes="href string:${context/absolute_url}/@@themeswitcher_cookie?theme=collective.rcse.desktop" i18n:translate="">Switch to desktop version</a>
+<a data-ajax="false" tal:attributes="href string:${context/absolute_url}/@@themeswitcher_cookie?themeswitcher=collective.rcse.desktop" i18n:translate="">Switch to desktop version</a>

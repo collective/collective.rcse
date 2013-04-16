@@ -1,0 +1,34 @@
+<tal:menu
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    tal:define="menu view/menu"
+    tal:omit-tag=""
+    i18n:domain="plone">
+
+    <div data-role="collapsible" tal:repeat="menuItem menu">
+        <h3 tal:omit-tag="not:menuItem/action"
+            data-ajax="false"
+            tal:content="menuItem/title"
+            i18n:translate="">Title</h3>
+        <ul tal:attributes="id menuItem/extra/id" tal:define="submenu menuItem/submenu">
+            <tal:block repeat="subMenuItem submenu">
+                <li>
+                  <a href="#" data-ajax="false"
+                     tal:condition="subMenuItem/action"
+                     tal:attributes="href subMenuItem/action;
+                                     title subMenuItem/description;
+                                     id subMenuItem/extra/id | nothing;
+                                     class subMenuItem/extra/class | nothing"
+                     i18n:attributes="title"
+                     i18n:translate=""
+                     tal:content="structure subMenuItem/title">Title</a>
+                  <label tal:condition="not:subMenuItem/action"
+                        tal:attributes="id subMenuItem/extra/id | nothing;"
+                        tal:content="structure subMenuItem/title"
+                        i18n:translate=""
+                        class="subMenuTitle">Title</label>
+                </li>
+            </tal:block>
+        </ul>
+    </div>
+</tal:menu>

@@ -1,21 +1,35 @@
-<a href="#" data-role="button" class="button">Add content</a>
-<div class="ui-grid-a">
-  <div class="ui-block-a">
-    <a href="#" data-role="button" data-icon="edit" data-iconpos="top" class="button">Blog</a>
-  </div>
-  <div class="ui-block-b">
-    <a href="#" data-role="button" data-icon="edit" data-iconpos="top" class="button">Favorite</a>
-  </div>
-  <div class="ui-block-a">
-    <a href="#" data-role="button" data-icon="edit" data-iconpos="top" class="button">Discussion</a>
-  </div>
-  <div class="ui-block-b">
-    <a href="#" data-role="button" data-icon="edit" data-iconpos="top" class="button">Event</a>
-  </div>
-  <div class="ui-block-a">
-    <a href="#" data-role="button" data-icon="edit" data-iconpos="top" class="button">Group</a>
-  </div>
-  <div class="ui-block-b">
-    <a href="#" data-role="button" data-icon="edit" data-iconpos="top" class="button">Image</a>
-  </div>
+<tal:editbar
+    tal:define="ploneview context/@@plone;
+        checkPermission nocall: context/portal_membership/checkPermission;
+        view_actions view/prepareObjectTabs;
+        content_actions view/object_actions;">
+
+<div class="addcontent" data-role="collapsible-set" i18n:domain="plone">
+  <div data-role="collapsible">
+    <h3 data-ajax="false" i18n:translate="">View</h3>
+      <ul id="editbarmenu">
+         <tal:views repeat="action view_actions">
+           <li tal:define="selected action/selected|nothing;"
+               tal:condition="not:selected"
+               tal:attributes="id string:contentview-${action/id};
+                               class python:selected and 'selected' or 'plain'">
+             <a href="" data-ajax="false"
+                tal:content="action/title"
+                tal:attributes="href action/url;
+                                target action/link_target|nothing;"
+                i18n:translate="">
+             View name
+             </a>
+           </li>
+         </tal:views>
+         <li><a data-ajax="false"
+             tal:condition="python: checkPermission('Manage portlets', view.context)"
+             tal:attributes="href string:${view/context/absolute_url}/@@manage-portlets"
+             i18n:domain="plone"
+             i18n:translate="manage_portlets_link">Manage portlets</a>
+         </li>
+     </ul>
+   </div>
+   <div tal:replace="structure provider:plone.contentmenu"></div>
 </div>
+</tal:editbar>

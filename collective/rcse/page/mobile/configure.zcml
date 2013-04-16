@@ -3,24 +3,14 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
 
-  <!-- EXAMPLE:
-  <browser:viewlet
-      name="collective.someviewlet"
-      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-      class=".viewlets.MyViewlet"
-      layer=".interfaces.ILayer"
-      permission="zope2.View"
-      />
-  <include package="plone.app.contentmenu" />
   <browser:page
       for="*"
-      name="myview"
-      menu="plone_displayviews"
-      title="Galleria"
-      class=".myfile.MyView"
-      layer=".interfaces.ILayer"
-      permission="zope2.View"
+      name="ploneform-macros"
+      class="plone.app.z3cform.templates.Macros"
+      template="templates/ploneform-macros.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      allowed_interface="zope.interface.common.mapping.IItemMapping"
+      permission="zope.Public"
       />
-  -->
 
 </configure>
