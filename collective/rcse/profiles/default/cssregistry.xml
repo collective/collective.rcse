@@ -1,6 +1,16 @@
 <?xml version="1.0"?>
 <object name="portal_css">
 
-  <stylesheet id="++resource++collective.js.jquerymobile/jquery.mobile.css" bundle="jquerymobile"/>
+  <stylesheet id="++resource++collective.js.jquerymobile/jquery.mobile.css"
+      bundle="jquerymobile"
+      compression="none"
+      applyPrefix="true"
+      media=""
+      />
+  <stylesheet id="++resource++collective.rcse/theme.css"
+      bundle="rcse"
+      applyPrefix="true"
+      media=""
+      />
 
 </object>

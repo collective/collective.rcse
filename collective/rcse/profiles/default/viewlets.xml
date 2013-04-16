@@ -8,6 +8,9 @@
     <viewlet name="rcse.agenda" insert-after="rcse.favorites"/>
   </order>
 
+  <hidden manager="plone.htmlhead.links" skinname="collective.rcse.desktop">
+    <viewlet name="plonetheme.foundation.resources" />
+  </hidden>
   <hidden manager="plone.contentviews" skinname="collective.rcse.desktop">
     <viewlet name="plone.contentviews" />
     <viewlet name="plone.contentactions" />
