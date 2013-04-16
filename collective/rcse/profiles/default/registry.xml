@@ -23,11 +23,13 @@
         <element>jquery</element>
         <element>foundation</element>
         <element>ckeditor</element>
+        <element>rcse</element>
       </element>
       <element key="collective.rcse.mobile">
         <element>polyfill</element>
         <element>jquery</element>
         <element>jquerymobile</element>
+        <element>rcse</element>
       </element>
     </value>
   </record>

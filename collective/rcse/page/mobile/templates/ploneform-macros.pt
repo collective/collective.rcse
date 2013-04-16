@@ -48,7 +48,7 @@
                   </p>
                 </metal:description-slot>
 
-                <form class="rowlike enableUnloadProtection" action="." method="post"
+                <form data-ajax="false" class="rowlike enableUnloadProtection" action="." method="post"
                       tal:define="groups view/groups | nothing;
                                   form_name view/form_name | nothing;
                                   form_class view/css_class | string:;
