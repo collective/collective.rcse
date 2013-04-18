@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>1008</version>
+  <version>1010</version>
   <dependencies>
     <dependency>profile-collective.themeswitcher:default</dependency>
     <dependency>profile-collective.js.ckeditor:default</dependency>

@@ -42,5 +42,23 @@
       template="templates/file_view.pt"
       permission="zope2.View"
       />
+  <browser:page
+      for="collective.rcse.content.image.ImageSchema"
+      name="image_view"
+      menu="plone_displayviews"
+      title="Image view"
+      class=".image.ImageView"
+      template="templates/image_view.pt"
+      permission="zope2.View"
+      />
+  <browser:page
+      for="collective.rcse.content.video.VideoSchema"
+      name="video_view"
+      menu="plone_displayviews"
+      title="Video view"
+      class=".video.VideoView"
+      template="templates/video_view.pt"
+      permission="zope2.View"
+      />
 
 </configure>
