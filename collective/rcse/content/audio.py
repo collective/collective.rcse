@@ -1,13 +1,16 @@
 from plone.directives import form
 from plone.namedfile.field import NamedBlobFile
 from Products.Five.browser import BrowserView
+from collective.rcse.i18n import RCSEMessageFactory
+
+_ = RCSEMessageFactory
 
 
 class AudioSchema(form.Schema):
     """A conference session. Sessions are managed inside Programs.
     """
 
-    file = NamedBlobFile(title=u"Audio file")
+    file = NamedBlobFile(title=_(u"Audio file"))
 
 
 class AudioView(BrowserView):

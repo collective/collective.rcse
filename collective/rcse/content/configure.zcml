@@ -24,5 +24,14 @@
       template="templates/document_view.pt"
       permission="zope2.View"
       />
+  <browser:page
+      for="collective.rcse.content.event.EventSchema"
+      name="event_view"
+      menu="plone_displayviews"
+      title="Event view"
+      class=".event.EventView"
+      template="templates/event_view.pt"
+      permission="zope2.View"
+      />
 
 </configure>
