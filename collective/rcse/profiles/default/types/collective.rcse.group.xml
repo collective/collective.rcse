@@ -1,21 +1,29 @@
 <?xml version="1.0"?>
-<object name="collective.rcse.file" meta_type="Dexterity FTI"
+<object name="collective.rcse.group" meta_type="Dexterity FTI"
    i18n:domain="collective.rcse" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
  <!-- Basic metadata -->
- <property name="title" i18n:translate="">File</property>
- <property name="description" i18n:translate="">An file file</property>
+ <property name="title" i18n:translate="">Group</property>
+ <property name="description" i18n:translate="">An group</property>
  <property name="content_icon"></property>
  <property name="allow_discussion">True</property>
- <property name="global_allow">False</property>
+ <property name="global_allow">True</property>
  <property name="filter_content_types">True</property>
- <property name="allowed_content_types" />
+ <property name="allowed_content_types">
+   <element value="collective.rcse.audio" />
+   <element value="collective.rcse.document" />
+   <element value="collective.rcse.event" />
+   <element value="collective.rcse.file" />
+   <element value="collective.rcse.image" />
+   <element value="collective.rcse.video" />
+ </property>
 
- <!-- schema interface -->
- <property name="schema">collective.rcse.content.file.FileSchema</property>
+ <!-- schema interface 
+ <property name="schema">collective.rcse.content.group.GroupSchema</property>
+-->
 
  <!-- class used for content items -->
- <property name="klass">plone.dexterity.content.Item</property>
+ <property name="klass">plone.dexterity.content.Container</property>
 
  <!-- add permission -->
  <property name="add_permission">cmf.AddPortalContent</property>
@@ -23,16 +31,14 @@
  <!-- enabled behaviors -->
  <property name="behaviors">
    <element value="plone.app.content.interfaces.INameFromTitle" />
-   <element value="plone.app.dexterity.behaviors.discussion.IAllowDiscussion"/>
    <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
-   <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
  </property>
 
  <!-- View information -->
- <property name="default_view">file_view</property>
+ <property name="default_view">group_view</property>
  <property name="default_view_fallback">False</property>
  <property name="view_methods">
-  <element value="file_view"/>
+  <element value="group_view"/>
  </property>
 
  <!-- Method aliases -->

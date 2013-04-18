@@ -15,6 +15,7 @@
  <object meta_type="Dexterity FTI" name="collective.rcse.document" />
  <object meta_type="Dexterity FTI" name="collective.rcse.event" />
  <object meta_type="Dexterity FTI" name="collective.rcse.file" />
+ <object meta_type="Dexterity FTI" name="collective.rcse.group" />
  <object meta_type="Dexterity FTI" name="collective.rcse.image" />
  <object meta_type="Dexterity FTI" name="collective.rcse.video" />
 

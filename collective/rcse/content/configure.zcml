@@ -60,5 +60,14 @@
       template="templates/video_view.pt"
       permission="zope2.View"
       />
+  <browser:page
+      for="plone.dexterity.interfaces.IDexterityContainer"
+      name="group_view"
+      menu="plone_displayviews"
+      title="Group view"
+      class=".group.GroupView"
+      template="templates/group_view.pt"
+      permission="zope2.View"
+      />
 
 </configure>
