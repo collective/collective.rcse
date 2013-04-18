@@ -26,11 +26,3 @@ class AudioView(BrowserView):
         source["src"] = context_url + '/@@download/file/' + filename
         source["mimetype"] = mimetype
         self.sources.append(source)
-
-    def get_sources(self):
-        """
-        file   mimetype
-        MP3    audio/mpeg
-        Ogg    audio/ogg
-        Wav    audio/wav"""
-        return self.sources

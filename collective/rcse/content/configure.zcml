@@ -3,6 +3,8 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
 
+  <include package="plone.directives.form" file="meta.zcml" />
+  <include package="plone.directives.form" />
   <include package="plone.app.contentmenu" />
   <browser:page
       for="collective.rcse.content.audio.AudioSchema"
@@ -10,7 +12,16 @@
       menu="plone_displayviews"
       title="Audio view"
       class=".audio.AudioView"
-      template="audio_view.pt"
+      template="templates/audio_view.pt"
+      permission="zope2.View"
+      />
+  <browser:page
+      for="collective.rcse.content.document.DocumentSchema"
+      name="document_view"
+      menu="plone_displayviews"
+      title="Document view"
+      class=".document.DocumentView"
+      template="templates/document_view.pt"
       permission="zope2.View"
       />
 
