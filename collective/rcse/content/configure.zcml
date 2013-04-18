@@ -33,5 +33,14 @@
       template="templates/event_view.pt"
       permission="zope2.View"
       />
+  <browser:page
+      for="collective.rcse.content.file.FileSchema"
+      name="file_view"
+      menu="plone_displayviews"
+      title="File view"
+      class=".file.FileView"
+      template="templates/file_view.pt"
+      permission="zope2.View"
+      />
 
 </configure>
