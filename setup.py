@@ -36,6 +36,7 @@ setup(name='collective.rcse',
       install_requires=[
           'setuptools',
           'Plone',
+          'collective.etherpad',
           'collective.themeswitcher',
           'collective.js.ckeditor',
           'collective.js.jquerymobile',

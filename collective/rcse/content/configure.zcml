@@ -1,0 +1,17 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="collective.rcse">
+
+  <include package="plone.app.contentmenu" />
+  <browser:page
+      for="collective.rcse.content.audio.AudioSchema"
+      name="audio_view"
+      menu="plone_displayviews"
+      title="Audio view"
+      class=".audio.AudioView"
+      template="audio_view.pt"
+      permission="zope2.View"
+      />
+
+</configure>

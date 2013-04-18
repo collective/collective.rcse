@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>1004</version>
+  <version>1005</version>
   <dependencies>
     <dependency>profile-collective.themeswitcher:default</dependency>
     <dependency>profile-collective.js.ckeditor:default</dependency>
     <dependency>profile-plonetheme.foundation:default</dependency>
+    <dependency>profile-plone.app.dexterity:default</dependency>
   </dependencies>
 </metadata>
