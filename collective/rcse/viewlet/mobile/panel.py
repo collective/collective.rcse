@@ -1,6 +1,7 @@
 from zope.viewlet.interfaces import IViewletManager
 from plone.app.layout.viewlets import common
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.CMFCore.utils import getToolByName
 
 
 class IPanelLeft(IViewletManager):
@@ -19,6 +20,22 @@ class AddContent(common.ContentActionsViewlet, common.ContentViewsViewlet):
     def update(self):
         common.ContentActionsViewlet.update(self)
         common.ContentViewsViewlet.update(self)
+        self.portal_types = getToolByName(self.context, 'portal_types')
+        if self.context.portal_type in ("collective.rcse.group", "Plone Site"):
+            self.container = self.context
+        else:
+            self.container = self.context.aq_inner.aq_parent
+        self.filters = []
+
+    def get_filters(self):
+        if not self.filters:
+            types = self.container.allowedContentTypes()
+            for fti in types:
+                context_url = self.context.absolute_url()
+                url = '%s?filter=1&portal_type=%s' % (context_url, fti.id)
+                info = {"url": url, "id": fti.id, "title": fti.Title()}
+                self.filters.append(info)
+        return self.filters
 
 
 class Search(common.ViewletBase):

@@ -9,12 +9,7 @@
 <body>
 <div metal:fill-slot="content-core">
 
-<video controls>
-  <tal:source tal:repeat="source view/sources">
-    <source tal:attributes="src source/src; type source/mimetype"/>
-  </tal:source>
-<tal:error i18n:translate="msg_error_video_html5_not_supported">Your browser does not support the video element.</tal:error>
-</video>
+<a tal:attributes="href string:${view/download_url}" i18n:translate="">Download</a>
 
 </div>
 </body>

@@ -9,6 +9,21 @@
 <body>
 <div metal:fill-slot="content-core">
 
+<tal:tile tal:repeat="item view/get_content">
+  <a class="rcse_tile" tal:attributes="href item; id repeat/item/index"></a>
+</tal:tile>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".rcse_tile").each(function (){
+    var item = $(this);
+    $.ajax({
+      url: $(this).attr('href') + '/@@group_tile_view'
+    }).success(function(data){
+      item.html(data);
+    });
+  });
+})
+</script>
 </div>
 </body>
 </html>

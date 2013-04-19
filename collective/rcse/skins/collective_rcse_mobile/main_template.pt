@@ -58,13 +58,13 @@
     <metal:block define-slot="header">
        <a tal:attributes="href string:#panel-left"
          data-role="button" data-icon="bars"
-         data-iconpos="notext" class="ui-btn-left">
-         Column 1
+         data-iconpos="left" class="ui-btn-left">
+         Actions
       </a>
       <a tal:attributes="href string:#panel-right"
          data-role="button" data-icon="grid"
-         data-iconpos="notext" class="ui-btn-right">
-          Column 2
+         data-iconpos="right" class="ui-btn-right">
+          Extra
       </a>
       <h1>&nbsp;</h1>
     </metal:block>

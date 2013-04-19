@@ -6,30 +6,41 @@
 
 <div class="addcontent" data-role="collapsible-set" i18n:domain="plone">
   <div data-role="collapsible">
-    <h3 data-ajax="false" i18n:translate="">View</h3>
-      <ul id="editbarmenu">
-         <tal:views repeat="action view_actions">
-           <li tal:define="selected action/selected|nothing;"
-               tal:condition="not:selected"
-               tal:attributes="id string:contentview-${action/id};
-                               class python:selected and 'selected' or 'plain'">
-             <a href="" data-ajax="false"
-                tal:content="action/title"
-                tal:attributes="href action/url;
-                                target action/link_target|nothing;"
-                i18n:translate="">
-             View name
-             </a>
-           </li>
-         </tal:views>
-         <li><a data-ajax="false"
-             tal:condition="python: checkPermission('Manage portlets', view.context)"
-             tal:attributes="href string:${view/context/absolute_url}/@@manage-portlets"
-             i18n:domain="plone"
-             i18n:translate="manage_portlets_link">Manage portlets</a>
+    <h3 i18n:translate="">View</h3>
+    <ul id="editbarmenu">
+       <tal:views repeat="action view_actions">
+         <li tal:define="selected action/selected|nothing;"
+             tal:condition="not:selected"
+             tal:attributes="id string:contentview-${action/id};
+                             class python:selected and 'selected' or 'plain'">
+           <a href=""
+              tal:content="action/title"
+              tal:attributes="href action/url;
+                              target action/link_target|nothing;"
+              i18n:translate="">
+           View name
+           </a>
          </li>
-     </ul>
-   </div>
-   <div tal:replace="structure provider:plone.contentmenu"></div>
+       </tal:views>
+       <li><a data-ajax="false"
+           tal:condition="python: checkPermission('Manage portlets', view.context)"
+           tal:attributes="href string:${view/context/absolute_url}/@@manage-portlets"
+           i18n:domain="plone"
+           i18n:translate="manage_portlets_link">Manage portlets</a>
+       </li>
+    </ul>
+  </div>
+  <div tal:replace="structure provider:plone.contentmenu"></div>
+  <div data-role="collapsible" data-collapsed="false" tal:condition="view/get_filters">
+    <h3 i18n:translate="">Filter</h3>
+    <ul>
+      <li tal:repeat="filter view/get_filters">
+        <a href=""
+           tal:content="filter/title"
+           tal:attributes="href filter/url"
+           i18n:translate="">Filter name</a>
+      </li>
+    </ul>
+  </div>
 </div>
 </tal:editbar>

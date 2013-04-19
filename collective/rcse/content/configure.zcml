@@ -16,12 +16,26 @@
       permission="zope2.View"
       />
   <browser:page
+      for="collective.rcse.content.audio.AudioSchema"
+      name="tile_view"
+      class=".audio.AudioView"
+      template="templates/audio_tile_view.pt"
+      permission="zope2.View"
+      />
+  <browser:page
       for="collective.rcse.content.document.DocumentSchema"
       name="document_view"
       menu="plone_displayviews"
       title="Document view"
       class=".document.DocumentView"
       template="templates/document_view.pt"
+      permission="zope2.View"
+      />
+  <browser:page
+      for="collective.rcse.content.document.DocumentSchema"
+      name="tile_view"
+      class=".document.DocumentView"
+      template="templates/document_tile_view.pt"
       permission="zope2.View"
       />
   <browser:page
@@ -34,12 +48,26 @@
       permission="zope2.View"
       />
   <browser:page
+      for="collective.rcse.content.event.EventSchema"
+      name="tile_view"
+      class=".event.EventView"
+      template="templates/event_tile_view.pt"
+      permission="zope2.View"
+      />
+  <browser:page
       for="collective.rcse.content.file.FileSchema"
       name="file_view"
       menu="plone_displayviews"
       title="File view"
       class=".file.FileView"
       template="templates/file_view.pt"
+      permission="zope2.View"
+      />
+  <browser:page
+      for="collective.rcse.content.file.FileSchema"
+      name="tile_view"
+      class=".file.FileView"
+      template="templates/file_tile_view.pt"
       permission="zope2.View"
       />
   <browser:page
@@ -52,6 +80,13 @@
       permission="zope2.View"
       />
   <browser:page
+      for="collective.rcse.content.image.ImageSchema"
+      name="tile_view"
+      class=".image.ImageView"
+      template="templates/image_tile_view.pt"
+      permission="zope2.View"
+      />
+  <browser:page
       for="collective.rcse.content.video.VideoSchema"
       name="video_view"
       menu="plone_displayviews"
@@ -61,12 +96,24 @@
       permission="zope2.View"
       />
   <browser:page
+      for="collective.rcse.content.video.VideoSchema"
+      name="tile_view"
+      class=".video.VideoView"
+      template="templates/video_tile_view.pt"
+      permission="zope2.View"
+      />
+  <browser:page
       for="plone.dexterity.interfaces.IDexterityContainer"
       name="group_view"
       menu="plone_displayviews"
       title="Group view"
       class=".group.GroupView"
-      template="templates/group_view.pt"
+      permission="zope2.View"
+      />
+  <browser:page
+      for="*"
+      name="group_tile_view"
+      class=".group.GroupTileView"
       permission="zope2.View"
       />
 

@@ -2,6 +2,7 @@ from plone.directives import form
 from plone.namedfile.field import NamedBlobFile
 from Products.Five.browser import BrowserView
 from collective.rcse.i18n import RCSEMessageFactory
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 _ = RCSEMessageFactory
 
