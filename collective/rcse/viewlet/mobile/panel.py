@@ -26,6 +26,9 @@ class AddContent(common.ContentActionsViewlet, common.ContentViewsViewlet):
         else:
             self.container = self.context.aq_inner.aq_parent
         self.filters = []
+        self.current_filter = None
+        if self.request.get('filter', False):
+            self.current_filter = self.request.get('portal_type', None)
 
     def get_filters(self):
         if not self.filters:
@@ -34,6 +37,9 @@ class AddContent(common.ContentActionsViewlet, common.ContentViewsViewlet):
                 context_url = self.context.absolute_url()
                 url = '%s?filter=1&portal_type=%s' % (context_url, fti.id)
                 info = {"url": url, "id": fti.id, "title": fti.Title()}
+                info["current"] = False
+                if fti.id == self.current_filter:
+                    info["current"] = True
                 self.filters.append(info)
         return self.filters
 

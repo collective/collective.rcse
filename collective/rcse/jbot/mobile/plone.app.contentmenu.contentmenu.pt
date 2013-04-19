@@ -10,10 +10,9 @@
             data-ajax="false"
             tal:content="menuItem/title"
             i18n:translate="">Title</h3>
-        <ul tal:attributes="id menuItem/extra/id" tal:define="submenu menuItem/submenu">
+        <div data-role="controlgroup" tal:define="submenu menuItem/submenu">
             <tal:block repeat="subMenuItem submenu">
-                <li>
-                  <a href="#" data-ajax="false"
+                  <a href="#" data-role="button"
                      tal:condition="subMenuItem/action"
                      tal:attributes="href subMenuItem/action;
                                      title subMenuItem/description;
@@ -27,8 +26,7 @@
                         tal:content="structure subMenuItem/title"
                         i18n:translate=""
                         class="subMenuTitle">Title</label>
-                </li>
             </tal:block>
-        </ul>
+        </div>
     </div>
 </tal:menu>
