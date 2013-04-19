@@ -8,6 +8,7 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="collective.rcse">
 
+  <include package="plone.app.contentmenu" />
   <include package=".content" />
   <include package=".page" />
   <include package=".viewlet" />

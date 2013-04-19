@@ -1,4 +1,4 @@
-<div class="rcsetile" tal:attributes="id view/tileid">
+<div class="panel" tal:attributes="id view/tileid">
   <div class="byline">
     <img tal:attributes="src view/portrait"/>
     <a href="" rel="author"

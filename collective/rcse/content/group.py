@@ -9,7 +9,6 @@ _ = RCSEMessageFactory
 
 class GroupView(BrowserView):
     """default view"""
-    index = ViewPageTemplateFile("templates/group_view.pt")
 
     def __call__(self):
         self.update()
@@ -43,7 +42,7 @@ class GroupView(BrowserView):
 
 
 class GroupTileView(BrowserView):
-    index = ViewPageTemplateFile("templates/group_tile_view.pt")
+    """generic view to display a tile in a group"""
 
     def __call__(self):
         self.update()

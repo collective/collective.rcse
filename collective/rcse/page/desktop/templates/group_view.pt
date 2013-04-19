@@ -19,7 +19,7 @@ $(document).ready(function(){
     $.ajax({
       url: $(this).attr('href') + '/@@group_tile_view'
     }).success(function(data){
-      item.html(data);
+      item.replaceWith(data);
     });
   });
 })

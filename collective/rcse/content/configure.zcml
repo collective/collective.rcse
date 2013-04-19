@@ -5,7 +5,6 @@
 
   <include package="plone.directives.form" file="meta.zcml" />
   <include package="plone.directives.form" />
-  <include package="plone.app.contentmenu" />
   <browser:page
       for="collective.rcse.content.audio.AudioSchema"
       name="audio_view"
@@ -100,20 +99,6 @@
       name="tile_view"
       class=".video.VideoView"
       template="templates/video_tile_view.pt"
-      permission="zope2.View"
-      />
-  <browser:page
-      for="plone.dexterity.interfaces.IDexterityContainer"
-      name="group_view"
-      menu="plone_displayviews"
-      title="Group view"
-      class=".group.GroupView"
-      permission="zope2.View"
-      />
-  <browser:page
-      for="*"
-      name="group_tile_view"
-      class=".group.GroupTileView"
       permission="zope2.View"
       />
 

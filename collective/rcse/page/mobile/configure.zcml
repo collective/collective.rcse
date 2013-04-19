@@ -13,4 +13,23 @@
       permission="zope.Public"
       />
 
+  <browser:page
+      for="plone.dexterity.interfaces.IDexterityContainer"
+      name="group_view"
+      menu="plone_displayviews"
+      title="Group view"
+      class="collective.rcse.content.group.GroupView"
+      template="templates/group_view.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
+  <browser:page
+      for="*"
+      name="group_tile_view"
+      template="templates/group_tile_view.pt"
+      class="collective.rcse.content.group.GroupTileView"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
+
 </configure>

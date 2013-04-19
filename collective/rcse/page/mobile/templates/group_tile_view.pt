@@ -1,0 +1,16 @@
+<div class="rcsetile" tal:attributes="id view/tileid">
+  <div class="header">
+    <img tal:attributes="src view/portrait"/>
+    <a href="" rel="author" data-inline="true"
+      tal:attributes="href view/author_url"
+      tal:content="view/author_name">John</a>
+    <a href=""  data-inline="true" tal:attributes="href view/group_url" tal:content="view/group_title">group</a>
+    <span>le 01/01/2013 &agrave; 9h53</span>
+  </div>
+  <div class="tilecontent" tal:content="structure view/get_content"></div>
+  <div class="actions" data-role="controlgroup" data-type="horizontal">
+    <a href="#" data-role="button" i18n:translate="">Favorite</a>
+    <a href="#" data-role="button" i18n:translate="">Comment</a>
+    <a href="#" data-role="button" i18n:translate="" tal:attributes="href string:${context/absolute_url}">Read</a>
+  </div>
+</div>
