@@ -9,6 +9,7 @@
     i18n_domain="collective.rcse">
 
   <include package="plone.app.contentmenu" />
+  <includeDependencies package="."/>
   <include package=".content" />
   <include package=".page" />
   <include package=".viewlet" />

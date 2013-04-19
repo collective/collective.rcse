@@ -1,2 +1,2 @@
 <h2 tal:content="context/Title"></h2>
-<img tal:attributes="src string:${view/download_url}"/>
+<div tal:replace="structure context/@@picturefill"></div>

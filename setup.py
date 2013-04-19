@@ -41,6 +41,7 @@ setup(name='collective.rcse',
           'collective.js.jquerymobile',
           'collective.picturefill',
           'collective.themeswitcher',
+          'plone.namedfile[blobs]',
           'collective.z3cform.html5widgets',
           'plonetheme.foundation',
           # -*- Extra requirements: -*-

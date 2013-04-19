@@ -20,7 +20,10 @@ $(document).ready(function(){
       url: $(this).attr('href') + '/@@group_tile_view'
     }).success(function(data){
       item.replaceWith(data);
+      //trigger jquerymobile
       $(document).trigger("create");
+      //trigger picturefill
+      picturefill();
     });
   });
 })

@@ -22,6 +22,7 @@
         <element>jquery</element>
         <element>jquery</element>
         <element>foundation</element>
+        <element>picturefill</element>
         <element>ckeditor</element>
         <element>rcse</element>
       </element>
@@ -29,6 +30,7 @@
         <element>polyfill</element>
         <element>jquery</element>
         <element>jquerymobile</element>
+        <element>picturefill</element>
         <element>rcse</element>
       </element>
     </value>
