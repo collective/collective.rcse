@@ -18,6 +18,14 @@
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
+  <browser:viewlet
+      name="plone.personalbar"
+      class="plone.app.layout.viewlets.common.PersonalBarViewlet"
+      template="templates/personalbar.pt"
+      manager=".panel.IPanelLeft"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
 
   <!-- RIGHT PANEL -->
   <browser:viewletManager

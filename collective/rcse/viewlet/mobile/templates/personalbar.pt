@@ -1,0 +1,31 @@
+<div data-role="collapsible-set" i18n:domain="plone" tal:condition="python:view.user_actions and not view.anonymous">
+  <div data-role="collapsible" tal:condition="not: view/anonymous">
+    <h3 i18n:translate="" tal:content="view/user_name">John</h3>
+    <div data-role="controlgroup">
+                <a id="user-name" data-role="button"
+                    tal:attributes="href view/homelink_url" 
+                    i18n:translate="">
+                    Home
+                </a>
+                    <tal:actions tal:repeat="action view/user_actions" tal:attributes="id string:personaltools-${action/id}">
+                        <a href="" data-role="button"
+                            tal:attributes="href action/url;
+               target action/link_target|nothing"
+                            tal:content="action/title" i18n:translate="">
+                            action title
+                        </a>
+                    </tal:actions>
+    </div>
+  </div>
+</div>
+<div>
+  <tal:actions repeat="action view/user_actions"  tal:condition="view/anonymous">
+                    <a href="" data-role="button"
+                        tal:attributes="href action/url;
+             id string:personaltools-${action/id};
+             target action/link_target|nothing;"
+                        tal:content="action/title" i18n:translate="">
+                        action title
+                    </a>
+  </tal:actions>
+</div>
