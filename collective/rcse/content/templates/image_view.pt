@@ -7,9 +7,9 @@
       i18n:domain="collective.rcse">
 
 <body>
-<div metal:fill-slot="content-core">
+<div class="image-view" metal:fill-slot="content-core">
 
-<img tal:attributes="src view/download_url" />
+<div class="picturefill-wrapper" tal:content="structure context/@@picturefill"></div>
 
 </div>
 </body>
