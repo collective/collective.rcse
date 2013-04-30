@@ -3,15 +3,6 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
 
-  <browser:page
-      for="*"
-      name="ploneform-macros"
-      class="plone.app.z3cform.templates.Macros"
-      template="templates/ploneform-macros.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      allowed_interface="zope.interface.common.mapping.IItemMapping"
-      permission="zope.Public"
-      />
 
   <browser:page
       for="plone.dexterity.interfaces.IDexterityContainer"
