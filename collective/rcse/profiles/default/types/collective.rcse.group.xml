@@ -32,6 +32,7 @@
  <property name="behaviors">
    <element value="plone.app.content.interfaces.INameFromTitle" />
    <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
+   <element value="cioppino.twothumbs.interfaces.ILoveThumbsDontYou" />
  </property>
 
  <!-- View information -->

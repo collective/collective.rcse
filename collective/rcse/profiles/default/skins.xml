@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<object name="portal_skins"  default_skin="collective.rcse.desktop">
+<object name="portal_skins" default_skin="collective.rcse.desktop">
 
  <object name="collective_rcse_mobile" meta_type="Filesystem Directory View"
     directory="collective.rcse:skins/collective_rcse_mobile"/>

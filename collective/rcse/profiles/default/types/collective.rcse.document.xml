@@ -26,6 +26,7 @@
    <element value="plone.app.dexterity.behaviors.discussion.IAllowDiscussion"/>
    <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
    <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
+   <element value="cioppino.twothumbs.interfaces.ILoveThumbsDontYou" />
  </property>
 
  <!-- View information -->
@@ -47,6 +48,10 @@
  </action>
  <action title="Edit" action_id="edit" category="object" condition_expr=""
     url_expr="string:${object_url}/edit" visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Collaborate" action_id="etherpad" category="object" condition_expr=""
+    url_expr="string:${object_url}/etherpad_edit" visible="True" i18n:attributes="title">
   <permission value="Modify portal content"/>
  </action>
 </object>

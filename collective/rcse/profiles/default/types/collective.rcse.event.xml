@@ -26,6 +26,7 @@
    <element value="plone.app.dexterity.behaviors.discussion.IAllowDiscussion"/>
    <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
    <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
+   <element value="cioppino.twothumbs.interfaces.ILoveThumbsDontYou" />
  </property>
 
  <!-- View information -->

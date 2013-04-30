@@ -36,6 +36,7 @@ setup(name='collective.rcse',
       install_requires=[
           'setuptools',
           'Plone',
+          'cioppino.twothumbs',
           'collective.etherpad',
           'collective.js.ckeditor',
           'collective.js.jquerymobile',
@@ -44,6 +45,7 @@ setup(name='collective.rcse',
           'plone.namedfile[blobs]',
           'collective.z3cform.html5widgets',
           'plonetheme.foundation',
+          'plonetheme.jquerymobile',
           # -*- Extra requirements: -*-
       ],
       extras_require=dict(
