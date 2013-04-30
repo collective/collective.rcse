@@ -6,7 +6,7 @@
  <object name="collective_rcse_desktop" meta_type="Filesystem Directory View"
     directory="collective.rcse:skins/collective_rcse_desktop"/>
 
- <skin-path name="collective.rcse.mobile" based-on="Plone Classic Theme">
+ <skin-path name="collective.rcse.mobile" based-on="plonetheme.jquerymobile">
   <layer name="collective_rcse_mobile" insert-after="custom"/>
  </skin-path>
 

@@ -1,7 +1,0 @@
-<div data-role="collapsible" i18n:domain="collective.rcse">
-    <h4 i18n:translate="">Agenda</h4>
-    <ul data-role="listview" data-inset="true" data-filter="true">
-      <li>evt 1</li>
-      <li>evt 2</li>
-    </ul>
-</div>

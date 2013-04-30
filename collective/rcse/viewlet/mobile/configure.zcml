@@ -3,82 +3,18 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
 
-  <!-- LEFT PANEL -->
-  <browser:viewletManager
-      name="rcse.mobile.panelleft"
-      provides=".panel.IPanelLeft"
-      permission="zope2.View"
-      class="plone.app.viewletmanager.manager.OrderedViewletManager"
-      />
-
   <browser:viewlet
-      name="rcse.addcontent"
-      class=".panel.AddContent"
-      manager=".panel.IPanelLeft"
+      name="plonetheme.jquerymobile.usertoolbar"
+      class=".panel.UserToolBar"
+      manager="plonetheme.jquerymobile.browser.viewlets.panel.IPanelLeft"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
-      />
-  <browser:viewlet
-      name="plone.personalbar"
-      class="plone.app.layout.viewlets.common.PersonalBarViewlet"
-      template="templates/personalbar.pt"
-      manager=".panel.IPanelLeft"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-
-  <!-- RIGHT PANEL -->
-  <browser:viewletManager
-      name="rcse.mobile.panelright"
-      provides=".panel.IPanelRight"
-      permission="zope2.View"
-      class="plone.app.viewletmanager.manager.OrderedViewletManager"
-      />
-
-  <browser:viewlet
-    name="rcse.agenda"
-    class=".panel.Agenda"
-    manager=".panel.IPanelRight"
-    layer="collective.rcse.layer.MobileLayer"
-    permission="zope2.View"
-    />
-
-  <browser:viewlet
-    name="rcse.favorites"
-    class=".panel.Favorites"
-    manager=".panel.IPanelRight"
-    layer="collective.rcse.layer.MobileLayer"
-    permission="zope2.View"
-    />
-
-  <browser:viewlet
-    name="rcse.contacts"
-    class=".panel.Contacts"
-    manager=".panel.IPanelRight"
-    layer="collective.rcse.layer.MobileLayer"
-    permission="zope2.View"
-    />
-
-  <browser:viewlet
-    name="rcse.search"
-    class=".panel.Search"
-    manager=".panel.IPanelRight"
-    layer="collective.rcse.layer.MobileLayer"
-    permission="zope2.View"
-    />
-
-  <!-- FOOTER -->
-  <browser:viewletManager
-      name="rcse.mobile.footer"
-      provides=".footer.IFooter"
-      permission="zope2.View"
-      class="plone.app.viewletmanager.manager.OrderedViewletManager"
       />
 
   <browser:viewlet
     name="rcse.mobile.footer.links"
     template="templates/links.pt"
-    manager=".footer.IFooter"
+    manager="plonetheme.jquerymobile.browser.viewlets.footer.IFooter"
     layer="collective.rcse.layer.MobileLayer"
     permission="zope2.View"
     />

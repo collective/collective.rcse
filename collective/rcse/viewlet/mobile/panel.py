@@ -1,25 +1,14 @@
 from zope.viewlet.interfaces import IViewletManager
-from plone.app.layout.viewlets import common
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
+from plonetheme.jquerymobile.browser.viewlets import panel as base
 
+class UserToolBar(base.UserToolBar):
 
-class IPanelLeft(IViewletManager):
-    """A viewlet manager that sits on the left panel"""
-
-
-class IPanelRight(IViewletManager):
-    """A viewlet manager that sits on the left panel"""
-
-
-class AddContent(common.ContentActionsViewlet, common.ContentViewsViewlet):
-    """add content"""
-
-    index = ViewPageTemplateFile('templates/addcontent.pt')
+    index = ViewPageTemplateFile('templates/usertoolbar.pt')
 
     def update(self):
-        common.ContentActionsViewlet.update(self)
-        common.ContentViewsViewlet.update(self)
+        base.UserToolBar.update(self)
         self.portal_types = getToolByName(self.context, 'portal_types')
         if self.context.portal_type in ("collective.rcse.group", "Plone Site"):
             self.container = self.context
@@ -42,19 +31,3 @@ class AddContent(common.ContentActionsViewlet, common.ContentViewsViewlet):
                     info["current"] = True
                 self.filters.append(info)
         return self.filters
-
-
-class Search(common.ViewletBase):
-    index = ViewPageTemplateFile('templates/search.pt')
-
-
-class Contacts(common.ViewletBase):
-    index = ViewPageTemplateFile('templates/contacts.pt')
-
-
-class Favorites(common.ViewletBase):
-    index = ViewPageTemplateFile('templates/favorites.pt')
-
-
-class Agenda(common.ViewletBase):
-    index = ViewPageTemplateFile('templates/agenda.pt')
