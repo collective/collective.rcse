@@ -1,16 +1,6 @@
 <?xml version="1.0"?>
 <object meta_type="Plone Types Tool" name="portal_types">
 
- <object name="Collection" remove="True"/>
- <object name="Document" remove="True"/>
- <object name="Event" remove="True"/>
- <object name="File" remove="True"/>
- <object name="Folder" remove="True"/>
- <object name="Image" remove="True"/>
- <object name="Link" remove="True"/>
- <object name="News Item" remove="True"/>
- <object name="Topic" remove="True"/>
-
  <object meta_type="Dexterity FTI" name="collective.rcse.audio" />
  <object meta_type="Dexterity FTI" name="collective.rcse.document" />
  <object meta_type="Dexterity FTI" name="collective.rcse.event" />
