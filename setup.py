@@ -40,7 +40,9 @@ setup(name='collective.rcse',
           'collective.etherpad',
           'collective.js.ckeditor',
           'collective.js.jquerymobile',
+          'collective.mediaelementjs',
           'collective.picturefill',
+          'collective.subscribe',
           'collective.themeswitcher',
           'plone.namedfile[blobs]',
           'collective.z3cform.html5widgets',
@@ -50,6 +52,7 @@ setup(name='collective.rcse',
       ],
       extras_require=dict(
           test=['plone.app.testing', 'pyquery'],
+          video=['collective.transcode.star', 'collective.transcode.daemon'],
       ),
       entry_points="""
       # -*- Entry points: -*-
