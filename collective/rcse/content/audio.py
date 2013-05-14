@@ -1,8 +1,9 @@
 from plone.directives import form
 from plone.namedfile.field import NamedBlobFile
-from Products.Five.browser import BrowserView
+#from Products.Five.browser import BrowserView
 from collective.rcse.i18n import RCSEMessageFactory
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+#from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from collective.mediaelementjs.browser.view import File as MediaElementJS
 
 _ = RCSEMessageFactory
 
@@ -14,7 +15,7 @@ class AudioSchema(form.Schema):
     file = NamedBlobFile(title=_(u"Audio file"))
 
 
-class AudioView(BrowserView):
+class AudioView(MediaElementJS):
     """default view"""
 
     def __call__(self):
@@ -30,3 +31,6 @@ class AudioView(BrowserView):
         source["src"] = context_url + '/@@download/file/' + filename
         source["mimetype"] = mimetype
         self.sources.append(source)
+
+    def getFilename(self):
+        return self.context.file.filename.encode('utf-8')

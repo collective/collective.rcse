@@ -7,15 +7,24 @@
       i18n:domain="collective.rcse">
 
 <body>
-<div metal:fill-slot="content-core">
-
-<audio controls>
-  <tal:source tal:repeat="source view/sources">
-    <source tal:attributes="src source/src; type source/mimetype"/>
-  </tal:source>
-<tal:error i18n:translate="msg_error_audio_html5_not_supported">Your browser does not support the audio element.</tal:error>
-</audio>
-
-</div>
+  <div metal:fill-slot="content-core">
+    <tal:main-macro metal:define-macro="content-core">
+       <tal:audio
+          tal:condition="view/isAudio"
+          tal:define="audio view/audio">
+        <audio controls autoplay>
+          <source src="" type="*/*"
+              tal:attributes="src view/href; type context/getContentType" />
+          <object width="" height=""
+            type="application/x-shockwave-flash"
+            data="++resource++collective.mediaelementjs/flashmediaelement.swf">
+              <param name="audio" value="++resource++collective.mediaelementjs/flashmediaelement.swf" />
+              <param name="flashvars" value="" tal:attributes="value python:'file=%s' % view.href()" />
+          </object>
+        </audio>
+        <p class="documentByLine" tal:content="audio/duration"></p>
+      </tal:audio>
+    </tal:main-macro>
+  </div>
 </body>
 </html>

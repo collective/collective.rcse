@@ -27,6 +27,7 @@
    <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
    <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
    <element value="cioppino.twothumbs.interfaces.ILoveThumbsDontYou" />
+   <element value="collective.mediaelementjs.behaviors.IMediaElementJSFile" />
  </property>
 
  <!-- View information -->

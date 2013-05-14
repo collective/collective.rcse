@@ -1,7 +1,10 @@
 from plone.directives import form
 from plone.namedfile.field import NamedBlobFile
-from Products.Five.browser import BrowserView
+
+from collective.mediaelementjs.dexterity import MediaElementJSFileView
+
 from collective.rcse.i18n import RCSEMessageFactory
+
 
 _ = RCSEMessageFactory
 
@@ -13,7 +16,7 @@ class VideoSchema(form.Schema):
     file = NamedBlobFile(title=_(u"Video file"))
 
 
-class VideoView(BrowserView):
+class VideoView(MediaElementJSFileView):
     """default view"""
 
     def __call__(self):
