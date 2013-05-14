@@ -23,4 +23,13 @@
       permission="zope2.View"
       />
 
+    <browser:page
+      for="*"
+      name="rate-if-you-dare"
+      permission="zope2.View"
+      class="cioppino.twothumbs.browser.like.LikeWidgetView"
+      template="templates/thumbs.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      />
+
 </configure>
