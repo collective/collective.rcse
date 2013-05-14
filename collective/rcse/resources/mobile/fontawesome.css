@@ -22,6 +22,212 @@
 	margin: -10px -10px auto auto !important;
 }
 
+
+/* supporting original icons */
+.ui-icon-plus,
+.ui-icon-minus,
+.ui-icon-delete,
+.ui-icon-arrow-r,
+.ui-icon-arrow-l,
+.ui-icon-arrow-u,
+.ui-icon-arrow-d,
+.ui-icon-check,
+.ui-icon-gear,
+.ui-icon-refresh,
+.ui-icon-forward,
+.ui-icon-back,
+.ui-icon-grid,
+.ui-icon-star,
+.ui-icon-alert,
+.ui-icon-info,
+.ui-icon-home,
+.ui-icon-search,
+.ui-icon-searchfield:after,
+.ui-icon-checkbox-off,
+.ui-icon-checkbox-on,
+.ui-icon-radio-off,
+.ui-icon-radio-on,
+.ui-icon-bars,
+.ui-icon-edit {
+    background-image: url('++resource++collective.js.jquerymobile/images/icons-18-white.png') !important;
+}
+/* plus minus */
+.ui-icon-plus {
+    background-position:    -1px -1px!important;
+}
+.ui-icon-minus {
+    background-position:    -37px -1px!important;
+}
+/* delete/close */
+.ui-icon-delete {
+    background-position:    -73px -1px!important;
+}
+/* arrows */
+.ui-icon-arrow-r {
+    background-position:    -108px -1px!important;
+}
+.ui-icon-arrow-l {
+    background-position:    -144px -1px!important;
+}
+.ui-icon-arrow-u {
+    background-position:    -180px -1px!important;
+}
+.ui-icon-arrow-d {
+    background-position:    -216px -1px!important;
+}
+/* misc */
+.ui-icon-check {
+    background-position:    -252px -1px!important;
+}
+.ui-icon-gear {
+    background-position:    -288px -1px!important;
+}
+.ui-icon-refresh {
+    background-position:    -323px -1px!important;
+}
+.ui-icon-forward {
+    background-position:    -360px -1px!important;
+}
+.ui-icon-back {
+    background-position:    -396px -1px!important;
+}
+.ui-icon-grid {
+    background-position:    -432px -1px!important;
+}
+.ui-icon-star {
+    background-position:    -467px -1px!important;
+}
+.ui-icon-alert {
+    background-position:    -503px -1px!important;
+}
+.ui-icon-info {
+    background-position:    -539px -1px!important;
+}
+.ui-icon-home {
+    background-position:    -575px -1px!important;
+}
+/* search */
+.ui-icon-search,
+.ui-icon-searchfield:after {
+    background-position:    -611px -1px!important;
+}
+/* checkbox radio */
+.ui-icon-checkbox-on {
+    background-position:    -647px -1px!important;
+}
+.ui-icon-checkbox-off {
+    background-position:    -683px -1px!important;
+}
+.ui-icon-radio-on {
+    background-position:    -718px -1px!important;
+}
+.ui-icon-radio-off {
+    background-position:    -754px -1px!important;
+}
+/* menu edit */
+.ui-icon-bars {
+    background-position:    -788px -1px!important;
+
+}
+.ui-icon-edit {
+    background-position:    -824px -1px!important;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3),
+        only screen and (-o-min-device-pixel-ratio: 3/2),
+        only screen and (min--moz-device-pixel-ratio: 1.3),
+        only screen and (min-device-pixel-ratio: 1.3),
+        only screen and (min-resolution: 1.3dppx) {
+
+    .ui-icon-plus, .ui-icon-minus, .ui-icon-delete, .ui-icon-arrow-r,
+    .ui-icon-arrow-l, .ui-icon-arrow-u, .ui-icon-arrow-d, .ui-icon-check,
+    .ui-icon-gear, .ui-icon-refresh, .ui-icon-forward, .ui-icon-back,
+    .ui-icon-grid, .ui-icon-star, .ui-icon-alert, .ui-icon-info, .ui-icon-home, .ui-icon-bars, .ui-icon-edit,
+    .ui-icon-search, .ui-icon-searchfield:after, 
+    .ui-icon-checkbox-off, .ui-icon-checkbox-on, .ui-icon-radio-off, .ui-icon-radio-on {
+        background-image: url('++resource++collective.js.jquerymobile/images/icons-36-white.png') !important;
+        -moz-background-size: 864px 18px;
+        -o-background-size: 864px 18px;
+        -webkit-background-size: 864px 18px;
+        background-size: 864px 18px;
+    }
+    .ui-icon-alt {
+        background-image: url('++resource++collective.js.jquerymobile/images/icons-36-black.png');
+    }
+    .ui-icon-plus {
+        background-position:    0 50%!important;
+    }
+    .ui-icon-minus {
+        background-position:    -36px 50%!important;
+    }
+    .ui-icon-delete {
+        background-position:    -72px 50%!important;
+    }
+    .ui-icon-arrow-r {
+        background-position:    -108px 50%!important;
+    }
+    .ui-icon-arrow-l {
+        background-position:    -144px 50%!important;
+    }
+    .ui-icon-arrow-u {
+        background-position:    -179px 50%!important;
+    }
+    .ui-icon-arrow-d {
+        background-position:    -215px 50%!important;
+    }
+    .ui-icon-check {
+        background-position:    -252px 50%!important;
+    }
+    .ui-icon-gear {
+        background-position:    -287px 50%!important;
+    }
+    .ui-icon-refresh {
+        background-position:    -323px 50%!important;
+    }
+    .ui-icon-forward {
+        background-position:    -360px 50%!important;
+    }
+    .ui-icon-back {
+        background-position:    -395px 50%!important;
+    }
+    .ui-icon-grid {
+        background-position:    -431px 50%!important;
+    }
+    .ui-icon-star {
+        background-position:    -467px 50%!important;
+    }
+    .ui-icon-alert {
+        background-position:    -503px 50%!important;
+    }
+    .ui-icon-info {
+        background-position:    -538px 50%!important;
+    }
+    .ui-icon-home {
+        background-position:    -575px 50%!important;
+    }
+    .ui-icon-search,
+    .ui-icon-searchfield:after {
+        background-position:    -611px 50%!important;
+    }
+    .ui-icon-checkbox-on {
+        background-position:    -647px 50%!important;
+    }
+    .ui-icon-checkbox-off {
+        background-position:    -683px 50%!important;
+    }
+    .ui-icon-radio-on {
+        background-position:    -718px 50%!important;
+    }
+    .ui-icon-radio-off {
+        background-position:    -754px 50%!important;
+    }
+    .ui-icon-bars {
+        background-position:    -788px 50%!important;
+
+    }.ui-icon-edit {
+        background-position:    -824px 50%!important;
+    }
+}
+
 /* begin primary declarations */
 @font-face {
 	font-family: 'FontAwesome';
