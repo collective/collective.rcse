@@ -11,6 +11,6 @@
   <div class="actions" data-role="controlgroup" data-type="horizontal">
     <a href="#" data-role="button" i18n:translate="">Favorite</a>
     <a href="#" data-role="button" i18n:translate="">Comment</a>
-    <a href="#" data-role="button" i18n:translate="" tal:attributes="href string:${context/absolute_url}">Read</a>
+    <a href="#" data-theme="b" data-role="button" i18n:translate="" tal:attributes="href string:${context/absolute_url}">Read</a>
   </div>
 </div>
