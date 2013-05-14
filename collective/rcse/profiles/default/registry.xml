@@ -16,7 +16,7 @@
 
   <!-- resources config -->
   <record name="Products.ResourceRegistries.interfaces.settings.IResourceRegistriesSettings.resourceBundlesForThemes">
-    <value>
+    <value purge="False">
       <element key="collective.rcse.desktop">
         <element>polyfill</element>
         <element>jquery</element>

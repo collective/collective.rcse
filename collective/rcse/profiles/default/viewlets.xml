@@ -7,6 +7,10 @@
     <viewlet name="rcse.favorites" insert-after="rcse.contacts"/>
     <viewlet name="rcse.agenda" insert-after="rcse.favorites"/>
   </order>
+  <hidden manager="plone.belowcontent" skinname="collective.rcse.mobile">
+    <viewlet name="plone.manage_portlets_fallback" />
+  </hidden>
+
 
   <hidden manager="plone.htmlhead.links" skinname="collective.rcse.desktop">
     <viewlet name="plonetheme.foundation.resources" />
