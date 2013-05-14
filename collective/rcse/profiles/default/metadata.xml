@@ -4,6 +4,7 @@
   <dependencies>
     <dependency>profile-cioppino.twothumbs:default</dependency>
     <dependency>profile-collective.etherpad:default</dependency>
+    <dependency>profile-collective.fontawesome:default</dependency>
     <dependency>profile-collective.history:default</dependency>
     <dependency>profile-collective.js.ckeditor:default</dependency>
     <dependency>profile-collective.mediaelementjs:default</dependency>

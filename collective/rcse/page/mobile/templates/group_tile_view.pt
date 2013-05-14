@@ -1,4 +1,4 @@
-<div class="rcsetile" tal:attributes="id view/tileid">
+<div class="rcsetile" tal:attributes="id view/tileid" i18n:domain="collective.rcse">
   <div class="header">
     <img tal:attributes="src view/portrait"/>
     <a href="" rel="author" data-inline="true"

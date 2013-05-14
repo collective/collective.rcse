@@ -19,7 +19,7 @@
         <span
             tal:attributes="class   python:'thumbs-up' + (myVote==1 and ' selected' or '')">
             <input type="submit" name="form.lovinit" value="Like" data-theme="b" data-inline="true"
-                class="allowMultiSubmit like-button" title="I like this (click again to undo)"
+                class="allowMultiSubmit like-button icon-smile" title="I like this (click again to undo)"
                 i18n:attributes="value; title"
                 tal:attributes="id  string:${context/id}_submit_like;" />
         </span>

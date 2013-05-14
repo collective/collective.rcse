@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: Tue May 14 13:52:25 2013\n"
+"POT-Creation-Date: Tue May 14 15:20:24 2013\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -59,4 +59,16 @@ msgstr ""
 
 #: collective.rcse:/content/video.py:16
 msgid "Video file"
+msgstr ""
+
+#: collective.rcse:/page/mobile/templates/group_tile_view.pt:13
+msgid "Favorite"
+msgstr ""
+
+#: collective.rcse:/page/mobile/templates/group_tile_view.pt:14
+msgid "Comment"
+msgstr ""
+
+#: collective.rcse:/page/mobile/templates/group_tile_view.pt:15
+msgid "Read"
 msgstr ""
