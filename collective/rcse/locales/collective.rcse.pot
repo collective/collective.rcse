@@ -1,16 +1,70 @@
-# Gettext Message File for collective.rcse
+##############################################################################
+#
+# Copyright (c) 2003-2004 Zope Foundation and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+##############################################################################
 msgid ""
 msgstr ""
-"Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2010-11-10 11:05+0000\n"
-"PO-Revision-Date: 2008-02-04 18:00+0000\n"
-"Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
-"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"Project-Id-Version: 1.0\n"
+"POT-Creation-Date: Tue May 14 13:52:25 2013\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Zope 3 Developers <zope-dev@zope.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
-"Preferred-Encodings: utf-8 latin1\n"
-"Domain: collective.rcse\n"
+"Generated-By: zope/app/locales/extract.py\n"
+
+#: collective.rcse:/content/audio.py:15
+msgid "Audio file"
+msgstr ""
+
+#: collective.rcse:/content/document.py:15
+#: collective.rcse:/content/event.py:24
+msgid "Text"
+msgstr ""
+
+#: collective.rcse:/content/event.py:15
+msgid "Start date"
+msgstr ""
+
+#: collective.rcse:/content/event.py:16
+msgid "End date"
+msgstr ""
+
+#: collective.rcse:/content/event.py:19
+msgid "Start hour"
+msgstr ""
+
+#: collective.rcse:/content/event.py:21
+msgid "End hour"
+msgstr ""
+
+#: collective.rcse:/content/event.py:27
+msgid "Event URL"
+msgstr ""
+
+#: collective.rcse:/content/file.py:13
+msgid "File"
+msgstr ""
+
+#: collective.rcse:/content/image.py:13
+msgid "Image"
+msgstr ""
+
+#: collective.rcse:/content/templates/file_view.pt:12
+msgid "Download"
+msgstr ""
+
+#: collective.rcse:/content/video.py:16
+msgid "Video file"
+msgstr ""
+
