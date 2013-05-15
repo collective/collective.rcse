@@ -9,9 +9,6 @@
   </div>
   <div class="tilecontent" tal:content="structure view/get_content"></div>
   <div class="actions" data-role="controlgroup" data-type="horizontal">
-    <tal:like tal:content="structure here/@@rate-if-you-dare"/>
-    <a href="#" data-icon="star"        data-role="button" data-inline="true" i18n:translate="">Favorite</a>
-    <a href="#" data-icon="comment-alt" data-role="button" data-inline="true" i18n:translate="">Comment</a>
-    <a href="#" data-icon="eye-open"    data-role="button" data-inline="true" i18n:translate="" data-theme="b" tal:attributes="href string:${context/absolute_url}">Read</a>
+    <a href="#" data-icon="eye-open" class="ui-icon-nodisc" data-iconshadow="false" data-role="button" data-inline="true" i18n:translate="" data-theme="b" tal:attributes="href string:${context/absolute_url}">Read</a>
   </div>
 </div>
