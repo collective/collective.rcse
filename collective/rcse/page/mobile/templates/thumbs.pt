@@ -18,15 +18,15 @@
                         action  string:${context/absolute_url}/you-know-you-like-it;">
         <span
             tal:attributes="class   python:'thumbs-up' + (myVote==1 and ' selected' or '')">
-            <input type="submit" name="form.lovinit" value="Like" data-theme="b" data-inline="true" data-icon="smile"
-                class="allowMultiSubmit like-button" title="I like this (click again to undo)"
+            <input type="submit" name="form.lovinit" value="Like" data-role="button" data-theme="b" data-inline="true" data-icon="smile" data-iconpos="notext"
+                class="ui-icon-nodisc allowMultiSubmit like-button" title="I like this (click again to undo)"
                 i18n:attributes="value; title"
                 tal:attributes="id  string:${context/id}_submit_like;" />
         </span>
         <span
             tal:attributes="class   python:'thumbs-down' + (myVote==-1 and ' selected' or '')">
-            <input type="submit" name="form.hatedit" value="Ugh" data-inline="true" data-icon="frown"
-                class="allowMultiSubmit dislike-button" title="I dislike this (click again to undo)"
+            <input type="submit" name="form.hatedit" value="Ugh" data-inline="true" data-icon="frown" data-iconpos="notext"
+                class="allowMultiSubmit dislike-button ui-icon-nodisc" title="I dislike this (click again to undo)"
                 i18n:attributes="value; title"
                 tal:attributes="id  string:${context/id}_submit_like;"/>
         </span>
