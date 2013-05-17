@@ -1,7 +1,7 @@
 import unittest
 
 import robotsuite
-from collective.history.testing import ROBOT
+from collective.rcse.testing import ROBOT
 from plone.testing import layered
 
 
