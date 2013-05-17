@@ -1,7 +1,7 @@
-from zope.viewlet.interfaces import IViewletManager
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
 from plonetheme.jquerymobile.browser.viewlets import panel as base
+
 
 class UserToolBar(base.UserToolBar):
 

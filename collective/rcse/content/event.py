@@ -2,7 +2,6 @@ from zope import schema
 from plone.directives import form
 from Products.Five.browser import BrowserView
 from plone.app.textfield import RichText
-from plone.app.z3cform.wysiwyg.widget import WysiwygFieldWidget
 from collective.rcse.i18n import RCSEMessageFactory
 
 _ = RCSEMessageFactory

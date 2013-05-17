@@ -1,7 +1,6 @@
 from Products.Five.browser import BrowserView
 from collective.rcse.i18n import RCSEMessageFactory
 from Products.CMFCore.utils import getToolByName
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.uuid.interfaces import IUUID
 
 _ = RCSEMessageFactory
