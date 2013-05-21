@@ -6,7 +6,7 @@
 
 <div class="addcontent" data-role="collapsible-set" i18n:domain="plone">
   <div data-role="collapsible">
-    <h3 i18n:translate="">View</h3>
+    <h3 i18n:translate="">Manage</h3>
     <div data-role="controlgroup">
        <tal:views repeat="action view_actions">
          <tal:button tal:define="selected action/selected|nothing;">

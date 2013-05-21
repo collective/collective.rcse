@@ -20,6 +20,8 @@ class UserToolBar(base.UserToolBar):
             self.current_filter = self.request.get('portal_type', None)
 
     def get_filters(self):
+        if not self.context.portal_type == "collective.rcse.group":
+            return []
         if not self.filters:
             types = self.container.allowedContentTypes()
             for fti in types:
