@@ -1,11 +1,10 @@
 <h2 tal:content="context/Title"></h2>
 <p tal:content="context/Description"></p>
 <tal:audio
-    tal:condition="view/isAudio"
     tal:define="audio view/audio">
-  <audio controls autoplay>
+  <audio controls>
     <source src="" type="*/*"
-        tal:attributes="src view/href; type context/getContentType" />
+        tal:attributes="src view/href; type view/getContentType" />
     <object width="" height=""
       type="application/x-shockwave-flash"
       data="++resource++collective.mediaelementjs/flashmediaelement.swf">
