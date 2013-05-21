@@ -10,11 +10,10 @@
   <div metal:fill-slot="content-core">
     <tal:main-macro metal:define-macro="content-core">
        <tal:audio
-          tal:condition="view/isAudio"
           tal:define="audio view/audio">
         <audio controls autoplay>
           <source src="" type="*/*"
-              tal:attributes="src view/href; type context/getContentType" />
+              tal:attributes="src view/href; type view/getContentType" />
           <object width="" height=""
             type="application/x-shockwave-flash"
             data="++resource++collective.mediaelementjs/flashmediaelement.swf">

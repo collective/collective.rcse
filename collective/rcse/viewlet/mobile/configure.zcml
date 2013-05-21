@@ -6,7 +6,7 @@
   <browser:viewlet
       name="plonetheme.jquerymobile.usertoolbar"
       class=".panel.UserToolBar"
-      manager="plonetheme.jquerymobile.browser.viewlets.panel.IPanelLeft"
+      manager="plonetheme.jquerymobile.browser.viewlets.manager.IPanelLeft"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
@@ -14,7 +14,7 @@
   <browser:viewlet
     name="rcse.mobile.footer.links"
     template="templates/links.pt"
-    manager="plonetheme.jquerymobile.browser.viewlets.footer.IFooter"
+    manager="plonetheme.jquerymobile.browser.viewlets.manager.IFooter"
     layer="collective.rcse.layer.MobileLayer"
     permission="zope2.View"
     />
