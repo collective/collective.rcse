@@ -6,6 +6,7 @@
   <browser:viewlet
       name="rcse.desktop.footer.links"
       manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      class=".footer.FooterLinks"
       template="templates/links.pt"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"

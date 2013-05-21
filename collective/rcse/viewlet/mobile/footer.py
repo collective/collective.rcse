@@ -1,5 +1,12 @@
-from zope.viewlet.interfaces import IViewletManager
+from zope import component
+from plone.app.layout.viewlets.common import ViewletBase
+from plone.registry.interfaces import IRegistry
 
 
-class IFooter(IViewletManager):
-    """A viewlet manager that sits on the left panel"""
+class FooterLinks(ViewletBase):
+    """display the themeswitcher link"""
+
+    def get_theme(self):
+        registry = component.queryUtility(IRegistry)
+        key = "collective.themeswitcher.theme.desktop"
+        return registry.get(key, "collective.rcse.desktop")

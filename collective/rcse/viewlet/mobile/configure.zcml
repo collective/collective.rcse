@@ -13,6 +13,7 @@
 
   <browser:viewlet
     name="rcse.mobile.footer.links"
+    class=".footer.FooterLinks"
     template="templates/links.pt"
     manager="plonetheme.jquerymobile.browser.viewlets.manager.IFooter"
     layer="collective.rcse.layer.MobileLayer"

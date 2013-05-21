@@ -6,6 +6,12 @@
     </field>
     <value>collective.rcse.mobile</value>
   </record>
+  <record name="collective.themeswitcher.theme.desktop">
+    <field type="plone.registry.field.ASCIILine">
+        <title>Desktop theme</title>
+    </field>
+    <value>collective.rcse.desktop</value>
+  </record>
   <record name="collective.themeswitcher.switcher">
     <field type="plone.registry.field.TextLine">
         <title>Theme switcher</title>
