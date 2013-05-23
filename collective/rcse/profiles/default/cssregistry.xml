@@ -12,10 +12,6 @@
       applyPrefix="true"
       media=""
       />
-  <stylesheet id="++resource++collective.rcse/fontawesome.css"
-      bundle="rcse"
-      applyPrefix="true"
-      media=""
-      />
+  <stylesheet id="++resource++collective.rcse/fontawesome.css" remove="True"/>
 
 </object>
