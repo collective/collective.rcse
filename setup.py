@@ -46,6 +46,7 @@ setup(
         'collective.picturefill',
         'collective.subscribe',
         'collective.themeswitcher',
+        'collective.watcherlist',
         'plone.namedfile[blobs]',
         'collective.z3cform.html5widgets',
         'plonetheme.foundation',
