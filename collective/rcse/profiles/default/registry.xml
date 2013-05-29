@@ -33,7 +33,7 @@
         <element>rcse</element>
       </element>
       <element key="collective.rcse.mobile">
-        <element>polyfill</element>
+        <element>default</element>
         <element>jquery</element>
         <element>jquerymobile</element>
         <element>picturefill</element>
