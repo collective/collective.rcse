@@ -1,1 +1,17 @@
-<a data-ajax="false" tal:attributes="href string:${context/absolute_url}/@@themeswitcher_cookie?themeswitcher=${view/get_theme}" i18n:translate="">Mobile version</a>
+<footer class="row">
+    <div class="large-12 columns">
+      <hr>
+      <div class="row">
+        <div class="large-6 columns">
+          <p>&copy; 2013 the <a href="plone.org">Plone</a> Foundation and friends.</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a data-ajax="false" tal:attributes="href string:${context/absolute_url}/@@themeswitcher_cookie?themeswitcher=${view/get_theme}" i18n:translate="">Mobile version</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</footer>
+
+
