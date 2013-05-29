@@ -47,6 +47,7 @@ setup(
         'collective.subscribe',
         'collective.themeswitcher',
         'collective.watcherlist',
+        'plone.app.dexterity',
         'plone.namedfile[blobs]',
         'collective.z3cform.html5widgets',
         'plonetheme.foundation',
