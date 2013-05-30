@@ -7,10 +7,13 @@
     <viewlet name="rcse.favorites" insert-after="rcse.contacts"/>
     <viewlet name="rcse.agenda" insert-after="rcse.favorites"/>
   </order>
+  <hidden order="plone.belowcontent" skinname="*">
+    <viewlet name="plone.belowcontenttitle.documentbyline" insert-before="*"/>
+  </hidden>
+
   <hidden manager="plone.belowcontenttitle" skinname="collective.rcse.mobile">
     <viewlet name="cioppino.twothumbs" />
   </hidden>
-
 
   <hidden manager="plone.htmlhead.links" skinname="collective.rcse.desktop">
     <viewlet name="plonetheme.foundation.resources" />
