@@ -42,4 +42,9 @@
     </value>
   </record>
 
+  <!-- plone.app.discussion -->
+   <records interface="plone.app.discussion.interfaces.IDiscussionSettings">
+       <value key="globally_enabled">True</value>
+   </records>
+
 </registry>
