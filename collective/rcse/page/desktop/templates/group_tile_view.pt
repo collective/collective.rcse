@@ -7,9 +7,8 @@
     <a href="" tal:attributes="href view/group_url" tal:content="view/group_title">group</a>
   </div>
   <div class="tilecontent" tal:content="structure view/get_content"></div>
-  <div class="actions">
-    <a href="#" class="button" i18n:translate="">Favorite</a>
-    <a href="#" class="button" i18n:translate="">Comment</a>
-    <a href="#" class="button" i18n:translate="">Read</a>
+  <div class="actions" tal:define="object_url string:${context/absolute_url}">
+    <a tal:attributes="href string:${object_url}#commenting" class="button" i18n:translate="">Comment</a>
+    <a tal:attributes="href string:${object_url}" class="button" i18n:translate="">Read</a>
   </div>
 </div>
