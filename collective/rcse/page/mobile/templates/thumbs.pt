@@ -12,7 +12,7 @@
 <div tal:define="stats view/getStats;
                  canRate view/canRate;
                  myVote view/myVote;"
-                 class="thumb-rating" style="float: left;">
+                 class="thumb-rating">
     <form action="you-know-you-like-it" method="post"
         tal:attributes="class python:canRate and 'enabled' or 'disabled';
                         action  string:${context/absolute_url}/you-know-you-like-it;">
