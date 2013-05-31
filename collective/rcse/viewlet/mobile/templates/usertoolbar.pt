@@ -5,7 +5,7 @@
         content_actions view/object_actions;">
 
 <div class="addcontent" data-role="collapsible-set" i18n:domain="plone">
-  <div data-role="collapsible">
+  <div data-role="collapsible" tal:condition="python:checkPermission('Modify portal content', context)">
     <h3 i18n:translate="">Manage</h3>
     <div data-role="controlgroup">
        <tal:views repeat="action view_actions">
