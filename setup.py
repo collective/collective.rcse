@@ -38,6 +38,7 @@ setup(
         'Plone',
         'cioppino.twothumbs',
         'collective.etherpad',
+        'collective.favoriting',
         'collective.fontawesome',
         'collective.history',
         'collective.js.ckeditor',
