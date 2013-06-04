@@ -1,10 +1,10 @@
 <div class="rcsetile" tal:attributes="id view/tileid" i18n:domain="collective.rcse">
-  <div class="header">
-    <img tal:attributes="src view/portrait"/>
-    <a href="" rel="author" data-inline="true"
-      tal:attributes="href view/author_url"
-      tal:content="view/author_name">John</a>
-    <tal:word i18n:translate="">in</tal:word> <a href=""  data-inline="true" tal:attributes="href view/group_url" tal:content="view/group_title">group</a>
+  <div class="vcard">
+    <img class="photo" tal:attributes="src view/portrait"/>
+    <a rel="author" class="fn url"
+       tal:attributes="href view/author_url"
+       tal:content="view/author_name">John</a><br/>
+    <a href=""  data-inline="true" tal:attributes="href view/group_url" tal:content="view/group_title">group</a><br/>
     <span tal:condition="view/effective_date" tal:content="view/effective_date"></span>
   </div>
   <div class="tilecontent" tal:content="structure view/get_content"></div>

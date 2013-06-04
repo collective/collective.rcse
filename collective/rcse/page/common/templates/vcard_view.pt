@@ -1,0 +1,14 @@
+<div class="vcard">
+   <img class="photo" tal:attributes="src view/portrait"/>
+   <a class="fn url" rel="me"
+      tal:attributes="href view/url"
+      tal:content="view/fn">
+    John Smith
+   </a>
+   <span tal:replace="nothing" class="nickname">Smithy</span>"
+   <span tal:replace="nothing" class="org">ACME</span>
+   <span tal:replace="nothing" class="adr">
+     <span class="locality">Albuquerque</span>
+   </span>
+   <span tal:replace="nothing" class="title">Engineer</span>
+</div>

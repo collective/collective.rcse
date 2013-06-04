@@ -8,3 +8,9 @@
 }
 .picturefill-wrapper img,
 .rcsetile img{max-width: 100%}
+
+.rcsetile .vcard {
+    position: relative; height: 64px;
+    padding-bottom: 5px; border-bottom: 1px solid #ddd;
+}
+.rcsetile .vcard .photo{float: left; height: 100%; padding-right: 20px;}

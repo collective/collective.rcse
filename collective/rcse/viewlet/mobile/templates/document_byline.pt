@@ -1,0 +1,55 @@
+<div class="documentByLine"
+     data-role="collapsible" data-mini="true"
+     id="plone-document-byline"
+     i18n:domain="plone"
+     tal:condition="view/show">
+     <h3 i18n:domain="plonetheme.jquerymobile" i18n:translate="">About</h3>
+<ul data-role="listview" data-inset="true">
+    <li id="lock-icon"
+        tal:define="lock_icon view/locked_icon"
+        tal:condition="python:lock_icon"><span data-icon="lock"/></li>
+    <tal:creator tal:define="creator_short_form view/creator;"
+                 tal:condition="creator_short_form">
+    <tal:name tal:define="creator_long_form string:?author=${creator_short_form};
+                          creator_is_openid python:'/' in creator_short_form;
+                          creator_id python:(creator_short_form, creator_long_form)[creator_is_openid];">
+       <li>
+         <a href="#"
+            tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${creator_id}"
+            tal:content="view/authorname"
+            tal:omit-tag="python:view.author() is None">Roland Barthes</a></li>
+    </tal:name>
+    </tal:creator>
+  <tal:dates define="published view/pub_date;
+                     modified context/ModificationDate">
+    <li tal:condition="published">
+      <span i18n:translate="box_published">published</span>
+      <span tal:replace="python:view.toLocalizedTime(published,long_format=1)">
+        August 16, 2001 at 23:35:59
+      </span>
+    </li>
+    <li tal:condition="modified">
+      <span i18n:translate="box_last_modified">last modified</span>
+      <span tal:replace="python:view.toLocalizedTime(modified,long_format=1)">
+        August 16, 2001 at 23:35:59
+      </span>
+    </li>
+  </tal:dates>
+  <li tal:condition="view/isExpired" i18n:translate="time_expired">expired</li>
+  <li id="content-history"
+        tal:condition="view/show_history">
+    <a href="#"
+       tal:attributes="href string:${here/absolute_url}/@@historyview"
+       i18n:translate="label_history">History</a>
+  </li>
+  <tal:contributors tal:define="contributors context/Contributors"
+    tal:condition="contributors">
+    <li i18n:translate="" data-role="list-divider">Contributors</li>
+    <li tal:repeat="contributor contributors" tal:content="contributor"></li>
+  </tal:contributors>
+  <tal:rights tal:define="rights context/Rights"
+              tal:condition="rights">
+    <li tal:content="rights">Copyleft NiceCorp Inc.</li>
+  </tal:rights>
+</ul>
+</div>

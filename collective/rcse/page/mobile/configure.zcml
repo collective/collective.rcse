@@ -31,5 +31,13 @@
       template="templates/thumbs.pt"
       layer="collective.rcse.layer.MobileLayer"
       />
+  <browser:page
+      for="collective.rcse.content.event.EventSchema"
+      name="event_view"
+      class="collective.rcse.page.common.event.EventView"
+      template="templates/event_view.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.MobileLayer"
+      />
 
 </configure>
