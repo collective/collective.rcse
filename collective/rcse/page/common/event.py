@@ -71,15 +71,17 @@ class ICSEventView(EventView):
         if self.event is None:
             self.event = icalendar.Event()
             self.event.add('summary', self.context.Description())
-            self.event.add('dtstart', )
-            self.eventadd('summary', 'Python meeting about calendaring')
-            self.eventadd('dtstart', self.context.start)
-            self.eventadd('dtend', self.context.end)
+            self.event.add('dtstart', self.context.start)
+            self.event.add('dtend', self.context.end)
             self.event['uid'] = IUUID(self.context)
-            self.eventadd('priority', 5)
+            self.event.add('priority', 5)
         if self.cal is None:
             self.cal = icalendar.Calendar()
             self.cal.add_component(self.event)
 
     def index(self):
+        self.request.response.setHeader(
+            "Content-type",
+            "text/calendar"
+        )
         return self.cal.to_ical()

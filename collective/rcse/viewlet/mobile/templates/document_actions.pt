@@ -1,7 +1,7 @@
 <div tal:omit-tag=""
      i18n:domain="plone">
 
-    <div class="documentActions" data-role="controlgroup" data-type="horizontal" data-mini="true">
+    <div class="documentActions" data-role="controlgroup" data-type="vertical" data-mini="true">
         <tal:docactions tal:condition="view/actions" tal:define="normalizeString nocall: context/@@plone/normalizeString">
 
                   <tal:action tal:repeat="daction view/actions"
