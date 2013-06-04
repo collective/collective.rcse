@@ -1,2 +1,3 @@
 <h2 tal:content="context/Title"></h2>
+<p class="documentDescription" tal:content="context/Description"></p>
 <input type="date" readonly="readonly" tal:attributes="value context/start"/>

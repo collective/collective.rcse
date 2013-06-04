@@ -14,3 +14,8 @@
     padding-bottom: 5px; border-bottom: 1px solid #ddd;
 }
 .rcsetile .vcard .photo{float: left; height: 100%; padding-right: 20px;}
+#viewlet-below-content-body{
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed #aaa;
+}
