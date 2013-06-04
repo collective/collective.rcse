@@ -28,7 +28,6 @@ $(document).ready(function(){
   });
 })
 </script>
-<hr/>
 </div>
 </body>
 </html>

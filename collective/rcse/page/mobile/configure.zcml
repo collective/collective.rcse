@@ -23,7 +23,8 @@
       permission="zope2.View"
       />
 
-    <browser:page
+<!-- 
+  <browser:page
       for="*"
       name="rate-if-you-dare"
       permission="zope2.View"
@@ -31,6 +32,7 @@
       template="templates/thumbs.pt"
       layer="collective.rcse.layer.MobileLayer"
       />
+ -->
   <browser:page
       for="collective.rcse.content.event.EventSchema"
       name="event_view"

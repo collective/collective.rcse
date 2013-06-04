@@ -19,7 +19,7 @@
     layer="collective.rcse.layer.MobileLayer"
     permission="zope2.View"
     />
-
+<!-- 
   <browser:viewlet
     name="cioppino.twothumbs"
     for="cioppino.twothumbs.interfaces.ILoveThumbsDontYou"
@@ -28,6 +28,7 @@
     layer="collective.rcse.layer.MobileLayer"
     permission="zope2.View"
     />
+-->
   <!-- Comments viewlet -->
   <browser:viewlet
       name="plone.comments"

@@ -13,5 +13,27 @@
    </property>
    <property name="visible">True</property>
   </object>
+  <object name="cioppino_twothumbs_like" meta_type="CMF Action" i18n:domain="cioppino.twothumbs">
+   <property name="title">Like</property>
+   <property name="description">I like this (click again to undo)</property>
+   <property name="url_expr">string:$object_url/@@cioppino_twothumbs_like</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr"></property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+  <object name="cioppino_twothumbs_dislike" meta_type="CMF Action" i18n:domain="cioppino.twothumbs">
+   <property name="title">Ugh</property>
+   <property name="description">I dislike this (click again to undo)</property>
+   <property name="url_expr">string:$object_url/@@cioppino_twothumbs_dislike</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr"></property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
  </object>
 </object>
