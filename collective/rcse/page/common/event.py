@@ -1,30 +1,6 @@
-from zope import schema
-from plone.directives import form
+import icalendar
 from Products.Five.browser import BrowserView
-from plone.app.textfield import RichText
-from collective.rcse.i18n import RCSEMessageFactory
-
-_ = RCSEMessageFactory
-
-
-class EventSchema(form.Schema):
-    """A conference session. Sessions are managed inside Programs.
-    """
-
-    start = schema.Date(title=_(u"Start date"))
-    end = schema.Date(title=_(u"End date"),
-                      required=False)
-
-    start_hour = schema.Time(title=_(u"Start hour"),
-                             required=False)
-    end_hour = schema.Time(title=_(u"End hour"),
-                           required=False)
-
-    text = RichText(title=_(u"Text"),
-                    required=False)
-
-    event_url = schema.URI(title=_(u"Event URL"),
-                           required=False)
+from plone.uuid.interfaces import IUUID
 
 
 class EventView(BrowserView):
@@ -79,3 +55,31 @@ class EventView(BrowserView):
 
     def location(self):
         return ""
+
+
+PRODID = "-//Plone.org//NONSGML collective.rcse//EN"
+VERSION = "2.0"
+
+
+class ICSEventView(EventView):
+    def __init__(self, context, request):
+        EventView.__init__(self, context, request)
+        self.event = None
+        self.cal = None
+
+    def update(self):
+        if self.event is None:
+            self.event = icalendar.Event()
+            self.event.add('summary', self.context.Description())
+            self.event.add('dtstart', )
+            self.eventadd('summary', 'Python meeting about calendaring')
+            self.eventadd('dtstart', self.context.start)
+            self.eventadd('dtend', self.context.end)
+            self.event['uid'] = IUUID(self.context)
+            self.eventadd('priority', 5)
+        if self.cal is None:
+            self.cal = icalendar.Calendar()
+            self.cal.add_component(self.event)
+
+    def index(self):
+        return self.cal.to_ical()

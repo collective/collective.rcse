@@ -119,18 +119,6 @@
                         </td>
                     </tr>
                     </tal:block>
-                    <tr>
-                        <td colspan="2"
-                            tal:define="here_url context/@@plone_context_state/object_url;
-                                portal context/@@plone_portal_state/portal;">
-                            <a href="#"
-                               tal:attributes="href string:$here_url/ics_view"
-                               title="Download this event in iCal format"
-                               i18n:attributes="title title_add_to_ical;">
-                            <span>Ajouter &agrave; mon calendrier</span>
-                            </a>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>

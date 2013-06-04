@@ -53,6 +53,13 @@
       />
   <browser:page
       for="collective.rcse.content.event.EventSchema"
+      name="ics_view"
+      class=".event.ICSEventView"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+  <browser:page
+      for="collective.rcse.content.event.EventSchema"
       name="tile_view"
       class=".event.EventView"
       template="templates/event_tile_view.pt"

@@ -53,6 +53,7 @@ setup(
         'collective.z3cform.html5widgets',
         'plonetheme.foundation',
         'plonetheme.jquerymobile',
+        'icalendar',
         # -*- Extra requirements: -*-
     ],
     extras_require=dict(
