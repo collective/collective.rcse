@@ -20,7 +20,6 @@ class WelcomeView(BrowserView):
         self.membership = None
         self.isAnon = None
         self.member = None
-        self.member_info = None
 
     def update(self):
         if self.membership is None:
@@ -29,5 +28,3 @@ class WelcomeView(BrowserView):
             self.member = self.membership.getAuthenticatedMember()
             if self.member.getId() is None:
                 self.isAnon = True
-        if self.member_info is None and not self.isAnon:
-            pass

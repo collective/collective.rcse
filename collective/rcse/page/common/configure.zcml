@@ -14,6 +14,20 @@
 
   <browser:page
       for="*"
+      name="creator_memberinfo_view"
+      class=".person.CreatorMemberInfoView"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+  <browser:page
+      for="*"
+      name="auth_memberinfo_view"
+      class=".person.AuthenticatedMemberInfoView"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+  <browser:page
+      for="*"
       name="vcard_view"
       class=".vcard.VCardView"
       template="templates/vcard_view.pt"
