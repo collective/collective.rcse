@@ -34,6 +34,13 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
   <include file="upgrades.zcml" />
+  <genericsetup:importStep
+       name="collective.rcse"
+       title="collective.rcse"
+       description=""
+       handler="collective.rcse.setuphandler.setupVarious">
+     <depends name="typeinfo"/>
+  </genericsetup:importStep>
 
   <interface
       interface=".layer.DesktopLayer"

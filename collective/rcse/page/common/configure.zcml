@@ -4,6 +4,15 @@
     i18n_domain="collective.rcse">
 
   <browser:page
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      name="welcome_view"
+      class=".welcome.WelcomeView"
+      template="templates/welcome_view.pt"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+
+  <browser:page
       for="*"
       name="vcard_view"
       class=".vcard.VCardView"
