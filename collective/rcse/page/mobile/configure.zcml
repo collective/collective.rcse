@@ -41,5 +41,13 @@
       permission="zope2.View"
       layer="collective.rcse.layer.MobileLayer"
       />
+  <browser:page
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      name="welcome_view"
+      class="collective.rcse.page.common.welcome.WelcomeView"
+      template="templates/welcome_view.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
 
 </configure>

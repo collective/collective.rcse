@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.rcse">
+
+<body>
+  <div metal:fill-slot="main" tal:define="auth_memberinfo context/auth_memberinfo">
+    <tal:main-macro metal:define-macro="main">
+
+    <h1 i18n:translate="Welcome">My space</h1>
+
+    <div class="rcseblock ui-collapsible ui-collapsible-inset ui-corner-all ui-collapsible-themed-content">
+        <h2 class="ui-collapsible-heading">
+            <span class="ui-btn-inner ui-collapsible-heading-toggle ui-btn ui-fullsize ui-btn-icon-left ui-btn-up-b" i18n:translate="">My profile</span>
+        </h2>
+        <div class="ui-collapsible-content" tal:content="structure context/auth_vcard_view"/>
+    </div>
+
+    <div class="rcseblock ui-collapsible ui-collapsible-inset ui-corner-all ui-collapsible-themed-content">
+        <h2 class="ui-collapsible-heading">
+            <span class="ui-btn-inner ui-collapsible-heading-toggle ui-btn ui-fullsize ui-btn-icon-left ui-btn-up-b" i18n:translate="">News</span>
+        </h2>
+        <div class="ui-collapsible-content">
+          NEWS
+        </div>
+    </div>
+
+    </tal:main-macro>
+  </div>
+</body>
+</html>

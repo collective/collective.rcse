@@ -1,7 +1,7 @@
 <div class="panel" tal:attributes="id view/tileid">
-  <div class="byline">
-    <img tal:attributes="src view/portrait"/>
-    <a href="" rel="author"
+  <div class="vcard byline">
+    <img class="photo" tal:attributes="src view/portrait"/>
+    <a href="" rel="author" class="fn url"
       tal:attributes="href view/author_url"
       tal:content="view/author_name">John</a>
     <a href="" tal:attributes="href view/group_url" tal:content="view/group_title">group</a>

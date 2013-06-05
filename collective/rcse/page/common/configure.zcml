@@ -14,26 +14,35 @@
 
   <browser:page
       for="*"
-      name="creator_memberinfo_view"
+      name="creator_memberinfo"
       class=".person.CreatorMemberInfoView"
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
       />
   <browser:page
       for="*"
-      name="auth_memberinfo_view"
+      name="auth_memberinfo"
       class=".person.AuthenticatedMemberInfoView"
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
       />
   <browser:page
       for="*"
-      name="vcard_view"
-      class=".vcard.VCardView"
+      name="creator_vard_view"
+      class=".person.CreatorMemberInfoView"
       template="templates/vcard_view.pt"
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
       />
+  <browser:page
+      for="*"
+      name="auth_vcard_view"
+      class=".person.AuthenticatedMemberInfoView"
+      template="templates/vcard_view.pt"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+
   <browser:page
       for="collective.rcse.content.audio.AudioSchema"
       name="audio_view"

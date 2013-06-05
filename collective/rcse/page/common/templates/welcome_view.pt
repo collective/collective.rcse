@@ -7,11 +7,15 @@
       i18n:domain="collective.rcse">
 
 <body>
-  <div metal:fill-slot="main" tal:define="auth_memberinfo_view context/auth_memberinfo_view">
+  <div metal:fill-slot="main" tal:define="auth_memberinfo context/auth_memberinfo">
     <tal:main-macro metal:define-macro="main">
 
-    <h1 i18n:translate="Welcome">Welcome <tal:name i18n:name="name" tal:content="auth_memberinfo_view/formated_name"></tal:name></h1>
+    <h1 i18n:translate="Welcome">My space</h1>
 
+    <div class="rcseblock">
+        <h2 i18n:translate="">My profile</h2>
+        <div tal:replace="structure context/auth_vcard_view"/>
+    </div>
     </tal:main-macro>
   </div>
 </body>

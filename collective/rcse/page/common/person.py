@@ -10,6 +10,8 @@ class AuthenticatedMemberInfoView(BrowserView):
 
     def __call__(self):
         self.update()
+        if self.__name__.endswith("_view"):
+            return self.index()
         return self
 
     def __init__(self, context, request):
