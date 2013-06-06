@@ -27,7 +27,9 @@
             <span class="ui-btn-inner ui-collapsible-heading-toggle ui-btn ui-fullsize ui-btn-icon-left ui-btn-up-b" i18n:translate="">News</span>
         </h2>
         <div class="ui-collapsible-content">
-          NEWS
+          <tal:tile tal:repeat="item view/get_content">
+              <a class="rcse_tile" tal:attributes="href item; id repeat/item/index"></a>
+            </tal:tile>
         </div>
     </div>
     <div id="viewlet-below-content" tal:content="structure provider:plone.belowcontent" tal:condition="not:ajax_load" />

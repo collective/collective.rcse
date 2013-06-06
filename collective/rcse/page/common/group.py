@@ -13,22 +13,34 @@ class GroupView(BrowserView):
         self.update()
         return self.index()
 
-    def update(self):
-        self.portal_catalog = getToolByName(self.context, 'portal_catalog')
-        self.context_path = '/'.join(self.context.getPhysicalPath())
-        self.query = {"path": {'query': self.context_path, 'depth': 1},
-                      "sort_on": "effective",
-                      "sort_order": "reverse",
-                      "sort_limit": 20}
-        dofilter = self.request.get('filter', False)
-        if dofilter:
-            text = self.request.get('SearchableText', None)
-            if text is not None:
-                self.query["SearchableText"] = text
-            ptype = self.request.get('portal_type', None)
-            if ptype is not None:
-                self.query["portal_type"] = ptype
+    def __init__(self, context, request):
+        BrowserView.__init__(self, context, request)
+        self.portal_catalog = None
+        self.context_path = None
+        self.query = None
         self.results = []
+
+    def update(self):
+        if self.portal_catalog is None:
+            self.portal_catalog = getToolByName(self.context, 'portal_catalog')
+        if self.context_path is None:
+            self.context_path = '/'.join(self.context.getPhysicalPath())
+        if self.query is None:
+            self.query = {
+                "path": {'query': self.context_path, 'depth': 1},
+                "sort_on": "effective",
+                "sort_order": "reverse",
+                "sort_limit": 20,
+                "object_provides": "collective.rcse.content.common.RCSEContent",
+            }
+            dofilter = self.request.get('filter', False)
+            if dofilter:
+                text = self.request.get('SearchableText', None)
+                if text is not None:
+                    self.query["SearchableText"] = text
+                ptype = self.request.get('portal_type', None)
+                if ptype is not None:
+                    self.query["portal_type"] = ptype
 
     def get_content(self):
         if not self.results:
@@ -47,24 +59,31 @@ class GroupTileView(BrowserView):
         self.update()
         return self.index()
 
+    def __init__(self, context, request):
+        super(GroupTileView, self).__init__(context, request)
+        self.membership = None
+        self.portal_url = None
+        self.tileid = None
+        self.group = None
+        self.group_url = None
+        self.group_title = None
+        self.effective_date = None
+
     def update(self):
-        self.membership = getToolByName(self.context, "portal_membership")
-        self.portal_url = getToolByName(self.context, 'portal_url')()
-        self.tileid = IUUID(self.context)
-        self.author_id = self.context.Creator()
-        self.author = self.membership.getMemberById(self.author_id)
-        self.author_name = self.author.getProperty('fullname')
-        self.author_url = self.portal_url + '/author/' + self.author_id
-        portrait = self.membership.getPersonalPortrait(self.author_id)
-        if portrait:
-            self.portrait = portrait.absolute_url()
-        else:
-            path = '/++resource++collective.rcse/defaultUser.png'
-            self.portrait = self.portal_url + path
-        self.group = self.context.aq_inner.aq_parent
-        self.group_url = self.group.absolute_url()
-        self.group_title = self.group.Title()
-        self.effective_date = self.get_effective_date()
+        if self.membership is None:
+            self.membership = getToolByName(self.context, "portal_membership")
+        if self.portal_url is None:
+            self.portal_url = getToolByName(self.context, 'portal_url')()
+        if self.tileid is None:
+            self.tileid = IUUID(self.context)
+        if self.group is None:
+            self.group = self.context.aq_inner.aq_parent
+        if self.group_url is None:
+            self.group_url = self.group.absolute_url()
+        if self.group_title is None:
+            self.group_title = self.group.Title()
+        if self.effective_date is None:
+            self.effective_date = self.get_effective_date()
 
     def get_content(self):
         return self.context.restrictedTraverse('tile_view')()
