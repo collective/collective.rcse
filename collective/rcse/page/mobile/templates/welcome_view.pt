@@ -10,7 +10,9 @@
   <div metal:fill-slot="main" tal:define="auth_memberinfo context/auth_memberinfo">
     <tal:main-macro metal:define-macro="main">
 
+    <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
     <h1 i18n:translate="Welcome">My space</h1>
+    <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
 
     <div class="rcseblock ui-collapsible ui-collapsible-inset ui-corner-all ui-collapsible-themed-content">
         <h2 class="ui-collapsible-heading">
@@ -19,6 +21,7 @@
         <div class="ui-collapsible-content" tal:content="structure context/auth_vcard_view"/>
     </div>
 
+    <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" tal:condition="not:ajax_load" />
     <div class="rcseblock ui-collapsible ui-collapsible-inset ui-corner-all ui-collapsible-themed-content">
         <h2 class="ui-collapsible-heading">
             <span class="ui-btn-inner ui-collapsible-heading-toggle ui-btn ui-fullsize ui-btn-icon-left ui-btn-up-b" i18n:translate="">News</span>
@@ -27,6 +30,7 @@
           NEWS
         </div>
     </div>
+    <div id="viewlet-below-content" tal:content="structure provider:plone.belowcontent" tal:condition="not:ajax_load" />
 
     </tal:main-macro>
   </div>
