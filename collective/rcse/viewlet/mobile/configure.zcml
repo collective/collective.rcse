@@ -5,17 +5,17 @@
 
   <browser:viewlet
       name="plonetheme.jquerymobile.usertoolbar"
-      class=".panel.UserToolBar"
       manager="plonetheme.jquerymobile.browser.viewlets.manager.IPanelLeft"
+      class=".panel.UserToolBar"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
 
   <browser:viewlet
     name="rcse.mobile.footer.links"
+    manager="plonetheme.jquerymobile.browser.viewlets.manager.IFooter"
     class=".footer.FooterLinks"
     template="templates/links.pt"
-    manager="plonetheme.jquerymobile.browser.viewlets.manager.IFooter"
     layer="collective.rcse.layer.MobileLayer"
     permission="zope2.View"
     />
@@ -31,10 +31,10 @@
 -->
   <!-- Comments viewlet -->
   <browser:viewlet
-      name="plone.comments"
       for="Products.CMFCore.interfaces.IContentish"
-      manager="plone.app.layout.viewlets.interfaces.IBelowContent"
       view="plone.app.layout.globals.interfaces.IViewView"
+      name="plone.comments"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContent"
       class="plone.app.discussion.browser.comments.CommentsViewlet"
       template="templates/comments.pt"
       layer="collective.rcse.layer.MobileLayer"
@@ -45,9 +45,18 @@
       name="plone.abovecontenttitle.documentactions"
       manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
       class="plone.app.layout.viewlets.content.DocumentActionsViewlet"
-      permission="zope2.View"
       template="templates/document_actions.pt"
       layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
+  <!-- plone.personalbar -->
+  <browser:viewlet
+      name="plone.personalbar"
+      manager="plonetheme.jquerymobile.browser.viewlets.manager.IHeaderRight"
+      class="plonetheme.jquerymobile.browser.viewlets.personal_bar.PersonalBarViewlet"
+      template="templates/personal_bar.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
       />
 
 <!-- Hide some viewlets -->

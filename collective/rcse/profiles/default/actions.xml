@@ -36,4 +36,9 @@
    <property name="visible">True</property>
   </object>
  </object>
+ <object name="user" meta_type="CMF Action Category">
+ <!-- desactivate some plone base user action -->
+  <object name="dashboard"><property name="visible">False</property></object>
+  <object name="preferences"><property name="visible">False</property></object>
+ </object>
 </object>
