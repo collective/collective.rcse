@@ -26,12 +26,13 @@ class GroupView(BrowserView):
         if self.context_path is None:
             self.context_path = '/'.join(self.context.getPhysicalPath())
         if self.query is None:
+            iface = "collective.rcse.content.common.RCSEContent"
             self.query = {
                 "path": {'query': self.context_path, 'depth': 1},
                 "sort_on": "effective",
                 "sort_order": "reverse",
                 "sort_limit": 20,
-                "object_provides": "collective.rcse.content.common.RCSEContent",
+                "object_provides": iface,
             }
             dofilter = self.request.get('filter', False)
             if dofilter:

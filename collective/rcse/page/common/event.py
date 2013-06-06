@@ -81,8 +81,8 @@ class ICSEventView(EventView):
 
     def index(self):
         self.request.response.setHeader(
-             'Content-Disposition',
-             'attachment; filename=%s.ics' % (self.context.getId())
+            "Content-Disposition",
+            "attachment; filename=%s.ics" % (self.context.getId())
         )
         self.request.response.setHeader(
             "Content-type",

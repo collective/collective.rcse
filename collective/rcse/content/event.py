@@ -1,5 +1,4 @@
 from zope import schema
-from plone.directives import form
 from plone.app.textfield import RichText
 from collective.rcse.i18n import RCSEMessageFactory
 from collective.rcse.content import common
