@@ -11,14 +11,6 @@
       permission="zope2.View"
       />
 
-  <browser:viewlet
-    name="rcse.mobile.footer.links"
-    manager="plonetheme.jquerymobile.browser.viewlets.manager.IFooter"
-    class=".footer.FooterLinks"
-    template="templates/links.pt"
-    layer="collective.rcse.layer.MobileLayer"
-    permission="zope2.View"
-    />
 <!-- 
   <browser:viewlet
     name="cioppino.twothumbs"

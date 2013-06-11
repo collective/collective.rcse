@@ -2,15 +2,6 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
--
-  <browser:viewlet
-      name="rcse.desktop.footer.links"
-      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-      class=".footer.FooterLinks"
-      template="templates/links.pt"
-      layer="collective.rcse.layer.DesktopLayer"
-      permission="zope2.View"
-      />
 
 <!-- hide some viewlets -->
     <!-- Content views (tabs) -->
@@ -76,29 +67,6 @@
         for="plone.portlets.interfaces.ILocalPortletAssignable"
         view="plone.app.layout.globals.interfaces.IViewView"
         manager="plone.app.layout.viewlets.interfaces.IBelowContent"
-        class="collective.rcse.viewlet.common.HiddenViewlet"
-        layer="collective.rcse.layer.DesktopLayer"
-        permission="zope2.View"
-        />
-    <browser:viewlet
-        name="plone.footer"
-        for="*"
-        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-        class="collective.rcse.viewlet.common.HiddenViewlet"
-        layer="collective.rcse.layer.DesktopLayer"
-        permission="zope.Public"
-        />
-    <browser:viewlet
-        name="plone.colophon"
-        for="*"
-        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-        class="collective.rcse.viewlet.common.HiddenViewlet"
-        layer="collective.rcse.layer.DesktopLayer"
-        permission="zope.Public"
-        />
-    <browser:viewlet
-        name="plone.site_actions"
-        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
         class="collective.rcse.viewlet.common.HiddenViewlet"
         layer="collective.rcse.layer.DesktopLayer"
         permission="zope2.View"

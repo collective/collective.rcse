@@ -7,19 +7,21 @@ from plone.app.testing import (
 
 from plone.app.robotframework.testing import AUTOLOGIN_LIBRARY_FIXTURE
 from plone.testing import z2
+from plonetheme.jquerymobile import testing as mobile_testing
 
 
-class Layer(PloneSandboxLayer):
+class Layer(mobile_testing.Layer):
 
     defaultBases = (PLONE_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
         # Load ZCML
+        mobile_testing.Layer.setUpZope(self, app, configurationContext)
         import collective.rcse
         self.loadZCML(package=collective.rcse)
 
     def setUpPloneSite(self, portal):
-#        portal.portal_workflow.setDefaultChain('simple_publication_workflow')
+        mobile_testing.Layer.setUpPloneSite(self, portal)
         self.applyProfile(portal, 'collective.rcse:default')
 
 

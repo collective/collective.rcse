@@ -41,4 +41,28 @@
   <object name="dashboard"><property name="visible">False</property></object>
   <object name="preferences"><property name="visible">False</property></object>
  </object>
+ <object name="site_actions" meta_type="CMF Action Category">
+  <object name="themeswitcher_desktop" meta_type="CMF Action" i18n:domain="collective.rcse">
+   <property name="title">themeswitcher_desktop</property>
+   <property name="description" i18n:translate=""></property>
+   <property name="url_expr">string:$object_url/@@themeswitcher_cookie?themeswitcher=collective.rcse.desktop</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr">python:context.restrictedTraverse('@@ismobiletheme_view')()</property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+  <object name="themeswitcher_mobile" meta_type="CMF Action" i18n:domain="collective.rcse">
+   <property name="title">themeswitcher_mobile</property>
+   <property name="description" i18n:translate=""></property>
+   <property name="url_expr">string:$object_url/@@themeswitcher_cookie?themeswitcher=collective.rcse.mobile</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr">python:not context.restrictedTraverse('@@ismobiletheme_view')()</property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+ </object>
 </object>

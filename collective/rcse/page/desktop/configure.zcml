@@ -19,6 +19,12 @@
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
-      
+  <browser:page
+      for="*"
+      name="ismobiletheme_view"
+      class=".ismobiletheme.IsMobileTheme"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
 
 </configure>

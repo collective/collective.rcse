@@ -1,11 +1,12 @@
 <tal:block tal:condition="python:view.user_actions and not view.anonymous">
-<a href="#popup-personalbar"
+<a href="#popup-personalbar" id="user-name"
    data-rel="popup" data-role="button" data-inline="true"
    data-transition="fade" data-icon="user" data-iconpos="notext">Menu</a>
 
 <div data-role="popup" id="popup-personalbar" i18n:domain="plone">
     <ul data-role="listview" data-inset="true" data-icon="false">
-        <li tal:repeat="action view/user_actions">
+        <li tal:repeat="action view/user_actions"
+            tal:attributes="id string:personaltools-${action/id}">
           <a data-rel="popup"
              tal:attributes="href action/url"
              tal:content="action/title"
