@@ -19,7 +19,7 @@ class ISecuritySettings(interface.Interface):
     addGroupPermission = schema.Choice(
         title=_(u"Add group"),
         vocabulary="plone.app.vocabularies.Roles",
-        default=False,
+        default="Manager",
     )
 
 
