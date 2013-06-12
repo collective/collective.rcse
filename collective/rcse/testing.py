@@ -1,5 +1,4 @@
 from plone.app.testing import (
-    PloneSandboxLayer,
     PLONE_FIXTURE,
     IntegrationTesting,
     FunctionalTesting,
