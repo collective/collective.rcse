@@ -2,7 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
-
+  <include package="plone.app.controlpanel" file="permissions.zcml"/>
   <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="welcome_view"
@@ -158,6 +158,13 @@
       name="cioppino_twothumbs_dislike"
       class=".cioppino_twothumbs.DisLike"
       permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="rcse-security-controlpanel"
+      class="collective.rcse.security.SecurityControlPanelView"
+      permission="plone.app.controlpanel.Security"
       layer="collective.rcse.layer.CommonLayer"
       />
 

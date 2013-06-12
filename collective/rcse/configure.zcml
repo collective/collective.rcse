@@ -54,5 +54,4 @@
       />
   <subscriber handler=".security.handle_security_update" />
 
-
 </configure>

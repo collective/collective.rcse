@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  i18n:domain="plone"
+  name="portal_controlpanel">
+  <configlet title="RCSE Security settings" action_id="rcse-security"
+     appId="Plone" category="Products"
+     condition_expr=""
+     icon_expr=""
+     url_expr="string:${portal_url}/@@rcse-security-controlpanel" visible="True"
+     i18n:attributes="title" i18n:domain="collective.rcse">
+     <permission>Plone Site Setup: Security</permission>
+  </configlet>
+</object>
