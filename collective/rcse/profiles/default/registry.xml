@@ -1,4 +1,5 @@
 <registry>
+  <records interface="collective.rcse.security.ISecuritySettings"/>
   <!-- collective.themeswitcher config -->
   <record name="collective.themeswitcher.theme.mobile">
     <field type="plone.registry.field.ASCIILine">

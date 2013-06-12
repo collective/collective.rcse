@@ -52,6 +52,7 @@
       type="zope.publisher.interfaces.browser.IBrowserSkinType"
       name="collective.rcse.mobile"
       />
+  <subscriber handler=".security.handle_security_update" />
 
 
 </configure>
