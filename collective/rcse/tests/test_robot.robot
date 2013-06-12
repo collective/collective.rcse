@@ -2,7 +2,6 @@
 
 Resource  plone/app/robotframework/selenium.robot
 Resource  plone/app/robotframework/keywords.robot
-Resource  collective/history/keywords.robot
 Resource  plonetheme/jquerymobile/keywords.robot
 
 Test Setup  Open test browser
@@ -21,8 +20,8 @@ Assert: I can't browse the rcse without being logged-in
       And I'm on the home page
      Then I see the login form
 
-Assert: I can add groups
-    Given I'm loggedin as a test user
+Assert: Administrator can add groups
+    Given I'm loggedin as the site owner
       And I'm on the mobile version
       And I'm on the home page
      When I open the add content menu
@@ -37,6 +36,8 @@ I'm not loggedin
 I'm loggedin as a test user
     Log in as test user
 
+I'm loggedin as the site owner
+    Log in as site owner
 
 #THEME SWITCHER
 I'm on the mobile version
@@ -48,7 +49,7 @@ I'm on the desktop version
 #MENU
 I open the add content menu
     JQMobile:Open left panel
-    Click Link  css=#plone-contentmenu-factories a
+    Click Link  css=#plone-contentmenu-factories
 
 #LOCATIONS
 I'm on the home page

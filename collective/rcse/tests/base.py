@@ -20,10 +20,13 @@ class IntegrationTestCase(unittest.TestCase):
     def setUp(self):
         super(IntegrationTestCase, self).setUp()
         self.portal = self.layer['portal']
-        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.login('Manager')
         self.portal.invokeFactory('Folder', 'test-folder')
-        setRoles(self.portal, TEST_USER_ID, ['Member'])
+        self.login('Member')
         self.folder = self.portal['test-folder']
+
+    def login(self, role):
+        setRoles(self.portal, TEST_USER_ID, [role])
 
 
 class FunctionalTestCase(IntegrationTestCase):

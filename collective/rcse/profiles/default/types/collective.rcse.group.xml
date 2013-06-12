@@ -26,7 +26,7 @@
  <property name="klass">plone.dexterity.content.Container</property>
 
  <!-- add permission -->
- <property name="add_permission">cmf.AddPortalContent</property>
+ <property name="add_permission">rcse.AddGroup</property>
 
  <!-- enabled behaviors -->
  <property name="behaviors">

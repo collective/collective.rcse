@@ -9,6 +9,7 @@
     i18n_domain="collective.rcse">
 
   <includeDependencies package="."/>
+  <include file="permissions.zcml"/>
   <include package="plone.app.contentmenu" />
   <include package=".content" />
   <include package=".page" />

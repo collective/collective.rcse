@@ -1,0 +1,38 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:zcml="http://namespaces.zope.org/zcml"
+           i18n_domain="collective.rcse">
+
+  <configure zcml:condition="installed AccessControl.security">
+
+    <permission
+      id="rcse.AddAudio"
+      title="collective.rcse: Add audio"
+      />
+    <permission
+      id="rcse.AddDocument"
+      title="collective.rcse: Add document"
+      />
+    <permission
+      id="rcse.AddEvent"
+      title="collective.rcse: Add event"
+      />
+    <permission
+      id="rcse.AddFile"
+      title="collective.rcse: Add file"
+      />
+    <permission
+      id="rcse.AddGroup"
+      title="collective.rcse: Add group"
+      />
+    <permission
+      id="rcse.AddImage"
+      title="collective.rcse: Add image"
+      />
+    <permission
+      id="rcse.AddVideo"
+      title="collective.rcse: Add video"
+      />
+
+  </configure>
+
+</configure>
