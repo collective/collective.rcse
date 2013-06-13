@@ -25,7 +25,7 @@ Assert: Administrator can add groups
       And I'm on the mobile version
       And I'm on the home page
      When I open the add content menu
-     Then I see 'group' in the content menu
+     Then I see 'collective-rcse-group' in the content menu
 
 *** Keywords ***
 
@@ -49,7 +49,7 @@ I'm on the desktop version
 #MENU
 I open the add content menu
     JQMobile:Open left panel
-    Click Link  css=#plone-contentmenu-factories
+    Click Link  css=#plone-contentmenu-factories a
 
 #LOCATIONS
 I'm on the home page

@@ -1,11 +1,10 @@
 <tal:editbar
     tal:define="ploneview context/@@plone;
         checkPermission nocall: context/portal_membership/checkPermission;
-        view_actions view/prepareObjectTabs;
-        content_actions view/object_actions;">
+        view_actions view/prepareObjectTabs;">
 
 <div class="addcontent" data-role="collapsible-set" i18n:domain="plone">
-  <div data-role="collapsible" tal:condition="python:checkPermission('Modify portal content', context)">
+  <div id="content-views" data-role="collapsible" tal:condition="python:checkPermission('Modify portal content', context)">
     <h3 i18n:translate="">Manage</h3>
     <div data-role="controlgroup">
        <tal:views repeat="action view_actions">
@@ -14,13 +13,15 @@
               tal:condition="not:selected"
               tal:content="action/title"
               tal:attributes="href action/url;
-                              target action/link_target|nothing;"
+                              target action/link_target|nothing;
+                              id string:contentview-${action/id};"
               i18n:translate="">View name</a>
            <a href="" data-role="button" data-icon="check"
               tal:condition="selected"
               tal:content="action/title"
               tal:attributes="href action/url;
-                              target action/link_target|nothing;"
+                              target action/link_target|nothing;
+                              id string:contentview-${action/id};"
               i18n:translate="">View name</a>
          </tal:button>
        </tal:views>
