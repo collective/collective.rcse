@@ -2,11 +2,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: Tue May 14 15:20:24 2013\n"
+"POT-Creation-Date: 2013-06-17 10:00+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,60 +14,251 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.rcse\n"
+"Language: \n"
 
-#: collective.rcse:/content/audio.py:15
+#: ./profiles/default/types/collective.rcse.document.xml
+msgid "A document with rich text"
+msgstr ""
+
+#: ./profiles/default/types/collective.rcse.file.xml
+msgid "A file"
+msgstr ""
+
+#: ./profiles/default/types/collective.rcse.group.xml
+msgid "A group"
+msgstr ""
+
+#: ./profiles/default/types/collective.rcse.video.xml
+msgid "A video file"
+msgstr ""
+
+#: ./content/person.py:21
+msgid "About me"
+msgstr ""
+
+#: ./security.py:20
+msgid "Add group"
+msgstr ""
+
+#: ./profiles/default/types/collective.rcse.audio.xml
+msgid "An audio file"
+msgstr ""
+
+#: ./profiles/default/types/collective.rcse.event.xml
+msgid "An event"
+msgstr ""
+
+#: ./profiles/default/types/collective.rcse.image.xml
+msgid "An image"
+msgstr ""
+
+#: ./profiles/default/types/collective.rcse.audio.xml
+msgid "Audio"
+msgstr ""
+
+#: ./content/audio.py:12
 msgid "Audio file"
 msgstr ""
 
-#: collective.rcse:/content/document.py:15
-#: collective.rcse:/content/event.py:24
-msgid "Text"
+#: ./content/person.py:22
+msgid "Birth Date"
 msgstr ""
 
-#: collective.rcse:/content/event.py:15
-msgid "Start date"
+#: ./content/person.py:38
+msgid "Blog"
 msgstr ""
 
-#: collective.rcse:/content/event.py:16
-msgid "End date"
+#: ./profiles/default/types/collective.rcse.document.xml
+msgid "Collaborate"
 msgstr ""
 
-#: collective.rcse:/content/event.py:19
-msgid "Start hour"
+#: ./profiles/default/types/collective.rcse.document.xml
+msgid "Document"
 msgstr ""
 
-#: collective.rcse:/content/event.py:21
-msgid "End hour"
-msgstr ""
-
-#: collective.rcse:/content/event.py:27
-msgid "Event URL"
-msgstr ""
-
-#: collective.rcse:/content/file.py:13
-msgid "File"
-msgstr ""
-
-#: collective.rcse:/content/image.py:13
-msgid "Image"
-msgstr ""
-
-#: collective.rcse:/content/templates/file_view.pt:12
+#: ./page/common/templates/file_view.pt:12
 msgid "Download"
 msgstr ""
 
-#: collective.rcse:/content/video.py:16
+#: ./content/person.py:32
+msgid "Email address (perso)"
+msgstr ""
+
+#: ./content/person.py:31
+msgid "Email address (pro)"
+msgstr ""
+
+#: ./content/event.py:14
+msgid "End date"
+msgstr ""
+
+#: ./content/event.py:19
+msgid "End hour"
+msgstr ""
+
+#: ./profiles/default/types/collective.rcse.event.xml
+msgid "Event"
+msgstr ""
+
+#: ./content/event.py:25
+msgid "Event URL"
+msgstr ""
+
+#: ./content/file.py:12
+#: ./page/common/file.py:13
+#: ./profiles/default/types/collective.rcse.file.xml
+msgid "File"
+msgstr ""
+
+#: ./content/person.py:14
+msgid "First Name"
+msgstr ""
+
+#: ./content/person.py:16
+msgid "Formated Name"
+msgstr ""
+
+#: ./content/person.py:41
+msgid "Google+ URL"
+msgstr ""
+
+#: ./profiles/default/types/collective.rcse.group.xml
+msgid "Group"
+msgstr ""
+
+#: ./content/image.py:12
+#: ./page/common/image.py:13
+#: ./profiles/default/types/collective.rcse.image.xml
+msgid "Image"
+msgstr ""
+
+#: ./content/person.py:15
+msgid "Last Name"
+msgstr ""
+
+#: ./content/person.py:42
+msgid "Linkedin URL"
+msgstr ""
+
+#: ./content/person.py:23
+msgid "Main spoken language"
+msgstr ""
+
+#: ./content/person.py:34
+msgid "Mobile phone number"
+msgstr ""
+
+#: ./page/common/templates/welcome_view.pt:16
+#: ./page/mobile/templates/welcome_view.pt:20
+msgid "My profile"
+msgstr ""
+
+#: ./page/mobile/templates/welcome_view.pt:27
+msgid "News"
+msgstr ""
+
+#: ./content/person.py:27
+msgid "Orgnization"
+msgstr ""
+
+#: ./content/person.py:33
+msgid "Phone number"
+msgstr ""
+
+#: ./content/person.py:24
+msgid "Photo URL"
+msgstr ""
+
+#: ./profiles/default/controlpanel.xml
+#: ./security.py:71
+msgid "RCSE Security settings"
+msgstr ""
+
+#: ./page/mobile/templates/group_tile_view.pt:12
+msgid "Read"
+msgstr ""
+
+#: ./content/person.py:13
+msgid "Short Name"
+msgstr ""
+
+#: ./content/person.py:40
+msgid "Skype ID"
+msgstr ""
+
+#: ./content/event.py:13
+msgid "Start date"
+msgstr ""
+
+#: ./content/event.py:17
+msgid "Start hour"
+msgstr ""
+
+#: ./content/document.py:15
+#: ./content/event.py:22
+msgid "Text"
+msgstr ""
+
+#: ./content/person.py:28
+msgid "Title"
+msgstr ""
+
+#: ./content/person.py:39
+msgid "Twitter ID"
+msgstr ""
+
+#: ./content/person.py:10
+msgid "UID"
+msgstr ""
+
+#: ./content/person.py:9
+msgid "URL"
+msgstr ""
+
+#: ./content/person.py:43
+msgid "Viadeo URL"
+msgstr ""
+
+#: ./profiles/default/types/collective.rcse.video.xml
+msgid "Video"
+msgstr ""
+
+#: ./content/video.py:12
+#: ./page/common/video.py:16
 msgid "Video file"
 msgstr ""
 
-#: collective.rcse:/page/mobile/templates/group_tile_view.pt:13
-msgid "Favorite"
+#: ./content/person.py:37
+msgid "Website"
 msgstr ""
 
-#: collective.rcse:/page/mobile/templates/group_tile_view.pt:14
-msgid "Comment"
+#. Default: "My space"
+#: ./page/common/templates/welcome_view.pt:13
+#: ./page/mobile/templates/welcome_view.pt:14
+msgid "Welcome"
 msgstr ""
 
-#: collective.rcse:/page/mobile/templates/group_tile_view.pt:15
-msgid "Read"
+#: ./page/common/cioppino_twothumbs.py:27
+msgid "You dislike this. Thanks for the feedback!"
 msgstr ""
+
+#: ./page/common/cioppino_twothumbs.py:13
+msgid "You liked this. Thanks for the feedback!"
+msgstr ""
+
+#: ./page/common/welcome.py:6
+msgid "You must be logged in to access to the RCSE"
+msgstr ""
+
+#: ./page/common/cioppino_twothumbs.py:15
+msgid "Your vote has been removed."
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "themeswitcher_desktop"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "themeswitcher_mobile"
+msgstr ""
+

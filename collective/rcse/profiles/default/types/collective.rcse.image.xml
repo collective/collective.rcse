@@ -4,7 +4,7 @@
 
  <!-- Basic metadata -->
  <property name="title" i18n:translate="">Image</property>
- <property name="description" i18n:translate="">An image image</property>
+ <property name="description" i18n:translate="">An image</property>
  <property name="content_icon"></property>
  <property name="allow_discussion">True</property>
  <property name="global_allow">False</property>

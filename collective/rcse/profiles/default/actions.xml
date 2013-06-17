@@ -3,7 +3,7 @@
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <object name="document_actions" meta_type="CMF Action Category">
   <object name="ics_view" meta_type="CMF Action" i18n:domain="plone">
-   <property name="title">title_add_to_ical</property>
+   <property name="title" i18n:translate="">title_add_to_ical</property>
    <property name="description" i18n:translate=""></property>
    <property name="url_expr">string:$object_url/ics_view</property>
    <property name="icon_expr"></property>
@@ -14,8 +14,8 @@
    <property name="visible">True</property>
   </object>
   <object name="cioppino_twothumbs_like" meta_type="CMF Action" i18n:domain="cioppino.twothumbs">
-   <property name="title">Like</property>
-   <property name="description">I like this (click again to undo)</property>
+   <property name="title" i18n:translate="">Like</property>
+   <property name="description" i18n:translate="">I like this (click again to undo)</property>
    <property name="url_expr">string:$object_url/@@cioppino_twothumbs_like</property>
    <property name="icon_expr"></property>
    <property name="available_expr"></property>
@@ -25,8 +25,8 @@
    <property name="visible">True</property>
   </object>
   <object name="cioppino_twothumbs_dislike" meta_type="CMF Action" i18n:domain="cioppino.twothumbs">
-   <property name="title">Ugh</property>
-   <property name="description">I dislike this (click again to undo)</property>
+   <property name="title" i18n:translate="">Ugh</property>
+   <property name="description" i18n:translate="">I dislike this (click again to undo)</property>
    <property name="url_expr">string:$object_url/@@cioppino_twothumbs_dislike</property>
    <property name="icon_expr"></property>
    <property name="available_expr"></property>
@@ -43,7 +43,7 @@
  </object>
  <object name="site_actions" meta_type="CMF Action Category">
   <object name="themeswitcher_desktop" meta_type="CMF Action" i18n:domain="collective.rcse">
-   <property name="title">themeswitcher_desktop</property>
+   <property name="title" i18n:translate="">themeswitcher_desktop</property>
    <property name="description" i18n:translate=""></property>
    <property name="url_expr">string:$object_url/@@themeswitcher_cookie?themeswitcher=collective.rcse.desktop</property>
    <property name="icon_expr"></property>
@@ -54,7 +54,7 @@
    <property name="visible">True</property>
   </object>
   <object name="themeswitcher_mobile" meta_type="CMF Action" i18n:domain="collective.rcse">
-   <property name="title">themeswitcher_mobile</property>
+   <property name="title" i18n:translate="">themeswitcher_mobile</property>
    <property name="description" i18n:translate=""></property>
    <property name="url_expr">string:$object_url/@@themeswitcher_cookie?themeswitcher=collective.rcse.mobile</property>
    <property name="icon_expr"></property>

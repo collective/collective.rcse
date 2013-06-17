@@ -4,7 +4,7 @@
 
  <!-- Basic metadata -->
  <property name="title" i18n:translate="">Group</property>
- <property name="description" i18n:translate="">An group</property>
+ <property name="description" i18n:translate="">A group</property>
  <property name="content_icon"></property>
  <property name="allow_discussion">True</property>
  <property name="global_allow">True</property>
