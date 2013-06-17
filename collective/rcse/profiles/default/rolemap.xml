@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<rolemap>
+<!--
+   <roles>
+    <role name="Anonymous"/>
+    <role name="Authenticated"/>
+    <role name="Manager"/>
+    <role name="Site Administrator"/>
+    <role name="Member"/>
+    <role name="Owner"/>
+    <role name="Reviewer"/>
+    <role name="Reader" />
+    <role name="Editor" />
+    <role name="Contributor" />
+  </roles>
+ -->
+  <permissions>
+    <permission name="collective.rcse: Add audio" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+    </permission>
+    <permission name="collective.rcse: Add document" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+    </permission>
+    <permission name="collective.rcse: Add event" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+    </permission>
+    <permission name="collective.rcse: Add file" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+    </permission>
+    <permission name="collective.rcse: Add image" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+    </permission>
+    <permission name="collective.rcse: Add video" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+    </permission>
+  </permissions>
+</rolemap>
