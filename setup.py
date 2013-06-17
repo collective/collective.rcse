@@ -45,6 +45,7 @@ setup(
         'collective.js.jquerymobile',
         'collective.mediaelementjs',
         'collective.picturefill',
+        'collective.portlet.favoriting',
         'collective.subscribe',
         'collective.themeswitcher',
         'collective.watcherlist',
