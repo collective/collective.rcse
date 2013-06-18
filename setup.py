@@ -46,6 +46,7 @@ setup(
         'collective.mediaelementjs',
         'collective.picturefill',
         'collective.portlet.favoriting',
+        'collective.requestaccess',
         'collective.subscribe',
         'collective.themeswitcher',
         'collective.watcherlist',
