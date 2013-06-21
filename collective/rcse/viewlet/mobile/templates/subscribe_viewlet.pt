@@ -1,0 +1,26 @@
+<div id="collective_whathappened_subscribe" i18n:domain="collective.whathappened">
+  <div data-mini="true" data-type="vertical" data-role="controlgroup">
+    <tal:block tal:condition="python: view.subscribed_show and not view.subscribed">
+      <a tal:attributes="href string:${context/absolute_url}/@@collective_whathappened_subscribe_subscribe" data-role="button">
+	Subscribe to this page
+      </a>
+    </tal:block>
+    <tal:block tal:condition="view/subscribed">
+      <a tal:attributes="href string:${context/absolute_url}/@@collective_whathappened_subscribe_unsubscribe" data-role="button">
+	Unsubscribe from this page
+      </a>
+    </tal:block>
+    <tal:block tal:condition="view/is_default_page">
+      <tal:block tal:condition="python: view.subscribed_canonical_show and not view.subscribed_canonical">
+          <a tal:attributes="href string:${view/canonical/absolute_url}/@@collective_whathappened_subscribe_subscribe" data-role="button">
+	    Subscribe to this section
+          </a>
+      </tal:block>
+      <tal:block tal:condition="view/subscribed_canonical">
+	<a tal:attributes="href string:${view/canonical/absolute_url}/@@collective_whathappened_subscribe_unsubscribe" data-role="button">
+	  Unsubscribe from this section
+	</a>
+      </tal:block>
+    </tal:block>
+  </div>
+</div>

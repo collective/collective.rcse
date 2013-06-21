@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>1029</version>
+  <version>1030</version>
   <dependencies>
     <dependency>profile-cioppino.twothumbs:default</dependency>
     <dependency>profile-collective.etherpad:default</dependency>
+    <dependency>profile-collective.whathappened:default</dependency>
     <dependency>profile-collective.favoriting:default</dependency>
     <dependency>profile-collective.history:default</dependency>
     <dependency>profile-collective.js.ckeditor:default</dependency>

@@ -45,8 +45,17 @@
   <browser:viewlet
       name="plone.personalbar"
       manager="plonetheme.jquerymobile.browser.viewlets.manager.IHeaderRight"
-      class="plonetheme.jquerymobile.browser.viewlets.personal_bar.PersonalBarViewlet"
+      class="collective.rcse.viewlet.mobile.viewlets.RcsePersonalBarViewlet"
       template="templates/personal_bar.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
+  <!-- collective.whathappened -->
+  <browser:viewlet
+      name="collective.whathappened.subscribe"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+      class="collective.whathappened.browser.subscribe.SubscribeViewlet"
+      template="templates/subscribe_viewlet.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
