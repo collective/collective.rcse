@@ -11,6 +11,13 @@
              tal:attributes="href action/url"
              tal:content="action/title"
              i18n:translate="">Add</a></li>
+	<li><hr /></li>
+	<li tal:repeat="notification view/notifications">
+	  <strong tal:omit-tag="notification/seen">
+            <a tal:attributes="href notification/url" tal:content="notification/title" i18n:translate=""></a>
+	  </strong>
+	</li>
+	<li><a tal:attributes="href string:${view/navigation_root}/@@collective_whathappened_notifications_all" i18n:translate="">See all notifications</a></li>
     </ul>
 </div>
 </tal:block>
