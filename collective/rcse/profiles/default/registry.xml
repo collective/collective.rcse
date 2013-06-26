@@ -48,4 +48,12 @@
        <value key="globally_enabled">True</value>
    </records>
 
+
+  <!-- collective.requestaccess -->
+  <record name="collective.request.access.filter.types_whitelist">
+    <value purge="False">
+      <element>collective.rcse.group</element>
+    </value>
+  </record>
+
 </registry>
