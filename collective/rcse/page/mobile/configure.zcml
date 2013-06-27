@@ -9,7 +9,7 @@
       name="group_view"
       menu="plone_displayviews"
       title="Group view"
-      class="collective.rcse.page.common.group.GroupView"
+      class="collective.rcse.page.common.group_view.GroupView"
       template="templates/group_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
@@ -18,7 +18,7 @@
       for="*"
       name="group_tile_view"
       template="templates/group_tile_view.pt"
-      class="collective.rcse.page.common.group.GroupTileView"
+      class="collective.rcse.page.common.group_view.GroupTileView"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
@@ -36,7 +36,7 @@
   <browser:page
       for="collective.rcse.content.event.EventSchema"
       name="event_view"
-      class="collective.rcse.page.common.event.EventView"
+      class="collective.rcse.page.common.event_view.EventView"
       template="templates/event_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.MobileLayer"
@@ -44,7 +44,7 @@
   <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="welcome_view"
-      class="collective.rcse.page.common.welcome.WelcomeView"
+      class="collective.rcse.page.common.welcome_view.WelcomeView"
       template="templates/welcome_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"

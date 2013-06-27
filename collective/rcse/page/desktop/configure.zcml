@@ -7,7 +7,7 @@
       for="plone.dexterity.interfaces.IDexterityContainer"
       name="group_view"
       template="templates/group_view.pt"
-      class="collective.rcse.page.common.group.GroupView"
+      class="collective.rcse.page.common.group_view.GroupView"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
@@ -15,7 +15,7 @@
       for="*"
       name="group_tile_view"
       template="templates/group_tile_view.pt"
-      class="collective.rcse.page.common.group.GroupTileView"
+      class="collective.rcse.page.common.group_view.GroupTileView"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
