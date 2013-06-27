@@ -2,6 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
+
   <include package="plone.app.controlpanel" file="permissions.zcml"/>
   <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
@@ -41,6 +42,15 @@
       template="templates/vcard_view.pt"
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
+      />
+
+  <browser:page
+      for="*"
+      name="tile_view"
+      class=".group_view.GroupTileView"
+      template="templates/tile_view.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
       />
 
   <browser:page

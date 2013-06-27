@@ -29,7 +29,7 @@ class GroupView(BrowserView):
             iface = "collective.rcse.content.common.RCSEContent"
             self.query = {
                 "path": {'query': self.context_path, 'depth': 1},
-                "sort_on": "effective",
+                "sort_on": "modified",
                 "sort_order": "reverse",
                 "sort_limit": 20,
                 "object_provides": iface,
