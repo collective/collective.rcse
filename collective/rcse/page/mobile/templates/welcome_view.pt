@@ -28,7 +28,7 @@
         </h2>
         <div class="ui-collapsible-content">
           <tal:tile tal:repeat="item view/get_content">
-              <a class="rcse_tile" tal:attributes="href item; id repeat/item/index"></a>
+              <a class="rcse_tile" tal:attributes="href item; id repeat/item/index" tal:content="item"></a>
             </tal:tile>
         </div>
     </div>

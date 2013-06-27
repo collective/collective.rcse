@@ -1,7 +1,7 @@
 from Products.CMFCore.utils import getToolByName
 from AccessControl.unauthorized import Unauthorized
 from collective.rcse.i18n import _
-from collective.rcse.page.common.group import GroupView
+from collective.rcse.page.common.group_view import GroupView
 
 msg_unauthorized = _(u"You must be logged in to access to the RCSE")
 
