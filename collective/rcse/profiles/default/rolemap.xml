@@ -27,6 +27,12 @@
       <role name="Owner"/>
       <role name="Contributor"/>
     </permission>
+    <permission name="collective.rcse: Add etherpad" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+    </permission>
     <permission name="collective.rcse: Add event" acquire="True">
       <role name="Manager"/>
       <role name="Site Administrator"/>

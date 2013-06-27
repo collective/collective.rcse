@@ -15,7 +15,13 @@
     <div class="rcseblock">
         <h2 i18n:translate="">My profile</h2>
         <div tal:replace="structure context/auth_vcard_view"/>
+          <tal:tile tal:repeat="item view/get_content">
+            <a class="rcse_tile" tal:attributes="href item; id repeat/item/index"></a>
+          </tal:tile>
+
     </div>
+
+
     </tal:main-macro>
   </div>
 </body>

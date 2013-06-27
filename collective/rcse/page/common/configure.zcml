@@ -6,7 +6,7 @@
   <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="welcome_view"
-      class=".welcome.WelcomeView"
+      class=".welcome_view.WelcomeView"
       template="templates/welcome_view.pt"
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
@@ -15,21 +15,21 @@
   <browser:page
       for="*"
       name="creator_memberinfo"
-      class=".person.CreatorMemberInfoView"
+      class=".person_view.CreatorMemberInfoView"
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
       />
   <browser:page
       for="*"
       name="auth_memberinfo"
-      class=".person.AuthenticatedMemberInfoView"
+      class=".person_view.AuthenticatedMemberInfoView"
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
       />
   <browser:page
       for="*"
       name="creator_vard_view"
-      class=".person.CreatorMemberInfoView"
+      class=".person_view.CreatorMemberInfoView"
       template="templates/vcard_view.pt"
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
@@ -37,7 +37,7 @@
   <browser:page
       for="*"
       name="auth_vcard_view"
-      class=".person.AuthenticatedMemberInfoView"
+      class=".person_view.AuthenticatedMemberInfoView"
       template="templates/vcard_view.pt"
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
@@ -46,7 +46,7 @@
   <browser:page
       for="collective.rcse.content.audio.AudioSchema"
       name="audio_view"
-      class=".audio.AudioView"
+      class=".audio_view.AudioView"
       template="templates/audio_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
@@ -54,7 +54,7 @@
   <browser:page
       for="collective.rcse.content.audio.AudioSchema"
       name="tile_view"
-      class=".audio.AudioView"
+      class=".audio_view.AudioView"
       template="templates/audio_tile_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
@@ -62,7 +62,7 @@
   <browser:page
       for="collective.rcse.content.document.DocumentSchema"
       name="document_view"
-      class=".document.DocumentView"
+      class=".document_view.DocumentView"
       template="templates/document_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
@@ -70,7 +70,7 @@
   <browser:page
       for="collective.rcse.content.document.DocumentSchema"
       name="tile_view"
-      class=".document.DocumentView"
+      class=".document_view.DocumentView"
       template="templates/document_tile_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
@@ -78,7 +78,7 @@
   <browser:page
       for="collective.rcse.content.event.EventSchema"
       name="event_view"
-      class=".event.EventView"
+      class=".event_view.EventView"
       template="templates/event_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
@@ -86,14 +86,14 @@
   <browser:page
       for="collective.rcse.content.event.EventSchema"
       name="ics_view"
-      class=".event.ICSEventView"
+      class=".event_view.ICSEventView"
       permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
       />
   <browser:page
       for="collective.rcse.content.event.EventSchema"
       name="tile_view"
-      class=".event.EventView"
+      class=".event_view.EventView"
       template="templates/event_tile_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
@@ -101,7 +101,7 @@
   <browser:page
       for="collective.rcse.content.file.FileSchema"
       name="file_view"
-      class=".file.FileView"
+      class=".file_view.FileView"
       template="templates/file_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
@@ -109,7 +109,7 @@
   <browser:page
       for="collective.rcse.content.file.FileSchema"
       name="tile_view"
-      class=".file.FileView"
+      class=".file_view.FileView"
       template="templates/file_tile_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
@@ -117,7 +117,7 @@
   <browser:page
       for="collective.rcse.content.image.ImageSchema"
       name="image_view"
-      class=".image.ImageView"
+      class=".image_view.ImageView"
       template="templates/image_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
@@ -125,7 +125,7 @@
   <browser:page
       for="collective.rcse.content.image.ImageSchema"
       name="tile_view"
-      class=".image.ImageView"
+      class=".image_view.ImageView"
       template="templates/image_tile_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
@@ -133,7 +133,7 @@
   <browser:page
       for="collective.rcse.content.video.VideoSchema"
       name="video_view"
-      class=".video.VideoView"
+      class=".video_view.VideoView"
       template="templates/video_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
@@ -141,7 +141,7 @@
   <browser:page
       for="collective.rcse.content.video.VideoSchema"
       name="tile_view"
-      class=".video.VideoView"
+      class=".video_view.VideoView"
       template="templates/video_tile_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
@@ -165,6 +165,14 @@
       name="rcse-security-controlpanel"
       class="collective.rcse.security.SecurityControlPanelView"
       permission="plone.app.controlpanel.Security"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+  <browser:page
+      for="collective.rcse.content.etherpad.EtherpadSchema"
+      name="etherpad_view"
+      class="collective.etherpad.etherpad_view.EtherpadView"
+      template="templates/etherpad_view.pt"
+      permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
       />
 

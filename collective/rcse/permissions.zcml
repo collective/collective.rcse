@@ -13,6 +13,10 @@
       title="collective.rcse: Add document"
       />
     <permission
+      id="rcse.AddEtherpad"
+      title="collective.rcse: Add etherpad"
+      />
+    <permission
       id="rcse.AddEvent"
       title="collective.rcse: Add event"
       />

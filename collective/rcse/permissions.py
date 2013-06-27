@@ -7,6 +7,7 @@ perms = []
 for typename in (
     "audio",
     "document",
+    "etherpad",
     "event",
     "file",
     "image",
@@ -16,10 +17,11 @@ for typename in (
     permid = 'Add' + typename.capitalize()
     permname = 'collective.rcse: Add ' + typename
     security.declarePublic(permid)
-    setDefaultRoles(permid, ('Manager', ))
+    setDefaultRoles(permid, ('Manager',))
 
 AddAudio = "collective.rcse: Add audio"
 AddDocument = "collective.rcse: Add document"
+AddEtherpad = "collective.rcse: Add etherpad"
 AddEvent = "collective.rcse: Add event"
 AddFile = "collective.rcse: Add file"
 AddImage = "collective.rcse: Add image"

@@ -1,0 +1,1 @@
+from collective.etherpad.etherpad_view import EtherpadView
