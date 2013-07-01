@@ -6,8 +6,8 @@ from collective.rcse.content import common
 
 _ = RCSEMessageFactory
 
-error_hour = _(u"Start hour can't be greater than end hour durint the same day")
-error_day = _(u"start day can't be greater than end day")
+err_hour = _(u"Start hour can't be greater than end hour durint the same day")
+err_day = _(u"start day can't be greater than end day")
 
 
 def event_validation(ob):
@@ -19,10 +19,10 @@ def event_validation(ob):
 
     #start day >= end day
     if ob.start > ob.end:
-        raise interface.Invalid(error_day)
+        raise interface.Invalid(err_day)
 
     if ob.start_hour > ob.end_hour and ob.sameday:
-        raise interface.Invalid(error_hour)
+        raise interface.Invalid(err_hour)
 
 
 class EventSchema(common.RCSEContent):
