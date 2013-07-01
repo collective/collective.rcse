@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<object name="Event" i18n:domain="plone" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+    <action remove="True" action_id="etherpad" category="object" />
+</object>
