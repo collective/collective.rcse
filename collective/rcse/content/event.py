@@ -15,7 +15,7 @@ def event_validation(ob):
         ob.sameday = False
 
     #start day >= end day
-    if ob.start >= ob.end:
+    if ob.start > ob.end:
         raise interface.Invalid("start day can't be greater than end day")
 
     if ob.start_hour > ob.end_hour and ob.sameday:
