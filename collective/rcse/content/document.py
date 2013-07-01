@@ -11,5 +11,5 @@ class DocumentSchema(common.RCSEContent):
     """A conference session. Sessions are managed inside Programs.
     """
 
-    form.widget(text=WysiwygFieldWidget)
+#    form.widget(text=WysiwygFieldWidget)
     text = RichText(title=_(u"Text"))

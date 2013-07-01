@@ -7,6 +7,7 @@ from plone.app.testing import (
 from plone.app.robotframework.testing import AUTOLOGIN_LIBRARY_FIXTURE
 from plone.testing import z2
 from plonetheme.jquerymobile import testing as mobile_testing
+import collective.rcse
 
 
 class Layer(mobile_testing.Layer):
@@ -16,7 +17,6 @@ class Layer(mobile_testing.Layer):
     def setUpZope(self, app, configurationContext):
         # Load ZCML
         mobile_testing.Layer.setUpZope(self, app, configurationContext)
-        import collective.rcse
         self.loadZCML(package=collective.rcse)
 
     def setUpPloneSite(self, portal):

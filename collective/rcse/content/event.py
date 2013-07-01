@@ -1,9 +1,25 @@
 from zope import schema
+from zope import interface
 from plone.app.textfield import RichText
 from collective.rcse.i18n import RCSEMessageFactory
 from collective.rcse.content import common
 
 _ = RCSEMessageFactory
+
+
+def event_validation(ob):
+    #fix sameday value
+    if ob.start == ob.end:
+        ob.sameday = True
+    else:
+        ob.sameday = False
+
+    #start day >= end day
+    if ob.start >= ob.end:
+        raise interface.Invalid("start day can't be greater than end day")
+
+    if ob.start_hour > ob.end_hour and ob.sameday:
+        raise interface.Invalid("start hour can't be greater than end hour in the same day")
 
 
 class EventSchema(common.RCSEContent):
@@ -24,3 +40,9 @@ class EventSchema(common.RCSEContent):
 
     event_url = schema.URI(title=_(u"Event URL"),
                            required=False)
+
+    sameday = schema.Bool(title=_(u"Same day"),
+                          default=True,
+                          readonly=True)
+
+    interface.invariant(event_validation)
