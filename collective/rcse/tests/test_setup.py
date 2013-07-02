@@ -33,7 +33,7 @@ class TestSetup(base.IntegrationTestCase):
         self.assertFalse(gtype.isConstructionAllowed(self.portal))
         self.assertTrue(gtype.allowDiscussion())
         self.assertTrue(gtype.globalAllow())
-        self.assertEqual(gtype.add_permission, "rcse.AddGroup")
+        self.assertEqual(gtype.add_permission, "collective.rcse.AddGroup")
 
     def test_group_contents(self):
         ptypes = self.portal.portal_types
@@ -51,7 +51,7 @@ class TestSetup(base.IntegrationTestCase):
             info = ptypes.getTypeInfo(ctype)
             self.assertTrue(info.allowDiscussion())
             self.assertFalse(info.globalAllow())
-            addperm = "rcse.Add" + content.capitalize()
+            addperm = "collective.rcse.Add" + content.capitalize()
             self.assertEqual(info.add_permission, addperm)
 
     def test_type_audio(self):

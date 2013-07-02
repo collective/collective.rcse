@@ -45,6 +45,12 @@
       <role name="Owner"/>
       <role name="Contributor"/>
     </permission>
+    <permission name="collective.rcse: Add group" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+    </permission>
     <permission name="collective.rcse: Add image" acquire="True">
       <role name="Manager"/>
       <role name="Site Administrator"/>

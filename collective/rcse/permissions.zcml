@@ -5,35 +5,35 @@
   <configure zcml:condition="installed AccessControl.security">
 
     <permission
-      id="rcse.AddAudio"
+      id="collective.rcse.AddAudio"
       title="collective.rcse: Add audio"
       />
     <permission
-      id="rcse.AddDocument"
+      id="collective.rcse.AddDocument"
       title="collective.rcse: Add document"
       />
     <permission
-      id="rcse.AddEtherpad"
+      id="collective.rcse.AddEtherpad"
       title="collective.rcse: Add etherpad"
       />
     <permission
-      id="rcse.AddEvent"
+      id="collective.rcse.AddEvent"
       title="collective.rcse: Add event"
       />
     <permission
-      id="rcse.AddFile"
+      id="collective.rcse.AddFile"
       title="collective.rcse: Add file"
       />
     <permission
-      id="rcse.AddGroup"
+      id="collective.rcse.AddGroup"
       title="collective.rcse: Add group"
       />
     <permission
-      id="rcse.AddImage"
+      id="collective.rcse.AddImage"
       title="collective.rcse: Add image"
       />
     <permission
-      id="rcse.AddVideo"
+      id="collective.rcse.AddVideo"
       title="collective.rcse: Add video"
       />
 

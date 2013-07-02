@@ -18,7 +18,7 @@
  <property name="klass">plone.dexterity.content.Item</property>
 
  <!-- add permission -->
- <property name="add_permission">rcse.AddEtherpad</property>
+ <property name="add_permission">collective.rcse.AddEtherpad</property>
 
  <!-- enabled behaviors -->
  <property name="behaviors">

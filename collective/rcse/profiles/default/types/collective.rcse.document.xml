@@ -18,7 +18,7 @@
  <property name="klass">plone.dexterity.content.Item</property>
 
  <!-- add permission -->
- <property name="add_permission">rcse.AddDocument</property>
+ <property name="add_permission">collective.rcse.AddDocument</property>
 
  <!-- enabled behaviors -->
  <property name="behaviors">
