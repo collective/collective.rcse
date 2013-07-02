@@ -20,12 +20,14 @@ Assert: I can't browse the rcse without being logged-in
       And I'm on the home page
      Then I see the login form
 
-Assert: Administrator can add groups
-    Given I'm loggedin as the site owner
+Assert: Let's go for a long story
+
+    Given I'm loggedin as 'simplemember1'
       And I'm on the mobile version
       And I'm on the home page
-     When I open the add content menu
-     Then I see 'collective-rcse-group' in the content menu
+     When I'm adding the group 'Group of Simple Member 1'
+     Then I'm in the group 'Group of Simple Member 1'
+
 
 *** Keywords ***
 
@@ -33,11 +35,9 @@ Assert: Administrator can add groups
 I'm not loggedin
     Go to  ${PLONE_URL}/logout
 
-I'm loggedin as a test user
-    Log in as test user
-
-I'm loggedin as the site owner
-    Log in as site owner
+I'm loggedin as a '${USERNAME}'
+    Go to  ${PLONE_URL}/login
+    Log in  ${USERNALE}  ${TEST_USER_PASSWORD}
 
 #THEME SWITCHER
 I'm on the mobile version
@@ -55,10 +55,18 @@ I open the add content menu
 I'm on the home page
     Go to  ${PLONE_URL}
 
+#ACTIONS
+I'm adding the group '${title}'
+    I open the add content menu
+    Click link  css=a#${collective-rcse-group}
+    Page should contain element  __ac_name
+    Input Text  title  ${title}
+    Import library  Dialogs
+    Pause execution
+    Click button  name=form.button.save
+    Page Should Contain  Changes saved.
+
 #ASSERTIONS
 I see the login form
     Element should be visible  css=#__ac_name
     Element should be visible  css=#__ac_password
-
-I see '${type}' in the content menu
-    Element should be visible  css=a#${type}
