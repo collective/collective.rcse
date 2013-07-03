@@ -6,7 +6,7 @@
   <browser:viewlet
       name="plonetheme.jquerymobile.usertoolbar"
       manager="plonetheme.jquerymobile.browser.viewlets.manager.IPanelLeft"
-      class=".panel.UserToolBar"
+      class="collective.rcse.viewlet.mobile.panel.UserToolBar"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
