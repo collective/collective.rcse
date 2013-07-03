@@ -7,6 +7,7 @@ from cioppino.twothumbs import _
 class Like(BrowserView):
     """Like the context"""
     def __call__(self):
+        rate.setupAnnotations(self.context)
         action = rate.loveIt(self.context)
         status = IStatusMessage(self.request)
         if action == "like":
@@ -21,6 +22,7 @@ class Like(BrowserView):
 class DisLike(BrowserView):
     """DisLike the context"""
     def __call__(self):
+        rate.setupAnnotations(self.context)
         action = rate.hateIt(self.context)
         status = IStatusMessage(self.request)
         if action == "dislike":
