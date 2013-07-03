@@ -3,7 +3,6 @@ from plone.app.testing import (
     IntegrationTesting,
     FunctionalTesting,
     login, logout, setRoles,
-    SITE_OWNER_NAME,
     TEST_USER_NAME, TEST_USER_ID, TEST_USER_PASSWORD,
 )
 

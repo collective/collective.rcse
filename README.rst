@@ -49,6 +49,25 @@ How to install
 
 This Project should be installed using the provided buildout.
 
+Badges
+------
+
+.. image:: https://pypip.in/v/collective.rcse/badge.png
+    :target: https://crate.io/packages/collective.rcse/
+    :alt: Latest PyPI version
+
+.. image:: https://pypip.in/d/collective.rcse/badge.png
+    :target: https://crate.io/packages/collective.rcse/
+    :alt: Number of PyPI downloads
+
+.. image:: https://secure.travis-ci.org/collective/collective.rcse.png
+    :target: http://travis-ci.org/#!/collective/collective.rcse
+
+.. image:: https://coveralls.io/repos/collective/collective.rcse/badge.png?branch=master
+    :alt: Coverage
+    :target: https://coveralls.io/r/collective/collective.rcse
+
+
 License
 =======
 
