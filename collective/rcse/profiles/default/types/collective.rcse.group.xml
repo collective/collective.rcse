@@ -19,9 +19,8 @@
    <element value="collective.rcse.video" />
  </property>
 
- <!-- schema interface 
- <property name="schema">collective.rcse.content.group.GroupSchema</property>
--->
+ <!-- schema interface -->
+  <property name="schema">collective.rcse.content.group.GroupSchema</property>
 
  <!-- class used for content items -->
  <property name="klass">plone.dexterity.content.Container</property>

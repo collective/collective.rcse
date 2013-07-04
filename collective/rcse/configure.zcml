@@ -54,5 +54,9 @@
       name="collective.rcse.mobile"
       />
   <subscriber handler=".security.handle_security_update" />
+  <subscriber handler=".security.handle_security_group_created"
+    for="collective.rcse.content.group.GroupSchema
+         zope.lifecycleevent.interfaces.IObjectAddedEvent"
+    />
 
 </configure>

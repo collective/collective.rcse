@@ -8,6 +8,7 @@ from plone.z3cform import layout
 from z3c.form import form
 
 from collective.rcse import i18n
+from plone.dexterity.interfaces import IDexterityContainer
 
 _ = i18n._
 
@@ -69,3 +70,9 @@ SecurityControlPanelView = layout.wrap_form(
     ControlPanelFormWrapper
 )
 SecurityControlPanelView.label = _(u"RCSE Security settings")
+
+
+def handle_security_group_created(group, event):
+    """This handler add the owner to the Site Administrator group"""
+    creator = group.creators[0]
+    group.manage_setLocalRoles(creator, ["Owner", "Site Administrator"])
