@@ -2,6 +2,7 @@ from Products.Five.browser import BrowserView
 from collective.rcse.i18n import RCSEMessageFactory
 from Products.CMFCore.utils import getToolByName
 from plone.uuid.interfaces import IUUID
+from Products.CMFPlone.PloneBatch import Batch
 
 _ = RCSEMessageFactory
 
@@ -43,11 +44,13 @@ class GroupView(BrowserView):
                 if ptype is not None:
                     self.query["portal_type"] = ptype
 
-    def get_content(self):
-        if not self.results:
-            brains = self.portal_catalog(self.query)
-            self.results = map(self.get_brain_info, brains)
-        return self.results
+    def get_content(self, batch=True, b_size=10, b_start=0):
+
+        results = self.portal_catalog(self.query)
+        results = map(self.get_brain_info, results)
+        if batch:
+            results = Batch(results, b_size, b_start)
+        return results
 
     def get_brain_info(self, brain):
         return brain.getURL()
