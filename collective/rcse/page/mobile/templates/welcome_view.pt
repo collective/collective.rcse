@@ -26,8 +26,8 @@
         <h2 class="ui-collapsible-heading">
             <span class="ui-btn-inner ui-collapsible-heading-toggle ui-btn ui-fullsize ui-btn-icon-left ui-btn-up-b" i18n:translate="">News</span>
         </h2>
-        <div class="ui-collapsible-content"
-             tal:define="b_start python:0;
+    </div>
+        <div tal:define="b_start python:0;
                          b_start request/b_start | b_start;
                          batch python: view.get_content(b_start=b_start);">
             <tal:tile tal:repeat="item batch">
@@ -35,7 +35,6 @@
             </tal:tile>
             <div metal:use-macro="context/batch_macros/macros/navigation" />
         </div>
-    </div>
     <div id="viewlet-below-content" tal:content="structure provider:plone.belowcontent" tal:condition="not:ajax_load" />
 
     </tal:main-macro>
