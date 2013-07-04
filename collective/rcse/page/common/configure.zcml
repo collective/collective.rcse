@@ -185,5 +185,11 @@
       permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
       />
-
+  <browser:page
+      for="*"
+      name="ismobiletheme_view"
+      class=".ismobiletheme.IsMobileTheme"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
 </configure>
