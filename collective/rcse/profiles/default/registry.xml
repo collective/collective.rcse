@@ -21,6 +21,11 @@
     <value>themeswitcher_mobile_cookie</value>
   </record>
 
+  <!-- jquerymobile -->
+  <record name="plonetheme.jquerymobile.viewlet.globalsections.filter">
+     <value>True</value>
+  </record>
+
   <!-- resources config -->
   <record name="Products.ResourceRegistries.interfaces.settings.IResourceRegistriesSettings.resourceBundlesForThemes">
     <value purge="False">
