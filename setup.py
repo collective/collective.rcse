@@ -54,7 +54,7 @@ setup(
         'plone.app.dexterity',
         'plone.app.versioningbehavior',
         'plone.app.contenttypes',
-        'plone.app.event',
+        'plone.app.event[dexterity]',
         'plone.app.collection',
         'plone.namedfile[blobs]',
         'collective.z3cform.html5widgets',
