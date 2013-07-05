@@ -1,9 +1,6 @@
-from collective.rcse.i18n import RCSEMessageFactory
-from collective.rcse.content import common
-
-_ = RCSEMessageFactory
+from plone.directives import form
 
 
-class EtherpadSchema(common.RCSEContent):
+class EtherpadSchema(form.Schema):
     """A conference session. Sessions are managed inside Programs.
     """

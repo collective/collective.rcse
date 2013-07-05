@@ -13,8 +13,10 @@
     <dependency>profile-collective.portlet.favoriting:default</dependency>
     <dependency>profile-collective.requestaccess:default</dependency>
     <dependency>profile-collective.themeswitcher:default</dependency>
-    <dependency>profile-plone.app.contenttypes:default</dependency>
     <dependency>profile-plone.app.dexterity:default</dependency>
+    <dependency>profile-plone.app.contenttypes:default</dependency>
+    <dependency>profile-plone.app.event:default</dependency>
+    <dependency>profile-plone.app.collection:default</dependency>
     <dependency>profile-plone.app.versioningbehavior:default</dependency>
     <dependency>profile-plonetheme.foundation:default</dependency>
     <dependency>profile-plonetheme.jquerymobile:default</dependency>

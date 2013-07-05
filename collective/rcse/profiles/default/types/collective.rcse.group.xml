@@ -8,16 +8,8 @@
  <property name="content_icon"></property>
  <property name="allow_discussion">True</property>
  <property name="global_allow">True</property>
- <property name="filter_content_types">True</property>
- <property name="allowed_content_types">
-   <element value="collective.rcse.audio" />
-   <element value="collective.rcse.document" />
-   <element value="collective.rcse.etherpad" />
-   <element value="collective.rcse.event" />
-   <element value="collective.rcse.file" />
-   <element value="collective.rcse.image" />
-   <element value="collective.rcse.video" />
- </property>
+ <property name="filter_content_types">False</property>
+ <property name="allowed_content_types" />
 
  <!-- schema interface -->
   <property name="schema">collective.rcse.content.group.GroupSchema</property>
