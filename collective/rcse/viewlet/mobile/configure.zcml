@@ -3,24 +3,6 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
 
-<!--   <browser:viewlet
-      name="plonetheme.jquerymobile.usertoolbar"
-      manager="plonetheme.jquerymobile.browser.viewlets.manager.IPanelLeft"
-      class="collective.rcse.viewlet.mobile.panel.UserToolBar"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
- -->
-<!-- 
-  <browser:viewlet
-    name="cioppino.twothumbs"
-    for="cioppino.twothumbs.interfaces.ILoveThumbsDontYou"
-    manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
-    class="cioppino.twothumbs.viewlets.thumbs.ThumbsViewlet"
-    layer="collective.rcse.layer.MobileLayer"
-    permission="zope2.View"
-    />
--->
   <!-- Comments viewlet -->
   <browser:viewlet
       for="Products.CMFCore.interfaces.IContentish"
