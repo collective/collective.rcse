@@ -53,6 +53,7 @@ setup(
         'collective.whathappened',
         'plone.app.dexterity',
         'plone.app.versioningbehavior',
+        'plone.app.contenttypes',
         'plone.namedfile[blobs]',
         'collective.z3cform.html5widgets',
         'plonetheme.foundation',
