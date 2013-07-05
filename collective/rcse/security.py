@@ -74,5 +74,6 @@ SecurityControlPanelView.label = _(u"RCSE Security settings")
 
 def handle_security_group_created(group, event):
     """This handler add the owner to the Site Administrator group"""
-    creator = group.creators[0]
-    group.manage_setLocalRoles(creator, ["Owner", "Site Administrator"])
+    creators = group.creators
+    for creator in creators:
+        group.manage_setLocalRoles(creator, ["Owner", "Site Administrator"])
