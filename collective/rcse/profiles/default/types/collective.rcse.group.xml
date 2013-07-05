@@ -56,4 +56,8 @@
     url_expr="string:${object_url}/edit" visible="True">
   <permission value="Modify portal content"/>
  </action>
+ <action title="manage_portlets_link" action_id="manageportlets" category="object" condition_expr=""
+    url_expr="string:${object_url}/@@manage-portlets" visible="True">
+  <permission value="Portlets: Manage own portlets"/>
+ </action>
 </object>
