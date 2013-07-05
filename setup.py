@@ -61,6 +61,7 @@ setup(
         'plonetheme.foundation',
         'plonetheme.jquerymobile',
         'icalendar',
+        'z3c.unconfigure',
         # -*- Extra requirements: -*-
     ],
     extras_require=dict(
