@@ -70,22 +70,6 @@
       layer="collective.rcse.layer.CommonLayer"
       />
   <browser:page
-      for="collective.rcse.content.document.DocumentSchema"
-      name="document_view"
-      class=".document_view.DocumentView"
-      template="templates/document_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.CommonLayer"
-      />
-  <browser:page
-      for="collective.rcse.content.document.DocumentSchema"
-      name="tile_view"
-      class=".document_view.DocumentView"
-      template="templates/document_tile_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.CommonLayer"
-      />
-  <browser:page
       for="collective.rcse.content.event.EventSchema"
       name="event_view"
       class=".event_view.EventView"
@@ -109,15 +93,7 @@
       layer="collective.rcse.layer.CommonLayer"
       />
   <browser:page
-      for="collective.rcse.content.file.FileSchema"
-      name="file_view"
-      class=".file_view.FileView"
-      template="templates/file_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.CommonLayer"
-      />
-  <browser:page
-      for="collective.rcse.content.file.FileSchema"
+      for="plone.app.contenttypes.interfaces.IFile"
       name="tile_view"
       class=".file_view.FileView"
       template="templates/file_tile_view.pt"
@@ -125,15 +101,7 @@
       layer="collective.rcse.layer.CommonLayer"
       />
   <browser:page
-      for="collective.rcse.content.image.ImageSchema"
-      name="image_view"
-      class=".image_view.ImageView"
-      template="templates/image_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.CommonLayer"
-      />
-  <browser:page
-      for="collective.rcse.content.image.ImageSchema"
+      for="plone.app.contenttypes.interfaces.IImage"
       name="tile_view"
       class=".image_view.ImageView"
       template="templates/image_tile_view.pt"
