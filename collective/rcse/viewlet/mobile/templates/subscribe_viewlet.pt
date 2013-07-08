@@ -1,4 +1,4 @@
-<div id="collective_whathappened_subscribe" i18n:domain="collective.whathappened">
+<div id="collective_whathappened_subscribe" tal:condition="not:view/is_anon" i18n:domain="collective.whathappened">
   <div data-mini="true" data-type="vertical" data-role="controlgroup">
     <tal:block tal:condition="python: view.subscribed_show and not view.subscribed">
       <a tal:attributes="href string:${context/absolute_url}/@@collective_whathappened_subscribe_subscribe" data-role="button">
