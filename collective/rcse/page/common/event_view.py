@@ -14,14 +14,11 @@ class EventView(BrowserView):
         pass
 
     def sameday(self):
+        if hasattr(self.context, 'whole_day'):
+            return self.context.whole_day
         if self.context.end is None:
             return True
         sameday = self.context.start == self.context.end
-        has_start_hour = self.context.start_hour is not None
-        has_end_hour = self.context.end_hour is not None
-        if has_start_hour and has_end_hour:
-            samehour = self.context.start_hour == self.context.end_hour
-            sameday = sameday and samehour
         return sameday
 
     def iso8601(self, date):
@@ -44,14 +41,8 @@ class EventView(BrowserView):
     def start_date_localized(self):
         return self.localized(date=self.context.start)
 
-    def start_hour_localized(self):
-        return self.localized(time=self.context.start_hour)
-
     def end_date_localized(self):
         return self.localized(date=self.context.end)
-
-    def end_hour_localized(self):
-        return self.localized(time=self.context.end_hour)
 
     def location(self):
         return ""

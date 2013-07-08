@@ -27,10 +27,6 @@
                                       tal:attributes="title view/start_iso8601">
                                   <span class="explain">
                                     <span tal:replace="view/start_date_localized">Start Date</span>
-                                    <tal:hour tal:condition="context/start_hour">
-                                      <tal:word i18n:translate="event_when_differentday_optional_word_between_date_and_time" />
-                                      <span tal:replace="view/start_hour_localized">Start Time</span>
-                                    </tal:hour>
                                   </span>
                                 </abbr>
                                 to
@@ -42,10 +38,6 @@
                                       tal:attributes="title view/end_iso8601">
                                    <span metal:define-slot="inside" class="explain">
                                      <span tal:replace="view/end_date_localized">End Date</span>
-                                     <tal:hour tal:condition="view/end_hour_localized">
-                                        <tal:word i18n:translate="event_when_differentday_optional_word_between_date_and_time" />
-                                        <span tal:replace="view/end_hour_localized">End Time</span>
-                                     </tal:hour>
                                   </span>
                                 </abbr>
                             </tal:differentday>
@@ -56,25 +48,6 @@
                                       i18n:name="date">
                                     Start Date Time</span>
                                 <br i18n:name="linebreak" />
-                                from
-                                <abbr metal:define-macro="startdatesame-field-view"
-                                      id="parent-fieldname-startDate"
-                                      class="dtstart"
-                                      tal:attributes="title view/start_iso8601"
-                                      i18n:name="starttime">
-                                      <span metal:define-slot="inside"
-                                            class="explain"
-                                            tal:content="view/start_hour_localized">Start Time</span>
-                                </abbr> to
-                                <abbr metal:define-macro="enddatesame-field-view"
-                                      id="parent-fieldname-endDate"
-                                      class="dtend"
-                                      tal:attributes="title view/end_iso8601"
-                                      i18n:name="endtime">
-                                      <span metal:define-slot="inside"
-                                            class="explain"
-                                            tal:content="view/end_hour_localized">End Time</span>
-                                </abbr>
                             </tal:sameday>
                         </td>
                     </tr>

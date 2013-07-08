@@ -18,7 +18,7 @@
    <property name="description" i18n:translate="">I like this (click again to undo)</property>
    <property name="url_expr">string:$object_url/@@cioppino_twothumbs_like</property>
    <property name="icon_expr"></property>
-   <property name="available_expr"></property>
+   <property name="available_expr">python:member is not None</property>
    <property name="permissions">
     <element value="View"/>
    </property>
@@ -29,7 +29,7 @@
    <property name="description" i18n:translate="">I dislike this (click again to undo)</property>
    <property name="url_expr">string:$object_url/@@cioppino_twothumbs_dislike</property>
    <property name="icon_expr"></property>
-   <property name="available_expr"></property>
+   <property name="available_expr">python:member is not None</property>
    <property name="permissions">
     <element value="View"/>
    </property>

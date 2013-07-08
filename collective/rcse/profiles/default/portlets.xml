@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<portlets
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="plone">
+
+ <!-- Remove some portlets -->
+ <portlet addview="portlets.Classic" remove="true" />
+
+</portlets>

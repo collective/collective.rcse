@@ -32,15 +32,15 @@
       template="templates/thumbs.pt"
       layer="collective.rcse.layer.MobileLayer"
       />
- -->
   <browser:page
-      for="collective.rcse.content.event.EventSchema"
+      for="plone.app.event.dx.interfaces.IDXEvent"
       name="event_view"
       class="collective.rcse.page.common.event_view.EventView"
       template="templates/event_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.MobileLayer"
       />
+ -->
   <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="welcome_view"
