@@ -69,23 +69,25 @@
       permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
       />
-  <browser:page
-      for="collective.rcse.content.event.EventSchema"
+<!--
+   <browser:page
+      for="plone.app.event.dx.interfaces.IDXEvent"
       name="event_view"
       class=".event_view.EventView"
       template="templates/event_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
       />
+ -->
   <browser:page
-      for="collective.rcse.content.event.EventSchema"
+      for="plone.app.event.dx.interfaces.IDXEvent"
       name="ics_view"
       class=".event_view.ICSEventView"
       permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
       />
   <browser:page
-      for="collective.rcse.content.event.EventSchema"
+      for="plone.app.event.dx.interfaces.IDXEvent"
       name="tile_view"
       class=".event_view.EventView"
       template="templates/event_tile_view.pt"
