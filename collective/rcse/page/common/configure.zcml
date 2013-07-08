@@ -192,4 +192,16 @@
       permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
       />
+
+  <adapter factory=".register.RegisterFormAdapter" />
+
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="register"
+      class=".register.RegisterFormWrapper"
+      template="templates/register.pt"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+
 </configure>

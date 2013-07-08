@@ -3,6 +3,15 @@
     i18n_domain="collective.rcse">
 
     <upgradeStep
+        source="1035"
+        destination="1036"
+        title="Upgrade"
+        description=""
+        profile="collective.rcse:default"
+        handler=".upgrades.common"
+        />
+
+    <upgradeStep
         source="1034"
         destination="1035"
         title="Upgrade"

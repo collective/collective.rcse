@@ -8,7 +8,6 @@ def common(context):
 
 
 def make_group_owner_siteadmin(context):
-    import pdb;pdb.set_trace()
     catalog = getToolByName(context, 'portal_catalog')
     brains = catalog(portal_type="collective.rcse.group")
     roles = ["Owner", "Site Administrator"]

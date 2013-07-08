@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.rcse">
+
+  <body>
+    <div metal:fill-slot="content-core">
+      <tal:main-macro metal:define-macro="content-core">
+	<tal:status condition="python: hasattr(view, 'status')">
+          <dl class="portalMessage error" tal:condition="view/widgets/errors">
+            <dt i18n:domain="plone" i18n:translate="">
+              Error
+            </dt>
+            <dd tal:content="view/status" />
+          </dl>
+          <dl class="portalMessage info" tal:condition="not: view/widgets/errors">
+            <dt i18n:domain="plone" i18n:translate="">
+              Info
+            </dt>
+            <dd tal:content="view/status" />
+          </dl>
+	</tal:status>
+	<div id="registration-form" tal:content="structure view/contents"></div>
+      </tal:main-macro>
+    </div>
+  </body>
+</html>

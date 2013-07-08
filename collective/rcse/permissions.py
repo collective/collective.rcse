@@ -28,3 +28,4 @@ AddFile = "collective.rcse: Add file"
 AddGroup = "collective.rcse: Add group"
 AddImage = "collective.rcse: Add image"
 AddVideo = "collective.rcse: Add video"
+

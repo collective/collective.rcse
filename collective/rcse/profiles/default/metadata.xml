@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>1035</version>
+  <version>1036</version>
   <dependencies>
     <dependency>profile-cioppino.twothumbs:default</dependency>
     <dependency>profile-collective.etherpad:default</dependency>
@@ -17,5 +17,8 @@
     <dependency>profile-plone.app.versioningbehavior:default</dependency>
     <dependency>profile-plonetheme.foundation:default</dependency>
     <dependency>profile-plonetheme.jquerymobile:default</dependency>
+    <dependency>profile-plone.app.dexterity:default</dependency>
+    <dependency>profile-Products.membrane:default</dependency>
+    <dependency>profile-dexterity.membrane:default</dependency>
   </dependencies>
 </metadata>
