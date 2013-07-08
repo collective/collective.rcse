@@ -14,6 +14,12 @@
     <h1 i18n:translate="Welcome">My space</h1>
     <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
 
+    <div id="edit-bar" tal:condition="show_border"
+         data-role="collapsible" data-theme="b">
+        <h4 i18n:domain="plonetheme.jquerymobile" i18n:translate="">Toolbar</h4>
+        <a href="++add++collective.rcse.group" data-role="button" i18n:translate="add_group">Add group</a>
+    </div>
+
     <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" tal:condition="not:ajax_load" />
     <div class="rcseblock ui-collapsible ui-collapsible-inset ui-corner-all ui-collapsible-themed-content">
         <h2 class="ui-collapsible-heading">
