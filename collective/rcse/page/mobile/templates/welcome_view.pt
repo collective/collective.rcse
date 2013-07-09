@@ -30,7 +30,7 @@
 
     <div class="rcseblock ui-collapsible ui-collapsible-inset ui-corner-all ui-collapsible-themed-content">
         <h2 class="ui-collapsible-heading">
-            <span class="ui-btn-inner ui-collapsible-heading-toggle ui-btn ui-fullsize ui-btn-icon-left ui-btn-up-a" i18n:translate="">News</span>
+            <span class="ui-btn-inner ui-collapsible-heading-toggle ui-btn ui-fullsize ui-btn-icon-left ui-btn-up-a" i18n:translate="">My news</span>
         </h2>
     </div>
         <div tal:define="b_start python:0;
