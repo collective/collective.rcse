@@ -25,6 +25,10 @@ class AuthenticatedMemberInfoView(BrowserView):
         #info
         self.url = None
         self.photo = None
+        self.company = None
+        self.function = None
+        self.professional_email = None
+        self.professional_mobile_phone = None
 
     def update(self):
         self.update_dependencies()
@@ -57,10 +61,12 @@ class AuthenticatedMemberInfoView(BrowserView):
                 path = '/++resource++collective.rcse/defaultUser.png'
                 self.photo = self.portal_url() + path
         # @TODO Load attributes from member schema
-        attributes = ('fullname',)
+        attributes = ('fullname', 'company', 'function',
+                      'professional_email', 'professional_mobile_phone')
         for attr in attributes:
             if getattr(self, attr, None) is None:
                 setattr(self, attr, self.member.getProperty(attr))
+
 
 class CreatorMemberInfoView(AuthenticatedMemberInfoView):
     def update_member(self):
