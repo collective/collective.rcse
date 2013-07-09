@@ -37,12 +37,13 @@ class GroupView(BrowserView):
             )
         if self.query is None:
             portal_types = self.plone_utils.getUserFriendlyTypes()
+            portal_types.remove("collective.rcse.group")
             self.query = {
                 "path": {'query': self.context_path, 'depth': 1},
                 "sort_on": "modified",
                 "sort_order": "reverse",
                 "sort_limit": 20,
-                "portal_types": portal_types,
+                "portal_type": portal_types,
             }
             dofilter = self.request.get('filter', False)
             if dofilter:
