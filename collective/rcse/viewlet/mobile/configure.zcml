@@ -32,15 +32,6 @@
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
-  <!-- collective.whathappened -->
-  <browser:viewlet
-      name="collective.whathappened.subscribe"
-      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
-      class="collective.whathappened.browser.subscribe.SubscribeViewlet"
-      template="templates/subscribe_viewlet.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
 
 <!-- Hide some viewlets -->
 

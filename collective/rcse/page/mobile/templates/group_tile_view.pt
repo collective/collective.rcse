@@ -3,7 +3,7 @@
     <img class="photo" tal:attributes="src creator_info/photo"/>
     <a rel="author"  data-rel="dialog" class="fn url"
        tal:attributes="href creator_info/url"
-       tal:content="creator_info/formated_name">John</a><br/>
+       tal:content="creator_info/fullname">John</a><br/>
     <a data-inline="true" tal:attributes="href view/group_url" tal:content="view/group_title">group</a><br/>
     <span tal:condition="view/effective_date" tal:content="view/effective_date"></span>
   </div>

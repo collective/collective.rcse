@@ -95,22 +95,6 @@
       layer="collective.rcse.layer.CommonLayer"
       />
   <browser:page
-      for="plone.app.contenttypes.interfaces.IFile"
-      name="tile_view"
-      class=".file_view.FileView"
-      template="templates/file_tile_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.CommonLayer"
-      />
-  <browser:page
-      for="plone.app.contenttypes.interfaces.IImage"
-      name="tile_view"
-      class=".image_view.ImageView"
-      template="templates/image_tile_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.CommonLayer"
-      />
-  <browser:page
       for="collective.rcse.content.video.VideoSchema"
       name="video_view"
       class=".video_view.VideoView"
