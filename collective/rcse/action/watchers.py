@@ -80,16 +80,30 @@ class ToggleDisplayInMyNews(BrowserView):
         self.update()
         return self.watchers.isWatching()
 
+import logging
+logger = logging.getLogger("collective.rcse")
+
 
 @indexer(interface.Interface)
 def get_group_watchers(context):
+    watchers = []
     context = aq_inner(context)
     group = context
+    if hasattr(context, 'creators'):
+        watchers.extend(context.creators)
+    elif hasattr(context, 'Creators'):
+        watchers.extend(context.Creators())
 
     if context.portal_type != "collective.rcse.group":
         group = get_group(context)
+        watchers.extend(group.creators)
+    if context.portal_type == "Discussion Item":
+        return
 
-    watchers = IWatcherList(group, None)
+    watcherlist = IWatcherList(group, None)
 
-    if watchers:
-        return watchers.watchers
+    if watcherlist:
+        watchers.extend(watcherlist.watchers)
+    watchers = tuple(set(watchers))
+    logger.info("%s has watchers: %s" % (context.absolute_url(), watchers))
+    return watchers
