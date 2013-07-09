@@ -45,15 +45,21 @@ class RegisterForm(AutoExtensibleForm, form.Form):
             self.status = _(u"There were errors.")
             return
         self._createUser(user.getUserId(), data)
+        self.request.response.redirect('@@register')
 
     def _createUser(self, username, data):
         # @TODO check there is no content with the same username
+        container = self.context.unrestrictedTraverse('users_directory')
+        if username in container:
+            raise Unauthorized(_(u"You are already registered."))
         self._security_manager = getSecurityManager()
+        self.wtool = getToolByName(self.context, 'portal_workflow')
         self._sudo('Manager')
         data['username'] = username
-        container = self.context.restrictedTraverse('users_directory')
         user = utils.createContent('collective.rcse.member', **data)
         utils.addContentToContainer(container, user)
+        item = user.__of__(container)
+        self.wtool.doActionFor(item, 'approve')
         self._sudo(None)
 
     def _sudo(self, role):
