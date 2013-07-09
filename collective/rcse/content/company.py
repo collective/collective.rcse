@@ -2,46 +2,46 @@ from plone.namedfile import field
 from zope import interface
 from zope import schema
 
-from collective.rcse.i18n import _
+from collective.rcse.i18n import _t
 from collective.rcse.content import vocabularies
 
 
 class ICompany(interface.Interface):
     """Schema for the dexterity company content type."""
     corporate_name = schema.TextLine(
-        title=_(u"Corporate name")
+        title=_t(u"Corporate name")
     )
     sector = schema.Choice(
-        title=_(u"Sector"),
+        title=_t(u"Sector"),
         vocabulary=vocabulary.sector
     )
     service = schema.TextLine(
-        title=_(u"Service"),
+        title=_t(u"Service"),
         required=False
     )
     logo = field.NamedBlobImage(
-        title=_(u"Logo"),
+        title=_t(u"Logo"),
         required=False
     )
     address = schema.TextLine(
-        title=_(u"Address"),
+        title=_t(u"Address"),
         required=False
     )
     postal_code = schema.TextLine(
-        title=_(u"Postal code")
+        title=_t(u"Postal code")
     )
     city = schema.TextLine(
-        title=_(u"City")
+        title=_t(u"City")
     )
     website = schema.TextLine(
-        title=_(u"Website"),
+        title=_t(u"Website"),
         required=False
     )
     blog = schema.TextLine(
-        title=_(u"Blog"),
+        title=_t(u"Blog"),
         required=False
     )
     turnover = schema.TextLine(
-        title=_(u"Turnover"),
+        title=_t(u"Turnover"),
         required=False
     )

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<object name="portal_catalog">
+ <index name="group_watchers" meta_type="KeywordIndex">
+  <indexed_attr value="group_watchers"/>
+ </index>
+</object>

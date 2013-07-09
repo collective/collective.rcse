@@ -2,6 +2,29 @@
 <object name="portal_actions" meta_type="Plone Actions Tool"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <object name="document_actions" meta_type="CMF Action Category">
+  <object name="collective_rcse_add_to_mynews" meta_type="CMF Action" i18n:domain="collective.rcse">
+   <property name="title" i18n:translate="">Add to my news</property>
+   <property name="description" i18n:translate="">Display new content of this group in your news</property>
+   <property name="url_expr">string:$object_url/@@rcse_toggle_display_in_my_news</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr">not:context/@@rcse_toggle_display_in_my_news/is_watching</property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+  <object name="collective_rcse_rm_from_mynews" meta_type="CMF Action" i18n:domain="collective.rcse">
+   <property name="title" i18n:translate="">Remove from my news</property>
+   <property name="description" i18n:translate="">Do not display anymore new content from this group in your news</property>
+   <property name="url_expr">string:$object_url/@@rcse_toggle_display_in_my_news</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr">context/@@rcse_toggle_display_in_my_news/is_watching</property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+
   <object name="ics_view" meta_type="CMF Action" i18n:domain="plone">
    <property name="title" i18n:translate="">title_add_to_ical</property>
    <property name="description" i18n:translate=""></property>
