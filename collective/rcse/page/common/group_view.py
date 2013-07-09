@@ -20,20 +20,29 @@ class GroupView(BrowserView):
         self.context_path = None
         self.query = None
         self.results = []
+        self.plone_utils = None
+        self.use_view_action = None
 
     def update(self):
         if self.portal_catalog is None:
             self.portal_catalog = getToolByName(self.context, 'portal_catalog')
+        if self.plone_utils is None:
+            self.plone_utils = getToolByName(self.context, 'plone_utils')
         if self.context_path is None:
             self.context_path = '/'.join(self.context.getPhysicalPath())
+        if self.use_view_action is None:
+            pp = getToolByName(self.context, 'portal_properties')
+            self.use_view_action = pp.getProperty(
+                'typesUseViewActionInListings', ()
+            )
         if self.query is None:
-            iface = "collective.rcse.content.common.RCSEContent"
+            portal_types = self.plone_utils.getUserFriendlyTypes()
             self.query = {
                 "path": {'query': self.context_path, 'depth': 1},
                 "sort_on": "modified",
                 "sort_order": "reverse",
                 "sort_limit": 20,
-                "object_provides": iface,
+                "portal_types": portal_types,
             }
             dofilter = self.request.get('filter', False)
             if dofilter:
@@ -45,7 +54,6 @@ class GroupView(BrowserView):
                     self.query["portal_type"] = ptype
 
     def get_content(self, batch=True, b_size=10, b_start=0):
-
         results = self.portal_catalog(self.query)
         results = map(self.get_brain_info, results)
         if batch:
@@ -53,7 +61,10 @@ class GroupView(BrowserView):
         return results
 
     def get_brain_info(self, brain):
-        return brain.getURL()
+        url = brain.getURL()
+        if brain.portal_type in self.use_view_action:
+            url = url + '/view'
+        return url
 
 
 class GroupTileView(BrowserView):
