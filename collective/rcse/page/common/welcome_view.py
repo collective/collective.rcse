@@ -31,3 +31,4 @@ class WelcomeView(GroupView):
                 self.isAnon = True
         #hack the  query
         self.query["path"] = self.context_path
+        self.query["group_watchers"] = self.member.getId()

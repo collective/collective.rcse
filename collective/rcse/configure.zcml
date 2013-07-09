@@ -11,6 +11,7 @@
   <includeDependencies package="."/>
   <include file="permissions.zcml"/>
   <include package="plone.app.contentmenu" />
+  <include package=".action" />
   <include package=".content" />
   <include package=".page" />
   <include package=".viewlet" />

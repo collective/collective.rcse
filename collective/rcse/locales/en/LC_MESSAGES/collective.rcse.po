@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-06-17 10:00+0000\n"
+"POT-Creation-Date: 2013-07-09 12:37+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -16,14 +16,6 @@ msgstr ""
 "Domain: collective.rcse\n"
 "Language: \n"
 
-#: ./profiles/default/types/collective.rcse.document.xml
-msgid "A document with rich text"
-msgstr ""
-
-#: ./profiles/default/types/collective.rcse.file.xml
-msgid "A file"
-msgstr ""
-
 #: ./profiles/default/types/collective.rcse.group.xml
 msgid "A group"
 msgstr ""
@@ -32,12 +24,12 @@ msgstr ""
 msgid "A video file"
 msgstr ""
 
-#: ./content/person.py:21
-msgid "About me"
+#: ./security.py:21
+msgid "Add group"
 msgstr ""
 
-#: ./security.py:20
-msgid "Add group"
+#: ./profiles/default/actions.xml
+msgid "Add to my news"
 msgstr ""
 
 #: ./profiles/default/types/collective.rcse.audio.xml
@@ -48,129 +40,61 @@ msgstr ""
 msgid "An event"
 msgstr ""
 
-#: ./profiles/default/types/collective.rcse.image.xml
-msgid "An image"
-msgstr ""
-
 #: ./profiles/default/types/collective.rcse.audio.xml
 msgid "Audio"
 msgstr ""
 
-#: ./content/audio.py:12
-msgid "Audio file"
-msgstr ""
-
-#: ./content/person.py:22
-msgid "Birth Date"
-msgstr ""
-
-#: ./content/person.py:38
-msgid "Blog"
-msgstr ""
-
-#: ./profiles/default/types/collective.rcse.document.xml
+#: ./profiles/default/types/collective.rcse.etherpad.xml
 msgid "Collaborate"
 msgstr ""
 
-#: ./profiles/default/types/collective.rcse.document.xml
-msgid "Document"
+#: ./profiles/default/types/collective.rcse.etherpad.xml
+msgid "Collaborate in real time"
+msgstr ""
+
+#: ./profiles/default/types/collective.rcse.company.xml
+msgid "Company"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Display new content of this group in your news"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Do not display anymore new content from this group in your news"
 msgstr ""
 
 #: ./page/common/templates/file_view.pt:12
 msgid "Download"
 msgstr ""
 
-#: ./content/person.py:32
-msgid "Email address (perso)"
-msgstr ""
-
-#: ./content/person.py:31
-msgid "Email address (pro)"
-msgstr ""
-
-#: ./content/event.py:14
-msgid "End date"
-msgstr ""
-
-#: ./content/event.py:19
-msgid "End hour"
+#: ./profiles/default/types/collective.rcse.etherpad.xml
+msgid "Etherpad"
 msgstr ""
 
 #: ./profiles/default/types/collective.rcse.event.xml
 msgid "Event"
 msgstr ""
 
-#: ./content/event.py:25
-msgid "Event URL"
-msgstr ""
-
-#: ./content/file.py:12
-#: ./page/common/file.py:13
-#: ./profiles/default/types/collective.rcse.file.xml
-msgid "File"
-msgstr ""
-
-#: ./content/person.py:14
-msgid "First Name"
-msgstr ""
-
-#: ./content/person.py:16
-msgid "Formated Name"
-msgstr ""
-
-#: ./content/person.py:41
-msgid "Google+ URL"
-msgstr ""
-
 #: ./profiles/default/types/collective.rcse.group.xml
 msgid "Group"
 msgstr ""
 
-#: ./content/image.py:12
-#: ./page/common/image.py:13
-#: ./profiles/default/types/collective.rcse.image.xml
-msgid "Image"
-msgstr ""
-
-#: ./content/person.py:15
-msgid "Last Name"
-msgstr ""
-
-#: ./content/person.py:42
-msgid "Linkedin URL"
-msgstr ""
-
-#: ./content/person.py:23
-msgid "Main spoken language"
-msgstr ""
-
-#: ./content/person.py:34
-msgid "Mobile phone number"
+#: ./profiles/default/types/collective.rcse.member.xml
+msgid "Member"
 msgstr ""
 
 #: ./page/common/templates/welcome_view.pt:16
-#: ./page/mobile/templates/welcome_view.pt:20
+#: ./page/mobile/templates/welcome_view.pt:26
 msgid "My profile"
 msgstr ""
 
-#: ./page/mobile/templates/welcome_view.pt:27
+#: ./page/mobile/templates/welcome_view.pt:33
 msgid "News"
 msgstr ""
 
-#: ./content/person.py:27
-msgid "Orgnization"
-msgstr ""
-
-#: ./content/person.py:33
-msgid "Phone number"
-msgstr ""
-
-#: ./content/person.py:24
-msgid "Photo URL"
-msgstr ""
-
 #: ./profiles/default/controlpanel.xml
-#: ./security.py:71
+#: ./security.py:72
 msgid "RCSE Security settings"
 msgstr ""
 
@@ -178,58 +102,28 @@ msgstr ""
 msgid "Read"
 msgstr ""
 
-#: ./content/person.py:13
-msgid "Short Name"
+#: ./page/common/register.py:32
+msgid "Register your information"
 msgstr ""
 
-#: ./content/person.py:40
-msgid "Skype ID"
+#: ./profiles/default/actions.xml
+msgid "Remove from my news"
 msgstr ""
 
-#: ./content/event.py:13
-msgid "Start date"
+#: ./page/common/register.py:37
+msgid "Submit"
 msgstr ""
 
-#: ./content/event.py:17
-msgid "Start hour"
-msgstr ""
-
-#: ./content/document.py:15
-#: ./content/event.py:22
-msgid "Text"
-msgstr ""
-
-#: ./content/person.py:28
-msgid "Title"
-msgstr ""
-
-#: ./content/person.py:39
-msgid "Twitter ID"
-msgstr ""
-
-#: ./content/person.py:10
-msgid "UID"
-msgstr ""
-
-#: ./content/person.py:9
-msgid "URL"
-msgstr ""
-
-#: ./content/person.py:43
-msgid "Viadeo URL"
+#: ./page/common/register.py:45
+msgid "There were errors."
 msgstr ""
 
 #: ./profiles/default/types/collective.rcse.video.xml
 msgid "Video"
 msgstr ""
 
-#: ./content/video.py:12
-#: ./page/common/video.py:16
+#: ./page/common/video_view.py:16
 msgid "Video file"
-msgstr ""
-
-#: ./content/person.py:37
-msgid "Website"
 msgstr ""
 
 #. Default: "My space"
@@ -238,20 +132,41 @@ msgstr ""
 msgid "Welcome"
 msgstr ""
 
-#: ./page/common/cioppino_twothumbs.py:27
+#: ./page/common/register.py:42
+msgid "You are already registered."
+msgstr ""
+
+#: ./page/common/cioppino_twothumbs.py:29
 msgid "You dislike this. Thanks for the feedback!"
 msgstr ""
 
-#: ./page/common/cioppino_twothumbs.py:13
+#: ./i18n.py:7
+msgid "You have added the content of this group to your news"
+msgstr ""
+
+#: ./i18n.py:10
+msgid "You have removed the content of this group from your news"
+msgstr ""
+
+#: ./page/common/cioppino_twothumbs.py:14
 msgid "You liked this. Thanks for the feedback!"
 msgstr ""
 
-#: ./page/common/welcome.py:6
+#: ./page/common/register.py:82
+msgid "You must be connected to do this."
+msgstr ""
+
+#: ./page/common/welcome_view.py:6
 msgid "You must be logged in to access to the RCSE"
 msgstr ""
 
-#: ./page/common/cioppino_twothumbs.py:15
+#: ./page/common/cioppino_twothumbs.py:16
 msgid "Your vote has been removed."
+msgstr ""
+
+#. Default: "Add group"
+#: ./page/mobile/templates/welcome_view.pt:20
+msgid "add_group"
 msgstr ""
 
 #: ./profiles/default/actions.xml
