@@ -60,12 +60,16 @@ class AuthenticatedMemberInfoView(BrowserView):
                 #TODO: replace by gravatar
                 path = '/++resource++collective.rcse/defaultUser.png'
                 self.photo = self.portal_url() + path
-        # @TODO Load attributes from member schema
-        attributes = ('fullname', 'company', 'function',
-                      'professional_email', 'professional_mobile_phone')
+
+        attributes = list(member.IMember.names())
+        attributes += ['fullname']
+
         for attr in attributes:
             if getattr(self, attr, None) is None:
-                setattr(self, attr, self.member.getProperty(attr))
+                value = self.member.getProperty(attr)
+                if type(value) == object:
+                    value = None
+                setattr(self, attr, value)
 
 
 class CreatorMemberInfoView(AuthenticatedMemberInfoView):
