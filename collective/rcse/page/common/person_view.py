@@ -24,8 +24,7 @@ class AuthenticatedMemberInfoView(BrowserView):
 
         #info
         self.url = None
-
-        # @TODO Add member information, rename file, implement update_memberinfo()
+        self.photo = None
 
     def update(self):
         self.update_dependencies()
@@ -49,7 +48,6 @@ class AuthenticatedMemberInfoView(BrowserView):
             raise ValueError("member can t be none")
         if self.url is None:
             self.url = self.portal_url() + '/author/' + self.memberid
-        """
         if self.photo is None:
             photo = self.membership.getPersonalPortrait(self.memberid)
             if photo:
@@ -58,19 +56,11 @@ class AuthenticatedMemberInfoView(BrowserView):
                 #TODO: replace by gravatar
                 path = '/++resource++collective.rcse/defaultUser.png'
                 self.photo = self.portal_url() + path
-        mapping = {
-            "formated_name": "fullname",
-            "email_pro": "email",
-            "blog": "home_page",
-            "address": "location",
-            "about": "description",
-            "lang": "language",
-        }
-        for attr in mapping:
-            property_id = mapping[attr]
-            if getattr(self, attr) is None:
-                setattr(self, attr, self.member.getProperty(property_id))
-        """
+        # @TODO Load attributes from member schema
+        attributes = ('fullname',)
+        for attr in attributes:
+            if getattr(self, attr, None) is None:
+                setattr(self, attr, self.member.getProperty(attr))
 
 class CreatorMemberInfoView(AuthenticatedMemberInfoView):
     def update_member(self):
