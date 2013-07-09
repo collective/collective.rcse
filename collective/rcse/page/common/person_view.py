@@ -1,12 +1,12 @@
 from zope import interface
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
-from collective.rcse.content import person
+from collective.rcse.content import member
 
 
 class AuthenticatedMemberInfoView(BrowserView):
     """Person view helper to display member info"""
-    interface.implements(person.PersonInfo)
+    interface.implements(member.IMember)
 
     def __call__(self):
         self.update()
@@ -24,30 +24,8 @@ class AuthenticatedMemberInfoView(BrowserView):
 
         #info
         self.url = None
-        self.uid = None
-        self.short_name = None
-        self.first_name = None
-        self.last_name = None
-        self.formated_name = None
-        self.sex = None
-        self.about = None
-        self.birthdate = None
-        self.address = None
-        self.lang = None
-        self.photo = None
-        self.organization = None
-        self.title = None
-        self.email_pro = None
-        self.email_perso = None
-        self.phone = None
-        self.mobile = None
-        self.website = None
-        self.blog = None
-        self.twitter = None
-        self.skype = None
-        self.gplus = None
-        self.linkedin = None
-        self.viadeo = None
+
+        # @TODO Add member information, rename file, implement update_memberinfo()
 
     def update(self):
         self.update_dependencies()
@@ -71,6 +49,7 @@ class AuthenticatedMemberInfoView(BrowserView):
             raise ValueError("member can t be none")
         if self.url is None:
             self.url = self.portal_url() + '/author/' + self.memberid
+        """
         if self.photo is None:
             photo = self.membership.getPersonalPortrait(self.memberid)
             if photo:
@@ -91,7 +70,7 @@ class AuthenticatedMemberInfoView(BrowserView):
             property_id = mapping[attr]
             if getattr(self, attr) is None:
                 setattr(self, attr, self.member.getProperty(property_id))
-
+        """
 
 class CreatorMemberInfoView(AuthenticatedMemberInfoView):
     def update_member(self):
