@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.rcse">
+
+<body>
+  <div metal:fill-slot="main" tal:define="auth_memberinfo context/auth_memberinfo">
+    <tal:main-macro metal:define-macro="main">
+
+    <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
+
+    <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
+
+    <div id="edit-bar" tal:condition="show_border"
+         data-role="collapsible" data-theme="b">
+        <h4 i18n:domain="plonetheme.jquerymobile" i18n:translate="">Toolbar</h4>
+        <a href="++add++collective.rcse.group" data-role="button" data-theme="b" i18n:translate="add_group">Add group</a>
+    </div>
+
+    <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" tal:condition="not:ajax_load" />
+
+    <div class="rcseblock ui-collapsible ui-collapsible-inset ui-corner-all ui-collapsible-themed-content">
+        <h2 class="ui-collapsible-heading">
+            <span class="ui-btn-inner ui-collapsible-heading-toggle ui-btn ui-fullsize ui-btn-icon-left ui-btn-up-a" i18n:translate="">My news</span>
+        </h2>
+    </div>
+        <div tal:define="b_start python:0;
+                         b_start request/b_start | b_start;
+                         batch python: view.get_content(b_start=b_start);">
+            <tal:tile tal:repeat="item batch">
+              <a class="rcse_tile" tal:attributes="href item; id repeat/item/index" tal:content="item">content</a>
+            </tal:tile>
+            <div metal:use-macro="context/batch_macros/macros/navigation" />
+        </div>
+    <div id="viewlet-below-content" tal:content="structure provider:plone.belowcontent" tal:condition="not:ajax_load" />
+
+    </tal:main-macro>
+  </div>
+</body>
+</html>

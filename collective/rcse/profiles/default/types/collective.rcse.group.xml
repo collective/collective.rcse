@@ -28,10 +28,19 @@
  </property>
 
  <!-- View information -->
- <property name="default_view">group_view</property>
+ <property name="default_view">timeline_view</property>
  <property name="default_view_fallback">False</property>
  <property name="view_methods">
-  <element value="group_view"/>
+  <element value="albums_view"/>
+  <element value="audios_view"/>
+  <element value="blog_view"/>
+  <element value="calendar_view"/>
+  <element value="dashboard_view"/>
+  <element value="favorites_view"/>
+  <element value="ged_view"/>
+  <element value="images_view"/>
+  <element value="timeline_view"/>
+  <element value="videos_view"/>
  </property>
 
  <!-- Method aliases -->

@@ -1,0 +1,78 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="collective.rcse">
+
+  <browser:page
+      for="*"
+      name="creator_memberinfo"
+      class=".person_view.CreatorMemberInfoView"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+  <browser:page
+      for="*"
+      name="auth_memberinfo"
+      class=".person_view.AuthenticatedMemberInfoView"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+
+<!--
+   <browser:page
+      for="plone.app.event.dx.interfaces.IDXEvent"
+      name="event_view"
+      class=".event_view.EventView"
+      template="templates/event_view.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+ -->
+  <browser:page
+      for="plone.app.event.dx.interfaces.IDXEvent"
+      name="ics_view"
+      class=".event_view.ICSEventView"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+  <browser:page
+      for="*"
+      name="cioppino_twothumbs_like"
+      class=".cioppino_twothumbs.Like"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+  <browser:page
+      for="*"
+      name="cioppino_twothumbs_dislike"
+      class=".cioppino_twothumbs.DisLike"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="rcse-security-controlpanel"
+      class="collective.rcse.security.SecurityControlPanelView"
+      permission="plone.app.controlpanel.Security"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+  <browser:page
+      for="*"
+      name="ismobiletheme_view"
+      class=".ismobiletheme.IsMobileTheme"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+
+  <adapter factory=".register.RegisterFormAdapter" />
+
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="register"
+      class=".register.RegisterFormWrapper"
+      template="templates/register.pt"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+
+</configure>

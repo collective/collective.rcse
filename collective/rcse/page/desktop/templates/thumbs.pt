@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      i18n:domain="cioppino.twothumbs">
+
+<tal:comment tal:replace="nothing">
+    A lot of javascript relies on classes and structure to be present. Before
+    changing anything, please check that twothumbs.js isn't expecting it.
+</tal:comment>
+<div tal:define="stats view/getStats;
+                 canRate view/canRate;
+                 myVote view/myVote;"
+                 class="thumb-rating">
+    <form action="you-know-you-like-it" method="post"
+        tal:attributes="class python:canRate and 'enabled' or 'disabled';
+                        action  string:${context/absolute_url}/you-know-you-like-it;">
+        <span
+            tal:attributes="class   python:'thumbs-up' + (myVote==1 and ' selected' or '')">
+            <input type="submit" name="form.lovinit" value="Like" data-role="button" data-theme="b" data-inline="true" data-icon="smile" data-iconpos="notext"
+                class="ui-icon-nodisc allowMultiSubmit like-button" title="I like this (click again to undo)"
+                i18n:attributes="value; title"
+                tal:attributes="id  string:${context/id}_submit_like;" />
+        </span>
+        <span
+            tal:attributes="class   python:'thumbs-down' + (myVote==-1 and ' selected' or '')">
+            <input type="submit" name="form.hatedit" value="Ugh" data-inline="true" data-icon="frown" data-iconpos="notext"
+                class="allowMultiSubmit dislike-button ui-icon-nodisc" title="I dislike this (click again to undo)"
+                i18n:attributes="value; title"
+                tal:attributes="id  string:${context/id}_submit_like;"/>
+        </span>
+    </form>
+    <div class="like-summary">
+        <span class="total-thumbs-up" i18n:translate="">
+            <span class="tally-total" tal:content="stats/ups"
+                  i18n:name="likes" /> likes,
+        </span>
+        <span class="total-thumbs-down" i18n:translate="">
+            <span class="tally-total" tal:content="stats/downs"
+                  i18n:name="dislikes" /> dislikes
+        </span>
+    </div>
+</div>
+
+</html>

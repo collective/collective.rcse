@@ -80,6 +80,6 @@ def updateCompaniesDirectories(companies_directory):
 
 def updateWelcomePage(site):
     layout = site.getLayout()
-    if layout != "welcome_view":
-        site.setLayout("welcome_view")
-        LOG.info("set welcome_view as default page")
+    if layout != "timeline_view":
+        site.setLayout("timeline_view")
+        LOG.info("set timeline_view as default page")
