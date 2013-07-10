@@ -7,6 +7,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
 from zope import interface
+from zope import component
 
 """
 The global process of this is quite simple:
@@ -55,7 +56,12 @@ class ToggleDisplayInMyNews(BrowserView):
                 self.member = memship.getAuthenticatedMember()
         if self.watchers is None:
             context = aq_inner(self.context)
-            self.watchers = IWatcherList(context)
+            self.watchers = component.queryAdapter(
+                context,
+                interface=IWatcherList,
+                name="group_watchers",
+                default=None
+            )
         if self.catalog is None:
             self.catalog = getToolByName(self.context, "portal_catalog")
 
@@ -78,6 +84,8 @@ class ToggleDisplayInMyNews(BrowserView):
 
     def is_watching(self):
         self.update()
+        if self.watchers is None:
+            return False
         return self.watchers.isWatching()
 
 import logging
@@ -100,7 +108,9 @@ def get_group_watchers(context):
     if context.portal_type == "Discussion Item":
         return
 
-    watcherlist = IWatcherList(group, None)
+    watcherlist = component.queryAdapter(
+        group, interface=IWatcherList, name="group_watchers", default=None
+    )
 
     if watcherlist:
         watchers.extend(watcherlist.watchers)
