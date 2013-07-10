@@ -88,9 +88,6 @@ class ToggleDisplayInMyNews(BrowserView):
             return False
         return self.watchers.isWatching()
 
-import logging
-logger = logging.getLogger("collective.rcse")
-
 
 @indexer(interface.Interface)
 def get_group_watchers(context):
@@ -115,5 +112,4 @@ def get_group_watchers(context):
     if watcherlist:
         watchers.extend(watcherlist.watchers)
     watchers = tuple(set(watchers))
-    logger.info("%s has watchers: %s" % (context.absolute_url(), watchers))
     return watchers

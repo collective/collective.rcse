@@ -4,6 +4,7 @@
     i18n_domain="collective.rcse">
 
   <include package="plone.app.controlpanel" file="permissions.zcml"/>
+
   <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="welcome_view"

@@ -6,6 +6,6 @@ from collective.z3cform.html5widgets.widget_datetime import DateTimeWidget,\
 
 #override event basic widgets
 IEventBasic.setTaggedValue(
-    WIDGETS_KEY, {'start': DateTimeFieldWidget,
-                  'end': DateTimeFieldWidget}
+    WIDGETS_KEY, {'start': DateTimeWidget,
+                  'end': DateTimeWidget}
 )
