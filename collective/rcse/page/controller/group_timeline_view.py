@@ -57,13 +57,6 @@ class TimelineView(BrowserView):
 
     def get_content(self, batch=True, b_size=10, b_start=0):
         results = self.portal_catalog(self.query)
-        results = map(self.get_brain_info, results)
         if batch:
             results = Batch(results, b_size, b_start)
         return results
-
-    def get_brain_info(self, brain):
-        url = brain.getURL()
-        if brain.portal_type in self.use_view_action:
-            url = url + '/view'
-        return url

@@ -23,6 +23,7 @@ class AuthenticatedMemberInfoView(BrowserView):
         self.member = None
 
         #info
+        self.fullname = None
         self.url = None
         self.photo = None
         self.company = None

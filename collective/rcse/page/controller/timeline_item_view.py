@@ -1,6 +1,7 @@
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 from plone.uuid.interfaces import IUUID
+from Products.ZCatalog.interfaces import ICatalogBrain
 
 
 class TimelineItemView(BrowserView):
@@ -11,7 +12,11 @@ class TimelineItemView(BrowserView):
         return self.index()
 
     def __init__(self, context, request):
-        super(TimelineItemView, self).__init__(context, request)
+        if ICatalogBrain.providedBy(context):
+            self.context = context.getObject()
+        else:
+            self.context = context
+        self.request = request
         self.membership = None
         self.portal_url = None
         self.tileid = None
@@ -19,6 +24,7 @@ class TimelineItemView(BrowserView):
         self.group_url = None
         self.group_title = None
         self.effective_date = None
+        self.creator_info = None
 
     def update(self):
         if self.membership is None:
@@ -35,6 +41,9 @@ class TimelineItemView(BrowserView):
             self.group_title = self.group.Title()
         if self.effective_date is None:
             self.effective_date = self.get_effective_date()
+        if self.creator_info is None:
+            name = "@@creator_memberinfo"
+            self.creator_info = self.context.restrictedTraverse(name)
 
     def get_content(self):
         return self.context.restrictedTraverse('tile_view')()

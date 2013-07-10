@@ -14,11 +14,6 @@
 
     <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
 
-    <div id="edit-bar" tal:condition="show_border">
-        <h4 i18n:domain="plonetheme.jquerymobile" i18n:translate="">Toolbar</h4>
-        <a href="++add++collective.rcse.group" i18n:translate="add_group">Add group</a>
-    </div>
-
     <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" tal:condition="not:ajax_load" />
 
     <div class="rcseblock">
@@ -28,7 +23,7 @@
                          b_start request/b_start | b_start;
                          batch python: view.get_content(b_start=b_start);">
             <tal:tile tal:repeat="item batch">
-              <a class="rcse_tile" tal:attributes="href item; id repeat/item/index" tal:content="item"></a>
+              <div class="rcse_tile" tal:content="structure item/@@group_tile_view"></div>
             </tal:tile>
             <div metal:use-macro="context/batch_macros/macros/navigation" />
         </div>
