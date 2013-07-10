@@ -1,5 +1,7 @@
 ## setuphandlers.py
 import logging
+from Products.CMFCore.utils import getToolByName
+from Products.CMFCore.WorkflowCore import WorkflowException
 from Products.CMFPlone.utils import _createObjectByType
 from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
 from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
@@ -38,6 +40,16 @@ def createDirectories(parent):
             id="companies_directory",
             title="Companies directory"
         )
+    _publishContent(parent['users_directory'])
+    _publishContent(parent['companies_directory'])
+
+
+def _publishContent(content):
+    wtool = getToolByName(content, 'portal_workflow')
+    try:
+        wtool.doActionFor(content, 'publish_internally')
+    except WorkflowException:
+        pass # Content has already been published
 
 
 def updateUsersDirectories(users_directory):
