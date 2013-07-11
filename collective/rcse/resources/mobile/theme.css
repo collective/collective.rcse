@@ -1,22 +1,21 @@
 .rcsetile .actions{
 	text-align: right;
 }
-.rcsetile{
+/*.rcsetile{
 	background-color: #eee;
 	padding: 10px;
 	margin: 10px;
-}
+}*/
 .picturefill-wrapper img,
 .rcsetile img{max-width: 100%}
 
-.rcsetile .vcard {
+/*.rcsetile .vcard {
     position: relative; height: 64px;
     padding-bottom: 5px; border-bottom: 1px solid #ddd;
 }
-.rcsetile .vcard .photo{float: left; height: 100%; padding-right: 20px;}
+.rcsetile .vcard .photo{float: left; height: 100%; padding-right: 20px;}*/
 #viewlet-below-content-body{
     margin-top: 20px;
     padding-top: 20px;
     border-top: 1px dashed #aaa;
 }
-
