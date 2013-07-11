@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-07-11 12:35+0000\n"
+"POT-Creation-Date: 2013-07-11 14:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,6 +31,10 @@ msgstr ""
 
 #: ./profiles/default/actions.xml
 msgid "Add to my news"
+msgstr ""
+
+#: ./viewlet/mobile/templates/sections.pt:21
+msgid "All groups"
 msgstr ""
 
 #: ./profiles/default/types/collective.rcse.audio.xml
@@ -82,7 +86,7 @@ msgstr ""
 msgid "Event"
 msgstr ""
 
-#: ./viewlet/mobile/templates/sections.pt:20
+#: ./viewlet/mobile/templates/sections.pt:24
 msgid "Favorites"
 msgstr ""
 
@@ -137,7 +141,7 @@ msgstr ""
 msgid "Video file"
 msgstr ""
 
-#: ./viewlet/mobile/templates/sections.pt:26
+#: ./viewlet/mobile/templates/sections.pt:31
 msgid "Watched"
 msgstr ""
 

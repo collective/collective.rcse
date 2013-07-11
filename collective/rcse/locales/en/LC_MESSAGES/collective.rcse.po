@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-07-11 12:35+0000\n"
+"POT-Creation-Date: 2013-07-11 14:03+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -30,6 +30,10 @@ msgstr ""
 
 #: ./profiles/default/actions.xml
 msgid "Add to my news"
+msgstr ""
+
+#: ./viewlet/mobile/templates/sections.pt:21
+msgid "All groups"
 msgstr ""
 
 #: ./profiles/default/types/collective.rcse.audio.xml
@@ -81,7 +85,7 @@ msgstr ""
 msgid "Event"
 msgstr ""
 
-#: ./viewlet/mobile/templates/sections.pt:20
+#: ./viewlet/mobile/templates/sections.pt:24
 msgid "Favorites"
 msgstr ""
 
@@ -136,7 +140,7 @@ msgstr ""
 msgid "Video file"
 msgstr ""
 
-#: ./viewlet/mobile/templates/sections.pt:26
+#: ./viewlet/mobile/templates/sections.pt:31
 msgid "Watched"
 msgstr ""
 
