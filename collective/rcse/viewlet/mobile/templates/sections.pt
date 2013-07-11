@@ -16,7 +16,7 @@
              tal:content="tab/name"
              i18n:translate="">Add</a></li>
      </ul>
-     <ul data-role="listview" data-inset="true">
+     <ul data-role="listview" data-inset="true" i18n:domain="collective.rcse">
         <li data-role="list-divider" i18n:translate="">Favorites</li>
         <li tal:repeat="tab view/favorites" data-icon="star">
           <a data-rel="popup"

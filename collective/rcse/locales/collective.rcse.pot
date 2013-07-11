@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-07-09 15:40+0000\n"
+"POT-Creation-Date: 2013-07-11 12:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,6 +53,10 @@ msgstr ""
 msgid "Collaborate in real time"
 msgstr ""
 
+#: ./page/desktop/templates/group_tile_view.pt:12
+msgid "Comment"
+msgstr ""
+
 #: ./profiles/default/types/collective.rcse.company.xml
 msgid "Company"
 msgstr ""
@@ -65,7 +69,8 @@ msgstr ""
 msgid "Do not display anymore new content from this group in your news"
 msgstr ""
 
-#: ./page/common/templates/file_view.pt:12
+#: ./page/desktop/templates/file_view.pt:12
+#: ./page/mobile/templates/file_view.pt:12
 msgid "Download"
 msgstr ""
 
@@ -77,6 +82,10 @@ msgstr ""
 msgid "Event"
 msgstr ""
 
+#: ./viewlet/mobile/templates/sections.pt:20
+msgid "Favorites"
+msgstr ""
+
 #: ./profiles/default/types/collective.rcse.group.xml
 msgid "Group"
 msgstr ""
@@ -85,12 +94,12 @@ msgstr ""
 msgid "Member"
 msgstr ""
 
-#: ./page/mobile/templates/welcome_view.pt:33
+#: ./page/desktop/templates/watchers_timeline_view.pt:20
+#: ./page/mobile/templates/watchers_timeline_view.pt:27
 msgid "My news"
 msgstr ""
 
-#: ./page/common/templates/welcome_view.pt:16
-#: ./page/mobile/templates/welcome_view.pt:26
+#: ./page/controller/templates/welcome_view.pt:16
 msgid "My profile"
 msgstr ""
 
@@ -99,11 +108,12 @@ msgstr ""
 msgid "RCSE Security settings"
 msgstr ""
 
+#: ./page/desktop/templates/group_tile_view.pt:13
 #: ./page/mobile/templates/group_tile_view.pt:12
 msgid "Read"
 msgstr ""
 
-#: ./page/common/register.py:32
+#: ./page/controller/register.py:32
 msgid "Register your information"
 msgstr ""
 
@@ -111,11 +121,11 @@ msgstr ""
 msgid "Remove from my news"
 msgstr ""
 
-#: ./page/common/register.py:37
+#: ./page/controller/register.py:37
 msgid "Submit"
 msgstr ""
 
-#: ./page/common/register.py:45
+#: ./page/controller/register.py:45
 msgid "There were errors."
 msgstr ""
 
@@ -123,21 +133,24 @@ msgstr ""
 msgid "Video"
 msgstr ""
 
-#: ./page/common/video_view.py:16
+#: ./page/controller/video_view.py:16
 msgid "Video file"
 msgstr ""
 
+#: ./viewlet/mobile/templates/sections.pt:26
+msgid "Watched"
+msgstr ""
+
 #. Default: "My space"
-#: ./page/common/templates/welcome_view.pt:13
-#: ./page/mobile/templates/welcome_view.pt:14
+#: ./page/controller/templates/welcome_view.pt:13
 msgid "Welcome"
 msgstr ""
 
-#: ./page/common/register.py:42
+#: ./page/controller/register.py:42
 msgid "You are already registered."
 msgstr ""
 
-#: ./page/common/cioppino_twothumbs.py:29
+#: ./page/controller/cioppino_twothumbs.py:29
 msgid "You dislike this. Thanks for the feedback!"
 msgstr ""
 
@@ -149,24 +162,24 @@ msgstr ""
 msgid "You have removed the content of this group from your news"
 msgstr ""
 
-#: ./page/common/cioppino_twothumbs.py:14
+#: ./page/controller/cioppino_twothumbs.py:14
 msgid "You liked this. Thanks for the feedback!"
 msgstr ""
 
-#: ./page/common/register.py:82
+#: ./page/controller/register.py:88
 msgid "You must be connected to do this."
 msgstr ""
 
-#: ./page/common/welcome_view.py:6
+#: ./page/controller/timeline_view.py:12
 msgid "You must be logged in to access to the RCSE"
 msgstr ""
 
-#: ./page/common/cioppino_twothumbs.py:16
+#: ./page/controller/cioppino_twothumbs.py:16
 msgid "Your vote has been removed."
 msgstr ""
 
 #. Default: "Add group"
-#: ./page/mobile/templates/welcome_view.pt:20
+#: ./page/mobile/templates/watchers_timeline_view.pt:20
 msgid "add_group"
 msgstr ""
 
