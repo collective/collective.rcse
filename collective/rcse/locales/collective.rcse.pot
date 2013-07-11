@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-07-11 14:03+0000\n"
+"POT-Creation-Date: 2013-07-11 16:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,6 +49,10 @@ msgstr ""
 msgid "Audio"
 msgstr ""
 
+#: ./viewlet/mobile/templates/group_display_menu.pt:5
+msgid "Choose a view"
+msgstr ""
+
 #: ./profiles/default/types/collective.rcse.etherpad.xml
 msgid "Collaborate"
 msgstr ""
@@ -63,6 +67,10 @@ msgstr ""
 
 #: ./profiles/default/types/collective.rcse.company.xml
 msgid "Company"
+msgstr ""
+
+#: ./viewlet/mobile/templates/group_display_menu.pt:2
+msgid "Display"
 msgstr ""
 
 #: ./profiles/default/actions.xml

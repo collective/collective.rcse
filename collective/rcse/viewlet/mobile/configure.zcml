@@ -32,6 +32,15 @@
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
+  <browser:viewlet
+      name="plone.personalbar"
+      for="collective.rcse.content.group.GroupSchema"
+      manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+      class="collective.rcse.viewlet.mobile.viewlets.GroupDisplayMenu"
+      template="templates/group_display_menu.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
 
 <!-- Hide some viewlets -->
 

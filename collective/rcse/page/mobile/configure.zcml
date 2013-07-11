@@ -6,6 +6,8 @@
   <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="timeline_view"
+      menu="plone_displayviews"
+      title="Timeline view"
       class="collective.rcse.page.controller.timeline_view.TimelineView"
       template="templates/watchers_timeline_view.pt"
       layer="collective.rcse.layer.MobileLayer"
@@ -14,6 +16,8 @@
     <browser:page
       for="collective.rcse.content.group.GroupSchema"
       name="timeline_view"
+      menu="plone_displayviews"
+      title="Timeline view"
       class="collective.rcse.page.controller.group_timeline_view.TimelineView"
       template="templates/group_timeline_view.pt"
       layer="collective.rcse.layer.MobileLayer"
@@ -56,6 +60,8 @@
  <browser:page
       for="collective.rcse.content.audio.AudioSchema"
       name="audio_view"
+      menu="plone_displayviews"
+      title="Audio view"
       class="collective.rcse.page.controller.audio_view.AudioView"
       template="templates/audio_view.pt"
       permission="zope2.View"
@@ -80,6 +86,8 @@
   <browser:page
       for="collective.rcse.content.video.VideoSchema"
       name="video_view"
+      menu="plone_displayviews"
+      title="Video view"
       class="collective.rcse.page.controller.video_view.VideoView"
       template="templates/video_view.pt"
       permission="zope2.View"
@@ -125,6 +133,8 @@
     <browser:page
       for="collective.rcse.content.group.GroupSchema"
       name="albums_view"
+      menu="plone_displayviews"
+      title="Albums view"
       class="collective.rcse.page.controller.group_albums_view.AlbumsView"
       template="templates/group_albums_view.pt"
       layer="collective.rcse.layer.MobileLayer"
@@ -133,6 +143,8 @@
     <browser:page
       for="collective.rcse.content.group.GroupSchema"
       name="audios_view"
+      menu="plone_displayviews"
+      title="Audios view"
       class="collective.rcse.page.controller.group_audios_view.AudiosView"
       template="templates/group_audios_view.pt"
       layer="collective.rcse.layer.MobileLayer"
@@ -141,6 +153,8 @@
     <browser:page
       for="collective.rcse.content.group.GroupSchema"
       name="blog_view"
+      menu="plone_displayviews"
+      title="Blog view"
       class="collective.rcse.page.controller.group_blog_view.BlogView"
       template="templates/group_blog_view.pt"
       layer="collective.rcse.layer.MobileLayer"
@@ -149,6 +163,8 @@
     <browser:page
       for="collective.rcse.content.group.GroupSchema"
       name="calendar_view"
+      menu="plone_displayviews"
+      title="Calendar view"
       class="collective.rcse.page.controller.group_calendar_view.CalendarView"
       template="templates/group_calendar_view.pt"
       layer="collective.rcse.layer.MobileLayer"
@@ -157,6 +173,8 @@
     <browser:page
       for="collective.rcse.content.group.GroupSchema"
       name="dashboard_view"
+      menu="plone_displayviews"
+      title="Dashboard view"
       class="collective.rcse.page.controller.group_dashboard_view.DashboardView"
       template="templates/group_dashboard_view.pt"
       layer="collective.rcse.layer.MobileLayer"
@@ -165,6 +183,8 @@
     <browser:page
       for="collective.rcse.content.group.GroupSchema"
       name="favorites_view"
+      menu="plone_displayviews"
+      title="Favorites view"
       class="collective.rcse.page.controller.group_favorites_view.FavoritesView"
       template="templates/group_favorites_view.pt"
       layer="collective.rcse.layer.MobileLayer"
@@ -173,6 +193,8 @@
     <browser:page
       for="collective.rcse.content.group.GroupSchema"
       name="ged_view"
+      menu="plone_displayviews"
+      title="GED view"
       class="collective.rcse.page.controller.group_ged_view.GEDView"
       template="templates/group_ged_view.pt"
       layer="collective.rcse.layer.MobileLayer"
@@ -181,6 +203,8 @@
     <browser:page
       for="collective.rcse.content.group.GroupSchema"
       name="images_view"
+      menu="plone_displayviews"
+      title="Images view"
       class="collective.rcse.page.controller.group_images_view.ImagesView"
       template="templates/group_images_view.pt"
       layer="collective.rcse.layer.MobileLayer"
@@ -189,6 +213,8 @@
     <browser:page
       for="collective.rcse.content.group.GroupSchema"
       name="videos_view"
+      menu="plone_displayviews"
+      title="Videos view"
       class="collective.rcse.page.controller.group_videos_view.VideosView"
       template="templates/group_videos_view.pt"
       layer="collective.rcse.layer.MobileLayer"
@@ -197,6 +223,8 @@
   <browser:page
       for="collective.rcse.content.etherpad.EtherpadSchema"
       name="etherpad_view"
+      menu="plone_displayviews"
+      title="Etherpad view"
       class="collective.etherpad.etherpad_view.EtherpadView"
       template="templates/etherpad_view.pt"
       permission="zope2.View"
