@@ -53,11 +53,15 @@ setup(
         'collective.whathappened',
         'plone.app.dexterity',
         'plone.app.versioningbehavior',
+        'plone.app.contenttypes',
+        'plone.app.event[dexterity]',
+        'plone.app.collection',
         'plone.namedfile[blobs]',
         'collective.z3cform.html5widgets',
         'plonetheme.foundation',
         'plonetheme.jquerymobile',
         'icalendar',
+        'z3c.unconfigure',
         # -*- Extra requirements: -*-
     ],
     extras_require=dict(

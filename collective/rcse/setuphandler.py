@@ -1,5 +1,12 @@
 ## setuphandlers.py
 import logging
+from Products.CMFCore.utils import getToolByName
+from Products.CMFCore.WorkflowCore import WorkflowException
+from Products.CMFPlone.utils import _createObjectByType
+from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
+from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
+from plone.dexterity.interfaces import IDexterityContainer
+
 
 LOG = logging.getLogger("collective.history")
 
@@ -12,10 +19,67 @@ def setupVarious(context):
 
     portal = context.getSite()
     updateWelcomePage(portal)
+    createDirectories(portal)
+    updateUsersDirectories(portal.users_directory)
+    updateCompaniesDirectories(portal.companies_directory)
+
+
+def createDirectories(parent):
+    existing = parent.objectIds()
+    if "users_directory" not in existing:
+        _createObjectByType(
+            "Folder",
+            parent,
+            id="users_directory",
+            title="Users directory"
+        )
+    if "companies_directory" not in existing:
+        _createObjectByType(
+            "Folder",
+            parent,
+            id="companies_directory",
+            title="Companies directory"
+        )
+    _publishContent(parent['users_directory'])
+    _publishContent(parent['companies_directory'])
+
+
+def _publishContent(content):
+    wtool = getToolByName(content, 'portal_workflow')
+    try:
+        wtool.doActionFor(content, 'publish_internally')
+    except WorkflowException:
+        pass # Content has already been published
+
+
+def updateUsersDirectories(users_directory):
+    #users_directory.setLayout("users_directory_view")
+    aspect = ISelectableConstrainTypes(users_directory)
+    addable = aspect.getImmediatelyAddableTypes()
+    if "collective.rcse.member" not in addable:
+        aspect.setConstrainTypesMode(1)  # select manually
+        types = ["collective.rcse.member"]
+        if IDexterityContainer.providedBy(users_directory):
+            users_directory.immediately_addable_types = types
+        else:
+            aspect.setImmediatelyAddableTypes(types)
+
+
+def updateCompaniesDirectories(companies_directory):
+    #companies_directory.setLayout("companies_directory_view")
+    aspect = ISelectableConstrainTypes(companies_directory)
+    addable = aspect.getImmediatelyAddableTypes()
+    if "collective.rcse.company" not in addable:
+        aspect.setConstrainTypesMode(1)  # select manually
+        types = ["collective.rcse.company"]
+        if IDexterityContainer.providedBy(companies_directory):
+            users_directory.immediately_addable_types = types
+        else:
+            aspect.setImmediatelyAddableTypes(types)
 
 
 def updateWelcomePage(site):
     layout = site.getLayout()
-    if layout != "welcome_view":
-        site.setLayout("welcome_view")
-        LOG.info("set welcome_view as default page")
+    if layout != "timeline_view":
+        site.setLayout("timeline_view")
+        LOG.info("set timeline_view as default page")

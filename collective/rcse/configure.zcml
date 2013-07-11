@@ -11,6 +11,7 @@
   <includeDependencies package="."/>
   <include file="permissions.zcml"/>
   <include package="plone.app.contentmenu" />
+  <include package=".action" />
   <include package=".content" />
   <include package=".page" />
   <include package=".viewlet" />
@@ -54,5 +55,9 @@
       name="collective.rcse.mobile"
       />
   <subscriber handler=".security.handle_security_update" />
+  <subscriber handler=".security.handle_security_group_created"
+    for="collective.rcse.content.group.GroupSchema
+         zope.lifecycleevent.interfaces.IObjectAddedEvent"
+    />
 
 </configure>

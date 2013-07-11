@@ -1,12 +1,5 @@
-from plone.namedfile.field import NamedBlobFile
-from collective.rcse.i18n import RCSEMessageFactory
-from collective.rcse.content import common
-
-_ = RCSEMessageFactory
+from plone.directives import form
 
 
-class FileSchema(common.RCSEContent):
-    """A conference session. Sessions are managed inside Programs.
-    """
-
-    file = NamedBlobFile(title=_(u"File"))
+class ImageSchema(form.Schema):
+    pass

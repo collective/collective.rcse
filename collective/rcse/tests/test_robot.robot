@@ -11,19 +11,13 @@ Test Teardown  Close all browsers
 
 Assert: Let's go for a long story
 
-    #Check a a member can't add a group
-    Given I login as 'simplemember1'
-      And I switch to 'mobile'
-      And I go to section 'Home'
-     Then I can't add a group
-
-    #Check we can change this security settings
-    Given I login as '${SITE_OWNER_NAME}'
+    Given I switch to 'mobile'
+      And Fix weird setup issues
      When I set security settings to let member add groups
-      And I login as 'simplemember1'
+     Then I login as 'simplemember1'
       And I add 'group' 'Group of Simple Member 1'
-     Then I login as 'simplemember2'
-      And I go to section 'Group of Simple Member 1'
+      And I invite member 'simplemember3' to become 'Contributor'
+      And I add document 'My first document'
 
     #Now check a member can request access as contributor
     Given I login as 'simplemember2'
@@ -37,6 +31,10 @@ Assert: Let's go for a long story
       And I go to section 'Group of Simple Member 1'
      Then I add document 'I can work for you now'
 
+    #Now check invited member can join the party
+    Given I login as 'simplemember3'
+     When I go to personal 'personaltools-my_requests'
+      And I validate the invitation
 
 Assert: I can't browse the rcse without being logged-in
     Given I logout
@@ -87,7 +85,20 @@ I request access '${role}'
     Click button  Request access
     Element Should Contain  css=.portalMessage  Your request has been saved
 
+I invite member '${memberid}' to become '${role}'
+    Click Link  css=#add_invite_access
+    Select From List  css=#form-widgets-userid  ${memberid}
+    Select From List  css=#form-widgets-role  ${role}
+    Import library  Dialogs
+    Pause execution
+
+    Click button  Propose access
+    Element Should Contain  css=.portalMessage  Your request has been saved
+
 I validate the request
+    Click button  Validate access
+
+I validate the invitation
     Click button  Validate access
 
 I set security settings to let member add groups
@@ -108,10 +119,11 @@ I add document '${title}'
     Click link  css=a#collective-rcse-document
     Wait Until Page Contains Element  css=#form-widgets-IDublinCore-title
     Input Text  form-widgets-IDublinCore-title  ${title}
-    # TODO: find  a way to type in contenteditable
     Click Element  css=div[contenteditable='true']
-    #Type  'hello world'
     Input Text  css=div[contenteditable='true']  hello world
+    Import library  Dialogs
+    Pause execution
+    
     Click button  name=form.buttons.save
     I see status message 'Item created'
 
@@ -126,3 +138,10 @@ I see status message '${message}'
 I see the login form
     Element should be visible  css=#__ac_name
     Element should be visible  css=#__ac_password
+
+Fix weird setup issues
+    I login as 'simplemember1'
+    I login as 'simplemember2'
+    I login as 'simplemember3'
+    I login as 'siteadmin'
+    I login as '${SITE_OWNER_NAME}'

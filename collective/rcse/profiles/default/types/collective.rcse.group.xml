@@ -8,20 +8,11 @@
  <property name="content_icon"></property>
  <property name="allow_discussion">True</property>
  <property name="global_allow">True</property>
- <property name="filter_content_types">True</property>
- <property name="allowed_content_types">
-   <element value="collective.rcse.audio" />
-   <element value="collective.rcse.document" />
-   <element value="collective.rcse.etherpad" />
-   <element value="collective.rcse.event" />
-   <element value="collective.rcse.file" />
-   <element value="collective.rcse.image" />
-   <element value="collective.rcse.video" />
- </property>
+ <property name="filter_content_types">False</property>
+ <property name="allowed_content_types" />
 
- <!-- schema interface 
- <property name="schema">collective.rcse.content.group.GroupSchema</property>
--->
+ <!-- schema interface -->
+  <property name="schema">collective.rcse.content.group.GroupSchema</property>
 
  <!-- class used for content items -->
  <property name="klass">plone.dexterity.content.Container</property>
@@ -37,10 +28,19 @@
  </property>
 
  <!-- View information -->
- <property name="default_view">group_view</property>
+ <property name="default_view">timeline_view</property>
  <property name="default_view_fallback">False</property>
  <property name="view_methods">
-  <element value="group_view"/>
+  <element value="albums_view"/>
+  <element value="audios_view"/>
+  <element value="blog_view"/>
+  <element value="calendar_view"/>
+  <element value="dashboard_view"/>
+  <element value="favorites_view"/>
+  <element value="ged_view"/>
+  <element value="images_view"/>
+  <element value="timeline_view"/>
+  <element value="videos_view"/>
  </property>
 
  <!-- Method aliases -->
@@ -56,5 +56,9 @@
  <action title="Edit" action_id="edit" category="object" condition_expr=""
     url_expr="string:${object_url}/edit" visible="True">
   <permission value="Modify portal content"/>
+ </action>
+ <action title="manage_portlets_link" action_id="manageportlets" category="object" condition_expr=""
+    url_expr="string:${object_url}/@@manage-portlets" visible="True">
+  <permission value="Portlets: Manage own portlets"/>
  </action>
 </object>

@@ -1,0 +1,16 @@
+<h2 tal:content="context/Title"></h2>
+<p class="documentDescription" tal:content="context/Description"></p>
+<tal:audio
+    tal:define="audio view/audio">
+  <audio controls>
+    <source src="" type="*/*"
+        tal:attributes="src view/href; type view/getContentType" />
+    <object width="" height=""
+      type="application/x-shockwave-flash"
+      data="++resource++collective.mediaelementjs/flashmediaelement.swf">
+        <param name="audio" value="++resource++collective.mediaelementjs/flashmediaelement.swf" />
+        <param name="flashvars" value="" tal:attributes="value python:'file=%s' % view.href()" />
+    </object>
+  </audio>
+  <p class="documentByLine" tal:content="audio/duration"></p>
+</tal:audio>

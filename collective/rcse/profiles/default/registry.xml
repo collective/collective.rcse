@@ -61,4 +61,50 @@
     </value>
   </record>
 
+
+  <!-- dexterity.membrane -->
+  <record name="dexterity.membrane.behavior.settings.IDexterityMembraneSettings.properties_whitelist">
+    <field type="plone.registry.field.Set">
+      <value_type type="plone.registry.field.ASCIILine" />
+    </field>
+    <value>
+      <element>username</element>
+      <element>email</element>
+      <element>first_name</element>
+      <element>last_name</element>
+      <element>bio</element>
+      <element>lang</element>
+      <element>birthdate</element>
+      <element>gender</element>
+      <element>avatar</element>
+      <element>company</element>
+      <element>function</element>
+      <element>areas_of_expertise</element>
+      <element>interests</element>
+      <element>professional_email</element>
+      <element>personal_email</element>
+      <element>professional_mobile_phone</element>
+      <element>personal_mobile_phone</element>
+      <element>professional_landline_phone</element>
+      <element>personal_landline_phone</element>
+      <element>skype</element>
+      <element>website</element>
+      <element>blog</element>
+      <element>viadeo</element>
+      <element>linkedin</element>
+      <element>google</element>
+      <element>twitter</element>
+    </value>
+  </record>
+  <record name="dexterity.membrane.behavior.settings.IDexterityMembraneSettings.use_email_as_username">
+    <field type="plone.registry.field.Bool">
+    </field>
+    <value>False</value>
+  </record>
+  <record name="dexterity.membrane.behavior.settings.IDexterityMembraneSettings.use_uuid_as_userid">
+    <field type="plone.registry.field.Bool">
+    </field>
+    <value>False</value>
+  </record>
+
 </registry>

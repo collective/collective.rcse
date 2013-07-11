@@ -3,24 +3,6 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
 
-  <browser:viewlet
-      name="plonetheme.jquerymobile.usertoolbar"
-      manager="plonetheme.jquerymobile.browser.viewlets.manager.IPanelLeft"
-      class="collective.rcse.viewlet.mobile.panel.UserToolBar"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-
-<!-- 
-  <browser:viewlet
-    name="cioppino.twothumbs"
-    for="cioppino.twothumbs.interfaces.ILoveThumbsDontYou"
-    manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
-    class="cioppino.twothumbs.viewlets.thumbs.ThumbsViewlet"
-    layer="collective.rcse.layer.MobileLayer"
-    permission="zope2.View"
-    />
--->
   <!-- Comments viewlet -->
   <browser:viewlet
       for="Products.CMFCore.interfaces.IContentish"
@@ -50,15 +32,6 @@
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
-  <!-- collective.whathappened -->
-  <browser:viewlet
-      name="collective.whathappened.subscribe"
-      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
-      class="collective.whathappened.browser.subscribe.SubscribeViewlet"
-      template="templates/subscribe_viewlet.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
 
 <!-- Hide some viewlets -->
 
@@ -76,6 +49,15 @@
         for="cioppino.twothumbs.interfaces.ILoveThumbsDontYou"
         manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
         class="collective.rcse.viewlet.common.HiddenViewlet"
+        layer="collective.rcse.layer.MobileLayer"
+        permission="zope2.View"
+        />
+    <!-- header.leftaction.sections -->
+    <browser:viewlet
+        name="plonetheme.jquerymobile.header.leftaction.sections"
+        class="collective.rcse.viewlet.mobile.sections.RCSESections"
+        manager="plonetheme.jquerymobile.browser.viewlets.manager.IHeaderLeft"
+        template="templates/sections.pt"
         layer="collective.rcse.layer.MobileLayer"
         permission="zope2.View"
         />

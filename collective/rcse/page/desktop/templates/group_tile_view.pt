@@ -1,10 +1,11 @@
-<div class="panel" tal:attributes="id view/tileid">
-  <div class="vcard byline">
-    <img class="photo" tal:attributes="src view/portrait"/>
-    <a href="" rel="author" class="fn url"
-      tal:attributes="href view/author_url"
-      tal:content="view/author_name">John</a>
-    <a href="" tal:attributes="href view/group_url" tal:content="view/group_title">group</a>
+<div class="panel" tal:attributes="id view/tileid" i18n:domain="collective.rcse">
+  <div class="vcard byline" tal:define="creator_info context/creator_memberinfo">
+    <img class="photo" tal:attributes="src creator_info/photo"/>
+    <a rel="author"  data-rel="dialog" class="fn url"
+       tal:attributes="href creator_info/url"
+       tal:content="creator_info/fullname">John</a><br/>
+    <a data-inline="true" tal:attributes="href view/group_url" tal:content="view/group_title">group</a><br/>
+    <span tal:condition="view/effective_date" tal:content="view/effective_date"></span>
   </div>
   <div class="tilecontent" tal:content="structure view/get_content"></div>
   <div class="actions" tal:define="object_url string:${context/absolute_url}">

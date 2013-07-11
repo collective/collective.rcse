@@ -1,0 +1,34 @@
+<tal:block tal:define="portal_tabs view/portal_tabs;
+        selected_tab python:view.selected_portal_tab" i18n:domain="plonetheme.jquerymobile">
+<a href="#popup-globalsections" id="globalsections"
+   data-rel="popup" data-role="button" data-inline="true"
+   data-transition="fade" data-icon="folder-open" data-iconpos="notext"
+   i18n:translate="">Sections Menu</a>
+
+<div data-role="popup" id="popup-globalsections" i18n:domain="plone">
+    <ul data-role="listview" data-inset="true" data-icon="false"
+        tal:attributes="data-filter-reveal view/data_filter_reveal; data-filter view/data_filter"
+        data-filter-placeholder="Search sections" i18n:attributes="data-filter-placeholder">
+        <li tal:repeat="tab portal_tabs">
+          <a data-rel="popup"
+             tal:attributes="href tab/url; data-theme python:selected_tab==tab['id'] and 'b' or 'a';
+                 id string:portaltab-${tab/id};"
+             tal:content="tab/name"
+             i18n:translate="">Add</a></li>
+     </ul>
+     <ul data-role="listview" data-inset="true" i18n:domain="collective.rcse">
+        <li data-role="list-divider" i18n:translate="">Favorites</li>
+        <li tal:repeat="tab view/favorites" data-icon="star">
+          <a data-rel="popup"
+             tal:attributes="href tab/getURL;
+                 id string:portaltab-favorites-${tab/getId};"
+             tal:content="tab/Title">Add</a></li>
+        <li data-role="list-divider" i18n:translate="">Watched</li>
+        <li tal:repeat="tab view/watched" data-icon="eye-open">
+          <a data-rel="popup"
+             tal:attributes="href tab/getURL;
+                 id string:portaltab-favorites-${tab/getId};"
+             tal:content="tab/Title">Add</a></li>
+    </ul>
+</div>
+</tal:block>

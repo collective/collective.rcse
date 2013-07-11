@@ -7,4 +7,10 @@
    <bound-workflow workflow_id="intranet_workflow"/>
   </default>
  </bindings>
+ <object name="collective_rcse_member_workflow" meta_type="Workflow" />
+ <bindings>
+   <type type_id="collective.rcse.member">
+     <bound-workflow workflow_id="collective_rcse_member_workflow" />
+   </type>
+ </bindings>
 </object>

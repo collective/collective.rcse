@@ -3,7 +3,8 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
 
-  <include package=".common"/>
+  <include package="plone.app.controlpanel" file="permissions.zcml"/>
+  <include package=".controller"/>
   <include package=".mobile"/>
   <include package=".desktop"/>
 
