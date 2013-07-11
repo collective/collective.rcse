@@ -16,7 +16,7 @@
       name="timeline_view"
       class="collective.rcse.page.controller.group_timeline_view.TimelineView"
       template="templates/group_timeline_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
+      layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
   <browser:page
