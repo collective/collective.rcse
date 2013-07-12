@@ -73,7 +73,7 @@ def updateCompaniesDirectories(companies_directory):
         aspect.setConstrainTypesMode(1)  # select manually
         types = ["collective.rcse.company"]
         if IDexterityContainer.providedBy(companies_directory):
-            users_directory.immediately_addable_types = types
+            companies_directory.immediately_addable_types = types
         else:
             aspect.setImmediatelyAddableTypes(types)
 
