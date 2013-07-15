@@ -15,15 +15,16 @@
 			   data-icon daction/icon">
         </a>
       </tal:action>
-      <a href="#popup-dactions"
+      <a href=""
 	 data-role="button"
 	 data-rel="popup"
 	 data-icon="plus"
 	 data-inline="true"
 	 data-transition="pop"
+	 tal:attributes="href string:#popup-dactions-${context/uuid}"
 	 tal:condition="view/actions">
       </a>
-      <div data-role="popup" id="popup-dactions">
+      <div data-role="popup" tal:attributes="id string:popup-dactions-${context/uuid}">
         <tal:action tal:repeat="daction view/actions"
 		    tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
           <a href="" data-role="button"
