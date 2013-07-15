@@ -18,7 +18,7 @@
   <browser:viewlet
       name="plone.abovecontenttitle.documentactions"
       manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
-      class="plone.app.layout.viewlets.content.DocumentActionsViewlet"
+      class=".document_actions.DocumentIconActionsViewlet"
       template="templates/document_actions.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
