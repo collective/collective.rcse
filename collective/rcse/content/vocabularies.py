@@ -1,6 +1,10 @@
+from plone.i18n.normalizer.base import baseNormalize
+from Products.CMFCore.utils import getToolByName
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm, TreeVocabulary
 
-from collective.rcse.i18n import _t
+from collective.rcse.i18n import _, _t
+
+
 
 gender = SimpleVocabulary([
     SimpleTerm(value=u"female", title=_t(u"Female")),
@@ -201,3 +205,22 @@ sector_terms = {
     }
 }
 sector = TreeVocabulary.fromDict(sector_terms)
+
+
+def groupTypes(context):
+    """Get content types with content in a specific group"""
+    types = set(t.__class__.__name__ for t in context.values())
+    terms = [
+        SimpleTerm(
+            baseNormalize(t),
+            baseNormalize(t),
+            _(t)
+            ) for t in sorted(types)
+        ]
+    return SimpleVocabulary(terms)
+
+
+sortBy = SimpleVocabulary([
+    SimpleTerm('date', 'date', _(u'Date')),
+    SimpleTerm('title', 'title', _(u'Title')),
+    ])

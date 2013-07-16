@@ -1,0 +1,4 @@
+<div id="filters" data-role="collapsible">
+  <h4>Filters</h4>
+  <tal:form tal:replace="structure view/form/render"></tal:form>
+</div>
