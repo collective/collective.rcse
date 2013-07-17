@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-07-11 16:06+0000\n"
+"POT-Creation-Date: 2013-07-17 15:23+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -22,6 +22,10 @@ msgstr ""
 
 #: ./profiles/default/types/collective.rcse.video.xml
 msgid "A video file"
+msgstr ""
+
+#: ./settings.py:10
+msgid "Action to icon"
 msgstr ""
 
 #: ./security.py:21
@@ -68,6 +72,10 @@ msgstr ""
 msgid "Company"
 msgstr ""
 
+#: ./content/vocabularies.py:227
+msgid "Date"
+msgstr ""
+
 #: ./viewlet/mobile/templates/group_display_menu.pt:2
 msgid "Display"
 msgstr ""
@@ -97,6 +105,10 @@ msgstr ""
 msgid "Favorites"
 msgstr ""
 
+#: ./viewlet/mobile/filters.py:82
+msgid "Filter"
+msgstr ""
+
 #: ./profiles/default/types/collective.rcse.group.xml
 msgid "Group"
 msgstr ""
@@ -120,7 +132,7 @@ msgid "RCSE Security settings"
 msgstr ""
 
 #: ./page/desktop/templates/group_tile_view.pt:13
-#: ./page/mobile/templates/group_tile_view.pt:12
+#: ./page/mobile/templates/group_tile_view.pt:51
 msgid "Read"
 msgstr ""
 
@@ -128,8 +140,24 @@ msgstr ""
 msgid "Register your information"
 msgstr ""
 
+#: ./content/vocabularies.py:226
+msgid "Relevance"
+msgstr ""
+
 #: ./profiles/default/actions.xml
 msgid "Remove from my news"
+msgstr ""
+
+#: ./viewlet/mobile/filters.py:46
+msgid "Reversed"
+msgstr ""
+
+#: ./viewlet/mobile/filters.py:28
+msgid "Search"
+msgstr ""
+
+#: ./viewlet/mobile/filters.py:41
+msgid "Sort on"
 msgstr ""
 
 #: ./page/controller/register.py:37
@@ -138,6 +166,14 @@ msgstr ""
 
 #: ./page/controller/register.py:45
 msgid "There were errors."
+msgstr ""
+
+#: ./content/vocabularies.py:228
+msgid "Title"
+msgstr ""
+
+#: ./viewlet/mobile/filters.py:33
+msgid "Types"
 msgstr ""
 
 #: ./profiles/default/types/collective.rcse.video.xml
