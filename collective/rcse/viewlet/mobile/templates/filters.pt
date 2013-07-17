@@ -1,4 +1,6 @@
-<div id="filters" data-role="collapsible">
-  <h4>Filters</h4>
-  <tal:form tal:replace="structure view/form/render"></tal:form>
-</div>
+<tal:block i18n:domain="collective.rcse">
+  <div id="filters" data-role="collapsible">
+    <h4 i18n:translate="">Filters</h4>
+    <tal:form tal:replace="structure view/form/render"></tal:form>
+  </div>
+</tal:block>
