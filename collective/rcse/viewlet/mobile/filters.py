@@ -76,8 +76,8 @@ class FiltersForm(AutoExtensibleForm, form.Form):
             self.widgets['types'].value = self.request.get('types')
         if self.request.get('sort_on'):
             self.widgets['sort_on'].value = self.request.get('sort_on')
-        if self.request.get('sort_order') == 'ascending':
-            self.widgets['sort_order'].items[0]['checked'] = False
+        if self.request.get('sort_order') == 'reverse':
+            self.widgets['sort_order'].items[0]['checked'] = True
 
     @button.buttonAndHandler(_(u'Filter'))
     def filter(self, action):
