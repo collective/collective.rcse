@@ -209,7 +209,8 @@ sector = TreeVocabulary.fromDict(sector_terms)
 
 def groupTypes(context):
     """Get content types with content in a specific group"""
-    types = set(t.__class__.__name__ for t in context.values())
+    plone_utils = getToolByName(context, 'plone_utils')
+    types = plone_utils.getUserFriendlyTypes()
     terms = [
         SimpleTerm(
             baseNormalize(t),
@@ -221,6 +222,7 @@ def groupTypes(context):
 
 
 sortBy = SimpleVocabulary([
-    SimpleTerm('date', 'date', _(u'Date')),
-    SimpleTerm('title', 'title', _(u'Title')),
-    ])
+        SimpleTerm('relevance', 'relevance', _(u'Relevance')),
+        SimpleTerm('Date', 'Date', _(u'Date')),
+        SimpleTerm('sortable_title', 'sortable_title', _(u'Title')),
+        ])
