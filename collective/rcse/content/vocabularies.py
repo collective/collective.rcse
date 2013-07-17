@@ -208,14 +208,15 @@ sector = TreeVocabulary.fromDict(sector_terms)
 
 
 def groupTypes(context):
-    """Get content types with content in a specific group"""
-    plone_utils = getToolByName(context, 'plone_utils')
-    types = plone_utils.getUserFriendlyTypes()
+    """Get content types addable in a specific context"""
+    portal_types = getToolByName(context, 'portal_types')
+    types = portal_types.listContentTypes()
+    types = [t for t in types if context.getTypeInfo().allowType(t)]
     terms = [
         SimpleTerm(
             baseNormalize(t),
             baseNormalize(t),
-            _(t)
+            _(portal_types[t].title)
             ) for t in sorted(types)
         ]
     return SimpleVocabulary(terms)

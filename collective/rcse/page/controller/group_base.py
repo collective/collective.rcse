@@ -73,7 +73,7 @@ class BaseView(BrowserView):
             self.query["portal_type"] = set(types.split(','))
         if self.filter_type is not None and len(self.filter_type) > 0:
             if self.query.get('portal_type'):
-                portal_type = self.query["portal_type"] & self.filter_type
+                portal_type = self.query["portal_type"] & set(self.filter_type)
                 self.query["portal_type"] = portal_type
             else:
                 self.query["portal_type"] = self.filter_type
