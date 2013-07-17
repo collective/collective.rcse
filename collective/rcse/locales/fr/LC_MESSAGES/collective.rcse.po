@@ -156,7 +156,7 @@ msgstr "Retirer de mon fil d'actualité"
 
 #: ./viewlet/mobile/filters.py:46
 msgid "Reversed"
-msgstr "Inversé"
+msgstr "Inverser"
 
 #: ./viewlet/mobile/filters.py:28
 msgid "Search"
