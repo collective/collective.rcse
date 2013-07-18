@@ -42,8 +42,5 @@ class UsersDirectoryView(BrowserView):
         results = self.catalog(self.query)
         if batch:
             results = Batch(results, b_size, b_start)
-
-        import pdb; pdb.set_trace()
-
         return results
 

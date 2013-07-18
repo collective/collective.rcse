@@ -64,6 +64,14 @@
       layer="collective.rcse.layer.CommonLayer"
       />
 
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="personal-information"
+      class=".personal-information.PersonalInformation"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+
   <adapter factory=".register_information.RegisterInformationFormAdapter" />
 
   <browser:page

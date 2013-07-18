@@ -10,9 +10,10 @@
   <div metal:fill-slot="content-core">
     <tal:main-macro metal:define-macro="content-core">
 
-      <div tal:define="b_start python:0;
-                       b_start request/b_start | b_start;
-                       batch python: view.getMembers(b_start=b_start);">
+      <div class="vcard"
+	 tal:define="b_start python:0;
+                     b_start request/b_start | b_start;
+                     batch python: view.getMembers(b_start=b_start);">
 	<tal:members tal:repeat="member batch">
 	  <tal:block tal:define="m python: member.getObject()"
 		     tal:replace="structure m/@@vcard_view"></tal:block>

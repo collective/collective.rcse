@@ -63,11 +63,12 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
         self._security_manager = getSecurityManager()
         self._sudo('Manager')
         data['username'] = username
-        utils.createContentInContainer(
+        item = utils.createContentInContainer(
             container,
             'collective.rcse.member',
             checkConstraints=False,
             **data)
+        item.manage_setLocalRoles(username, ['Owner'])
         self._sudo()
 
     def _sudo(self, role=None):
