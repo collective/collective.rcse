@@ -30,6 +30,7 @@ class IMember(interface.Interface):
         title=_t(u"Presentation"),
         required=False
     )
+
     lang = schema.List(
         title=_t(u"Spoken languages"),
         required=False,
@@ -53,24 +54,21 @@ class IMember(interface.Interface):
     company = schema.ASCIILine(
         title=_t(u"Company")
     ) # ID
-    function = schema.Choice(
+    function = schema.TextLine(
         title=_t(u"Function"),
-        vocabulary=vocabularies.functions
     )
 
     areas_of_expertise = schema.List(
         title=_t(u"Areas of expertise"),
-        value_type=schema.Choice(
+        value_type=schema.TextLine(
             title=_t(u"Expertise"),
-            vocabulary=vocabularies.areas_of_expertise
         ),
         required=False
     )
     interests = schema.List(
         title=_t(u"Interests"),
-        value_type=schema.Choice(
+        value_type=schema.TextLine(
             title=_t(u"Interest"),
-            vocabulary=vocabularies.interests
         ),
         required=False
     )
@@ -88,7 +86,7 @@ class IMember(interface.Interface):
         required=False
     )
     personal_mobile_phone = schema.TextLine(
-        title=_t(u"Professional e-mail"),
+        title=_t(u"Personal mobile phone"),
         required=False
     )
     professional_landline_phone = schema.TextLine(
@@ -100,7 +98,7 @@ class IMember(interface.Interface):
         required=False
     )
     skype = schema.TextLine(
-        title=_t(u"Professional e-mail"),
+        title=_t(u"Skype"),
         required=False
     )
 

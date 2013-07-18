@@ -3,7 +3,6 @@ from zope import interface
 from zope import schema
 
 from collective.rcse.i18n import _t
-from collective.rcse.content import vocabularies
 
 
 class ICompany(interface.Interface):
@@ -11,9 +10,8 @@ class ICompany(interface.Interface):
     corporate_name = schema.TextLine(
         title=_t(u"Corporate name")
     )
-    sector = schema.Choice(
+    sector = schema.TextLine(
         title=_t(u"Sector"),
-        vocabulary=vocabulary.sector
     )
     service = schema.TextLine(
         title=_t(u"Service"),

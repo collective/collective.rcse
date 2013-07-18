@@ -79,3 +79,37 @@ class CreatorMemberInfoView(AuthenticatedMemberInfoView):
             self.memberid = self.context.Creator()
         if self.member is None and self.memberid is not None:
             self.member = self.membership.getMemberById(self.memberid)
+
+
+class MemberInfoView(BrowserView):
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+        self.portal_url = None
+        self.membership = None
+
+    def __call__(self):
+        self.update()
+        self.getMemberProperties()
+        if self.__name__.endswith("_view"):
+            return self.index()
+        return self
+
+    def update(self):
+        if self.portal_url is None:
+            self.portal_url = getToolByName(self.context, 'portal_url')
+        if self.membership is None:
+            self.membership = getToolByName(self.context, "portal_membership")
+
+    def getMemberProperties(self):
+        self.member = self.membership.getMemberById(self.context.username)
+
+        self.memberid = self.member.getProperty('username')
+        self.photo = self.member.getProperty('photo')
+        self.url = self.portal_url() + '/author/' + self.memberid
+        self.fullname = self.member.getProperty('fullname')
+        self.company = self.member.getProperty('company')
+        self.function = self.member.getProperty('function')
+        self.professional_email = self.member.getProperty('professional_email')
+        self.professional_mobile_phone =\
+            self.member.getProperty('professional_mobile_phone')

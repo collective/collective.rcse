@@ -11,7 +11,7 @@ from z3c.form import form
 from z3c.form import button
 from z3c.form import widget
 from z3c.form.interfaces import IFormLayer
-from z3c.form.browser.select import SelectWidget
+from z3c.form.browser.select import SelectFieldWidget
 from zope import component
 from zope import schema
 from zope import interface
@@ -58,15 +58,11 @@ class FiltersFormAdapter(object):
         self.reversed = True
 
 
-def SelectFactory(field, request):
-    return widget.FieldWidget(field, SelectWidget(request))
-
-
 class FiltersForm(AutoExtensibleForm, form.Form):
     schema = FiltersFormSchema
 
     def updateWidgets(self):
-        self.fields['types'].widgetFactory = SelectFactory
+        self.fields['types'].widgetFactory = SelectFieldWidget
         super(FiltersForm, self).updateWidgets()
         self.widgets['types'].multiple = 'multiple'
         if self.request.get('SearchableText'):

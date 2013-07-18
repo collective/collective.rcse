@@ -53,7 +53,7 @@ def _publishContent(content):
 
 
 def updateUsersDirectories(users_directory):
-    #users_directory.setLayout("users_directory_view")
+    users_directory.setLayout("users_directory_view")
     aspect = ISelectableConstrainTypes(users_directory)
     addable = aspect.getImmediatelyAddableTypes()
     if "collective.rcse.member" not in addable:
@@ -66,7 +66,7 @@ def updateUsersDirectories(users_directory):
 
 
 def updateCompaniesDirectories(companies_directory):
-    #companies_directory.setLayout("companies_directory_view")
+    companies_directory.setLayout("companies_directory_view")
     aspect = ISelectableConstrainTypes(companies_directory)
     addable = aspect.getImmediatelyAddableTypes()
     if "collective.rcse.company" not in addable:
