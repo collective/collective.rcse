@@ -87,6 +87,7 @@ class MemberInfoView(BrowserView):
         self.request = request
         self.portal_url = None
         self.membership = None
+        self.wtool = None
 
     def __call__(self):
         self.update()
@@ -100,16 +101,24 @@ class MemberInfoView(BrowserView):
             self.portal_url = getToolByName(self.context, 'portal_url')
         if self.membership is None:
             self.membership = getToolByName(self.context, "portal_membership")
+        if self.wtool is None:
+            self.wtool = getToolByName(self.context, 'portal_workflow')
 
     def getMemberProperties(self):
         self.member = self.membership.getMemberById(self.context.username)
 
         self.memberid = self.member.getProperty('username')
         self.photo = self.member.getProperty('photo')
-        self.url = self.portal_url() + '/author/' + self.memberid
+        self.url = '/'.join(self.context.getPhysicalPath())
         self.fullname = self.member.getProperty('fullname')
         self.company = self.member.getProperty('company')
         self.function = self.member.getProperty('function')
         self.professional_email = self.member.getProperty('professional_email')
         self.professional_mobile_phone =\
             self.member.getProperty('professional_mobile_phone')
+        self.state = self.getUserState()
+
+    def getUserState(self):
+        status = self.wtool.getStatusOf('collective_rcse_member_workflow',
+                                        self.context)
+        return status['review_state']

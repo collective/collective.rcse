@@ -9,7 +9,16 @@
 <body>
   <div metal:fill-slot="content-core">
     <tal:main-macro metal:define-macro="content-core">
-      COMPANIES DIRECTORY
+      <div class="vcard"
+	 tal:define="b_start python:0;
+                     b_start request/b_start | b_start;
+                     batch python: view.getCompanies(b_start=b_start);">
+	<tal:members tal:repeat="company batch">
+	  <tal:block tal:define="c python: company.getObject()"
+		     tal:replace="structure c/@@vcard_view"></tal:block>
+	</tal:members>
+	<div metal:use-macro="context/batch_macros/macros/navigation" />
+      </div>
     </tal:main-macro>
   </div>
 </body>

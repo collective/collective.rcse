@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>1041</version>
+  <version>1042</version>
   <dependencies>
     <dependency>profile-cioppino.twothumbs:default</dependency>
     <dependency>profile-collective.etherpad:default</dependency>
