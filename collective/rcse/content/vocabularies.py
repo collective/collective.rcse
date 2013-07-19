@@ -6,7 +6,6 @@ from collective.rcse.i18n import _, _t
 
 
 gender = SimpleVocabulary([
-    SimpleTerm(value=u"undefined", title=_t(u"Undefined")),
     SimpleTerm(value=u"female", title=_t(u"Female")),
     SimpleTerm(value=u"male", title=_t(u"Male")),
 ])

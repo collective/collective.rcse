@@ -10,7 +10,6 @@ from z3c.form import form
 from z3c.form import button
 from z3c.form import widget
 from z3c.form.interfaces import IFormLayer
-from z3c.form.browser.select import SelectFieldWidget
 from zope import component
 from zope import interface
 
@@ -34,11 +33,6 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
     schema = RegisterInformationFormSchema
     enableCSRFProtection = True
     label = _(u"Register your information")
-
-    def updateWidgets(self):
-        self.fields['lang'].widgetFactory = SelectFieldWidget
-        super(RegisterInformationForm, self).updateWidgets()
-        self.widgets['lang'].multiple = 'multiple'
 
     @button.buttonAndHandler(_(u"Submit"), name="submit")
     def handleApply(self, action):

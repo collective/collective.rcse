@@ -2,6 +2,7 @@ import urllib
 from Acquisition import aq_inner
 from plone.app.layout.viewlets import ViewletBase
 from plone.autoform.form import AutoExtensibleForm
+from plone.autoform import directives
 from plone.supermodel import model
 from plone.z3cform.interfaces import IWrappedForm
 from plone.z3cform.layout import FormWrapper
@@ -29,6 +30,7 @@ class FiltersFormSchema(model.Schema):
         required=False
         )
 
+    directives.widget('types', SelectFieldWidget, multiple="multiple")
     types = schema.List(
         title=_(u'Types'),
         value_type=schema.Choice(
@@ -62,9 +64,7 @@ class FiltersForm(AutoExtensibleForm, form.Form):
     schema = FiltersFormSchema
 
     def updateWidgets(self):
-        self.fields['types'].widgetFactory = SelectFieldWidget
         super(FiltersForm, self).updateWidgets()
-        self.widgets['types'].multiple = 'multiple'
         if self.request.get('SearchableText'):
             self.widgets['SearchableText'].value =\
                 self.request.get('SearchableText')

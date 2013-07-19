@@ -1,14 +1,53 @@
+from plone.autoform import directives as form
 from plone.app.textfield import RichText
 from plone.namedfile import field
+from plone.supermodel import model
+from z3c.form.browser.select import SelectFieldWidget
 from zope import interface
 from zope import schema
 
+from collective.rcse.i18n import _
 from collective.rcse.i18n import _t
 from collective.rcse.content import vocabularies
 
 
-class IMember(interface.Interface):
+class IMember(model.Schema):
     """This is a high level schema of info"""
+
+    model.fieldset(
+        'personal',
+        label=_(u'Personal information'),
+        fields=[
+            'gender',
+            'bio',
+            'lang',
+            'birthdate',
+            'avatar',
+            'areas_of_expertise',
+            'interests',
+            ]
+        )
+
+    model.fieldset(
+        'contact',
+        label=_(u'Contact information'),
+        fields=[
+            'professional_email',
+            'personal_email',
+            'professional_mobile_phone',
+            'personal_mobile_phone',
+            'professional_landline_phone',
+            'personal_landline_phone',
+            'skype',
+            'website',
+            'blog',
+            'viadeo',
+            'linkedin',
+            'google',
+            'twitter',
+            ]
+        )
+
     username = schema.ASCIILine(
         title=_t(u"Username"),
         readonly=True
@@ -26,11 +65,18 @@ class IMember(interface.Interface):
         required=True,
     )
 
+    company = schema.ASCIILine(
+        title=_t(u"Company")
+    ) # ID
+    function = schema.TextLine(
+        title=_t(u"Function"),
+    )
+
     bio = RichText(
         title=_t(u"Presentation"),
         required=False
     )
-
+    form.widget('lang', SelectFieldWidget, multiple="multiple")
     lang = schema.List(
         title=_t(u"Spoken languages"),
         required=False,
@@ -44,18 +90,12 @@ class IMember(interface.Interface):
     )
     gender = schema.Choice(
         title=_t(u"Gender"),
-        vocabulary=vocabularies.gender
+        vocabulary=vocabularies.gender,
+        required=False
     )
     avatar = field.NamedBlobImage(
         title=_t(u"Avatar"),
         required=False
-    )
-
-    company = schema.ASCIILine(
-        title=_t(u"Company")
-    ) # ID
-    function = schema.TextLine(
-        title=_t(u"Function"),
     )
 
     areas_of_expertise = schema.List(
