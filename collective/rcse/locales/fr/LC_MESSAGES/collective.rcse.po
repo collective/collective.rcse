@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-07-17 15:31+0000\n"
+"POT-Creation-Date: 2013-07-19 09:21+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -38,6 +38,10 @@ msgstr "Ajouter un groupe"
 msgid "Add to my news"
 msgstr "Ajouter à mon fil d'actualité"
 
+#: ./content/company.py:25
+msgid "Address"
+msgstr "Adresse"
+
 #: ./viewlet/mobile/templates/sections.pt:21
 msgid "All groups"
 msgstr "Tous les groupes"
@@ -54,9 +58,21 @@ msgstr "Un événement"
 msgid "Audio"
 msgstr "Audio"
 
+#: ./page/mobile/templates/vcard_view.pt:14
+msgid "Banned"
+msgstr "Bannis"
+
+#: ./content/company.py:39
+msgid "Blog"
+msgstr ""
+
 #: ./viewlet/mobile/templates/group_display_menu.pt:5
 msgid "Choose a view"
 msgstr "Choisissez un mode d'affichage"
+
+#: ./content/company.py:32
+msgid "City"
+msgstr "Ville"
 
 #: ./profiles/default/types/collective.rcse.etherpad.xml
 msgid "Collaborate"
@@ -74,9 +90,25 @@ msgstr "Commentaire"
 msgid "Company"
 msgstr "Société"
 
-#: ./content/vocabularies.py:227
+#: ./page/controller/register.py:25
+msgid "Confirm the password"
+msgstr "Confirmez le mot de passe"
+
+#: ./content/member.py:33
+msgid "Contact information"
+msgstr "Informations de contacts"
+
+#: ./content/company.py:11
+msgid "Corporate name"
+msgstr "Raison social"
+
+#: ./content/vocabularies.py:36
 msgid "Date"
 msgstr ""
+
+#: ./page/mobile/templates/vcard_company_view.pt:10
+msgid "Disabled"
+msgstr "Désactivé"
 
 #: ./viewlet/mobile/templates/group_display_menu.pt:2
 msgid "Display"
@@ -107,7 +139,7 @@ msgstr "Evénement"
 msgid "Favorites"
 msgstr "Favoris"
 
-#: ./viewlet/mobile/filters.py:82
+#: ./viewlet/mobile/filters.py:79
 msgid "Filter"
 msgstr "Filtrer"
 
@@ -119,6 +151,14 @@ msgstr "Filtres"
 msgid "Group"
 msgstr "Groupe"
 
+#: ./page/controller/register.py:19
+msgid "Login"
+msgstr ""
+
+#: ./content/company.py:21
+msgid "Logo"
+msgstr ""
+
 #: ./profiles/default/types/collective.rcse.member.xml
 msgid "Member"
 msgstr "Membre"
@@ -129,8 +169,25 @@ msgid "My news"
 msgstr "Mon actualité"
 
 #: ./page/controller/templates/welcome_view.pt:16
+#: ./profiles/default/actions.xml
 msgid "My profile"
 msgstr "Mon profil"
+
+#: ./page/controller/register.py:22
+msgid "Password"
+msgstr "Mot de passe"
+
+#: ./page/controller/register.py:55
+msgid "Passwords do not match."
+msgstr "Les mot de passes ne sont pas pareil."
+
+#: ./content/member.py:19
+msgid "Personal information"
+msgstr "Informations personelles"
+
+#: ./content/company.py:29
+msgid "Postal code"
+msgstr "Code postal"
 
 #: ./profiles/default/controlpanel.xml
 #: ./security.py:72
@@ -142,11 +199,15 @@ msgstr "RCSE configuration"
 msgid "Read"
 msgstr "Lire"
 
-#: ./page/controller/register.py:32
+#: ./page/controller/register.py:40
+msgid "Register"
+msgstr "S'enregistrer"
+
+#: ./page/controller/register_information.py:35
 msgid "Register your information"
 msgstr "Enregistrer vos informations"
 
-#: ./content/vocabularies.py:226
+#: ./content/vocabularies.py:35
 msgid "Relevance"
 msgstr "Pertinence"
 
@@ -154,31 +215,43 @@ msgstr "Pertinence"
 msgid "Remove from my news"
 msgstr "Retirer de mon fil d'actualité"
 
-#: ./viewlet/mobile/filters.py:46
+#: ./viewlet/mobile/filters.py:49
 msgid "Reversed"
 msgstr "Inverser"
 
-#: ./viewlet/mobile/filters.py:28
+#: ./viewlet/mobile/filters.py:29
 msgid "Search"
 msgstr "Rechercher"
 
-#: ./viewlet/mobile/filters.py:41
+#: ./content/company.py:14
+msgid "Sector"
+msgstr "Secteur"
+
+#: ./content/company.py:17
+msgid "Service"
+msgstr ""
+
+#: ./viewlet/mobile/filters.py:43
 msgid "Sort on"
 msgstr "Trier par"
 
-#: ./page/controller/register.py:37
+#: ./page/controller/register_information.py:37
 msgid "Submit"
 msgstr "Envoyer"
 
-#: ./page/controller/register.py:45
+#: ./page/controller/register_information.py:45
 msgid "There were errors."
 msgstr "Il y a eu des erreurs"
 
-#: ./content/vocabularies.py:228
+#: ./content/vocabularies.py:37
 msgid "Title"
 msgstr "Titre"
 
-#: ./viewlet/mobile/filters.py:33
+#: ./content/company.py:43
+msgid "Turnover"
+msgstr "Chiffre d'affaire"
+
+#: ./viewlet/mobile/filters.py:35
 msgid "Types"
 msgstr "Types"
 
@@ -190,16 +263,25 @@ msgstr "Vidéo"
 msgid "Video file"
 msgstr "Fichier video"
 
+#: ./page/mobile/templates/vcard_company_view.pt:9
+#: ./page/mobile/templates/vcard_view.pt:13
+msgid "Waiting for validation"
+msgstr "En attente de validation"
+
 #: ./viewlet/mobile/templates/sections.pt:31
 msgid "Watched"
 msgstr "Dans mon fil d'actualité"
+
+#: ./content/company.py:35
+msgid "Website"
+msgstr "Site web"
 
 #. Default: "My space"
 #: ./page/controller/templates/welcome_view.pt:13
 msgid "Welcome"
 msgstr "Bienvenue"
 
-#: ./page/controller/register.py:42
+#: ./page/controller/register_information.py:42
 msgid "You are already registered."
 msgstr "Vous êtes déjà enregistré."
 
@@ -219,13 +301,13 @@ msgstr "Vous avez retiré le contenu de ce groupe de votre fil d'actualité"
 msgid "You liked this. Thanks for the feedback!"
 msgstr "Vous aimez cet élément. Merci de votre retour!"
 
-#: ./page/controller/register.py:88
-msgid "You must be connected to do this."
-msgstr "Vous devez être connecté pour faire ça."
-
 #: ./page/controller/timeline_view.py:12
 msgid "You must be logged in to access to the RCSE"
 msgstr "Vous devez être connecté pour accéder au RCSE"
+
+#: ./page/controller/register.py:64
+msgid "Your can now log in."
+msgstr "Vous pouvez maintenant vous connectez."
 
 #: ./page/controller/cioppino_twothumbs.py:16
 msgid "Your vote has been removed."
