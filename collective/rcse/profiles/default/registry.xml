@@ -88,11 +88,11 @@
       <element>email</element>
       <element>first_name</element>
       <element>last_name</element>
-      <element>bio</element>
+      <!-- element>bio</element -->
       <element>lang</element>
       <element>birthdate</element>
       <element>gender</element>
-      <element>avatar</element>
+      <!-- element>avatar</element -->
       <element>company</element>
       <element>function</element>
       <element>areas_of_expertise</element>

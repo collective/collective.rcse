@@ -1,6 +1,7 @@
 <div class="vcard" i18n:domain="collective.rcse">
-   <img class="photo" tal:condition="view/photo"
-	tal:attributes="src view/photo; alt string:photo"/>
+   <img class="photo" tal:condition="context/avatar"
+	tal:attributes="src string:${context/absolute_url}/@@download/avatar/${context/avatar/filename};
+			alt string:photo"/>
    <a class="fn url" rel="me"
       tal:attributes="href view/url"
       tal:content="view/fullname">

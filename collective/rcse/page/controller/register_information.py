@@ -93,5 +93,5 @@ class RegisterInformationFormWrapper(FormWrapper):
         user = mtool.getAuthenticatedMember()
         if type(user.getProperty('username')) != object:
             self.request.response.redirect(
-                '%s/@@personal-information' % root_url
+                '%s/@@personal-information' % portal_url()
                 )
