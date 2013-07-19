@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-07-19 09:21+0000\n"
+"POT-Creation-Date: 2013-07-19 14:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,10 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.rcse\n"
+
+#: ./profiles/default/types/collective.rcse.directory.xml
+msgid "A directory"
+msgstr ""
 
 #: ./profiles/default/types/collective.rcse.group.xml
 msgid "A group"
@@ -53,15 +57,36 @@ msgstr ""
 msgid "An event"
 msgstr ""
 
+#: ./profiles/default/workflows/collective_rcse_company_workflow/definition.xml
+msgid "Approve This Company"
+msgstr ""
+
+#: ./profiles/default/workflows/collective_rcse_member_workflow/definition.xml
+msgid "Approve This Member"
+msgstr ""
+
+#: ./content/member.py:101
+msgid "Areas of expertise"
+msgstr ""
+
 #: ./profiles/default/types/collective.rcse.audio.xml
 msgid "Audio"
+msgstr ""
+
+#: ./content/member.py:96
+msgid "Avatar"
 msgstr ""
 
 #: ./page/mobile/templates/vcard_view.pt:14
 msgid "Banned"
 msgstr ""
 
+#: ./content/member.py:87
+msgid "Birthdate"
+msgstr ""
+
 #: ./content/company.py:39
+#: ./content/member.py:145
 msgid "Blog"
 msgstr ""
 
@@ -85,15 +110,20 @@ msgstr ""
 msgid "Comment"
 msgstr ""
 
+#: ./setuphandler.py:46
+msgid "Companies directory"
+msgstr ""
+
+#: ./content/member.py:68
 #: ./profiles/default/types/collective.rcse.company.xml
 msgid "Company"
 msgstr ""
 
-#: ./page/controller/register.py:25
+#: ./page/controller/register.py:28
 msgid "Confirm the password"
 msgstr ""
 
-#: ./content/member.py:33
+#: ./content/member.py:32
 msgid "Contact information"
 msgstr ""
 
@@ -105,7 +135,27 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: ./page/mobile/templates/vcard_company_view.pt:10
+#: ./profiles/default/workflows/collective_rcse_company_workflow/definition.xml
+msgid "Decline This Company"
+msgstr ""
+
+#: ./profiles/default/workflows/collective_rcse_member_workflow/definition.xml
+msgid "Decline This Member"
+msgstr ""
+
+#: ./profiles/default/types/collective.rcse.directory.xml
+msgid "Directory"
+msgstr ""
+
+#: ./profiles/default/workflows/collective_rcse_company_workflow/definition.xml
+msgid "Disable This Company"
+msgstr ""
+
+#: ./profiles/default/workflows/collective_rcse_member_workflow/definition.xml
+msgid "Disable This Member"
+msgstr ""
+
+#: ./page/mobile/templates/vcard_company_view.pt:11
 msgid "Disabled"
 msgstr ""
 
@@ -126,12 +176,28 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
+#: ./content/member.py:55
+msgid "E-mail"
+msgstr ""
+
+#: ./profiles/default/workflows/collective_rcse_company_workflow/definition.xml
+msgid "Enable This Company"
+msgstr ""
+
+#: ./profiles/default/workflows/collective_rcse_member_workflow/definition.xml
+msgid "Enable This Member"
+msgstr ""
+
 #: ./profiles/default/types/collective.rcse.etherpad.xml
 msgid "Etherpad"
 msgstr ""
 
 #: ./profiles/default/types/collective.rcse.event.xml
 msgid "Event"
+msgstr ""
+
+#: ./content/member.py:103
+msgid "Expertise"
 msgstr ""
 
 #: ./viewlet/mobile/templates/sections.pt:24
@@ -146,11 +212,43 @@ msgstr ""
 msgid "Filters"
 msgstr ""
 
+#: ./content/member.py:59
+msgid "First Name"
+msgstr ""
+
+#: ./content/member.py:71
+msgid "Function"
+msgstr ""
+
+#: ./content/member.py:91
+msgid "Gender"
+msgstr ""
+
+#: ./content/member.py:148
+msgid "Google+"
+msgstr ""
+
 #: ./profiles/default/types/collective.rcse.group.xml
 msgid "Group"
 msgstr ""
 
-#: ./page/controller/register.py:19
+#: ./content/member.py:110
+msgid "Interest"
+msgstr ""
+
+#: ./content/member.py:108
+msgid "Interests"
+msgstr ""
+
+#: ./content/member.py:63
+msgid "Last Name"
+msgstr ""
+
+#: ./content/member.py:147
+msgid "LinkedIn"
+msgstr ""
+
+#: ./page/controller/register.py:20
 msgid "Login"
 msgstr ""
 
@@ -172,20 +270,48 @@ msgstr ""
 msgid "My profile"
 msgstr ""
 
-#: ./page/controller/register.py:22
+#: ./page/controller/register.py:24
 msgid "Password"
 msgstr ""
 
-#: ./page/controller/register.py:55
+#: ./page/controller/register.py:53
 msgid "Passwords do not match."
 msgstr ""
 
-#: ./content/member.py:19
+#: ./content/member.py:120
+msgid "Personal e-mail"
+msgstr ""
+
+#: ./content/member.py:18
 msgid "Personal information"
+msgstr ""
+
+#: ./content/member.py:136
+msgid "Personal landline phone"
+msgstr ""
+
+#: ./content/member.py:128
+msgid "Personal mobile phone"
 msgstr ""
 
 #: ./content/company.py:29
 msgid "Postal code"
+msgstr ""
+
+#: ./content/member.py:75
+msgid "Presentation"
+msgstr ""
+
+#: ./content/member.py:116
+msgid "Professional e-mail"
+msgstr ""
+
+#: ./content/member.py:132
+msgid "Professional landline phone"
+msgstr ""
+
+#: ./content/member.py:124
+msgid "Professional mobile phone"
 msgstr ""
 
 #: ./profiles/default/controlpanel.xml
@@ -198,7 +324,7 @@ msgstr ""
 msgid "Read"
 msgstr ""
 
-#: ./page/controller/register.py:40
+#: ./page/controller/register.py:43
 msgid "Register"
 msgstr ""
 
@@ -230,8 +356,16 @@ msgstr ""
 msgid "Service"
 msgstr ""
 
+#: ./content/member.py:140
+msgid "Skype"
+msgstr ""
+
 #: ./viewlet/mobile/filters.py:43
 msgid "Sort on"
+msgstr ""
+
+#: ./content/member.py:80
+msgid "Spoken languages"
 msgstr ""
 
 #: ./page/controller/register_information.py:37
@@ -250,8 +384,24 @@ msgstr ""
 msgid "Turnover"
 msgstr ""
 
+#: ./content/member.py:149
+msgid "Twitter"
+msgstr ""
+
 #: ./viewlet/mobile/filters.py:35
 msgid "Types"
+msgstr ""
+
+#: ./content/member.py:51
+msgid "Username"
+msgstr ""
+
+#: ./setuphandler.py:33
+msgid "Users directory"
+msgstr ""
+
+#: ./content/member.py:146
+msgid "Viadeo"
 msgstr ""
 
 #: ./profiles/default/types/collective.rcse.video.xml
@@ -262,7 +412,7 @@ msgstr ""
 msgid "Video file"
 msgstr ""
 
-#: ./page/mobile/templates/vcard_company_view.pt:9
+#: ./page/mobile/templates/vcard_company_view.pt:10
 #: ./page/mobile/templates/vcard_view.pt:13
 msgid "Waiting for validation"
 msgstr ""
@@ -272,6 +422,7 @@ msgid "Watched"
 msgstr ""
 
 #: ./content/company.py:35
+#: ./content/member.py:144
 msgid "Website"
 msgstr ""
 
@@ -304,7 +455,7 @@ msgstr ""
 msgid "You must be logged in to access to the RCSE"
 msgstr ""
 
-#: ./page/controller/register.py:64
+#: ./page/controller/register.py:62
 msgid "Your can now log in."
 msgstr ""
 

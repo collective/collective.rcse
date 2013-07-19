@@ -7,7 +7,6 @@ from zope import interface
 from zope import schema
 
 from collective.rcse.i18n import _
-from collective.rcse.i18n import _t
 from collective.rcse.content import vocabularies
 
 
@@ -49,102 +48,102 @@ class IMember(model.Schema):
         )
 
     username = schema.ASCIILine(
-        title=_t(u"Username"),
+        title=_(u"Username"),
         readonly=True
     )
     email = schema.TextLine(
-        title=_t(u"E-mail"),
+        title=_(u"E-mail"),
         required=True,
     )
     first_name = schema.TextLine(
-        title=_t(u"First Name"),
+        title=_(u"First Name"),
         required=True,
     )
     last_name = schema.TextLine(
-        title=_t(u"Last Name"),
+        title=_(u"Last Name"),
         required=True,
     )
 
     company = schema.ASCIILine(
-        title=_t(u"Company")
+        title=_(u"Company")
     ) # ID
     function = schema.TextLine(
-        title=_t(u"Function"),
+        title=_(u"Function"),
     )
 
     bio = RichText(
-        title=_t(u"Presentation"),
+        title=_(u"Presentation"),
         required=False
     )
     form.widget('lang', SelectFieldWidget, multiple="multiple")
     lang = schema.List(
-        title=_t(u"Spoken languages"),
+        title=_(u"Spoken languages"),
         required=False,
-        value_type=schema.Choice(
+        value_ype=schema.Choice(
             vocabulary=vocabularies.languages
         ),
     )
     birthdate = schema.Date(
-        title=_t(u"Birthdate"),
+        title=_(u"Birthdate"),
         required=False
     )
     gender = schema.Choice(
-        title=_t(u"Gender"),
+        title=_(u"Gender"),
         vocabulary=vocabularies.gender,
         required=False
     )
     avatar = field.NamedBlobImage(
-        title=_t(u"Avatar"),
+        title=_(u"Avatar"),
         required=False
     )
 
     areas_of_expertise = schema.List(
-        title=_t(u"Areas of expertise"),
-        value_type=schema.TextLine(
-            title=_t(u"Expertise"),
+        title=_(u"Areas of expertise"),
+        value_ype=schema.TextLine(
+            title=_(u"Expertise"),
         ),
         required=False
     )
     interests = schema.List(
-        title=_t(u"Interests"),
-        value_type=schema.TextLine(
-            title=_t(u"Interest"),
+        title=_(u"Interests"),
+        value_ype=schema.TextLine(
+            title=_(u"Interest"),
         ),
         required=False
     )
 
     professional_email = schema.TextLine(
-        title=_t(u"Professional e-mail"),
+        title=_(u"Professional e-mail"),
         required=False
     )
     personal_email = schema.TextLine(
-        title=_t(u"Personal e-mail"),
+        title=_(u"Personal e-mail"),
         required=False
     )
     professional_mobile_phone = schema.TextLine(
-        title=_t(u"Professional mobile phone"),
+        title=_(u"Professional mobile phone"),
         required=False
     )
     personal_mobile_phone = schema.TextLine(
-        title=_t(u"Personal mobile phone"),
+        title=_(u"Personal mobile phone"),
         required=False
     )
     professional_landline_phone = schema.TextLine(
-        title=_t(u"Professional landline phone"),
+        title=_(u"Professional landline phone"),
         required=False
     )
     personal_landline_phone = schema.TextLine(
-        title=_t(u"Personal landline phone"),
+        title=_(u"Personal landline phone"),
         required=False
     )
     skype = schema.TextLine(
-        title=_t(u"Skype"),
+        title=_(u"Skype"),
         required=False
     )
 
-    website = schema.URI(title=_t(u"Website"), required=False)
-    blog = schema.URI(title=_t(u"Blog"), required=False)
-    viadeo = schema.URI(title=_t(u"Viadeo"), required=False)
-    linkedin = schema.URI(title=_t(u"LinkedIn"), required=False)
-    google = schema.URI(title=_t(u"Google+"), required=False)
-    twitter = schema.URI(title=_t(u"Twitter"), required=False)
+    website = schema.URI(title=_(u"Website"), required=False)
+    blog = schema.URI(title=_(u"Blog"), required=False)
+    viadeo = schema.URI(title=_(u"Viadeo"), required=False)
+    linkedin = schema.URI(title=_(u"LinkedIn"), required=False)
+    google = schema.URI(title=_(u"Google+"), required=False)
+    twitter = schema.URI(title=_(u"Twitter"), required=False)

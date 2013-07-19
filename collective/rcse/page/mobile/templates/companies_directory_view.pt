@@ -9,7 +9,7 @@
 <body>
   <div metal:fill-slot="content-core">
     <tal:main-macro metal:define-macro="content-core">
-      <div class="vcard"
+      <div class="directory"
 	 tal:define="b_start python:0;
                      b_start request/b_start | b_start;
                      batch python: view.getCompanies(b_start=b_start);">

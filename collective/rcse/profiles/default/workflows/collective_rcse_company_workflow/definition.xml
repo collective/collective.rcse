@@ -2,7 +2,8 @@
 <dc-workflow workflow_id="collective_rcse_member_workflow"
              title="Collective RCSE Member Workflow"
              state_variable="review_state"
-             initial_state="pending">
+             initial_state="pending"
+	     i18n:domain="collective.rcse" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
   <permission>View</permission>
   <permission>Access contents information</permission>
@@ -95,7 +96,7 @@
                trigger="USER"
                before_script="" after_script="">
    <action url="%(content_url)s/content_status_modify?workflow_action=approve"
-           category="workflow">Approve This Company</action>
+           category="workflow" i18n:translate="">Approve This Company</action>
    <guard>
     <guard-permission>Review portal content</guard-permission>
    </guard>
@@ -106,7 +107,7 @@
                trigger="USER"
                before_script="" after_script="">
    <action url="%(content_url)s/content_status_modify?workflow_action=decline"
-           category="workflow">Decline This Company</action>
+           category="workflow" i18n:translate="">Decline This Company</action>
    <guard>
     <guard-permission>Review portal content</guard-permission>
    </guard>
@@ -117,7 +118,7 @@
               trigger="USER"
               before_script="" after_script="">
    <action url="%(content_url)s/content_status_modify?workflow_action=disable"
-           category="workflow">Disable This Company</action>
+           category="workflow" i18n:translate="">Disable This Company</action>
    <guard>
     <guard-permission>Review portal content</guard-permission>
    </guard>
@@ -128,7 +129,7 @@
               trigger="USER"
               before_script="" after_script="">
    <action url="%(content_url)s/content_status_modify?workflow_action=enable"
-           category="workflow">Enable This Company</action>
+           category="workflow" i18n:translate="">Enable This Company</action>
    <guard>
     <guard-permission>Review portal content</guard-permission>
    </guard>
