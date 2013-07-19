@@ -78,7 +78,7 @@
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       name="register_information"
       class=".register_information.RegisterInformationFormWrapper"
-      template="templates/register.pt"
+      template="templates/form.pt"
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
       />
@@ -89,7 +89,7 @@
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       name="register"
       class=".register.RegisterFormWrapper"
-      template="templates/register.pt"
+      template="templates/form.pt"
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
       />

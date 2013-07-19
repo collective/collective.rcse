@@ -5,6 +5,10 @@
   <configure zcml:condition="installed AccessControl.security">
 
     <permission
+      id="collective.rcse.AddCompany"
+      title="collective.rcse: Add company"
+      />
+    <permission
       id="collective.rcse.AddAudio"
       title="collective.rcse: Add audio"
       />

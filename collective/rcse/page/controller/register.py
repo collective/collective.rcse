@@ -1,4 +1,5 @@
 from AccessControl import Unauthorized
+from plone.autoform import directives
 from plone.autoform.form import AutoExtensibleForm
 from plone.z3cform.layout import FormWrapper
 from Products.CMFCore.utils import getToolByName
@@ -18,9 +19,11 @@ class RegisterFormSchema(interface.Interface):
     login = schema.ASCIILine(
         title=_(u'Login')
         )
+    directives.widget('password', PasswordFieldWidget)
     password = schema.TextLine(
         title=_(u'Password')
         )
+    directives.widget('password_confirm', PasswordFieldWidget)
     password_confirm = schema.TextLine(
         title=_(u'Confirm the password')
         )
@@ -38,11 +41,6 @@ class RegisterForm(AutoExtensibleForm, form.Form):
     schema = RegisterFormSchema
     enableCSRFProtection = True
     label = _('Register')
-
-    def updateWidgets(self):
-        self.fields['password'].widgetFactory = PasswordFieldWidget
-        self.fields['password_confirm'].widgetFactory = PasswordFieldWidget
-        super(RegisterForm, self).updateWidgets()
 
     @button.buttonAndHandler(_(u"Register"), name="register")
     def handleRegister(self, action):

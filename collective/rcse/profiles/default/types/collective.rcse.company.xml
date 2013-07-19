@@ -19,7 +19,7 @@
  <!-- class used for content items -->
  <property name="klass">plone.dexterity.content.Item</property>
 
- <property name="add_permission">cmf.AddPortalContent</property>
+ <property name="add_permission">collective.rcse.AddCompany</property>
  <property name="behaviors">
      <element value="plone.app.dexterity.behaviors.metadata.IBasic" />
      <element value="plone.app.content.interfaces.INameFromTitle" />

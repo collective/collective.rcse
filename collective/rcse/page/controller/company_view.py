@@ -6,6 +6,7 @@ class CompanyInfoView(BrowserView):
     def __init__(self, context, request):
         self.context = context
         self.request = request
+        self.portal_url = None
         self.wtool = None
 
     def __call__(self):
@@ -23,7 +24,7 @@ class CompanyInfoView(BrowserView):
 
     def getCompanyProperties(self):
         self.url = '/'.join(self.context.getPhysicalPath())
-        self.state = self.getUserState()
+        self.state = self.getCompanyState()
 
     def getCompanyState(self):
         status = self.wtool.getStatusOf('collective_rcse_company_workflow',
