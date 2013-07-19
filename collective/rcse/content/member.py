@@ -79,7 +79,7 @@ class IMember(model.Schema):
     lang = schema.List(
         title=_(u"Spoken languages"),
         required=False,
-        value_ype=schema.Choice(
+        value_type=schema.Choice(
             vocabulary=vocabularies.languages
         ),
     )
@@ -99,14 +99,14 @@ class IMember(model.Schema):
 
     areas_of_expertise = schema.List(
         title=_(u"Areas of expertise"),
-        value_ype=schema.TextLine(
+        value_type=schema.TextLine(
             title=_(u"Expertise"),
         ),
         required=False
     )
     interests = schema.List(
         title=_(u"Interests"),
-        value_ype=schema.TextLine(
+        value_type=schema.TextLine(
             title=_(u"Interest"),
         ),
         required=False
