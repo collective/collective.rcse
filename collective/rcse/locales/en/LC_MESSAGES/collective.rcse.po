@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-07-19 14:39+0000\n"
+"POT-Creation-Date: 2013-07-22 13:03+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -40,7 +40,8 @@ msgstr ""
 msgid "Add to my news"
 msgstr ""
 
-#: ./content/company.py:25
+#: ./content/company.py:29
+#: ./page/mobile/templates/company_view.pt:29
 msgid "Address"
 msgstr ""
 
@@ -65,6 +66,7 @@ msgid "Approve This Member"
 msgstr ""
 
 #: ./content/member.py:101
+#: ./page/mobile/templates/user_view.pt:31
 msgid "Areas of expertise"
 msgstr ""
 
@@ -76,7 +78,7 @@ msgstr ""
 msgid "Avatar"
 msgstr ""
 
-#: ./page/mobile/templates/vcard_view.pt:14
+#: ./page/mobile/templates/vcard_view.pt:17
 msgid "Banned"
 msgstr ""
 
@@ -84,16 +86,21 @@ msgstr ""
 msgid "Birthdate"
 msgstr ""
 
-#: ./content/company.py:39
+#: ./content/company.py:43
 #: ./content/member.py:145
+#: ./page/mobile/templates/company_view.pt:42
 msgid "Blog"
+msgstr ""
+
+#: ./page/mobile/templates/user_view.pt:26
+msgid "Born the ${DYNAMIC_CONTENT}"
 msgstr ""
 
 #: ./viewlet/mobile/templates/group_display_menu.pt:5
 msgid "Choose a view"
 msgstr ""
 
-#: ./content/company.py:32
+#: ./content/company.py:36
 msgid "City"
 msgstr ""
 
@@ -123,10 +130,12 @@ msgid "Confirm the password"
 msgstr ""
 
 #: ./content/member.py:32
+#: ./page/mobile/templates/user_view.pt:36
 msgid "Contact information"
 msgstr ""
 
-#: ./content/company.py:11
+#: ./content/company.py:15
+#: ./page/mobile/templates/company_view.pt:20
 msgid "Corporate name"
 msgstr ""
 
@@ -154,7 +163,7 @@ msgstr ""
 msgid "Disable This Member"
 msgstr ""
 
-#: ./page/mobile/templates/vcard_company_view.pt:11
+#: ./page/mobile/templates/vcard_company_view.pt:13
 msgid "Disabled"
 msgstr ""
 
@@ -203,6 +212,10 @@ msgstr ""
 msgid "Favorites"
 msgstr ""
 
+#: ./content/vocabularies.py:9
+msgid "Female"
+msgstr ""
+
 #: ./viewlet/mobile/filters.py:79
 msgid "Filter"
 msgstr ""
@@ -224,6 +237,7 @@ msgid "Gender"
 msgstr ""
 
 #: ./content/member.py:148
+#: ./page/mobile/templates/user_view.pt:108
 msgid "Google+"
 msgstr ""
 
@@ -236,6 +250,7 @@ msgid "Interest"
 msgstr ""
 
 #: ./content/member.py:108
+#: ./page/mobile/templates/user_view.pt:33
 msgid "Interests"
 msgstr ""
 
@@ -247,12 +262,20 @@ msgstr ""
 msgid "LinkedIn"
 msgstr ""
 
+#: ./page/mobile/templates/user_view.pt:103
+msgid "Linkedin"
+msgstr ""
+
 #: ./page/controller/register.py:20
 msgid "Login"
 msgstr ""
 
-#: ./content/company.py:21
+#: ./content/company.py:11
 msgid "Logo"
+msgstr ""
+
+#: ./content/vocabularies.py:10
+msgid "Male"
 msgstr ""
 
 #: ./profiles/default/types/collective.rcse.member.xml
@@ -278,22 +301,26 @@ msgid "Passwords do not match."
 msgstr ""
 
 #: ./content/member.py:120
+#: ./page/mobile/templates/user_view.pt:58
 msgid "Personal e-mail"
 msgstr ""
 
 #: ./content/member.py:18
+#: ./page/mobile/templates/user_view.pt:20
 msgid "Personal information"
 msgstr ""
 
 #: ./content/member.py:136
+#: ./page/mobile/templates/user_view.pt:78
 msgid "Personal landline phone"
 msgstr ""
 
 #: ./content/member.py:128
+#: ./page/mobile/templates/user_view.pt:68
 msgid "Personal mobile phone"
 msgstr ""
 
-#: ./content/company.py:29
+#: ./content/company.py:33
 msgid "Postal code"
 msgstr ""
 
@@ -302,14 +329,17 @@ msgid "Presentation"
 msgstr ""
 
 #: ./content/member.py:116
+#: ./page/mobile/templates/user_view.pt:53
 msgid "Professional e-mail"
 msgstr ""
 
 #: ./content/member.py:132
+#: ./page/mobile/templates/user_view.pt:73
 msgid "Professional landline phone"
 msgstr ""
 
 #: ./content/member.py:124
+#: ./page/mobile/templates/user_view.pt:63
 msgid "Professional mobile phone"
 msgstr ""
 
@@ -347,15 +377,18 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: ./content/company.py:14
+#: ./content/company.py:18
+#: ./page/mobile/templates/company_view.pt:21
 msgid "Sector"
 msgstr ""
 
-#: ./content/company.py:17
+#: ./content/company.py:21
+#: ./page/mobile/templates/company_view.pt:22
 msgid "Service"
 msgstr ""
 
 #: ./content/member.py:140
+#: ./page/mobile/templates/user_view.pt:83
 msgid "Skype"
 msgstr ""
 
@@ -364,6 +397,7 @@ msgid "Sort on"
 msgstr ""
 
 #: ./content/member.py:80
+#: ./page/mobile/templates/user_view.pt:29
 msgid "Spoken languages"
 msgstr ""
 
@@ -379,11 +413,13 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: ./content/company.py:43
+#: ./content/company.py:25
+#: ./page/mobile/templates/company_view.pt:23
 msgid "Turnover"
 msgstr ""
 
 #: ./content/member.py:149
+#: ./page/mobile/templates/user_view.pt:113
 msgid "Twitter"
 msgstr ""
 
@@ -400,6 +436,7 @@ msgid "Users directory"
 msgstr ""
 
 #: ./content/member.py:146
+#: ./page/mobile/templates/user_view.pt:98
 msgid "Viadeo"
 msgstr ""
 
@@ -411,8 +448,8 @@ msgstr ""
 msgid "Video file"
 msgstr ""
 
-#: ./page/mobile/templates/vcard_company_view.pt:10
-#: ./page/mobile/templates/vcard_view.pt:13
+#: ./page/mobile/templates/vcard_company_view.pt:12
+#: ./page/mobile/templates/vcard_view.pt:16
 msgid "Waiting for validation"
 msgstr ""
 
@@ -420,8 +457,9 @@ msgstr ""
 msgid "Watched"
 msgstr ""
 
-#: ./content/company.py:35
+#: ./content/company.py:39
 #: ./content/member.py:144
+#: ./page/mobile/templates/company_view.pt:37
 msgid "Website"
 msgstr ""
 

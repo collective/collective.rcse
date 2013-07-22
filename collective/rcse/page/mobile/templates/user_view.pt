@@ -10,6 +10,7 @@
   <div metal:fill-slot="content-core">
     <tal:main-macro metal:define-macro="content-core">
       <img class="avatar"
+	   tal:condition="context/avatar"
 	   tal:define="scales context/@@images;
 		       scale python: scales.scale('avatar', width=128, height=128);"
 	   tal:replace="structure scale/tag"/>
@@ -22,8 +23,8 @@
 			 or context.areas_of_expertise
 			 or context.interests"
 	  i18n:translate="">Personal information</h3>
-      <div class="birthdate" tal:condition="context/birthdate" i18n:translate="">Born the <span tal:content="context/birthdate"></span></div>
-      <h3 tal:condition="context/bio">Presentation</h3>
+      <div class="birthdate" tal:condition="context/birthdate" i18n:translate="">Born the <span tal:replace="context/birthdate"></span></div>
+      <h3 tal:condition="context/bio" i18n:translate="">Presentation</h3>
       <div class="bio" tal:condition="context/bio" tal:content="structure context/bio/output"></div>
       <h4 tal:condition="context/lang" i18n:translate="">Spoken languages</h4>
       <div tal:condition="context/lang" tal:content="python: ', '.join(context.lang)"></div>
@@ -99,7 +100,7 @@
 	</tr>
 	<tr tal:condition="context/linkedin">
 	  <td><i class="icon-linkedin"></td>
-	  <td i18n:translate="">Linkedin</td>
+	  <td i18n:translate="">LinkedIn</td>
 	  <td tal:content="context/linkedin"></td>
 	</tr>
 	<tr tal:condition="context/google">

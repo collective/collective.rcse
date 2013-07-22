@@ -1,5 +1,6 @@
 <div class="vcard" i18n:domain="collective.rcse">
    <img class="photo"
+	tal:condition="context/avatar"
 	tal:define="scales context/@@images;
 		    scale python: scales.scale('avatar', width=64, height=64);"
 	tal:replace="structure scale/tag"/>
