@@ -6,8 +6,8 @@ from collective.rcse.i18n import _, _t
 
 
 gender = SimpleVocabulary([
-    SimpleTerm(value=u"female", title=_t(u"Female")),
-    SimpleTerm(value=u"male", title=_t(u"Male")),
+    SimpleTerm(value=u"female", title=_(u"Female")),
+    SimpleTerm(value=u"male", title=_(u"Male")),
 ])
 
 languages = SimpleVocabulary([

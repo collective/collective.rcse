@@ -27,7 +27,7 @@
  </property>
 
   <!-- View information -->
-  <property name="default_view">view</property>
+  <property name="default_view">company_view</property>
   <property name="default_view_fallback">False</property>
   <property name="view_methods">
     <element value="base_view" />
