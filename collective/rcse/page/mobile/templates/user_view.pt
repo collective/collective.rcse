@@ -1,0 +1,119 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.rcse">
+
+<body>
+  <div metal:fill-slot="content-core">
+    <tal:main-macro metal:define-macro="content-core">
+      <img class="avatar"
+	   tal:define="scales context/@@images;
+		       scale python: scales.scale('avatar', width=128, height=128);"
+	   tal:replace="structure scale/tag"/>
+      <h1 tal:content="string:${context/first_name} ${context/last_name}"></h1>
+      <h2 tal:content="string:${context/function} in ${context/company}"></h2>
+
+      <h3 tal:condition="python: context.birthdate
+			 or context.bio
+			 or context.lang
+			 or context.areas_of_expertise
+			 or context.interests"
+	  i18n:translate="">Personal information</h3>
+      <div class="birthdate" tal:condition="context/birthdate" i18n:translate="">Born the <span tal:content="context/birthdate"></span></div>
+      <h3 tal:condition="context/bio">Presentation</h3>
+      <div class="bio" tal:condition="context/bio" tal:content="structure context/bio/output"></div>
+      <h4 tal:condition="context/lang" i18n:translate="">Spoken languages</h4>
+      <div tal:condition="context/lang" tal:content="python: ', '.join(context.lang)"></div>
+      <h4 tal:condition="context/areas_of_expertise" i18n:translate="">Areas of expertise</h4>
+      <div tal:condition="context/areas_of_expertise" tal:content="python: ', '.join(context.areas_of_expertise)"></div>
+      <h4 tal:condition="context/interests" i18n:translate="">Interests</h4>
+      <div tal:condition="context/interests" tal:content="python: ', '.join(context.interests)"></div>
+
+      <h3 tal:condition="python: context.professional_email
+			 or context.personal_email
+			 or context.professional_mobile_phone
+			 or context.personal_mobile_phone
+			 or context.professional_landline_phone
+			 or context.personal_landline_phone
+			 or context.skype
+			 or context.website
+			 or context.blog
+			 or context.viadeo
+			 or context.linkedin
+			 or context.google
+			 or context.twitter"
+	  i18n:translate="">Contact information</h3>
+      <table class="contact-information">
+	<tr tal:condition="context/professional_email">
+	  <td><i class="icon-envelope"></td>
+	  <td i18n:translate="">Professional e-mail</td>
+	  <td tal:content="context/professional_email"></td>
+	</tr>
+	<tr tal:condition="context/personal_email">
+	  <td><i class="icon-envelope-alt"></td>
+	  <td i18n:translate="">Personal e-mail</td>
+	  <td tal:content="context/personal_email"></td>
+	</tr>
+	<tr tal:condition="context/professional_mobile_phone">
+	  <td><i class="icon-mobile-phone"></td>
+	  <td i18n:translate="">Professional mobile phone</td>
+	  <td tal:content="context/professional_mobile_phone"></td>
+	</tr>
+	<tr tal:condition="context/personal_mobile_phone">
+	  <td><i class="icon-mobile-phone"></td>
+	  <td i18n:translate="">Personal mobile phone</td>
+	  <td tal:content="context/personal_mobile_phone"></td>
+	</tr>
+	<tr tal:condition="context/professional_landline_phone">
+	  <td><i class="icon-phone"></td>
+	  <td i18n:translate="">Professional landline phone</td>
+	  <td tal:content="context/professional_landline_phone"></td>
+	</tr>
+	<tr tal:condition="context/personal_landline_phone">
+	  <td><i class="icon-phone"></td>
+	  <td i18n:translate="">Personal landline phone</td>
+	  <td tal:content="context/personal_landline_phone"></td>
+	</tr>
+	<tr tal:condition="context/skype">
+	  <td><i class="icon-skype"></td>
+	  <td i18n:translate="">Skype</td>
+	  <td tal:content="context/skype"></td>
+	</tr>
+	<tr tal:condition="context/website">
+	  <td><i class="icon-globe"></td>
+	  <td i18n:translate="">Website</td>
+	  <td tal:content="context/website"></td>
+	</tr>
+	<tr tal:condition="context/blog">
+	  <td><i class="icon-hand-right"></td>
+	  <td i18n:translate="">Blog</td>
+	  <td tal:content="context/blog"></td>
+	</tr>
+	<tr tal:condition="context/viadeo">
+	  <td><i class="icon-arrow-right"></td>
+	  <td i18n:translate="">Viadeo</td>
+	  <td tal:content="context/viadeo"></td>
+	</tr>
+	<tr tal:condition="context/linkedin">
+	  <td><i class="icon-linkedin"></td>
+	  <td i18n:translate="">Linkedin</td>
+	  <td tal:content="context/linkedin"></td>
+	</tr>
+	<tr tal:condition="context/google">
+	  <td><i class="icon-google-plus"></td>
+	  <td i18n:translate="">Google+</td>
+	  <td tal:content="context/google"></td>
+	</tr>
+	<tr tal:condition="context/twitter">
+	  <td><i class="icon-twitter"></td>
+	  <td i18n:translate="">Twitter</td>
+	  <td tal:content="context/twitter"></td>
+	</tr>
+      </table>
+    </tal:main-macro>
+  </div>
+</body>
+</html>

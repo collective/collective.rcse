@@ -41,7 +41,8 @@
        title="collective.rcse"
        description=""
        handler="collective.rcse.setuphandler.setupVarious">
-     <depends name="typeinfo"/>
+     <depends name="typeinfo" />
+     <depends name="workflow" />
   </genericsetup:importStep>
 
   <interface

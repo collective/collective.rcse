@@ -90,7 +90,7 @@
       <element>last_name</element>
       <!-- element>bio</element -->
       <element>lang</element>
-      <element>birthdate</element>
+      <!-- element>birthdate</element -->
       <element>gender</element>
       <!-- element>avatar</element -->
       <element>company</element>
