@@ -7,6 +7,7 @@ from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
 from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
 from plone.dexterity.interfaces import IDexterityContainer
 
+from collective.rcse.i18n import _
 
 LOG = logging.getLogger("collective.history")
 
@@ -20,28 +21,37 @@ def setupVarious(context):
     portal = context.getSite()
     updateWelcomePage(portal)
     createDirectories(portal)
-    updateUsersDirectories(portal.users_directory)
-    updateCompaniesDirectories(portal.companies_directory)
 
 
 def createDirectories(parent):
     existing = parent.objectIds()
     if "users_directory" not in existing:
         _createObjectByType(
-            "Folder",
+            "collective.rcse.directory",
             parent,
             id="users_directory",
-            title="Users directory"
+            title=_(u"Users directory")
         )
+    _updateFolder(
+        parent.users_directory,
+        ['collective.rcse.member'],
+        "users_directory_view"
+        )
+    _publishContent(parent.users_directory)
     if "companies_directory" not in existing:
         _createObjectByType(
-            "Folder",
+            "collective.rcse.directory",
             parent,
             id="companies_directory",
-            title="Companies directory"
+            title=_(u"Companies directory")
         )
-    _publishContent(parent['users_directory'])
-    _publishContent(parent['companies_directory'])
+    _updateFolder(
+        parent.companies_directory,
+        ['collective.rcse.company'],
+        "companies_directory_view",
+        ['Contributor']
+        )
+    _publishContent(parent.companies_directory)
 
 
 def _publishContent(content):
@@ -52,30 +62,22 @@ def _publishContent(content):
         pass # Content has already been published
 
 
-def updateUsersDirectories(users_directory):
-    #users_directory.setLayout("users_directory_view")
-    aspect = ISelectableConstrainTypes(users_directory)
-    addable = aspect.getImmediatelyAddableTypes()
-    if "collective.rcse.member" not in addable:
-        aspect.setConstrainTypesMode(1)  # select manually
-        types = ["collective.rcse.member"]
-        if IDexterityContainer.providedBy(users_directory):
-            users_directory.immediately_addable_types = types
-        else:
-            aspect.setImmediatelyAddableTypes(types)
-
-
-def updateCompaniesDirectories(companies_directory):
-    #companies_directory.setLayout("companies_directory_view")
-    aspect = ISelectableConstrainTypes(companies_directory)
-    addable = aspect.getImmediatelyAddableTypes()
-    if "collective.rcse.company" not in addable:
-        aspect.setConstrainTypesMode(1)  # select manually
-        types = ["collective.rcse.company"]
-        if IDexterityContainer.providedBy(companies_directory):
-            users_directory.immediately_addable_types = types
-        else:
-            aspect.setImmediatelyAddableTypes(types)
+def _updateFolder(obj, types=None, view=None, authenticated_roles=None):
+    if view is not None:
+        obj.setLayout(view)
+    if types is not None:
+        aspect = ISelectableConstrainTypes(obj)
+        addable = aspect.getLocallyAllowedTypes()
+        if types != addable:
+            aspect.setConstrainTypesMode(1)
+            # Need to be globally allowed in order to be set as locally allowed
+            #     or to create a custom folderish content type with
+            #     "allowed_content_types"
+            # Only a blacklist, not a whitelist
+            setattr(obj, 'locally_allowed_types', types)
+            setattr(obj, 'immediately_addable_types', types)
+    if authenticated_roles is not None:
+        obj.manage_setLocalRoles('AuthenticatedUsers', authenticated_roles)
 
 
 def updateWelcomePage(site):

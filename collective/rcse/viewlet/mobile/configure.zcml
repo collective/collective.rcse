@@ -17,18 +17,43 @@
   <!-- Render the document actions -->
   <browser:viewlet
       name="plone.abovecontenttitle.documentactions"
+      for="Products.CMFCore.interfaces.IContentish"
       manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
-      class="plone.app.layout.viewlets.content.DocumentActionsViewlet"
+      class=".document_actions.DocumentIconActionsViewlet"
       template="templates/document_actions.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
+
+  <!-- Filters viewlet -->
+
+  <browser:viewlet
+      name="collective.rcse.filters"
+      for="collective.rcse.content.group.GroupSchema"
+      manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+      class="collective.rcse.viewlet.mobile.filters.FiltersFormView"
+      template="templates/filters.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
+  <adapter factory=".filters.FiltersFormAdapter" />
+
   <!-- plone.personalbar -->
   <browser:viewlet
       name="plone.personalbar"
       manager="plonetheme.jquerymobile.browser.viewlets.manager.IHeaderRight"
       class="collective.rcse.viewlet.mobile.viewlets.RcsePersonalBarViewlet"
       template="templates/personal_bar.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
+
+  <browser:viewlet
+      name="plone.personalbar"
+      for="collective.rcse.content.group.GroupSchema"
+      manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+      class="collective.rcse.viewlet.mobile.viewlets.GroupDisplayMenu"
+      template="templates/group_display_menu.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />

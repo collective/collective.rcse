@@ -17,13 +17,19 @@
              i18n:translate="">Add</a></li>
      </ul>
      <ul data-role="listview" data-inset="true" i18n:domain="collective.rcse">
-        <li data-role="list-divider" i18n:translate="">Favorites</li>
+        <li data-icon="search">
+          <a tal:attributes="href string:${view/portal_state/navigation_root_url}/@@search?portal_type=collective.rcse.group&sort_on=sortable_title&b_size=100"
+             i18n:translate="">All groups</a>
+        </li>
+        <li data-role="list-divider" i18n:translate=""
+            tal:condition="view/favorites">Favorites</li>
         <li tal:repeat="tab view/favorites" data-icon="star">
           <a data-rel="popup"
              tal:attributes="href tab/getURL;
                  id string:portaltab-favorites-${tab/getId};"
              tal:content="tab/Title">Add</a></li>
-        <li data-role="list-divider" i18n:translate="">Watched</li>
+        <li data-role="list-divider" i18n:translate=""
+            tal:condition="view/watched">Watched</li>
         <li tal:repeat="tab view/watched" data-icon="eye-open">
           <a data-rel="popup"
              tal:attributes="href tab/getURL;

@@ -96,7 +96,7 @@
                trigger="USER"
                before_script="" after_script="">
    <action url="%(content_url)s/content_status_modify?workflow_action=approve"
-           category="workflow" i18n:translate="">Approve This Member</action>
+           category="workflow" i18n:translate="">Approve This Company</action>
    <guard>
     <guard-permission>Review portal content</guard-permission>
    </guard>
@@ -107,7 +107,7 @@
                trigger="USER"
                before_script="" after_script="">
    <action url="%(content_url)s/content_status_modify?workflow_action=decline"
-           category="workflow" i18n:translate="">Decline This Member</action>
+           category="workflow" i18n:translate="">Decline This Company</action>
    <guard>
     <guard-permission>Review portal content</guard-permission>
    </guard>
@@ -118,7 +118,7 @@
               trigger="USER"
               before_script="" after_script="">
    <action url="%(content_url)s/content_status_modify?workflow_action=disable"
-           category="workflow" i18n:translate="">Disable This Member</action>
+           category="workflow" i18n:translate="">Disable This Company</action>
    <guard>
     <guard-permission>Review portal content</guard-permission>
    </guard>
@@ -129,7 +129,7 @@
               trigger="USER"
               before_script="" after_script="">
    <action url="%(content_url)s/content_status_modify?workflow_action=enable"
-           category="workflow" i18n:translate="">Enable This Member</action>
+           category="workflow" i18n:translate="">Enable This Company</action>
    <guard>
     <guard-permission>Review portal content</guard-permission>
    </guard>

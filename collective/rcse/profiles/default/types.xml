@@ -9,5 +9,6 @@
     <object meta_type="Dexterity FTI" name="collective.rcse.video" />
     <object meta_type="Dexterity FTI" name="collective.rcse.member" />
     <object meta_type="Dexterity FTI" name="collective.rcse.company" />
+    <object meta_type="Dexterity FTI" name="collective.rcse.directory" />
 
 </object>

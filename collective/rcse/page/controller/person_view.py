@@ -79,3 +79,45 @@ class CreatorMemberInfoView(AuthenticatedMemberInfoView):
             self.memberid = self.context.Creator()
         if self.member is None and self.memberid is not None:
             self.member = self.membership.getMemberById(self.memberid)
+
+
+class MemberInfoView(BrowserView):
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+        self.portal_url = None
+        self.membership = None
+        self.wtool = None
+
+    def __call__(self):
+        self.update()
+        self.getMemberProperties()
+        if self.__name__.endswith("_view"):
+            return self.index()
+        return self
+
+    def update(self):
+        if self.portal_url is None:
+            self.portal_url = getToolByName(self.context, 'portal_url')
+        if self.membership is None:
+            self.membership = getToolByName(self.context, "portal_membership")
+        if self.wtool is None:
+            self.wtool = getToolByName(self.context, 'portal_workflow')
+
+    def getMemberProperties(self):
+        self.member = self.membership.getMemberById(self.context.username)
+
+        self.memberid = self.member.getProperty('username')
+        self.url = '/'.join(self.context.getPhysicalPath())
+        self.fullname = self.member.getProperty('fullname')
+        self.company = self.member.getProperty('company')
+        self.function = self.member.getProperty('function')
+        self.professional_email = self.member.getProperty('professional_email')
+        self.professional_mobile_phone =\
+            self.member.getProperty('professional_mobile_phone')
+        self.state = self.getUserState()
+
+    def getUserState(self):
+        status = self.wtool.getStatusOf('collective_rcse_member_workflow',
+                                        self.context)
+        return status['review_state']

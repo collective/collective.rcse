@@ -63,7 +63,19 @@
  <!-- desactivate some plone base user action -->
   <object name="dashboard"><property name="visible">False</property></object>
   <object name="preferences"><property name="visible">False</property></object>
- </object>
+ <!-- Make sure some are activated -->
+  <!-- object name="preferences"><property name="visible">True</property></object -->
+  <object name="collective_rcse_profiles" meta_type="CMF Action" i18n:domain="collective.rcse">
+   <property name="title" i18n:translate="">My profile</property>
+   <property name="description" i18n:translate=""></property>
+   <property name="url_expr">string:${globals_view/navigationRootUrl}/@@personal-information</property>
+   <property name="icon_expr"></property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+</object>
  <object name="site_actions" meta_type="CMF Action Category">
   <object name="themeswitcher_desktop" meta_type="CMF Action" i18n:domain="collective.rcse">
    <property name="title" i18n:translate="">themeswitcher_desktop</property>

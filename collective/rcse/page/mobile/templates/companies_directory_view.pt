@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.rcse">
+
+<body>
+  <div metal:fill-slot="content-core">
+    <tal:main-macro metal:define-macro="content-core">
+      <div class="directory"
+	 tal:define="b_start python:0;
+                     b_start request/b_start | b_start;
+                     batch python: view.getCompanies(b_start=b_start);">
+	<tal:members tal:repeat="company batch">
+	  <tal:block tal:define="c python: company.getObject()"
+		     tal:replace="structure c/@@vcard_view"></tal:block>
+	</tal:members>
+	<div metal:use-macro="context/batch_macros/macros/navigation" />
+      </div>
+    </tal:main-macro>
+  </div>
+</body>
+</html>

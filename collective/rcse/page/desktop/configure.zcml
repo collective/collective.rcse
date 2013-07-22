@@ -11,11 +11,11 @@
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
-  <browser:page
-      for="plone.dexterity.interfaces.IDexterityContainer"
-      name="group_view"
-      template="templates/group_view.pt"
+    <browser:page
+      for="collective.rcse.content.group.GroupSchema"
+      name="timeline_view"
       class="collective.rcse.page.controller.group_timeline_view.TimelineView"
+      template="templates/group_timeline_view.pt"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />

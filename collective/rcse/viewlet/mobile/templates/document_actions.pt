@@ -1,22 +1,44 @@
 <div tal:omit-tag=""
      i18n:domain="plone">
 
-    <div class="documentActions" data-role="controlgroup" data-type="vertical" data-mini="true">
-        <tal:docactions tal:condition="view/actions" tal:define="normalizeString nocall: context/@@plone/normalizeString">
+  <div class="documentActions" data-role="controlgroup" data-type="vertical" data-mini="true">
+    <tal:docactions tal:condition="view/actions" tal:define="normalizeString nocall: context/@@plone/normalizeString">
+      <tal:action tal:repeat="daction view/actions_icon"
+                  tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
+        <a href=""
+	   data-role="button"
+	   data-inline="true"
+           tal:attributes="href daction/url;
+                           id daction/id;
+                           target daction/link_target|nothing;
+                           title daction/description;
+			   data-icon daction/icon">
+        </a>
+      </tal:action>
+      <a href=""
+	 data-role="button"
+	 data-rel="popup"
+	 data-icon="plus"
+	 data-inline="true"
+	 data-transition="pop"
+	 tal:attributes="href string:#popup-dactions-${context/uuid}"
+	 tal:condition="view/actions">
+      </a>
+      <div data-role="popup" tal:attributes="id string:popup-dactions-${context/uuid}">
+        <tal:action tal:repeat="daction view/actions"
+		    tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
+          <a href="" data-role="button"
+             tal:attributes="href daction/url;
+                             id daction/id;
+                             target daction/link_target|nothing;
+                             title daction/description"
+             tal:content="daction/title">
+          </a>
+        </tal:action>
+      </div>
+    </tal:docactions>
 
-                  <tal:action tal:repeat="daction view/actions"
-                      tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
-                      <a href="" data-role="button"
-                         tal:attributes="href daction/url;
-                                         id daction/id;
-                                         target daction/link_target|nothing;
-                                         title daction/description"
-                         tal:content="daction/title">
-                      </a>
-                  </tal:action>
-        </tal:docactions>
+    <div tal:replace="structure provider:plone.documentactions" />
 
-        <div tal:replace="structure provider:plone.documentactions" />
-
-    </div>
+  </div>
 </div>

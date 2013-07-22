@@ -9,7 +9,7 @@
 <body>
 <div metal:fill-slot="content-core">
 
-TODO
+TODO BLOG
 
 </div>
 </body>

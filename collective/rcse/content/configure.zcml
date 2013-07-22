@@ -6,4 +6,8 @@
   <include package="plone.directives.form" file="meta.zcml" />
   <include package="plone.directives.form" />
 
+  <utility component=".vocabularies.groupTypes"
+	   name="collective.rcse.vocabulary.groupTypes"
+	   provides="zope.schema.interfaces.IVocabularyFactory"/>
+
 </configure>

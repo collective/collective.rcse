@@ -29,3 +29,6 @@ AddGroup = "collective.rcse: Add group"
 AddImage = "collective.rcse: Add image"
 AddVideo = "collective.rcse: Add video"
 
+security.declarePublic('AddCompany')
+setDefaultRoles('collective.rcse: Add company', ('Authenticated',))
+AddCompany = "collective.rcse: Add company"

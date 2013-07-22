@@ -1,5 +1,21 @@
 <registry>
   <records interface="collective.rcse.security.ISecuritySettings"/>
+
+  <!-- collective.rcse -->
+  <record name="collective.rcse.settings.IDocumentActionsIcons.mapping">
+    <field type="plone.registry.field.Dict">
+      <title>Action to icon</title>
+      <key_type type="plone.registry.field.ASCIILine" />
+      <value_type type="plone.registry.field.ASCIILine" />
+    </field>
+    <value>
+      <element key="favoriting_add">star-empty</element>
+      <element key="favoriting_rm">star</element>
+      <element key="cioppino_twothumbs_like">thumbs-up</element>
+      <element key="cioppino_twothumbs_dislike">thumbs-down</element>
+    </value>
+  </record>
+
   <!-- collective.themeswitcher config -->
   <record name="collective.themeswitcher.theme.mobile">
     <field type="plone.registry.field.ASCIILine">
@@ -72,11 +88,11 @@
       <element>email</element>
       <element>first_name</element>
       <element>last_name</element>
-      <element>bio</element>
+      <!-- element>bio</element -->
       <element>lang</element>
       <element>birthdate</element>
       <element>gender</element>
-      <element>avatar</element>
+      <!-- element>avatar</element -->
       <element>company</element>
       <element>function</element>
       <element>areas_of_expertise</element>

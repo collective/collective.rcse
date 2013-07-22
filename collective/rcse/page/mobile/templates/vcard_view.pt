@@ -1,5 +1,7 @@
-<div class="vcard">
-   <img class="photo" tal:attributes="src view/photo; alt string:photo"/>
+<div class="vcard" i18n:domain="collective.rcse">
+   <img class="photo" tal:condition="context/avatar"
+	tal:attributes="src string:${context/absolute_url}/@@download/avatar/${context/avatar/filename};
+			alt string:photo"/>
    <a class="fn url" rel="me"
       tal:attributes="href view/url"
       tal:content="view/fullname">
@@ -9,4 +11,6 @@
     <span tal:condition="view/function" class="title" tal:content="view/function">Title / Function</span>
     <span tal:condition="view/professional_email" class="email" tal:content="view/professional_email"></span>
     <span tal:condition="view/professional_mobile_phone" class="tel" tal:content="view/professional_mobile_phone"></span>
+    <span tal:condition="python: view.state == 'pending'" class="pending" i18n:translate="">Waiting for validation</span>
+    <span tal:condition="python: view.state == 'disabled'" class="banned" i18n:translate="">Banned</span>
 </div>
