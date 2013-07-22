@@ -9,7 +9,39 @@
 <body>
   <div metal:fill-slot="content-core">
     <tal:main-macro metal:define-macro="content-core">
-      TODO COMPANY
+      <img class="avatar"
+	   tal:define="scales context/@@images;
+		       scale python: scales.scale('logo', width=128, height=128);"
+	   tal:replace="structure scale/tag"/>
+      <h3>Company information</h3>
+      <p tal:condition="context/description" tal:content="context/description"></p>
+      <table class="company-information">
+	<tr><td i18n:translate="">Corporate name</td><td tal:content="context/corporate_name"></td></tr>
+	<tr><td i18n:translate="">Sector</td><td tal:content="context/sector"></td></tr>
+	<tr tal:condition="context/service"><td i18n:translate="">Service</td><td tal:content="context/service"></td></tr>
+	<tr tal:condition="context/turnover"><td i18n:translate="">Turnover</td><td tal:content="context/turnover"></td></tr>
+      </table>
+      <h3>Location</h3>
+      <table>
+	<tr>
+	  <td><i class="icon-envelope-alt"></i></td>
+	  <td i18n:translate="">Address</td>
+	  <td tal:condition="context/address"
+	      tal:content="string:${context/address}, ${context/postal_code}, ${context/city}"></td>
+	  <td tal:condition="python: not context.address"
+	      tal:content="string:${context/postal_code}, ${context/city}"></td>
+	</tr>
+	<tr tal:condition="context/website">
+	  <td><i class="icon-globe"></i></td>
+	  <td i18n:translate="">Website</td>
+	  <td tal:content="context/website"></td>
+	</tr>
+	<tr tal:condition="context/website">
+	  <td><i class="icon-hand-right"></i></td>
+	  <td i18n:translate="">Blog</td>
+	  <td tal:content="context/blog"></td>
+	</tr>
+      </table>
     </tal:main-macro>
   </div>
 </body>

@@ -7,6 +7,10 @@ from collective.rcse.i18n import _
 
 class ICompany(interface.Interface):
     """Schema for the dexterity company content type."""
+    logo = field.NamedBlobImage(
+        title=_(u"Logo"),
+        required=False
+    )
     corporate_name = schema.TextLine(
         title=_(u"Corporate name")
     )
@@ -17,8 +21,8 @@ class ICompany(interface.Interface):
         title=_(u"Service"),
         required=False
     )
-    logo = field.NamedBlobImage(
-        title=_(u"Logo"),
+    turnover = schema.TextLine(
+        title=_(u"Turnover"),
         required=False
     )
     address = schema.TextLine(
@@ -37,9 +41,5 @@ class ICompany(interface.Interface):
     )
     blog = schema.TextLine(
         title=_(u"Blog"),
-        required=False
-    )
-    turnover = schema.TextLine(
-        title=_(u"Turnover"),
         required=False
     )
