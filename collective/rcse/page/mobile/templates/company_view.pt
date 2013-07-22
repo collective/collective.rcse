@@ -9,7 +9,8 @@
 <body>
   <div metal:fill-slot="content-core">
     <tal:main-macro metal:define-macro="content-core">
-      <img class="avatar"
+      <img class="logo"
+	   tal:condition="context/logo"
 	   tal:define="scales context/@@images;
 		       scale python: scales.scale('logo', width=128, height=128);"
 	   tal:replace="structure scale/tag"/>

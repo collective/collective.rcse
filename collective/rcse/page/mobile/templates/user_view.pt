@@ -14,6 +14,7 @@
           <img class="avatar"
          tal:define="scales context/@@images;
                scale python: scales.scale('avatar', width=128, height=128);"
+         tal:condition="context/avatar"
          tal:replace="structure scale/tag"/>
           <h1 tal:content="string:${context/first_name} ${context/last_name}"></h1>
           <h2 tal:content="string:${context/function} in ${context/company}"></h2>
