@@ -1,7 +1,8 @@
 <div class="vcard" i18n:domain="collective.rcse">
-   <img class="photo" tal:condition="context/avatar"
-	tal:attributes="src string:${context/absolute_url}/@@download/avatar/${context/avatar/filename};
-			alt string:photo"/>
+   <img class="photo"
+	tal:define="scales context/@@images;
+		    scale python: scales.scale('avatar', width=64, height=64);"
+	tal:replace="structure scale/tag"/>
    <a class="fn url" rel="me"
       tal:attributes="href view/url"
       tal:content="view/fullname">
