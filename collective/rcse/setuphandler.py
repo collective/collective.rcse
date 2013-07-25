@@ -5,8 +5,17 @@ from Products.CMFCore.WorkflowCore import WorkflowException
 from Products.CMFPlone.utils import _createObjectByType
 from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
 from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
+from plone.app.contentrules.rule import Rule, get_assignments
+from plone.app.controlpanel.security import ISecuritySchema
+from plone.contentrules.engine.assignments import RuleAssignment
+from plone.contentrules.engine.interfaces import IRuleStorage,\
+    IRuleAssignmentManager
+from plone.contentrules.rule.interfaces import IRuleAction, IRuleCondition
 from plone.dexterity.interfaces import IDexterityContainer
+from zope.globalrequest import getRequest
+from zope import component
 
+from cioppino.twothumbs.event import ILikeEvent
 from collective.rcse.i18n import _
 
 LOG = logging.getLogger("collective.history")
@@ -21,6 +30,14 @@ def setupVarious(context):
     portal = context.getSite()
     updateWelcomePage(portal)
     createDirectories(portal)
+    setupRegistration(portal)
+    initialize_rules(portal)
+
+
+def setupRegistration(site):
+    securitySchema = ISecuritySchema(site)
+    securitySchema.enable_self_reg = True
+    securitySchema.enable_user_pwd_choice = True
 
 
 def createDirectories(parent):
@@ -85,3 +102,90 @@ def updateWelcomePage(site):
     if layout != "timeline_view":
         site.setLayout("timeline_view")
         LOG.info("set timeline_view as default page")
+
+
+def initialize_rules(portal):
+    storage = component.getUtility(IRuleStorage)
+    request = getRequest()
+    if 'subscribe_on_like' not in storage:
+        _subscribe_on_like_rule(portal, request)
+    if 'watch_on_like' not in storage:
+        _watch_on_like_rule(portal, request)
+
+
+def _subscribe_on_like_rule(portal, request):
+    RULE_ID = 'subscribe_on_like'
+    rule = _create_rule(portal,
+                        RULE_ID,
+                        "Subscribe on like",
+                        ILikeEvent)
+    #add condition & action
+    data = {'check_types': ['collective.rcse.group']}
+    _add_rule_condition(
+        request,
+        rule,
+        'plone.conditions.PortalType',
+        data
+        )
+
+    data = {'watching': 'watch'}
+    action = 'collective.watcherlist.actions.Watching'
+    _add_rule_action(request, rule, action, data)
+    #activate it on context
+    _activate_rule(RULE_ID, portal)
+
+
+def _watch_on_like_rule(portal, request):
+    RULE_ID = 'watch_on_like'
+    rule = _create_rule(portal,
+                        RULE_ID,
+                        "Watch on like",
+                        ILikeEvent)
+
+    data = {'subscription': 'subscribe'}
+    action = 'collective.whathappened.actions.Subscription'
+    _add_rule_action(request, rule, action, data)
+    #activate it on context
+    _activate_rule(RULE_ID, portal)
+
+
+def _add_rule_condition(request, rule, condition_id, data):
+    condition = component.getUtility(IRuleCondition, name=condition_id)
+    adding = component.getMultiAdapter((rule, request), name='+condition')
+    addview = component.getMultiAdapter((adding, request),
+                                        name=condition.addview)
+    addview.createAndAdd(data=data)
+
+
+def _add_rule_action(request, rule, action_id, data):
+    action = component.getUtility(IRuleAction, name=action_id)
+    adding = component.getMultiAdapter((rule, request), name='+action')
+    addview = component.getMultiAdapter((adding, request), name=action.addview)
+    addview.createAndAdd(data=data)
+
+
+def _create_rule(portal, rule_id, title, event):
+    storage = component.getUtility(IRuleStorage)
+    if rule_id not in storage:
+        storage[rule_id] = Rule()
+    rule = storage.get(rule_id)
+    rule.title = title
+    rule.enabled = True
+    # Clear out conditions and actions since we're expecting new ones
+    del rule.conditions[:]
+    del rule.actions[:]
+    rule.event = event
+    rule = rule.__of__(portal)
+    return rule
+
+
+def _activate_rule(rule_id, context=None):
+    storage = component.getUtility(IRuleStorage)
+    rule = storage.get(rule_id)
+    assignable = IRuleAssignmentManager(context)
+    assignment = assignable.get(rule_id, None)
+    if not assignment:
+        assignment = assignable[rule_id] = RuleAssignment(rule_id)
+    assignment.enabled = True
+    assignment.bubbles = True
+    get_assignments(rule).insert('/'.join(context.getPhysicalPath()))
