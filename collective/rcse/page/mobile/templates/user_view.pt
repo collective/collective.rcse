@@ -80,7 +80,7 @@
           <div tal:condition="context/viadeo"><i class="icon-arrow-right"></i>&nbsp;<span i18n:translate="">Viadeo</span></div>
           <div tal:content="context/viadeo"></div>
 
-          <div tal:condition="context/linkedin"><i class="icon-linkedin"></i>&nbsp;<span i18n:translate="">Linkedin</span></div>
+          <div tal:condition="context/linkedin"><i class="icon-linkedin"></i>&nbsp;<span i18n:translate="">LinkedIn</span></div>
           <div tal:content="context/linkedin"></div>
 
           <div tal:condition="context/google"><i class="icon-google-plus"></i>&nbsp;<span i18n:translate="">Google+</span></div>

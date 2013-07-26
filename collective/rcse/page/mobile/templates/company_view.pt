@@ -38,17 +38,17 @@
         </div>
         <div class="ui-block-b">
           <h3>Location</h3>
-          <div i18n:translate=""><i class="icon-envelope-alt"></i>&nbsp;Address</div>
+          <div><i class="icon-envelope-alt"></i>&nbsp;<span i18n:translate="">Address</span></div>
           
           <div tal:condition="context/address" tal:content="string:${context/address} - ${context/postal_code}, ${context/city}"></div>
           <div tal:condition="python: not context.address" tal:content="string:${context/postal_code}, ${context/city}"></div>
 
           <div tal:condition="context/website">
-            <div i18n:translate=""><i class="icon-globe"></i>&nbsp;Website</div>
+            <div><i class="icon-globe"></i>&nbsp;<span i18n:translate="">Website</span></div>
             <div tal:content="context/website"></div>
           </div>
           <div tal:condition="context/website">
-            <div i18n:translate=""><i class="icon-hand-right"></i>&nbsp;Blog</div>
+            <div><i class="icon-hand-right"></i>&nbsp;<span i18n:translate="">Blog</span></div>
             <div tal:content="context/blog"></div>
           </div>
       <!--<h3>Location</h3>
