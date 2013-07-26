@@ -14,7 +14,8 @@ def get_group(context):
     """
     parent = context
 
-    while not GroupSchema.providedBy(parent) and not IPloneSiteRoot.providedBy(parent):
+    while not GroupSchema.providedBy(parent) and \
+            not IPloneSiteRoot.providedBy(parent):
         parent = aq_parent(parent)
 
     if IPloneSiteRoot.providedBy(parent):

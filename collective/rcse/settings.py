@@ -6,6 +6,7 @@ from zope import schema
 
 from collective.rcse.i18n import _
 
+
 class IDocumentActionsIcons(interface.Interface):
     """Interface for icon/actions mapping setting"""
 
@@ -21,11 +22,13 @@ class IPersonalPreferences(interface.Interface):
 
     subscribe_when_favorited = schema.Bool(
         title=_(u"Subscribe when favorited"),
-        description=_(u"You will automatically subscribed to contents you add to your favorites."),
+        description=_(u"You will automatically subscribed to contents "
+                      u"you add to your favorites."),
     )
     watch_when_favorited = schema.Bool(
         title=_(u"Watch when favorited"),
-        description=_(u"You will automatically watch groups you add to your favorites."),
+        description=_(u"You will automatically watch groups you add "
+                      u"to your favorites."),
     )
 
 

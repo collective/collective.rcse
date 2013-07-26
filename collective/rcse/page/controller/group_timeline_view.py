@@ -1,5 +1,3 @@
-from AccessControl.unauthorized import Unauthorized
-from plone.uuid.interfaces import IUUID
 from Products.CMFCore.utils import getToolByName
 
 from collective.rcse.i18n import RCSEMessageFactory

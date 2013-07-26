@@ -1,6 +1,7 @@
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 
+
 class PersonalInformation(BrowserView):
     """Redirect to @@register_information if the user has not created his
     content yet. Redirect to his content otherwise."""
@@ -16,11 +17,12 @@ class PersonalInformation(BrowserView):
         else:
             catalog = getToolByName(self.context, 'portal_catalog')
             url = '/'.join(portal_url.getPortalObject().getPhysicalPath())
-            query = {'path':
-                         {'query': '%s/users_directory' % url,
-                          'depth': 1},
-                     'username': member.getUserName()
-                     }
+            query = {
+                'path':
+                    {'query': '%s/users_directory' % url,
+                     'depth': 1},
+                'username': member.getUserName()
+                }
             results = catalog(query)
             if len(results) == 0:
                 self.request.response.redirect(

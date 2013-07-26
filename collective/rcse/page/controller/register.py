@@ -1,4 +1,3 @@
-from AccessControl import Unauthorized
 from plone.autoform import directives
 from plone.autoform.form import AutoExtensibleForm
 from plone.z3cform.layout import FormWrapper
@@ -57,7 +56,7 @@ class RegisterForm(AutoExtensibleForm, form.Form):
     def _registerUser(self, data):
         regtool = getToolByName(self.context, 'portal_registration')
         try:
-            member = regtool.addMember(data['login'], data['password'])
+            regtool.addMember(data['login'], data['password'])
             self.portal_url = getToolByName(self.context, "portal_url")
             self.status = _(u"Your can now log in.")
             self.request.response.redirect('%s/login' % self.portal_url())
@@ -79,4 +78,3 @@ class RegisterFormWrapper(FormWrapper):
             self.request.response.redirect(
                 '%s/@@personal-information' % portal_url()
                 )
-

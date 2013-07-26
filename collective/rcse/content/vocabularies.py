@@ -17,6 +17,7 @@ languages = SimpleVocabulary([
     SimpleTerm(value=u"Spanish", title=_t(u"Spanish")),
 ])
 
+
 def groupTypes(context):
     """Get content types addable in a specific context"""
     portal_types = getToolByName(context, 'portal_types')
@@ -32,7 +33,7 @@ def groupTypes(context):
     return SimpleVocabulary(terms)
 
 sortBy = SimpleVocabulary([
-        SimpleTerm('relevance', 'relevance', _(u'Relevance')),
-        SimpleTerm('Date', 'Date', _(u'Date')),
-        SimpleTerm('sortable_title', 'sortable_title', _(u'Title')),
-        ])
+    SimpleTerm('relevance', 'relevance', _(u'Relevance')),
+    SimpleTerm('Date', 'Date', _(u'Date')),
+    SimpleTerm('sortable_title', 'sortable_title', _(u'Title')),
+    ])

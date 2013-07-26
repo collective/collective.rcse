@@ -8,7 +8,6 @@ from plone.z3cform.layout import FormWrapper
 from Products.CMFCore.utils import getToolByName
 from z3c.form import form
 from z3c.form import button
-from z3c.form import widget
 from zope import component
 from zope import interface
 

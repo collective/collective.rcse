@@ -4,14 +4,12 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.WorkflowCore import WorkflowException
 from Products.CMFPlone.utils import _createObjectByType
 from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
-from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
 from plone.app.contentrules.rule import Rule, get_assignments
 from plone.app.controlpanel.security import ISecuritySchema
 from plone.contentrules.engine.assignments import RuleAssignment
 from plone.contentrules.engine.interfaces import IRuleStorage,\
     IRuleAssignmentManager
 from plone.contentrules.rule.interfaces import IRuleAction, IRuleCondition
-from plone.dexterity.interfaces import IDexterityContainer
 from zope.globalrequest import getRequest
 from zope import component
 
@@ -76,7 +74,7 @@ def _publishContent(content):
     try:
         wtool.doActionFor(content, 'publish_internally')
     except WorkflowException:
-        pass # Content has already been published
+        pass  # Content has already been published
 
 
 def _updateFolder(obj, types=None, view=None, authenticated_roles=None):
