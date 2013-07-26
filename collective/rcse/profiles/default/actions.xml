@@ -24,7 +24,6 @@
    </property>
    <property name="visible">True</property>
   </object>
-
   <object name="ics_view" meta_type="CMF Action" i18n:domain="plone">
    <property name="title" i18n:translate="">title_add_to_ical</property>
    <property name="description" i18n:translate=""></property>
@@ -59,6 +58,7 @@
    <property name="visible">True</property>
   </object>
  </object>
+
  <object name="user" meta_type="CMF Action Category">
  <!-- desactivate some plone base user action -->
   <object name="dashboard"><property name="visible">False</property></object>
@@ -85,7 +85,8 @@
    </property>
    <property name="visible">True</property>
   </object>
-</object>
+ </object>
+
  <object name="site_actions" meta_type="CMF Action Category">
   <object name="themeswitcher_desktop" meta_type="CMF Action" i18n:domain="collective.rcse">
    <property name="title" i18n:translate="">themeswitcher_desktop</property>
