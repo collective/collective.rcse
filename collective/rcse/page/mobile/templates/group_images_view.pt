@@ -9,7 +9,42 @@
 <body>
 <div metal:fill-slot="content-core">
 
-TODO IMAGE
+  <div id="image-view"
+       tal:define="images python: view.get_content(batch=False)"
+       tal:condition="python: len(images) > 0">
+    <div id="image-show">
+      <img src="" alt="" />
+    </div>
+    <div id="image-list">
+      <ul data-role="listview">
+	<tal:block tal:repeat="brain images">
+	  <li tal:define="image brain/getObject">
+	    <img tal:define="scales image/@@images;
+			     scale python: scales.scale('image', width=80, height=80);"
+		 tal:replace="structure scale/tag" />
+	    <a class="image-link" href="#image-show"
+	       tal:define="scales image/@@images;
+			   scale python: scales.scale('image');"
+	       tal:attributes="href scale/url"
+	       tal:content="image/title"></a>
+	  </li>
+	</tal:block>
+      </ul>
+    </div>
+
+    <script type="text/javascript">
+      $(function(){
+          $('#image-list li').click(function(event) {
+              var src = $(this).find('.image-link').attr('href');
+              var alt = $(this).find('.image-link').text();
+              $('#image-show img').attr('src', src).attr('alt', alt);
+              event.preventDefault();
+              $('html,body').animate({scrollTop: $('#image-show').offset().top},'slow');
+          })
+      });
+    </script>
+
+  </div>
 
 </div>
 </body>

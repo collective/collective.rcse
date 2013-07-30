@@ -34,7 +34,7 @@
 
   </tal:block>
 
-  <script>
+  <script type="text/javascript">
     $(function(){
             $('video,audio').mediaelementplayer({
                 success: function (mediaElement, domObject) {
