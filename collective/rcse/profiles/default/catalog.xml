@@ -1,9 +1,14 @@
 <?xml version="1.0"?>
 <object name="portal_catalog">
+  <!--
+      Done in setuphandler.py to avoid removing indexes data. See:
+      http://developer.plone.org/searching_and_indexing/indexing.html#adding-index-using-add-on-product-installer
+
   <index name="group_watchers" meta_type="KeywordIndex">
     <indexed_attr value="group_watchers"/>
   </index>
   <index name="username" meta_type="FieldIndex">
     <indexed_attr value="username"/>
   </index>
+  -->
 </object>

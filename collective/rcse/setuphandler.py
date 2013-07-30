@@ -30,12 +30,21 @@ def setupVarious(context):
     createDirectories(portal)
     setupRegistration(portal)
     initialize_rules(portal)
+    setupCatalog(portal)
 
 
 def setupRegistration(site):
     securitySchema = ISecuritySchema(site)
     securitySchema.enable_self_reg = True
     securitySchema.enable_user_pwd_choice = True
+
+
+def setupCatalog(portal):
+    catalog = getToolByName(portal, 'portal_catalog')
+    if 'group_watchers' not in catalog.Indexes:
+        catalog.addIndex('group_watchers', 'KeywordIndex')
+    if 'username' not in catalog.Indexes:
+        catalog.addIndex('username', 'FieldIndex')
 
 
 def createDirectories(parent):
