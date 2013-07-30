@@ -9,7 +9,76 @@
 <body>
 <div metal:fill-slot="content-core">
 
-TODO AUDIO
+  <tal:block tal:define="audios view/getAudios"
+	     tal:condition="python: len(audios) > 0">
+
+    <audio id="mejs" controls>
+      <source src="" type="*/*"
+              tal:attributes="src python: audios[0]['src']; type python: audios[0]['mimetype']" />
+      <object width="" height=""
+	      type="application/x-shockwave-flash"
+	      data="++resource++collective.mediaelementjs/flashmediaelement.swf">
+	<param name="audio" value="++resource++collective.mediaelementjs/flashmediaelement.swf" />
+	<param name="flashvars" value="" tal:attributes="value python:'file=%s' % audios[0]['src']" />
+      </object>
+
+    </audio>
+
+    <ul id="mejs-list" class="audio-playlist">
+      <li tal:repeat="audio audios">
+	<a tal:attributes="href audio/src; title audio/description;
+			   data-mimetype audio/mimetype"
+	   tal:content="audio/title"></a>
+      </li>
+    </ul>
+
+  </tal:block>
+
+  <script>
+    $(function(){
+            $('video,audio').mediaelementplayer({
+                success: function (mediaElement, domObject) {
+                    mediaElement.addEventListener('ended', function (e) {
+                        mejsPlayNext(e.target);
+                }, false);
+            },
+            keyActions: []
+        });
+
+        $('#mejs-list li a').click(function(event) {
+            $(this).addClass('current').siblings().removeClass('current');
+            var audio_src = $(this).attr('href');
+            var mimetype = $(this).attr('data-mimetype');
+            $('audio#mejs:first').each(function(){
+                this.player.pause();
+                $(this).attr('type', mimetype);
+                this.player.setSrc(audio_src);
+                this.player.play();
+            });
+            event.preventDefault();
+        });
+
+    });
+
+    function mejsPlayNext(currentPlayer) {
+        if ($('.mejs-list li.current').length > 0){ // get the .current song
+            var current_item = $('.mejs-list li.current:first'); // :first is added if we have few .current classes
+        }else{ // if there is no .current class
+            var current_item = $('.mejs-list li:first'); // get :first if we don't have .current class
+        }
+
+        if( $(current_item).is(':last-child') ) { // if it is last - stop playing
+            $(current_item).removeClass('current');
+        }else{
+            var audio_src = $(current_item).next().text();
+            var mimetype = $(current_item).next().attr('data-mimetype');
+            $(current_item).next().addClass('current').siblings().removeClass('current');
+            $('audio#mejs').attr('type', mimetype);
+            currentPlayer.setSrc(audio_src);
+            currentPlayer.play();
+        }
+    }
+  </script>
 
 </div>
 </body>
