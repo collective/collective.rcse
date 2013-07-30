@@ -16,6 +16,21 @@
     </value>
   </record>
 
+  <record name="collective.rcse.settings.IPersonalPreferences.subscribe_when_favorited">
+    <field type="plone.registry.field.Bool">
+      <title>Subscribe when favorited</title>
+      <description>You will automatically subscribed to contents you add to your favorites.</description>
+    </field>
+    <value>True</value>
+  </record>
+  <record name="collective.rcse.settings.IPersonalPreferences.watch_when_favorited">
+    <field type="plone.registry.field.Bool">
+      <title>Watch when favorited</title>
+      <description>You will automatically watch groups you add to your favorites.</description>
+    </field>
+    <value>True</value>
+  </record>
+
   <!-- collective.themeswitcher config -->
   <record name="collective.themeswitcher.theme.mobile">
     <field type="plone.registry.field.ASCIILine">

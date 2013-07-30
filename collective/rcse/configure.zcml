@@ -61,4 +61,11 @@
          zope.lifecycleevent.interfaces.IObjectAddedEvent"
     />
 
+  <adapter factory=".adapter.CioppinoLike" />
+  <adapter factory=".adapter.CioppinoUnlike" />
+  <adapter factory=".adapter.CioppinoDislike" />
+  <adapter factory=".adapter.CioppinoUndislike" />
+  <adapter factory=".adapter.FavoritingAddedToFavorites" />
+  <adapter factory=".adapter.FavoritingRemovedFromFavorites" />
+
 </configure>

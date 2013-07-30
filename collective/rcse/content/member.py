@@ -3,7 +3,6 @@ from plone.app.textfield import RichText
 from plone.namedfile import field
 from plone.supermodel import model
 from z3c.form.browser.select import SelectFieldWidget
-from zope import interface
 from zope import schema
 
 from collective.rcse.i18n import _
@@ -51,6 +50,12 @@ class IMember(model.Schema):
         title=_(u"Username"),
         readonly=True
     )
+    settings = schema.Dict(
+        title=_(u"Settings"),
+        key_type=schema.ASCIILine(),
+        value_type=schema.Bool(),
+        readonly=True,
+    )
     email = schema.TextLine(
         title=_(u"E-mail"),
         required=True,
@@ -66,7 +71,7 @@ class IMember(model.Schema):
 
     company = schema.ASCIILine(
         title=_(u"Company")
-    ) # ID
+    )  # ID
     function = schema.TextLine(
         title=_(u"Function"),
     )

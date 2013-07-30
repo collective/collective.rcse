@@ -1,8 +1,6 @@
-from Acquisition import aq_inner
 from plonetheme.jquerymobile.browser.viewlets import personal_bar
 from collective.whathappened.browser.notifications import HotViewlet
 from plone.app.layout.viewlets.common import ViewletBase
-from Products.CMFCore.utils import getToolByName
 
 
 class RcsePersonalBarViewlet(personal_bar.PersonalBarViewlet, HotViewlet):

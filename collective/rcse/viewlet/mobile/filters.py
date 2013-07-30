@@ -5,12 +5,9 @@ from plone.autoform.form import AutoExtensibleForm
 from plone.autoform import directives
 from plone.supermodel import model
 from plone.z3cform.interfaces import IWrappedForm
-from plone.z3cform.layout import FormWrapper
 from plone.z3cform import z2
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from z3c.form import form
 from z3c.form import button
-from z3c.form import widget
 from z3c.form.interfaces import IFormLayer
 from z3c.form.browser.select import SelectFieldWidget
 from zope import component
@@ -42,7 +39,7 @@ class FiltersFormSchema(model.Schema):
     sort_on = schema.Choice(
         title=_(u'Sort on'),
         vocabulary=sortBy,
-        required=False
+        default="relevance"
         )
 
     sort_order = schema.Bool(

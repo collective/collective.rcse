@@ -68,7 +68,12 @@
           <div tal:content="context/blog"></div>
           <div tal:condition="context/viadeo"><i class="icon-arrow-right"></i>&nbsp;<span i18n:translate="">Viadeo</span></div>
           <div tal:content="context/viadeo"></div>
+<<<<<<< HEAD
           <div tal:condition="context/linkedin"><i class="icon-linkedin"></i>&nbsp;<span i18n:translate="">Linkedin</span></div>
+=======
+
+          <div tal:condition="context/linkedin"><i class="icon-linkedin"></i>&nbsp;<span i18n:translate="">LinkedIn</span></div>
+>>>>>>> db1dacd3660ccf356c250438ae5607f9570421c4
           <div tal:content="context/linkedin"></div>
           <div tal:condition="context/google"><i class="icon-google-plus"></i>&nbsp;<span i18n:translate="">Google+</span></div>
           <div tal:content="context/google"></div>

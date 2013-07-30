@@ -83,7 +83,18 @@
       permission="zope2.View"
       />
 
-  <adapter factory=".register.RegisterFormAdapter" />
+  <adapter factory=".personal-preferences.PersonalPreferencesFormAdapter" />
+
+  <browser:page
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      name="personal-preferences"
+      class=".personal-preferences.PersonalPreferencesFormWrapper"
+      template="templates/form.pt"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+
+  <!-- adapter factory=".register.RegisterFormAdapter" />
 
   <browser:page
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
@@ -92,6 +103,6 @@
       template="templates/form.pt"
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
-      />
+      /-->
 
 </configure>

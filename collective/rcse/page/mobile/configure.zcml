@@ -13,7 +13,7 @@
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
-    <browser:page
+  <browser:page
       for="collective.rcse.content.group.GroupSchema"
       name="timeline_view"
       menu="plone_displayviews"

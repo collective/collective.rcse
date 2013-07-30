@@ -1,10 +1,7 @@
 from collective.rcse.page.controller import group_timeline_view
 from AccessControl.unauthorized import Unauthorized
 from collective.rcse.i18n import RCSEMessageFactory
-from plone.uuid.interfaces import IUUID
-from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.PloneBatch import Batch
 
 _ = RCSEMessageFactory
 

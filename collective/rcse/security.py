@@ -8,7 +8,6 @@ from plone.z3cform import layout
 from z3c.form import form
 
 from collective.rcse import i18n
-from plone.dexterity.interfaces import IDexterityContainer
 
 _ = i18n._
 
