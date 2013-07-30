@@ -39,7 +39,7 @@ class FiltersFormSchema(model.Schema):
     sort_on = schema.Choice(
         title=_(u'Sort on'),
         vocabulary=sortBy,
-        required=False
+        default="relevance"
         )
 
     sort_order = schema.Bool(
