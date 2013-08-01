@@ -7,7 +7,9 @@
       i18n:domain="collective.rcse">
 <body>
   <div metal:fill-slot="content-core" class="directory-wrapper">
+
     TODO FAVORITE
+
   </div>
 </body>
 </html>

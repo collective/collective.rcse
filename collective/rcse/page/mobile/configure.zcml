@@ -306,7 +306,7 @@
       menu="plone_displayviews"
       title="Favorites view"
       class="collective.rcse.page.controller.group_favorites_view.FavoritesView"
-      template="templates/group_favorites_view.pt"
+      template="templates/group_timeline_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
