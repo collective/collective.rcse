@@ -9,45 +9,43 @@
   </div>
   <div class="tilecontent" tal:content="structure view/get_content"></div>
   <div class="actions" data-role="controlgroup" data-type="horizontal">
-
     <tal:docactions tal:condition="view/actions" tal:define="normalizeString nocall: context/@@plone/normalizeString">
       <tal:action tal:repeat="daction view/actions_icon"
                   tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
-	<a href=""
-	   data-role="button"
-	   data-inline="true"
-	   data-them="b"
-           tal:attributes="href daction/url;
-                           id daction/id;
-                           target daction/link_target|nothing;
-                           title daction/description;
-			   data-icon daction/icon">
-	</a>
+      <a href=""
+         data-role="button"
+         data-inline="true"
+         data-them="b"
+               tal:attributes="href daction/url;
+                               id daction/id;
+                               target daction/link_target|nothing;
+                               title daction/description;
+             data-icon daction/icon">
+      </a>
       </tal:action>
       <a href=""
-	 data-role="button"
-	 data-rel="popup"
-	 data-icon="plus"
-	 data-inline="true"
-	 data-transition="pop"
-	 data-them="b"
-	 tal:attributes="href string:#popup-dactions-${context/uuid}"
-	 tal:condition="view/actions">
+         data-role="button"
+         data-rel="popup"
+         data-icon="plus"
+         data-inline="true"
+         data-transition="pop"
+         data-them="b"
+         tal:attributes="href string:#popup-dactions-${context/uuid}"
+         tal:condition="view/actions">
       </a>
       <div data-role="popup" tal:attributes="id string:popup-dactions-${context/uuid}">
-	<tal:action tal:repeat="daction view/actions"
-		    tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
-          <a href="" data-role="button"
-             tal:attributes="href daction/url;
-                             id daction/id;
-                             target daction/link_target|nothing;
-                             title daction/description"
-             tal:content="daction/title">
-          </a>
-	</tal:action>
+        <tal:action tal:repeat="daction view/actions"
+              tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
+                <a href="" data-role="button"
+                   tal:attributes="href daction/url;
+                                   id daction/id;
+                                   target daction/link_target|nothing;
+                                   title daction/description"
+                   tal:content="daction/title">
+                </a>
+        </tal:action>
       </div>
     </tal:docactions>
-
     <a href="#" data-icon="eye-open" class="ui-icon-nodisc" data-iconshadow="false" data-role="button" data-inline="true" i18n:translate="" data-theme="b" tal:attributes="href string:${context/absolute_url}">Read</a>
   </div>
 </div>

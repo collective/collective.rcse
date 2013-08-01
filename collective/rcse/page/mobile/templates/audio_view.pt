@@ -5,20 +5,18 @@
       lang="en"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="collective.rcse">
-
 <body>
-  <div metal:fill-slot="content-core">
+  <div metal:fill-slot="content-core" class="directory-wrapper">
     <tal:main-macro metal:define-macro="content-core">
-       <tal:audio
-          tal:define="audio view/audio">
+       <tal:audio tal:define="audio view/audio">
         <audio controls autoplay>
           <source src="" type="*/*"
-              tal:attributes="src view/href; type view/getContentType" />
+                  tal:attributes="src view/href; type view/getContentType" />
           <object width="" height=""
-            type="application/x-shockwave-flash"
-            data="++resource++collective.mediaelementjs/flashmediaelement.swf">
-              <param name="audio" value="++resource++collective.mediaelementjs/flashmediaelement.swf" />
-              <param name="flashvars" value="" tal:attributes="value python:'file=%s' % view.href()" />
+                  type="application/x-shockwave-flash"
+                  data="++resource++collective.mediaelementjs/flashmediaelement.swf">
+            <param name="audio" value="++resource++collective.mediaelementjs/flashmediaelement.swf" />
+            <param name="flashvars" value="" tal:attributes="value python:'file=%s' % view.href()" />
           </object>
         </audio>
         <p class="documentByLine" tal:content="audio/duration"></p>

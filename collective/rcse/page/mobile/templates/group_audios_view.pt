@@ -5,35 +5,28 @@
       lang="en"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="collective.rcse">
-
 <body>
-<div metal:fill-slot="content-core">
-
+<div metal:fill-slot="content-core" class="directory-wrapper">
   <tal:block tal:define="audios view/getAudios"
-	     tal:condition="python: len(audios) > 0">
-
+	           tal:condition="python: len(audios) > 0">
     <audio id="mejs" controls>
       <source src="" type="*/*"
               tal:attributes="src python: audios[0]['src']; type python: audios[0]['mimetype']" />
       <object width="" height=""
-	      type="application/x-shockwave-flash"
-	      data="++resource++collective.mediaelementjs/flashmediaelement.swf">
-	<param name="audio" value="++resource++collective.mediaelementjs/flashmediaelement.swf" />
-	<param name="flashvars" value="" tal:attributes="value python:'file=%s' % audios[0]['src']" />
+	            type="application/x-shockwave-flash"
+	            data="++resource++collective.mediaelementjs/flashmediaelement.swf">
+      	<param name="audio" value="++resource++collective.mediaelementjs/flashmediaelement.swf" />
+      	<param name="flashvars" value="" tal:attributes="value python:'file=%s' % audios[0]['src']" />
       </object>
-
     </audio>
-
     <ul id="mejs-list" class="audio-playlist">
       <li tal:repeat="audio audios">
-	<a tal:attributes="href audio/src; title audio/description;
-			   data-mimetype audio/mimetype"
-	   tal:content="audio/title"></a>
+	      <a tal:attributes="href audio/src; title audio/description;
+			                     data-mimetype audio/mimetype"
+	         tal:content="audio/title"></a>
       </li>
     </ul>
-
   </tal:block>
-
   <script type="text/javascript">
     $(function(){
             $('video,audio').mediaelementplayer({
@@ -79,7 +72,6 @@
         }
     }
   </script>
-
 </div>
 </body>
 </html>

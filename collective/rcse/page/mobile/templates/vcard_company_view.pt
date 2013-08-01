@@ -1,14 +1,14 @@
 <div class="vcard_company" i18n:domain="collective.rcse">
-   <img class="logo"
-	tal:condition="context/logo"
-	tal:define="scales context/@@images;
-		    scale python: scales.scale('logo', width=64, height=64);"
-	tal:replace="structure scale/tag"/>
-   <a class="fn url" rel="me"
-      tal:attributes="href view/url"
-      tal:content="context/title">
-     Company
-   </a>
-    <span tal:condition="python: view.state == 'pending'" class="pending" i18n:translate="">Waiting for validation</span>
-    <span tal:condition="python: view.state == 'disabled'" class="disabled" i18n:translate="">Disabled</span>
+  <img class="logo"
+	     tal:condition="context/logo"
+       tal:define="scales context/@@images;
+		               scale python: scales.scale('logo', width=64, height=64);"
+	     tal:replace="structure scale/tag"/>
+  <a class="fn url" rel="me"
+     tal:attributes="href view/url"
+     tal:content="context/title">
+    Company
+  </a>
+  <span tal:condition="python: view.state == 'pending'" class="pending" i18n:translate="">Waiting for validation</span>
+  <span tal:condition="python: view.state == 'disabled'" class="disabled" i18n:translate="">Disabled</span>
 </div>
