@@ -95,6 +95,16 @@
       layer="collective.rcse.layer.MobileLayer"
       />
 
+  <!-- Links -->
+
+  <browser:page
+      for="plone.app.contenttypes.interfaces.ILink"
+      name="tile_view"
+      template="templates/link_tile_view.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.MobileLayer"
+      />
+
   <!-- Document -->
 
   <browser:page
