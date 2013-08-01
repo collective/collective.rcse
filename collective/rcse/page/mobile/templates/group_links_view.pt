@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.rcse">
+<body>
+  <div metal:fill-slot="content-core" class="directory-wrapper">
+    <div id="links-view"
+         tal:define="links python: view.get_content(batch=False, object=True)"
+         tal:condition="python: len(links) > 0">
+
+      <!-- example, to be placed in a css file -->
+      <style>
+	@media (min-width: 40em) {
+	#links-table td,
+	#links-table th,
+	#links-table tbody th,
+	#links-table tbody td,
+	#links-table thead td,
+	#links-table thead th {
+	display: table-cell;
+	margin: 0;
+	}
+	#links-table th .ui-table-cell-label,
+	#links-table td .ui-table-cell-label {
+	display: none;
+	}
+	}
+      </style>
+
+      <table data-role="table" id="links-table">
+	<thead>
+	  <tr>
+	    <th i18n:translate="">Title</th>
+	    <th i18n:translate="">Description</th>
+	    <th i18n:translate="">Url</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr tal:repeat="link links">
+	    <td tal:content="link/title"></td>
+	    <td tal:content="link/description"></td>
+	    <td><a tal:attributes="href link/remoteUrl"
+		   tal:content="link/remoteUrl"></a></td>
+	  </tr>
+	</tbody>
+      </table>
+
+    </div>
+  </div>
+</body>
+</html>

@@ -41,6 +41,7 @@
   <element value="images_view"/>
   <element value="timeline_view"/>
   <element value="videos_view"/>
+  <element value="links_view"/>
  </property>
 
  <!-- Method aliases -->
