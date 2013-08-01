@@ -1,3 +1,4 @@
+from zope.i18n import translate
 from zope import component
 from zope import interface
 
@@ -11,52 +12,45 @@ from collective.history.adapter import IExtractWhat
 
 from collective.rcse.i18n import _
 
+
 class BaseHistoryAdapter(object):
     interface.implements(IExtractWhat)
+
+    what = u''
+    what_info = {}
 
     def __init__(self, event):
         self.event = event
 
+    def __call__(self):
+        return translate(_(self.what)), self.what_info
+
 
 class CioppinoLike(BaseHistoryAdapter):
     component.adapts(ILikeEvent)
-
-    def __call__(self):
-        return _(u'liked'), {}
+    what = u'liked'
 
 
 class CioppinoUnlike(BaseHistoryAdapter):
     component.adapts(IUnlikeEvent)
-
-    def __call__(self):
-        return _(u'unliked'), {}
+    what = u'unliked'
 
 
 class CioppinoDislike(BaseHistoryAdapter):
     component.adapts(IDislikeEvent)
-
-    def __call__(self):
-        return _(u'disliked'), {}
+    what = u'disliked'
 
 
 class CioppinoUndislike(BaseHistoryAdapter):
     component.adapts(IUndislikeEvent)
-
-    def __call__(self):
-        return _(u'undisliked'), {}
+    what = u'undisliked'
 
 
 class FavoritingAddedToFavorites(BaseHistoryAdapter):
     component.adapts(IAddedToFavoritesEvent)
-
-    def __call__(self):
-        return _(u'added to his favorites:'), {}
+    what = u'added to his favorites:'
 
 
 class FavoritingRemovedFromFavorites(BaseHistoryAdapter):
     component.adapts(IRemovedFromFavoritesEvent)
-
-    def __call__(self):
-        return _(u'remove from his favorites:'), {}
-
-
+    what = u'remove from his favorites:'

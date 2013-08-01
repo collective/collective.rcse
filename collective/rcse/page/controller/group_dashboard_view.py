@@ -11,3 +11,6 @@ class DashboardView(BrowserView):
     def __call__(self):
         self.update()
         return self.index()
+
+    def update(self):
+        pass

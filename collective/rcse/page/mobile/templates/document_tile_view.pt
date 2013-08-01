@@ -1,2 +1,5 @@
 <h2 tal:content="context/Title"></h2>
 <p class="documentDescription" tal:content="context/Description"></p>
+<div class="documentText"
+     tal:define="output context/@@text-transform/text/text/plain"
+     tal:content="python: output[:300] + (output[300:] and '...')"></div>

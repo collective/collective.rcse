@@ -1,0 +1,14 @@
+<h2 tal:content="context/Title"></h2>
+<p class="newsDescription" tal:content="context/Description"></p>
+<div class="newsImage">
+  <img tal:condition="context/image"
+       tal:define="scales context/@@images;
+		   scale python: scales.scale('image', width=64, height=64);"
+       tal:replace="structure scale/tag" />
+
+  <p tal:condition="context/image_caption"
+     tal:content="context/image_caption"></p>
+</div>
+<div class="newsText"
+     tal:define="output context/@@text-transform/text/text/plain"
+     tal:content="python: output[:300] + (output[300:] and '...')"></div>

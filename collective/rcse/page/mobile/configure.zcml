@@ -13,24 +13,8 @@
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
-  <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="timeline_view"
-      menu="plone_displayviews"
-      title="Timeline view"
-      class="collective.rcse.page.controller.group_timeline_view.TimelineView"
-      template="templates/group_timeline_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-  <browser:page
-      for="*"
-      name="group_tile_view"
-      template="templates/group_tile_view.pt"
-      class="collective.rcse.page.controller.timeline_item_view.TimelineItemView"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
+
+  <!-- directories -->
 
   <browser:page
       for="*"
@@ -48,6 +32,8 @@
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
+
+  <!-- Member and Company -->
 
   <browser:page
       for="collective.rcse.content.member.IMember"
@@ -81,6 +67,8 @@
       permission="zope2.View"
       />
 
+  <!-- VCard -->
+
   <browser:page
       for="*"
       name="creator_vcard_view"
@@ -106,6 +94,62 @@
       permission="zope2.View"
       layer="collective.rcse.layer.MobileLayer"
       />
+
+  <!-- Document -->
+
+  <browser:page
+      for="plone.app.contenttypes.interfaces.IDocument"
+      name="tile_view"
+      template="templates/document_tile_view.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.MobileLayer"
+      />
+
+  <browser:page
+      for="plone.app.contenttypes.interfaces.IDocument"
+      name="image_view"
+      template="templates/document_view.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.MobileLayer"
+      />
+
+  <!-- News -->
+
+  <browser:page
+      for="plone.app.contenttypes.interfaces.INewsItem"
+      name="tile_view"
+      template="templates/news_tile_view.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.MobileLayer"
+      />
+
+  <browser:page
+      for="plone.app.contenttypes.interfaces.INewsItem"
+      name="image_view"
+      template="templates/news_view.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.MobileLayer"
+      />
+
+  <!-- Image -->
+
+  <browser:page
+      for="plone.app.contenttypes.interfaces.IImage"
+      name="tile_view"
+      template="templates/image_tile_view.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.MobileLayer"
+      />
+
+  <browser:page
+      for="plone.app.contenttypes.interfaces.IImage"
+      name="image_view"
+      template="templates/image_view.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.MobileLayer"
+      />
+
+  <!-- Audio -->
 
  <browser:page
       for="collective.rcse.content.audio.AudioSchema"
@@ -133,6 +177,8 @@
       permission="zope2.View"
       layer="collective.rcse.layer.MobileLayer"
       />
+
+  <!-- Video -->
 
   <browser:page
       for="collective.rcse.content.video.VideoSchema"
@@ -172,14 +218,27 @@
       layer="collective.rcse.layer.MobileLayer"
       />
  -->
+
+  <!-- Group -->
+
   <browser:page
-      for="*"
-      name="ismobiletheme_view"
-      class=".ismobiletheme.IsMobileTheme"
+      for="collective.rcse.content.group.GroupSchema"
+      name="timeline_view"
+      menu="plone_displayviews"
+      title="Timeline view"
+      class="collective.rcse.page.controller.group_timeline_view.TimelineView"
+      template="templates/group_timeline_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
-
+  <browser:page
+      for="*"
+      name="group_tile_view"
+      template="templates/group_tile_view.pt"
+      class="collective.rcse.page.controller.timeline_item_view.TimelineItemView"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
 
     <browser:page
       for="collective.rcse.content.group.GroupSchema"
@@ -280,6 +339,14 @@
       template="templates/etherpad_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.MobileLayer"
+      />
+
+  <browser:page
+      for="*"
+      name="ismobiletheme_view"
+      class=".ismobiletheme.IsMobileTheme"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
       />
 
 </configure>
