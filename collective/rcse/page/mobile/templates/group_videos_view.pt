@@ -5,83 +5,73 @@
       lang="en"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="collective.rcse">
-
 <body>
-<div metal:fill-slot="content-core">
+  <div metal:fill-slot="content-core" class="directory-wrapper">
+    <tal:block tal:define="videos view/getVideos"
+               tal:condition="python: len(videos) > 0">
+      <video id="mejs" controls>
+        <source src="" type="*/*"
+                tal:attributes="src python: videos[0]['src'];
+              type python: videos[0]['mimetype']" />
+        <object width="" height=""
+                type="application/x-shockwave-flash"
+                data="++resource++collective.mediaelementjs/flashmediaelement.swf">
+          <param name="movie" value="++resource++collective.mediaelementjs/flashmediaelement.swf" />
+          <param name="flashvars" value="" tal:attributes="value python:'file=%s' % videos[0]['src']" />
+        </object>
+      </video>
+      <ul id="mejs-list" class="video-playlist">
+        <li tal:repeat="video videos">
+          <a tal:attributes="href video/src; title video/description;
+               data-mimetype video/mimetype"
+           tal:content="video/title"></a>
+        </li>
+      </ul>
+    </tal:block>
+    <script type="text/javascript">
+      $(function(){
+              $('video,audio').mediaelementplayer({
+                  success: function (mediaElement, domObject) {
+                      mediaElement.addEventListener('ended', function (e) {
+                          mejsPlayNext(e.target);
+                  }, false);
+              },
+              keyActions: []
+          });
 
-  <tal:block tal:define="videos view/getVideos"
-	     tal:condition="python: len(videos) > 0">
+          $('#mejs-list li a').click(function(event) {
+              $(this).addClass('current').siblings().removeClass('current');
+              var video_src = $(this).attr('href');
+              var mimetype = $(this).attr('data-mimetype');
+              $('video#mejs:first').each(function(){
+                  this.player.pause();
+                  $(this).attr('type', mimetype);
+                  this.player.setSrc(video_src);
+                  this.player.play();
+              });
+              event.preventDefault();
+          });
 
-    <video id="mejs" controls>
-      <source src="" type="*/*"
-              tal:attributes="src python: videos[0]['src'];
-			      type python: videos[0]['mimetype']" />
-      <object width="" height=""
-	      type="application/x-shockwave-flash"
-	      data="++resource++collective.mediaelementjs/flashmediaelement.swf">
-	<param name="movie" value="++resource++collective.mediaelementjs/flashmediaelement.swf" />
-	<param name="flashvars" value=""
-	       tal:attributes="value python:'file=%s' % videos[0]['src']" />
-      </object>
+      });
+      function mejsPlayNext(currentPlayer) {
+          if ($('.mejs-list li.current').length > 0){ // get the .current song
+              var current_item = $('.mejs-list li.current:first'); // :first is added if we have few .current classes
+          }else{ // if there is no .current class
+              var current_item = $('.mejs-list li:first'); // get :first if we don't have .current class
+          }
 
-    </video>
-
-    <ul id="mejs-list" class="video-playlist">
-      <li tal:repeat="video videos">
-	<a tal:attributes="href video/src; title video/description;
-			     data-mimetype video/mimetype"
-	     tal:content="video/title"></a>
-      </li>
-    </ul>
-
-  </tal:block>
-
-  <script type="text/javascript">
-    $(function(){
-            $('video,audio').mediaelementplayer({
-                success: function (mediaElement, domObject) {
-                    mediaElement.addEventListener('ended', function (e) {
-                        mejsPlayNext(e.target);
-                }, false);
-            },
-            keyActions: []
-        });
-
-        $('#mejs-list li a').click(function(event) {
-            $(this).addClass('current').siblings().removeClass('current');
-            var video_src = $(this).attr('href');
-            var mimetype = $(this).attr('data-mimetype');
-            $('video#mejs:first').each(function(){
-                this.player.pause();
-                $(this).attr('type', mimetype);
-                this.player.setSrc(video_src);
-                this.player.play();
-            });
-            event.preventDefault();
-        });
-
-    });
-
-    function mejsPlayNext(currentPlayer) {
-        if ($('.mejs-list li.current').length > 0){ // get the .current song
-            var current_item = $('.mejs-list li.current:first'); // :first is added if we have few .current classes
-        }else{ // if there is no .current class
-            var current_item = $('.mejs-list li:first'); // get :first if we don't have .current class
-        }
-
-        if( $(current_item).is(':last-child') ) { // if it is last - stop playing
-            $(current_item).removeClass('current');
-        }else{
-            var video_src = $(current_item).next().attr('href');
-            var mimetype = $(current_item).next().attr('data-mimetype');
-            $(current_item).next().addClass('current').siblings().removeClass('current');
-            $('video#mejs').attr('type', mimetype);
-            currentPlayer.setSrc(video_src);
-            currentPlayer.play();
-        }
-    }
-  </script>
-
-</div>
+          if( $(current_item).is(':last-child') ) { // if it is last - stop playing
+              $(current_item).removeClass('current');
+          }else{
+              var video_src = $(current_item).next().attr('href');
+              var mimetype = $(current_item).next().attr('data-mimetype');
+              $(current_item).next().addClass('current').siblings().removeClass('current');
+              $('video#mejs').attr('type', mimetype);
+              currentPlayer.setSrc(video_src);
+              currentPlayer.play();
+          }
+      }
+    </script>
+  </div>
 </body>
 </html>
