@@ -8,21 +8,21 @@
 <body>
   <div metal:fill-slot="content-core" class="directory-wrapper">
     <div id="image-view"
-         tal:define="images python: view.get_content(batch=False)"
+         tal:define="images python: view.get_content(batch=False, object=True)"
          tal:condition="python: len(images) > 0">
       <div id="image-show">
         <img src="" alt="" />
       </div>
       <div id="image-list">
         <ul data-role="listview">
-        <tal:block tal:repeat="brain images">
-          <li tal:define="image brain/getObject">
+        <tal:block tal:repeat="image images">
+          <li>
             <img tal:define="scales image/@@images;
                              scale python: scales.scale('image', width=80, height=80);"
                  tal:replace="structure scale/tag" />
             <a class="image-link" href="#image-show"
                tal:define="scales image/@@images;
-                           scale python: scales.scale('image');"
+                           scale python: scales.scale('image', width=512, height=512);"
                tal:attributes="href scale/url"
                tal:content="image/title"></a>
           </li>

@@ -7,7 +7,22 @@
       i18n:domain="collective.rcse">
 <body>
   <div metal:fill-slot="content-core" class="directory-wrapper">
-    TODO ALBUMS
+    <div class="ui-grid-b ui-responsive">
+      <tal:image tal:define="images python: view.get_content(batch=False, object=True)"
+		 tal:repeat="key python: range(len(images))">
+	<div tal:define="image python: images[key]"
+	     tal:attributes="class python: (key % 3 == 0 and 'ui-block-a'
+			     or (key % 3 == 1 and 'ui-block-b' or 'ui-block-c'))
+			     + ' image-block';">
+	  <a tal:attributes="href image/absolute_url">
+	    <img tal:define="scales image/@@images;
+			     scale python: scales.scale('image', width=128, height=128)"
+		 tal:replace="structure scale/tag" />
+	  </a>
+	  <p tal:content="image/title"></p>
+	</div>
+      </tal:image>
+    </div>
   </div>
 </body>
 </html>
