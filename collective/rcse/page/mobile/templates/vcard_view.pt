@@ -1,18 +1,18 @@
 <div class="vcard" i18n:domain="collective.rcse">
-   <img class="photo"
-	tal:condition="context/avatar"
-	tal:define="scales context/@@images;
-		    scale python: scales.scale('avatar', width=64, height=64);"
-	tal:replace="structure scale/tag"/>
-   <a class="fn url" rel="me"
-      tal:attributes="href view/url"
-      tal:content="view/fullname">
+  <img class="photo"
+	     tal:condition="context/avatar"
+       tal:define="scales context/@@images;
+		               scale python: scales.scale('avatar', width=64, height=64);"
+      tal:replace="structure scale/tag"/>
+  <a class="fn url" rel="me"
+     tal:attributes="href view/url"
+     tal:content="view/fullname">
     John Smith
-   </a>
-    <span tal:condition="view/company" class="org" tal:content="view/company">Organization</span>
-    <span tal:condition="view/function" class="title" tal:content="view/function">Title / Function</span>
-    <span tal:condition="view/professional_email" class="email" tal:content="view/professional_email"></span>
-    <span tal:condition="view/professional_mobile_phone" class="tel" tal:content="view/professional_mobile_phone"></span>
-    <span tal:condition="python: view.state == 'pending'" class="pending" i18n:translate="">Waiting for validation</span>
-    <span tal:condition="python: view.state == 'disabled'" class="banned" i18n:translate="">Banned</span>
+  </a>
+  <span tal:condition="view/company" class="org" tal:content="view/company">Organization</span>
+  <span tal:condition="view/function" class="title" tal:content="view/function">Title / Function</span>
+  <span tal:condition="view/professional_email" class="email" tal:content="view/professional_email"></span>
+  <span tal:condition="view/professional_mobile_phone" class="tel" tal:content="view/professional_mobile_phone"></span>
+  <span tal:condition="python: view.state == 'pending'" class="pending" i18n:translate="">Waiting for validation</span>
+  <span tal:condition="python: view.state == 'disabled'" class="banned" i18n:translate="">Banned</span>
 </div>
