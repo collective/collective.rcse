@@ -8,7 +8,9 @@
 <body>
   <div metal:fill-slot="content-core" class="directory-wrapper">
     <div id="links-view"
-         tal:define="links python: view.get_content(batch=False, object=True)"
+         tal:define="b_start python:0;
+                     b_start request/b_start | b_start;
+                     links python: view.get_content(b_start=b_start, object=True)"
          tal:condition="python: len(links) > 0">
 
       <!-- example, to be placed in a css file -->
@@ -47,7 +49,7 @@
 	  </tr>
 	</tbody>
       </table>
-
+      <div metal:use-macro="context/batch_macros/macros/navigation" />
     </div>
   </div>
 </body>

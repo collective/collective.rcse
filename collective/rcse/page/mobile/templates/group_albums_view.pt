@@ -7,8 +7,10 @@
       i18n:domain="collective.rcse">
 <body>
   <div metal:fill-slot="content-core" class="directory-wrapper">
-    <div class="ui-grid-b ui-responsive">
-      <tal:image tal:define="images python: view.get_content(batch=False, object=True)"
+    <div tal:define="b_start python:0;
+                     b_start request/b_start | b_start;"
+		     class="ui-grid-b ui-responsive">
+      <tal:image tal:define="images python: view.get_content(object=True, b_start=b_start, b_size=9)"
 		 tal:repeat="key python: range(len(images))">
 	<div tal:define="image python: images[key]"
 	     tal:attributes="class python: (key % 3 == 0 and 'ui-block-a'
@@ -22,6 +24,7 @@
 	  <p tal:content="image/title"></p>
 	</div>
       </tal:image>
+      <div metal:use-macro="context/batch_macros/macros/navigation" />
     </div>
   </div>
 </body>
