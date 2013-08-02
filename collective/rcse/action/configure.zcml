@@ -13,6 +13,7 @@
       factory="collective.watcherlist.watchers.WatcherList"
       name="group_watchers"
       />
+
     <adapter
       for="plone.dexterity.interfaces.IDexterityContent"
       factory="collective.watcherlist.watchers.WatcherList"
@@ -26,6 +27,7 @@
     <adapter
       factory=".watchers.get_group_watchers"
       name="group_watchers" />
+
     <browser:page
       for="*"
       name="rcse_toggle_display_in_my_news"

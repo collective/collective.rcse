@@ -1,7 +1,7 @@
 from Acquisition import aq_parent
 from plone.directives import form
 from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
-
+from zope import interface
 
 class GroupSchema(form.Schema):
     """Marker interface"""

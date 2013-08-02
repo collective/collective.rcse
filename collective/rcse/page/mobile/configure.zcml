@@ -292,16 +292,6 @@
       />
     <browser:page
       for="collective.rcse.content.group.GroupSchema"
-      name="dashboard_view"
-      menu="plone_displayviews"
-      title="Dashboard view"
-      class="collective.rcse.page.controller.group_dashboard_view.DashboardView"
-      template="templates/group_dashboard_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
       name="favorites_view"
       menu="plone_displayviews"
       title="Favorites view"
@@ -349,6 +339,25 @@
       template="templates/group_links_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
+      />
+    <browser:page
+      for="collective.rcse.content.group.GroupSchema"
+      name="dashboard_view"
+      menu="plone_displayviews"
+      title="Dashboard view"
+      class="collective.rcse.page.controller.group_dashboard_view.DashboardView"
+      template="templates/group_dashboard_view.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
+
+    <browser:page
+      for="plone.portlets.interfaces.ILocalPortletAssignable"
+      name="manage_dashboard_view"
+      class="plone.app.portlets.browser.manage.ManageContextualPortlets"
+      template="templates/manage_group_dashboard_view.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="cmf.ModifyPortalContent"
       />
 
   <browser:page
