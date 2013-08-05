@@ -47,7 +47,13 @@ class ToggleDisplayInMyNews(BrowserView):
         else:
             msg = i18n.msg_watchers_rm
         IStatusMessage(self.request).add(msg)
-        self.request.response.redirect(self.context.absolute_url())
+        self.request.response.redirect(self.nextURL())
+
+    def nextURL(self):
+        referer = self.request.get("HTTP_REFERER", None)
+        if not referer:
+            referer = self.context.absolute_url()
+        return referer
 
     def update(self):
         if self.member is None:
