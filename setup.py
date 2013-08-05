@@ -47,6 +47,7 @@ setup(
         'collective.picturefill',
         'collective.portlet.favoriting',
         'collective.portlet.localusers',
+        'collective.readitlater',
         'collective.requestaccess',
         'collective.subscribe',
         'collective.themeswitcher',

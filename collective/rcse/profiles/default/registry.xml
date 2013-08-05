@@ -31,6 +31,11 @@
     <value>True</value>
   </record>
 
+  <!-- collective.readitlater -->
+  <records interface="collective.readitlater.registry.IReaditlaterSettings">
+        <value key="folder_query">{"portal_type": {"query": "collective.rcse.group"},"path": {"query": "/", "depth": 2}}</value>
+  </records>
+
   <!-- collective.themeswitcher config -->
   <record name="collective.themeswitcher.theme.mobile">
     <field type="plone.registry.field.ASCIILine">

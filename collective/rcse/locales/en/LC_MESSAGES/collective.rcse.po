@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-07-26 15:08+0000\n"
+"POT-Creation-Date: 2013-08-05 15:52+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -41,7 +41,7 @@ msgid "Add to my news"
 msgstr ""
 
 #: ./content/company.py:29
-#: ./page/mobile/templates/company_view.pt:41
+#: ./page/mobile/templates/company_view.pt:27
 msgid "Address"
 msgstr ""
 
@@ -66,12 +66,16 @@ msgid "Approve This Member"
 msgstr ""
 
 #: ./content/member.py:106
-#: ./page/mobile/templates/user_view.pt:33
+#: ./page/mobile/templates/user_view.pt:31
 msgid "Areas of expertise"
 msgstr ""
 
 #: ./profiles/default/types/collective.rcse.audio.xml
 msgid "Audio"
+msgstr ""
+
+#: ./content/audio.py:12
+msgid "Audio file"
 msgstr ""
 
 #: ./content/member.py:101
@@ -88,11 +92,11 @@ msgstr ""
 
 #: ./content/company.py:43
 #: ./content/member.py:150
-#: ./page/mobile/templates/company_view.pt:51
+#: ./page/mobile/templates/company_view.pt:35
 msgid "Blog"
 msgstr ""
 
-#: ./page/mobile/templates/user_view.pt:28
+#: ./page/mobile/templates/user_view.pt:26
 msgid "Born the <span>${DYNAMIC_CONTENT}</span>"
 msgstr ""
 
@@ -116,7 +120,7 @@ msgstr ""
 msgid "Comment"
 msgstr ""
 
-#: ./setuphandler.py:61
+#: ./setuphandler.py:70
 msgid "Companies directory"
 msgstr ""
 
@@ -130,12 +134,12 @@ msgid "Confirm the password"
 msgstr ""
 
 #: ./content/member.py:31
-#: ./page/mobile/templates/user_view.pt:39
+#: ./page/mobile/templates/user_view.pt:37
 msgid "Contact information"
 msgstr ""
 
 #: ./content/company.py:15
-#: ./page/mobile/templates/company_view.pt:21
+#: ./page/mobile/templates/company_view.pt:20
 msgid "Corporate name"
 msgstr ""
 
@@ -149,6 +153,10 @@ msgstr ""
 
 #: ./profiles/default/workflows/collective_rcse_member_workflow/definition.xml
 msgid "Decline This Member"
+msgstr ""
+
+#: ./page/mobile/templates/group_links_view.pt:39
+msgid "Description"
 msgstr ""
 
 #: ./profiles/default/types/collective.rcse.directory.xml
@@ -180,7 +188,7 @@ msgid "Do not display anymore new content from this group in your news"
 msgstr ""
 
 #: ./page/desktop/templates/file_view.pt:12
-#: ./page/mobile/templates/file_view.pt:12
+#: ./page/mobile/templates/file_view.pt:11
 msgid "Download"
 msgstr ""
 
@@ -216,7 +224,7 @@ msgstr ""
 msgid "Female"
 msgstr ""
 
-#: ./viewlet/mobile/filters.py:76
+#: ./viewlet/mobile/filters.py:78
 msgid "Filter"
 msgstr ""
 
@@ -237,7 +245,7 @@ msgid "Gender"
 msgstr ""
 
 #: ./content/member.py:153
-#: ./page/mobile/templates/user_view.pt:86
+#: ./page/mobile/templates/user_view.pt:73
 msgid "Google+"
 msgstr ""
 
@@ -250,7 +258,7 @@ msgid "Interest"
 msgstr ""
 
 #: ./content/member.py:113
-#: ./page/mobile/templates/user_view.pt:35
+#: ./page/mobile/templates/user_view.pt:33
 msgid "Interests"
 msgstr ""
 
@@ -259,7 +267,7 @@ msgid "Last Name"
 msgstr ""
 
 #: ./content/member.py:152
-#: ./page/mobile/templates/user_view.pt:83
+#: ./page/mobile/templates/user_view.pt:71
 msgid "LinkedIn"
 msgstr ""
 
@@ -275,6 +283,10 @@ msgstr ""
 msgid "Male"
 msgstr ""
 
+#: ./page/mobile/templates/manage_group_dashboard_view.pt:35
+msgid "Manage portlets of the group"
+msgstr ""
+
 #: ./profiles/default/types/collective.rcse.member.xml
 msgid "Member"
 msgstr ""
@@ -284,13 +296,17 @@ msgid "My account"
 msgstr ""
 
 #: ./page/desktop/templates/watchers_timeline_view.pt:20
-#: ./page/mobile/templates/watchers_timeline_view.pt:27
+#: ./page/mobile/templates/watchers_timeline_view.pt:21
 msgid "My news"
 msgstr ""
 
 #: ./page/controller/templates/welcome_view.pt:16
 #: ./profiles/default/actions.xml
 msgid "My profile"
+msgstr ""
+
+#: ./page/mobile/templates/group_calendar_view.pt:34
+msgid "Next"
 msgstr ""
 
 #: ./page/controller/register.py:23
@@ -302,22 +318,22 @@ msgid "Passwords do not match."
 msgstr ""
 
 #: ./content/member.py:125
-#: ./page/mobile/templates/user_view.pt:56
+#: ./page/mobile/templates/user_view.pt:53
 msgid "Personal e-mail"
 msgstr ""
 
 #: ./content/member.py:17
-#: ./page/mobile/templates/user_view.pt:22
+#: ./page/mobile/templates/user_view.pt:20
 msgid "Personal information"
 msgstr ""
 
 #: ./content/member.py:141
-#: ./page/mobile/templates/user_view.pt:68
+#: ./page/mobile/templates/user_view.pt:61
 msgid "Personal landline phone"
 msgstr ""
 
 #: ./content/member.py:133
-#: ./page/mobile/templates/user_view.pt:62
+#: ./page/mobile/templates/user_view.pt:57
 msgid "Personal mobile phone"
 msgstr ""
 
@@ -333,18 +349,22 @@ msgstr ""
 msgid "Presentation"
 msgstr ""
 
+#: ./page/mobile/templates/group_calendar_view.pt:31
+msgid "Previous"
+msgstr ""
+
 #: ./content/member.py:121
-#: ./page/mobile/templates/user_view.pt:53
+#: ./page/mobile/templates/user_view.pt:51
 msgid "Professional e-mail"
 msgstr ""
 
 #: ./content/member.py:137
-#: ./page/mobile/templates/user_view.pt:65
+#: ./page/mobile/templates/user_view.pt:59
 msgid "Professional landline phone"
 msgstr ""
 
 #: ./content/member.py:129
-#: ./page/mobile/templates/user_view.pt:59
+#: ./page/mobile/templates/user_view.pt:55
 msgid "Professional mobile phone"
 msgstr ""
 
@@ -354,7 +374,7 @@ msgid "RCSE Security settings"
 msgstr ""
 
 #: ./page/desktop/templates/group_tile_view.pt:13
-#: ./page/mobile/templates/group_tile_view.pt:51
+#: ./page/mobile/templates/group_tile_view.pt:50
 msgid "Read"
 msgstr ""
 
@@ -387,11 +407,12 @@ msgid "Search"
 msgstr ""
 
 #: ./content/company.py:18
-#: ./page/mobile/templates/company_view.pt:22
+#: ./page/mobile/templates/company_view.pt:21
 msgid "Sector"
 msgstr ""
 
 #: ./content/company.py:21
+#: ./page/mobile/templates/company_view.pt:22
 msgid "Service"
 msgstr ""
 
@@ -400,7 +421,7 @@ msgid "Settings"
 msgstr ""
 
 #: ./content/member.py:145
-#: ./page/mobile/templates/user_view.pt:71
+#: ./page/mobile/templates/user_view.pt:63
 msgid "Skype"
 msgstr ""
 
@@ -409,7 +430,7 @@ msgid "Sort on"
 msgstr ""
 
 #: ./content/member.py:85
-#: ./page/mobile/templates/user_view.pt:31
+#: ./page/mobile/templates/user_view.pt:29
 msgid "Spoken languages"
 msgstr ""
 
@@ -426,16 +447,17 @@ msgid "There were errors."
 msgstr ""
 
 #: ./content/vocabularies.py:38
+#: ./page/mobile/templates/group_links_view.pt:38
 msgid "Title"
 msgstr ""
 
 #: ./content/company.py:25
-#: ./page/mobile/templates/company_view.pt:24
+#: ./page/mobile/templates/company_view.pt:23
 msgid "Turnover"
 msgstr ""
 
 #: ./content/member.py:154
-#: ./page/mobile/templates/user_view.pt:89
+#: ./page/mobile/templates/user_view.pt:75
 msgid "Twitter"
 msgstr ""
 
@@ -443,16 +465,20 @@ msgstr ""
 msgid "Types"
 msgstr ""
 
+#: ./page/mobile/templates/group_links_view.pt:40
+msgid "Url"
+msgstr ""
+
 #: ./content/member.py:50
 msgid "Username"
 msgstr ""
 
-#: ./setuphandler.py:48
+#: ./setuphandler.py:57
 msgid "Users directory"
 msgstr ""
 
 #: ./content/member.py:151
-#: ./page/mobile/templates/user_view.pt:80
+#: ./page/mobile/templates/user_view.pt:69
 msgid "Viadeo"
 msgstr ""
 
@@ -460,7 +486,7 @@ msgstr ""
 msgid "Video"
 msgstr ""
 
-#: ./page/controller/video_view.py:16
+#: ./content/video.py:11
 msgid "Video file"
 msgstr ""
 
@@ -479,7 +505,7 @@ msgstr ""
 
 #: ./content/company.py:39
 #: ./content/member.py:149
-#: ./page/mobile/templates/company_view.pt:47
+#: ./page/mobile/templates/company_view.pt:31
 msgid "Website"
 msgstr ""
 
@@ -492,7 +518,7 @@ msgstr ""
 msgid "You are already registered."
 msgstr ""
 
-#: ./page/controller/cioppino_twothumbs.py:29
+#: ./page/controller/cioppino_twothumbs.py:34
 msgid "You dislike this. Thanks for the feedback!"
 msgstr ""
 
@@ -529,24 +555,44 @@ msgid "Your vote has been removed."
 msgstr ""
 
 #. Default: "Add group"
-#: ./page/mobile/templates/watchers_timeline_view.pt:20
+#: ./page/mobile/templates/watchers_timeline_view.pt:16
 msgid "add_group"
 msgstr ""
 
-#: ./adapter.py:53
+#. Default: "add them to the folder itself"
+#: ./page/mobile/templates/manage_group_dashboard_view.pt:29
+msgid "add_them_to_the_folder_itself"
+msgstr ""
+
+#: ./adapter.py:50
 msgid "added to his favorites:"
 msgstr ""
 
-#: ./adapter.py:39
+#: ./adapter.py:40
 msgid "disliked"
 msgstr ""
 
-#: ./adapter.py:25
+#: ./adapter.py:30
 msgid "liked"
 msgstr ""
 
-#: ./adapter.py:60
+#. Default: "If you add portlets here, they will only appear on this item. If instead you want portlets to appear on all items in this folder, ${manage-portletsinheader_link}"
+#: ./page/mobile/templates/manage_group_dashboard_view.pt:26
+msgid "message_warning_above_content_area_dd"
+msgstr ""
+
+#. Default: "Is this really where you want to add portlets above the content?"
+#: ./page/mobile/templates/manage_group_dashboard_view.pt:24
+msgid "message_warning_above_content_area_dt"
+msgstr ""
+
+#: ./adapter.py:55
 msgid "remove from his favorites:"
+msgstr ""
+
+#. Default: "Return"
+#: ./page/mobile/templates/manage_group_dashboard_view.pt:40
+msgid "return_to_view"
 msgstr ""
 
 #: ./profiles/default/actions.xml
@@ -557,11 +603,11 @@ msgstr ""
 msgid "themeswitcher_mobile"
 msgstr ""
 
-#: ./adapter.py:46
+#: ./adapter.py:45
 msgid "undisliked"
 msgstr ""
 
-#: ./adapter.py:32
+#: ./adapter.py:35
 msgid "unliked"
 msgstr ""
 

@@ -1,0 +1,357 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-08-05 15:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.history\n"
+
+#: ./settings.py:14
+msgid "Action to icon"
+msgstr ""
+
+#: ./security.py:20
+msgid "Add group"
+msgstr ""
+
+#: ./content/company.py:29
+msgid "Address"
+msgstr ""
+
+#: ./content/member.py:106
+msgid "Areas of expertise"
+msgstr ""
+
+#: ./content/audio.py:12
+msgid "Audio file"
+msgstr ""
+
+#: ./content/member.py:101
+msgid "Avatar"
+msgstr ""
+
+#: ./content/member.py:92
+msgid "Birthdate"
+msgstr ""
+
+#: ./content/company.py:43
+#: ./content/member.py:150
+msgid "Blog"
+msgstr ""
+
+#: ./content/company.py:36
+msgid "City"
+msgstr ""
+
+#: ./setuphandler.py:70
+msgid "Companies directory"
+msgstr ""
+
+#: ./content/member.py:73
+msgid "Company"
+msgstr ""
+
+#: ./page/controller/register.py:27
+msgid "Confirm the password"
+msgstr ""
+
+#: ./content/member.py:31
+msgid "Contact information"
+msgstr ""
+
+#: ./content/company.py:15
+msgid "Corporate name"
+msgstr ""
+
+#: ./content/vocabularies.py:37
+msgid "Date"
+msgstr ""
+
+#: ./content/member.py:60
+msgid "E-mail"
+msgstr ""
+
+#: ./content/member.py:108
+msgid "Expertise"
+msgstr ""
+
+#: ./content/vocabularies.py:9
+msgid "Female"
+msgstr ""
+
+#: ./viewlet/mobile/filters.py:78
+msgid "Filter"
+msgstr ""
+
+#: ./content/member.py:64
+msgid "First Name"
+msgstr ""
+
+#: ./content/member.py:76
+msgid "Function"
+msgstr ""
+
+#: ./content/member.py:96
+msgid "Gender"
+msgstr ""
+
+#: ./content/member.py:153
+msgid "Google+"
+msgstr ""
+
+#: ./content/member.py:115
+msgid "Interest"
+msgstr ""
+
+#: ./content/member.py:113
+msgid "Interests"
+msgstr ""
+
+#: ./content/member.py:68
+msgid "Last Name"
+msgstr ""
+
+#: ./content/member.py:152
+msgid "LinkedIn"
+msgstr ""
+
+#: ./page/controller/register.py:19
+msgid "Login"
+msgstr ""
+
+#: ./content/company.py:11
+msgid "Logo"
+msgstr ""
+
+#: ./content/vocabularies.py:10
+msgid "Male"
+msgstr ""
+
+#: ./page/controller/register.py:23
+msgid "Password"
+msgstr ""
+
+#: ./page/controller/register.py:52
+msgid "Passwords do not match."
+msgstr ""
+
+#: ./content/member.py:125
+msgid "Personal e-mail"
+msgstr ""
+
+#: ./content/member.py:17
+msgid "Personal information"
+msgstr ""
+
+#: ./content/member.py:141
+msgid "Personal landline phone"
+msgstr ""
+
+#: ./content/member.py:133
+msgid "Personal mobile phone"
+msgstr ""
+
+#: ./page/controller/personal-preferences.py:28
+msgid "Personal preferences"
+msgstr ""
+
+#: ./content/company.py:33
+msgid "Postal code"
+msgstr ""
+
+#: ./content/member.py:80
+msgid "Presentation"
+msgstr ""
+
+#: ./content/member.py:121
+msgid "Professional e-mail"
+msgstr ""
+
+#: ./content/member.py:137
+msgid "Professional landline phone"
+msgstr ""
+
+#: ./content/member.py:129
+msgid "Professional mobile phone"
+msgstr ""
+
+#: ./security.py:71
+msgid "RCSE Security settings"
+msgstr ""
+
+#: ./page/controller/register.py:42
+msgid "Register"
+msgstr ""
+
+#: ./page/controller/register_information.py:33
+msgid "Register your information"
+msgstr ""
+
+#: ./content/vocabularies.py:36
+msgid "Relevance"
+msgstr ""
+
+#: ./viewlet/mobile/filters.py:46
+msgid "Reversed"
+msgstr ""
+
+#: ./page/controller/personal-preferences.py:30
+msgid "Save"
+msgstr ""
+
+#: ./viewlet/mobile/filters.py:26
+msgid "Search"
+msgstr ""
+
+#: ./content/company.py:18
+msgid "Sector"
+msgstr ""
+
+#: ./content/company.py:21
+msgid "Service"
+msgstr ""
+
+#: ./content/member.py:54
+msgid "Settings"
+msgstr ""
+
+#: ./content/member.py:145
+msgid "Skype"
+msgstr ""
+
+#: ./viewlet/mobile/filters.py:40
+msgid "Sort on"
+msgstr ""
+
+#: ./content/member.py:85
+msgid "Spoken languages"
+msgstr ""
+
+#: ./page/controller/register_information.py:35
+msgid "Submit"
+msgstr ""
+
+#: ./settings.py:24
+msgid "Subscribe when favorited"
+msgstr ""
+
+#: ./page/controller/register_information.py:43
+msgid "There were errors."
+msgstr ""
+
+#: ./content/vocabularies.py:38
+msgid "Title"
+msgstr ""
+
+#: ./content/company.py:25
+msgid "Turnover"
+msgstr ""
+
+#: ./content/member.py:154
+msgid "Twitter"
+msgstr ""
+
+#: ./viewlet/mobile/filters.py:32
+msgid "Types"
+msgstr ""
+
+#: ./content/member.py:50
+msgid "Username"
+msgstr ""
+
+#: ./setuphandler.py:57
+msgid "Users directory"
+msgstr ""
+
+#: ./content/member.py:151
+msgid "Viadeo"
+msgstr ""
+
+#: ./content/video.py:11
+msgid "Video file"
+msgstr ""
+
+#: ./settings.py:29
+msgid "Watch when favorited"
+msgstr ""
+
+#: ./content/company.py:39
+#: ./content/member.py:149
+msgid "Website"
+msgstr ""
+
+#: ./page/controller/register_information.py:40
+msgid "You are already registered."
+msgstr ""
+
+#: ./page/controller/cioppino_twothumbs.py:34
+msgid "You dislike this. Thanks for the feedback!"
+msgstr ""
+
+#: ./i18n.py:7
+msgid "You have added the content of this group to your news"
+msgstr ""
+
+#: ./i18n.py:10
+msgid "You have removed the content of this group from your news"
+msgstr ""
+
+#: ./page/controller/cioppino_twothumbs.py:14
+msgid "You liked this. Thanks for the feedback!"
+msgstr ""
+
+#: ./page/controller/timeline_view.py:9
+msgid "You must be logged in to access to the RCSE"
+msgstr ""
+
+#: ./settings.py:25
+msgid "You will automatically subscribed to contents you add to your favorites."
+msgstr ""
+
+#: ./settings.py:30
+msgid "You will automatically watch groups you add to your favorites."
+msgstr ""
+
+#: ./page/controller/register.py:61
+msgid "Your can now log in."
+msgstr ""
+
+#: ./page/controller/cioppino_twothumbs.py:16
+msgid "Your vote has been removed."
+msgstr ""
+
+#: ./adapter.py:50
+msgid "added to his favorites:"
+msgstr ""
+
+#: ./adapter.py:40
+msgid "disliked"
+msgstr ""
+
+#: ./adapter.py:30
+msgid "liked"
+msgstr ""
+
+#: ./adapter.py:55
+msgid "remove from his favorites:"
+msgstr ""
+
+#: ./adapter.py:45
+msgid "undisliked"
+msgstr ""
+
+#: ./adapter.py:35
+msgid "unliked"
+msgstr ""
+

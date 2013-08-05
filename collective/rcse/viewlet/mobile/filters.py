@@ -61,6 +61,8 @@ class FiltersFormAdapter(object):
 class FiltersForm(AutoExtensibleForm, form.Form):
     schema = FiltersFormSchema
 
+    enableUnloadProtection = False
+
     def updateWidgets(self):
         super(FiltersForm, self).updateWidgets()
         if self.request.get('SearchableText'):

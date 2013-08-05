@@ -1,0 +1,42 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-08-05 15:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.history\n"
+
+#: ./adapter.py:50
+msgid "added to his favorites:"
+msgstr "ajouté à ses favories:"
+
+#: ./adapter.py:40
+msgid "disliked"
+msgstr "pas aimé"
+
+#: ./adapter.py:30
+msgid "liked"
+msgstr "aimé"
+
+#: ./adapter.py:55
+msgid "remove from his favorites:"
+msgstr "supprimé de ses favoris:"
+
+#: ./adapter.py:45
+msgid "undisliked"
+msgstr "arreté de ne pas aimer"
+
+#: ./adapter.py:35
+msgid "unliked"
+msgstr "arreté d'aimer"
