@@ -49,7 +49,7 @@
       />
 
   <browser:viewlet
-      name="plone.personalbar"
+      name="collective.rcse.groupdisplaymenu"
       for="collective.rcse.content.group.GroupSchema"
       manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
       class="collective.rcse.viewlet.mobile.viewlets.GroupDisplayMenu"
