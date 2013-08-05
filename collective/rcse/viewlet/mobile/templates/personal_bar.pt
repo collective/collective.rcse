@@ -24,12 +24,3 @@
     </ul>
 </div>
 </tal:block>
-<tal:actions tal:condition="view/anonymous">
-  <a href="" data-role="button" data-iconpos="notext"
-     tal:repeat="action view/user_actions"
-     tal:attributes="href action/url;
-         id string:personaltools-${action/id};
-         target action/link_target|nothing;
-         data-icon python:view.getIcon(action);"
-     tal:content="action/title" i18n:translate="">action title</a>
-</tal:actions>
