@@ -69,6 +69,7 @@
    <property name="title" i18n:translate="">My profile</property>
    <property name="description" i18n:translate=""></property>
    <property name="url_expr">string:${globals_view/navigationRootUrl}/@@personal-information</property>
+   <property name="available_expr">python:member is not None</property>
    <property name="icon_expr"></property>
    <property name="permissions">
     <element value="View"/>
@@ -79,6 +80,7 @@
    <property name="title" i18n:translate="">My account</property>
    <property name="description" i18n:translate=""></property>
    <property name="url_expr">string:${globals_view/navigationRootUrl}/@@personal-preferences</property>
+   <property name="available_expr">python:member is not None</property>
    <property name="icon_expr"></property>
    <property name="permissions">
     <element value="View"/>
