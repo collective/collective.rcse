@@ -23,7 +23,7 @@ class TimelineView(BaseView):
             self.plone_utils = getToolByName(self.context, 'plone_utils')
         if self.use_view_action is None:
             pp = getToolByName(self.context, 'portal_properties')
-            self.use_view_action = pp.getProperty(
+            self.use_view_action = pp.site_properties.getProperty(
                 'typesUseViewActionInListings', ()
             )
         super(TimelineView, self).update()

@@ -32,6 +32,7 @@ class TimelineItemView(BrowserView):
         self.creator_info = None
         self.actions = None
         self.actions_icon = None
+        self.typesUseViewActionInListings = None
 
     def update(self):
         if self.membership is None:
@@ -57,6 +58,11 @@ class TimelineItemView(BrowserView):
             self.actions = self.context_state.actions('document_actions')
         if self.actions_icon is None:
             self._getActionsIcons()
+        if self.typesUseViewActionInListings is None:
+            pp = getToolByName(self.context, 'portal_properties')
+            self.typesUseViewActionInListings = pp.site_properties.getProperty(
+                'typesUseViewActionInListings', ()
+            )
 
     def get_content(self):
         return self.context.restrictedTraverse('tile_view')()
