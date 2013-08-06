@@ -15,6 +15,8 @@ from zope import component
 
 from cioppino.twothumbs.event import ILikeEvent
 from collective.rcse.i18n import _
+from plone.app.layout.navigation.interfaces import INavigationRoot
+from zope.interface.declarations import alsoProvides
 
 LOG = logging.getLogger("collective.history")
 
@@ -76,6 +78,21 @@ def createDirectories(parent):
         ['Contributor']
         )
     _publishContent(parent.companies_directory)
+    if "home" not in existing:
+        _createObjectByType(
+            "Folder",
+            parent,
+            id="home",
+            title=_(u"Home")
+        )
+    _updateFolder(
+        parent.home,
+        ['collective.rcse.group'],
+        "timeline_view",
+        )
+    alsoProvides(parent.home, INavigationRoot)
+    _publishContent(parent.home)
+    parent.home.reindexObject()
 
 
 def _publishContent(content):
@@ -106,9 +123,8 @@ def _updateFolder(obj, types=None, view=None, authenticated_roles=None):
 
 def updateWelcomePage(site):
     layout = site.getLayout()
-    if layout != "timeline_view":
-        site.setLayout("timeline_view")
-        LOG.info("set timeline_view as default page")
+    if layout != "rcse_redirect_view":
+        site.setLayout("rcse_redirect_view")
 
 
 def initialize_rules(portal):
