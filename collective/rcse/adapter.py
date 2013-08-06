@@ -1,5 +1,9 @@
+from Acquisition import aq_inner
+
 from zope import component
 from zope import interface
+
+from plone.indexer.decorator import indexer
 
 from cioppino.twothumbs.event import ILikeEvent
 from cioppino.twothumbs.event import IUnlikeEvent
@@ -53,3 +57,16 @@ class FavoritingAddedToFavorites(BaseHistoryAdapter):
 class FavoritingRemovedFromFavorites(BaseHistoryAdapter):
     component.adapts(IRemovedFromFavoritesEvent)
     what = _h(u'remove from his favorites:')
+
+
+#we need to query the catalog to get content where current user has localroles.
+@indexer(interface.Interface)
+def user_with_local_roles(context):
+    context = aq_inner(context)
+    local_roles = context.get_local_roles()
+    users = set()
+
+    for user, roles in local_roles:
+        users.add(user)
+
+    return list(users)

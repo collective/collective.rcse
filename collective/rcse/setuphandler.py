@@ -47,6 +47,8 @@ def setupCatalog(portal):
         catalog.addIndex('group_watchers', 'KeywordIndex')
     if 'username' not in catalog.Indexes:
         catalog.addIndex('username', 'FieldIndex')
+    if 'user_with_local_roles' not in catalog.Indexes:
+        catalog.addIndex('user_with_local_roles', 'KeywordIndex')
 
 
 def createDirectories(parent):

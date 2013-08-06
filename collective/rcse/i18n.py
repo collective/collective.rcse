@@ -10,3 +10,4 @@ msg_watchers_add = _(
 msg_watchers_rm = _(
     u"You have removed the content of this group from your news"
 )
+_(u"Search groups")

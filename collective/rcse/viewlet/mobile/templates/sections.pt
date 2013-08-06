@@ -5,10 +5,10 @@
    data-transition="fade" data-icon="folder-open" data-iconpos="notext"
    i18n:translate="">Sections Menu</a>
 
-<div data-role="popup" id="popup-globalsections" i18n:domain="plone">
+<div data-role="popup" id="popup-globalsections" i18n:domain="rcse">
     <ul data-role="listview" data-inset="true" data-icon="false"
         tal:attributes="data-filter-reveal view/data_filter_reveal; data-filter view/data_filter"
-        data-filter-placeholder="Search sections" i18n:attributes="data-filter-placeholder">
+        data-filter-placeholder="Search groups" i18n:attributes="data-filter-placeholder">
         <li tal:repeat="tab portal_tabs">
           <a data-rel="popup"
              tal:attributes="href tab/url; data-theme python:selected_tab==tab['id'] and 'b' or 'a';
@@ -29,11 +29,11 @@
                  id string:portaltab-favorites-${tab/getId};"
              tal:content="tab/Title">Add</a></li>
         <li data-role="list-divider" i18n:translate=""
-            tal:condition="view/watched">Watched</li>
-        <li tal:repeat="tab view/watched" data-icon="eye-open">
+            tal:condition="view/registred">Registred</li>
+        <li tal:repeat="tab view/registred">
           <a data-rel="popup"
              tal:attributes="href tab/getURL;
-                 id string:portaltab-favorites-${tab/getId};"
+                 id string:portaltab-registred-${tab/getId};"
              tal:content="tab/Title">Add</a></li>
     </ul>
 </div>
