@@ -42,7 +42,7 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
         if errors:
             self.status = _(u"There were errors.")
             return
-        self._createUser(user.getUserId(), data)
+        self._createUser(user.getId(), data)
         portal_url = getToolByName(self.context, "portal_url")
         self.request.response.redirect(
             '%s/@@personal-information' % portal_url()
@@ -50,8 +50,10 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
 
     def _createUser(self, username, data):
         container = self.context.unrestrictedTraverse('users_directory')
-        if username in container:
-            raise Unauthorized(_(u"You are already registered."))
+        mtool = getToolByName(self.context, 'membrane_tool')
+        results = mtool.searchResults(getUserName=username)
+        if len(results) > 0:
+            raise Unauthorized, _(u"You are already registered.")
         self._security_manager = getSecurityManager()
         self._sudo('Manager')
         data['username'] = username

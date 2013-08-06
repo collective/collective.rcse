@@ -15,15 +15,8 @@ class PersonalInformation(BrowserView):
                 '%s/@@register_information' % portal_url()
                 )
         else:
-            catalog = getToolByName(self.context, 'portal_catalog')
-            url = '/'.join(portal_url.getPortalObject().getPhysicalPath())
-            query = {
-                'path':
-                    {'query': '%s/users_directory' % url,
-                     'depth': 1},
-                'username': member.getUserName()
-                }
-            results = catalog(query)
+            catalog = getToolByName(self.context, 'membrane_tool')
+            results = catalog(getUserName=member.getProperty('username'))
             if len(results) == 0:
                 self.request.response.redirect(
                     '%s/users_directory' % portal_url()

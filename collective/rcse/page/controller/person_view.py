@@ -109,7 +109,8 @@ class MemberInfoView(BrowserView):
 
         self.memberid = self.member.getProperty('username')
         self.url = '/'.join(self.context.getPhysicalPath())
-        self.fullname = self.member.getProperty('fullname')
+        self.fullname = '%s %s' % (self.member.getProperty('first_name'),
+                                   self.member.getProperty('last_name'))
         self.company = self.member.getProperty('company')
         self.function = self.member.getProperty('function')
         self.professional_email = self.member.getProperty('professional_email')
