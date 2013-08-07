@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-08-05 15:52+0000\n"
+"POT-Creation-Date: 2013-08-06 14:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,7 +121,7 @@ msgstr ""
 msgid "Comment"
 msgstr ""
 
-#: ./setuphandler.py:70
+#: ./setuphandler.py:74
 msgid "Companies directory"
 msgstr ""
 
@@ -252,6 +252,10 @@ msgstr ""
 
 #: ./profiles/default/types/collective.rcse.group.xml
 msgid "Group"
+msgstr ""
+
+#: ./setuphandler.py:88
+msgid "Home"
 msgstr ""
 
 #: ./content/member.py:115
@@ -387,6 +391,10 @@ msgstr ""
 msgid "Register your information"
 msgstr ""
 
+#: ./viewlet/mobile/templates/sections.pt:31
+msgid "Registred"
+msgstr ""
+
 #: ./content/vocabularies.py:36
 msgid "Relevance"
 msgstr ""
@@ -405,6 +413,10 @@ msgstr ""
 
 #: ./viewlet/mobile/filters.py:26
 msgid "Search"
+msgstr ""
+
+#: ./i18n.py:13
+msgid "Search groups"
 msgstr ""
 
 #: ./content/company.py:18
@@ -474,7 +486,7 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: ./setuphandler.py:57
+#: ./setuphandler.py:61
 msgid "Users directory"
 msgstr ""
 
@@ -498,10 +510,6 @@ msgstr ""
 
 #: ./settings.py:29
 msgid "Watch when favorited"
-msgstr ""
-
-#: ./viewlet/mobile/templates/sections.pt:31
-msgid "Watched"
 msgstr ""
 
 #: ./content/company.py:39
@@ -565,18 +573,6 @@ msgstr ""
 msgid "add_them_to_the_folder_itself"
 msgstr ""
 
-#: ./adapter.py:50
-msgid "added to his favorites:"
-msgstr ""
-
-#: ./adapter.py:40
-msgid "disliked"
-msgstr ""
-
-#: ./adapter.py:30
-msgid "liked"
-msgstr ""
-
 #. Default: "If you add portlets here, they will only appear on this item. If instead you want portlets to appear on all items in this folder, ${manage-portletsinheader_link}"
 #: ./page/mobile/templates/manage_group_dashboard_view.pt:26
 msgid "message_warning_above_content_area_dd"
@@ -585,10 +581,6 @@ msgstr ""
 #. Default: "Is this really where you want to add portlets above the content?"
 #: ./page/mobile/templates/manage_group_dashboard_view.pt:24
 msgid "message_warning_above_content_area_dt"
-msgstr ""
-
-#: ./adapter.py:55
-msgid "remove from his favorites:"
 msgstr ""
 
 #. Default: "Return"
@@ -602,13 +594,5 @@ msgstr ""
 
 #: ./profiles/default/actions.xml
 msgid "themeswitcher_mobile"
-msgstr ""
-
-#: ./adapter.py:45
-msgid "undisliked"
-msgstr ""
-
-#: ./adapter.py:35
-msgid "unliked"
 msgstr ""
 
