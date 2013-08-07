@@ -10,7 +10,11 @@ class PersonalInformation(BrowserView):
         portal_url = getToolByName(self.context, 'portal_url')
         mtool = getToolByName(self.context, 'portal_membership')
         member = mtool.getAuthenticatedMember()
-        if type(member.getProperty('username')) == object:
+        if member.getId() == 'admin':
+            self.request.response.redirect(
+                '%s/users_directory' % portal_url()
+                )
+        elif type(member.getProperty('username')) == object:
             self.request.response.redirect(
                 '%s/@@register_information' % portal_url()
                 )

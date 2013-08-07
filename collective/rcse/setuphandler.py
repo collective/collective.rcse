@@ -45,8 +45,8 @@ def setupCatalog(portal):
     catalog = getToolByName(portal, 'portal_catalog')
     if 'group_watchers' not in catalog.Indexes:
         catalog.addIndex('group_watchers', 'KeywordIndex')
-    if 'username' not in catalog.Indexes:
-        catalog.addIndex('username', 'FieldIndex')
+    if 'username' in catalog.Indexes:
+        catalog.delIndex('username')
     if 'user_with_local_roles' not in catalog.Indexes:
         catalog.addIndex('user_with_local_roles', 'KeywordIndex')
 
