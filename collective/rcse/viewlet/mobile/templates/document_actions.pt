@@ -6,13 +6,12 @@
       <tal:action tal:repeat="daction view/actions_icon"
                   tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
         <a href=""
-	   data-role="button"
-	   data-inline="true"
+           data-role="button" data-inline="true"
            tal:attributes="href daction/url;
                            id daction/id;
                            target daction/link_target|nothing;
                            title daction/description;
-			   data-icon daction/icon">
+                           data-icon python:str(daction['icon']).replace('icon-', '')">
         </a>
       </tal:action>
       <a href=""
