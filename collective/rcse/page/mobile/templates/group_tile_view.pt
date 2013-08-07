@@ -20,7 +20,7 @@
                                id daction/id;
                                target daction/link_target|nothing;
                                title daction/description;
-             data-icon daction/icon">
+             data-icon python:str(daction['icon']).replace('icon-', '')">
       </a>
       </tal:action>
       <a href=""

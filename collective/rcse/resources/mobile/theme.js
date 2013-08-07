@@ -3,7 +3,7 @@ $(document).on("mobileinit", function(){
 
 });
 $(document).ready(function(){
-	$(".rcse_tile").each(function (){
+	$("a.rcse_tile").each(function (){
 	    var item = $(this);
 	    $.ajax({
 	      url: $(this).attr('href') + '/@@group_tile_view'

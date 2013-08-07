@@ -4,17 +4,22 @@ from Products.statusmessages.interfaces import IStatusMessage
 from cioppino.twothumbs import _
 
 
-class Like(BrowserView):
-    """Like the context"""
-    def __call__(self):
+class Base(BrowserView):
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+        self.statusmessage = None
+        self.message = None
+
+    def update(self):
         rate.setupAnnotations(self.context)
-        action = rate.loveIt(self.context)
-        status = IStatusMessage(self.request)
-        if action == "like":
-            msg = _(u"You liked this. Thanks for the feedback!")
-        else:
-            msg = _(u"Your vote has been removed.")
-        status.add(msg)
+        if self.statusmessage is None:
+            self.statusmessage = IStatusMessage(self.request)
+
+    def __call__(self):
+        self.update()
+        self.doIt()
+        self.statusmessage.add(self.message)
         self.request.response.redirect(self.nextURL())
 
     def nextURL(self):
@@ -24,15 +29,35 @@ class Like(BrowserView):
         return referer
 
 
-class DisLike(Like):
-    """DisLike the context"""
-    def __call__(self):
-        rate.setupAnnotations(self.context)
-        action = rate.hateIt(self.context)
-        status = IStatusMessage(self.request)
-        if action == "dislike":
-            msg = _(u"You dislike this. Thanks for the feedback!")
+class Like(Base):
+    """Like the context"""
+    def doIt(self):
+        action = rate.loveIt(self.context)
+        if action == "like":
+            self.message = _(u"You liked this. Thanks for the feedback!")
         else:
-            msg = _(u"Your vote has been removed.")
-        status.add(msg)
-        self.request.response.redirect(self.nextURL())
+            self.message = _(u"Your vote has been removed.")
+
+
+class DisLike(Base):
+    """DisLike the context"""
+    def doIt(self):
+        action = rate.hateIt(self.context)
+        if action == "dislike":
+            self.message = _(u"You dislike this. Thanks for the feedback!")
+        else:
+            self.message = _(u"Your vote has been removed.")
+
+
+class IsLikedByMe(Base):
+    def __call__(self):
+        self.update()
+        myvote = rate.getMyVote(self.context)
+        return myvote == 1
+
+
+class IsDisLikedByMe(Base):
+    def __call__(self):
+        self.update()
+        myvote = rate.getMyVote(self.context)
+        return myvote == -1

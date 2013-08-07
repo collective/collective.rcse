@@ -35,27 +35,56 @@
    </property>
    <property name="visible">True</property>
   </object>
-  <object name="cioppino_twothumbs_like" meta_type="CMF Action" i18n:domain="cioppino.twothumbs">
+  <object name="cioppino_twothumbs_like" meta_type="CMF Action" i18n:domain="collective.rcse">
    <property name="title" i18n:translate="">Like</property>
    <property name="description" i18n:translate="">I like this (click again to undo)</property>
    <property name="url_expr">string:$object_url/@@cioppino_twothumbs_like</property>
-   <property name="icon_expr"></property>
-   <property name="available_expr">python:member is not None</property>
+   <property name="icon_expr">string:icon-thumbs-up-alt</property>
+   <property name="available_expr">python:member is not None and not context.restrictedTraverse('@@cioppino_twothumbs_islikedbyme')()</property>
    <property name="permissions">
     <element value="View"/>
    </property>
    <property name="visible">True</property>
   </object>
-  <object name="cioppino_twothumbs_dislike" meta_type="CMF Action" i18n:domain="cioppino.twothumbs">
-   <property name="title" i18n:translate="">Ugh</property>
-   <property name="description" i18n:translate="">I dislike this (click again to undo)</property>
-   <property name="url_expr">string:$object_url/@@cioppino_twothumbs_dislike</property>
-   <property name="icon_expr"></property>
-   <property name="available_expr">python:member is not None</property>
+  <object name="cioppino_twothumbs_like_nomore" meta_type="CMF Action" i18n:domain="collective.rcse">
+   <property name="title" i18n:translate="">Undo Like</property>
+   <property name="description" i18n:translate="">I don't like this anymore</property>
+   <property name="url_expr">string:$object_url/@@cioppino_twothumbs_like_nomore</property>
+   <property name="icon_expr">string:icon-thumbs-up</property>
+   <property name="available_expr">python:member is not None and context.restrictedTraverse('@@cioppino_twothumbs_islikedbyme')()</property>
    <property name="permissions">
     <element value="View"/>
    </property>
    <property name="visible">True</property>
+  </object>
+  <object name="cioppino_twothumbs_dislike" meta_type="CMF Action" i18n:domain="collective.rcse">
+   <property name="title" i18n:translate="">Ugh</property>
+   <property name="description" i18n:translate="">I dislike this</property>
+   <property name="url_expr">string:$object_url/@@cioppino_twothumbs_dislike</property>
+   <property name="icon_expr">string:icon-thumbs-down-alt</property>
+   <property name="available_expr">python:member is not None and not context.restrictedTraverse('@@cioppino_twothumbs_isdislikedbyme')()</property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+  <object name="cioppino_twothumbs_dislike_nomore" meta_type="CMF Action" i18n:domain="collective.rcse">
+   <property name="title" i18n:translate="">Undo Ugh</property>
+   <property name="description" i18n:translate="">I don't dislike this anymore</property>
+   <property name="url_expr">string:$object_url/@@cioppino_twothumbs_dislike_nomore</property>
+   <property name="icon_expr">string:icon-thumbs-down</property>
+   <property name="available_expr">python:member is not None and context.restrictedTraverse('@@cioppino_twothumbs_isdislikedbyme')()</property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+  <!-- just for icons -->
+  <object name="favoriting_add">
+    <property name="icon_expr">string:icon-star-empty</property>
+  </object>
+  <object name="favoriting_rm">
+    <property name="icon_expr">string:icon-star</property>
   </object>
  </object>
 
