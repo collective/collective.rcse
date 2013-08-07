@@ -105,4 +105,12 @@
       permission="zope2.View"
       /-->
 
+  <browser:page
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      name="rcse_redirect_view"
+      class=".rcse_redirect_view.HomeRedirect"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+
 </configure>

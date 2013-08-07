@@ -14,14 +14,20 @@ class RCSESections(GlobalSections):
         ViewletBase.update(self)
         super(RCSESections, self).update()
         favmanager = self.context.restrictedTraverse(VIEW_NAME)
+        catalog = getToolByName(self.context, 'portal_catalog')
+
         query = {"portal_type": "collective.rcse.group",
                  "sort_on": "sortable_title",
                  "sort_limit": 5}
         self.favorites = favmanager.get(query=query)
-        catalog = getToolByName(self.context, 'portal_catalog')
         memberid = self.portal_state.member().getId()
+#        query = {"portal_type": "collective.rcse.group",
+#                 "sort_on": "sortable_title",
+#                 "sort_limit": 5,
+#                 "group_watchers": memberid}
+#        self.watched = catalog(**query)
+
         query = {"portal_type": "collective.rcse.group",
                  "sort_on": "sortable_title",
-                 "sort_limit": 5,
-                 "group_watchers": memberid}
-        self.watched = catalog(**query)
+                 "user_with_local_roles": memberid}
+        self.registred = catalog(**query)
