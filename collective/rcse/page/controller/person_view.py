@@ -1,3 +1,4 @@
+from zope import component
 from zope import interface
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
@@ -7,6 +8,7 @@ from collective.rcse.content import member
 class AuthenticatedMemberInfoView(BrowserView):
     """Person view helper to display member info"""
     interface.implements(member.IMember)
+    member_schema = member.IMember
 
     def __call__(self):
         self.update()
@@ -62,7 +64,7 @@ class AuthenticatedMemberInfoView(BrowserView):
                 path = '/++resource++collective.rcse/defaultUser.png'
                 self.photo = self.portal_url() + path
 
-        attributes = list(member.IMember.names())
+        attributes = list(self.member_schema.names())
         attributes += ['fullname']
 
         for attr in attributes:
