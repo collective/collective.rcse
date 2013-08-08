@@ -44,6 +44,7 @@ setup(
         'collective.js.ckeditor',
         'collective.js.jquerymobile',
         'collective.mediaelementjs',
+        'collective.oembed',
         'collective.picturefill',
         'collective.portlet.favoriting',
         'collective.portlet.localusers',
