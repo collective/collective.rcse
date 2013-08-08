@@ -17,7 +17,7 @@
       <a href=""
 	 data-role="button"
 	 data-rel="popup"
-	 data-icon="plus"
+	 data-icon="ellipsis-vertical"
 	 data-inline="true"
 	 data-transition="pop"
 	 tal:attributes="href string:#popup-dactions-${context/uuid}"
