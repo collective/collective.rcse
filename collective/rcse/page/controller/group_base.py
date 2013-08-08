@@ -69,7 +69,7 @@ class BaseView(BrowserView):
             del self.query['sort_on']
 
     def _update_query_portal_type(self):
-        types = self.request.get('types', None)
+        types = self.request.get('portal_type', None)
         if types is not None and len(types) > 0:
             self.query["portal_type"] = set(types.split(','))
         if self.filter_type is not None and len(self.filter_type) > 0:
