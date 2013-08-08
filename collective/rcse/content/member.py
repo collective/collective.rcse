@@ -50,12 +50,6 @@ class IMember(model.Schema):
         title=_(u"Username"),
         readonly=True
     )
-    settings = schema.Dict(
-        title=_(u"Settings"),
-        key_type=schema.ASCIILine(),
-        value_type=schema.Bool(),
-        readonly=True,
-    )
     email = schema.TextLine(
         title=_(u"E-mail"),
         required=True,
