@@ -13,6 +13,10 @@
       title="collective.rcse: Add audio"
       />
     <permission
+      id="collective.rcse.AddDiscussion"
+      title="collective.rcse: Add discussion"
+      />
+    <permission
       id="collective.rcse.AddDocument"
       title="collective.rcse: Add document"
       />

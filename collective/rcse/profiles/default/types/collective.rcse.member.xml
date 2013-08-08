@@ -7,7 +7,7 @@
   <property name="title" i18n:translate="">Member</property>
   <property name="description"
     i18n:translate="">Member</property>
-  <property name="content_icon">user.png</property>
+  <property name="content_icon">string:icon-user</property>
   <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>
   <property name="allowed_content_types" />

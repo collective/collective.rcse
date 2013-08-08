@@ -5,7 +5,7 @@
  <!-- Basic metadata -->
  <property name="title" i18n:translate="">Video</property>
  <property name="description" i18n:translate="">A video file</property>
- <property name="content_icon"></property>
+ <property name="content_icon">string:icon-film</property>
  <property name="allow_discussion">True</property>
  <property name="global_allow">True</property>
  <property name="filter_content_types">True</property>

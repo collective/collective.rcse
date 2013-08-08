@@ -123,7 +123,7 @@
    <property name="title" i18n:translate="">themeswitcher_desktop</property>
    <property name="description" i18n:translate=""></property>
    <property name="url_expr">string:$object_url/@@themeswitcher_cookie?themeswitcher=collective.rcse.desktop</property>
-   <property name="icon_expr"></property>
+   <property name="icon_expr">string:icon-desktop</property>
    <property name="available_expr">python:context.restrictedTraverse('@@ismobiletheme_view')()</property>
    <property name="permissions">
     <element value="View"/>
@@ -134,7 +134,7 @@
    <property name="title" i18n:translate="">themeswitcher_mobile</property>
    <property name="description" i18n:translate=""></property>
    <property name="url_expr">string:$object_url/@@themeswitcher_cookie?themeswitcher=collective.rcse.mobile</property>
-   <property name="icon_expr"></property>
+   <property name="icon_expr">string:icon-mobile-phone</property>
    <property name="available_expr">python:not context.restrictedTraverse('@@ismobiletheme_view')()</property>
    <property name="permissions">
     <element value="View"/>

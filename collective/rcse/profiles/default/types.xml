@@ -3,6 +3,7 @@
 
     <!-- -*- extra stuff goes here -*- -->
     <object meta_type="Dexterity FTI" name="collective.rcse.audio" />
+    <object meta_type="Dexterity FTI" name="collective.rcse.discussion" />
     <object meta_type="Dexterity FTI" name="collective.rcse.etherpad" />
     <object meta_type="Dexterity FTI" name="collective.rcse.event" />
     <object meta_type="Dexterity FTI" name="collective.rcse.group" />
