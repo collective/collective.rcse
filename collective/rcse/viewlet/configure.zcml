@@ -3,6 +3,7 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
 
+  <include package=".controller"/>
   <include package=".mobile"/>
   <include package=".desktop"/>
 

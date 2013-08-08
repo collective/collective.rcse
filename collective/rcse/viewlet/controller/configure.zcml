@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="collective.rcse">
+
+    <browser:viewlet
+        name="collective.rcse.validate_authenticated_member"
+        class="collective.rcse.viewlet.controller.validate_authenticated_member.ValidateAuthenticatedMember"
+        manager="plonetheme.jquerymobile.browser.viewlets.manager.IHeaderLeft"
+        layer="collective.rcse.layer.CommonLayer"
+        permission="zope2.View"
+        />
+
+</configure>
