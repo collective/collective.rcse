@@ -27,8 +27,8 @@ class FiltersFormSchema(model.Schema):
         required=False
         )
 
-    directives.widget('types', SelectFieldWidget, multiple="multiple")
-    types = schema.List(
+    directives.widget('portal_type', SelectFieldWidget, multiple="multiple")
+    portal_type = schema.List(
         title=_(u'Types'),
         value_type=schema.Choice(
             vocabulary='collective.rcse.vocabulary.groupTypes'
@@ -53,8 +53,8 @@ class FiltersFormAdapter(object):
 
     def __init__(self, context):
         self.context = context
-        self.types = []
-        self.sort_by = 'date'
+        self.portal_type = []
+        self.sort_on = 'date'
         self.reversed = True
 
 
@@ -68,8 +68,8 @@ class FiltersForm(AutoExtensibleForm, form.Form):
         if self.request.get('SearchableText'):
             self.widgets['SearchableText'].value =\
                 self.request.get('SearchableText')
-        if self.request.get('types'):
-            self.widgets['types'].value = self.request.get('types')
+        if self.request.get('portal_type'):
+            self.widgets['portal_type'].value = self.request.get('portal_type')
         if self.request.get('sort_on'):
             self.widgets['sort_on'].value = self.request.get('sort_on')
         if self.request.get('sort_order') == 'reverse':
@@ -78,8 +78,8 @@ class FiltersForm(AutoExtensibleForm, form.Form):
     @button.buttonAndHandler(_(u'Filter'))
     def filter(self, action):
         data, errors = self.extractData()
-        if data['types'] is not None:
-            data['types'] = ','.join(data['types'])
+        if data['portal_type'] is not None:
+            data['portal_type'] = ','.join(data['portal_type'])
         if data['sort_order']:
             data['sort_order'] = 'reverse'
         else:
