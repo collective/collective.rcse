@@ -10,6 +10,8 @@ NAMESPACE = 'rcse_visbility_'
 
 
 class addVisibilityCheckbox(object):
+    """This decorator add visbility bool to a SchemaClass
+    (plone.supermodel.model.Schema) for every argument not in the blacklist."""
 
     def __init__(self, privacy_blacklist = []):
         self.privacy_blacklist = privacy_blacklist
