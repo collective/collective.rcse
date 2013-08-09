@@ -9,6 +9,4 @@
      tal:content="context/title">
     Company
   </a>
-  <span tal:condition="python: view.state == 'pending'" class="pending" i18n:translate="">Waiting for validation</span>
-  <span tal:condition="python: view.state == 'disabled'" class="disabled" i18n:translate="">Disabled</span>
 </div>

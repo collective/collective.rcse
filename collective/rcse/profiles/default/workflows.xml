@@ -14,10 +14,4 @@
    </type>
  </bindings>
 
- <object name="collective_rcse_company_workflow" meta_type="Workflow" />
- <bindings>
-   <type type_id="collective.rcse.company">
-     <bound-workflow workflow_id="collective_rcse_company_workflow" />
-   </type>
- </bindings>
 </object>
