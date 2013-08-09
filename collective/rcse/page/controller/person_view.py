@@ -1,8 +1,12 @@
+from AccessControl import getSecurityManager
 from zope import component
 from zope import interface
 from Products.Five.browser import BrowserView
+from Products.CMFCore.permissions import ReviewPortalContent
 from Products.CMFCore.utils import getToolByName
+
 from collective.rcse.content import member
+from collective.rcse.i18n import _
 
 
 class AuthenticatedMemberInfoView(BrowserView):
@@ -124,3 +128,17 @@ class MemberInfoView(BrowserView):
         status = self.wtool.getStatusOf('collective_rcse_member_workflow',
                                         self.context)
         return status['review_state']
+
+
+class MemberView(BrowserView):
+    def __call__(self):
+        return self.index()
+
+    def canAdmnistrateUsers(self):
+        sm = getSecurityManager()
+        return sm.checkPermission(ReviewPortalContent, self.context)
+
+    def getWorkflowTransitions(self):
+        wtool = getToolByName(self.context, 'portal_workflow')
+        transitions = wtool.getTransitionsFor(self.context)
+        return transitions

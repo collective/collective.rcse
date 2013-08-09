@@ -38,6 +38,7 @@
   <browser:page
       for="collective.rcse.content.member.IMember"
       name="member_view"
+      class="..controller.person_view.MemberView"
       template="templates/user_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
