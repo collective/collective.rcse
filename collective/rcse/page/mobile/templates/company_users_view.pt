@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.rcse">
+<body>
+  <div metal:fill-slot="content-core" class="directory-wrapper">
+    <tal:main-macro metal:define-macro="content-core">
+      <tal:members tal:repeat="member view/getUsers">
+	<tal:block tal:define="m python: member.getObject()"
+		   tal:replace="structure m/@@vcard_view">
+	</tal:block>
+      </tal:members>
+    </tal:main-macro>
+  </div>
+</body>
+</html>

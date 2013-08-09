@@ -24,3 +24,7 @@ class CompanyInfoView(BrowserView):
 
     def getCompanyProperties(self):
         self.url = '/'.join(self.context.getPhysicalPath())
+
+    def getUsers(self):
+        return []
+        mtool = getToolByName(self.context, 'membrane_tool')
