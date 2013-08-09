@@ -54,7 +54,7 @@ class FiltersFormAdapter(object):
     def __init__(self, context):
         self.context = context
         self.portal_type = []
-        self.sort_on = 'date'
+        self.sort_on = 'relevance'
         self.reversed = True
 
 
