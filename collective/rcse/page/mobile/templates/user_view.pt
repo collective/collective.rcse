@@ -10,7 +10,7 @@
     <tal:main-macro metal:define-macro="content-core">
 
       <tal:block
-	 tal:condition="view/canAdmnistrateUsers"
+	 tal:condition="view/getWorkflowTransitions"
 	 tal:repeat="transition view/getWorkflowTransitions">
 	<a data-role="button"
 	   i18n:translate=""

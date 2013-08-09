@@ -38,7 +38,7 @@
   <browser:page
       for="collective.rcse.content.member.IMember"
       name="member_view"
-      class="..controller.person_view.MemberView"
+      class="collective.rcse.page.controller.person_view.MemberInfoView"
       template="templates/user_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
@@ -47,6 +47,15 @@
       for="collective.rcse.content.company.ICompany"
       name="company_view"
       template="templates/company_view.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      for="collective.rcse.content.member.IMember"
+      name="groups_view"
+      class="collective.rcse.page.controller.person_view.MemberInfoView"
+      template="templates/user_groups_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />

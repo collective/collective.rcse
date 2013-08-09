@@ -130,16 +130,18 @@ class MemberInfoView(BrowserView):
                                         self.context)
         return status['review_state']
 
-
-class MemberView(BrowserView):
-    def __call__(self):
-        return self.index()
-
-    def canAdmnistrateUsers(self):
-        sm = getSecurityManager()
-        return sm.checkPermission(ReviewPortalContent, self.context)
-
     def getWorkflowTransitions(self):
+        sm = getSecurityManager()
+        if not sm.checkPermission(ReviewPortalContent, self.context):
+            return None
         wtool = getToolByName(self.context, 'portal_workflow')
         transitions = wtool.getTransitionsFor(self.context)
         return transitions
+
+    def getUserGroups(self):
+        catalog = getToolByName(self.context, 'portal_catalog')
+        brains = catalog(
+            portal_type='collective.rcse.group',
+            user_with_local_roles=self.memberid
+            )
+        return brains
