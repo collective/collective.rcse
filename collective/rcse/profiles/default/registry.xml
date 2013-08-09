@@ -20,7 +20,7 @@
 
   <!-- collective.readitlater -->
   <records interface="collective.readitlater.registry.IReaditlaterSettings">
-        <value key="folder_query">{"portal_type": {"query": "collective.rcse.group"},"path": {"query": "/", "depth": 2}}</value>
+        <value key="folder_query">{"portal_type": {"query": "collective.rcse.group"},"path": {"query": "/"}}</value>
   </records>
 
   <!-- collective.themeswitcher config -->

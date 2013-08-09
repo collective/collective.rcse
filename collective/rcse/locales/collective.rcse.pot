@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-08-06 14:05+0000\n"
+"POT-Creation-Date: 2013-08-09 08:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,7 +66,7 @@ msgstr ""
 msgid "Approve This Member"
 msgstr ""
 
-#: ./content/member.py:106
+#: ./content/member.py:102
 #: ./page/mobile/templates/user_view.pt:31
 msgid "Areas of expertise"
 msgstr ""
@@ -79,7 +79,7 @@ msgstr ""
 msgid "Audio file"
 msgstr ""
 
-#: ./content/member.py:101
+#: ./content/member.py:97
 msgid "Avatar"
 msgstr ""
 
@@ -87,12 +87,12 @@ msgstr ""
 msgid "Banned"
 msgstr ""
 
-#: ./content/member.py:92
+#: ./content/member.py:88
 msgid "Birthdate"
 msgstr ""
 
 #: ./content/company.py:43
-#: ./content/member.py:150
+#: ./content/member.py:146
 #: ./page/mobile/templates/company_view.pt:35
 msgid "Blog"
 msgstr ""
@@ -125,7 +125,7 @@ msgstr ""
 msgid "Companies directory"
 msgstr ""
 
-#: ./content/member.py:73
+#: ./content/member.py:69
 #: ./profiles/default/types/collective.rcse.company.xml
 msgid "Company"
 msgstr ""
@@ -134,7 +134,7 @@ msgstr ""
 msgid "Confirm the password"
 msgstr ""
 
-#: ./content/member.py:31
+#: ./content/member.py:33
 #: ./page/mobile/templates/user_view.pt:37
 msgid "Contact information"
 msgstr ""
@@ -184,6 +184,10 @@ msgstr ""
 msgid "Display new content of this group in your news"
 msgstr ""
 
+#: ./content/visibility.py:19
+msgid "Display: ${attr}"
+msgstr ""
+
 #: ./profiles/default/actions.xml
 msgid "Do not display anymore new content from this group in your news"
 msgstr ""
@@ -193,7 +197,7 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
-#: ./content/member.py:60
+#: ./content/member.py:56
 msgid "E-mail"
 msgstr ""
 
@@ -213,7 +217,7 @@ msgstr ""
 msgid "Event"
 msgstr ""
 
-#: ./content/member.py:108
+#: ./content/member.py:104
 msgid "Expertise"
 msgstr ""
 
@@ -233,19 +237,19 @@ msgstr ""
 msgid "Filters"
 msgstr ""
 
-#: ./content/member.py:64
+#: ./content/member.py:60
 msgid "First Name"
 msgstr ""
 
-#: ./content/member.py:76
+#: ./content/member.py:72
 msgid "Function"
 msgstr ""
 
-#: ./content/member.py:96
+#: ./content/member.py:92
 msgid "Gender"
 msgstr ""
 
-#: ./content/member.py:153
+#: ./content/member.py:149
 #: ./page/mobile/templates/user_view.pt:73
 msgid "Google+"
 msgstr ""
@@ -258,20 +262,40 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: ./content/member.py:115
+#: ./profiles/default/actions.xml
+msgid "I dislike this"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "I don't dislike this anymore"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "I don't like this anymore"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "I like this (click again to undo)"
+msgstr ""
+
+#: ./content/member.py:111
 msgid "Interest"
 msgstr ""
 
-#: ./content/member.py:113
+#: ./content/member.py:109
 #: ./page/mobile/templates/user_view.pt:33
 msgid "Interests"
 msgstr ""
 
-#: ./content/member.py:68
+#: ./content/member.py:64
 msgid "Last Name"
 msgstr ""
 
-#: ./content/member.py:152
+#: ./profiles/default/actions.xml
+msgid "Like"
+msgstr ""
+
+#: ./content/member.py:148
 #: ./page/mobile/templates/user_view.pt:71
 msgid "LinkedIn"
 msgstr ""
@@ -322,22 +346,22 @@ msgstr ""
 msgid "Passwords do not match."
 msgstr ""
 
-#: ./content/member.py:125
+#: ./content/member.py:121
 #: ./page/mobile/templates/user_view.pt:53
 msgid "Personal e-mail"
 msgstr ""
 
-#: ./content/member.py:17
+#: ./content/member.py:19
 #: ./page/mobile/templates/user_view.pt:20
 msgid "Personal information"
 msgstr ""
 
-#: ./content/member.py:141
+#: ./content/member.py:137
 #: ./page/mobile/templates/user_view.pt:61
 msgid "Personal landline phone"
 msgstr ""
 
-#: ./content/member.py:133
+#: ./content/member.py:129
 #: ./page/mobile/templates/user_view.pt:57
 msgid "Personal mobile phone"
 msgstr ""
@@ -350,7 +374,7 @@ msgstr ""
 msgid "Postal code"
 msgstr ""
 
-#: ./content/member.py:80
+#: ./content/member.py:76
 msgid "Presentation"
 msgstr ""
 
@@ -358,17 +382,21 @@ msgstr ""
 msgid "Previous"
 msgstr ""
 
-#: ./content/member.py:121
+#: ./content/visibility.py:25
+msgid "Privacy"
+msgstr ""
+
+#: ./content/member.py:117
 #: ./page/mobile/templates/user_view.pt:51
 msgid "Professional e-mail"
 msgstr ""
 
-#: ./content/member.py:137
+#: ./content/member.py:133
 #: ./page/mobile/templates/user_view.pt:59
 msgid "Professional landline phone"
 msgstr ""
 
-#: ./content/member.py:129
+#: ./content/member.py:125
 #: ./page/mobile/templates/user_view.pt:55
 msgid "Professional mobile phone"
 msgstr ""
@@ -429,11 +457,7 @@ msgstr ""
 msgid "Service"
 msgstr ""
 
-#: ./content/member.py:54
-msgid "Settings"
-msgstr ""
-
-#: ./content/member.py:145
+#: ./content/member.py:141
 #: ./page/mobile/templates/user_view.pt:63
 msgid "Skype"
 msgstr ""
@@ -442,7 +466,7 @@ msgstr ""
 msgid "Sort on"
 msgstr ""
 
-#: ./content/member.py:85
+#: ./content/member.py:81
 #: ./page/mobile/templates/user_view.pt:29
 msgid "Spoken languages"
 msgstr ""
@@ -469,7 +493,7 @@ msgstr ""
 msgid "Turnover"
 msgstr ""
 
-#: ./content/member.py:154
+#: ./content/member.py:150
 #: ./page/mobile/templates/user_view.pt:75
 msgid "Twitter"
 msgstr ""
@@ -478,11 +502,23 @@ msgstr ""
 msgid "Types"
 msgstr ""
 
+#: ./profiles/default/actions.xml
+msgid "Ugh"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Undo Like"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Undo Ugh"
+msgstr ""
+
 #: ./page/mobile/templates/group_links_view.pt:40
 msgid "Url"
 msgstr ""
 
-#: ./content/member.py:50
+#: ./content/member.py:52
 msgid "Username"
 msgstr ""
 
@@ -490,7 +526,7 @@ msgstr ""
 msgid "Users directory"
 msgstr ""
 
-#: ./content/member.py:151
+#: ./content/member.py:147
 #: ./page/mobile/templates/user_view.pt:69
 msgid "Viadeo"
 msgstr ""
@@ -513,7 +549,7 @@ msgid "Watch when favorited"
 msgstr ""
 
 #: ./content/company.py:39
-#: ./content/member.py:149
+#: ./content/member.py:145
 #: ./page/mobile/templates/company_view.pt:31
 msgid "Website"
 msgstr ""
@@ -527,7 +563,11 @@ msgstr ""
 msgid "You are already registered."
 msgstr ""
 
-#: ./page/controller/cioppino_twothumbs.py:34
+#: ./viewlet/controller/validate_authenticated_member.py:46
+msgid "You are not registred, please proceed"
+msgstr ""
+
+#: ./page/controller/cioppino_twothumbs.py:47
 msgid "You dislike this. Thanks for the feedback!"
 msgstr ""
 
@@ -539,7 +579,7 @@ msgstr ""
 msgid "You have removed the content of this group from your news"
 msgstr ""
 
-#: ./page/controller/cioppino_twothumbs.py:14
+#: ./page/controller/cioppino_twothumbs.py:37
 msgid "You liked this. Thanks for the feedback!"
 msgstr ""
 
@@ -559,7 +599,15 @@ msgstr ""
 msgid "Your can now log in."
 msgstr ""
 
-#: ./page/controller/cioppino_twothumbs.py:16
+#: ./viewlet/controller/validate_authenticated_member.py:54
+msgid "Your profile is missing some required information"
+msgstr ""
+
+#: ./viewlet/controller/validate_authenticated_member.py:60
+msgid "Your profile is waiting for approval"
+msgstr ""
+
+#: ./page/controller/cioppino_twothumbs.py:39
 msgid "Your vote has been removed."
 msgstr ""
 

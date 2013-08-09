@@ -93,7 +93,7 @@
       />
 
   <browser:page
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="personal-information"
       class=".personal-information.PersonalInformation"
       layer="collective.rcse.layer.CommonLayer"

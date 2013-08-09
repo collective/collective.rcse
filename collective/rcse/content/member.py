@@ -7,10 +7,17 @@ from zope import schema
 
 from collective.rcse.i18n import _
 from collective.rcse.content import vocabularies
+from collective.rcse.content.visibility import addVisibilityCheckbox
 
 
+@addVisibilityCheckbox([
+        'username',
+        'email',
+        'first_name',
+        'last_name'
+        ])
 class IMember(model.Schema):
-    """This is a high level schema of info"""
+    """This is an interface to describe a member"""
 
     model.fieldset(
         'personal',
@@ -52,6 +59,8 @@ class IMember(model.Schema):
     )
     email = schema.TextLine(
         title=_(u"E-mail"),
+        description=_(u"This is the email you will receive information on."
+                      u" It will not be displayed to other users."),
         required=True,
     )
     first_name = schema.TextLine(
