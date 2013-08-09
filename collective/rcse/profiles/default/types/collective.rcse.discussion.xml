@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<object name="collective.rcse.event" meta_type="Dexterity FTI"
+<object name="collective.rcse.discussion" meta_type="Dexterity FTI"
    i18n:domain="collective.rcse" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
  <!-- Basic metadata -->
- <property name="title" i18n:translate="">Event</property>
- <property name="description" i18n:translate="">An event</property>
- <property name="content_icon">string:icon-calendar</property>
+ <property name="title" i18n:translate="">Discussion</property>
+ <property name="description" i18n:translate="">A question where people will answer it</property>
+ <property name="content_icon"></property>
  <property name="allow_discussion">True</property>
  <property name="global_allow">True</property>
  <property name="filter_content_types">True</property>
@@ -13,31 +13,34 @@
 
  <!-- schema interface -->
  <property name="schema"></property>
+ <property name="model_source"></property>
+ <property name="model_file">collective.rcse.content:discussion.xml</property>
 
  <!-- class used for content items -->
- <property name="klass">plone.dexterity.content.Item</property>
+ <property name="klass">plone.app.contenttypes.content.File</property>
 
  <!-- add permission -->
- <property name="add_permission">collective.rcse.AddEvent</property>
+ <property name="add_permission">collective.rcse.AddDiscussion</property>
 
  <!-- enabled behaviors -->
  <property name="behaviors">
-   <element value="plone.app.event.dx.behaviors.IEventSummary" />
-   <element value="plone.app.event.dx.behaviors.IEventBasic" />
-   <element value="plone.app.event.dx.behaviors.IEventLocation" />
-   <element value="plone.app.event.dx.behaviors.IEventContact" />
-   <element value="plone.app.content.interfaces.INameFromTitle" />
-   <element value="plone.app.dexterity.behaviors.discussion.IAllowDiscussion"/>
-   <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
+  <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
+  <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>
+  <element value="plone.app.dexterity.behaviors.metadata.IOwnership"/>
+  <element value="plone.app.dexterity.behaviors.filename.INameFromFileName"/>
+  <element value="plone.app.dexterity.behaviors.discussion.IAllowDiscussion"/>
+  <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>
+  <element value="plone.app.relationfield.behavior.IRelatedItems"/>
+
    <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
    <element value="cioppino.twothumbs.interfaces.ILoveThumbsDontYou" />
  </property>
 
  <!-- View information -->
- <property name="default_view">event_view</property>
+ <property name="default_view">discussion_view</property>
  <property name="default_view_fallback">False</property>
  <property name="view_methods">
-  <element value="event_view"/>
+  <element value="discussion_view"/>
  </property>
 
  <!-- Method aliases -->

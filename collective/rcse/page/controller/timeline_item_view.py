@@ -7,6 +7,8 @@ from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
 
 from collective.rcse.settings import IDocumentActionsIcons
+from cioppino.twothumbs import rate
+from collective.favoriting.browser.favoriting_view import VIEW_NAME
 
 
 class TimelineItemView(BrowserView):
@@ -33,6 +35,8 @@ class TimelineItemView(BrowserView):
         self.actions = None
         self.actions_icon = None
         self.typesUseViewActionInListings = None
+        self.rate = None
+        self.fav = None
 
     def update(self):
         if self.membership is None:
@@ -68,6 +72,10 @@ class TimelineItemView(BrowserView):
             self.typesUseViewActionInListings = pp.site_properties.getProperty(
                 'typesUseViewActionInListings', ()
             )
+        if self.rate is None:
+            self.rate = rate.getTally(self.context)
+        if self.fav is None:
+            self.fav = self.context.restrictedTraverse(VIEW_NAME)
 
     def get_content(self):
         return self.context.restrictedTraverse('tile_view')()
@@ -84,3 +92,18 @@ class TimelineItemView(BrowserView):
         if effective is not None:
             return effective.strftime("%d-%m-%Y")
         return ""
+
+    def get_how_many_like(self):
+        return self.rate["ups"]
+
+    def is_liked_by_be(self):
+        return self.rate["mine"] == 1
+
+    def get_how_many_dislike(self):
+        return self.rate["downs"]
+
+    def is_disliked_by_be(self):
+        return self.rate["mine"] == -1
+
+    def get_how_many_star(self):
+        return self.fav.how_many()

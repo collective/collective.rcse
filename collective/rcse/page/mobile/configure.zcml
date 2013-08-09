@@ -106,6 +106,17 @@
       layer="collective.rcse.layer.MobileLayer"
       />
 
+  <!-- collective.rcse.discussion aka Discussion -->
+
+  <browser:page
+      for="plone.app.contenttypes.interfaces.IFile"
+      name="discussion_view"
+      class="collective.rcse.page.controller.discussion_view.DiscussionView"
+      template="templates/discussion_view.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.MobileLayer"
+      />
+
   <!-- Document -->
 
   <browser:page

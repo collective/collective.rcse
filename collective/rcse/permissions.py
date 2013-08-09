@@ -6,6 +6,7 @@ perms = []
 
 for typename in (
     "audio",
+    "discussion",
     "document",
     "etherpad",
     "event",
@@ -21,6 +22,7 @@ for typename in (
     setDefaultRoles(permname, ('Manager',))
 
 AddAudio = "collective.rcse: Add audio"
+AddDiscussion = "collective.rcse: Add discussion"
 AddDocument = "collective.rcse: Add document"
 AddEtherpad = "collective.rcse: Add etherpad"
 AddEvent = "collective.rcse: Add event"
@@ -30,5 +32,5 @@ AddImage = "collective.rcse: Add image"
 AddVideo = "collective.rcse: Add video"
 
 security.declarePublic('AddCompany')
-setDefaultRoles('collective.rcse: Add company', ('Authenticated',))
+setDefaultRoles('collective.rcse: Add company', ('Manager', 'Authenticated',))
 AddCompany = "collective.rcse: Add company"

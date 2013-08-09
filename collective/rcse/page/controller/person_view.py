@@ -31,6 +31,7 @@ class AuthenticatedMemberInfoView(BrowserView):
         #info
         self.fullname = None
         self.url = None
+        self.dialog_url = None
         self.photo = None
         self.company = None
         self.function = None
@@ -78,8 +79,8 @@ class AuthenticatedMemberInfoView(BrowserView):
                     value = None
                 setattr(self, attr, value)
 
-
 class CreatorMemberInfoView(AuthenticatedMemberInfoView):
+    """creator_memberinfo"""
     def update_member(self):
         if self.memberid is None:
             self.memberid = self.context.Creator()
