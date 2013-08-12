@@ -6,7 +6,7 @@ from Products.CMFCore import permissions
 from zope.component import getMultiAdapter
 from plone.app.layout.globals.interfaces import IViewView
 from zope.interface.declarations import alsoProvides
-from zope.component._api import getUtility, getAdapter
+from zope.component._api import getUtility, getAdapter, queryAdapter
 from zope.browsermenu.interfaces import IBrowserMenu
 from plone.stringinterp.interfaces import IStringSubstitution
 from Products.CMFCore.WorkflowCore import WorkflowException
@@ -37,7 +37,12 @@ class EditBar(ViewletBase):
         self.object_actions = self.context_state.actions('object')
 
         try:
-            self.review_state = getAdapter(self.context, IStringSubstitution,
-                                           'review_state_title')()
+            adapter = queryAdapter(self.context,
+                                   IStringSubstitution,
+                                   'review_state_title')
+            if adapter:
+                self.review_state = adapter()
+            else:
+                self.review_state = None
         except WorkflowException:
             self.review_state = None

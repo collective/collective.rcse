@@ -18,8 +18,29 @@ var initRCSEAjaxAction = function(){
 		});
 	})
 }
+var bindChangeEventStartDate = function(){
+	$("#form-widgets-IEventBasic-start").blur(function(e){
+		var endItem = $("#form-widgets-IEventBasic-end");
+		if (endItem.attr('value') === ""){
+			endItem.attr('value', $(this).attr('value'));
+		}
+		else if (new Date(document.getElementById("form-widgets-IEventBasic-start").value) > new Date(document.getElementById("form-widgets-IEventBasic-end").value)){
+			endItem.attr('value', $(this).attr('value'));
+		}
+	})
+	$("#form-widgets-IEventBasic-end").blur(function(e){
+		var startItem = $("#form-widgets-IEventBasic-start");
+		if (startItem.attr('value') === ""){
+			startItem.attr('value', $(this).attr('value'));
+		}
+		else if (new Date(document.getElementById("form-widgets-IEventBasic-start").value) > new Date(document.getElementById("form-widgets-IEventBasic-end").value)){
+			startItem.attr('value', $(this).attr('value'));
+		}
+	})
+}
 $(document).ready(function(){
 	initRCSEAjaxAction();
+	bindChangeEventStartDate();
 })
 
 $( document ).on( "pageinit", ".page", function() {
