@@ -1,5 +1,5 @@
 <tal:block i18n:domain="collective.rcse">
-  <div id="filters" data-role="collapsible">
+  <div id="filters" data-role="collapsible" data-mini="true">
     <h4 i18n:translate="">Filters</h4>
     <tal:form tal:replace="structure view/form/render"></tal:form>
   </div>
