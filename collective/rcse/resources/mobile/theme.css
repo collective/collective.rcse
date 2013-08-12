@@ -26,3 +26,7 @@
 #popup-globalsections ul[data-role="listview"]{
 	margin-top: 15px;
 }
+/*fix behavior in (event_view)*/
+.ui-content .ui-listview, .ui-panel-inner>.ui-listview{
+	margin: -10px -10px 0 -10px;
+}
