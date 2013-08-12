@@ -23,4 +23,5 @@ class EventSchema(model.Schema):
                           description=_(u"urlMedia_description"),
                           required=False)
     urlGMaps = schema.URI(title=_(u"Google Maps URL"),
-                          description=_(u"urlGMaps_description"))
+                          description=_(u"urlGMaps_description"),
+                          required=False)
