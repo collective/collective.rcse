@@ -79,6 +79,7 @@ class AuthenticatedMemberInfoView(BrowserView):
                     value = None
                 setattr(self, attr, value)
 
+
 class CreatorMemberInfoView(AuthenticatedMemberInfoView):
     """creator_memberinfo"""
     def update_member(self):
