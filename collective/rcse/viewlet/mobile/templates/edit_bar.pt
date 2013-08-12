@@ -15,7 +15,7 @@
                  data-role="button" data-icon="remove"
                 tal:content="menu/title" i18n:translate=""></a>
         </tal:delete>
-        <a href="#popupWorkflowContentMenu" tal:condition="view/review_state"
+        <a href="#popupWorkflowContentMenu" tal:condition="menus/plone_contentmenu_workflow"
             data-role="button" data-rel="popup" data-transition="pop" data-icon="lock"
            i18n:translate="">State</a>
 </div>
