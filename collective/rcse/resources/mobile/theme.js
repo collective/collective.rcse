@@ -2,19 +2,24 @@ $.mobile.ajaxEnabled = false;
 $(document).on("mobileinit", function(){
 
 });
+var initRCSEAjaxAction = function(){
+	$("a.ajaxaction").click(function(eventObject){
+		eventObject.stopImmediatePropagation();
+		eventObject.preventDefault();
+		$.ajax({
+			url: $(this).attr('href'),
+			data: {'ajax': true}
+		}).success(function(data){
+			var uid = "#"+data['uid']
+			$(uid).replaceWith(data['tile']);
+			$(document).trigger("create");
+			initRCSEAjaxAction();
+			picturefill();
+		});
+	})
+}
 $(document).ready(function(){
-	$("a.rcse_tile").each(function (){
-	    var item = $(this);
-	    $.ajax({
-	      url: $(this).attr('href') + '/@@group_tile_view'
-	    }).success(function(data){
-	      item.replaceWith(data);
-	      //trigger jquerymobile
-	      $(document).trigger("create");
-	      //trigger picturefill
-	      picturefill();
-	    });
-	});
+	initRCSEAjaxAction();
 })
 
 $( document ).on( "pageinit", ".page", function() {
