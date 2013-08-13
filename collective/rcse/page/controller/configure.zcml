@@ -36,48 +36,6 @@
       layer="collective.rcse.layer.CommonLayer"
       />
   <browser:page
-      for="*"
-      name="cioppino_twothumbs_islikedbyme"
-      class=".cioppino_twothumbs.IsLikedByMe"
-      permission="zope2.View"
-      layer="collective.rcse.layer.CommonLayer"
-      />
-  <browser:page
-      for="*"
-      name="cioppino_twothumbs_like"
-      class=".cioppino_twothumbs.Like"
-      permission="zope2.View"
-      layer="collective.rcse.layer.CommonLayer"
-      />
-  <browser:page
-      for="*"
-      name="cioppino_twothumbs_like_nomore"
-      class=".cioppino_twothumbs.Like"
-      permission="zope2.View"
-      layer="collective.rcse.layer.CommonLayer"
-      />
-  <browser:page
-      for="*"
-      name="cioppino_twothumbs_isdislikedbyme"
-      class=".cioppino_twothumbs.IsDisLikedByMe"
-      permission="zope2.View"
-      layer="collective.rcse.layer.CommonLayer"
-      />
-  <browser:page
-      for="*"
-      name="cioppino_twothumbs_dislike"
-      class=".cioppino_twothumbs.DisLike"
-      permission="zope2.View"
-      layer="collective.rcse.layer.CommonLayer"
-      />
-  <browser:page
-      for="*"
-      name="cioppino_twothumbs_dislike_nomore"
-      class=".cioppino_twothumbs.DisLike"
-      permission="zope2.View"
-      layer="collective.rcse.layer.CommonLayer"
-      />
-  <browser:page
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       name="rcse-security-controlpanel"
       class="collective.rcse.security.SecurityControlPanelView"

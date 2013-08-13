@@ -17,6 +17,7 @@ from cioppino.twothumbs.event import ILikeEvent
 from collective.rcse.i18n import _
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from zope.interface.declarations import alsoProvides
+from Products.membrane.config import TOOLNAME
 
 LOG = logging.getLogger("collective.history")
 
@@ -33,6 +34,7 @@ def setupVarious(context):
     setupRegistration(portal)
     initialize_rules(portal)
     setupCatalog(portal)
+    fixMembraneCatalog(portal)
 
 
 def setupRegistration(site):
@@ -214,3 +216,10 @@ def _activate_rule(rule_id, context=None):
     assignment.enabled = True
     assignment.bubbles = True
     get_assignments(rule).insert('/'.join(context.getPhysicalPath()))
+
+
+def fixMembraneCatalog(context):
+    """don't know why but each time we apply the profile the membrane
+    catalog is empty."""
+    catalog = getToolByName(context, TOOLNAME, None)
+    catalog.refreshCatalog(clear=1)

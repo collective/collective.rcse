@@ -256,6 +256,14 @@
       layer="collective.rcse.layer.MobileLayer"
       />
  -->
+  <browser:page
+      for="collective.rcse.content.event.EventSchema"
+      name="event_view"
+      class="collective.rcse.page.controller.event_view.EventView"
+      template="templates/event_view.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.MobileLayer"
+      />
 
   <!-- Group -->
 

@@ -1,5 +1,5 @@
 <tal:block i18n:domain="collective.rcse">
-<span style="float:right"><a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="gear" data-theme="b" i18n:translate="">Display</a></span>
+<span style="float:right" data-role="controlgroup" data-type="horizontal" data-mini="true"><a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" data-transition="slidedown" data-icon="gear" data-theme="b" i18n:translate="">Display</a></span>
 <div data-role="popup" id="popupMenu" data-theme="d">
   <ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="d">
       <li data-role="divider" data-theme="e" i18n:translate="">Choose a view</li>

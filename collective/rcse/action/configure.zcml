@@ -36,5 +36,61 @@
       permission="zope2.View"
       allowed_attributes="is_watching"
       />
+    <browser:page
+      for="Products.CMFCore.interfaces._content.IContentish"
+      name="favoriting_add"
+      class="collective.rcse.action.ajax.FavoritingAdd"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+    <browser:page
+      for="Products.CMFCore.interfaces._content.IContentish"
+      name="favoriting_rm"
+      class="collective.rcse.action.ajax.FavoritingRm"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+  <browser:page
+      for="*"
+      name="cioppino_twothumbs_islikedbyme"
+      class=".cioppino_twothumbs.IsLikedByMe"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+  <browser:page
+      for="*"
+      name="cioppino_twothumbs_like"
+      class=".ajax.Like"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+  <browser:page
+      for="*"
+      name="cioppino_twothumbs_like_nomore"
+      class=".ajax.Like"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+  <browser:page
+      for="*"
+      name="cioppino_twothumbs_isdislikedbyme"
+      class=".cioppino_twothumbs.IsDisLikedByMe"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+  <browser:page
+      for="*"
+      name="cioppino_twothumbs_dislike"
+      class=".ajax.DisLike"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+  <browser:page
+      for="*"
+      name="cioppino_twothumbs_dislike_nomore"
+      class=".ajax.DisLike"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
 
 </configure>

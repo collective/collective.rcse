@@ -1,9 +1,11 @@
 import icalendar
 from Products.Five.browser import BrowserView
 from plone.uuid.interfaces import IUUID
+from plone.app.event.dx.behaviors import IEventAccessor
+from plone.app.event.browser.event_view import EventView as BaseView
 
 
-class EventView(BrowserView):
+class EventView(BaseView):
     """default view"""
 
     def __call__(self):
@@ -16,9 +18,9 @@ class EventView(BrowserView):
     def sameday(self):
         if hasattr(self.context, 'whole_day'):
             return self.context.whole_day
-        if self.context.end is None:
+        if self.data.end is None:
             return True
-        sameday = self.context.start == self.context.end
+        sameday = self.data.start == self.data.end
         return sameday
 
     def iso8601(self, date):
@@ -27,10 +29,10 @@ class EventView(BrowserView):
         return date.isoformat()
 
     def start_iso8601(self):
-        return self.iso8601(self.context.start)
+        return self.iso8601(self.data.start)
 
     def end_iso8601(self):
-        return self.iso8601(self.context.end)
+        return self.iso8601(self.data.end)
 
     def localized(self, date=None, time=None):
         if date is not None:
@@ -39,14 +41,23 @@ class EventView(BrowserView):
             return time
 
     def start_date_localized(self):
-        return self.localized(date=self.context.start)
+        return self.localized(date=self.data.start)
 
     def end_date_localized(self):
-        return self.localized(date=self.context.end)
+        return self.localized(date=self.data.end)
 
     def location(self):
-        return ""
+        return self.data.location
 
+    def contact_name(self):
+        return self.data.contact_name
+    
+    def contact_email(self):
+        return self.data.contact_email
+    
+    def contact_phone(self):
+        return self.data.contact_phone
+    
 
 PRODID = "-//Plone.org//NONSGML collective.rcse//EN"
 VERSION = "2.0"
@@ -62,8 +73,8 @@ class ICSEventView(EventView):
         if self.event is None:
             self.event = icalendar.Event()
             self.event.add('summary', self.context.Description())
-            self.event.add('dtstart', self.context.start)
-            self.event.add('dtend', self.context.end)
+            self.event.add('dtstart', self.data.start)
+            self.event.add('dtend', self.data.end)
             self.event['uid'] = IUUID(self.context)
             self.event.add('priority', 5)
         if self.cal is None:

@@ -6,7 +6,7 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="collective.rcse">
 <body>
-  <div class="image-view" metal:fill-slot="content-core" class="directory-wrapper">
+  <div class="image-view" metal:fill-slot="content-core">
     <div class="picturefill-wrapper" tal:content="structure context/@@picturefill"></div>
   </div>
 </body>
