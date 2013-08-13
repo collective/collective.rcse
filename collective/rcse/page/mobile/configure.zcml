@@ -417,4 +417,15 @@
         permission="zope2.View"
         layer="collective.rcse.layer.MobileLayer"
         />
+
+<!--     Poll  -->
+<!--     <browser:page -->
+<!--         for="collective.polls.content.poll.IPoll" -->
+<!--         name="view" -->
+<!--         class="collective.rcse.page.controller.poll_view.PollView" -->
+<!--         template="templates/poll_view.pt" -->
+<!--         permission="zope2.View" -->
+<!--         layer="collective.rcse.layer.MobileLayer" -->
+<!--         /> -->
+
 </configure>
