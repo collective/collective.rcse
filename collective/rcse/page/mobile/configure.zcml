@@ -408,4 +408,13 @@
       permission="zope2.View"
       />
 
+    <!-- Event listing -->
+    <browser:page
+        for="*"
+        name="event_listing"
+        class="plone.app.event.browser.event_listing.EventListing"
+        template="templates/event_listing.pt"
+        permission="zope2.View"
+        layer="collective.rcse.layer.MobileLayer"
+        />
 </configure>
