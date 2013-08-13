@@ -9,6 +9,11 @@ class PersonalInformation(BrowserView):
     def __call__(self):
         portal_url = getToolByName(self.context, 'portal_url')
         mtool = getToolByName(self.context, 'portal_membership')
+        if mtool.isAnonymousUser():
+            self.request.response.redirect(
+                '%s/@@register' % portal_url()
+                )
+            return
         member = mtool.getAuthenticatedMember()
         #fix bugs
         username = member.getProperty('username')
