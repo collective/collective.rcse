@@ -46,6 +46,7 @@ setup(
         'collective.mediaelementjs',
         'collective.oembed',
         'collective.picturefill',
+        'collective.polls',
         'collective.portlet.favoriting',
         'collective.portlet.localusers',
         'collective.readitlater',
