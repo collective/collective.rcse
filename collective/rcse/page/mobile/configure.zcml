@@ -434,4 +434,13 @@
 <!--         layer="collective.rcse.layer.MobileLayer" -->
 <!--         /> -->
 
+  <browser:page
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      name="user_dialog_view"
+      class="collective.rcse.page.controller.person_view.RequestMemberInfoView"
+      template="templates/user_dialog.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
+
 </configure>
