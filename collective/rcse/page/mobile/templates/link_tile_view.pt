@@ -2,4 +2,5 @@
   <h2 tal:content="context/Title"></h2>
   <p class="documentDescription" tal:content="context/Description"></p>
   <a tal:content="context/remoteUrl" tal:attributes="href context/remoteUrl"></a>
+  <a class="oembed oembed-responsive" style="display:none" tal:attributes="href context/remoteUrl">&nbsp;</a>
 </div>

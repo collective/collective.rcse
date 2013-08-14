@@ -2,5 +2,6 @@
 <object name="portal_javascripts">
 
  <javascript id="++resource++collective.rcse/theme.js" bundle="rcse" />
+ <javascript id="mark_special_links.js" enabled="True" />
 
 </object>
