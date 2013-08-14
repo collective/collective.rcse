@@ -1,7 +1,6 @@
 <div class="tile-wrapper">
   <h2 tal:content="context/Title"></h2>
   <p class="documentDescription" tal:content="context/Description"></p>
-  <img tal:define="scales context/@@images;
-		   scale python: scales.scale('image', width=256, height=256);"
-       tal:replace="structure scale/tag" />
+  <div class="picturefill-wrapper" style="max-width: 300px;"
+       tal:content="structure context/@@picturefill"></div>
 </div>
