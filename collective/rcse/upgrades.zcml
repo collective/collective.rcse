@@ -4,7 +4,7 @@
 
     <upgradeStep
         source="1035"
-        destination="1049"
+        destination="1051"
         title="Upgrade"
         description=""
         profile="collective.rcse:default"
