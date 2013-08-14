@@ -46,11 +46,20 @@
       />
   <adapter factory=".filters.FiltersFormAdapter" />
 
+  <browser:viewlet
+      name="collective.rcse.notifications"
+      manager="plonetheme.jquerymobile.browser.viewlets.manager.IHeaderLeft"
+      class="collective.whathappened.browser.notifications.HotViewlet"
+      template="templates/notifications.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
+
   <!-- plone.personalbar -->
   <browser:viewlet
       name="plone.personalbar"
       manager="plonetheme.jquerymobile.browser.viewlets.manager.IHeaderRight"
-      class="collective.rcse.viewlet.mobile.viewlets.RcsePersonalBarViewlet"
+      class="plonetheme.jquerymobile.browser.viewlets.personal_bar.PersonalBarViewlet"
       template="templates/personal_bar.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
@@ -68,6 +77,13 @@
 
 <!-- Hide some viewlets -->
 
+  <browser:viewlet
+      name="plonetheme.jquerymobile.header.leftaction.home"
+      class="collective.rcse.viewlet.common.HiddenViewlet"
+      manager="plonetheme.jquerymobile.browser.viewlets.manager.IHeaderLeft"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
     <browser:viewlet
         name="plone.manage_portlets_fallback"
         for="plone.portlets.interfaces.ILocalPortletAssignable"

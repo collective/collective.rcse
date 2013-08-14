@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>1049</version>
+  <version>1051</version>
   <dependencies>
     <dependency>profile-cioppino.twothumbs:default</dependency>
     <dependency>profile-collective.etherpad:default</dependency>
@@ -11,6 +11,7 @@
     <dependency>profile-collective.mediaelementjs:default</dependency>
     <dependency>profile-collective.oembed:default</dependency>
     <dependency>profile-collective.picturefill:default</dependency>
+    <dependency>profile-collective.polls:default</dependency>
     <dependency>profile-collective.portlet.favoriting:default</dependency>
     <dependency>profile-collective.portlet.localusers:default</dependency>
     <dependency>profile-collective.requestaccess:default</dependency>

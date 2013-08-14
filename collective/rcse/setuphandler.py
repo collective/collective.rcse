@@ -35,6 +35,7 @@ def setupVarious(context):
     initialize_rules(portal)
     setupCatalog(portal)
     fixMembraneCatalog(portal)
+    uninstallDependencies(portal)
 
 
 def setupRegistration(site):
@@ -223,3 +224,10 @@ def fixMembraneCatalog(context):
     catalog is empty."""
     catalog = getToolByName(context, TOOLNAME, None)
     catalog.refreshCatalog(clear=1)
+
+
+def uninstallDependencies(context):
+    UNINSTALL = ("collective.z3cform.widgets",)
+    qi = getToolByName(context, 'portal_quickinstaller')
+    qi.uninstallProducts(UNINSTALL)
+    #TODO: unstinstall this please ...

@@ -1,10 +1,6 @@
 from plonetheme.jquerymobile.browser.viewlets import personal_bar
-from collective.whathappened.browser.notifications import HotViewlet
+
 from plone.app.layout.viewlets.common import ViewletBase
-
-
-class RcsePersonalBarViewlet(personal_bar.PersonalBarViewlet, HotViewlet):
-    pass
 
 
 class GroupDisplayMenu(ViewletBase):

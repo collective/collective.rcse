@@ -1,0 +1,19 @@
+<tal:block tal:condition="python:view.user_actions and not view.anonymous">
+<a href="#popup-notifications" id="notifications"
+   data-rel="popup" data-role="button" data-inline="true"
+   data-transition="fade" data-icon="bell" data-iconpos="notext">Notifications</a>
+
+<div data-role="popup" id="popup-notifications" i18n:domain="plone">
+    <ul data-role="listview" data-inset="true" data-icon="false">
+    <li tal:repeat="notification view/notifications">
+      <tal:block tal:condition="notification/seen">
+            <a tal:attributes="href notification/url" tal:content="notification/title" i18n:translate=""></a>
+      </tal:block>
+      <tal:block tal:condition="python: not notification['seen']">
+            <a class="notification-not-seen" tal:attributes="href notification/url" tal:content="notification/title" i18n:translate=""></a>
+      </tal:block>
+    </li>
+    <li><a tal:attributes="href string:${view/navigation_root}/@@collective_whathappened_notifications_all" i18n:translate="">See all notifications</a></li>
+    </ul>
+</div>
+</tal:block>

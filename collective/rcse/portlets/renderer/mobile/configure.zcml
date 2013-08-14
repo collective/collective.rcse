@@ -1,0 +1,12 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="collective.rcse">
+
+    <plone:portletRenderer
+        portlet="collective.polls.portlet.voteportlet.IVotePortlet"
+        layer="collective.rcse.layer.MobileLayer"
+        template="voteportlet.pt"
+        />
+
+</configure>
