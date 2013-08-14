@@ -2,11 +2,23 @@
         selected_tab python:view.selected_portal_tab" i18n:domain="plonetheme.jquerymobile">
 <a href="#popup-globalsections" id="globalsections"
    data-rel="popup" data-role="button" data-inline="true"
-   data-transition="fade" data-icon="folder-open" data-iconpos="notext"
+   data-transition="fade" data-icon="folder-open-alt" data-iconpos="notext"
    i18n:translate="">Sections Menu</a>
 
 <div data-role="popup" id="popup-globalsections" i18n:domain="rcse">
-    <ul data-role="listview" data-inset="true" data-icon="false"
+    <ul data-role="listview" data-inset="true" i18n:domain="collective.rcse">
+      <li data-icon="home">
+        <a tal:attributes="href string:${view/portal_state/navigation_root_url}"
+         i18n:translate="" i18n:domain="plone">Home</a>
+      </li>
+      <li>
+        <a tal:attributes="href string:${view/portal_state/portal_url}/users_directory" i18n:translate="">Users directory</a>
+      </li>
+      <li>
+         <a tal:attributes="href string:${view/portal_state/portal_url}/companies_directory" i18n:translate="">Companies directory</a>
+      </li>
+    </ul>
+    <ul data-role="listview" data-inset="true" data-icon="false" i18n:domain="collective.rcse"
         tal:attributes="data-filter-reveal view/data_filter_reveal; data-filter view/data_filter"
         data-filter-placeholder="Search groups" i18n:attributes="data-filter-placeholder">
         <li tal:repeat="tab portal_tabs">

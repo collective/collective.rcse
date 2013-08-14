@@ -7,6 +7,7 @@
       i18n:domain="collective.rcse">
 <body>
   <div metal:fill-slot="content-core" class="directory-wrapper">
+
     <div id="image-view"
          tal:define="images python: view.get_content(batch=False, object=True)"
          tal:condition="python: len(images) > 0">
