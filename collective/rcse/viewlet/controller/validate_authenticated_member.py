@@ -4,6 +4,7 @@ from zope import component
 from zope import schema
 from plone.app.layout.viewlets.common import ViewletBase
 from collective.rcse.content.member import IMember
+from collective.rcse.content.company import ICompany
 from dexterity.membrane.behavior.membraneuser import IMembraneUser
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
@@ -16,6 +17,7 @@ class ValidateAuthenticatedMember(ViewletBase):
     miss some information
     """
     member_schema = IMember
+    company_schema = ICompany
     viewname = "@@personal-information"
     blacklist_views = []
 
@@ -33,6 +35,11 @@ class ValidateAuthenticatedMember(ViewletBase):
             results = catalog(getUserName=self.username)
             if results:
                 self.member_data = results[0].getObject()
+        self.company = None
+        if self.member_data is not None:
+            directory = self.portal_state.portal()['companies_directory']
+            if self.member_data.company in directory:
+                self.company = directory[self.member_data.company]
         self.status = IStatusMessage(self.request)
 
     def index(self):
@@ -49,7 +56,7 @@ class ValidateAuthenticatedMember(ViewletBase):
             self.lock_rendering_and_redirect(url=url)
             return ''
         elif IMembraneUser.providedBy(self.context) and self.context.username == self.member.getUserName():
-                return ''
+            return ''
         elif not self.has_required_info():
             msg = _(u"Your profile is missing some required information")
             self.status.add(msg)
@@ -62,8 +69,24 @@ class ValidateAuthenticatedMember(ViewletBase):
             url =  self.member_data.absolute_url()
             self.lock_rendering_and_redirect(url=url)
             return ''
+        elif ICompany.providedBy(self.context) and self.context.id == self.member_data.company:
+            return ''
+        elif not self.has_company_info():
+            msg = _(u"Please complete your company information")
+            self.status.add(msg)
+            url = '%s' % self.company.absolute_url()
+            self.lock_rendering_and_redirect(url=url)
+            return ''
 
         return ''
+
+    def has_company_info(self):
+        fields = schema.getFields(self.company_schema)
+        for field_name, field in fields.iteritems():
+            if field.required:
+                if getattr(self.company, field_name, None) is None:
+                    return False
+        return True
 
     def has_required_info(self):
         has_required_info = True
