@@ -10,4 +10,8 @@
 	   name="collective.rcse.vocabulary.groupTypes"
 	   provides="zope.schema.interfaces.IVocabularyFactory"/>
 
+  <utility component=".vocabularies.companies"
+	   name="collective.rcse.vocabulary.companies"
+	   provides="zope.schema.interfaces.IVocabularyFactory"/>
+
 </configure>

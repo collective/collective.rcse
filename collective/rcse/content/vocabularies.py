@@ -37,3 +37,16 @@ sortBy = SimpleVocabulary([
     SimpleTerm('Date', 'Date', _(u'Date')),
     SimpleTerm('sortable_title', 'sortable_title', _(u'Title')),
     ])
+
+def companies(context):
+    catalog = getToolByName(context, 'portal_catalog')
+    companies = catalog.searchResults({
+            'portal_type': {'query': 'collective.rcse.company'}
+            })
+    terms = [SimpleTerm(value=company.id, title=company.Title)
+             for company in companies]
+    terms += [
+        SimpleTerm(value=u"__new_company",
+                   title=_(u"Create a new company"))
+        ]
+    return SimpleVocabulary(terms)
