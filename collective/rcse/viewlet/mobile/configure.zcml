@@ -24,6 +24,14 @@
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
+  <browser:page
+      name="plone.abovecontenttitle.documentactions"
+      for="Products.CMFCore.interfaces.IContentish"
+      class=".document_actions.DocumentActionsView"
+      template="templates/document_actions.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
     <!-- edit-bar -->
   <browser:viewlet
       name="plonetheme.jquerymobile.editbar"

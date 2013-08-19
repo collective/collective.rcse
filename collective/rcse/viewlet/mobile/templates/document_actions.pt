@@ -1,7 +1,15 @@
 <div tal:omit-tag=""
      i18n:domain="plone">
-
-  <div class="documentActions" data-role="controlgroup" data-type="vertical" data-mini="true">
+  <div class="document-actions-wrapper">
+   <div class="ui-grid-a ui-responsive">
+    <div class="ui-block-a" data-role="navbar">
+        <ul>
+            <li><span class="ui-icon-star" tal:content="view/get_how_many_star">Y</span></li>
+            <li><span class="ui-icon-thumbs-up" tal:content="view/get_how_many_like">X</span> </li>
+            <li><span class="ui-icon-thumbs-down" tal:content="view/get_how_many_dislike">X</span> </li>
+        </ul>
+    </div>
+    <div class="documentActions ui-block-b" data-role="controlgroup" data-type="vertical" data-mini="true">
     <tal:docactions tal:condition="python:view.actions_icon or view.actions" tal:define="normalizeString nocall: context/@@plone/normalizeString">
       <tal:action tal:repeat="daction view/actions_icon"
                   tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
@@ -9,26 +17,35 @@
            data-role="button" data-inline="true"
            tal:attributes="href daction/url;
                            id daction/id;
+                           class string:action ${daction/id};
                            target daction/link_target|nothing;
                            title daction/description;
                            data-icon python:str(daction['icon']).replace('icon-', '')">
         </a>
       </tal:action>
       <a href=""
-	 data-role="button"
-	 data-rel="popup"
-	 data-icon="ellipsis-vertical"
-	 data-inline="true"
-	 data-transition="pop"
-	 tal:attributes="href string:#popup-dactions-${context/uuid}"
-	 tal:condition="view/actions">
+         data-role="button"
+         data-icon="share"
+         data-inline="true"
+         target="_blank"
+         tal:attributes="href string:${context/absolute_url}"></a>
+
+      <a href=""
+     data-role="button"
+     data-rel="popup"
+     data-icon="ellipsis-vertical"
+     data-inline="true"
+     data-transition="pop"
+     tal:attributes="href string:#popup-dactions-${context/uuid}"
+     tal:condition="view/actions">
       </a>
       <div data-role="popup" tal:attributes="id string:popup-dactions-${context/uuid}">
         <tal:action tal:repeat="daction view/actions"
-		    tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
+            tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
           <a href="" data-role="button"
              tal:attributes="href daction/url;
                              id daction/id;
+                             class string:action ${daction/id};
                              target daction/link_target|nothing;
                              title daction/description"
              tal:content="daction/title">
@@ -37,7 +54,7 @@
       </div>
     </tal:docactions>
 
-    <div tal:replace="structure provider:plone.documentactions" />
-
+    </div>
+   </div>
   </div>
 </div>

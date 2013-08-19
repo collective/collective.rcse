@@ -4,11 +4,11 @@ from Products.statusmessages import STATUSMESSAGEKEY
 from Products.statusmessages.interfaces import IStatusMessage
 from Products.statusmessages.adapter import _decodeCookieValue
 from plone.uuid.interfaces import IUUID
-from collective.favoriting.browser.favoriting_view import Add as FavAdd
-from collective.favoriting.browser.favoriting_view import Rm as FavRm
+from collective.favoriting.browser import favoriting_view
 from zope.annotation.interfaces import IAnnotations
 from collective.rcse.action import cioppino_twothumbs
 from zope.i18n import translate
+
 
 class AjaxAction(BrowserView):
     """Make an action url handle ajax request
@@ -31,7 +31,7 @@ class AjaxAction(BrowserView):
         data = {}
         data['messages'] = []
         data['uid'] = IUUID(self.context)
-        data['tile'] = self.context.restrictedTraverse('group_tile_view')()
+        data['document-actions-wrapper'] = self.context.restrictedTraverse('plone.abovecontenttitle.documentactions')()
         for message in messages:
             body = translate(message.message, context=self.request)
             data['messages'].append({'message': body,
@@ -40,11 +40,11 @@ class AjaxAction(BrowserView):
 
 
 class FavoritingAdd(AjaxAction):
-    action_class = FavAdd
+    action_class = favoriting_view.Add
 
 
 class FavoritingRm(AjaxAction):
-    action_class = FavRm
+    action_class = favoriting_view.Rm
 
 
 class Like(AjaxAction):

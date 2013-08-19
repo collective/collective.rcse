@@ -1,12 +1,12 @@
-$.mobile.ajaxEnabled = false;
-$(document).on("mobileinit", function(){
-
-});
-var openAuthorInDialog = function(){
+//$.mobile.ajaxEnabled = true;
+var rcseDisableAjax = function(){
+	$("#popup-globalsections a").attr("data-ajax", "false");
+	$('form[method="post"]').attr("data-ajax", "false");
+}
+var rcseOpenAuthorInDialog = function(){
 	$('a[rel="author"]"').click(function(eventObject){
 		eventObject.stopImmediatePropagation();
 		eventObject.preventDefault();
-		
 		$.mobile.changePage(
 			portal_url + "/@@user_dialog_view",
 			{
@@ -16,23 +16,23 @@ var openAuthorInDialog = function(){
 		);
 	})
 }
-var initRCSEAjaxAction = function(){
-	$("a.ajaxaction").click(function(eventObject){
+var rcseInitAjaxAction = function(){
+	$(".document-actions-wrapper a.action").attr("data-ajax", "false");
+	$(".document-actions-wrapper a.action").click(function(eventObject){
 		eventObject.stopImmediatePropagation();
 		eventObject.preventDefault();
 		$.ajax({
 			url: $(this).attr('href'),
+			context: eventObject,
 			data: {'ajax': true}
 		}).success(function(data){
-			var uid = "#"+data['uid']
-			$(uid).replaceWith(data['tile']);
-			$(document).trigger("create");
-			initRCSEAjaxAction();
-			picturefill();
+			var parent = $(eventObject.target).parents(".document-actions-wrapper");
+			parent.replaceWith(data['document-actions-wrapper']);
+			rcseUpdateUI();
 		});
 	})
 }
-var bindChangeEventStartDate = function(){
+var rcseBindChangeEventStartDate = function(){
 	$("#form-widgets-IEventBasic-start").blur(function(e){
 		var endItem = $("#form-widgets-IEventBasic-end");
 		if (endItem.attr('value') === ""){
@@ -52,10 +52,27 @@ var bindChangeEventStartDate = function(){
 		}
 	})
 }
+var rcseUpdateUI = function(){
+	console.log("update ui");
+	rcseInitAjaxAction();
+	rcseDisableAjax();
+	rcseBindChangeEventStartDate();
+	rcseOpenAuthorInDialog();
+	$("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
+	picturefill();
+	$(document).trigger("create");
+}
+/* CALL OUR STUFF on jquerymobile events*/
+
+$(document).on("mobileinit", function(){
+
+});
+$(document).on("pagebeforeshow", function(){
+	rcseUpdateUI();
+});
+
 $(document).ready(function(){
-	initRCSEAjaxAction();
-	bindChangeEventStartDate();
-	openAuthorInDialog();
+
 })
 
 $( document ).on( "pageinit", ".page", function() {

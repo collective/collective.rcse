@@ -56,17 +56,6 @@ class TimelineItemView(BrowserView):
         if self.creator_info is None:
             name = "@@creator_memberinfo"
             self.creator_info = self.context.restrictedTraverse(name)
-        if self.actions is None:
-            self.context_state = getMultiAdapter((self.context, self.request),
-                                                 name=u'plone_context_state')
-            self.actions = self.context_state.actions('document_actions')
-        if self.actions_icon is None:
-            self.actions_icon = []
-            for action in self.actions:
-                if action['icon']:
-                    self.actions_icon.append(action)
-            for action in self.actions_icon:
-                self.actions.remove(action)
         if self.typesUseViewActionInListings is None:
             pp = getToolByName(self.context, 'portal_properties')
             self.typesUseViewActionInListings = pp.site_properties.getProperty(

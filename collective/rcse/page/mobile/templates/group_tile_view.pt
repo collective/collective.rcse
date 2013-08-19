@@ -4,37 +4,9 @@
     <a rel="author" data-rel="dialog" class="fn url"
        tal:attributes="href creator_info/url"
        tal:content="creator_info/fullname">John</a><br/>
-    <a data-inline="true" tal:attributes="href view/group_url" tal:content="view/group_title">group</a><br/>
+    <a data-inline="true" data-ajax="false" tal:attributes="href view/group_url" tal:content="view/group_title">group</a><br/>
     <span tal:condition="view/effective_date" tal:content="view/effective_date"></span>
   </div>
   <div class="tilecontent" tal:content="structure view/get_content"></div>
-  <div class="ui-grid-a ui-responsive">
-  <div class="ui-block-a" data-role="navbar">
-        <ul>
-            <li><span class="ui-icon-star" tal:content="view/get_how_many_star">Y</span></li>
-            <li><span class="ui-icon-thumbs-up" tal:content="view/get_how_many_like">X</span> </li>
-            <li><span class="ui-icon-thumbs-down" tal:content="view/get_how_many_dislike">X</span> </li>
-        </ul>
-    </div>
-   <div class="actions ui-block-b" data-role="controlgroup" data-type="horizontal">
-    <tal:docactions tal:condition="view/actions_icon" tal:define="normalizeString nocall: context/@@plone/normalizeString">
-      <tal:action tal:repeat="daction view/actions_icon"
-                  tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
-      <a href=""
-         data-role="button"
-         data-inline="true"
-         data-them="b"
-               tal:attributes="href daction/url;
-                               class string:ajaxaction ${daction/id};
-                               target daction/link_target|nothing;
-                               title daction/description;
-             data-icon python:str(daction['icon']).replace('icon-', '')">
-      </a>
-      </tal:action>
-    </tal:docactions>
-    <tal:view tal:define="context_url python:context.portal_type in view.typesUseViewActionInListings and '%s/view' % context.absolute_url() or context.absolute_url();">
-        <a href="#" data-icon="eye-open" class="ui-icon-nodisc" data-iconshadow="false" data-role="button" data-inline="true" i18n:translate="" data-theme="b" tal:attributes="href context_url">Read</a>
-    </tal:view>
-   </div>
-  </div>
+  <div class="document-actions-wrapper" tal:content="structure context/@@plone.abovecontenttitle.documentactions"></div>
 </div>

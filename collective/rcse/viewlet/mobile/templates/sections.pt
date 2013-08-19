@@ -2,7 +2,7 @@
         selected_tab python:view.selected_portal_tab" i18n:domain="plonetheme.jquerymobile">
 <a href="#popup-globalsections" id="globalsections"
    data-rel="popup" data-role="button" data-inline="true"
-   data-transition="fade" data-icon="folder-open-alt" data-iconpos="notext"
+   data-transition="fade" data-icon="sitemap" data-iconpos="notext"
    i18n:translate="">Sections Menu</a>
 
 <div data-role="popup" id="popup-globalsections" i18n:domain="rcse">
