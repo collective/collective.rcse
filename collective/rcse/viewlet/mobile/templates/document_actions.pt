@@ -25,7 +25,7 @@
       </tal:action>
       <a href=""
          data-role="button"
-         data-icon="share"
+         data-icon="share-alt"
          data-inline="true"
          target="_blank"
          tal:attributes="href string:${context/absolute_url}"></a>
