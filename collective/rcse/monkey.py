@@ -1,6 +1,9 @@
+import logging
 from collective.z3cform.widgets import enhancedtextlines
 
-#Remove this because it's useless for us
+logger = logging.getLogger("collective.rcse")
+
+logger.info("monkeypatch: EnhancedTextLinesWidget do nothing if no taskplease")
 enhancedtextlines.EnhancedTextLinesWidget.js_template = """\
     (function($) {
         $().ready(function() {
@@ -16,3 +19,19 @@ enhancedtextlines.EnhancedTextLinesWidget.js_template = """\
         });
     })(jQuery);
 """
+
+
+logger.info("monkeypatch: Remove contenttree for mobile")
+def patch_contenttree():
+    from plone.formwidget.contenttree.widget import ContentTreeBase
+    from plone.browserlayer import utils
+    from collective.rcse.layer import MobileLayer
+    original_render = ContentTreeBase.render
+    def render(self):
+        if MobileLayer.providedBy(self.request):
+            return u"This feature is not supported"
+        else:
+            return original_render(self)
+    ContentTreeBase.render = render
+
+patch_contenttree()
