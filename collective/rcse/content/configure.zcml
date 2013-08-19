@@ -10,4 +10,12 @@
 	   name="collective.rcse.vocabulary.groupTypes"
 	   provides="zope.schema.interfaces.IVocabularyFactory"/>
 
+  <utility component=".vocabularies.companies"
+	   name="collective.rcse.vocabulary.companies"
+	   provides="zope.schema.interfaces.IVocabularyFactory"/>
+
+  <subscriber handler=".workflow.createCompanyIfNotExists"
+	      for="collective.rcse.content.member.IMember
+		   Products.DCWorkflow.interfaces.IAfterTransitionEvent" />
+
 </configure>

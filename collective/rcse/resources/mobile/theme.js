@@ -2,6 +2,20 @@ $.mobile.ajaxEnabled = false;
 $(document).on("mobileinit", function(){
 
 });
+var openAuthorInDialog = function(){
+	$('a[rel="author"]"').click(function(eventObject){
+		eventObject.stopImmediatePropagation();
+		eventObject.preventDefault();
+		
+		$.mobile.changePage(
+			portal_url + "/@@user_dialog_view",
+			{
+				role: "dialog",
+				data: {memberid: $(this).attr("href").split("/").pop()}
+			}
+		);
+	})
+}
 var initRCSEAjaxAction = function(){
 	$("a.ajaxaction").click(function(eventObject){
 		eventObject.stopImmediatePropagation();
@@ -41,6 +55,7 @@ var bindChangeEventStartDate = function(){
 $(document).ready(function(){
 	initRCSEAjaxAction();
 	bindChangeEventStartDate();
+	openAuthorInDialog();
 })
 
 $( document ).on( "pageinit", ".page", function() {

@@ -80,7 +80,6 @@ def createDirectories(parent):
         parent.companies_directory,
         ['collective.rcse.company'],
         "companies_directory_view",
-        ['Contributor']
         )
     _publishContent(parent.companies_directory)
     if "home" not in existing:

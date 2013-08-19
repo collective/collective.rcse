@@ -113,7 +113,6 @@
       />
 
   <!-- Links -->
-
   <browser:page
       for="plone.app.contenttypes.interfaces.ILink"
       name="tile_view"
@@ -121,7 +120,14 @@
       permission="zope2.View"
       layer="collective.rcse.layer.MobileLayer"
       />
-
+  <browser:page
+      name="link_redirect_view"
+      for="plone.app.contenttypes.interfaces.ILink"
+      class="plone.app.contenttypes.browser.link_redirect_view.LinkRedirectView"
+      template="templates/link_redirect_view.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.MobileLayer"
+    />
   <!-- collective.rcse.discussion aka Discussion -->
 
   <browser:page
@@ -434,5 +440,14 @@
 <!--         permission="zope2.View" -->
 <!--         layer="collective.rcse.layer.MobileLayer" -->
 <!--         /> -->
+
+  <browser:page
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      name="user_dialog_view"
+      class="collective.rcse.page.controller.person_view.RequestMemberInfoView"
+      template="templates/user_dialog.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
 
 </configure>

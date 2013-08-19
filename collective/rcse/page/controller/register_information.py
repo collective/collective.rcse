@@ -8,15 +8,24 @@ from plone.z3cform.layout import FormWrapper
 from Products.CMFCore.utils import getToolByName
 from z3c.form import form
 from z3c.form import button
+from z3c.form import interfaces
 from zope import component
 from zope import interface
+from zope import schema
 
 from collective.rcse.content.member import IMember
 from collective.rcse.i18n import _
 
 
 class RegisterInformationFormSchema(IMember):
-    pass
+    company = schema.Choice(
+        title=_(u"Company"),
+        vocabulary='collective.rcse.vocabulary.companies'
+        )
+    new_company = schema.TextLine(
+        title=_(u"New company"),
+        required=False
+        )
 
 
 class RegisterInformationFormAdapter(object):
@@ -36,17 +45,32 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
     def handleApply(self, action):
         self.mtool = getToolByName(self.context, 'portal_membership')
         user = self.mtool.getAuthenticatedMember()
-        if type(user.getProperty('username')) != object:
-            raise Unauthorized(_(u"You are already registered."))
         data, errors = self.extractData()
+        self._checkForm(user, data)
         if errors:
             self.status = _(u"There were errors.")
             return
+        if data['company'] == '__new_company' or data['company'] == '':
+            data['company'] = data['new_company']
         self._createUser(user.getId(), data)
         portal_url = getToolByName(self.context, "portal_url")
         self.request.response.redirect(
             '%s/@@personal-information' % portal_url()
             )
+
+    def _checkForm(self, user, data):
+        if type(user.getProperty('username')) != object:
+            raise interfaces.ActionExecutionError(
+                interface.Invalid(_(u"You are already registered."))
+                )
+        if data['company'] == '__new_company' or data['company'] == '':
+            if not data['new_company']:
+                raise interfaces.WidgetActionExecutionError(
+                    'new_company',
+                    interface.Invalid(
+                        _(u"You need to specify your company name.")
+                        )
+                    )
 
     def _createUser(self, username, data):
         container = self.context.unrestrictedTraverse('users_directory')
