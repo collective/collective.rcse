@@ -12,6 +12,8 @@
    <type type_id="collective.rcse.member">
      <bound-workflow workflow_id="collective_rcse_member_workflow" />
    </type>
+   <type type_id="collective.rcse.company">
+   </type>
  </bindings>
 
 </object>

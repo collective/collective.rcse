@@ -80,6 +80,17 @@
       permission="zope2.View"
       />
 
+  <adapter factory=".modify_company.ModifyCompanyFormAdapter" />
+
+  <browser:page
+      for="collective.rcse.content.member.IMember"
+      name="modify_company"
+      class=".modify_company.ModifyCompanyFormWrapper"
+      template="templates/form.pt"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+
   <!-- adapter factory=".register.RegisterFormAdapter" />
 
   <browser:page

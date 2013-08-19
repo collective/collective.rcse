@@ -10,6 +10,7 @@ gender = SimpleVocabulary([
     SimpleTerm(value=u"male", title=_(u"Male")),
 ])
 
+
 languages = SimpleVocabulary([
     SimpleTerm(value=u"English", title=_t(u"English")),
     SimpleTerm(value=u"French", title=_t(u"French")),
@@ -32,11 +33,13 @@ def groupTypes(context):
         ]
     return SimpleVocabulary(terms)
 
+
 sortBy = SimpleVocabulary([
     SimpleTerm('relevance', 'relevance', _(u'Relevance')),
     SimpleTerm('Date', 'Date', _(u'Date')),
     SimpleTerm('sortable_title', 'sortable_title', _(u'Title')),
     ])
+
 
 def companies(context):
     catalog = getToolByName(context, 'portal_catalog')

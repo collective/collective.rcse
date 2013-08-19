@@ -19,7 +19,13 @@ class ValidateAuthenticatedMember(ViewletBase):
     member_schema = IMember
     company_schema = ICompany
     viewname = "@@personal-information"
-    blacklist_views = []
+    blacklist_views = [
+        'require_login',
+        #login / logout
+        'login', 'login_form', 'logout', 'logged_out',
+        #registration
+        '@@register', '@@personal-information', '@@register_information'
+        ]
 
     def update(self):
         super(ValidateAuthenticatedMember, self).update()
@@ -118,12 +124,6 @@ class ValidateAuthenticatedMember(ViewletBase):
 
     def view_in_blacklist(self):
         viewname = self.request.get('URL').split('/')[-1]
-        #login / logout
-        if viewname in ('login', 'login_form', 'logout', 'logged_out'):
-            return True
-        #registration
-        if viewname in ('@@register', '@@personal-information', '@@register_information'):
-            return True
         if viewname in self.blacklist_views:
             return True
         if viewname == self.viewname:

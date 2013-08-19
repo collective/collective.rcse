@@ -14,6 +14,7 @@ from zope import interface
 from zope import schema
 
 from collective.rcse.content.member import IMember
+from collective.rcse.content.member import vocabularies
 from collective.rcse.i18n import _
 
 
@@ -52,6 +53,10 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
             return
         if data['company'] == '__new_company' or data['company'] == '':
             data['company'] = data['new_company']
+        else:
+            data['company_id'] = data['company']
+            companies = vocabularies.companies()
+            data['company'] = companies.getTerm(data['company']).title
         self._createUser(user.getId(), data)
         portal_url = getToolByName(self.context, "portal_url")
         self.request.response.redirect(
@@ -78,15 +83,16 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
         results = mtool.searchResults(getUserName=username)
         if len(results) > 0:
             raise Unauthorized, _(u"You are already registered.")
+        data['username'] = username
         self._security_manager = getSecurityManager()
         self._sudo('Manager')
-        data['username'] = username
         item = utils.createContentInContainer(
             container,
             'collective.rcse.member',
             checkConstraints=False,
             **data)
         item.manage_setLocalRoles(username, ['Owner'])
+        item.reindexObjectSecurity()
         self._sudo()
 
     def _sudo(self, role=None):

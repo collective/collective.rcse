@@ -12,6 +12,8 @@ from collective.rcse.content.visibility import addVisibilityCheckbox
 
 @addVisibilityCheckbox([
         'username',
+        'company_id',
+        'company',
         'email',
         'first_name',
         'last_name'
@@ -72,9 +74,14 @@ class IMember(model.Schema):
         required=True,
     )
 
-    company = schema.ASCIILine(
-        title=_(u"Company")
-    )  # ID
+    company = schema.TextLine(
+        title=_(u"Company"),
+        readonly=True
+    )
+    company_id = schema.ASCIILine(
+        title=_(u"Username"),
+        readonly=True
+    )
     function = schema.TextLine(
         title=_(u"Function"),
     )

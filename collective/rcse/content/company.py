@@ -32,6 +32,11 @@ class ICompany(interface.Interface):
     postal_code = schema.TextLine(
         title=_(u"Postal code")
     )
+    sites = schema.List(
+        title=_(u"Sites"),
+        value_type=schema.TextLine(),
+        required=False
+        )
     city = schema.TextLine(
         title=_(u"City")
     )
