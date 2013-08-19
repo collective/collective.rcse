@@ -20,7 +20,6 @@ class ValidateAuthenticatedMember(ViewletBase):
     company_schema = ICompany
     viewname = "@@personal-information"
     blacklist_views = [
-        'require_login',
         #login / logout
         'login', 'login_form', 'logout', 'logged_out',
         #registration
@@ -44,8 +43,8 @@ class ValidateAuthenticatedMember(ViewletBase):
         self.company = None
         if self.member_data is not None:
             directory = self.portal_state.portal()['companies_directory']
-            if self.member_data.company in directory:
-                self.company = directory[self.member_data.company]
+            if self.member_data.company_id in directory:
+                self.company = directory[self.member_data.company_id]
         self.status = IStatusMessage(self.request)
 
     def index(self):
@@ -75,7 +74,7 @@ class ValidateAuthenticatedMember(ViewletBase):
             url =  self.member_data.absolute_url()
             self.lock_rendering_and_redirect(url=url)
             return ''
-        elif ICompany.providedBy(self.context) and self.context.id == self.member_data.company:
+        elif ICompany.providedBy(self.context) and self.context.id == self.member_data.company_id:
             return ''
         elif not self.has_company_info():
             msg = _(u"Please complete your company information")
