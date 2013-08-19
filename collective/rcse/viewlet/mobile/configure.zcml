@@ -41,6 +41,14 @@
       permission="zope2.View"
       layer="collective.rcse.layer.MobileLayer"
       />
+  <browser:page
+      for="*"
+      name="plonetheme.jquerymobile.editbar"
+      class="collective.rcse.viewlet.controller.editbar.EditBarView"
+      template="templates/edit_bar.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.MobileLayer"
+      />
 
   <!-- Filters viewlet -->
   <browser:viewlet

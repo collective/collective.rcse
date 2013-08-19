@@ -46,3 +46,14 @@ class EditBar(ViewletBase):
                 self.review_state = None
         except WorkflowException:
             self.review_state = None
+
+
+class EditBarView(EditBar):
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
+    def __call__(self):
+        self.update()
+        return self.index()

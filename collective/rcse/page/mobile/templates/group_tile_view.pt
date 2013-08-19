@@ -7,6 +7,7 @@
     <a data-inline="true" data-ajax="false" tal:attributes="href view/group_url" tal:content="view/group_title">group</a><br/>
     <span tal:condition="view/effective_date" tal:content="view/effective_date"></span>
   </div>
+  <div class="editbar" tal:content="structure context/@@plonetheme.jquerymobile.editbar"></div>
   <div class="tilecontent" tal:content="structure view/get_content"></div>
   <div class="document-actions-wrapper" tal:content="structure context/@@plone.abovecontenttitle.documentactions"></div>
 </div>

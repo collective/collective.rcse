@@ -2,6 +2,7 @@
 <div data-role="controlgroup" data-type="horizontal" id="edit-bar" data-mini="true" i18n:domain="plone">
         <a href="#popupAddContentMenu"
              data-role="button" data-rel="popup" data-transition="pop" data-icon="plus" data-theme="b"
+             tal:condition="python:context.portal_type in ('Folder', 'collective.rcse.group')"
             i18n:translate="">Add</a>
         <tal:edit tal:repeat="action view/object_actions">
              <a tal:condition="python:action['id'] == 'edit'"
