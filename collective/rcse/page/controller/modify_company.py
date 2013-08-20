@@ -3,8 +3,9 @@ from AccessControl.SecurityManagement import newSecurityManager,\
     getSecurityManager, setSecurityManager
 from AccessControl.User import UnrestrictedUser
 from plone.autoform.form import AutoExtensibleForm
-from plone.dexterity import utils
+from plone.dexterity.utils import createContentInContainer
 from plone.z3cform.layout import FormWrapper
+from Products.CMFCore.permissions import ModifyPortalContent
 from Products.CMFCore.utils import getToolByName
 from z3c.form import form
 from z3c.form import button
@@ -18,7 +19,7 @@ from collective.rcse.content.member import vocabularies
 from collective.rcse.i18n import _
 
 
-class ModifyCompanyFormSchema(IMember):
+class ModifyCompanyFormSchema(interface.Interface):
     company = schema.Choice(
         title=_(u"Company"),
         vocabulary='collective.rcse.vocabulary.companies'
@@ -58,18 +59,20 @@ class ModifyCompanyForm(AutoExtensibleForm, form.Form):
             return
         if data['company'] == '__new_company' or data['company'] == '':
             data['company'] = data['new_company']
-            data['company_id'] = _createNewCompany(data)
+            data['company_id'] = self._createNewCompany(data)
         else:
             data['company_id'] = data['company']
-            companies = vocabularies.companies()
+            companies = vocabularies.companies(self.context)
             data['company'] = companies.getTerm(data['company']).title
         self.context.company = data['company']
         self.context.company_id = data['company_id']
+        self.request.response.redirect(self.context.absolute_url())
 
     def _createNewCompany(self, data):
-        portal_state = getMultiAdapter((self.context, self.request),
-                                       name=u'plone_portal_state')
+        portal_state = component.getMultiAdapter((self.context, self.request),
+                                                 name=u'plone_portal_state')
         directory = portal_state.portal()['companies_directory']
+        self.mtool = getToolByName(self.context, 'portal_membership')
         self._security_manager = getSecurityManager()
         self._sudo('Manager')
         company = createContentInContainer(
@@ -77,7 +80,10 @@ class ModifyCompanyForm(AutoExtensibleForm, form.Form):
             'collective.rcse.company',
             title=data['company']
             )
+        company.changeOwnership(self.mtool.getMemberById(self.context.username))
         company.manage_setLocalRoles(self.context.username, ['Owner'])
+        company.setCreators([self.context.username])
+        company.reindexObjectSecurity()
         self._sudo()
         return company.id
 
@@ -99,3 +105,8 @@ class ModifyCompanyForm(AutoExtensibleForm, form.Form):
 
 class ModifyCompanyFormWrapper(FormWrapper):
     form = ModifyCompanyForm
+
+    def update(self):
+        sm = getSecurityManager()
+        if not sm.checkPermission(ModifyPortalContent, self.context):
+            raise Unauthorized

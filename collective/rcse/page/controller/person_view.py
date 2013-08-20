@@ -4,6 +4,7 @@ from zope import interface
 from zope import schema
 from Products.Five.browser import BrowserView
 from Products.CMFCore.permissions import ReviewPortalContent
+from Products.CMFCore.permissions import ModifyPortalContent
 from Products.CMFCore.utils import getToolByName
 from plone.memoize.instance import memoize
 
@@ -173,3 +174,9 @@ class MemberInfoView(BrowserView):
             user_with_local_roles=self.memberid
             )
         return brains
+
+    def canModify(self):
+        sm = getSecurityManager()
+        if not sm.checkPermission(ModifyPortalContent, self.context):
+            return False
+        return True
