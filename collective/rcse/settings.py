@@ -1,20 +1,17 @@
-from plone.registry.interfaces import IRegistry
 from Products.CMFCore.utils import getToolByName
-from zope.component import getUtility
+from zope import component
 from zope import interface
 from zope import schema
 
 from collective.rcse.i18n import _
 
 
-class IDocumentActionsIcons(interface.Interface):
-    """Interface for icon/actions mapping setting"""
+class ISettings(interface.Interface):
+    """Marker interface to get utilities giving
+    interfaces with default settings."""
 
-    mapping = schema.Dict(
-        title=_(u"Action to icon"),
-        key_type=schema.ASCIILine(),
-        value_type=schema.ASCIILine(),
-    )
+    def getInterface():
+        """Return an interface with default settings."""
 
 
 class IPersonalPreferences(interface.Interface):
@@ -24,27 +21,23 @@ class IPersonalPreferences(interface.Interface):
         title=_(u"Subscribe when favorited"),
         description=_(u"You will automatically subscribed to contents "
                       u"you add to your favorites."),
+        default=True
     )
     watch_when_favorited = schema.Bool(
         title=_(u"Watch when favorited"),
         description=_(u"You will automatically watch groups you add "
                       u"to your favorites."),
+        default=True
     )
 
 
-def getUserSettings(context):
-    """Return a dict with the authenticated user settings."""
-    registry = getUtility(IRegistry)
-    default_settings = registry.forInterface(IPersonalPreferences)
+def getDefaultSettings():
     settings = {}
-    for s in IPersonalPreferences.names():
-        try:
-            settings[s] = default_settings.__getattr__(s)
-        except AttributeError:
-            settings[s] = None
-    mtool = getToolByName(context, 'portal_membership')
-    user = mtool.getAuthenticatedMember()
-    if user is None:
-        return settings
-    #@TODO Think about a good way to get user settings (From Member content ?)
+    for name, description in IPersonalPreferences.namesAndDescriptions():
+        settings[name] = description.default
+    utilities = component.getUtilitiesFor(ISettings)
+    for name, utility in utilities:
+        interface = utility.getInterface()
+        for name, description in interface.namesAndDescriptions():
+            settings[name] = description.default
     return settings

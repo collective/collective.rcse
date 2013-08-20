@@ -6,7 +6,6 @@ from zope.component import getMultiAdapter
 from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
 
-from collective.rcse.settings import IDocumentActionsIcons
 from cioppino.twothumbs import rate
 from collective.favoriting.browser.favoriting_view import VIEW_NAME
 

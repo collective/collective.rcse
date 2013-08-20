@@ -3,6 +3,8 @@ from plone.app.textfield import RichText
 from plone.namedfile import field
 from plone.supermodel import model
 from z3c.form.browser.select import SelectFieldWidget
+from zope.annotation import IAttributeAnnotatable
+from zope import interface
 from zope import schema
 
 from collective.rcse.i18n import _

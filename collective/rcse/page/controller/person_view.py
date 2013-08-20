@@ -69,8 +69,8 @@ class AuthenticatedMemberInfoView(BrowserView):
             self.memberid = self.member.getId()
 
     def update_memberinfo(self):
-        if self.member is None:
-            raise ValueError("member can t be none")
+        if self.memberid is None:
+            raise ValueError("memberid can't be none")
         if self.url is None:
             self.url = self.portal_url() + '/author/' + self.memberid
         if self.fullname is None:

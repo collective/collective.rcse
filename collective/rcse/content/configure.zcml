@@ -18,4 +18,6 @@
 	      for="collective.rcse.content.member.IMember
 		   Products.DCWorkflow.interfaces.IAfterTransitionEvent" />
 
+  <adapter factory=".settings.SettingsFactory" />
+
 </configure>

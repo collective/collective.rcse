@@ -80,6 +80,14 @@
       permission="zope2.View"
       />
 
+  <browser:page
+      for="collective.rcse.content.member.IMember"
+      name="get_settings"
+      class=".settings.GetSettings"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+
   <adapter factory=".modify_company.ModifyCompanyFormAdapter" />
 
   <browser:page

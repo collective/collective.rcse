@@ -1,23 +1,6 @@
 <registry>
   <records interface="collective.rcse.security.ISecuritySettings"/>
 
-  <!-- collective.rcse -->
-
-  <record name="collective.rcse.settings.IPersonalPreferences.subscribe_when_favorited">
-    <field type="plone.registry.field.Bool">
-      <title>Subscribe when favorited</title>
-      <description>You will automatically subscribed to contents you add to your favorites.</description>
-    </field>
-    <value>True</value>
-  </record>
-  <record name="collective.rcse.settings.IPersonalPreferences.watch_when_favorited">
-    <field type="plone.registry.field.Bool">
-      <title>Watch when favorited</title>
-      <description>You will automatically watch groups you add to your favorites.</description>
-    </field>
-    <value>True</value>
-  </record>
-
   <!-- collective.readitlater -->
   <records interface="collective.readitlater.registry.IReaditlaterSettings">
         <value key="folder_query">{"portal_type": {"query": "collective.rcse.group"},"path": {"query": "/"}}</value>
