@@ -1,3 +1,4 @@
+from AccessControl import Unauthorized
 from plone.autoform.form import AutoExtensibleForm
 from plone.z3cform.layout import FormWrapper
 from z3c.form import form
@@ -31,6 +32,8 @@ class PersonalPreferencesForm(AutoExtensibleForm, form.Form):
         self.member = self.context.restrictedTraverse('auth_memberinfo')
         self.member.update()
         self.member_context = self.member.get_membrane()
+        if self.member_context is None:
+            raise Unauthorized
         self.settings = self.member_context.restrictedTraverse('get_settings')
         for field in self.fields:
             try:
