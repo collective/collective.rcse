@@ -118,11 +118,13 @@
 
 
                 </div>
+                <tal:remove tal:content="nothing">
                 <button class="context reply-to-comment-button hide allowMultiSubmit"
                         tal:condition="python:isDiscussionAllowed and (isAnon and isAnonymousDiscussionAllowed or userHasReplyPermission)"
                         i18n:translate="label_reply">
                     Reply
                 </button>
+                </tal:remove>
             </div>
 
         </tal:getreplies>
@@ -147,7 +149,7 @@
         </form>
     </div>
 
-    <div id="commenting" class="reply" tal:condition="python:isDiscussionAllowed and (isAnon and isAnonymousDiscussionAllowed or userHasReplyPermission)">
+    <div class="commenting reply" tal:condition="python:isDiscussionAllowed and (isAnon and isAnonymousDiscussionAllowed or userHasReplyPermission)">
 
         <fieldset>
             <div tal:replace="structure view/form/render" />

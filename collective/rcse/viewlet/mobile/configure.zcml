@@ -9,8 +9,7 @@
       view="plone.app.layout.globals.interfaces.IViewView"
       name="plone.comments"
       manager="plone.app.layout.viewlets.interfaces.IBelowContent"
-      class="plone.app.discussion.browser.comments.CommentsViewlet"
-      template="templates/comments.pt"
+      class="plonetheme.jquerymobile.browser.viewlets.hidden.HiddenViewlet"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />

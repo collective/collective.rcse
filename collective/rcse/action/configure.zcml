@@ -93,4 +93,26 @@
       layer="collective.rcse.layer.CommonLayer"
       />
 
+  <browser:page
+      for="*"
+      name="trigger_display_comments"
+      class=".ajax.TriggerDisplayComments"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+  <browser:page
+      for="*"
+      name="plone.comments.ajax"
+      class=".ajax.Comments"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+  <browser:page
+      for="plone.app.discussion.interfaces.IComment"
+      name="moderate-delete-comment"
+      class=".ajax.DeleteCommentAction"
+      permission="plone.app.discussion.ReviewComments"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+
 </configure>
