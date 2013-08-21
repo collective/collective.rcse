@@ -7,6 +7,14 @@ from collective.rcse.i18n import _
 
 class ICompany(interface.Interface):
     """Schema for the dexterity company content type."""
+    private_group = schema.ASCIILine(
+        required=False,
+        readonly=True
+        )
+    public_group = schema.ASCIILine(
+        required=False,
+        readonly=True
+        )
     logo = field.NamedBlobImage(
         title=_(u"Logo"),
         required=False

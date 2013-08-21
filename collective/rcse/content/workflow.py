@@ -14,4 +14,4 @@ def createCompanyIfNotExists(context, event):
     directory = portal_state.portal()['companies_directory']
     if not context.company_id or context.company_id not in directory:
         mtool = getToolByName(context, 'portal_membership')
-        context.company.id = createCompany(context, request)
+        context.company_id = createCompany(context, request)
