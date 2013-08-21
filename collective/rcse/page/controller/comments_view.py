@@ -7,6 +7,7 @@ from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.app.uuid.utils import uuidToURL, uuidToObject
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
+from plone.memoize.view import memoize
 logger = logging.getLogger("collective.rcse")
 
 
@@ -79,7 +80,6 @@ def get_comments_context(context, request):
             context = uuidToObject(uid)
         if not context:
             raise ValueError()
-    import logging; logging.getLogger("log").info(context.absolute_url())
     return context
 
 
@@ -98,3 +98,10 @@ class CommentsView(base.CommentsViewlet):
     def update(self):
         self.context = get_comments_context(self.context, self.request)
         base.CommentsViewlet.update(self)
+
+    @memoize
+    def how_many(self):
+        replies = self.get_replies()
+        if replies:
+            return len(list(replies))
+        return 0
