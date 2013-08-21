@@ -8,7 +8,9 @@
 <body>
   <div metal:fill-slot="content-core" class="directory-wrapper" tal:define="data nocall:view/data">
 
-  <ul data-role="listview">
+  <div class="ui-grid-b ui-responsive">
+    <div class="ui-block-a">
+  <ul data-role="listview" data-inset="true" data-theme="e" data-divider-theme="b">
     <li data-role="list-divider" i18n:translate="">What</li>
     <li tal:condition="data/event_url|nothing">
       <a tal:attributes="href data/event_url" target="_blank"><span class="icon-external-link" i18n:translate="external_website" i18n:domain="plone.app.event">Visit external website</span></a>
@@ -48,11 +50,11 @@
     </li>
     </tal:contact>
   </ul>
-  <div class="ui-grid-a ui-responsive">
-    <div class="ui-block-a">
-      <div class="picturefill-wrapper" tal:content="structure context/@@picturefill"></div>
     </div>
     <div class="ui-block-b">
+      <div class="picturefill-wrapper" tal:content="structure context/@@picturefill"></div>
+    </div>
+    <div class="ui-block-c">
       <tal:txt replace="structure data/text" />
     </div>
   </div>
