@@ -23,7 +23,7 @@
          ></a>
       <a target="_blank"
          data-role="button" data-icon="share-alt" data-inline="true"
-         tal:attributes="href string:${context/absolute_url}"></a>
+         tal:attributes="href view/context_state/view_url"></a>
 
       <a data-role="button" data-rel="popup" data-icon="ellipsis-vertical" data-inline="true" data-transition="pop"
          tal:attributes="href string:#popup-dactions-${context/uuid}"
