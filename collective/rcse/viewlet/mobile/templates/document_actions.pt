@@ -23,6 +23,10 @@
                            data-icon python:str(daction['icon']).replace('icon-', '')">
         </a>
       </tal:action>
+      <a data-role="button" data-inline="true" data-icon="comments-alt"
+         class="action action-comments"
+         tal:attributes="href string:${context/absolute_url}/@@trigger_display_comments"
+         ></a>
       <a href=""
          data-role="button"
          data-icon="share-alt"
@@ -53,8 +57,11 @@
         </tal:action>
       </div>
     </tal:docactions>
-
     </div>
    </div>
+       <div tal:condition="view/should_display_comments"
+        tal:define="comments_view view/comments_view"
+        tal:content="structure comments_view"></div>
+   
   </div>
 </div>

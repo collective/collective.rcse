@@ -8,9 +8,8 @@ from collective.favoriting.browser.favoriting_view import VIEW_NAME
 from Products.Five.browser import BrowserView
 from zope.interface.declarations import implementsOnly
 from zope.browser.interfaces import IBrowserView
-import logging
 from zope.component._api import getMultiAdapter
-logger = logging.getLogger("collective.rcse")
+from collective.rcse.page.controller.comments_view import should_display_comments
 
 
 class DocumentIconActionsViewlet(DocumentActionsViewlet):
@@ -29,6 +28,9 @@ class DocumentIconActionsViewlet(DocumentActionsViewlet):
         self.rate = rate.getTally(self.context)
         self.fav = self.context.restrictedTraverse(VIEW_NAME)
 
+    def should_display_comments(self):
+        return should_display_comments(self.context, self.request)
+
     def get_how_many_like(self):
         return self.rate["ups"]
 
@@ -43,6 +45,9 @@ class DocumentIconActionsViewlet(DocumentActionsViewlet):
 
     def get_how_many_star(self):
         return self.fav.how_many()
+
+    def comments_view(self):
+        return self.context.restrictedTraverse("@@plone.comments")
 
 
 class DocumentActionsView(DocumentIconActionsViewlet):

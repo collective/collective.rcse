@@ -7,8 +7,9 @@ var rcseOpenAuthorInDialog = function(){
 	$('a[rel="author"]"').click(function(eventObject){
 		eventObject.stopImmediatePropagation();
 		eventObject.preventDefault();
+		var portal_path = portal_url.slice(window.location.origin.length + 1);
 		$.mobile.changePage(
-			portal_url + "/@@user_dialog_view",
+			portal_path + "/@@user_dialog_view",
 			{
 				role: "dialog",
 				data: {memberid: $(this).attr("href").split("/").pop()}
@@ -31,6 +32,35 @@ var rcseInitAjaxAction = function(){
 			rcseUpdateUI();
 		});
 	})
+	$('.commenting form').attr("action", portal_url);
+	$('.commenting form').submit(function(e){
+		e.preventDefault();
+	});
+	$('.commenting input[type="submit"]').on("click", function(eventObject){
+		var form = $(eventObject.target).parents("form");
+		var data = {
+			ajax: true,
+			uid: $(eventObject.target).parents(".rcsetile").attr("id")
+		}
+		data[$(eventObject.target).attr("name")] = 1;
+		form.ajaxSubmit({
+			context: form,
+			data: data,
+			url: portal_url + "/@@plone.comments.ajax",
+			success: function(response, status, xhr, jqform){
+				var parent = jqform.parents(".document-actions-wrapper");
+				parent.replaceWith(response['document-actions-wrapper']);
+				rcseUpdateUI();
+				parent.find("textarea").val("");
+			}
+		});
+	})
+	//make the delete an ajax action to not render the page
+	var ajaxDeleteComment = document.createElement("input");
+	ajaxDeleteComment.type = "hidden";
+	ajaxDeleteComment.name = "ajax";
+	ajaxDeleteComment.value = "1";
+	$("input[name='form.button.DeleteComment']").parents('form').append(ajaxDeleteComment);
 }
 var rcseBindChangeEventStartDate = function(){
 	$("#form-widgets-IEventBasic-start").blur(function(e){
@@ -53,9 +83,8 @@ var rcseBindChangeEventStartDate = function(){
 	})
 }
 var rcseUpdateUI = function(){
-	console.log("update ui");
-	rcseInitAjaxAction();
 	rcseDisableAjax();
+	rcseInitAjaxAction();
 	rcseBindChangeEventStartDate();
 	rcseOpenAuthorInDialog();
 	$("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
