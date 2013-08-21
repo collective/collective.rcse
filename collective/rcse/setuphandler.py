@@ -18,6 +18,7 @@ from collective.rcse.i18n import _
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from zope.interface.declarations import alsoProvides
 from Products.membrane.config import TOOLNAME
+from zExceptions import BadRequest
 
 LOG = logging.getLogger("collective.history")
 
@@ -36,6 +37,7 @@ def setupVarious(context):
     setupCatalog(portal)
     fixMembraneCatalog(portal)
     uninstallDependencies(portal)
+    activateComments(portal)
 
 
 def setupRegistration(site):
@@ -230,3 +232,15 @@ def uninstallDependencies(context):
     qi = getToolByName(context, 'portal_quickinstaller')
     qi.uninstallProducts(UNINSTALL)
     #TODO: unstinstall this please ...
+
+
+def activateComments(portal):
+    """This activate comments on all content types"""
+    property = 'allow_discussion'
+    portal_types = getToolByName(portal, 'portal_types')
+    for portal_type in portal_types.listContentTypes():
+        document_fti = getattr(portal_types, portal_type)
+        try:
+            document_fti._updateProperty(property, True)
+        except BadRequest:
+            continue
