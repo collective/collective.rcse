@@ -10,6 +10,7 @@ from zope.component._api import getUtility, getAdapter, queryAdapter
 from zope.browsermenu.interfaces import IBrowserMenu
 from plone.stringinterp.interfaces import IStringSubstitution
 from Products.CMFCore.WorkflowCore import WorkflowException
+from plone.uuid.interfaces import IUUID
 
 MENUS = (
     'plone_contentmenu_actions',
@@ -46,6 +47,7 @@ class EditBar(ViewletBase):
                 self.review_state = None
         except WorkflowException:
             self.review_state = None
+        self.object_uid = IUUID(self.context)
 
 
 class EditBarView(EditBar):
