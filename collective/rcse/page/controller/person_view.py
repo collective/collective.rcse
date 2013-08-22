@@ -73,7 +73,7 @@ class AuthenticatedMemberInfoView(BrowserView):
             raise ValueError("memberid can't be none")
         if self.url is None:
             self.url = self.portal_url() + '/author/' + self.memberid
-        if self.fullname is None:
+        if self.fullname is None and self.member:
             self.fullname = self.member.getProperty('fullname')
 
     def __getattribute__(self, name):
