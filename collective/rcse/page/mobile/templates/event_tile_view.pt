@@ -1,5 +1,54 @@
-<div class="tile-wrapper">
+<div class="tile-wrapper" tal:define="data nocall:view/data">
+  <div class="rcseeventdate">
+    <span class="day" tal:content="python:data.start.day">30</span>
+    <span class="month" tal:content="python:view.month_name(data.start.month)">Jun</span>
+    <span class="year" tal:content="python:data.start.year">2009</span>
+  </div>
   <h2 tal:content="context/Title"></h2>
   <p class="documentDescription" tal:content="context/Description"></p>
-  <input type="date" readonly="readonly" tal:attributes="value context/start"/>
+  <tal:where tal:condition="python: context.urlGMaps or data.location">
+     <a tal:condition="context/urlGMaps" data-icon="map-marker" tal:attributes="href context/urlGMaps" i18n:translate=""><span class="icon-map-marker" tal:content="data/location"></span></a>
+     <span tal:condition="not:context/urlGMaps" class="icon-map-marker" tal:content="data/location"></span>
+  </tal:where>
+  <a class="oembed oembed-responsive"
+     tal:condition="context/urlMedia"
+     tal:attributes="href context/urlMedia"></a>
+
+  <div data-role="collapsible-set" data-mini="true" data-theme="c" data-content-theme="d">
+    <div data-role="collapsible" data-collapsed-icon="user">
+    <tal:contact tal:define="contact_email data/contact_email;
+                             contact_name data/contact_name;
+                             contact_phone data/contact_phone">
+    <h3 tal:condition="python:contact_email or contact_name or contact_phone"
+        data-role="list-divider" i18n:translate="">Contact</h3>
+    <tal:contactname tal:condition="python:contact_name and not contact_email">
+        <span class="icon-user" tal:content="contact_name"></span>
+    </tal:contactname>
+    <tal:contactemail tal:condition="python:contact_email and not contact_name">
+        <a tal:condition="contact_email"
+          tal:replace="structure python: context.spamProtect(mailaddress=contact_email, mailname=contact_email, cssclass='icon-envelope')">
+          email
+       </a>
+    </tal:contactemail>
+    <tal:contactemail tal:condition="python:contact_email and contact_name">
+        <a tal:condition="contact_email"
+          tal:replace="structure python: context.spamProtect(mailaddress=contact_email, mailname=contact_name, cssclass='icon-envelope')">
+          email
+       </a>
+    </tal:contactemail>
+    <tal:contactphone tal:condition="contact_phone">
+        <a class="icon-phone" tal:attributes="href string:tel:${contact_phone}" tal:content="contact_phone"></a>
+    </tal:contactphone>
+    </tal:contact>
+    </div>
+    <div data-role="collapsible" data-collapsed-icon="picture">
+        <h3>Picture</h3>
+        <div class="picturefill-wrapper" tal:content="structure context/@@picturefill"></div>
+    </div>
+    <div data-role="collapsible">
+        <h3>Information</h3>
+        <tal:txt replace="structure data/text" />
+        <p><a tal:condition="data/event_url|nothing" tal:attributes="href data/event_url" target="_blank"><span class="icon-external-link" i18n:translate="external_website" i18n:domain="plone.app.event">Visit external website</span></a></p>
+    </div>
+  </div>
 </div>

@@ -3,6 +3,7 @@ from Products.Five.browser import BrowserView
 from plone.uuid.interfaces import IUUID
 from plone.app.event.dx.behaviors import IEventAccessor
 from plone.app.event.browser.event_view import EventView as BaseView
+import calendar
 
 
 class EventView(BaseView):
@@ -13,7 +14,7 @@ class EventView(BaseView):
         return self.index()
 
     def update(self):
-        pass
+        self.calendar = {k: v for k,v in enumerate(calendar.month_abbr)}
 
     def sameday(self):
         if hasattr(self.context, 'whole_day'):
@@ -57,7 +58,9 @@ class EventView(BaseView):
     
     def contact_phone(self):
         return self.data.contact_phone
-    
+
+    def month_name(self, monthint):
+        return self.calendar.get(monthint)
 
 PRODID = "-//Plone.org//NONSGML collective.rcse//EN"
 VERSION = "2.0"
