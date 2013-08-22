@@ -114,6 +114,60 @@
   }
 })(jQuery);
 
+
+/* SMART SCOLL
+ * 
+$(window).bind('smartscroll', function() {
+	// Check if near bottom
+	var pixelsFromWindowBottomToBottom = 0 + $(document).height()
+			- ($(window).scrollTop()) - $(window).height();
+
+	// if distance remaining in the scroll (including buffer) is less
+	// than the orignal nav to bottom....
+	if (pixelsFromWindowBottomToBottom - 40 < $(document).height() - $a.offset().top) {
+		console.log("do some stuff...");
+	}
+});
+ */
+
+// define a custom event
+/*
+ * smartscroll: debounced scroll event for jQuery *
+ * https://github.com/lukeshumard/smartscroll Based on smartresize by
+ * @louis_remi: https://github.com/lrbabe/jquery.smartresize.js * Copyright 2011
+ * Louis-Remi & Luke Shumard * Licensed under the MIT license. *
+ */
+/*
+var event = $.event, scrollTimeout;
+
+event.special.smartscroll = {
+	setup : function() {
+		$(this).bind("scroll", event.special.smartscroll.handler);
+	},
+	teardown : function() {
+		$(this).unbind("scroll", event.special.smartscroll.handler);
+	},
+	handler : function(event, execAsap) {
+		// Save the context
+		var context = this, args = arguments;
+
+		// set correct event type
+		event.type = "smartscroll";
+
+		if (scrollTimeout) {
+			clearTimeout(scrollTimeout);
+		}
+		scrollTimeout = setTimeout(function() {
+			$(context).trigger('smartscroll', args);
+		}, execAsap === "execAsap" ? 0 : 100);
+	}
+};
+
+$.fn.smartscroll = function(fn) {
+	return fn ? this.bind("smartscroll", fn) : this.trigger("smartscroll",
+			[ "execAsap" ]);
+};
+*/
 var rcseLoadTimeline = function(){
 	$("a.rcse_tile").each(function (){
 	    var item = $(this);
