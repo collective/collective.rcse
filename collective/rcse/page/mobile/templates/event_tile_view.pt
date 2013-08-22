@@ -47,12 +47,16 @@
     </tal:contactphone>
     </tal:contact>
     </div>
-    <div data-role="collapsible" data-collapsed-icon="picture">
+    <div data-role="collapsible" data-collapsed-icon="picture"
+         tal:define="picture nocall:context/image"
+         tal:condition="python: picture or context.urlMedia">
         <h3 i18n:translate="">Media</h3>
         <a i18n:translate=""
            tal:condition="context/urlMedia"
            tal:attributes="href context/urlMedia">External media</a>
-        <div class="picturefill-wrapper" tal:content="structure context/@@picturefill"></div>
+        <div class="picturefill-wrapper"
+             tal:condition="nocall:picture"
+             tal:content="structure context/@@picturefill"></div>
     </div>
   </div>
 </div>
