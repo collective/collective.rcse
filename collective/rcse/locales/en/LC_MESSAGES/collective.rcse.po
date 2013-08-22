@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-08-21 09:22+0000\n"
+"POT-Creation-Date: 2013-08-21 12:55+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -15,18 +15,6 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.rcse\n"
 "Language: \n"
-
-#: ./content/utils.py:42
-msgid "${company}'s private group"
-msgstr ""
-
-#: ./content/utils.py:56
-msgid "${company}'s public group"
-msgstr ""
-
-#: ./page/mobile/templates/event_view.pt:23
-msgid "<span class="icon-map-marker">${DYNAMIC_CONTENT}</span>"
-msgstr ""
 
 #: ./profiles/default/types/collective.rcse.directory.xml
 msgid "A directory"

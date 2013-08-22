@@ -51,12 +51,12 @@ class CioppinoUndislike(BaseHistoryAdapter):
 
 class FavoritingAddedToFavorites(BaseHistoryAdapter):
     component.adapts(IAddedToFavoritesEvent)
-    what = _h(u'added to his favorites:')
+    what = _h(u'favorited')
 
 
 class FavoritingRemovedFromFavorites(BaseHistoryAdapter):
     component.adapts(IRemovedFromFavoritesEvent)
-    what = _h(u'remove from his favorites:')
+    what = _h(u'unfavorited')
 
 
 #we need to query the catalog to get content where current user has localroles.

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-08-21 09:22+0000\n"
+"POT-Creation-Date: 2013-08-21 12:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,18 +16,6 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.rcse\n"
-
-#: ./content/utils.py:42
-msgid "${company}'s private group"
-msgstr ""
-
-#: ./content/utils.py:56
-msgid "${company}'s public group"
-msgstr ""
-
-#: ./page/mobile/templates/event_view.pt:23
-msgid "<span class="icon-map-marker">${DYNAMIC_CONTENT}</span>"
-msgstr ""
 
 #: ./profiles/default/types/collective.rcse.directory.xml
 msgid "A directory"

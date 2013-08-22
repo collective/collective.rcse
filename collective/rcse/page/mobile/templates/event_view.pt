@@ -20,7 +20,7 @@
     <li><tal:date replace="structure python:view.formatted_date(context)" /></li>
     <li data-role="list-divider" i18n:translate="">Where</li>
     <li tal:condition="python: context.urlGMaps or data.location">
-       <a tal:condition="context/urlGMaps" data-icon="map-marker" tal:attributes="href context/urlGMaps" i18n:translate=""><span class="icon-map-marker" tal:content="data/location"></span></a>
+       <a tal:condition="context/urlGMaps" data-icon="map-marker" tal:attributes="href context/urlGMaps"><span class="icon-map-marker" tal:content="data/location" i18n:translate=""></span></a>
        <span tal:condition="not:context/urlGMaps" class="icon-map-marker" tal:content="data/location"></span>
     </li>
     <tal:contact tal:define="contact_email data/contact_email;

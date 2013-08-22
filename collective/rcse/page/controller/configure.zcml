@@ -118,4 +118,12 @@
       permission="zope2.View"
       />
 
+  <browser:page
+      for="*"
+      name="notifications_ajax"
+      class=".notifications_ajax.NotificationAjax"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+
 </configure>
