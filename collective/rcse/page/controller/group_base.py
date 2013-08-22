@@ -82,6 +82,7 @@ class BaseView(BrowserView):
             self.query["portal_type"] = list(self.query["portal_type"])
 
     def get_content(self, batch=True, b_size=10, b_start=0, pagerange=7, object=False):
+        import pdb;pdb.set_trace()
         results = self.catalog(self.query)
         if batch:
             results = Batch(results, b_size, start=b_start, pagerange=pagerange)

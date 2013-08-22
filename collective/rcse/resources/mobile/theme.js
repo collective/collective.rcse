@@ -1,4 +1,16 @@
 //$.mobile.ajaxEnabled = true;
+var rcseLoadTimeline = function(){
+	$("a.rcse_tile").each(function (){
+	    var item = $(this);
+	    $.ajax({
+	      url: $(this).attr('href') + '/@@group_tile_view'
+	    }).success(function(data){
+	      item.replaceWith(data);
+	      rcseUpdateUI();
+	      $(document).trigger("create");
+	    });
+	});
+}
 var rcseDisableAjax = function(){
 	$("#popup-globalsections a").attr("data-ajax", "false");
 	$('form[method="post"]').attr("data-ajax", "false");
@@ -134,4 +146,8 @@ var rcseUpdateUI = function(){
 $(document).on("pagebeforeshow", function(){
 //	console.log("pagebeforeshow");
 	rcseUpdateUI();
+});
+$(document).on("pageshow", function(){
+	console.log("pageshow");
+	rcseLoadTimeline();
 });
