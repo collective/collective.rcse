@@ -32,6 +32,7 @@ var rcseInitAjaxAction = function(){
 			var parent = $(eventObject.target).parents(".document-actions-wrapper");
 			parent.replaceWith(data['document-actions-wrapper']);
 			rcseUpdateUI();
+			$(document).trigger("create");
 		});
 	})
 	$('.commenting form').attr("action", portal_url);
@@ -53,6 +54,7 @@ var rcseInitAjaxAction = function(){
 				var parent = jqform.parents(".document-actions-wrapper");
 				parent.replaceWith(response['document-actions-wrapper']);
 				rcseUpdateUI();
+				$(document).trigger("create");
 				parent.find("textarea").val("");
 			}
 		});
@@ -87,41 +89,40 @@ var rcseBindChangeEventStartDate = function(){
 }
 
 var rcseUpdateNotifications = function(){
-    var rcseReloadNotifications = function(eventObject){
-	$.ajax({
-	    url: portal_url + '/@@notifications_ajax',
-	    context: eventObject
-	}).success(function(data){
-	    var see_all = $("#popup-notifications ul").children("li").last();
-	    var see_all_href = see_all.attr('href');
-	    var see_all_text = see_all.text();
+	var rcseReloadNotifications = function(eventObject){
+		$.ajax({
+			url: portal_url + '/@@notifications_ajax',
+			context: eventObject
+		}).success(function(data){
+			var see_all = $("#popup-notifications ul").children("li").last();
+			var see_all_href = see_all.attr('href');
+			var see_all_text = see_all.text();
+			$("#popup-notifications ul").remove();
+			$("#popup-notifications").append('<ul data-role="listview" data-inset="true" data-icon="false"></ul>');
 
-	    $("#popup-notifications ul").remove();
-	    $("#popup-notifications").append('<ul data-role="listview" data-inset="true" data-icon="false"></ul>');
+			for (var i = 0 ; i < data.length ; i++){
+				var notification = data[i];
+				$("#popup-notifications ul").append('<li><a></a></li>');
+				var a = $("#popup-notifications ul li:last").children('a');
 
-	    for (var i = 0 ; i < data.length ; i++){
-		var notification = data[i];
-		$("#popup-notifications ul").append('<li><a></a></li>');
-		var a = $("#popup-notifications ul li:last").children('a');
+				a.attr('href', notification.url);
+				if (notification.seen == 0)
+				    a.attr('class', 'notification-not-seen');
+				a.text(notification.title);
+			}
 
-		a.attr('href', notification.url);
-		if (notification.seen == 0)
-		    a.attr('class', 'notification-not-seen');
-		a.text(notification.title);
-	    }
-
-	    var see_all = '<li><a href="'+ see_all_href +'">'+ see_all_text +'</a></li>';
-	    $("#popup-notifications ul").append(see_all);
-	    $("#popup-notifications").trigger("create");
+			var see_all = '<li><a href="'+ see_all_href +'">'+ see_all_text +'</a></li>';
+			$("#popup-notifications ul").append(see_all);
+			$("#popup-notifications").trigger("create");
+		});
+	}
+	$("#notifications").click(function(){
+		rcseReloadNotifications();
 	});
-    }
-
-    $("#notifications").click(function(){
-	rcseReloadNotifications();
-    });
 }
 
 var rcseUpdateUI = function(){
+//	console.log('rcseUpdateUI');
 	rcseDisableAjax();
 	rcseInitAjaxAction();
 	rcseBindChangeEventStartDate();
@@ -129,30 +130,8 @@ var rcseUpdateUI = function(){
         rcseUpdateNotifications();
 	$("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
 	picturefill();
-	$(document).trigger("create");
 }
-/* CALL OUR STUFF on jquerymobile events*/
-
-$(document).on("mobileinit", function(){
-
-});
-
 $(document).on("pagebeforeshow", function(){
+//	console.log("pagebeforeshow");
 	rcseUpdateUI();
-});
-
-$(document).ready(function(){
-
-})
-
-$( document ).on( "pageinit", ".page", function() {
-	$( document ).on( "swipeleft swiperight", ".page", function( e ) {
-		if ( $.mobile.activePage.jqmData( "panel" ) !== "open" ) {
-            if ( e.type === "swipeleft"  ) {
-            	$( "#panel-right" ).panel( "open" );
-            } else if ( e.type === "swiperight" ) {
-                $( "#panel-left" ).panel( "open" );
-            }
-        }
-    });
 });
