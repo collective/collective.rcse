@@ -47,7 +47,7 @@ class EditBar(ViewletBase):
                 self.review_state = None
         except WorkflowException:
             self.review_state = None
-        self.object_uid = IUUID(self.context)
+        self.object_uid = unicode(IUUID(self.context, u""))
 
 
 class EditBarView(EditBar):
