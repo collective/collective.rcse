@@ -5,13 +5,16 @@ from Products.CMFCore.utils import getToolByName
 from z3c.form import form
 from z3c.form import button
 from z3c.form import interfaces
+from zope.container.interfaces import INameChooser
 from zope import component
 from zope import interface
 from zope import schema
 
 from collective.rcse.content.member import IMember
 from collective.rcse.content.member import vocabularies
+from collective.rcse.content.utils import createCompany
 from collective.rcse.i18n import _
+from collective.rcse.utils import sudo
 
 
 class RegisterInformationFormSchema(IMember):
@@ -41,29 +44,30 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
     @button.buttonAndHandler(_(u"Submit"), name="submit")
     def handleApply(self, action):
         self.mtool = getToolByName(self.context, 'portal_membership')
-        user = self.mtool.getAuthenticatedMember()
         data, errors = self.extractData()
-        self._checkForm(user, data)
+        self._checkForm(data)
         if errors:
             self.status = _(u"There were errors.")
             return
+        self.member = self.mtool.getAuthenticatedMember()
         if data['company'] == '__new_company' or data['company'] == '':
             data['company'] = data['new_company']
+            data['company_id'] = createCompany(self.context,
+                                               self.request, 
+                                               self.member.getId(),
+                                               data['company'])
         else:
             data['company_id'] = data['company']
-            companies = vocabularies.companies()
+            companies = vocabularies.companies(self.context)
             data['company'] = companies.getTerm(data['company']).title
-        self._updateUser(user.getId(), data)
+        self._updateUser(self.member.getId(), data)
+        self._renameUserContent()
         portal_url = getToolByName(self.context, "portal_url")
         self.request.response.redirect(
             '%s/@@personal-information' % portal_url()
             )
 
-    def _checkForm(self, user, data):
-        if type(user.getProperty('username')) != object:
-            raise interfaces.ActionExecutionError(
-                interface.Invalid(_(u"You are already registered."))
-                )
+    def _checkForm(self, data):
         if data['company'] == '__new_company' or data['company'] == '':
             if not data['new_company']:
                 raise interfaces.WidgetActionExecutionError(
@@ -74,16 +78,26 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
                     )
 
     def _updateUser(self, username, data):
-        self.username = self.member.getUserName()
         self.member_data = None
-        if self.username:
-            results = catalog(getUserName=self.username)
+        self.catalog = getToolByName(self, 'membrane_tool')
+        if username:
+            results = self.catalog(getUserName=username)
             if results:
                 self.member_data = results[0].getObject()
         if self.member_data is None:
             raise ValueError("No user found.")
         for key, value in data.items():
             setattr(self.member_data, key, value)
+
+    @sudo()
+    def _renameUserContent(self):
+        directory = self.member_data.aq_parent
+        title = '%s %s' % (self.member_data.first_name,
+                           self.member_data.last_name)
+        self.member_data.setTitle(title)
+        new_id = INameChooser(directory).chooseName(title, self.member_data)
+        self.catalog.unindexObject(self.member_data)
+        directory.manage_renameObject(self.member_data.id, new_id)
 
 
 class RegisterInformationFormWrapper(FormWrapper):

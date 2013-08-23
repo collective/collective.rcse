@@ -61,7 +61,10 @@ class ModifyCompanyForm(AutoExtensibleForm, form.Form):
             return
         if data['company'] == '__new_company' or data['company'] == '':
             self.context.company = data['new_company']
-            self.context.company_id = createCompany(self.context, self.request)
+            self.context.company_id = createCompany(self.context,
+                                                    self.request,
+                                                    self.context.username,
+                                                    self.context.company)
         else:
             self.context.company_id = data['company']
             companies = vocabularies.companies(self.context)
