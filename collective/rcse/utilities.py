@@ -1,12 +1,10 @@
-from AccessControl.SecurityManagement import newSecurityManager,\
-    getSecurityManager, setSecurityManager
-from AccessControl.User import UnrestrictedUser
 from OFS.SimpleItem import SimpleItem
 from plone.dexterity import utils
 from Products.CMFPlone.utils import getToolByName
 from Products.membrane.interfaces import IUserAdder
 from zope import interface
 
+from collective.rcse.utils import sudo
 from collective.whathappened.utility import IDisplay
 from collective.whathappened.i18n import _ as _w
 
@@ -16,16 +14,15 @@ class RcseUserAdder(SimpleItem):
     interface.implements(IUserAdder)
 
     def addUser(self, login, password):
-        self._createUser(login)
-
-    def _createUser(self, username):
-        container = self.unrestrictedTraverse('users_directory')
         self.mtool = getToolByName(self, 'membrane_tool')
-        results = self.mtool.searchResults(getUserName=username)
+        results = self.mtool.searchResults(getUserName=login)
         if len(results) > 0:
             return
-        self._security_manager = getSecurityManager()
-        self._sudo('Manager')
+        self._createUser(login)
+
+    @sudo()
+    def _createUser(self, username):
+        container = self.unrestrictedTraverse('users_directory')
         item = utils.createContentInContainer(
             container,
             'collective.rcse.member',
@@ -33,22 +30,6 @@ class RcseUserAdder(SimpleItem):
             username=username)
         item.manage_setLocalRoles(username, ['Owner'])
         item.reindexObjectSecurity()
-        self._sudo()
-
-    def _sudo(self, role=None):
-        """Give admin power to the current call"""
-        if role is not None:
-            if self.mtool.getAuthenticatedMember().has_role(role):
-                return
-            sm = getSecurityManager()
-            acl_users = getToolByName(self, 'acl_users')
-            tmp_user = UnrestrictedUser(
-                sm.getUser().getId(), '', [role], ''
-            )
-            tmp_user = tmp_user.__of__(acl_users)
-            newSecurityManager(None, tmp_user)
-        else:
-            setSecurityManager(self._security_manager)
 
 
 class BaseDisplay(object):

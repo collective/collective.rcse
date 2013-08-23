@@ -1,40 +1,32 @@
-from AccessControl.SecurityManagement import newSecurityManager,\
-    getSecurityManager, setSecurityManager
-from AccessControl.User import UnrestrictedUser
 from plone.dexterity.utils import createContentInContainer
 from Products.CMFPlone.utils import getToolByName
 from zope.component import getMultiAdapter
 from zope.i18n import translate
 
 from collective.rcse.i18n import _
+from collective.rcse.utils import sudo
 
 
-def createCompany(context, request):
-    """"
-    Context is user object.
-    context.company is the company title.
-    """
+@sudo()
+def createCompany(context, request, username, company_name):
     portal_state = getMultiAdapter((context, request),
                                    name=u'plone_portal_state')
     directory = portal_state.portal()['companies_directory']
     home = portal_state.portal()['home']
-    sm = getSecurityManager()
     mtool = getToolByName(context, 'portal_membership')
     auth_user = mtool.getAuthenticatedMember().getId()
-    _sudo('Manager')
     company = createContentInContainer(
         directory,
         'collective.rcse.company',
-        title=context.company
+        title=company_name
         )
     company.manage_delLocalRoles([auth_user])
-    company.changeOwnership(mtool.getMemberById(context.username))
-    company.manage_setLocalRoles(context.username, ['Owner'])
-    company.setCreators([context.username])
+    company.changeOwnership(mtool.getMemberById(username))
+    company.manage_setLocalRoles(username, ['Owner'])
+    company.setCreators([username])
     company.reindexObjectSecurity()
-    _createCompaniesGroups(home, company, context.username,
+    _createCompaniesGroups(home, company, username,
                            mtool, auth_user, request)
-    setSecurityManager(sm)
     return company.id
 
 
@@ -72,15 +64,3 @@ def _createCompaniesGroups(home, company, username,
     public_group.reindexObjectSecurity()
     # TODO (Workflow) set group to public group
     company.public_group = public_group.id
-
-
-def _sudo(self, role=None):
-    """Give admin power to the current call"""
-    if role is not None:
-        sm = getSecurityManager()
-        acl_users = getToolByName(self.context, 'acl_users')
-        tmp_user = UnrestrictedUser(
-            sm.getUser().getId(), '', [role], ''
-            )
-        tmp_user = tmp_user.__of__(acl_users)
-        newSecurityManager(None, tmp_user)
