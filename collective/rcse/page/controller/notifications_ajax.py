@@ -23,5 +23,6 @@ class NotificationAjax(BrowserView):
                 context=self.request
                 )
         unseenCount = getUnseenCount(self.context, self.request)
+        import pdb;pdb.set_trace()
         return json.dumps({'unseenCount': unseenCount,
                            'notifications': notifications})

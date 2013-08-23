@@ -4,9 +4,10 @@
     name="title">Contains workflow definitions for your portal</property>
  <bindings>
   <default>
-   <bound-workflow workflow_id="intranet_workflow"/>
+   <bound-workflow workflow_id="collective_rcse_content_workflow"/>
   </default>
  </bindings>
+ <object name="collective_rcse_content_workflow" meta_type="Workflow" />
  <object name="collective_rcse_member_workflow" meta_type="Workflow" />
  <object name="collective_rcse_group_workflow" meta_type="Workflow" />
  <bindings>
