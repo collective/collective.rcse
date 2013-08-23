@@ -1,10 +1,20 @@
+from Products.membrane.interfaces import IUserAdder
 from zope import interface
 
 from collective.whathappened.utility import IDisplay
 from collective.whathappened.i18n import _ as _w
 
 
+class RcseUserAdder(object):
+    """Used by Products.membrane when a user is added."""
+    interface.implements(IUserAdder)
+
+    def addUser(self, login, password):
+        import pdb; pdb.set_trace()
+
+
 class BaseDisplay(object):
+    """Used by collective.whathappened to display notifications."""
     interface.implements(IDisplay)
 
     def display(self, context, request, notification):

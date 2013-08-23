@@ -114,14 +114,28 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
 class RegisterInformationFormWrapper(FormWrapper):
     form = RegisterInformationForm
 
+    def getMemberInfo(self):
+        self.portal_state = component.getMultiAdapter(
+            (self.context, self.request),
+            name=u'plone_portal_state'
+            )
+        self.member = self.portal_state.member()
+        #get member data
+        catalog = getToolByName(self.context, 'membrane_tool')
+        self.username = self.member.getUserName()
+        self.member_data = None
+        if self.username:
+            results = catalog(getUserName=self.username)
+            if results:
+                self.member_data = results[0].getObject()
+
     def update(self):
         super(RegisterInformationFormWrapper, self).update()
-        mtool = getToolByName(self.context, 'portal_membership')
-        portal_url = getToolByName(self.context, "portal_url")
-        if mtool.isAnonymousUser():
-            self.request.response.redirect('%s/login' % portal_url())
-        user = mtool.getAuthenticatedMember()
-        if type(user.getProperty('username')) != object:
+        self.getMemberInfo()
+        portal_url = self.portal_state.portal_url()
+        if self.portal_state.anonymous():
+            self.request.response.redirect('%s/login' % portal_url)
+        if self.member_data is not None:
             self.request.response.redirect(
-                '%s/@@personal-information' % portal_url()
+                '%s/@@personal-information' % portal_url
                 )

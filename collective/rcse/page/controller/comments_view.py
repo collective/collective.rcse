@@ -2,13 +2,11 @@ from zope import interface
 from plone.app.discussion.browser import comments as base
 from plone.uuid.interfaces import IUUID
 import sys
-import logging
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.app.uuid.utils import uuidToURL, uuidToObject
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
 from plone.memoize.view import memoize
-logger = logging.getLogger("collective.rcse")
 
 
 def should_display_comments(context, request):
@@ -22,7 +20,6 @@ def should_display_comments(context, request):
         paths = displayed.split(';')
         context_path = "/".join(context.getPhysicalPath())
         should_display_comments = context_path in displayed
-    logger.info("should_display_comments: %s" % should_display_comments)
     return should_display_comments
 
 
@@ -43,7 +40,6 @@ def must_display_comments(context, request):
             remove +=1
         #request.response.setCookie("DISPLAY_COMMENTS", displayed)
         session.set("DISPLAY_COMMENTS", displayed)
-        logger.info("must_display_comments")
 
 
 def dont_display_comments(context, request):
@@ -58,7 +54,6 @@ def dont_display_comments(context, request):
         displayed = ";".join(paths)
         #request.response.setCookie("DISPLAY_COMMENTS", displayed)
         session.set("DISPLAY_COMMENTS", displayed)
-        logger.info("dont_display_comments")
 
 
 class ICommentsView(interface.Interface):

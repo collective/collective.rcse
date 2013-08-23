@@ -1,9 +1,10 @@
-<tal:wrapper tal:define="menus view/menus">
-<div data-role="controlgroup" data-type="horizontal" id="edit-bar" data-mini="true" i18n:domain="plone">
+<tal:wrapper tal:define="menus view/menus; uid view/object_uid">
+<div data-role="controlgroup" data-type="horizontal" tal:attributes="id string:edit-bar-$uid" data-mini="true" i18n:domain="plone">
         <a href="#popupAddContentMenu"
-             data-role="button" data-rel="popup" data-transition="pop" data-icon="plus" data-theme="b"
-             tal:condition="python:context.portal_type in ('Folder', 'collective.rcse.group')"
-            i18n:translate="">Add</a>
+           data-role="button" data-rel="popup" data-transition="pop" data-icon="plus" data-theme="b"
+           tal:condition="python:context.portal_type in ('Folder', 'collective.rcse.group')"
+           tal:attributes="href string:#popupAddContentMenu-$uid"
+           i18n:translate="">Add</a>
         <tal:edit tal:repeat="action view/object_actions">
              <a tal:condition="python:action['id'] == 'edit'"
                 tal:attributes="href action/url; title action/title"
@@ -16,18 +17,25 @@
                  data-role="button" data-icon="remove"
                 tal:content="menu/title" i18n:translate=""></a>
         </tal:delete>
-        <a href="#popupWorkflowContentMenu" tal:condition="menus/plone_contentmenu_workflow"
-            data-role="button" data-rel="popup" data-transition="pop" data-icon="lock"
+        <a tal:condition="menus/plone_contentmenu_workflow"
+           tal:attributes="href string:#popupWorkflowContentMenu-$uid"
+           data-role="button" data-rel="popup" data-transition="pop" data-icon="lock"
            i18n:translate="">State</a>
 </div>
-<div data-role="popup" id="popupAddContentMenu" i18n:domain="plone">
+<div data-role="popup"
+     tal:attributes="id string:popupAddContentMenu-$uid"
+     tal:condition="python:context.portal_type in ('Folder', 'collective.rcse.group')"
+     i18n:domain="plone">
   <ul data-role="listview" data-inset="true" data-icon="false">
       <li tal:repeat="menu menus/plone_contentmenu_factory">
         <a tal:attributes="href menu/action" tal:content="menu/title">menu</a>
       </li>
   </ul>
 </div>
-<div data-role="popup" id="popupWorkflowContentMenu" i18n:domain="plone" tal:condition="view/review_state">
+<div data-role="popup"
+     i18n:domain="plone"
+     tal:attributes="id string:popupWorkflowContentMenu-$uid"
+     tal:condition="view/review_state">
   <ul data-role="listview" data-inset="true" data-icon="false">
       <li data-role="list-divider"><span i18n:translate="">label_state</span><span tal:content="view/review_state" i18n:translate="">published</span></li>
       <li tal:repeat="menu menus/plone_contentmenu_workflow">

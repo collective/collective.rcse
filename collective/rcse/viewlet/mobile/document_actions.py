@@ -35,7 +35,7 @@ class DocumentIconActionsViewlet(DocumentActionsViewlet):
     def get_how_many(self, action):
         if action["id"] in ("cioppino_twothumbs_like", "cioppino_twothumbs_like_nomore"):
             return self.get_how_many_like()
-        if action["id"] in ("cioppino_twothumbs_dislike", "cioppino_twothumbs_dislike"):
+        if action["id"] in ("cioppino_twothumbs_dislike", "cioppino_twothumbs_dislike_nomore"):
             return self.get_how_many_dislike()
         if action["id"] in ("favoriting_add", "favoriting_rm"):
             return self.get_how_many_star()

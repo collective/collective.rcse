@@ -10,9 +10,9 @@
     <tal:main-macro metal:define-macro="content-core">
       <div tal:define="b_start python:0;
                        b_start request/b_start | b_start;
-                       batch python: view.get_content(b_start=b_start, pagerange=4);">
+                       batch python: view.get_content(b_start=b_start, b_size=4, pagerange=4);">
         <tal:tile tal:repeat="item batch">
-          <div class="rcse_tile" tal:content="structure item/@@group_tile_view"></div>
+          <a class="rcse_tile" tal:attributes="href item/getURL"></a>
         </tal:tile>
         <div metal:use-macro="context/batch_macros/macros/navigation" />
       </div>
