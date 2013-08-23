@@ -79,7 +79,7 @@ class ValidateAuthenticatedMember(ViewletBase):
         elif not self.has_company_info():
             msg = _(u"Please complete your company information")
             self.status.add(msg)
-            url = '%s' % self.company.absolute_url()
+            url = '%s/edit' % self.company.absolute_url()
             self.lock_rendering_and_redirect(url=url)
             return ''
 
