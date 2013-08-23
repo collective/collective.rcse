@@ -4,6 +4,8 @@ from Products.Five.browser import BrowserView
 from zope.i18n import translate
 
 from collective.whathappened.browser.notifications import getHotNotifications
+from collective.whathappened.browser.notifications import getUnseenCount
+
 
 class NotificationAjax(BrowserView):
     def updateResponse(self):
@@ -20,4 +22,6 @@ class NotificationAjax(BrowserView):
                 notification['title'],
                 context=self.request
                 )
-        return json.dumps(notifications)
+        unseenCount = getUnseenCount(self.context, self.request)
+        return json.dumps({'unseenCount': unseenCount,
+                           'notifications': notifications})

@@ -1,7 +1,8 @@
 <tal:block tal:condition="python:view.user_actions and not view.anonymous">
 <a href="#popup-notifications" id="notifications"
    data-rel="popup" data-role="button" data-inline="true"
-   data-transition="fade" data-icon="bell" data-iconpos="notext">Notifications</a>
+   data-transition="fade" data-icon="bell"
+   data-iconpos="left" tal:content="view/unseenCount">0</a>
 
 <div data-role="popup" id="popup-notifications" i18n:domain="plone">
     <ul data-role="listview" data-inset="true" data-icon="false">

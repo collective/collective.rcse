@@ -96,11 +96,13 @@ var rcseUpdateNotifications = function(){
 	    var see_all_href = see_all.attr('href');
 	    var see_all_text = see_all.text();
 
+	    $("#notifications .ui-btn-text").text(data['unseenCount']);
+
 	    $("#popup-notifications ul").remove();
 	    $("#popup-notifications").append('<ul data-role="listview" data-inset="true" data-icon="false"></ul>');
 
-	    for (var i = 0 ; i < data.length ; i++){
-		var notification = data[i];
+	    for (var i = 0 ; i < data['notifications'].length ; i++){
+		var notification = data['notifications'][i];
 		$("#popup-notifications ul").append('<li><a></a></li>');
 		var a = $("#popup-notifications ul li:last").children('a');
 
