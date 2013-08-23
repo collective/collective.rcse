@@ -6,7 +6,7 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="collective.rcse">
 <body>
-  <div metal:fill-slot="content-core">
+  <div metal:fill-slot="content-core" class="directory-wrapper">
     <tal:main-macro metal:define-macro="content-core">
       <div tal:define="b_start python:0;
                        b_start request/b_start | b_start;
