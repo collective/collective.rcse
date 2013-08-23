@@ -57,7 +57,7 @@ class ValidateAuthenticatedMember(ViewletBase):
         elif not self.is_registred():
             msg = _(u"You are not registred, please proceed")
             self.status.add(msg)
-            url =  '%s/@@register' % (self.portal_state.portal_url())
+            url =  '%s/@@register_information' % (self.portal_state.portal_url())
             self.lock_rendering_and_redirect(url=url)
             return ''
         elif IMembraneUser.providedBy(self.context) and self.context.username == self.member.getUserName():
