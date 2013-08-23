@@ -2,6 +2,7 @@ from AccessControl.SecurityInfo import ModuleSecurityInfo
 from Products.CMFCore.permissions import setDefaultRoles
 #http://developer.plone.org/security/custom_permissions.html
 security = ModuleSecurityInfo('collective.rcse')
+TYPE_ROLES = ('Manager', 'Site Administrator', 'Owner')
 perms = []
 
 for typename in (
@@ -19,7 +20,7 @@ for typename in (
     permid = 'Add' + typename.capitalize()
     permname = 'collective.rcse: Add ' + typename
     security.declarePublic(permid)
-    setDefaultRoles(permname, ('Manager',))
+    setDefaultRoles(permname, TYPE_ROLES)
 
 AddAudio = "collective.rcse: Add audio"
 AddDiscussion = "collective.rcse: Add discussion"
