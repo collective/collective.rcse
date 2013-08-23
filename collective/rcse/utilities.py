@@ -38,10 +38,14 @@ class BaseDisplay(object):
 
     def display(self, context, request, notification):
         where = notification.where.encode('utf-8')
-        try:
-            title = context.restrictedTraverse(where).Title()
-            self.where = title.decode('utf-8')
-        except KeyError:
+        if context is not None:
+            try:
+                title = context.restrictedTraverse(where).Title()
+            except KeyError:
+                self.where = where.split('/')[-1]
+            else:
+                self.where = title.decode('utf-8')
+        else:
             self.where = where.split('/')[-1]
         self.who = ', '.join(notification.who)
         self.plural = True if len(notification.who) > 1 else False
