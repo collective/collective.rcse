@@ -114,5 +114,19 @@
       permission="plone.app.discussion.ReviewComments"
       layer="collective.rcse.layer.CommonLayer"
       />
+  <browser:page
+      for="collective.rcse.content.group.GroupSchema"
+      name="join-this-group"
+      class=".join.Join"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+  <browser:page
+      for="collective.rcse.content.group.GroupSchema"
+      name="quit-this-group"
+      class=".join.Quit"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
 
 </configure>
