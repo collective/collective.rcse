@@ -110,7 +110,7 @@ class ValidateAuthenticatedMember(ViewletBase):
         return has_required_info
 
     def is_registred(self):
-        return self.member_data is not None
+        return self.member_data.company_id is not None
 
     def is_validated_user(self):
         tool = getToolByName(self.context, "portal_workflow")

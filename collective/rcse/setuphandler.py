@@ -38,6 +38,13 @@ def setupVarious(context):
     fixMembraneCatalog(portal)
     uninstallDependencies(portal)
     activateComments(portal)
+    deactivateSourceUsers(portal)
+
+
+def deactivateSourceUsers(portal):
+    acl_users = getToolByName(portal, 'acl_users')
+    source_users = acl_users['source_users']
+    source_users.manage_activateInterfaces([])
 
 
 def setupRegistration(site):

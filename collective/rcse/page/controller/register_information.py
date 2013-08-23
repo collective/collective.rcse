@@ -1,7 +1,3 @@
-from AccessControl import Unauthorized
-from AccessControl.SecurityManagement import newSecurityManager,\
-    getSecurityManager, setSecurityManager
-from AccessControl.User import UnrestrictedUser
 from plone.autoform.form import AutoExtensibleForm
 from plone.dexterity import utils
 from plone.z3cform.layout import FormWrapper
@@ -57,7 +53,7 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
             data['company_id'] = data['company']
             companies = vocabularies.companies()
             data['company'] = companies.getTerm(data['company']).title
-        self._createUser(user.getId(), data)
+        self._updateUser(user.getId(), data)
         portal_url = getToolByName(self.context, "portal_url")
         self.request.response.redirect(
             '%s/@@personal-information' % portal_url()
@@ -77,38 +73,17 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
                         )
                     )
 
-    def _createUser(self, username, data):
-        container = self.context.unrestrictedTraverse('users_directory')
-        mtool = getToolByName(self.context, 'membrane_tool')
-        results = mtool.searchResults(getUserName=username)
-        if len(results) > 0:
-            raise Unauthorized, _(u"You are already registered.")
-        data['username'] = username
-        self._security_manager = getSecurityManager()
-        self._sudo('Manager')
-        item = utils.createContentInContainer(
-            container,
-            'collective.rcse.member',
-            checkConstraints=False,
-            **data)
-        item.manage_setLocalRoles(username, ['Owner'])
-        item.reindexObjectSecurity()
-        self._sudo()
-
-    def _sudo(self, role=None):
-        """Give admin power to the current call"""
-        if role is not None:
-            if self.mtool.getAuthenticatedMember().has_role(role):
-                return
-            sm = getSecurityManager()
-            acl_users = getToolByName(self.context, 'acl_users')
-            tmp_user = UnrestrictedUser(
-                sm.getUser().getId(), '', [role], ''
-            )
-            tmp_user = tmp_user.__of__(acl_users)
-            newSecurityManager(None, tmp_user)
-        else:
-            setSecurityManager(self._security_manager)
+    def _updateUser(self, username, data):
+        self.username = self.member.getUserName()
+        self.member_data = None
+        if self.username:
+            results = catalog(getUserName=self.username)
+            if results:
+                self.member_data = results[0].getObject()
+        if self.member_data is None:
+            raise ValueError("No user found.")
+        for key, value in data.items():
+            setattr(self.member_data, key, value)
 
 
 class RegisterInformationFormWrapper(FormWrapper):
@@ -135,7 +110,7 @@ class RegisterInformationFormWrapper(FormWrapper):
         portal_url = self.portal_state.portal_url()
         if self.portal_state.anonymous():
             self.request.response.redirect('%s/login' % portal_url)
-        if self.member_data is not None:
+        if self.member_data.company_id is not None:
             self.request.response.redirect(
                 '%s/@@personal-information' % portal_url
                 )

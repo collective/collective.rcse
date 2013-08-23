@@ -1,3 +1,8 @@
+from AccessControl.SecurityManagement import newSecurityManager,\
+    getSecurityManager, setSecurityManager
+from AccessControl.User import UnrestrictedUser
+from OFS.SimpleItem import SimpleItem
+from Products.CMFPlone.utils import getToolByName
 from Products.membrane.interfaces import IUserAdder
 from zope import interface
 
@@ -5,12 +10,44 @@ from collective.whathappened.utility import IDisplay
 from collective.whathappened.i18n import _ as _w
 
 
-class RcseUserAdder(object):
+class RcseUserAdder(SimpleItem):
     """Used by Products.membrane when a user is added."""
     interface.implements(IUserAdder)
 
     def addUser(self, login, password):
-        import pdb; pdb.set_trace()
+        _createUser(login)
+
+    def _createUser(self, username):
+        container = self.unrestrictedTraverse('users_directory')
+        self.mtool = getToolByName(self, 'membrane_tool')
+        results = mtool.searchResults(getUserName=username)
+        if len(results) > 0:
+            return
+        self._security_manager = getSecurityManager()
+        self._sudo('Manager')
+        item = utils.createContentInContainer(
+            container,
+            'collective.rcse.member',
+            checkConstraints=False,
+            username=username)
+        item.manage_setLocalRoles(username, ['Owner'])
+        item.reindexObjectSecurity()
+        self._sudo()
+
+    def _sudo(self, role=None):
+        """Give admin power to the current call"""
+        if role is not None:
+            if self.mtool.getAuthenticatedMember().has_role(role):
+                return
+            sm = getSecurityManager()
+            acl_users = getToolByName(self.context, 'acl_users')
+            tmp_user = UnrestrictedUser(
+                sm.getUser().getId(), '', [role], ''
+            )
+            tmp_user = tmp_user.__of__(acl_users)
+            newSecurityManager(None, tmp_user)
+        else:
+            setSecurityManager(self._security_manager)
 
 
 class BaseDisplay(object):
