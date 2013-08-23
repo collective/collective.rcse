@@ -2,6 +2,7 @@ from AccessControl.SecurityManagement import newSecurityManager,\
     getSecurityManager, setSecurityManager
 from AccessControl.User import UnrestrictedUser
 from OFS.SimpleItem import SimpleItem
+from plone.dexterity import utils
 from Products.CMFPlone.utils import getToolByName
 from Products.membrane.interfaces import IUserAdder
 from zope import interface
@@ -15,12 +16,12 @@ class RcseUserAdder(SimpleItem):
     interface.implements(IUserAdder)
 
     def addUser(self, login, password):
-        _createUser(login)
+        self._createUser(login)
 
     def _createUser(self, username):
         container = self.unrestrictedTraverse('users_directory')
         self.mtool = getToolByName(self, 'membrane_tool')
-        results = mtool.searchResults(getUserName=username)
+        results = self.mtool.searchResults(getUserName=username)
         if len(results) > 0:
             return
         self._security_manager = getSecurityManager()
@@ -40,7 +41,7 @@ class RcseUserAdder(SimpleItem):
             if self.mtool.getAuthenticatedMember().has_role(role):
                 return
             sm = getSecurityManager()
-            acl_users = getToolByName(self.context, 'acl_users')
+            acl_users = getToolByName(self, 'acl_users')
             tmp_user = UnrestrictedUser(
                 sm.getUser().getId(), '', [role], ''
             )
