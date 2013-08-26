@@ -275,6 +275,14 @@
 
   <browser:page
       for="collective.rcse.content.group.GroupSchema"
+      name="members_view"
+      template="templates/group_members_view.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      for="collective.rcse.content.group.GroupSchema"
       name="timeline_view"
       menu="plone_displayviews"
       title="Timeline view"

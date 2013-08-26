@@ -117,6 +117,16 @@ class RequestMemberInfoView(AuthenticatedMemberInfoView):
         if self.member is None and self.memberid is not None:
             self.member = self.membership.getMemberById(self.memberid)
 
+
+class GetMemberInfoView(AuthenticatedMemberInfoView):
+    """member info throw request param
+    """
+    def __call__(self, userid):
+        self.update()
+        self.memberid = userid
+        self.member = self.membership.getMemberById(self.memberid)
+
+
 class MemberInfoView(BrowserView):
     def __init__(self, context, request):
         self.context = context

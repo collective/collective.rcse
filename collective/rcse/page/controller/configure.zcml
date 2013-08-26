@@ -17,6 +17,14 @@
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
       />
+  <browser:page
+      for="*"
+      name="get_memberinfo"
+      class=".person_view.GetMemberInfoView"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+
 
 <!--
    <browser:page
