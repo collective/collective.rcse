@@ -119,7 +119,7 @@ class RequestMemberInfoView(AuthenticatedMemberInfoView):
 
 
 class GetMemberInfoView(AuthenticatedMemberInfoView):
-    """member info throw request param
+    """Need to be called with userid parameter
     """
     def __call__(self, userid):
         self.update()

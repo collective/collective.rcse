@@ -8,6 +8,7 @@ class CompanyInfoView(BrowserView):
         self.request = request
         self.portal_url = None
         self.wtool = None
+        self.catalog = None
 
     def __call__(self):
         self.update()
@@ -21,10 +22,12 @@ class CompanyInfoView(BrowserView):
             self.portal_url = getToolByName(self.context, 'portal_url')
         if self.wtool is None:
             self.wtool = getToolByName(self.context, 'portal_workflow')
+        if self.catalog is None:
+            self.catalog = getToolByName(self.context, 'portal_catalog')
 
     def getCompanyProperties(self):
         self.url = '/'.join(self.context.getPhysicalPath())
 
     def getUsers(self):
-        return []
-        mtool = getToolByName(self.context, 'membrane_tool')
+        brains = self.catalog(company_id=self.context.id)
+        return [brain.getObject() for brain in brains]

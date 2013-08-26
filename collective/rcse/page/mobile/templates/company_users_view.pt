@@ -8,11 +8,10 @@
 <body>
   <div metal:fill-slot="content-core" class="directory-wrapper">
     <tal:main-macro metal:define-macro="content-core">
-      <tal:members tal:repeat="member view/getUsers">
-	<tal:block tal:define="m python: member.getObject()"
-		   tal:replace="structure m/@@vcard_view">
-	</tal:block>
-      </tal:members>
+      <div tal:repeat="member view/getUsers">
+	<div tal:replace="structure member/@@vcard_view">
+	</div>
+      </div>
     </tal:main-macro>
   </div>
 </body>
