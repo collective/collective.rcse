@@ -92,18 +92,9 @@
     <!-- header.leftaction.sections -->
     <browser:viewlet
         name="plonetheme.jquerymobile.header.leftaction.sections"
-        class="collective.rcse.viewlet.mobile.sections.RCSESections"
+        class="collective.rcse.viewlet.controller.sections.RCSESections"
         manager="plonetheme.jquerymobile.browser.viewlets.manager.IHeaderLeft"
         template="templates/sections.pt"
-        layer="collective.rcse.layer.MobileLayer"
-        permission="zope2.View"
-        />
-    <!-- header.leftaction.sections -->
-    <browser:viewlet
-        name="collective.rcse.groupregistration"
-        class="collective.rcse.viewlet.controller.group_registration.GroupRegistration"
-        manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
-        template="templates/group_registration.pt"
         layer="collective.rcse.layer.MobileLayer"
         permission="zope2.View"
         />

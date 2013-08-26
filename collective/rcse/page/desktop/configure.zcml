@@ -4,6 +4,13 @@
     i18n_domain="collective.rcse">
 
   <browser:page
+      name="bootstrap_view"
+      for="*"
+      class=".bootstrap_view.BootstrapView"
+      allowed_interface=".bootstrap_view.IBootstrapView"
+      permission="zope.Public"
+    />
+  <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="timeline_view"
       class="collective.rcse.page.controller.timeline_view.TimelineView"
