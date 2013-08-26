@@ -9,6 +9,8 @@ class GroupRegistration(ViewletBase):
         ViewletBase.update(self)
         context = aq_inner(self.context)
         while context.portal_type != "collective.rcse.group":
+            if context.portal_type == "Plone Site":
+                break
             context = aq_parent(context)
             if context.portal_type == "Plone Site":
                 break
