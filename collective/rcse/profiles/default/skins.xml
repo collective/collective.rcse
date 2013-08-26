@@ -10,7 +10,7 @@
   <layer name="collective_rcse_mobile" insert-after="custom"/>
  </skin-path>
 
- <skin-path name="collective.rcse.desktop" based-on="plonetheme.foundation">
+ <skin-path name="collective.rcse.desktop" based-on="Plone Classic Theme">
   <layer name="collective_rcse_desktop" insert-after="custom"/>
  </skin-path>
 

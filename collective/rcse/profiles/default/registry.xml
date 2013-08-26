@@ -36,12 +36,6 @@
   <record name="Products.ResourceRegistries.interfaces.settings.IResourceRegistriesSettings.resourceBundlesForThemes">
     <value purge="False">
       <element key="collective.rcse.desktop">
-        <element>default</element>
-        <element>polyfill</element>
-        <element>jquery</element>
-        <element>foundation</element>
-        <element>picturefill</element>
-        <element>ckeditor</element>
         <element>rcse</element>
       </element>
       <element key="collective.rcse.mobile">
