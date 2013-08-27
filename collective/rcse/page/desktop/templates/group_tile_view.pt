@@ -11,11 +11,11 @@
 	       tal:content="creator_info/fullname">John</a></h4>
 	    <a class="group" data-inline="true" tal:attributes="href view/group_url" tal:content="view/group_title">group</a>
 	    <span class="date" tal:condition="view/effective_date" tal:content="view/effective_date"></span>
+        <div class="editbar" tal:content="structure context/@@collective.rcse.editbar"></div>
     </div>
   </div>
  </div>
  <div class="panel-body">
-    <div class="editbar" tal:content="structure context/@@collective.rcse.editbar"></div>
     <div class="tilecontent" tal:content="structure view/get_content"></div>
     <div class="document-actions-wrapper" tal:content="structure context/@@plone.abovecontenttitle.documentactions"></div>
  </div>

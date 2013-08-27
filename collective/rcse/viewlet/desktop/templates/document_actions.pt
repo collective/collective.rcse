@@ -7,21 +7,21 @@
                   tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
         <a tal:attributes="href daction/url;
                            id daction/id;
-                           class string:action ${daction/id} btn btn-default;
+                           class string:action ${daction/id} btn btn-sm btn-default;
                            target daction/link_target|nothing;
                            title daction/description;">
           <span tal:attributes="class string:${daction/icon}"></span> <tal:label tal:content="python:view.get_how_many(daction)"></tal:label>
         </a>
       </tal:action>
-      <a class="action action-comments btn btn-default"
+      <a class="action action-comments btn btn-sm btn-default"
          tal:attributes="href string:${context/absolute_url}/@@trigger_display_comments"
          ><span class="icon-comments-alt"></span> <tal:label tal:content="view/get_how_many_comments"></tal:label>
       </a>
-      <a class="action btn btn-default"
+      <a class="action btn btn-sm btn-default"
          tal:attributes="href view/context_state/view_url"><span class="icon-share-alt"></span></a>
 
 <div class="btn-group" tal:condition="view/actions">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+  <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
     <span class="icon-caret-down"></span> <tal:label i18n:translate="">Action</tal:label>
   </button>
   <ul class="dropdown-menu" role="menu">
