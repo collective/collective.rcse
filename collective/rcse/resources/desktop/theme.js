@@ -12206,10 +12206,22 @@ var rcseConvertPortletToBootstrap = function(){
 		$(newTitle).append(titleWrapper);
 		$(newList).addClass("list-group");
 		$(newPortlet).append(newTitle);
-		$(this).find("dd").each(function(){
+		if ($(this).hasClass('portletNavigationTree')){
+			console.log('navtree');
 			$(this).find('a').addClass('list-group-item');
-		    $(newList).append($(this).html());
-		});
+			$(this).find('div > a').unwrap();
+			$(this).find('a > img').remove();
+			$(this).find("li").each(function(){
+				console.log("li");
+				$(newList).append($(this).html());
+			})
+		}else{
+			$(this).find("dd").each(function(){
+				console.log('others');
+				$(this).find('a').addClass('list-group-item');
+				$(newList).append($(this).html());
+			});
+		}
 		newPortlet.appendChild(newList);
 		$(this).replaceWith(newPortlet);
 	});

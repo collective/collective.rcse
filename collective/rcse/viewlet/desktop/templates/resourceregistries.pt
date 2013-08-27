@@ -3,5 +3,6 @@
 <link type="text/css" rel="stylesheet" media="screen"
       tal:attributes="href string:${baseurl}/++resource++collective.rcse/theme.min.css" >
 <script type="text/javascript" tal:attributes="src string:${baseurl}/plone_javascript_variables.js"></script>
-<script type="text/javascript" tal:attributes="src string:${baseurl}/++resource++collective.rcse/theme.min.js"></script>
+<script type="text/javascript" tal:attributes="src string:${baseurl}/++resource++collective.rcse/theme.js"></script>
+<!-- <script type="text/javascript" tal:attributes="src string:${baseurl}/++resource++collective.rcse/theme.min.js"></script> -->
 </tal:resources>
