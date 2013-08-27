@@ -15,10 +15,8 @@
   </div>
  </div>
  <div class="panel-body">
-  <div class="tilecontent" tal:content="structure view/get_content"></div>
-  <div class="actions" tal:define="object_url string:${context/absolute_url}">
-    <a tal:attributes="href string:${object_url}#commenting" class="button" i18n:translate="">Comment</a>
-    <a tal:attributes="href string:${object_url}" class="button" i18n:translate="">Read</a>
-  </div>
+    <div class="editbar" tal:content="structure context/@@collective.rcse.editbar"></div>
+    <div class="tilecontent" tal:content="structure view/get_content"></div>
+    <div class="document-actions-wrapper" tal:content="structure context/@@plone.abovecontenttitle.documentactions"></div>
  </div>
 </div>

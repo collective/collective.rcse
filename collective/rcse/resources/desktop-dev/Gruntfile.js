@@ -26,6 +26,7 @@ module.exports = function(grunt) {
         src: [
           'js/jquery.js',
           'js/jquery.oembed.js',
+          'js/comments.js',
           'bootstrap/js/transition.js',
           'bootstrap/js/alert.js',
           'bootstrap/js/button.js',

@@ -1,0 +1,49 @@
+<tal:wrapper tal:define="menus view/menus; uid view/object_uid">
+<div class="btn-group" tal:attributes="id string:edit-bar-$uid" i18n:domain="plone">
+      <tal:groupjoin tal:condition="view/should_render">
+        <a class="ajax-action btn btn-default icon-signin"
+           tal:attributes="href string:${view/group_url}/@@join-this-group"
+           tal:condition="view/can_join">Join this group</a>
+        <a class="ajax-action btn btn-default icon-signout"
+           tal:attributes="href string:${view/group_url}/@@quit-this-group"
+           tal:condition="view/can_quit">Quit this group</a>
+      </tal:groupjoin>
+		<div class="btn-group" tal:condition="python:context.portal_type in ('Folder', 'collective.rcse.group')">
+		  <button type="button" class="btn btn-default dropdown-toggle icon-plus" data-toggle="dropdown" i18n:translate="">
+		    Add
+		  </button>
+		  <ul class="dropdown-menu" role="menu">
+		     <li tal:repeat="menu menus/plone_contentmenu_factory">
+		       <a tal:attributes="href menu/action" tal:content="menu/title">menu</a>
+		     </li>
+		  </ul>
+		</div>
+
+        <tal:edit tal:repeat="action view/object_actions">
+             <a tal:condition="python:action['id'] == 'edit'"
+                tal:attributes="href action/url; title action/title"
+                class="btn btn-default icon-pencil"
+                tal:content="action/title" i18n:translate=""></a>
+        </tal:edit>
+        <tal:delete tal:repeat="menu menus/plone_contentmenu_actions">
+             <a tal:condition="python:menu['extra']['id'] == 'plone-contentmenu-actions-delete'"
+                tal:attributes="href menu/action; title menu/description"
+                class="btn btn-default icon-remove"
+                tal:content="menu/title" i18n:translate=""></a>
+        </tal:delete>
+		<div class="btn-group" tal:condition="menus/plone_contentmenu_workflow">
+		  <button type="button" class="btn btn-default dropdown-toggle icon-lock" data-toggle="dropdown"
+		    i18n:translate="">
+		    State
+		  </button>
+		  <ul class="dropdown-menu" role="menu">
+		      <li class="disabled"><span i18n:translate="">label_state</span><span tal:content="view/review_state" i18n:translate="">published</span></li>
+              <li class="divider"></li>
+		      <li tal:repeat="menu menus/plone_contentmenu_workflow">
+		        <a tal:attributes="href menu/action" tal:content="menu/title" i18n:translate="">menu</a>
+		      </li>
+		  </ul>
+		</div>
+</div>
+
+</tal:wrapper>

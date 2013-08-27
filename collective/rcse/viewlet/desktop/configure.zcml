@@ -19,6 +19,41 @@
         permission="zope2.View"
         layer="collective.rcse.layer.DesktopLayer"
         />
+  <!-- Render the document actions -->
+  <browser:viewlet
+      name="plone.abovecontenttitle.documentactions"
+      for="Products.CMFCore.interfaces.IContentish"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+      class="collective.rcse.viewlet.controller.document_actions.DocumentIconActionsViewlet"
+      template="templates/document_actions.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
+  <browser:page
+      name="plone.abovecontenttitle.documentactions"
+      for="Products.CMFCore.interfaces.IContentish"
+      class="collective.rcse.viewlet.controller.document_actions.DocumentActionsView"
+      template="templates/document_actions.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
+    <!-- edit-bar -->
+  <browser:viewlet
+      name="plonetheme.jquerymobile.editbar"
+      manager="plonetheme.jquerymobile.browser.viewlets.manager.IEditBar"
+      template="templates/edit_bar.pt"
+      class="collective.rcse.viewlet.controller.editbar.EditBar"
+      permission="zope2.View"
+      layer="collective.rcse.layer.DesktopLayer"
+      />
+  <browser:page
+      for="*"
+      name="collective.rcse.editbar"
+      class="collective.rcse.viewlet.controller.editbar.EditBarView"
+      template="templates/edit_bar.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.DesktopLayer"
+      />
 
   <include file="hidden.zcml"/>
 </configure>

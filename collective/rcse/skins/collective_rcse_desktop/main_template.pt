@@ -69,10 +69,7 @@
                             tal:define="show_border context/@@plone/showEditableBorder; show_border python:show_border and not ajax_load"
                             tal:attributes="class python:show_border and 'documentEditable' or ''">
 
-                            <div id="editing-bar"
-                                class="row-fluid"
-                                tal:condition="show_border"
-                                tal:content="structure provider:plone.contentviews" />
+                            <div class="editbar" tal:content="structure context/@@collective.rcse.editbar"></div>
 
                             <div metal:use-macro="context/global_statusmessage/macros/portal_message">
                              Status message

@@ -53,6 +53,27 @@ var rcseConvertPortletToBootstrap = function(){
 	});
 }
 
-$(document).on("ready", function(){
+var rcseMakePortletColumnsAffix = function(){
+/*	FIXME: At the moment if fix on the left ...
+ * $('#portal-column-one').attr('data-spy', "affix");
+	$('#portal-column-two').attr('data-spy', "affix");*/
+}
+
+var rcseLoadTimeline = function(){
+	$("a.rcse_tile").each(function (){
+	    var item = $(this);
+	    $.ajax({
+	      url: $(this).attr('href') + '/@@group_tile_view'
+	    }).success(function(data){
+	      item.replaceWith(data);
+	    });
+	});
+}
+var rcseUpdateUI = function(){
 	rcseConvertPortletToBootstrap();
+	rcseMakePortletColumnsAffix();
+	rcseLoadTimeline();
+}
+$(document).on("ready", function(){
+	rcseUpdateUI();
 });
