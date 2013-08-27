@@ -46,11 +46,11 @@ module.exports = function(grunt) {
 
     uglify: {
       options: {
-        banner: '<%= banner %>'
-      },
-      bootstrap: {
-        src: ['<%= concat.bootstrap.dest %>'],
-        dest: '../desktop/theme.min.js'
+            compress: true
+        },
+        build: {
+          src: ['../desktop/theme.js'],
+          dest: '../desktop/theme.min.js'
       }
     },
 
@@ -71,6 +71,10 @@ module.exports = function(grunt) {
       recess: {
         files: 'less/*.less',
         tasks: ['recess']
+      },
+      concat: {
+        files: 'js/*.js',
+        tasks: ['concat', 'uglify']
       }
     }
   });

@@ -32,31 +32,28 @@ class BootstrapView(BrowserView):
         # pre-fill dictionary
         columns = dict(one="", content="", two="")
 
+        #http://getbootstrap.com/css/#grid-options
+
         if not sl and not sr:
             # we don't have columns, thus conten takes the whole width
-            columns['content'] = "col-md-12"
+            columns['content'] = "col-md-12 col-lg-12"
 
         elif sl and sr:
             # In case we have both columns, content takes 50% of the whole
             # width and the rest 50% is spread between the columns
-            columns['one'] = "col-md-3"
-            columns['content'] = "col-md-6"
-            columns['two'] = "col-md-3"
+            columns['one'] = "col-md-3 col-lg-3"
+            columns['content'] = "col-md-6 col-lg-5"
+            columns['two'] = "col-md-3 col-lg-4"
 
-        elif (sr and not sl) and not isRTL:
+        elif sr and not sl:
             # We have right column and we are NOT in RTL language
-            columns['content'] = "col-md-9"
-            columns['two'] = "col-md-3"
+            columns['content'] = "col-md-9 col-lg-8"
+            columns['two'] = "col-md-3 col-lg-4"
 
-        elif (sl and not sr) and isRTL:
-            # We have left column and we are in RTL language
-            columns['one'] = "col-md-3"
-            columns['content'] = "col-md-9"
-
-        elif (sl and not sr) and not isRTL:
+        elif sl and not sr:
             # We have left column and we are in NOT RTL language
-            columns['one'] = "col-md-3"
-            columns['content'] = "col-md-9"
+            columns['one'] = "col-md-3 col-lg-3"
+            columns['content'] = "col-md-8 col-lg-9"
 
         # # append cell to each css-string
         # for key, value in columns.items():

@@ -1,4 +1,5 @@
 <tal:resources tal:define="baseurl view/site_url">
+<link type="text/css" rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700" >
 <link type="text/css" rel="stylesheet" media="screen"
       tal:attributes="href string:${baseurl}/++resource++collective.rcse/theme.min.css" >
 <script type="text/javascript" tal:attributes="src string:${baseurl}/plone_javascript_variables.js"></script>
