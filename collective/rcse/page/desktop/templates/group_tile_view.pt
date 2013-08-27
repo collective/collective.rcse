@@ -1,15 +1,24 @@
-<div class="panel" tal:attributes="id view/tileid" i18n:domain="collective.rcse">
-  <div class="vcard byline" tal:define="creator_info context/creator_memberinfo">
-    <img class="photo" tal:attributes="src creator_info/photo"/>
-    <a rel="author"  data-rel="dialog" class="fn url"
-       tal:attributes="href creator_info/url"
-       tal:content="creator_info/fullname">John</a><br/>
-    <a data-inline="true" tal:attributes="href view/group_url" tal:content="view/group_title">group</a><br/>
-    <span tal:condition="view/effective_date" tal:content="view/effective_date"></span>
+<div class="panel panel-default" tal:attributes="id view/tileid" i18n:domain="collective.rcse">
+ <div class="panel-heading">
+  <div class="media vcard byline" tal:define="creator_info context/creator_memberinfo">
+    <a rel="author" class="pull-left"
+       tal:attributes="href creator_info/url">
+       <img class="media-object img-thumbnail" tal:attributes="src creator_info/photo"/>
+    </a>
+    <div class="media-body">
+	    <h4 class="media-heading"><a rel="author" data-rel="dialog" class="fn url"
+	       tal:attributes="href creator_info/url"
+	       tal:content="creator_info/fullname">John</a></h4>
+	    <a class="group" data-inline="true" tal:attributes="href view/group_url" tal:content="view/group_title">group</a>
+	    <span class="date" tal:condition="view/effective_date" tal:content="view/effective_date"></span>
+    </div>
   </div>
+ </div>
+ <div class="panel-body">
   <div class="tilecontent" tal:content="structure view/get_content"></div>
   <div class="actions" tal:define="object_url string:${context/absolute_url}">
     <a tal:attributes="href string:${object_url}#commenting" class="button" i18n:translate="">Comment</a>
     <a tal:attributes="href string:${object_url}" class="button" i18n:translate="">Read</a>
   </div>
+ </div>
 </div>
