@@ -14,7 +14,7 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle icon-sitemap" data-toggle="dropdown" i18n:translate="">Groups</a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon-sitemap"></span> <tal:label  i18n:translate="">Groups</tal:label></a>
         <ul class="dropdown-menu">
           <li>
             <a tal:attributes="href string:${view/portal_state/portal_url}/users_directory" i18n:translate="">Users directory</a>
@@ -23,16 +23,17 @@
 	         <a tal:attributes="href string:${view/portal_state/portal_url}/companies_directory" i18n:translate="">Companies directory</a>
 	      </li>
         <li>
-          <a tal:attributes="href string:${view/portal_state/navigation_root_url}/@@search?portal_type=collective.rcse.group&sort_on=sortable_title&b_size=100"
-             class="icon-search"
-             i18n:translate="">All groups</a>
+          <a tal:attributes="href string:${view/portal_state/navigation_root_url}/@@search?portal_type=collective.rcse.group&sort_on=sortable_title&b_size=100">
+             <tal:label i18n:translate="">All groups</tal:label>
+             <span class="icon-search"></span>
+          </a>
         </li>
         <li class="divider" i18n:translate=""
             tal:condition="view/favorites">Favorites</li>
         <li tal:repeat="tab view/favorites">
           <a tal:attributes="href tab/getURL; id string:portaltab-favorites-${tab/getId};"
-             class="icon-star"
-             tal:content="tab/Title"></a></li>
+             ><span class="icon-star"></span>
+             <tal:label tal:content="tab/Title"></tal:label></a></li>
         <li class="divider" i18n:translate=""
             tal:condition="view/registred">Registred</li>
         <li tal:repeat="tab view/registred">
@@ -49,8 +50,8 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle icon-user" data-toggle="dropdown"
-           tal:content="view/user_name">John</a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+           ><span class="icon-user"></span> <tal:label tal:content="view/user_name">John</tal:label></a>
           <ul class="dropdown-menu">
             <li tal:repeat="action view/user_actions"
                 tal:attributes="id string:personaltools-${action/id}">
@@ -63,7 +64,9 @@
         </ul>
       </li>
       <li>
-        <a href="#" class="dropdown-toggle icon-bell" data-toggle="dropdown" tal:content="string:(${view/unseenCount})"></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <span class="icon-bell"></span> <tal:label tal:content="string:(${view/unseenCount})"></tal:label>
+        </a>
         <ul class="dropdown-menu">
 		    <li tal:repeat="notification view/notifications">
 		      <tal:block tal:condition="notification/seen">
