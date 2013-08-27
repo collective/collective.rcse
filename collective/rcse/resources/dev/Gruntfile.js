@@ -13,20 +13,17 @@ module.exports = function(grunt) {
               '*/\n',
 
     // Task configuration.
-    clean: {
-      dist: ['dist']
-    },
-
     concat: {
       options: {
         banner: '<%= banner %>',
         stripBanners: false
       },
-      bootstrap: {
+      desktop: {
         src: [
           'js/jquery.js',
           'js/jquery.oembed.js',
           'js/comments.js',
+          'js/picturefill.min.js',
           'bootstrap/js/transition.js',
           'bootstrap/js/alert.js',
           'bootstrap/js/button.js',
@@ -39,33 +36,58 @@ module.exports = function(grunt) {
           'bootstrap/js/scrollspy.js',
           'bootstrap/js/tab.js',
           'bootstrap/js/affix.js',
-          'js/theme.js'
+          'js/theme-common.js',
+          'js/theme-desktop.js'
         ],
-        dest: '../desktop/theme.js'
+        dest: '../desktop/theme-desktop.js'
+      },
+      mobile: {
+       src: [
+    	  'js/jquery.js',
+          'js/jquery.oembed.js',
+          'js/comments.js',
+          'js/picturefill.min.js',
+          'jquerymobile/jquery.mobile.js',
+          'js/jquery.mobile.plone.js',
+          'js/theme-common.js',
+          'js/theme-mobile.js'
+         ],
+         dest: '../mobile/theme-mobile.js'
       }
     },
 
     uglify: {
-      options: {
-            compress: true
-        },
-        build: {
-          src: ['../desktop/theme.js'],
-          dest: '../desktop/theme.min.js'
+      desktop: {
+	      options: {
+	            compress: true
+	        },
+          src: ['../desktop/theme-desktop.js'],
+          dest: '../desktop/theme-desktop.min.js'
+      },
+      mobile: {
+	      options: {
+	            compress: true
+	        },
+          src: ['../mobile/theme-mobile.js'],
+          dest: '../mobile/theme-mobile.min.js'
       }
     },
 
     recess: {
-      options: {
-        compile: true
+      desktop: {
+	      options: {
+	        compile: true//, compress: true
+	      },
+          src: ['less/theme-desktop.less'],
+          dest: '../desktop/theme-desktop.min.css'
       },
-      min: {
-        options: {
-          compress: true
-        },
-        src: ['less/theme.less', 'fontawesome/less/font-awesome.less'],
-        dest: '../desktop/theme.min.css'
-      },
+      mobile: {
+	      options: {
+	        compile: true, compress: true
+	      },
+          src: ['less/theme-mobile.less'],
+          dest: '../mobile/theme-mobile.min.css'
+      }
     },
 
     watch: {

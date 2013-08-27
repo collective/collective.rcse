@@ -10274,6 +10274,28 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
         /**********************************************************************
          * Publish a single comment.
          **********************************************************************/
+        $(document).on('click', "input[name='form.button.PublishComment']", function () {
+            var trigger = this;
+            var form = $(this).parents("form");
+            var data = $(form).serialize();
+            var form_url = $(form).attr("action");
+            $.ajax({
+                type: "GET",
+                url: form_url,
+                data: "workflow_action=publish",
+                context: trigger,
+                success: function (msg) {
+                    // remove button (trigger object can't be directly removed)
+                    form.find("input[name='form.button.PublishComment']").remove();
+                    form.parents(".state-pending").toggleClass('state-pending').toggleClass('state-published');
+                },
+                error: function (msg) {
+                    return true;
+                }
+            });
+            return false;
+        });
+/*
         $("input[name='form.button.PublishComment']").live('click', function () {
             var trigger = this;
             var form = $(this).parents("form");
@@ -10295,11 +10317,48 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
             });
             return false;
         });
-
+*/
 
         /**********************************************************************
          * Delete a comment and its answers.
          **********************************************************************/
+        $(document).on('click', "input[name='form.button.DeleteComment']", function () {
+            var trigger = this;
+            var form = $(this).parents("form");
+            var data = $(form).serialize();
+            var form_url = $(form).attr("action");
+            $.ajax({
+                type: 'POST',
+                url: form_url,
+                data: data,
+                context: $(trigger).parents(".comment"),
+                success: function (data) {
+                    var comment = $(this);
+                    var clss = comment.attr('class');
+                    // remove replies
+                    var treelevel = parseInt(clss[clss.indexOf('replyTreeLevel') + 'replyTreeLevel'.length], 10);
+                    // selector for all the following elements of lower level
+                    var selector = ".replyTreeLevel" + treelevel;
+                    for (var i = 0; i < treelevel; i++) {
+                        selector += ", .replyTreeLevel" + i;
+                    }
+                    comment.nextUntil(selector).each(function () {
+                        $(this).fadeOut('fast', function () {
+                            $(this).remove();
+                        });
+                    });
+                    // remove comment
+                    $(this).fadeOut('fast', function () {
+                        $(this).remove();
+                    });
+                },
+                error: function (req, error) {
+                    return true;
+                }
+            });
+            return false;
+        });
+/*
         $("input[name='form.button.DeleteComment']").live('click', function () {
             var trigger = this;
             var form = $(this).parents("form");
@@ -10336,7 +10395,7 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
             });
             return false;
         });
-
+*/
 
 
     });
@@ -10346,6 +10405,7 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
 
 }(jQuery));
 
+(function(a){"use strict";a.picturefill=function(){for(var b=a.document.getElementsByTagName("div"),c=0,d=b.length;d>c;c++)if(null!==b[c].getAttribute("data-picture")){for(var e=b[c].getElementsByTagName("div"),f=[],g=0,h=e.length;h>g;g++){var i=e[g].getAttribute("data-media");(!i||a.matchMedia&&a.matchMedia(i).matches)&&f.push(e[g])}var j=b[c].getElementsByTagName("img")[0];f.length?(j||(j=a.document.createElement("img"),j.alt=b[c].getAttribute("data-alt"),b[c].appendChild(j)),j.src=f.pop().getAttribute("data-src")):j&&b[c].removeChild(j)}},a.addEventListener?(a.addEventListener("resize",a.picturefill,!1),a.addEventListener("DOMContentLoaded",function(){a.picturefill(),a.removeEventListener("load",a.picturefill,!1)},!1),a.addEventListener("load",a.picturefill,!1)):a.attachEvent&&a.attachEvent("onload",a.picturefill)})(this);
 /* ========================================================================
  * Bootstrap: transition.js v3.0.0
  * http://twbs.github.com/bootstrap/javascript.html#transitions
@@ -12338,6 +12398,7 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
   })
 
 }(window.jQuery);
+
 
 /* ========================================================================
  * RCSE THEME

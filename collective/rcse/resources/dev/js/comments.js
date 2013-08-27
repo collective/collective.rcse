@@ -93,6 +93,28 @@
         /**********************************************************************
          * Publish a single comment.
          **********************************************************************/
+        $(document).on('click', "input[name='form.button.PublishComment']", function () {
+            var trigger = this;
+            var form = $(this).parents("form");
+            var data = $(form).serialize();
+            var form_url = $(form).attr("action");
+            $.ajax({
+                type: "GET",
+                url: form_url,
+                data: "workflow_action=publish",
+                context: trigger,
+                success: function (msg) {
+                    // remove button (trigger object can't be directly removed)
+                    form.find("input[name='form.button.PublishComment']").remove();
+                    form.parents(".state-pending").toggleClass('state-pending').toggleClass('state-published');
+                },
+                error: function (msg) {
+                    return true;
+                }
+            });
+            return false;
+        });
+/*
         $("input[name='form.button.PublishComment']").live('click', function () {
             var trigger = this;
             var form = $(this).parents("form");
@@ -114,11 +136,48 @@
             });
             return false;
         });
-
+*/
 
         /**********************************************************************
          * Delete a comment and its answers.
          **********************************************************************/
+        $(document).on('click', "input[name='form.button.DeleteComment']", function () {
+            var trigger = this;
+            var form = $(this).parents("form");
+            var data = $(form).serialize();
+            var form_url = $(form).attr("action");
+            $.ajax({
+                type: 'POST',
+                url: form_url,
+                data: data,
+                context: $(trigger).parents(".comment"),
+                success: function (data) {
+                    var comment = $(this);
+                    var clss = comment.attr('class');
+                    // remove replies
+                    var treelevel = parseInt(clss[clss.indexOf('replyTreeLevel') + 'replyTreeLevel'.length], 10);
+                    // selector for all the following elements of lower level
+                    var selector = ".replyTreeLevel" + treelevel;
+                    for (var i = 0; i < treelevel; i++) {
+                        selector += ", .replyTreeLevel" + i;
+                    }
+                    comment.nextUntil(selector).each(function () {
+                        $(this).fadeOut('fast', function () {
+                            $(this).remove();
+                        });
+                    });
+                    // remove comment
+                    $(this).fadeOut('fast', function () {
+                        $(this).remove();
+                    });
+                },
+                error: function (req, error) {
+                    return true;
+                }
+            });
+            return false;
+        });
+/*
         $("input[name='form.button.DeleteComment']").live('click', function () {
             var trigger = this;
             var form = $(this).parents("form");
@@ -155,7 +214,7 @@
             });
             return false;
         });
-
+*/
 
 
     });

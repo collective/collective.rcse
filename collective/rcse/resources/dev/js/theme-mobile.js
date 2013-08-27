@@ -183,10 +183,12 @@ var rcseLoadTimeline = function(){
 var rcseDisableAjax = function(){
 	$("#popup-globalsections a").attr("data-ajax", "false");
 	$('form[method="post"]').attr("data-ajax", "false");
+	$('#portal-siteactions a').attr("data-ajax", "false");
+	$('#popup-personalbar a').attr("data-ajax", "false");
 }
 
 var rcseOpenAuthorInDialog = function(){
-	$('a[rel="author"]"').click(function(eventObject){
+	$('a[rel="author"]').click(function(eventObject){
 		eventObject.stopImmediatePropagation();
 		eventObject.preventDefault();
 		var portal_path = portal_url.slice(window.location.origin.length + 1);
