@@ -12535,14 +12535,68 @@ var rcseLoadTimeline = function(){
 	      url: $(this).attr('href') + '/@@group_tile_view'
 	    }).success(function(data){
 	      item.replaceWith(data);
+	      rcseUpdateUI();
 	    });
 	});
 }
+
+
+var rcseInitAjaxAction = function(){
+	console.log("init ajax action");
+	$(document).on("click", ".document-actions-wrapper a.action", function(eventObject){
+		eventObject.stopImmediatePropagation();
+		eventObject.preventDefault();
+		$.ajax({
+			url: $(this).attr('href'),
+			context: eventObject,
+			data: {'ajax': true}
+		}).success(function(data){
+			var parent = $(eventObject.target).parents(".document-actions-wrapper");
+			parent.replaceWith(data['document-actions-wrapper']);
+			rcseUpdateUI();
+		});
+	})
+	$('.commenting form').attr("action", portal_url);
+	$('.commenting form').submit(function(e){
+		e.preventDefault();
+	});
+	$(document).on("click", '.commenting input[type="submit"]', function(eventObject){
+		eventObject.stopImmediatePropagation();
+		eventObject.preventDefault();
+		console.log("ajax: comment submit");
+		var form = $(eventObject.target).parents("form");
+		var data = {
+			ajax: true,
+			uid: $(eventObject.target).parents(".rcsetile").attr("id")
+		}
+		data[$(eventObject.target).attr("name")] = 1;
+		form.ajaxSubmit({
+			context: form,
+			data: data,
+			url: portal_url + "/@@plone.comments.ajax",
+			success: function(response, status, xhr, jqform){
+				var parent = jqform.parents(".document-actions-wrapper");
+				parent.replaceWith(response['document-actions-wrapper']);
+//				rcseUpdateUI();
+				parent.find("textarea").val("");
+			}
+		});
+	})
+	//make the delete an ajax action to not render the page
+	var ajaxDeleteComment = document.createElement("input");
+	ajaxDeleteComment.type = "hidden";
+	ajaxDeleteComment.name = "ajax";
+	ajaxDeleteComment.value = "1";
+	$("input[name='form.button.DeleteComment']").parents('form').append(ajaxDeleteComment);
+}
+
 var rcseUpdateUI = function(){
 	rcseConvertPortletToBootstrap();
-	rcseMakePortletColumnsAffix();
-	rcseLoadTimeline();
+	$("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
+	picturefill();
 }
 $(document).on("ready", function(){
+	rcseInitAjaxAction();
+	rcseLoadTimeline();
 	rcseUpdateUI();
 });
