@@ -13,98 +13,115 @@ module.exports = function(grunt) {
               '*/\n',
 
     // Task configuration.
+    copy: {
+        desktopfont: {expand: true,
+            cwd: 'app/bower_components/font-awesome/',
+            src:['font/**',],
+            dest: '../desktop/'},
+	    mobilefont: {expand: true,
+	        cwd: 'app/bower_components/font-awesome/',
+	        src:['font/**',],
+	        dest: '../mobile/'}
+    },
     concat: {
       options: {
         banner: '<%= banner %>',
         stripBanners: false
       },
-      desktop: {
+      desktopjs: {
         src: [
-          'js/jquery.js',
-          'js/jquery.oembed.js',
-          'js/comments.js',
-          'js/picturefill.min.js',
-          'bootstrap/js/transition.js',
-          'bootstrap/js/alert.js',
-          'bootstrap/js/button.js',
-          'bootstrap/js/carousel.js',
-          'bootstrap/js/collapse.js',
-          'bootstrap/js/dropdown.js',
-          'bootstrap/js/modal.js',
-          'bootstrap/js/tooltip.js',
-          'bootstrap/js/popover.js',
-          'bootstrap/js/scrollspy.js',
-          'bootstrap/js/tab.js',
-          'bootstrap/js/affix.js',
+          'app/bower_components/jquery/jquery.js',
+          'app/bower_components/bootstrap/dist/js/bootstrap.js',
+          'app/bower_components/picturefill/picturefill.js',
+          'js/custom/jquery.oembed.js',
+          'js/custom/comments.js',
           'js/theme-common.js',
-          'js/theme-desktop.js'
-        ],
-        dest: '../desktop/theme-desktop.js'
+          'js/theme-desktop.js',
+          'adria/common.js',
+          'adria/desktop.js'],
+        dest: '../desktop/js/desktop.js'
       },
-      mobile: {
+      mobilejs: {
        src: [
-    	  'js/jquery.js',
-          'js/jquery.oembed.js',
-          'js/comments.js',
-          'js/picturefill.min.js',
-          'jquerymobile/jquery.mobile.js',
-          'js/jquery.mobile.plone.js',
+          'app/bower_components/jquery/jquery.js',
+          'app/bower_components/jquery-mobile-bower/js/jquery.mobile-1.3.2.js',
+          'app/bower_components/picturefill/picturefill.js',
+          'js/custom/jquery.oembed.js',
+          'js/custom/comments.js',
+          'js/custom/jquery.mobile.plone.js',
           'js/theme-common.js',
-          'js/theme-mobile.js'
-         ],
-         dest: '../mobile/theme-mobile.js'
+          'js/theme-mobile.js',
+          'adria/common.js',
+          'adria/mobile.js'],
+         dest: '../mobile/js/mobile.js'
+      },
+      desktopcss:{
+    	  src: ['app/bower_components/bootstrap/dist/css/bootstrap.min.css',
+    	        'app/bower_components/bootstrap/dist/css/bootstrap-theme.min.css',
+    	        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+    	        'app/bower_components/font-awesome/css/font-awesome.min.css',
+    	        'adria/desktop.min.css'],
+    	  dest: '../desktop/css/desktop.min.css'
+      },
+      mobilecss: {
+    	  src: [
+			'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.min.css',
+			'adria/jquery.mobile.theme.min.css',
+			'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+			'adria/mobile.min.css'],
+	        dest: '../mobile/css/mobile.min.css'
       }
     },
 
     uglify: {
-      desktop: {
+      desktopjs: {
 	      options: {
 	            compress: true
 	        },
-          src: ['../desktop/theme-desktop.js'],
-          dest: '../desktop/theme-desktop.min.js'
+          src: ['../desktop/js/desktop.js'],
+          dest: '../desktop/js/desktop.min.js'
       },
-      mobile: {
+      mobilejs: {
 	      options: {
 	            compress: true
 	        },
-          src: ['../mobile/theme-mobile.js'],
-          dest: '../mobile/theme-mobile.min.js'
+          src: ['../mobile/js/mobile.js'],
+          dest: '../mobile/js/mobile.min.js'
       }
     },
 
     recess: {
-      desktop: {
-	      options: {
-	        compile: true//, compress: true
-	      },
-          src: ['bootstrap/less/bootstrap.less',
-                'fontawesome/less/font-awesome.less',
-                'less/desktop.plone.less',
-                'less/desktop.less'],
-          dest: '../desktop/theme-desktop.min.css'
-      },
-      mobile: {
+      desktopless: {
 	      options: {
 	        compile: true, compress: true
 	      },
-          src: ['jquerymobile/jquery.mobile.structure.less',
-                'jquerymobile/theme/jquery.mobile.theme.min.less',
-                'fontawesome/less/font-awesome-mobile.less',
+          src: ['less/desktop.plone.less',
+                'less/desktop.less',
+                'adria/common.less',
+                'adria/desktop.less'],
+          dest: 'adria/desktop.min.css'
+      },
+      mobileless: {
+	      options: {
+	        compile: true, compress: true
+	      },
+          src: ['less/font-awesome-mobile.less',
                 'less/mobile.plone.less',
-                'less/mobile.less'],
-          dest: '../mobile/theme-mobile.min.css'
-      }
+                'less/mobile.less',
+                'adria/common.less',
+                'adria/mobile.less'],
+          dest: 'adria/mobile.min.css'
+      },
     },
 
     watch: {
       recess: {
-        files: ['less/*.less', 'libs/less/*.less'],
-        tasks: ['recess']
+        files: ['less/*.less', 'adria/*.less'],
+        tasks: ['dist-css']
       },
       concat: {
-        files: ['js/*.js', 'libs/js/*.js'],
-        tasks: ['concat', 'uglify']
+        files: ['js/*.js', 'adria/*.js'],
+        tasks: ['dist-js']
       }
     }
   });
@@ -119,16 +136,16 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-recess');
 
   // JS distribution task.
-  grunt.registerTask('dist-js', ['concat', 'uglify']);
+  grunt.registerTask('dist-js', ['concat:desktopjs', 'concat:mobilejs', 'uglify']);
 
   // CSS distribution task.
-  grunt.registerTask('dist-css', ['recess']);
+  grunt.registerTask('dist-css', ['recess', 'concat:desktopcss', 'concat:mobilecss']);
 
   // Fonts distribution task.
 //  grunt.registerTask('dist-fonts', ['copy']);
 
   // Full distribution task.
-  grunt.registerTask('dist', ['dist-css', 'dist-js']);
+  grunt.registerTask('dist', ['copy', 'dist-css', 'dist-js']);
 
   // Default task.
   grunt.registerTask('default', ['dist']);
