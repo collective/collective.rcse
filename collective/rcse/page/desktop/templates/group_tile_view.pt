@@ -1,4 +1,4 @@
-<div class="panel panel-default" tal:attributes="id view/tileid" i18n:domain="collective.rcse">
+<div class="rcsetile panel panel-default" tal:attributes="id view/tileid" i18n:domain="collective.rcse">
  <div class="panel-heading">
   <div class="media vcard byline" tal:define="creator_info context/creator_memberinfo">
     <a rel="author" class="pull-left"
