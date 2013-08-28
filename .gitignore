@@ -74,3 +74,5 @@ parts
 develop-eggs
 var
 src
+collective/rcse/resources/dev/node_modules
+
