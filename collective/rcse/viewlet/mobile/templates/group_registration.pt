@@ -1,9 +1,0 @@
-<div class="rcse-group-registration" data-role="controlgroup" data-type="horizontal"
-     tal:condition="view/should_render">
-  <a class="ajax-action" data-role="button" data-icon="signin"
-     tal:attributes="href string:${view/group_url}/@@join-this-group"
-     tal:condition="view/can_join">Join this group</a>
-  <a class="ajax-action" data-role="button" data-icon="signout"
-     tal:attributes="href string:${view/group_url}/@@quit-this-group"
-     tal:condition="view/can_quit">Quit this group</a>
-</div>

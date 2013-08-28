@@ -1,0 +1,21 @@
+<div id="portal-siteactions" class="btn-group"
+    tal:define="accesskeys python: {'sitemap' : '3', 'accessibility' : '0', 'contact' : '9'};"
+    tal:condition="view/site_actions"
+    i18n:domain="plone">
+
+    <tal:link tal:repeat="saction view/site_actions">
+        <a
+           href="" class="btn btn-default"
+           tal:define="title saction/title;
+                       id saction/id;
+                       accesskey python: accesskeys.get(id, '');"
+           i18n:attributes="title"
+           i18n:translate=""
+           tal:content="title"
+           tal:attributes="href saction/url;
+                           target saction/link_target|nothing;
+                           title title;
+                           accesskey accesskey;
+                           id string:siteaction-${saction/id};"
+           >Site action</a></tal:link>
+</div>

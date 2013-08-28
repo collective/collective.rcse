@@ -3,6 +3,16 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
 
+
+  <browser:viewlet
+      name="plone.resourceregistries"
+      manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+      class="collective.rcse.viewlet.controller.resources.ResourcesViewlet"
+      template="templates/resourceregistries.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.MobileLayer"
+      />
+
   <!-- Comments viewlet -->
   <browser:viewlet
       for="Products.CMFCore.interfaces.IContentish"
@@ -18,7 +28,7 @@
       name="plone.abovecontenttitle.documentactions"
       for="Products.CMFCore.interfaces.IContentish"
       manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
-      class=".document_actions.DocumentIconActionsViewlet"
+      class="collective.rcse.viewlet.controller.document_actions.DocumentIconActionsViewlet"
       template="templates/document_actions.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
@@ -26,7 +36,7 @@
   <browser:page
       name="plone.abovecontenttitle.documentactions"
       for="Products.CMFCore.interfaces.IContentish"
-      class=".document_actions.DocumentActionsView"
+      class="collective.rcse.viewlet.controller.document_actions.DocumentActionsView"
       template="templates/document_actions.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
@@ -42,7 +52,7 @@
       />
   <browser:page
       for="*"
-      name="plonetheme.jquerymobile.editbar"
+      name="collective.rcse.editbar"
       class="collective.rcse.viewlet.controller.editbar.EditBarView"
       template="templates/edit_bar.pt"
       permission="zope2.View"
@@ -92,18 +102,9 @@
     <!-- header.leftaction.sections -->
     <browser:viewlet
         name="plonetheme.jquerymobile.header.leftaction.sections"
-        class="collective.rcse.viewlet.mobile.sections.RCSESections"
+        class="collective.rcse.viewlet.controller.sections.RCSESections"
         manager="plonetheme.jquerymobile.browser.viewlets.manager.IHeaderLeft"
         template="templates/sections.pt"
-        layer="collective.rcse.layer.MobileLayer"
-        permission="zope2.View"
-        />
-    <!-- header.leftaction.sections -->
-    <browser:viewlet
-        name="collective.rcse.groupregistration"
-        class="collective.rcse.viewlet.controller.group_registration.GroupRegistration"
-        manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
-        template="templates/group_registration.pt"
         layer="collective.rcse.layer.MobileLayer"
         permission="zope2.View"
         />

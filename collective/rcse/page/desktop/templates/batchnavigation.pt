@@ -1,0 +1,45 @@
+<!-- Navigation -->
+<tal:batchnavigation
+    define="batch view/batch|nothing;"
+    condition="batch"
+    metal:define-macro="navigation">
+<div class="listingBar"
+     i18n:domain="plone"
+     tal:condition="batch/multiple_pages">
+  <ul class="pagination">
+
+    <tal:first tal:condition="batch/show_link_to_first">
+        <li><a  tal:attributes="href python:view.make_link(1)">&laquo;</a></li>
+      <tal:second_page_not_in_navlist tal:condition="batch/second_page_not_in_navlist">
+        <li class="disabled"><a href="#">&hellip;</a></li>
+      </tal:second_page_not_in_navlist>
+    </tal:first>
+
+    <tal:previous tal:repeat="pagenumber batch/previous_pages"
+          tal:omit-tag="" >
+      <li><a href="" tal:content="pagenumber"
+         tal:attributes="href python:view.make_link(pagenumber)"></a></li>
+    </tal:previous>
+
+    <!-- Current page -->
+    <tal:current tal:condition="batch/navlist">
+        <li class="disabled"><a href="#" tal:content="batch/pagenumber">Current page number</a></li>
+    </tal:current>
+
+    <!-- Pagelist with links to next pages for quick navigation -->
+    <tal:nexts tal:repeat="pagenumber batch/next_pages"
+          tal:omit-tag="" >
+      <li><a href="" tal:content="pagenumber"
+         tal:attributes="href python:view.make_link(pagenumber)"/></li>
+    </tal:nexts>
+
+    <tal:last tal:condition="batch/show_link_to_last">
+      <tal:before_last_page_not_in_navlist tal:condition="batch/before_last_page_not_in_navlist">
+        <li class="disabled"><a href="#">&hellip;</a></li>
+      </tal:before_last_page_not_in_navlist>
+        <li><a href=""
+           tal:attributes="href python:view.make_link(batch.lastpage)">&raquo;</a></li>
+    </tal:last>
+  </ul>
+</div>
+</tal:batchnavigation>

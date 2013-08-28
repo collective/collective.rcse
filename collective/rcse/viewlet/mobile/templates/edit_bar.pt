@@ -1,5 +1,14 @@
 <tal:wrapper tal:define="menus view/menus; uid view/object_uid">
 <div data-role="controlgroup" data-type="horizontal" tal:attributes="id string:edit-bar-$uid" data-mini="true" i18n:domain="plone">
+      <tal:groupjoin tal:condition="view/should_render">
+        <a class="ajax-action" data-role="button" data-icon="signin"
+           tal:attributes="href string:${view/group_url}/@@join-this-group"
+           tal:condition="view/can_join">Join this group</a>
+        <a class="ajax-action" data-role="button" data-icon="signout"
+           tal:attributes="href string:${view/group_url}/@@quit-this-group"
+           tal:condition="view/can_quit">Quit this group</a>
+      </tal:groupjoin>
+
         <a href="#popupAddContentMenu"
            data-role="button" data-rel="popup" data-transition="pop" data-icon="plus" data-theme="b"
            tal:condition="python:context.portal_type in ('Folder', 'collective.rcse.group')"

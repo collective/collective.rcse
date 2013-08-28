@@ -17,7 +17,6 @@ class TestSetup(base.IntegrationTestCase):
             "collective.picturefill",
             "collective.themeswitcher",
             "plone.app.dexterity",
-            "plonetheme.foundation",
             "plonetheme.jquerymobile",
         ]
         for name in dependencies:

@@ -4,6 +4,32 @@
     i18n_domain="collective.rcse">
 
   <browser:page
+      for="*"
+      name="plone.comments"
+      class="collective.rcse.page.controller.comments_view.CommentsView"
+      template="templates/comments_view.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      allowed_interface="collective.rcse.page.controller.comments_view.ICommentsView"
+      />
+
+    <browser:page
+        name="batchnavigation"
+        for="*"
+        permission="zope.Public"
+        class="plone.batching.browser.PloneBatchView"
+        template="templates/batchnavigation.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+        />
+  <browser:page
+      name="bootstrap_view"
+      for="*"
+      class=".bootstrap_view.BootstrapView"
+      allowed_interface=".bootstrap_view.IBootstrapView"
+      permission="zope.Public"
+      layer="collective.rcse.layer.DesktopLayer"
+    />
+  <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="timeline_view"
       class="collective.rcse.page.controller.timeline_view.TimelineView"

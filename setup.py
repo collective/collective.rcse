@@ -62,7 +62,7 @@ setup(
         'plone.app.collection',
         'plone.namedfile[blobs]',
         'collective.z3cform.html5widgets',
-        'plonetheme.foundation',
+        #'plonetheme.foundation',
         'plonetheme.jquerymobile',
         'icalendar',
         'z3c.unconfigure',

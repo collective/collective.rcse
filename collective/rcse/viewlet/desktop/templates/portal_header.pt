@@ -1,0 +1,87 @@
+<header class="navbar navbar-inverse navbar-fixed-top" role="navigation"
+    i18n:domain="collective.rcse">
+
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only" i18n:translate="">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" tal:attributes="href view/site_url" i18n:translate="">Home</a>
+  </div>
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon-sitemap"></span> <tal:label  i18n:translate="">Groups</tal:label></a>
+        <ul class="dropdown-menu">
+          <li>
+            <a tal:attributes="href string:${view/portal_state/portal_url}/users_directory" i18n:translate="">Users directory</a>
+          </li>
+	      <li>
+	         <a tal:attributes="href string:${view/portal_state/portal_url}/companies_directory" i18n:translate="">Companies directory</a>
+	      </li>
+        <li>
+          <a tal:attributes="href string:${view/portal_state/navigation_root_url}/@@search?portal_type=collective.rcse.group&sort_on=sortable_title&b_size=100">
+             <tal:label i18n:translate="">All groups</tal:label>
+             <span class="icon-search"></span>
+          </a>
+        </li>
+        <li class="divider" i18n:translate=""
+            tal:condition="view/favorites">Favorites</li>
+        <li tal:repeat="tab view/favorites">
+          <a tal:attributes="href tab/getURL; id string:portaltab-favorites-${tab/getId};"
+             ><span class="icon-star"></span>
+             <tal:label tal:content="tab/Title"></tal:label></a></li>
+        <li class="divider" i18n:translate=""
+            tal:condition="view/registred">Registred</li>
+        <li tal:repeat="tab view/registred">
+          <a tal:attributes="href tab/getURL;
+                 id string:portaltab-registred-${tab/getId};"
+             tal:content="tab/Title"></a></li>
+        </ul>
+      </li>
+    </ul>
+    <form class="navbar-form navbar-right" role="search" tal:attributes="action string:${view/site_url}/@@search">
+      <div class="form-group">
+        <input type="text" class="form-control" name="SearchableText" placeholder="Search" i18n:attributes="placeholder">
+      </div>
+    </form>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+           ><span class="icon-user"></span> <tal:label tal:content="view/user_name">John</tal:label></a>
+          <ul class="dropdown-menu">
+            <li tal:repeat="action view/user_actions"
+                tal:attributes="id string:personaltools-${action/id}">
+                <a href=""
+                   tal:attributes="href action/url;
+                               target action/link_target|nothing"
+                   tal:content="action/title"
+                   i18n:translate="">action title</a>
+        </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <span class="icon-bell"></span> <tal:label tal:content="string:(${view/unseenCount})"></tal:label>
+        </a>
+        <ul class="dropdown-menu">
+		    <li tal:repeat="notification view/notifications">
+		      <tal:block tal:condition="notification/seen">
+		            <a tal:attributes="href notification/url" tal:content="notification/title" i18n:translate=""></a>
+		      </tal:block>
+		      <tal:block tal:condition="python: not notification['seen']">
+		            <a class="notification-not-seen" tal:attributes="href notification/url" tal:content="notification/title" i18n:translate=""></a>
+		      </tal:block>
+		    </li>
+		    <li><a tal:attributes="href string:${view/site_url}/@@collective_whathappened_notifications_all" i18n:translate="">See all notifications</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+
+
+
+</header>
