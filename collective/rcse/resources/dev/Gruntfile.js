@@ -78,25 +78,32 @@ module.exports = function(grunt) {
 	      options: {
 	        compile: true//, compress: true
 	      },
-          src: ['less/theme-desktop.less'],
+          src: ['bootstrap/less/bootstrap.less',
+                'fontawesome/less/font-awesome.less',
+                'less/desktop.plone.less',
+                'less/desktop.less'],
           dest: '../desktop/theme-desktop.min.css'
       },
       mobile: {
 	      options: {
 	        compile: true, compress: true
 	      },
-          src: ['less/theme-mobile.less'],
+          src: ['jquerymobile/jquery.mobile.structure.less',
+                'jquerymobile/theme/jquery.mobile.theme.min.less',
+                'fontawesome/less/font-awesome-mobile.less',
+                'less/mobile.plone.less',
+                'less/mobile.less'],
           dest: '../mobile/theme-mobile.min.css'
       }
     },
 
     watch: {
       recess: {
-        files: 'less/*.less',
+        files: ['less/*.less', 'libs/less/*.less'],
         tasks: ['recess']
       },
       concat: {
-        files: 'js/*.js',
+        files: ['js/*.js', 'libs/js/*.js'],
         tasks: ['concat', 'uglify']
       }
     }
