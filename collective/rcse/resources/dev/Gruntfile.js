@@ -36,9 +36,7 @@ module.exports = function(grunt) {
           'js/custom/jquery.oembed.js',
           'js/custom/comments.js',
           'js/theme-common.js',
-          'js/theme-desktop.js',
-          'adria/common.js',
-          'adria/desktop.js'],
+          'js/theme-desktop.js'],
         dest: '../desktop/js/desktop.js'
       },
       mobilejs: {
@@ -50,9 +48,7 @@ module.exports = function(grunt) {
           'js/custom/comments.js',
           'js/custom/jquery.mobile.plone.js',
           'js/theme-common.js',
-          'js/theme-mobile.js',
-          'adria/common.js',
-          'adria/mobile.js'],
+          'js/theme-mobile.js'],
          dest: '../mobile/js/mobile.js'
       },
       desktopcss:{
@@ -60,15 +56,15 @@ module.exports = function(grunt) {
     	        'app/bower_components/bootstrap/dist/css/bootstrap-theme.min.css',
     	        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
     	        'app/bower_components/font-awesome/css/font-awesome.min.css',
-    	        'adria/desktop.min.css'],
+    	        'less/desktop.min.css'],
     	  dest: '../desktop/css/desktop.min.css'
       },
       mobilecss: {
     	  src: [
 			'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.min.css',
-			'adria/jquery.mobile.theme.min.css',
+			'app/bower_components/jquery-mobile-bower/css/jquery.mobile.theme-1.3.2.min.css',
 			'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
-			'adria/mobile.min.css'],
+			'less/mobile.min.css'],
 	        dest: '../mobile/css/mobile.min.css'
       }
     },
@@ -96,10 +92,8 @@ module.exports = function(grunt) {
 	        compile: true, compress: true
 	      },
           src: ['less/desktop.plone.less',
-                'less/desktop.less',
-                'adria/common.less',
-                'adria/desktop.less'],
-          dest: 'adria/desktop.min.css'
+                'less/desktop.less'],
+          dest: 'less/desktop.min.css'
       },
       mobileless: {
 	      options: {
@@ -107,20 +101,18 @@ module.exports = function(grunt) {
 	      },
           src: ['less/font-awesome-mobile.less',
                 'less/mobile.plone.less',
-                'less/mobile.less',
-                'adria/common.less',
-                'adria/mobile.less'],
-          dest: 'adria/mobile.min.css'
+                'less/mobile.less'],
+          dest: 'less/mobile.min.css'
       },
     },
 
     watch: {
       recess: {
-        files: ['less/*.less', 'adria/*.less'],
+        files: ['less/*.less'],
         tasks: ['dist-css']
       },
       concat: {
-        files: ['js/*.js', 'adria/*.js'],
+        files: ['js/*.js'],
         tasks: ['dist-js']
       }
     }
