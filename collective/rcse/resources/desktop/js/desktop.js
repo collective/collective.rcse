@@ -12594,6 +12594,7 @@ var rcseUpdateUI = function(){
 	rcseConvertPortletToBootstrap();
 	$("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
 	picturefill();
+	$("select").select2();
 }
 $(document).on("ready", function(){
 	rcseInitAjaxAction();
