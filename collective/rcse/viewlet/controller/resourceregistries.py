@@ -29,9 +29,10 @@ class ResourcesViewlet(ViewletBase):
             item = copy(info)
             itemid = item["id"]
             if '.min.' in itemid and develmode:
-                id = itemid.replace(".min.", ".")
                 try:
+                    id = itemid.replace(".min.", ".")
                     content = portal.restrictedTraverse(id)
+                    itemid = id
                 except KeyError:
                     content = portal.restrictedTraverse(itemid)
             else:
@@ -40,8 +41,8 @@ class ResourcesViewlet(ViewletBase):
                 path = content.context.path
                 time = str(os.path.getmtime(path))
                 info["src"] = "%s/%s?time%s" % (self.site_url,
-                                                   info["id"],
-                                                   time)
+                                                itemid,
+                                                time)
                 results.append(info)
             elif content:
                 info["src"] = "%s/%s" % (self.site_url,info["id"])
