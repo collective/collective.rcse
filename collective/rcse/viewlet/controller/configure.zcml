@@ -11,4 +11,20 @@
         permission="zope2.View"
         />
 
+    <browser:viewlet
+        name="plone.resourceregistries"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+        class="collective.rcse.viewlet.controller.resourceregistries.MobileResourceRegistries"
+        permission="zope2.View"
+        layer="collective.rcse.layer.MobileLayer"
+        />
+
+    <browser:viewlet
+        name="plone.resourceregistries"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+        class="collective.rcse.viewlet.controller.resourceregistries.DesktopResourceRegistries"
+        permission="zope2.View"
+        layer="collective.rcse.layer.DesktopLayer"
+        />
+
 </configure>

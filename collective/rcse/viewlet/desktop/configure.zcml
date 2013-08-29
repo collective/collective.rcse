@@ -14,14 +14,6 @@
 
 
     <browser:viewlet
-        name="plone.resourceregistries"
-        manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
-        class="collective.rcse.viewlet.controller.resources.ResourcesViewlet"
-        template="templates/resourceregistries.pt"
-        permission="zope2.View"
-        layer="collective.rcse.layer.DesktopLayer"
-        />
-    <browser:viewlet
         name="plone.header"
         manager="plone.app.layout.viewlets.interfaces.IPortalTop"
         template="templates/portal_header.pt"

@@ -4,15 +4,6 @@
     i18n_domain="collective.rcse">
 
 
-  <browser:viewlet
-      name="plone.resourceregistries"
-      manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
-      class="collective.rcse.viewlet.controller.resources.ResourcesViewlet"
-      template="templates/resourceregistries.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.MobileLayer"
-      />
-
   <!-- Comments viewlet -->
   <browser:viewlet
       for="Products.CMFCore.interfaces.IContentish"
