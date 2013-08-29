@@ -1,6 +1,6 @@
 from plone.app.layout.viewlets.common import ViewletBase, PersonalBarViewlet
 from collective.rcse.viewlet.controller import sections
-from collective.rcse.viewlet.mobile.sections import RCSESections
+from collective.rcse.viewlet.controller.sections import RCSESections
 from collective.whathappened.browser.notifications import HotViewlet
 
 
