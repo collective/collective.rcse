@@ -8,6 +8,8 @@
 <body>
   <div metal:fill-slot="content-core" class="directory-wrapper">
     <tal:main-macro metal:define-macro="content-core">
+
+      <!--
     <tal:video tal:define="video view/video">
       <video width="" height="" controls autoplay
              tal:attributes="width video/width; height video/height">
@@ -22,6 +24,8 @@
         </object>
       </video>
     </tal:video>
+    -->
+
     </tal:main-macro>
   </div>
 </body>

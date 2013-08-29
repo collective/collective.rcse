@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>1054</version>
+  <version>1055</version>
   <dependencies>
     <dependency>profile-cioppino.twothumbs:default</dependency>
     <dependency>profile-collective.etherpad:default</dependency>
@@ -17,6 +17,7 @@
     <dependency>profile-collective.requestaccess:default</dependency>
     <dependency>profile-collective.readitlater:default</dependency>
     <dependency>profile-collective.themeswitcher:default</dependency>
+    <dependency>profile-collective.transcode.star:default</dependency>
     <dependency>profile-plone.app.dexterity:default</dependency>
     <dependency>profile-plone.app.contenttypes:default</dependency>
     <dependency>profile-plone.app.event:default</dependency>

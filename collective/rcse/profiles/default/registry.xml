@@ -6,6 +6,13 @@
         <value key="folder_query">{"portal_type": {"query": "collective.rcse.group"},"path": {"query": "/"}}</value>
   </records>
 
+  <!-- collective.transcode.star -->
+  <records interface="collective.transcode.star.interfaces.ITranscodeSettings">
+    <value key="portal_types">
+      <element>collective.rcse.video:file</element>
+    </value>
+  </records>
+
   <!-- collective.themeswitcher config -->
   <record name="collective.themeswitcher.theme.mobile">
     <field type="plone.registry.field.ASCIILine">
