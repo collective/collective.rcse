@@ -30,20 +30,10 @@
     }
 
     div.videobar span {
-        padding: 7px 10px;
+        padding: 5px 10px;
         border-left: 1px solid #666666 !important;
         position: relative;
-        top: 5px;
-    }
-
-    div#share-box a{
-        border-bottom-width: 0px !important;
-    }
-
-    div#share-box ul {
-        float: left;
-        margin: 0;
-        margin-top: -2px;
+        top: 4px;
     }
 
     div.videobar a {
@@ -56,24 +46,14 @@
         text-decoration: underline;
         color: #FFFFFF !important;
     }
+    div.hi-lo:hover{
+        cursor: pointer;
+    }
 
-    div.download, div.share, div.hi-lo {
+    div.download, div.hi-lo {
         float:right;
         height:29px;
         z-index: 1000;
-    }
-
-    div.embed-box {
-        font-size:75%;
-        display: inline;
-        float: right;
-    }
-
-    div.embed-box textarea {
-        height: 70px;
-        display: inline;
-        width: 215px !important;
-        font-size: 130% !important
     }
 
     ul#dl-links{
@@ -85,25 +65,6 @@
         z-index: 1000;
         width: 181px !important;
         padding: 10px;
-    }
-
-    div#share-box{
-        position: absolute;
-        right: 0px;
-        top: 29px;
-        clear:both;
-        background: none repeat scroll 0 0 #333333 !important;
-        z-index: 1000;
-        padding: 10px;
-        width:330px !important;
-        height:90px !important;
-        color: #fff;
-    }
-
-    div#share-box li{
-        list-style: none;
-        display: inline;
-        padding-right: 5px;
     }
 
     ul#dl-links li {
@@ -123,64 +84,6 @@
 
     }
 
-    div.unisubs-videoTab a span.unisubs-tabTextShare {
-        display: none !important;
-    }
-
-    div.unisubs-videoTab-anchoring {
-        width: 150px !important;
-    }
-
-    div#embed-legend {
-       float:left;
-       padding-right: 20px;
-    }
-
-   div#embed-links-container {
-       float:left;
-   }
-
-   ul#embed-links {
-       float:left;
-       padding-left: 2px !important;
-   }
-
-   li.embed-links {
-       display: block !important;
-   }
-
-   li.embed-links a {
-       text-decoration: underline;
-   }
-
-   #content div.videobar li.embed-links a, #content div.videobar li.embed-links a:hover {
-      color: white !important;
-   }
-
-   ul#share-links {
-      clear:both;
-      margin-top: -17px !important;
-   }
-
-   ul#share-links img {
-      width: 20px;
-   }
-
-   #embed-text-medium {
-      display:none;
-   }
-
-   #embed-text-small {
-      display:none;
-   }
-
-   div.videobar span.embed-links-text {
-      border-left: none !important;
-      padding: 0 !important;
-      top:0 !important;
-      font-size: 90% !important;
-   }
-
 </style>
 <div class="videobar">
     <div class="hi-lo" tal:condition="view/profiles/webm-high/path|nothing">
@@ -194,11 +97,6 @@
     <div class="download">
         <a id="download">
             <span>Download</span>
-        </a>
-    </div>
-    <div class="share">
-        <a id="share">
-            <span>Share</span>
         </a>
     </div>
 
@@ -221,25 +119,6 @@
                webm high res</a>
        </li>
     </ul>
-
-    <div id="share-box" style="display:none">
-        <div id="embed-links-container">
-            <ul id="embed-links">
-                <li class="embed-links"><a id="embed-link-small" href="#">Small (350p)</a></li>
-                <li class="embed-links"><a id="embed-link-medium" href="#">Medium (450p)</a></li>
-                <li class="embed-links"><a id="embed-link-large" href="#">Large (630p)</a></li>
-            </ul>
-        </div>
-        <div class="embed-box">
-            <textarea rows="1" id="embed-text-small" onclick="this.focus();this.select();"><span tal:replace="string:<iframe src='${here/absolute_url}/embed_view?width=350' frameborder='0' width='350' height='250'></iframe>" /></textarea>
-            <textarea rows="1" id="embed-text-medium" onclick="this.focus();this.select();"><span tal:replace="string:<iframe src='${here/absolute_url}/embed_view?width=450' frameborder='0' width='450' height='330'></iframe>" /></textarea>
-            <textarea rows="1" id="embed-text-large" onclick="this.focus();this.select();"><span tal:replace="string:<iframe src='${here/absolute_url}/embed_view' frameborder='0' width='630' height='460'></iframe>" /></textarea>
-        </div>
-        <ul id="share-links">
-            <li><a tal:attributes="href string:http://www.twitter.com/share?url=${here/absolute_url}" target="_blank" class="twitter-share-button" data-lang="en"><img src="++resource++collective.transcode.images/twitter.png" /></a></li>
-            <li><a tal:attributes="href string:http://www.facebook.com/share.php?u=${here/absolute_url}" target='_blank'><img src='++resource++collective.transcode.images/facebook.png' /> </a></li>
-        </ul>
-    </div>
 </div>
 
 <script>
@@ -253,48 +132,15 @@ if (isInIframe){
 var player = new MediaElementPlayer('video#main-video');
 event = Event;
 
-
-$('#embed-link-small').click( function() {
-    $('#embed-text-large').hide();
-    $('#embed-text-medium').hide();
-    $('#embed-text-small').show().select();
-});
-
-$('#embed-link-medium').click( function() {
-    $('#embed-text-large').hide();
-    $('#embed-text-medium').show().select();
-    $('#embed-text-small').hide();
-});
-
-$('#embed-link-large').click( function() {
-    $('#embed-text-large').show().select();
-    $('#embed-text-medium').hide();
-    $('#embed-text-small').hide();
-});
-
 $('div.download').mouseenter(
     function(){
-        $('#share-box').hide();
         $('#dl-links').show();
-    }
-);
-
-$('div.share').mouseenter(
-    function(){
-        $('#dl-links').hide();
-        $('#share-box').show();
-        var unisubs_url = $('.unisubs-tabTextShare').parent().attr('href');
-        if (unisubs_url){
-            $('#share-box a.unisubs').attr('href',unisubs_url);
-            $('#share-box a.unisubs').show();
-        }
     }
 );
 
 $('div.videobar').mouseleave(
     function(){
         $('#dl-links').fadeOut(500);
-        $('#share-box').fadeOut(500)
     }
 );
 
@@ -330,23 +176,6 @@ $('div.videobar').mouseleave(
     });
 
 });">
-</script>
-
-<script tal:condition="view/show_subs" type="text/javascript" src="++resource++collective.transcode.js/unisubs-widgetizer.js"></script>
-<script type="text/javascript">
-// Fullscreen video width fix (unisubs/mediaelementjs conflict)
-$('.mejs-fullscreen-button button').live('click',function(){
-    $('#main-video').attr('style','');
-    if ($(this).parent().hasClass('mejs-unfullscreen')) {
-        $('span.unisubs-captionSpan').css('margin-top','auto');
-        $('span.unisubs-captionSpan').css('margin-left','40%');
-        $('span.unisubs-captionSpan').css('margin-right','auto');
-        $('span.unisubs-captionSpan').css('margin-bottom','40px');
-    } else {
-        $('span.unisubs-captionSpan').css('margin-top','0');
-        $('span.unisubs-captionSpan').css('margin-left','0');
-    }
-});
 </script>
 
 </tal:video>

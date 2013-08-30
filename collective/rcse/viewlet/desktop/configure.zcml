@@ -62,7 +62,7 @@
       for="collective.transcode.star.interfaces.ITranscoded"
       manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
       permission="zope2.View"
-      template="templates/viewlet.pt"
+      template="templates/transcode.pt"
       class="collective.transcode.star.browser.viewlets.TranscodeViewlet"
       layer="collective.rcse.layer.DesktopLayer"
       />

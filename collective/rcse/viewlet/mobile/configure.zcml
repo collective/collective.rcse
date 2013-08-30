@@ -125,4 +125,15 @@
         layer="collective.rcse.layer.MobileLayer"
         permission="zope2.View"
         />
+
+    <browser:viewlet
+	name="collective.transcode"
+	for="collective.transcode.star.interfaces.ITranscoded"
+	manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
+	permission="zope2.View"
+	template="templates/transcode.pt"
+	class="collective.transcode.star.browser.viewlets.TranscodeViewlet"
+	layer="collective.rcse.layer.MobileLayer"
+	/>
+
 </configure>
