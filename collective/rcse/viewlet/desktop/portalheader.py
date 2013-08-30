@@ -9,9 +9,7 @@ class PortalHeaderViewlet(RCSESections, HotViewlet):
 
     def update(self):
         RCSESections.update(self)
-        PersonalBarViewlet.update(self)
         HotViewlet.update(self)
-
 
     def updateUserActions(self):
         pass
