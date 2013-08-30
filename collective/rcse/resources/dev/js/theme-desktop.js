@@ -147,8 +147,13 @@ var rcseInitAjaxAction = function() {
 }
 
 var rcseApplyTransform = function(element) {
-    $(element).find("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
+    if (element == undefined) {
+        element = document;
+    }
+    console.log('rcseApplyTransform' + $(element).find(".readmore"));
+//    $(element).find("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
     $(element).find("select").select2();
+    $(element).find(".readmore").readmore();
     rcseUpdatePortlets(element);
     return element;
 }

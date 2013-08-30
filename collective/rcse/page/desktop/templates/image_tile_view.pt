@@ -1,3 +1,3 @@
 <h2 tal:content="context/Title"></h2>
 <p class="documentDescription" tal:content="context/Description"></p>
-<div tal:replace="structure context/@@picturefill"></div>
+<div class="picturefill-wrapper" tal:content="structure context/@@picturefill"></div>

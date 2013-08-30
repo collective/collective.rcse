@@ -3,6 +3,7 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
 
+    <include file="tile_view.zcml" />
   <browser:page
       for="*"
       name="plone.comments"
@@ -69,14 +70,6 @@
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
-  <browser:page
-      for="*"
-      name="tile_view"
-      class="collective.rcse.page.controller.timeline_item_view.TimelineItemView"
-      template="templates/tile_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
-      />
  <browser:page
       for="collective.rcse.content.audio.AudioSchema"
       name="audio_view"
@@ -85,35 +78,12 @@
       permission="zope2.View"
       layer="collective.rcse.layer.DesktopLayer"
       />
-  <browser:page
-      for="collective.rcse.content.audio.AudioSchema"
-      name="tile_view"
-      class="collective.rcse.page.controller.audio_view.AudioView"
-      template="templates/audio_tile_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
-      />
-  <browser:page
-      for="plone.app.event.dx.interfaces.IDXEvent"
-      name="tile_view"
-      class="collective.rcse.page.controller.event_view.EventView"
-      template="templates/event_tile_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
-      />
+
   <browser:page
       for="collective.rcse.content.video.VideoSchema"
       name="video_view"
       class="collective.rcse.page.controller.video_view.VideoView"
       template="templates/video_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
-      />
-  <browser:page
-      for="collective.rcse.content.video.VideoSchema"
-      name="tile_view"
-      class="collective.rcse.page.controller.video_view.VideoView"
-      template="templates/video_tile_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.DesktopLayer"
       />
