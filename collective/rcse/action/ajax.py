@@ -51,7 +51,7 @@ class AjaxAction(BrowserView):
         return json.dumps(data)
 
     def __call__(self):
-        ajax = self.request.get('ajax', False)
+        ajax = self.request.get('ajax_load', False)
         original_result = self.do_action()
         if not ajax:
             return original_result
@@ -98,7 +98,7 @@ class Comments(AjaxAction):
 
     def __call__(self):
         #because the rendering of document_actions will execute the form...
-        ajax = self.request.get('ajax', False)
+        ajax = self.request.get('ajax_load', False)
         if not ajax:
             return self.do_action()
         data = self.ajax_return()

@@ -80,7 +80,7 @@ var rcseInitAjaxAction = function(){
 		$.ajax({
 			url: $(this).attr('href'),
 			context: eventObject,
-			data: {'ajax': true}
+			data: {'ajax_load': true}
 		}).success(function(data){
 			var parent = $(eventObject.target).parents(".document-actions-wrapper");
 			parent.replaceWith(data['document-actions-wrapper']);
@@ -116,7 +116,7 @@ var rcseInitAjaxAction = function(){
 	//make the delete an ajax action to not render the page
 	var ajaxDeleteComment = document.createElement("input");
 	ajaxDeleteComment.type = "hidden";
-	ajaxDeleteComment.name = "ajax";
+	ajaxDeleteComment.name = "ajax_load";
 	ajaxDeleteComment.value = "1";
 	$("input[name='form.button.DeleteComment']").parents('form').append(ajaxDeleteComment);
 }
