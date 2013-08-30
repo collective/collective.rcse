@@ -101,6 +101,7 @@
       permission="zope2.View"
       layer="collective.rcse.layer.DesktopLayer"
       />
+
   <browser:page
       for="collective.rcse.content.video.VideoSchema"
       name="video_view"

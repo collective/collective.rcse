@@ -131,8 +131,7 @@
 	for="collective.transcode.star.interfaces.ITranscoded"
 	manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
 	permission="zope2.View"
-	template="templates/transcode.pt"
-	class="collective.transcode.star.browser.viewlets.TranscodeViewlet"
+	class="plonetheme.jquerymobile.browser.viewlets.hidden.HiddenViewlet"
 	layer="collective.rcse.layer.MobileLayer"
 	/>
 

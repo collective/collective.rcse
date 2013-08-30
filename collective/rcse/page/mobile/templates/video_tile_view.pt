@@ -1,18 +1,7 @@
 <div class="tile-wrapper">
   <h2 tal:content="context/Title"></h2>
   <p class="documentDescription" tal:content="context/Description"></p>
-  <tal:video tal:define="video view/video">
-    <video width="" height="" controls
-      tal:attributes="width video/width; height video/height">
-      <source src="" type="*/*"
-          tal:attributes="src view/href; type view/getContentType" />
-      <object width="" height=""
-              type="application/x-shockwave-flash"
-              data="++resource++collective.mediaelementjs/flashmediaelement.swf"
-              tal:attributes="width video/width; height video/height">
-        <param name="movie" value="++resource++collective.mediaelementjs/flashmediaelement.swf" />
-        <param name="flashvars" value="" tal:attributes="value python:'file=%s' % view.href()" />
-      </object>
-    </video>
-  </tal:video>
+
+  
+
 </div>

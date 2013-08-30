@@ -121,6 +121,57 @@ var rcseInitAjaxAction = function(){
 	$("input[name='form.button.DeleteComment']").parents('form').append(ajaxDeleteComment);
 }
 
+var rcseInitVideo = function(){
+    $('video').mediaelementplayer();
+
+    $(document).on('mouseenter', 'div.download',
+	function(){
+            $(this).find('.dl-links').show();
+	});
+
+    $(document).on('mouseleave', 'div.videobar',
+	function(){
+            $(this).find('.dl-links').fadeOut(500);
+	});
+
+    function changeSrc(player, src){
+	var currentTime = player.getCurrentTime();
+	player.setSrc(src);
+
+	setTimeout(function(){
+	    if (currentTime > 0){
+		player.setCurrentTime(currentTime);
+		player.play();
+	    }
+	}, 100);
+    }
+
+    $(document).on('click', '.player-low', function (event) {
+	var videoElement = $(this).parents('.videobar')
+	    .siblings('.mejs-container').find('video');
+	var player = new MediaElementPlayer(videoElement);
+	createCookie('videores', 'low');
+	$(this).parents('.hi-lo').find('.player-high').show();
+	$(this).parents('.hi-lo').find('.player-low').hide();
+	var newSrc = videoElement.attr('src').replace('high/', 'low/');
+	changeSrc(player, newSrc);
+	event.preventDefault();
+    });
+
+    $(document).on('click', '.player-high', function (event) {
+	var videoElement = $(this).parents('.videobar')
+	    .siblings('.mejs-container').find('video');
+	var player = new MediaElementPlayer(videoElement);
+	createCookie('videores', 'high');
+	$(this).parents('.hi-lo').find('.player-high').hide();
+	$(this).parents('.hi-lo').find('.player-low').show();
+	var newSrc = videoElement.attr('src').replace('low/', 'high/');
+	changeSrc(player, newSrc);
+	event.preventDefault();
+    });
+
+}
+
 var rcseUpdateUI = function(){
 	rcseConvertPortletToBootstrap();
 	$("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
@@ -131,4 +182,5 @@ $(document).on("ready", function(){
 	rcseInitAjaxAction();
 	rcseLoadTimeline();
 	rcseUpdateUI();
+        rcseInitVideo();
 });

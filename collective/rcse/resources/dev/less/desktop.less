@@ -7,3 +7,65 @@ textarea { resize:vertical; width: 100%;}
 	.media-object{width: 64px;}
     .group, .date{display:block;}
 }
+
+/* transcode.* */
+div.videobar {
+    position: relative;
+    height:29px;
+    background: url('++resource++collective.transcode.images/gradient_light.png') repeat-x scroll 0 0 #333333 !important
+}
+
+div.videobar span {
+    padding: 5px 10px;
+    border-left: 1px solid #666666 !important;
+    position: relative;
+    top: 4px;
+}
+
+div.videobar a {
+    color: #FFFFFF;
+    font-size: 13px;
+}
+
+div.videobar a:hover span{
+    background: none repeat scroll 0 0 #333333 !important;
+    text-decoration: underline;
+    color: #FFFFFF !important;
+}
+div.hi-lo:hover{
+    cursor: pointer;
+}
+
+div.download, div.hi-lo {
+    float:right;
+    height:29px;
+    z-index: 1000;
+}
+
+ul.dl-links{
+    clear:both;
+    position: absolute;
+    right: 0px;
+    top: 29px;
+    background: none repeat scroll 0 0 #333333 !important;
+    z-index: 1000;
+    width: 181px !important;
+    padding: 10px;
+}
+
+ul.dl-links li {
+    list-style: none;
+    display: block;
+}
+
+ul.dl-links a {
+    color: #fff !important;
+    text-decoration: none;
+    border-bottom: none !important;
+}
+
+ul.dl-links a:hover {
+    text-decoration: underline;
+    color: #fff !important;
+
+}
