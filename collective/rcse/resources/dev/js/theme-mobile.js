@@ -145,46 +145,43 @@ var rcseUpdateComments = function(element) {
 }
 
 
-var rcseUpdateNotifications = function() {
+var rcseInitNotifications = function() {
     var rcseReloadNotifications = function(eventObject) {
-        $
-                .ajax({
-                    url : portal_url + '/@@notifications_ajax',
-                    context : eventObject
-                })
-                .success(
-                        function(data) {
-                            var see_all = $("#popup-notifications ul")
-                                    .children("li").last();
-                            var see_all_href = see_all.attr('href');
-                            var see_all_text = see_all.text();
+        $.ajax({
+            url : portal_url + '/@@notifications_ajax',
+            context : eventObject
+        }).success(function(data) {
+            var see_all = $("#popup-notifications ul")
+                .children("li").last().find('a');
+            var see_all_href = see_all.attr('href');
+            var see_all_text = see_all.text();
 
-                            $("#notifications .ui-btn-text").text(
-                                    data['unseenCount']);
+            $("#notifications .ui-btn-text").text(
+                data['unseenCount']);
 
-                            $("#popup-notifications ul").remove();
-                            $("#popup-notifications")
-                                    .append(
-                                            '<ul data-role="listview" data-inset="true" data-icon="false"></ul>');
+            $("#popup-notifications ul").remove();
+            $("#popup-notifications")
+                .append(
+                    '<ul data-role="listview" data-inset="true" data-icon="false"></ul>');
 
-                            for ( var i = 0; i < data['notifications'].length; i++) {
-                                var notification = data['notifications'][i];
-                                $("#popup-notifications ul").append(
-                                        '<li><a></a></li>');
-                                var a = $("#popup-notifications ul li:last")
-                                        .children('a');
+            for ( var i = 0; i < data['notifications'].length; i++) {
+                var notification = data['notifications'][i];
+                $("#popup-notifications ul").append(
+                    '<li><a></a></li>');
+                var a = $("#popup-notifications ul li:last")
+                    .children('a');
 
-                                a.attr('href', notification.url);
-                                if (notification.seen == 0)
-                                    a.attr('class', 'notification-not-seen');
-                                a.text(notification.title);
-                            }
+                a.attr('href', notification.url);
+                if (notification.seen == 0)
+                    a.attr('class', 'notification-not-seen');
+                a.text(notification.title);
+            }
 
-                            var see_all = '<li><a href="' + see_all_href + '">'
-                                    + see_all_text + '</a></li>';
-                            $("#popup-notifications ul").append(see_all);
-                            $("#popup-notifications").trigger("create");
-                        });
+            var see_all = '<li><a href="' + see_all_href + '">'
+                + see_all_text + '</a></li>';
+            $("#popup-notifications ul").append(see_all);
+            $("#popup-notifications").trigger("create");
+        });
     }
 
     $("#notifications").click(function() {
@@ -236,7 +233,6 @@ var rcseApplyTransform = function(element) {
     }
     rcseUpdateDisableAjax(element);
     rcseUpdateComments(element);
-    rcseUpdateNotifications();
     $(element).find("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
     picturefill();
     $(element).find(".readmore").readmore();
@@ -254,4 +250,5 @@ $(document).on("pageshow", function() {
     rcseInitOpenAuthorInDialog();
     rcseInitTimeline();
     rcseInitVideo();
+    rcseInitNotifications();
 });
