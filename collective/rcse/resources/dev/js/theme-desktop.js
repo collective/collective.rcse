@@ -16,9 +16,11 @@
  * limitations under the License.
  * ======================================================================== */
 
-var rcseConvertPortletToBootstrap = function() {
-    console.log('rcseConvertPortletToBootstrap');
-    $('dl.portlet').each(
+var rcseUpdatePortlets = function(element) {
+    if (element == undefined) {
+        element = document;
+    }
+    $(element).find('dl.portlet').each(
             function() {
                 var newPortlet = document.createElement("div");
                 var newTitle = document.createElement("nav");
@@ -57,15 +59,7 @@ var rcseConvertPortletToBootstrap = function() {
             });
 }
 
-var rcseMakePortletColumnsAffix = function() {
-    /*
-     * FIXME: At the moment if fix on the left ...
-     * $('#portal-column-one').attr('data-spy', "affix");
-     * $('#portal-column-two').attr('data-spy', "affix");
-     */
-}
-
-var rcseLoadTimeline = function() {
+var rcseInitTimeline = function() {
     $("a.rcse_tile").each(function() {
         var item = $(this);
         $.ajax({
@@ -77,36 +71,46 @@ var rcseLoadTimeline = function() {
     });
 }
 
+var rcseUpdateComments = function(element) {
+    if (element == undefined) {
+        element = document;
+    }
+    $(element).find('.commenting form').attr("action", portal_url);
+    // make the delete an ajax action to not render the page
+    var form = $(element).find("input[name='form.button.DeleteComment']")
+            .parents('form');
+    if (form.length != 0) {
+        var ajaxDeleteComment = document.createElement("input");
+        ajaxDeleteComment.type = "hidden";
+        ajaxDeleteComment.name = "ajax_load";
+        ajaxDeleteComment.value = "1";
+        form.append(ajaxDeleteComment);
+    }
+}
+
 var rcseInitAjaxAction = function() {
-    console.log("init ajax action");
-    $(document)
-            .on(
-                    "click",
-                    ".document-actions-wrapper a.action",
-                    function(eventObject) {
-                        eventObject.stopImmediatePropagation();
-                        eventObject.preventDefault();
-                        $
-                                .ajax({
-                                    url : $(this).attr('href'),
-                                    context : eventObject,
-                                    data : {
-                                        'ajax_load' : true
-                                    }
-                                })
-                                .success(
-                                        function(data) {
-                                            var element = data['document-actions-wrapper'];
-                                            element = rcseApplyTransform(element);
-                                            var parent = $(eventObject.target)
-                                                    .parents(
-                                                            ".document-actions-wrapper");
-                                            parent
-                                                    .replaceWith(element);
-                                        });
-                    })
-    $('.commenting form').attr("action", portal_url);
-    $('.commenting form').submit(function(e) {
+    $(document).on(
+            "click",
+            ".document-actions-wrapper a.action",
+            function(eventObject) {
+                eventObject.stopImmediatePropagation();
+                eventObject.preventDefault();
+                $.ajax({
+                    url : $(this).attr('href'),
+                    context : eventObject,
+                    data : {
+                        'ajax_load' : true
+                    }
+                }).success(
+                        function(data) {
+                            var element = data['document-actions-wrapper'];
+                            element = rcseApplyTransform(element);
+                            var parent = $(eventObject.target).parents(
+                                    ".document-actions-wrapper");
+                            parent.replaceWith(element);
+                        });
+            })
+    $(document).on("submit", '.commenting form', function(e) {
         e.preventDefault();
     });
     $(document)
@@ -139,27 +143,17 @@ var rcseInitAjaxAction = function() {
                                     }
                                 });
                     })
-    // make the delete an ajax action to not render the page
-    var ajaxDeleteComment = document.createElement("input");
-    ajaxDeleteComment.type = "hidden";
-    ajaxDeleteComment.name = "ajax_load";
-    ajaxDeleteComment.value = "1";
-    $("input[name='form.button.DeleteComment']").parents('form').append(
-            ajaxDeleteComment);
+
 }
 
-var rcseApplyTransform = function(element){
+var rcseApplyTransform = function(element) {
     $(element).find("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
-    $(element).find("select").select(2);
+    $(element).find("select").select2();
+    rcseUpdatePortlets(element);
     return element;
 }
 $(document).on("ready", function() {
-    rcseConvertPortletToBootstrap();
     rcseInitAjaxAction();
-    rcseLoadTimeline();
-    $("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
-    $("select").select2();
+    rcseApplyTransform();
+    rcseInitTimeline();
 });
-document.addEventListener("DOMContentLoaded", function(event) {
-    console.log("DOM fully loaded and parsed");
-  });

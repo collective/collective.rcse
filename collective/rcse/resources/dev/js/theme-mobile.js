@@ -141,11 +141,10 @@
  * 
  * $(window).bind('smartscroll', function() { // Check if near bottom var
  * pixelsFromWindowBottomToBottom = 0 + $(document).height() -
- * ($(window).scrollTop()) - $(window).height();
- *  // if distance remaining in the scroll (including buffer) is less // than
- * the orignal nav to bottom.... if (pixelsFromWindowBottomToBottom - 40 <
- * $(document).height() - $a.offset().top) { console.log("do some stuff..."); }
- * });
+ * ($(window).scrollTop()) - $(window).height(); // if distance remaining in the
+ * scroll (including buffer) is less // than the orignal nav to bottom.... if
+ * (pixelsFromWindowBottomToBottom - 40 < $(document).height() -
+ * $a.offset().top) { console.log("do some stuff..."); } });
  */
 
 // define a custom event
@@ -162,8 +161,7 @@
  * event.special.smartscroll.handler); }, teardown : function() {
  * $(this).unbind("scroll", event.special.smartscroll.handler); }, handler :
  * function(event, execAsap) { // Save the context var context = this, args =
- * arguments;
- *  // set correct event type event.type = "smartscroll";
+ * arguments; // set correct event type event.type = "smartscroll";
  * 
  * if (scrollTimeout) { clearTimeout(scrollTimeout); } scrollTimeout =
  * setTimeout(function() { $(context).trigger('smartscroll', args); }, execAsap
@@ -172,33 +170,21 @@
  * $.fn.smartscroll = function(fn) { return fn ? this.bind("smartscroll", fn) :
  * this.trigger("smartscroll", [ "execAsap" ]); };
  */
-var rcseLoadTimeline = function() {
+var rcseInitTimeline = function() {
     $("a.rcse_tile").each(function() {
         var item = $(this);
+        var parent = item.parent();
         $.ajax({
             url : $(this).attr('href') + '/@@group_tile_view'
         }).success(function(data) {
             var element = rcseApplyTransform(data);
             item.replaceWith(element);
-            $(element).trigger("create");
+            parent.trigger("create");
         });
     });
 }
-var rcseDisableAjax = function(element) {
-    if (element == undefined) {
-        element = document;
-    }
-    $(element).find("#popup-globalsections a").attr("data-ajax", "false");
-    $(element).find('form[method="post"]').attr("data-ajax", "false");
-    $(element).find('#portal-siteactions a').attr("data-ajax", "false");
-    $(element).find('#popup-personalbar a').attr("data-ajax", "false");
-}
-
-var rcseOpenAuthorInDialog = function(element) {
-    if (element == undefined) {
-        element = document;
-    }
-    $(element).find('a[rel="author"]').click(function(eventObject) {
+var rcseInitOpenAuthorInDialog = function() {
+    $(document).on("click", 'a[rel="author"]', function(eventObject) {
         eventObject.stopImmediatePropagation();
         eventObject.preventDefault();
         var portal_path = portal_url.slice(window.location.origin.length + 1);
@@ -208,18 +194,14 @@ var rcseOpenAuthorInDialog = function(element) {
                 memberid : $(this).attr("href").split("/").pop()
             }
         });
-    })
+    });
 }
 
-var rcseInitAjaxAction = function(element) {
-    if (element == undefined) {
-        element = document;
-    }
-    $(element).find(".document-actions-wrapper a.action").attr("data-ajax",
-            "false");
-    $(element)
-            .find(".document-actions-wrapper a.action")
-            .click(
+var rcseInitAjaxAction = function() {
+    $(document)
+            .on(
+                    "click",
+                    "a.action",
                     function(eventObject) {
                         eventObject.stopImmediatePropagation();
                         eventObject.preventDefault();
@@ -240,19 +222,18 @@ var rcseInitAjaxAction = function(element) {
                                             parent.replaceWith(element);
                                             $(document).trigger("create");
                                         });
-                    })
-    $(element).find('.commenting form').attr("action", portal_url);
-    $(element).find('.commenting form').submit(function(e) {
+                    });
+    $(document).on("submit", ".commenting form", function(e) {
         e.preventDefault();
     });
-    $(element)
-            .find('.commenting input[type="submit"]')
+    $(document)
             .on(
                     "click",
+                    '.commenting input[type="submit"]',
                     function(eventObject) {
                         var form = $(eventObject.target).parents("form");
                         var data = {
-                            ajax : true,
+                            ajax_load : true,
                             uid : $(eventObject.target).parents(".rcsetile")
                                     .attr("id")
                         }
@@ -267,12 +248,59 @@ var rcseInitAjaxAction = function(element) {
                                         var parent = jqform
                                                 .parents(".document-actions-wrapper");
                                         var element = rcseApplyTransform(response['document-actions-wrapper']);
+                                        $(element).find("textarea").val("");
                                         parent.replaceWith(element);
                                         $(document).trigger("create");
-                                        parent.find("textarea").val("");
                                     }
                                 });
-                    })
+                    });
+
+}
+
+var rcseInitBindChangeEventStartDate = function() {
+    $(document).on("blur", "#form-widgets-IEventBasic-start", function(e) {
+                        var endItem = $("#form-widgets-IEventBasic-end");
+                        if (endItem.attr('value') === "") {
+                            endItem.attr('value', $(this).attr('value'));
+                        } else if (new Date(
+                                document
+                                        .getElementById("form-widgets-IEventBasic-start").value) > new Date(
+                                document
+                                        .getElementById("form-widgets-IEventBasic-end").value)) {
+                            endItem.attr('value', $(this).attr('value'));
+                        }
+                    });
+    $(document).on("blur", "#form-widgets-IEventBasic-end", function(e) {
+                        var startItem = $("#form-widgets-IEventBasic-start");
+                        if (startItem.attr('value') === "") {
+                            startItem.attr('value', $(this).attr('value'));
+                        } else if (new Date(
+                                document
+                                        .getElementById("form-widgets-IEventBasic-start").value) > new Date(
+                                document
+                                        .getElementById("form-widgets-IEventBasic-end").value)) {
+                            startItem.attr('value', $(this).attr('value'));
+                        }
+                    });
+}
+
+
+
+var rcseUpdateDisableAjax = function(element) {
+    if (element == undefined) {
+        element = document;
+    }
+    $(element).find("#popup-globalsections a").attr("data-ajax", "false");
+    $(element).find('form[method="post"]').attr("data-ajax", "false");
+    $(element).find('#portal-siteactions a').attr("data-ajax", "false");
+    $(element).find('#popup-personalbar a').attr("data-ajax", "false");
+    $(element).find(".document-actions-wrapper a.action").attr("data-ajax",
+            "false");
+    $(element).find('.commenting form').attr("action", portal_url);
+}
+
+
+var rcseUpdateComments = function(element) {
     var form = $(element).find("input[name='form.button.DeleteComment']")
             .parents('form');
     if (form.length != 0) {
@@ -285,41 +313,6 @@ var rcseInitAjaxAction = function(element) {
     }
 }
 
-var rcseBindChangeEventStartDate = function(element) {
-    if (element == undefined) {
-        element = document;
-    }
-    $(element)
-            .find("#form-widgets-IEventBasic-start")
-            .blur(
-                    function(e) {
-                        var endItem = $("#form-widgets-IEventBasic-end");
-                        if (endItem.attr('value') === "") {
-                            endItem.attr('value', $(this).attr('value'));
-                        } else if (new Date(
-                                document
-                                        .getElementById("form-widgets-IEventBasic-start").value) > new Date(
-                                document
-                                        .getElementById("form-widgets-IEventBasic-end").value)) {
-                            endItem.attr('value', $(this).attr('value'));
-                        }
-                    })
-    $(element)
-            .find("#form-widgets-IEventBasic-end")
-            .blur(
-                    function(e) {
-                        var startItem = $("#form-widgets-IEventBasic-start");
-                        if (startItem.attr('value') === "") {
-                            startItem.attr('value', $(this).attr('value'));
-                        } else if (new Date(
-                                document
-                                        .getElementById("form-widgets-IEventBasic-start").value) > new Date(
-                                document
-                                        .getElementById("form-widgets-IEventBasic-end").value)) {
-                            startItem.attr('value', $(this).attr('value'));
-                        }
-                    })
-}
 
 var rcseUpdateNotifications = function() {
     var rcseReloadNotifications = function(eventObject) {
@@ -368,29 +361,26 @@ var rcseUpdateNotifications = function() {
     });
 }
 var rcseApplyTransform = function(element) {
+    if (element == undefined) {
+        element = document;
+    }
     console.log("rcseApplyTransform");
-    rcseDisableAjax(element);
-    rcseInitAjaxAction(element);
-    rcseBindChangeEventStartDate(element);
-    rcseOpenAuthorInDialog(element);
+    rcseUpdateDisableAjax(element);
+    rcseUpdateComments(element);
     rcseUpdateNotifications();
-    //$(element).find("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
+    $(element).find("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
     picturefill();
     $(element).find(".readmore").readmore();
     return element;
 }
 $(document).on("pagebeforeshow", function() {
     console.log("pagebeforeshow");
-    rcseDisableAjax();
-    rcseInitAjaxAction();
-    rcseBindChangeEventStartDate();
-    rcseOpenAuthorInDialog();
-    rcseUpdateNotifications();
-    //$("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
-    picturefill();
-    $(".readmore").readmore();
+    rcseApplyTransform();
 });
 $(document).on("pageshow", function() {
     console.log("pageshow");
-    rcseLoadTimeline();
+    rcseInitAjaxAction();
+    rcseInitBindChangeEventStartDate();
+    rcseInitOpenAuthorInDialog();
+    rcseInitTimeline();
 });
