@@ -22,7 +22,6 @@
        <img tal:attributes="src jpeg; width width; height height" title="No video playback capabilities" />
    </object>
 </video>
-<style tal:content="string: div.videobar{width: ${width}px !important}" />
 <style>
     div.videobar {
         position: relative;
@@ -304,8 +303,8 @@ $('div.videobar').mouseleave(
 <script tal:condition="view/profiles/webm-high/path|nothing" language="JavaScript" tal:content="string:$(function(){
     $('#player-low').click(function () {
         createCookie('videores', 'low');
-        jq('#player-high')[0].style.display = '';
-        jq('#player-low')[0].style.display = 'none';
+        $('#player-high')[0].style.display = '';
+        $('#player-low')[0].style.display = 'none';
         var extension = $('video')[0].currentSrc.split('.')[$('video')[0].currentSrc.split('.').length -1];
         if (extension == 'webm') {
             player.setSrc('${view/profiles/webm-low/address|nothing}/${view/profiles/webm-low/path|nothing}');
@@ -318,8 +317,8 @@ $('div.videobar').mouseleave(
 
     $('#player-high').click(function () {
         createCookie('videores', 'high');
-        jq('#player-high')[0].style.display = 'none';
-        jq('#player-low')[0].style.display = '';
+        $('#player-high')[0].style.display = 'none';
+        $('#player-low')[0].style.display = '';
         var extension = $('video')[0].currentSrc.split('.')[$('video')[0].currentSrc.split('.').length -1];
         if (extension == 'webm') {
             player.setSrc('${view/profiles/webm-high/address|nothing}/${view/profiles/webm-high/path|nothing}');

@@ -35,6 +35,7 @@ module.exports = function(grunt) {
           'app/bower_components/picturefill/picturefill.js',
           'js/custom/jquery.oembed.js',
           'js/custom/comments.js',
+	  'js/custom/cookie_functions.js',
           'js/theme-common.js',
           'js/theme-desktop.js'],
         dest: '../desktop/js/desktop.js'
@@ -46,6 +47,7 @@ module.exports = function(grunt) {
           'app/bower_components/picturefill/picturefill.js',
           'js/custom/jquery.oembed.js',
           'js/custom/comments.js',
+	  'js/custom/cookie_functions.js',
           'js/custom/jquery.mobile.plone.js',
           'js/theme-common.js',
           'js/theme-mobile.js'],
