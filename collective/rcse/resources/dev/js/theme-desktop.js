@@ -260,7 +260,7 @@ $.webshims.setOptions('forms', {
     customDatalist: true
 });
 $.webshims.setOptions('forms-ext', {
-    replaceUI: true,
+    replaceUI: false,
     types: 'datetime-local month date time number'
 });
 $.webshims.polyfill();
