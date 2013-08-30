@@ -195,22 +195,15 @@ var rcseInitVideo = function(){
 
 }
 
-var rcseUpdateVideo = function(element) {
-    if (element == undefined)
-	element = document;
-    $(document).find('video').mediaelementplayer();
-}
-
 var rcseApplyTransform = function(element) {
     if (element == undefined) {
         element = document;
     }
-    console.log('rcseApplyTransform' + $(element).find(".readmore"));
 //    $(element).find("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
     $(element).find("select").select2();
     $(element).find(".readmore").readmore();
     rcseUpdatePortlets(element);
-    rcseUpdateVideo(element);
+    $(element).find('video,audio').mediaelementplayer();
     return element;
 }
 
