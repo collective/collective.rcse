@@ -44,12 +44,10 @@ var rcseUpdatePortlets = function(element) {
                     $(this).find('div > a').unwrap();
                     $(this).find('a > img').remove();
                     $(this).find("li").each(function() {
-                        console.log("li");
                         $(newList).append($(this).html());
                     })
                 } else {
                     $(this).find("dd").each(function() {
-                        console.log('others');
                         $(this).find('a').addClass('list-group-item');
                         $(newList).append($(this).html());
                     });
@@ -62,11 +60,12 @@ var rcseUpdatePortlets = function(element) {
 var rcseInitTimeline = function() {
     $("a.rcse_tile").each(function() {
         var item = $(this);
+        var parent = item.parent();
         $.ajax({
-            url : $(this).attr('href') + '/@@group_tile_view'
+            url : item.attr('href') + '/@@group_tile_view'
         }).success(function(data) {
-            element = rcseApplyTransform(data);
-            item.replaceWith(element);
+            item.replaceWith(data);
+            rcseApplyTransform(parent);
         });
     });
 }
@@ -95,6 +94,9 @@ var rcseInitAjaxAction = function() {
             function(eventObject) {
                 eventObject.stopImmediatePropagation();
                 eventObject.preventDefault();
+                var link = $(this);
+                var container = $(eventObject.target).parents(".document-actions-wrapper");
+                var parent = container.parent();
                 $.ajax({
                     url : $(this).attr('href'),
                     context : eventObject,
@@ -104,10 +106,8 @@ var rcseInitAjaxAction = function() {
                 }).success(
                         function(data) {
                             var element = data['document-actions-wrapper'];
-                            element = rcseApplyTransform(element);
-                            var parent = $(eventObject.target).parents(
-                                    ".document-actions-wrapper");
-                            parent.replaceWith(element);
+                            container.replaceWith(element);
+                            rcseApplyTransform(parent);
                         });
             })
     $(document).on("submit", '.commenting form', function(e) {
@@ -255,3 +255,12 @@ $(document).on("ready", function() {
     rcseInitVideo();
     rcseInitNotifications();
 });
+$.webshims.setOptions("basePath", portal_url + "/++resource++webshims/");
+$.webshims.setOptions('forms', {
+    customDatalist: true
+});
+$.webshims.setOptions('forms-ext', {
+    replaceUI: true,
+    types: 'datetime-local month date time number'
+});
+$.webshims.polyfill();
