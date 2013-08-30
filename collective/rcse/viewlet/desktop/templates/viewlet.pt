@@ -1,0 +1,353 @@
+<tal:video tal:define="width view/request/width|python:630;
+                       height python:int(int(width)/1.75);">
+
+<video id="main-video" controls
+    tal:define="mp4 string:${view/profiles/mp4-low/address|nothing}/${view/profiles/mp4-low/path|nothing};
+                webm string:${view/profiles/webm-low/address|nothing}/${view/profiles/webm-low/path|nothing};
+                jpeg view/context/thumbnailImage/absolute_url|string:${view/profiles/jpeg/address|nothing}/${view/profiles/jpeg/path|nothing}"
+    tal:attributes="poster jpeg"
+    controls="controls" preload="metadata"
+       style="width:100%; height:100%;">
+   <source tal:condition="view/profiles/webm-low/path|view/profiles/webm-high/path|nothing" 
+       tal:attributes="src webm" type="video/webm" />
+   <source tal:condition="view/profiles/mp4-low/path|view/profiles/mp4-high/path|nothing"
+       tal:attributes="src mp4" type="video/mp4" />
+   <object tal:condition="view/profiles/mp4-low/path|view/profiles/mp4-high/path|nothing"
+       tal:attributes="width width; height height"
+       type="application/x-shockwave-flash"
+       data="++resource++collective.mediaelementjs/flashmediaelement.swf">
+       <param name="movie" value="++resource++collective.mediaelementjs/flashmediaelement.swf" />
+       <param name="flashvars" tal:attributes="value string:controls=true&poster=${jpeg}&file=${mp4}" />
+       <!-- Image as a last resort -->
+       <img tal:attributes="src jpeg; width width; height height" title="No video playback capabilities" />
+   </object>
+</video>
+<style tal:content="string: div.videobar{width: ${width}px !important}" />
+<style>
+    div.videobar {
+        position: relative;
+        height:29px;
+        background: url('++resource++collective.transcode.images/gradient_light.png') repeat-x scroll 0 0 #333333 !important
+    }
+
+    div.videobar span {
+        padding: 7px 10px;
+        border-left: 1px solid #666666 !important;
+        position: relative;
+        top: 5px;
+    }
+
+    div#share-box a{
+        border-bottom-width: 0px !important;
+    }
+
+    div#share-box ul {
+        float: left;
+        margin: 0;
+        margin-top: -2px;
+    }
+
+    div.videobar a {
+        color: #FFFFFF;
+        font-size: 13px;
+    }
+
+    div.videobar a:hover span{
+        background: none repeat scroll 0 0 #333333 !important;
+        text-decoration: underline;
+        color: #FFFFFF !important;
+    }
+
+    div.download, div.share, div.hi-lo {
+        float:right;
+        height:29px;
+        z-index: 1000;
+    }
+
+    div.embed-box {
+        font-size:75%;
+        display: inline;
+        float: right;
+    }
+
+    div.embed-box textarea {
+        height: 70px;
+        display: inline;
+        width: 215px !important;
+        font-size: 130% !important
+    }
+
+    ul#dl-links{
+        clear:both;
+        position: absolute;
+        right: 0px;
+        top: 29px;
+        background: none repeat scroll 0 0 #333333 !important;
+        z-index: 1000;
+        width: 181px !important;
+        padding: 10px;
+    }
+
+    div#share-box{
+        position: absolute;
+        right: 0px;
+        top: 29px;
+        clear:both;
+        background: none repeat scroll 0 0 #333333 !important;
+        z-index: 1000;
+        padding: 10px;
+        width:330px !important;
+        height:90px !important;
+        color: #fff;
+    }
+
+    div#share-box li{
+        list-style: none;
+        display: inline;
+        padding-right: 5px;
+    }
+
+    ul#dl-links li {
+        list-style: none;
+        display: block;
+    }
+
+    ul#dl-links a {
+        color: #fff !important;
+        text-decoration: none;
+        border-bottom: none !important;
+    }
+
+    ul#dl-links a:hover {
+        text-decoration: underline;
+        color: #fff !important;
+
+    }
+
+    div.unisubs-videoTab a span.unisubs-tabTextShare {
+        display: none !important;
+    }
+
+    div.unisubs-videoTab-anchoring {
+        width: 150px !important;
+    }
+
+    div#embed-legend {
+       float:left;
+       padding-right: 20px;
+    }
+
+   div#embed-links-container {
+       float:left;
+   }
+
+   ul#embed-links {
+       float:left;
+       padding-left: 2px !important;
+   }
+
+   li.embed-links {
+       display: block !important;
+   }
+
+   li.embed-links a {
+       text-decoration: underline;
+   }
+
+   #content div.videobar li.embed-links a, #content div.videobar li.embed-links a:hover {
+      color: white !important;
+   }
+
+   ul#share-links {
+      clear:both;
+      margin-top: -17px !important;
+   }
+
+   ul#share-links img {
+      width: 20px;
+   }
+
+   #embed-text-medium {
+      display:none;
+   }
+
+   #embed-text-small {
+      display:none;
+   }
+
+   div.videobar span.embed-links-text {
+      border-left: none !important;
+      padding: 0 !important;
+      top:0 !important;
+      font-size: 90% !important;
+   }
+
+</style>
+<div class="videobar">
+    <div class="hi-lo" tal:condition="view/profiles/webm-high/path|nothing">
+        <a id="player-low" style="display:none">
+            <span>View Standard Quality</span>
+        </a>
+        <a id="player-high">
+            <span>View High Quality</span>
+        </a>
+    </div>
+    <div class="download">
+        <a id="download">
+            <span>Download</span>
+        </a>
+    </div>
+    <div class="share">
+        <a id="share">
+            <span>Share</span>
+        </a>
+    </div>
+
+    <ul id="dl-links" style="display:none" tal:condition="view/fieldname|nothing">
+        <li><a tal:attributes="href view/download_original">original (<tal:size tal:content="view/display_size" />)</a></li>
+        <li><a tal:condition="view/profiles/mp4-low/address|nothing"
+               tal:attributes="href string:${view/profiles/mp4-low/address|nothing}/${view/profiles/mp4-low/path|nothing};">
+               mp4 low res</a>
+       </li>
+        <li><a tal:condition="view/profiles/mp4-high/address|nothing" target="new"
+               tal:attributes="href string:${view/profiles/mp4-high/address|nothing}/${view/profiles/mp4-high/path|nothing};">
+               mp4 high res</a>
+       </li>
+        <li><a tal:condition="view/profiles/webm-low/address|nothing" target="new"
+               tal:attributes="href string:${view/profiles/webm-low/address|nothing}/${view/profiles/webm-low/path|nothing};">
+               webm low res</a>
+       </li>
+        <li><a tal:condition="view/profiles/webm-high/address|nothing" target="new"
+               tal:attributes="href string:${view/profiles/webm-high/address|nothing}/${view/profiles/webm-high/path|nothing};">
+               webm high res</a>
+       </li>
+    </ul>
+
+    <div id="share-box" style="display:none">
+        <div id="embed-links-container">
+            <ul id="embed-links">
+                <li class="embed-links"><a id="embed-link-small" href="#">Small (350p)</a></li>
+                <li class="embed-links"><a id="embed-link-medium" href="#">Medium (450p)</a></li>
+                <li class="embed-links"><a id="embed-link-large" href="#">Large (630p)</a></li>
+            </ul>
+        </div>
+        <div class="embed-box">
+            <textarea rows="1" id="embed-text-small" onclick="this.focus();this.select();"><span tal:replace="string:<iframe src='${here/absolute_url}/embed_view?width=350' frameborder='0' width='350' height='250'></iframe>" /></textarea>
+            <textarea rows="1" id="embed-text-medium" onclick="this.focus();this.select();"><span tal:replace="string:<iframe src='${here/absolute_url}/embed_view?width=450' frameborder='0' width='450' height='330'></iframe>" /></textarea>
+            <textarea rows="1" id="embed-text-large" onclick="this.focus();this.select();"><span tal:replace="string:<iframe src='${here/absolute_url}/embed_view' frameborder='0' width='630' height='460'></iframe>" /></textarea>
+        </div>
+        <ul id="share-links">
+            <li><a tal:attributes="href string:http://www.twitter.com/share?url=${here/absolute_url}" target="_blank" class="twitter-share-button" data-lang="en"><img src="++resource++collective.transcode.images/twitter.png" /></a></li>
+            <li><a tal:attributes="href string:http://www.facebook.com/share.php?u=${here/absolute_url}" target='_blank'><img src='++resource++collective.transcode.images/facebook.png' /> </a></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+var isInIframe = (window.location != window.parent.location) ? true : false;
+if (isInIframe){
+    var v = $('video#main-video');
+    v.width($(window).width());
+    v.height($(window).height() - 100);
+}
+
+var player = new MediaElementPlayer('video#main-video');
+event = Event;
+
+
+$('#embed-link-small').click( function() {
+    $('#embed-text-large').hide();
+    $('#embed-text-medium').hide();
+    $('#embed-text-small').show().select();
+});
+
+$('#embed-link-medium').click( function() {
+    $('#embed-text-large').hide();
+    $('#embed-text-medium').show().select();
+    $('#embed-text-small').hide();
+});
+
+$('#embed-link-large').click( function() {
+    $('#embed-text-large').show().select();
+    $('#embed-text-medium').hide();
+    $('#embed-text-small').hide();
+});
+
+$('div.download').mouseenter(
+    function(){
+        $('#share-box').hide();
+        $('#dl-links').show();
+    }
+);
+
+$('div.share').mouseenter(
+    function(){
+        $('#dl-links').hide();
+        $('#share-box').show();
+        var unisubs_url = $('.unisubs-tabTextShare').parent().attr('href');
+        if (unisubs_url){
+            $('#share-box a.unisubs').attr('href',unisubs_url);
+            $('#share-box a.unisubs').show();
+        }
+    }
+);
+
+$('div.videobar').mouseleave(
+    function(){
+        $('#dl-links').fadeOut(500);
+        $('#share-box').fadeOut(500)
+    }
+);
+
+</script>
+
+<script tal:condition="view/profiles/webm-high/path|nothing" language="JavaScript" tal:content="string:$(function(){
+    $('#player-low').click(function () {
+        createCookie('videores', 'low');
+        jq('#player-high')[0].style.display = '';
+        jq('#player-low')[0].style.display = 'none';
+        var extension = $('video')[0].currentSrc.split('.')[$('video')[0].currentSrc.split('.').length -1];
+        if (extension == 'webm') {
+            player.setSrc('${view/profiles/webm-low/address|nothing}/${view/profiles/webm-low/path|nothing}');
+        } else {
+            player.setSrc('${view/profiles/mp4-low/address|nothing}/${view/profiles/mp4-low/path|nothing}');
+        }
+        player.play();
+        return false
+    });
+
+    $('#player-high').click(function () {
+        createCookie('videores', 'high');
+        jq('#player-high')[0].style.display = 'none';
+        jq('#player-low')[0].style.display = '';
+        var extension = $('video')[0].currentSrc.split('.')[$('video')[0].currentSrc.split('.').length -1];
+        if (extension == 'webm') {
+            player.setSrc('${view/profiles/webm-high/address|nothing}/${view/profiles/webm-high/path|nothing}');
+        } else {
+            player.setSrc('${view/profiles/mp4-high/address|nothing}/${view/profiles/mp4-high/path|nothing}');
+        }
+        player.play();
+        return false
+    });
+
+});">
+</script>
+
+<script tal:condition="view/show_subs" type="text/javascript" src="++resource++collective.transcode.js/unisubs-widgetizer.js"></script>
+<script type="text/javascript">
+// Fullscreen video width fix (unisubs/mediaelementjs conflict)
+$('.mejs-fullscreen-button button').live('click',function(){
+    $('#main-video').attr('style','');
+    if ($(this).parent().hasClass('mejs-unfullscreen')) {
+        $('span.unisubs-captionSpan').css('margin-top','auto');
+        $('span.unisubs-captionSpan').css('margin-left','40%');
+        $('span.unisubs-captionSpan').css('margin-right','auto');
+        $('span.unisubs-captionSpan').css('margin-bottom','40px');
+    } else {
+        $('span.unisubs-captionSpan').css('margin-top','0');
+        $('span.unisubs-captionSpan').css('margin-left','0');
+    }
+});
+</script>
+
+</tal:video>
