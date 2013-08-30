@@ -191,27 +191,67 @@ var rcseUpdateNotifications = function() {
         rcseReloadNotifications();
     });
 }
+
+var rcseInitVideo = function(){
+    function changeSrc(player, src){
+	var currentTime = player.getCurrentTime();
+	player.setSrc(src);
+
+	setTimeout(function(){
+	    if (currentTime > 0){
+		player.setCurrentTime(currentTime);
+		player.play();
+	    }
+	}, 100);
+    }
+
+    $(document).on('click', '.player-low', function (event) {
+	var videoElement = $(this).parents('.videobar')
+	    .siblings('.mejs-container').find('video');
+	var player = new MediaElementPlayer(videoElement);
+	createCookie('videores', 'low');
+	$(this).parents('.hi-lo').find('.player-high').show();
+	$(this).parents('.hi-lo').find('.player-low').hide();
+	var newSrc = videoElement.attr('src').replace('high/', 'low/');
+	changeSrc(player, newSrc);
+	event.preventDefault();
+    });
+
+    $(document).on('click', '.player-high', function (event) {
+	var videoElement = $(this).parents('.videobar')
+	    .siblings('.mejs-container').find('video');
+	var player = new MediaElementPlayer(videoElement);
+	createCookie('videores', 'high');
+	$(this).parents('.hi-lo').find('.player-high').hide();
+	$(this).parents('.hi-lo').find('.player-low').show();
+	var newSrc = videoElement.attr('src').replace('low/', 'high/');
+	changeSrc(player, newSrc);
+	event.preventDefault();
+    });
+}
+
 var rcseApplyTransform = function(element) {
     if (element == undefined) {
         element = document;
     }
-    console.log("rcseApplyTransform");
     rcseUpdateDisableAjax(element);
     rcseUpdateComments(element);
     rcseUpdateNotifications();
     $(element).find("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
     picturefill();
     $(element).find(".readmore").readmore();
+    $(element).find('video,audio').mediaelementplayer();
     return element;
 }
+
 $(document).on("pagebeforeshow", function() {
-    console.log("pagebeforeshow");
     rcseApplyTransform();
 });
+
 $(document).on("pageshow", function() {
-    console.log("pageshow");
     rcseInitAjaxAction();
     rcseInitBindChangeEventStartDate();
     rcseInitOpenAuthorInDialog();
     rcseInitTimeline();
+    rcseInitVideo();
 });

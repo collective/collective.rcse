@@ -13,7 +13,7 @@
                        height python:int(int(width)/1.75);"
 	   i18n:domain="collective.rcse">
 
-<video id="main-video" controls
+<video controls
     tal:define="mp4 string:${view/profiles/mp4-low/address|nothing}/${view/profiles/mp4-low/path|nothing};
                 webm string:${view/profiles/webm-low/address|nothing}/${view/profiles/webm-low/path|nothing};
                 jpeg view/context/thumbnailImage/absolute_url|string:${view/profiles/jpeg/address|nothing}/${view/profiles/jpeg/path|nothing}"
@@ -31,71 +31,14 @@
 </style>
 <div class="videobar">
     <div class="hi-lo" tal:condition="view/profiles/webm-high/path|nothing">
-        <a id="player-low" style="display:none">
+        <a class="player-low" style="display:none">
             <span>View Standard Quality</span>
         </a>
-        <a id="player-high">
+        <a class="player-high">
             <span>View High Quality</span>
         </a>
     </div>
 </div>
-
-<script>
-var isInIframe = (window.location != window.parent.location) ? true : false;
-if (isInIframe){
-    var v = $('video#main-video');
-    v.width($(window).width());
-    v.height($(window).height() - 100);
-}
-
-var player = new MediaElementPlayer('video#main-video');
-event = Event;
-
-$('div.download').mouseenter(
-    function(){
-        $('#dl-links').show();
-    }
-);
-
-$('div.videobar').mouseleave(
-    function(){
-        $('#dl-links').fadeOut(500);
-    }
-);
-
-</script>
-
-<script tal:condition="view/profiles/webm-high/path|nothing" language="JavaScript" tal:content="string:$(function(){
-    $('#player-low').click(function () {
-        createCookie('videores', 'low');
-        $('#player-high')[0].style.display = '';
-        $('#player-low')[0].style.display = 'none';
-        var extension = $('video')[0].currentSrc.split('.')[$('video')[0].currentSrc.split('.').length -1];
-        if (extension == 'webm') {
-            player.setSrc('${view/profiles/webm-low/address|nothing}/${view/profiles/webm-low/path|nothing}');
-        } else {
-            player.setSrc('${view/profiles/mp4-low/address|nothing}/${view/profiles/mp4-low/path|nothing}');
-        }
-        player.play();
-        return false
-    });
-
-    $('#player-high').click(function () {
-        createCookie('videores', 'high');
-        $('#player-high')[0].style.display = 'none';
-        $('#player-low')[0].style.display = '';
-        var extension = $('video')[0].currentSrc.split('.')[$('video')[0].currentSrc.split('.').length -1];
-        if (extension == 'webm') {
-            player.setSrc('${view/profiles/webm-high/address|nothing}/${view/profiles/webm-high/path|nothing}');
-        } else {
-            player.setSrc('${view/profiles/mp4-high/address|nothing}/${view/profiles/mp4-high/path|nothing}');
-        }
-        player.play();
-        return false
-    });
-
-});">
-</script>
 
 </tal:video>
 
