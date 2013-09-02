@@ -105,13 +105,16 @@ var rcseUpdatePortalMessage = function(element){
  *
  */
 var rcseUpdateForms = function(element){
-    console.log('update forms');
+    //focus
+    $(element).find('input').focus();
+    $(element).find('textarea').focus();
+    $(element).find("#form-widgets-IDublinCore-title").focus();
+
+    //transform form fields for bootstrap
     $(element).find('.field').each(function(){
-        console.log('update forms:field');
         var field = $(this);
         field.addClass('form-group');
         field.find('input,textarea').each(function(){
-            console.log('update forms: input');
             var input = $(this);
             if (input.attr('type')=="checkbox"){
                 return true; // continue
@@ -119,8 +122,8 @@ var rcseUpdateForms = function(element){
             input.addClass('form-control');
         });
     });
+    //transform form actions for bootstrap
     $(element).find('.formControls').each(function(){
-        console.log('find formControls');
         var formwrapper = $(this);
         var formactions = formwrapper.find('input[type="submit"]');
         if (!formwrapper.hasClass("btn-group")){
@@ -140,6 +143,10 @@ var rcseUpdateForms = function(element){
             });
         }
     });
+    $(element).find(".commentActions").each(function(){
+        $(".destructive").addClass("btn btn-danger");
+    })
+    //transform checkbox for bootstrap
     $(element).find('input[type="checkbox"]').each(function(){
         var input = $(this);
         console.log(input.parents(".field"));
@@ -152,6 +159,7 @@ var rcseUpdateForms = function(element){
         label.unwrap();
         label.wrap('<div class="checkbox"/>');
     });
+    //transform help message for bootstrap
     $(element).find(".formHelp").each(function(){
         $(this).addClass('help-block');
     });
