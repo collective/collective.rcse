@@ -41,6 +41,7 @@
   <browser:page
       for="collective.rcse.content.discussion.DiscussionSchema"
       name="tile_view"
+      class="collective.rcse.page.controller.discussion_view.DiscussionView"
       template="templates/discussion_tile_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.MobileLayer"
