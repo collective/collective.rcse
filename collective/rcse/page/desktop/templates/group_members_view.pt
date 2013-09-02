@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.rcse">
+<body>
+  <div metal:fill-slot="content-core" class="directory-wrapper">
+    <tal:main-macro metal:define-macro="content-core">
+      <a i18n:translate=""
+	 tal:attributes="href context/absolute_url">Get back to the group</a>
+      <div tal:repeat="membertuple context/get_local_roles">
+	<div tal:define="userid python: membertuple[0];
+			 memberinfo python: context.restrictedTraverse('get_memberinfo');
+			 update python: memberinfo(userid);
+			 member python: memberinfo.get_membrane()"
+	     tal:condition="python: member is not None"
+	    tal:content="structure member/@@vcard_view">
+	</div>
+      </div>
+    </tal:main-macro>
+  </div>
+</body>
+</html>

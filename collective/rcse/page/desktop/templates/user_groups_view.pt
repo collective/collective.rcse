@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.rcse">
+<body>
+  <div metal:fill-slot="content-core" class="directory-wrapper">
+    <tal:main-macro metal:define-macro="content-core">
+      <a i18n:translate=""
+	 tal:attributes="href context/absolute_url">Get back to the user</a>
+      <div tal:repeat="group view/getUserGroups">
+	<h2>
+	  <a tal:attributes="href group/getURL"
+	     tal:content="group/Title">
+	  </a>
+	</h2>
+	<p tal:condition="group/Description"
+	   tal:content="group/Description"></p>
+      </div>
+    </tal:main-macro>
+  </div>
+</body>
+</html>

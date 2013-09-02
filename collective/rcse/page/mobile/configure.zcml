@@ -70,16 +70,6 @@
       permission="cmf.ModifyPortalContent"
       />
 
-  <browser:page
-      for="collective.rcse.content.etherpad.EtherpadSchema"
-      name="etherpad_view"
-      menu="plone_displayviews"
-      title="Etherpad view"
-      class="collective.etherpad.etherpad_view.EtherpadView"
-      template="templates/etherpad_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.MobileLayer"
-      />
 
   <browser:page
       for="*"

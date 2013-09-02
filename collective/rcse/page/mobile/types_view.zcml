@@ -18,15 +18,29 @@
   <browser:page
       for="collective.rcse.content.discussion.DiscussionSchema"
       name="discussion_view"
+      menu="plone_displayviews"
+      title="Discussion view"
       class="collective.rcse.page.controller.discussion_view.DiscussionView"
       template="templates/discussion_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.MobileLayer"
       />
+
   <browser:page
       for="plone.app.contenttypes.interfaces.IDocument"
-      name="image_view"
+      name="document_view"
       template="templates/document_view.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.MobileLayer"
+      />
+
+  <browser:page
+      for="collective.rcse.content.etherpad.EtherpadSchema"
+      name="etherpad_view"
+      menu="plone_displayviews"
+      title="Etherpad view"
+      class="collective.etherpad.etherpad_view.EtherpadView"
+      template="templates/etherpad_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.MobileLayer"
       />
@@ -102,6 +116,16 @@
       />
     <browser:page
       for="collective.rcse.content.group.GroupSchema"
+      name="dashboard_view"
+      menu="plone_displayviews"
+      title="Dashboard view"
+      class="collective.rcse.page.controller.group_dashboard_view.DashboardView"
+      template="templates/group_dashboard_view.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
+    <browser:page
+      for="collective.rcse.content.group.GroupSchema"
       name="favorites_view"
       menu="plone_displayviews"
       title="Favorites view"
@@ -150,16 +174,6 @@
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="dashboard_view"
-      menu="plone_displayviews"
-      title="Dashboard view"
-      class="collective.rcse.page.controller.group_dashboard_view.DashboardView"
-      template="templates/group_dashboard_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
   <browser:page
       name="link_redirect_view"
       for="plone.app.contenttypes.interfaces.ILink"
@@ -175,7 +189,6 @@
       permission="zope2.View"
       layer="collective.rcse.layer.MobileLayer"
       />
-
 
 
   <browser:page
