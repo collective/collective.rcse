@@ -4,7 +4,7 @@ from plone.app.discussion.interfaces import IDiscussionLayer
 from collective.favoriting.layer import Layer as FavLayer
 from plone.app.event.interfaces import IBrowserLayer as EventLayer
 from plone.app.contenttypes.interfaces import IPloneAppContenttypesLayer
-
+from z3c.form.interfaces import IFormLayer
 
 
 class CommonLayer(
@@ -18,5 +18,5 @@ class MobileLayer(CommonLayer, JQMobileLayer):
     """Marker interface which is used in the mobile theme."""
 
 
-class DesktopLayer(CommonLayer):
+class DesktopLayer(CommonLayer, IFormLayer):
     """Marker interface which is used in the desktop theme"""

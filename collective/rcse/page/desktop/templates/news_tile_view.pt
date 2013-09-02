@@ -5,6 +5,6 @@
   <p tal:condition="context/image_caption"
      tal:content="context/image_caption"></p>
 </div>
-<div class="newsText"
+<div class="newsText readmore"
      tal:define="output context/@@text-transform/text/text/plain"
      tal:content="python: output[:300] + (output[300:] and '...')"></div>

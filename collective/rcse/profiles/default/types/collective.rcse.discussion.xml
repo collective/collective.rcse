@@ -12,22 +12,23 @@
  <property name="allowed_content_types" />
 
  <!-- schema interface -->
- <property name="schema"></property>
+ <property name="schema">collective.rcse.content.discussion.DiscussionSchema</property>
  <property name="model_source"></property>
- <property name="model_file">collective.rcse.content:discussion.xml</property>
+ <property name="model_file"></property>
 
  <!-- class used for content items -->
- <property name="klass">plone.app.contenttypes.content.File</property>
+ <property name="klass">plone.dexterity.content.Item</property>
+
 
  <!-- add permission -->
  <property name="add_permission">collective.rcse.AddDiscussion</property>
 
  <!-- enabled behaviors -->
  <property name="behaviors">
+  <element value="plone.app.content.interfaces.INameFromTitle" />
   <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
   <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>
   <element value="plone.app.dexterity.behaviors.metadata.IOwnership"/>
-  <element value="plone.app.dexterity.behaviors.filename.INameFromFileName"/>
   <element value="plone.app.dexterity.behaviors.discussion.IAllowDiscussion"/>
   <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>
   <element value="plone.app.relationfield.behavior.IRelatedItems"/>

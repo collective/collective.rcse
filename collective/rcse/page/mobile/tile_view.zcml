@@ -8,7 +8,7 @@
       name="group_tile_view"
       template="templates/group_tile_view.pt"
       class="collective.rcse.page.controller.timeline_item_view.TimelineItemView"
-      layer="collective.rcse.layer.DesktopLayer"
+      layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
 
@@ -18,7 +18,7 @@
       class="collective.rcse.page.controller.timeline_item_view.TimelineItemView"
       template="templates/tile_view.pt"
       permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
+      layer="collective.rcse.layer.MobileLayer"
       />
 
   <browser:page
@@ -27,7 +27,7 @@
       class="collective.rcse.page.controller.audio_view.AudioView"
       template="templates/audio_tile_view.pt"
       permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
+      layer="collective.rcse.layer.MobileLayer"
       />
 
   <browser:page
@@ -35,7 +35,7 @@
       name="tile_view"
       template="templates/document_tile_view.pt"
       permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
+      layer="collective.rcse.layer.MobileLayer"
       />
 
   <browser:page
@@ -43,7 +43,7 @@
       name="tile_view"
       template="templates/discussion_tile_view.pt"
       permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
+      layer="collective.rcse.layer.MobileLayer"
       />
 
   <browser:page
@@ -52,7 +52,7 @@
       class="collective.rcse.page.controller.event_view.EventView"
       template="templates/event_tile_view.pt"
       permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
+      layer="collective.rcse.layer.MobileLayer"
       />
 
   <browser:page
@@ -60,7 +60,7 @@
       name="tile_view"
       template="templates/file_tile_view.pt"
       permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
+      layer="collective.rcse.layer.MobileLayer"
       />
 
   <browser:page
@@ -68,7 +68,7 @@
       name="tile_view"
       template="templates/link_tile_view.pt"
       permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
+      layer="collective.rcse.layer.MobileLayer"
       />
 
   <browser:page
@@ -76,7 +76,7 @@
       name="tile_view"
       template="templates/news_tile_view.pt"
       permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
+      layer="collective.rcse.layer.MobileLayer"
       />
 
   <browser:page
@@ -84,7 +84,7 @@
       name="tile_view"
       template="templates/image_tile_view.pt"
       permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
+      layer="collective.rcse.layer.MobileLayer"
       />
 
   <browser:page
@@ -93,7 +93,7 @@
       class="collective.rcse.page.controller.video_view.VideoView"
       template="templates/video_tile_view.pt"
       permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
+      layer="collective.rcse.layer.MobileLayer"
       />
 
 </configure>

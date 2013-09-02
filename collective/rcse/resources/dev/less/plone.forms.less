@@ -16,101 +16,19 @@
 /*  (do not remove this :) */
 /*  (not this either :) */
 
-textarea {
-    font: 100% Monaco, "Courier New", Courier, monospace;
-    border: 1px solid #ddd;
-    border-color:#666 #ddd #ddd #666;
-    color: Black;
-    background: White url(input_background.png) repeat-x;
-    width: 100%;
-}
-input {
-    font-family: "Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif;
-    visibility: visible;
-    border: 1px solid #ddd;
-    border-color:#666 #ddd #ddd #666;
-    color: Black;
-    vertical-align: middle;
-    background: White url(input_background.png) repeat-x;
-    font-size: 1em;
-}
+
+textarea { resize:vertical; min-height: 5em;}
 
 /* Code to work around IE's lacking support of sub-elements of the input element */
 .noborder,
 .documentEditable * .noborder {
     border: none;
     margin: 0;
-    background: none;
-    background-color: transparent;
 }
 
-input[type=checkbox] {
-    border: none;
-    margin: 0;
-    background: none;
-    background-color: transparent;
-}
-
-
-#searchGadget {
-    border: 1px solid #8cacbb;
-}
-
-button {
-    font-family: "Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif;
-    visibility: visible;
-    border: 1px solid #8cacbb;
-    color: Black;
-    vertical-align: middle;
-    background-color: #dee7ec;
-    padding: 1px;
-    cursor: pointer;
-    font-size: 90%;
-    text-transform: none;    
-}
-select {
-    vertical-align: top;
-}
 form {
     border: none;
     margin: 0;
-}
-/*
-fieldset {
-    border: 1px solid #8cacbb;
-    margin: 1em 0em 1em 0em;
-    padding: 0em 1em 1em 1em;
-    line-height: 1.5em;
-    width: auto;
-}
-*/
-legend {
-    background: White;
-    padding: 0.5em;
-    font-size: 90%;
-}
-label {
-    font-weight: bold;
-}
-label .fieldErrorBox {
-    font-weight: normal;
-}
-optgroup {
-  font-style: normal;
-  font-weight: bold;
-  color: #999;
-  padding-left: 0.25em;
-}
-option {
-  color: black;
-}
-optgroup > option {
-  padding: 0 0.25em 0 1em;
-}
-
-dl.enableFormTabbing dd {
-    margin-left: 0;
-    padding-top: 2em;
 }
 
 #login-form {
@@ -129,117 +47,6 @@ dl.enableFormTabbing dd {
     margin-bottom: 1em;
 }
 
-#forgotten-password {
-    float: right; 
-    width: 35%; 
-    margin: 0 1em;
-}
-
-.standalone,
-.documentEditable * .standalone {
-    background: #dee7ec url(linkOpaque.png) 9px 1px no-repeat;
-    color: Black;
-    cursor: pointer;
-    font-size: 90%;
-    padding: 1px 1px 1px 15px;
-    text-transform: none;
-    border: 1px solid #8cacbb;
-}
-/*.context,
-.formControls .actionButtons .button,
-.documentEditable * .context {
-    background: transparent url(linkTransparent.png) 9px 1px no-repeat;
-    color: Black;
-    cursor: pointer;
-    font-size: 90%;
-    padding: 1px 1px 1px 15px;
-    text-transform: none;
-    border: 1px solid #8cacbb;
-}*/
-.destructive,
-.documentEditable * .destructive {
-    background: #ffce7b url(linkTransparent.png) 9px 1px no-repeat;
-    border: 1px solid #ffa500;
-    color: Black;
-    cursor: pointer;
-    font-size: 90%;
-    padding: 1px 1px 1px 15px;
-    text-transform: none;
-    border: 1px solid #8cacbb;
-}
-input.searchButton {
-    margin-bottom: 1px ! important;
-    color: Black;
-    font-size: 90%;
-    background: White url(search_icon.png) 2px 1px no-repeat;
-    cursor: pointer;
-    padding: 1px 1px 1px 19px;
-    text-transform: none;
-    border: 1px solid #8cacbb;
-}
-.searchSection {
-    color: #76797c;
-    margin-top: 0.25em;
-}
-.searchSection label:hover {
-    color: Black;
-}
-
-/* The edit form elements */
-.field {
-    top: 0;
-    left: 0;
-    margin: 0 1em 1em 0;
-    clear: both;
-}
-#search-filter .field {
-    clear:none;
-    float:left;
-    width:230px;
-}
-#search-filter  h2 {
-    clear: left;
-}
-.field .field {
-    margin: 0;
-}
-.fieldRequired {
-    background: url(required.png) center left no-repeat;
-    padding: 0 0 0 8px;
-    color: White;
-}
-.fieldUploadFile {
-    text-align: right; 
-    margin-right: 0.75em;
-    display: none;
-}
-.fieldTextFormat {
-    text-align: right;
-    margin-right: 0.75em
-}
-.formHelp {
-    font-size: 90%;
-    color: #76797c;
-    margin: 0 0 0.2em 0;
-    display: block;
-}
-.formHelp:hover {
-    color: Black;
-    cursor: default;
-}
-div.error {
-    /* Class for error indication in forms */
-    background-color: #fdc; 
-    border: 1px solid #d00;
-    padding: 0.5em;
-    margin: 0 0 1em 0;
-    width: 95%;
-}
-.error .fieldRequired {
-   color: #d00;
-}
-
-
 /* Styles to make the editing widgets look more like their view counterparts */
 #archetypes-fieldname-title input, input#form\.title,
 #form-widgets-IDublinCore-title {
@@ -252,9 +59,6 @@ div.error {
     font: 100% "Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif;
     font-weight: bold;
 }
-input.inputLabelActive {
-  color: #76797c;
-}
 
 textarea#form\.description {
     height: 6em;
@@ -264,16 +68,6 @@ textarea#form\.description {
 tr.selected { 
     background-color: #ffa;
 }
-
-.kupu-save-message {
-  color: white;
-  font-weight: bold;
-  background-color: red;
-  padding: 0.3em;
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 999;
+.select2-container{
+	width: 100%;
 }
-
-/*  */

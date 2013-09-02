@@ -42,10 +42,10 @@ var rcseUpdatePortlets = function(element) {
                     console.log('navtree');
                     $(this).find('a').addClass('list-group-item');
                     $(this).find('div > a').unwrap();
+                    $(this).find('li > a').unwrap();
+                    $(this).find('ul > a').unwrap();
                     $(this).find('a > img').remove();
-                    $(this).find("li").each(function() {
-                        $(newList).append($(this).html());
-                    })
+                    $(newList).append($(this).html());
                 } else {
                     $(this).find("dd").each(function() {
                         $(this).find('a').addClass('list-group-item');
@@ -56,7 +56,106 @@ var rcseUpdatePortlets = function(element) {
                 $(this).replaceWith(newPortlet);
             });
 }
+/**
+<dl class="portalMessage error">
+  <dt>Erreur</dt>
+  <dd>Il y a des erreurs.</dd>
+</dl>
+ */
+var rcseUpdatePortalMessage = function(element){
+    $(document).find('.portalMessage:visible').each(function(){
+        var wrapper = $(this);
+        var title = wrapper.find('dt').html(); // -> str
+        var message = wrapper.find('dd').html();
+        var cssclasses = wrapper.attr('class');
+        var level = "info";
+        if (cssclasses.indexOf("error") != -1){
+            level = "error";
+        }
+        var newWrapper = document.createElement("div");
+        $(newWrapper).addClass("alert");
+        if (level == "info"){
+            $(newWrapper).addClass("alert-info");
+        }else if (level == "error"){
+            $(newWrapper).addClass("alert-danger");
+        }
+        var newTitle = document.createElement('h4');
+        $(newTitle).html(title);
+        var newMessage = document.createElement('span');
+        $(newMessage).html(message);
+        newWrapper.appendChild(newTitle);
+        newWrapper.appendChild(newMessage);
+        wrapper.replaceWith(newWrapper);
+    })
+}
 
+/**
+ * 
+<div class="formControls">
+  <input id="form-buttons-save" name="form.buttons.save" class="submit-widget button-field context" value="Sauvegarder" type="submit">
+  <input id="form-buttons-cancel" name="form.buttons.cancel" class="submit-widget button-field standalone" value="Annuler" formnovalidate="" type="submit">
+</div>
+
+->
+<div class="">
+  <input id="form-buttons-save" name="form.buttons.save" class="submit-widget button-field context" value="Sauvegarder" type="submit">
+  <input id="form-buttons-cancel" name="form.buttons.cancel" class="submit-widget button-field standalone" value="Annuler" formnovalidate="" type="submit">
+</div>
+
+ *
+ */
+var rcseUpdateForms = function(element){
+    console.log('update forms');
+    $(element).find('.field').each(function(){
+        console.log('update forms:field');
+        var field = $(this);
+        field.addClass('form-group');
+        field.find('input,textarea').each(function(){
+            console.log('update forms: input');
+            var input = $(this);
+            if (input.attr('type')=="checkbox"){
+                return true; // continue
+            }
+            input.addClass('form-control');
+        });
+    });
+    $(element).find('.formControls').each(function(){
+        console.log('find formControls');
+        var formwrapper = $(this);
+        var formactions = formwrapper.find('input[type="submit"]');
+        if (!formwrapper.hasClass("btn-group")){
+            formwrapper.addClass("btn-group");
+            formactions.each(function(){
+                var input = $(this);
+                input.addClass('btn');
+                if (input.hasClass('context')){
+                    input.addClass('btn-primary');
+                }
+                else if (input.hasClass('destructive')){
+                    input.addClass('btn-danger');
+                }
+                else{
+                    input.addClass('btn-default');
+                }
+            });
+        }
+    });
+    $(element).find('input[type="checkbox"]').each(function(){
+        var input = $(this);
+        console.log(input.parents(".field"));
+        var label = input.siblings("label");
+        var labelText = label.find('.label').text();
+        if (label.length != 0){
+            label.text(labelText);
+            input.prependTo(label);
+        }
+        label.unwrap();
+        label.wrap('<div class="checkbox"/>');
+    });
+    $(element).find(".formHelp").each(function(){
+        $(this).addClass('help-block');
+    });
+}
 var rcseInitTimeline = function() {
     $("a.rcse_tile").each(function() {
         var item = $(this);
@@ -245,6 +344,10 @@ var rcseApplyTransform = function(element) {
     $(element).find(".readmore").readmore();
     rcseUpdatePortlets(element);
     $(element).find('video,audio').mediaelementplayer();
+    $(element).find('a.oembed, .oembed a').oembed(null, jqueryOmebedSettings);
+    rcseUpdateForms(element);
+    picturefill();
+    rcseUpdatePortalMessage(element);
     return element;
 }
 

@@ -3,6 +3,9 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
 
+  <include file="tile_view.zcml" />
+  <include file="types_view.zcml" />
+
   <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="timeline_view"
@@ -17,15 +20,16 @@
   <!-- directories -->
 
   <browser:page
-      for="*"
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="users_directory_view"
       template="templates/users_directory_view.pt"
       class="collective.rcse.page.controller.users_directory.UsersDirectoryView"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
+
   <browser:page
-      for="*"
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="companies_directory_view"
       template="templates/companies_directory_view.pt"
       class="collective.rcse.page.controller.companies_directory.CompaniesDirectoryView"
@@ -33,57 +37,6 @@
       permission="zope2.View"
       />
 
-  <!-- Member and Company -->
-
-  <browser:page
-      for="collective.rcse.content.member.IMember"
-      name="member_view"
-      class="collective.rcse.page.controller.person_view.MemberInfoView"
-      template="templates/user_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-  <browser:page
-      for="collective.rcse.content.company.ICompany"
-      name="company_view"
-      class="collective.rcse.page.controller.company_view.CompanyInfoView"
-      template="templates/company_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-
-  <browser:page
-      for="collective.rcse.content.member.IMember"
-      name="groups_view"
-      template="templates/user_groups_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-  <browser:page
-      for="collective.rcse.content.company.ICompany"
-      name="members_view"
-      class="collective.rcse.page.controller.company_view.CompanyInfoView"
-      template="templates/company_users_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-
-  <browser:page
-      for="collective.rcse.content.member.IMember"
-      name="vcard_view"
-      class="collective.rcse.page.controller.person_view.MemberInfoView"
-      template="templates/vcard_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-  <browser:page
-      for="collective.rcse.content.company.ICompany"
-      name="vcard_view"
-      class="collective.rcse.page.controller.company_view.CompanyInfoView"
-      template="templates/vcard_company_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
 
   <!-- VCard -->
 
@@ -104,303 +57,9 @@
       permission="zope2.View"
       />
 
-  <browser:page
-      for="*"
-      name="tile_view"
-      class="collective.rcse.page.controller.timeline_item_view.TimelineItemView"
-      template="templates/tile_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.MobileLayer"
-      />
-
-  <!-- Links -->
-  <browser:page
-      for="plone.app.contenttypes.interfaces.ILink"
-      name="tile_view"
-      template="templates/link_tile_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.MobileLayer"
-      />
-  <browser:page
-      name="link_redirect_view"
-      for="plone.app.contenttypes.interfaces.ILink"
-      class="plone.app.contenttypes.browser.link_redirect_view.LinkRedirectView"
-      template="templates/link_redirect_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.MobileLayer"
-    />
-  <!-- collective.rcse.discussion aka Discussion -->
-
-  <browser:page
-      for="plone.app.contenttypes.interfaces.IFile"
-      name="discussion_view"
-      class="collective.rcse.page.controller.discussion_view.DiscussionView"
-      template="templates/discussion_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.MobileLayer"
-      />
-
-  <!-- Document -->
-
-  <browser:page
-      for="plone.app.contenttypes.interfaces.IDocument"
-      name="tile_view"
-      template="templates/document_tile_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.MobileLayer"
-      />
-
-  <browser:page
-      for="plone.app.contenttypes.interfaces.IDocument"
-      name="image_view"
-      template="templates/document_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.MobileLayer"
-      />
-
-  <!-- News -->
-
-  <browser:page
-      for="plone.app.contenttypes.interfaces.INewsItem"
-      name="tile_view"
-      template="templates/news_tile_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.MobileLayer"
-      />
-
-  <browser:page
-      for="plone.app.contenttypes.interfaces.INewsItem"
-      name="image_view"
-      template="templates/news_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.MobileLayer"
-      />
-
-  <!-- Image -->
-
-  <browser:page
-      for="plone.app.contenttypes.interfaces.IImage"
-      name="tile_view"
-      template="templates/image_tile_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.MobileLayer"
-      />
-
-  <browser:page
-      for="plone.app.contenttypes.interfaces.IImage"
-      name="image_view"
-      template="templates/image_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.MobileLayer"
-      />
-
-  <!-- Audio -->
-
- <browser:page
-      for="collective.rcse.content.audio.AudioSchema"
-      name="audio_view"
-      menu="plone_displayviews"
-      title="Audio view"
-      class="collective.rcse.page.controller.audio_view.AudioView"
-      template="templates/audio_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.MobileLayer"
-      />
-  <browser:page
-      for="collective.rcse.content.audio.AudioSchema"
-      name="tile_view"
-      class="collective.rcse.page.controller.audio_view.AudioView"
-      template="templates/audio_tile_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.MobileLayer"
-      />
-  <browser:page
-      for="plone.app.event.dx.interfaces.IDXEvent"
-      name="tile_view"
-      class="collective.rcse.page.controller.event_view.EventView"
-      template="templates/event_tile_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.MobileLayer"
-      />
-
-  <!-- Video -->
-
-  <browser:page
-      for="collective.rcse.content.video.VideoSchema"
-      name="video_view"
-      menu="plone_displayviews"
-      title="Video view"
-      class="collective.rcse.page.controller.video_view.VideoView"
-      template="templates/video_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.MobileLayer"
-      />
-  <browser:page
-      for="collective.rcse.content.video.VideoSchema"
-      name="tile_view"
-      class="collective.rcse.page.controller.video_view.VideoView"
-      template="templates/video_tile_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.MobileLayer"
-      />
-
-
-<!-- 
-  <browser:page
-      for="*"
-      name="rate-if-you-dare"
-      permission="zope2.View"
-      class="cioppino.twothumbs.browser.like.LikeWidgetView"
-      template="templates/thumbs.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      />
-  <browser:page
-      for="plone.app.event.dx.interfaces.IDXEvent"
-      name="event_view"
-      class="collective.rcse.page.controller.event_view.EventView"
-      template="templates/event_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.MobileLayer"
-      />
- -->
-  <browser:page
-      for="collective.rcse.content.event.EventSchema"
-      name="event_view"
-      class="collective.rcse.page.controller.event_view.EventView"
-      template="templates/event_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.MobileLayer"
-      />
 
   <!-- Group -->
 
-  <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="members_view"
-      template="templates/group_members_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-
-  <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="timeline_view"
-      menu="plone_displayviews"
-      title="Timeline view"
-      class="collective.rcse.page.controller.group_timeline_view.TimelineView"
-      template="templates/group_timeline_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-  <browser:page
-      for="*"
-      name="group_tile_view"
-      template="templates/group_tile_view.pt"
-      class="collective.rcse.page.controller.timeline_item_view.TimelineItemView"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="albums_view"
-      menu="plone_displayviews"
-      title="Albums view"
-      class="collective.rcse.page.controller.group_albums_view.AlbumsView"
-      template="templates/group_albums_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="audios_view"
-      menu="plone_displayviews"
-      title="Audios view"
-      class="collective.rcse.page.controller.group_audios_view.AudiosView"
-      template="templates/group_audios_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="blog_view"
-      menu="plone_displayviews"
-      title="Blog view"
-      class="collective.rcse.page.controller.group_blog_view.BlogView"
-      template="templates/group_blog_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="calendar_view"
-      menu="plone_displayviews"
-      title="Calendar view"
-      class="collective.rcse.page.controller.group_calendar_view.CalendarView"
-      template="templates/group_calendar_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="favorites_view"
-      menu="plone_displayviews"
-      title="Favorites view"
-      class="collective.rcse.page.controller.group_favorites_view.FavoritesView"
-      template="templates/group_timeline_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="ged_view"
-      menu="plone_displayviews"
-      title="GED view"
-      class="collective.rcse.page.controller.group_ged_view.GEDView"
-      template="templates/group_ged_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="images_view"
-      menu="plone_displayviews"
-      title="Images view"
-      class="collective.rcse.page.controller.group_images_view.ImagesView"
-      template="templates/group_images_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="videos_view"
-      menu="plone_displayviews"
-      title="Videos view"
-      class="collective.rcse.page.controller.group_videos_view.VideosView"
-      template="templates/group_videos_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="links_view"
-      menu="plone_displayviews"
-      title="Links view"
-      class="collective.rcse.page.controller.group_links_view.LinksView"
-      template="templates/group_links_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="dashboard_view"
-      menu="plone_displayviews"
-      title="Dashboard view"
-      class="collective.rcse.page.controller.group_dashboard_view.DashboardView"
-      template="templates/group_dashboard_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
 
     <browser:page
       for="plone.portlets.interfaces.ILocalPortletAssignable"
@@ -430,7 +89,6 @@
       permission="zope2.View"
       />
 
-    <!-- Event listing -->
     <browser:page
         for="*"
         name="event_listing"
@@ -439,16 +97,6 @@
         permission="zope2.View"
         layer="collective.rcse.layer.MobileLayer"
         />
-
-<!--     Poll  -->
-<!--     <browser:page -->
-<!--         for="collective.polls.content.poll.IPoll" -->
-<!--         name="view" -->
-<!--         class="collective.rcse.page.controller.poll_view.PollView" -->
-<!--         template="templates/poll_view.pt" -->
-<!--         permission="zope2.View" -->
-<!--         layer="collective.rcse.layer.MobileLayer" -->
-<!--         /> -->
 
   <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"

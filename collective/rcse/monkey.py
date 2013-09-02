@@ -25,10 +25,12 @@ logger.info("monkeypatch: Remove contenttree for mobile")
 def patch_contenttree():
     from plone.formwidget.contenttree.widget import ContentTreeBase
     from plone.browserlayer import utils
-    from collective.rcse.layer import MobileLayer
+    from collective.rcse import layer
     original_render = ContentTreeBase.render
     def render(self):
-        if MobileLayer.providedBy(self.request):
+        if layer.MobileLayer.providedBy(self.request):
+            return u"This feature is not supported"
+        elif layer.DesktopLayer.providedBy(self.request):
             return u"This feature is not supported"
         else:
             return original_render(self)

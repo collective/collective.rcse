@@ -3,8 +3,10 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
 
-    <include file="tile_view.zcml" />
-  <browser:page
+  <include file="tile_view.zcml" />
+  <include file="types_view.zcml" />
+
+    <browser:page
       for="*"
       name="plone.comments"
       class="collective.rcse.page.controller.comments_view.CommentsView"
@@ -15,22 +17,34 @@
       />
 
     <browser:page
-        name="batchnavigation"
-        for="*"
-        permission="zope.Public"
-        class="plone.batching.browser.PloneBatchView"
-        template="templates/batchnavigation.pt"
+      for="*"
+      name="ploneform-macros"
+      class="plone.app.z3cform.templates.Macros"
+      template="templates/ploneform-macros.pt"
       layer="collective.rcse.layer.DesktopLayer"
-        />
-  <browser:page
+      allowed_interface="zope.interface.common.mapping.IItemMapping"
+      permission="zope.Public"
+      />
+
+    <browser:page
+      name="batchnavigation"
+      for="*"
+      permission="zope.Public"
+      class="plone.batching.browser.PloneBatchView"
+      template="templates/batchnavigation.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      />
+
+    <browser:page
       name="bootstrap_view"
       for="*"
       class=".bootstrap_view.BootstrapView"
       allowed_interface=".bootstrap_view.IBootstrapView"
       permission="zope.Public"
       layer="collective.rcse.layer.DesktopLayer"
-    />
-  <browser:page
+      />
+
+    <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="timeline_view"
       class="collective.rcse.page.controller.timeline_view.TimelineView"
@@ -38,22 +52,8 @@
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="timeline_view"
-      class="collective.rcse.page.controller.group_timeline_view.TimelineView"
-      template="templates/group_timeline_view.pt"
-      layer="collective.rcse.layer.DesktopLayer"
-      permission="zope2.View"
-      />
-  <browser:page
-      for="*"
-      name="group_tile_view"
-      template="templates/group_tile_view.pt"
-      class="collective.rcse.page.controller.timeline_item_view.TimelineItemView"
-      layer="collective.rcse.layer.DesktopLayer"
-      permission="zope2.View"
-      />
+
+
   <browser:page
       for="*"
       name="creator_vard_view"
@@ -62,6 +62,7 @@
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
+
   <browser:page
       for="*"
       name="auth_vcard_view"
@@ -69,113 +70,6 @@
       template="templates/vcard_view.pt"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
-      />
- <browser:page
-      for="collective.rcse.content.audio.AudioSchema"
-      name="audio_view"
-      class="collective.rcse.page.controller.audio_view.AudioView"
-      template="templates/audio_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
-      />
-
-  <browser:page
-      for="collective.rcse.content.video.VideoSchema"
-      name="video_view"
-      class="collective.rcse.page.controller.video_view.VideoView"
-      template="templates/video_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
-      />
-
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="albums_view"
-      class="collective.rcse.page.controller.group_albums_view.AlbumsView"
-      template="templates/group_albums_view.pt"
-      layer="collective.rcse.layer.DesktopLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="audios_view"
-      class="collective.rcse.page.controller.group_audios_view.AudiosView"
-      template="templates/group_audios_view.pt"
-      layer="collective.rcse.layer.DesktopLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="blog_view"
-      class="collective.rcse.page.controller.group_blog_view.BlogView"
-      template="templates/group_blog_view.pt"
-      layer="collective.rcse.layer.DesktopLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="calendar_view"
-      class="collective.rcse.page.controller.group_calendar_view.CalendarView"
-      template="templates/group_calendar_view.pt"
-      layer="collective.rcse.layer.DesktopLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="dashboard_view"
-      class="collective.rcse.page.controller.group_dashboard_view.DashboardView"
-      template="templates/group_dashboard_view.pt"
-      layer="collective.rcse.layer.DesktopLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="favorites_view"
-      class="collective.rcse.page.controller.group_favorites_view.FavoritesView"
-      template="templates/group_favorites_view.pt"
-      layer="collective.rcse.layer.DesktopLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="ged_view"
-      class="collective.rcse.page.controller.group_ged_view.GEDView"
-      template="templates/group_ged_view.pt"
-      layer="collective.rcse.layer.DesktopLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="images_view"
-      class="collective.rcse.page.controller.group_images_view.ImagesView"
-      template="templates/group_images_view.pt"
-      layer="collective.rcse.layer.DesktopLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="videos_view"
-      class="collective.rcse.page.controller.group_videos_view.VideosView"
-      template="templates/group_videos_view.pt"
-      layer="collective.rcse.layer.DesktopLayer"
-      permission="zope2.View"
-      />
-  <browser:page
-      for="collective.rcse.content.etherpad.EtherpadSchema"
-      name="etherpad_view"
-      class="collective.etherpad.etherpad_view.EtherpadView"
-      template="templates/etherpad_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
-      />
-
-  <browser:page
-      for="collective.rcse.content.event.EventSchema"
-      name="event_view"
-      class="collective.rcse.page.controller.event_view.EventView"
-      template="templates/event_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
       />
 
 </configure>
