@@ -16,19 +16,21 @@
 
     <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" tal:condition="not:ajax_load" />
 
-    <div class="rcseblock">
-        <h2 i18n:translate="">My news</h2>
+    <nav role="navigation" class="navbar navbar-inverse">
+       <div class="navbar-brand">
+         <h4 class="documentFirstHeading" i18n:translate="">My news</h4>
+       </div>
+    </nav>
+    <div tal:define="b_start python:0;
+                     b_start request/b_start | b_start;
+                     batch python: view.get_content(b_start=b_start);">
+        <tal:tile tal:repeat="item batch">
+         <div class="rcse_tile_wrapper">
+           <a class="rcse_tile" tal:attributes="href item/getURL"></a>
+         </div>
+        </tal:tile>
+        <div metal:use-macro="context/batch_macros/macros/navigation" />
     </div>
-        <div tal:define="b_start python:0;
-                         b_start request/b_start | b_start;
-                         batch python: view.get_content(b_start=b_start);">
-	        <tal:tile tal:repeat="item batch">
-             <div class="rcse_tile_wrapper">
-	           <a class="rcse_tile" tal:attributes="href item/getURL"></a>
-             </div>
-	        </tal:tile>
-            <div metal:use-macro="context/batch_macros/macros/navigation" />
-        </div>
     <div id="viewlet-below-content" tal:content="structure provider:plone.belowcontent" tal:condition="not:ajax_load" />
 
     </tal:main-macro>

@@ -87,12 +87,13 @@
                                      <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
                                      <metal:title define-slot="content-title">
                                          <metal:comment tal:content="nothing">
-                                             If you write a custom title always use
-                                             <h1 class="documentFirstHeading"></h1> for it
+                                             If you write a custom title always use for it
                                          </metal:comment>
-                                         <h1 metal:use-macro="context/kss_generic_macros/macros/generic_title_view">
-                                             Generic KSS Title. Is rendered with class="documentFirstHeading".
-                                         </h1>
+                                         <nav role="navigation" class="navbar navbar-inverse">
+                                           <div class="navbar-brand">
+                                             <h1 metal:use-macro="context/kss_generic_macros/macros/generic_title_view">title</h1>
+                                           </div>
+                                         </nav>
                                      </metal:title>
                                      <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
 

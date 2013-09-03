@@ -33,9 +33,10 @@ module.exports = function(grunt) {
           'app/bower_components/jquery/jquery.js',
           'app/bower_components/bootstrap/dist/js/bootstrap.js',
           'app/bower_components/picturefill/picturefill.js',
+          'app/bower_components/flot/jquery.flot.js',
           'js/custom/jquery.oembed.js',
           'js/custom/comments.js',
-	  'js/custom/cookie_functions.js',
+          'js/custom/cookie_functions.js',
           'js/theme-common.js',
           'js/theme-desktop.js'],
         dest: '../desktop/js/desktop.js'

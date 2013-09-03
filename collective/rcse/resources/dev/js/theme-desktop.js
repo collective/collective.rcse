@@ -89,14 +89,18 @@ var rcseUpdatePortalMessage = function(element){
     })
 }
 
+
 /**
  * http://getbootstrap.com/css/#forms
  */
 var rcseUpdateForms = function(element){
-    //focus
-    $(element).find('input').focus();
-    $(element).find('textarea').focus();
-    $(element).find("#form-widgets-IDublinCore-title").focus();
+    if ($(":focus").length==0){
+        $(element).find("#form-widgets-IDublinCore-title").each(function(){
+            var title = $(this);
+            var value = title.val();
+            title.focus().val(value);
+        });
+    }
 
     //transform form fields for bootstrap
     $(element).find('.field').each(function(){
