@@ -48,6 +48,15 @@
       />
 
   <browser:page
+      for="collective.rcse.content.etherpad.EtherpadSchema"
+      name="tile_view"
+      class="collective.etherpad.etherpad_view.EtherpadView"
+      template="templates/etherpad_tile_view.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.DesktopLayer"
+      />
+
+  <browser:page
       for="plone.app.event.dx.interfaces.IDXEvent"
       name="tile_view"
       class="collective.rcse.page.controller.event_view.EventView"

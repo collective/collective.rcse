@@ -90,19 +90,7 @@ var rcseUpdatePortalMessage = function(element){
 }
 
 /**
- * 
-<div class="formControls">
-  <input id="form-buttons-save" name="form.buttons.save" class="submit-widget button-field context" value="Sauvegarder" type="submit">
-  <input id="form-buttons-cancel" name="form.buttons.cancel" class="submit-widget button-field standalone" value="Annuler" formnovalidate="" type="submit">
-</div>
-
-->
-<div class="">
-  <input id="form-buttons-save" name="form.buttons.save" class="submit-widget button-field context" value="Sauvegarder" type="submit">
-  <input id="form-buttons-cancel" name="form.buttons.cancel" class="submit-widget button-field standalone" value="Annuler" formnovalidate="" type="submit">
-</div>
-
- *
+ * http://getbootstrap.com/css/#forms
  */
 var rcseUpdateForms = function(element){
     //focus
@@ -117,6 +105,9 @@ var rcseUpdateForms = function(element){
         field.find('input,textarea').each(function(){
             var input = $(this);
             if (input.attr('type')=="checkbox"){
+                return true; // continue
+            }
+            if (input.attr('type')=="radio"){
                 return true; // continue
             }
             input.addClass('form-control');
@@ -146,23 +137,46 @@ var rcseUpdateForms = function(element){
     $(element).find(".commentActions").each(function(){
         $(".destructive").addClass("btn btn-danger");
     })
+    //move the input into the label, this is for checkbox and radio
+    var transformlabel = function(input){
+        var label = input.siblings("label").first();
+        if (label.length == 0){
+            return label;
+        }
+        var innerlabel = label.find('.label');
+        var labelText = "";
+        if (innerlabel.length != 0){
+            labelText = innerlabel.text();
+            label.text(labelText);
+            innerlabel.remove();
+        }else{
+            labelText = label.text();
+        }
+        input.prependTo(label);
+        if (label.parents('span.option').length != 0){
+            label.unwrap();
+        }
+        return label;
+    }
     //transform checkbox for bootstrap
     $(element).find('input[type="checkbox"]').each(function(){
         var input = $(this);
-        console.log(input.parents(".field"));
-        var label = input.siblings("label");
-        var labelText = label.find('.label').text();
-        if (label.length != 0){
-            label.text(labelText);
-            input.prependTo(label);
-        }
-        label.unwrap();
+        var label = transformlabel(input);
         label.wrap('<div class="checkbox"/>');
+    });
+    //transform checkbox for bootstrap
+    $(element).find('input[type="radio"]').each(function(){
+        var input = $(this);
+        var label = transformlabel(input);
+        label.wrap('<div class="radio"/>');
     });
     //transform help message for bootstrap
     $(element).find(".formHelp").each(function(){
         $(this).addClass('help-block');
     });
+    $(element).find('span.named-image-widget').each(function(){
+        $(this).find('br').remove();
+    })
 }
 var rcseInitTimeline = function() {
     $("a.rcse_tile").each(function() {
@@ -354,7 +368,7 @@ var rcseApplyTransform = function(element) {
     $(element).find('video,audio').mediaelementplayer();
     $(element).find('a.oembed, .oembed a').oembed(null, jqueryOmebedSettings);
     rcseUpdateForms(element);
-    picturefill();
+    picturefill(element);
     rcseUpdatePortalMessage(element);
     return element;
 }
