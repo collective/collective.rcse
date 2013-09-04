@@ -7,10 +7,33 @@
       i18n:domain="collective.rcse">
 
 <body>
+<metal:override fill-slot="top_slot"
+    tal:define="disable_column_two python:request.set('disable_plone.rightcolumn',1);"/>
+
 <div metal:fill-slot="content-core">
 
-TODO
+<div class="pinboard" tal:define="images python: view.get_content(batch=False, object=False)">
+    <div class="pincolumns">
+        <div class="pin" tal:repeat="image images">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                 class="lazy"
+                 tal:attributes="data-original string:${image/getURL}/@@images/image/preview"/>
+            <p tal:content="image/Description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                feugiat consectetur pellentesque. Nam ac elit risus, ac blandit
+                dui. Duis rutrum porta tortor ut convallis. Duis rutrum porta
+                tortor ut convallis.
+            </p>
+        </div>
+    </div>
+</div>
+</div>
 
+<div id="portal-column-one" class="col-md-3 col-mg-3"
+    metal:fill-slot="column_one_slot">
+    <nav role="navigation" class="navbar navbar-inverse">
+      <div class="navbar-brand" i18n:translate="">Add image</div>
+    </nav>
+    <div tal:content="structure view/form_instance"></div>
 </div>
 </body>
 </html>

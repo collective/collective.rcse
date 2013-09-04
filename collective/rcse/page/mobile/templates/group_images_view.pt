@@ -6,42 +6,120 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="collective.rcse">
 <body>
+  <metal:override fill-slot="top_slot"
+    tal:define="disable_column_two python:request.set('disable_plone.rightcolumn',1);"/>
   <div metal:fill-slot="content-core" class="directory-wrapper">
-
-    <div id="image-view"
-         tal:define="images python: view.get_content(batch=False, object=True)"
-         tal:condition="python: len(images) > 0">
-      <div id="image-show">
-        <img src="" alt="" />
-      </div>
-      <div id="image-list">
-        <ul data-role="listview">
-        <tal:block tal:repeat="image images">
-          <li>
-            <img tal:define="scales image/@@images;
-                             scale python: scales.scale('image', width=80, height=80);"
-                 tal:replace="structure scale/tag" />
-            <a class="image-link" href="#image-show"
-               tal:define="scales image/@@images;
-                           scale python: scales.scale('image', width=512, height=512);"
-               tal:attributes="href scale/url"
-               tal:content="image/title"></a>
-          </li>
-        </tal:block>
-        </ul>
-      </div>
-      <script type="text/javascript">
-        $(function(){
-            $('#image-list li').click(function(event) {
-                var src = $(this).find('.image-link').attr('href');
-                var alt = $(this).find('.image-link').text();
-                $('#image-show img').attr('src', src).attr('alt', alt);
-                event.preventDefault();
-                $('html,body').animate({scrollTop: $('#image-show').offset().top},'slow');
-            })
-        });
-      </script>
+<div class="pinboard">
+    <div class="pincolumns">
+        <div class="pin">
+            <img src="http://cssdeck.com/uploads/media/items/2/2v3VhAp.png" />
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                feugiat consectetur pellentesque. Nam ac elit risus, ac blandit
+                dui. Duis rutrum porta tortor ut convallis. Duis rutrum porta
+                tortor ut convallis.
+            </p>
+        </div>
+        <div class="pin">
+            <img src="http://cssdeck.com/uploads/media/items/1/1swi3Qy.png" />
+            <p> Donec a fermentum nisi.
+            </p>
+        </div>
+        <div class="pin">
+            <img src="http://cssdeck.com/uploads/media/items/6/6f3nXse.png" />
+            <p> Nullam eget lectus augue. Donec eu sem sit amet ligula faucibus
+                suscipit. Suspendisse rutrum turpis quis nunc convallis quis
+                aliquam mauris suscipit.
+            </p>
+        </div>
+        <div class="pin">
+            <img src="http://cssdeck.com/uploads/media/items/8/8kEc1hS.png" />
+            <p> Nullam eget lectus augue. Donec eu sem sit amet ligula faucibus
+                suscipit. Suspendisse rutrum turpis quis nunc convallis quis
+                aliquam mauris suscipit.
+            </p>
+        </div>
+        <div class="pin">
+            <img src="http://cssdeck.com/uploads/media/items/1/1swi3Qy.png" />
+            <p> Donec a fermentum nisi. Integer dolor est, commodo ut sagittis
+                vitae, egestas at augue.
+            </p>
+        </div>
+        <div class="pin">
+            <img src="http://cssdeck.com/uploads/media/items/6/6f3nXse.png" />
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                feugiat consectetur pellentesque. Nam ac elit risus, ac blandit
+                dui. Duis rutrum porta tortor ut convallis. Duis rutrum porta
+                tortor ut convallis.
+            </p>
+        </div>
+        <div class="pin">
+            <img src="http://cssdeck.com/uploads/media/items/2/2v3VhAp.png" />
+            <p> Nullam eget lectus augue. Donec eu sem sit amet ligula faucibus
+                suscipit. Suspendisse rutrum turpis quis nunc convallis quis
+                aliquam mauris suscipit. Duis rutrum porta tortor ut convallis.
+            </p>
+        </div>
+        <div class="pin">
+            <img src="http://cssdeck.com/uploads/media/items/1/1swi3Qy.png" />
+            <p> Nullam eget lectus augue.
+            </p>
+        </div>
+        <div class="pin">
+            <img src="http://cssdeck.com/uploads/media/items/8/8kEc1hS.png" />
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                feugiat consectetur pellentesque.
+            </p>
+        </div>
+        <div class="pin">
+            <img src="http://cssdeck.com/uploads/media/items/2/2v3VhAp.png" />
+            <p> Donec a fermentum nisi. Integer dolor est, commodo ut sagittis
+                vitae, egestas at augue. Suspendisse id nulla ac urna vestibulum
+                mattis. Duis rutrum porta tortor ut convallis.
+            </p>
+        </div>
+        <div class="pin">
+            <img src="http://cssdeck.com/uploads/media/items/1/1swi3Qy.png" />
+            <p> Donec a fermentum nisi. Integer dolor est, commodo ut sagittis
+                vitae, egestas at augue. Suspendisse id nulla ac urna vestibulum
+                mattis.
+            </p>
+        </div>
+        <div class="pin">
+            <img src="http://cssdeck.com/uploads/media/items/6/6f3nXse.png" />
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                feugiat consectetur pellentesque. Nam ac elit risus, ac blandit
+                dui. Duis rutrum porta tortor ut convallis.
+            </p>
+        </div>
+        <div class="pin">
+            <img src="http://cssdeck.com/uploads/media/items/2/2v3VhAp.png" />
+            <p> Donec a fermentum nisi. Integer dolor est, commodo ut sagittis
+                vitae, egestas at augue. Suspendisse id nulla ac urna vestibulum
+                mattis.
+            </p>
+        </div>
+        <div class="pin">
+            <img src="http://cssdeck.com/uploads/media/items/1/1swi3Qy.png" />
+            <p> Donec a fermentum nisi. Integer dolor est, commodo ut sagittis
+                vitae, egestas at augue. Suspendisse id nulla ac urna vestibulum
+                mattis.
+            </p>
+        </div>
+        <div class="pin">
+            <img src="http://cssdeck.com/uploads/media/items/6/6f3nXse.png" />
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                feugiat consectetur pellentesque. Nam ac elit risus, ac blandit
+                dui. Duis rutrum porta tortor ut convallis.
+            </p>
+        </div>
     </div>
+</div>
+
   </div>
+<div id="portal-column-one"
+    metal:fill-slot="column_one_slot">
+    TEST
+</div>
+
 </body>
 </html>

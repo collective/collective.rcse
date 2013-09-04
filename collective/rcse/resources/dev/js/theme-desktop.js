@@ -374,6 +374,7 @@ var rcseApplyTransform = function(element) {
     rcseUpdateForms(element);
     picturefill(element);
     rcseUpdatePortalMessage(element);
+    $(element).find("img.lazy").lazyload();
     return element;
 }
 
