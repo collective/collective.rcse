@@ -1,4 +1,5 @@
 from collective.rcse.page.controller.group_base import BaseView
+from collective.rcse.page.controller.navigationroot import NavigationRootBaseView
 
 
 class VideosView(BaseView):
@@ -18,3 +19,9 @@ class VideosView(BaseView):
             video["mimetype"] = obj.file.contentType
             videos.append(video)
         return videos
+
+
+class NavigationRootVideosView(VideosView, NavigationRootBaseView):
+    def update(self):
+        VideosView.update(self)
+        NavigationRootBaseView.update(self)

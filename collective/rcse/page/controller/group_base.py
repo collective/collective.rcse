@@ -81,12 +81,14 @@ class BaseView(BrowserView):
         if self.query.get("portal_type"):
             self.query["portal_type"] = list(self.query["portal_type"])
 
-    def get_content(self, batch=True, b_size=10, b_start=0, pagerange=7, object=False):
+    def get_content(self, batch=True, b_size=10, b_start=0, pagerange=7, full=False):
         brains = self.catalog(self.query)
         if batch:
             results = Batch(brains, b_size, start=b_start)#, pagerange=pagerange)
-        if object:
+        if full and batch:
+            results = [brain.getObject() for brain in results]
+        elif full and not batch:
             results = [brain.getObject() for brain in brains]
-        if not batch and not object:
+        elif not full and not batch:
             results = brains
         return results

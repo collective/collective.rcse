@@ -1,15 +1,19 @@
-from collective.rcse.page.controller.group_base import BaseView
 from zope import interface
 from zope import schema
 from zope import component
+from z3c.form import form, field, button
+
 from plone.namedfile.field import NamedBlobImage
 from plone.autoform.form import AutoExtensibleForm
-from z3c.form import form, field, button
 from plone.supermodel import model
-from plone.z3cform.layout import FormWrapper
-from collective.rcse.i18n import _
-from Products.statusmessages.interfaces import IStatusMessage
 from plone.dexterity import utils
+from plone.z3cform.layout import FormWrapper
+
+from Products.statusmessages.interfaces import IStatusMessage
+
+from collective.rcse.i18n import _
+from collective.rcse.page.controller.group_base import BaseView
+from collective.rcse.page.controller.navigationroot import NavigationRootBaseView
 
 CONTENT_TYPE = "Image"
 
@@ -59,7 +63,7 @@ class AddImageForm(AutoExtensibleForm, form.Form):
 
 class ImagesView(BaseView, FormWrapper):
     """A filterable timeline"""
-    filter_type = ["Image"]
+    filter_type = [CONTENT_TYPE]
     form = AddImageForm
 
     def __init__(self, context, request):
@@ -69,3 +73,9 @@ class ImagesView(BaseView, FormWrapper):
     def update(self):
         BaseView.update(self)
         FormWrapper.update(self)
+
+
+class NavigationRootImagesView(ImagesView, NavigationRootBaseView):
+    def update(self):
+        ImagesView.update(self)
+        NavigationRootBaseView.update(self)

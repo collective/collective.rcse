@@ -12,7 +12,7 @@
 
 <div metal:fill-slot="content-core">
 <div tal:replace="structure context/@@breadcrumb_view"></div>
-<div class="pinboard" tal:define="images python: view.get_content(batch=False, object=False)">
+<div class="pinboard" tal:define="images python: view.get_content(batch=False, full=False)">
     <div class="pincolumns">
         <div class="pin" tal:repeat="image images">
             <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="

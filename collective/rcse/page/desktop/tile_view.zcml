@@ -6,7 +6,7 @@
   <browser:page
       for="*"
       name="group_tile_view"
-      template="templates/group_tile_view.pt"
+      template="templates/tile_view.pt"
       class="collective.rcse.page.controller.timeline_item_view.TimelineItemView"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
@@ -16,7 +16,7 @@
       for="*"
       name="tile_view"
       class="collective.rcse.page.controller.timeline_item_view.TimelineItemView"
-      template="templates/tile_view.pt"
+      template="templates/tile_default_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.DesktopLayer"
       />

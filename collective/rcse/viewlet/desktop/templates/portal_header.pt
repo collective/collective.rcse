@@ -85,29 +85,29 @@
 <div class="container">
   <div class="row">
     <div class="col-md-2" id="portal-logo">
-        <img tal:attributes="src string:${view/portal_url}/logo.png"/>
+        <a tal:attributes="href view/portal_state/navigation_root_url"><img alt="logo" tal:attributes="src string:${view/portal_url}/logo.png"/></a>
     </div>
     <div class="col-md-3" id="edit-bar">
         <div class="editbar" tal:content="structure context/@@collective.rcse.editbar"></div>
     </div>
     <div class="col-md-7 filters" id="portal-filters"
-         tal:define="filter_portal_type view/filter_portal_type">
+         tal:define="base_url view/context_state/canonical_object_url">
         <div class="filter-wrapper filter-video pull-right">
-            <a tal:attributes="href python:view.filter_url('collective.rcse.video')">
+            <a tal:attributes="href string:${base_url}/videos_view">
                 <span class="icon-film icon-3x"></span>
                 <br />
                 <span class="text">Videos</span>
             </a>
         </div>
         <div class="filter-wrapper filter-image pull-right">
-            <a tal:attributes="href python:view.filter_url('Image')">
+            <a tal:attributes="href string:${base_url}/images_view">
                 <span class="icon-picture icon-3x"></span>
                 <br />
                 <span class="text">Medias</span>
             </a>
         </div>
         <div class="filter-wrapper filter-file pull-right">
-            <a tal:attributes="href python:view.filter_url('File')">
+            <a tal:attributes="href string:${base_url}/files_view">
                 <span class="icon-folder-open icon-3x"></span>
                 <br />
                 <span class="text">File</span>
@@ -115,14 +115,14 @@
         </div>
 
         <div class="filter-wrapper filter-event pull-right">
-            <a tal:attributes="href python:view.filter_url('collective.rcse.event')">
+            <a tal:attributes="href string:${base_url}/events_view">
                 <span class="icon-calendar icon-3x"></span>
                 <br />
                 <span class="text">Event</span>
             </a>
         </div>
         <div class="filter-wrapper filter-discussion pull-right">
-            <a tal:attributes="href python:view.filter_url('collective.rcse.discussion')">
+            <a tal:attributes="href string:${base_url}/discussions_view">
                 <span class="icon-comments icon-3x"></span>
                 <br />
                 <span class="text">Discussion</span>
@@ -130,20 +130,19 @@
         </div>
 
         <div class="filter-wrapper filter-link pull-right">
-            <a tal:attributes="href python:view.filter_url('Link')">
+            <a tal:attributes="href string:${base_url}/links_view">
                 <span class="icon-bookmark-empty icon-3x"></span>
                 <br />
                 <span class="text">Signet</span>
             </a>
         </div>
         <div class="filter-wrapper filter-blog pull-right pull-right">
-            <a tal:attributes="href python:view.filter_url('News Item')">
+            <a tal:attributes="href string:${base_url}/blog_view">
                 <span class="icon-edit icon-3x"></span>
                 <br />
                 <span class="text">Blog</span>
             </a>
         </div>
-        
     </div>
   </div>
 </div>

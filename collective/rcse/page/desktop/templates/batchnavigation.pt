@@ -5,7 +5,8 @@
     metal:define-macro="navigation">
 <div class="listingBar"
      i18n:domain="plone"
-     tal:condition="batch/multiple_pages">
+     tal:define="mpages batch/multiple_pages|nothing;" 
+     tal:condition="mpages">
   <ul class="pagination">
 
     <tal:first tal:condition="batch/show_link_to_first">

@@ -57,7 +57,7 @@
   <browser:page
       for="collective.rcse.content.group.GroupSchema"
       name="members_view"
-      template="templates/group_members_view.pt"
+      template="templates/members_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
@@ -67,30 +67,20 @@
       name="timeline_view"
       menu="plone_displayviews"
       title="Timeline view"
-      class="collective.rcse.page.controller.group_timeline_view.TimelineView"
-      template="templates/group_timeline_view.pt"
+      class="collective.rcse.page.controller.timeline_view.TimelineView"
+      template="templates/timeline_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
 
 
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="albums_view"
-      menu="plone_displayviews"
-      title="Albums view"
-      class="collective.rcse.page.controller.group_albums_view.AlbumsView"
-      template="templates/group_albums_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
     <browser:page
       for="collective.rcse.content.group.GroupSchema"
       name="audios_view"
       menu="plone_displayviews"
       title="Audios view"
-      class="collective.rcse.page.controller.group_audios_view.AudiosView"
-      template="templates/group_audios_view.pt"
+      class="collective.rcse.page.controller.audios_view.AudiosView"
+      template="templates/audios_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
@@ -99,28 +89,8 @@
       name="blog_view"
       menu="plone_displayviews"
       title="Blog view"
-      class="collective.rcse.page.controller.group_blog_view.BlogView"
-      template="templates/group_blog_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="calendar_view"
-      menu="plone_displayviews"
-      title="Calendar view"
-      class="collective.rcse.page.controller.group_calendar_view.CalendarView"
-      template="templates/group_calendar_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
-      name="dashboard_view"
-      menu="plone_displayviews"
-      title="Dashboard view"
-      class="collective.rcse.page.controller.group_dashboard_view.DashboardView"
-      template="templates/group_dashboard_view.pt"
+      class="collective.rcse.page.controller.blog_view.BlogView"
+      template="templates/blog_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
@@ -129,18 +99,18 @@
       name="favorites_view"
       menu="plone_displayviews"
       title="Favorites view"
-      class="collective.rcse.page.controller.group_favorites_view.FavoritesView"
-      template="templates/group_timeline_view.pt"
+      class="collective.rcse.page.controller.favorites_view.FavoritesView"
+      template="templates/timeline_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
     <browser:page
       for="collective.rcse.content.group.GroupSchema"
-      name="ged_view"
+      name="files_view"
       menu="plone_displayviews"
-      title="GED view"
-      class="collective.rcse.page.controller.group_ged_view.GEDView"
-      template="templates/group_ged_view.pt"
+      title="Files view"
+      class="collective.rcse.page.controller.files_view.FilesView"
+      template="templates/files_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
@@ -149,8 +119,8 @@
       name="images_view"
       menu="plone_displayviews"
       title="Images view"
-      class="collective.rcse.page.controller.group_images_view.ImagesView"
-      template="templates/group_images_view.pt"
+      class="collective.rcse.page.controller.images_view.ImagesView"
+      template="templates/images_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
@@ -159,8 +129,8 @@
       name="videos_view"
       menu="plone_displayviews"
       title="Videos view"
-      class="collective.rcse.page.controller.group_videos_view.VideosView"
-      template="templates/group_videos_view.pt"
+      class="collective.rcse.page.controller.videos_view.VideosView"
+      template="templates/videos_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
@@ -169,8 +139,8 @@
       name="links_view"
       menu="plone_displayviews"
       title="Links view"
-      class="collective.rcse.page.controller.group_links_view.LinksView"
-      template="templates/group_links_view.pt"
+      class="collective.rcse.page.controller.links_view.LinksView"
+      template="templates/links_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />

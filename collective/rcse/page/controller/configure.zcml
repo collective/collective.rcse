@@ -133,5 +133,6 @@
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
       />
-  <adapter factory=".group_images_view.AddImageFormAdapter"/>
+  <adapter factory=".images_view.AddImageFormAdapter"/>
+  <adapter factory=".discussions_view.AddDiscussionFormAdapter"/>
 </configure>

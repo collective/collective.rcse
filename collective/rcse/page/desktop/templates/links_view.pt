@@ -10,7 +10,7 @@
     <div id="links-view"
          tal:define="b_start python:0;
                      b_start request/b_start | b_start;
-                     links python: view.get_content(b_start=b_start, object=True)"
+                     links python: view.get_content(b_start=b_start, full=True)"
          tal:condition="python: len(links) > 0">
 
       <!-- example, to be placed in a css file -->

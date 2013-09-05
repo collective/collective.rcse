@@ -1,3 +1,2 @@
 <h2 tal:content="context/Title"></h2>
 <p class="documentDescription" tal:content="context/Description"></p>
-<img tal:attributes="src string:${context/absolute_url}/@@images/image/preview" alt="image"/>
