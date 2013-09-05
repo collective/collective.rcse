@@ -72,4 +72,13 @@
       permission="zope2.View"
       />
 
+  <browser:page
+      for="*"
+      name="breadcrumb_view"
+      class="collective.rcse.page.controller.breadcrumb.BreadCrumb"
+      template="templates/breadcrumb.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
+
 </configure>

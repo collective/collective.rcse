@@ -69,8 +69,6 @@
                             tal:define="show_border context/@@plone/showEditableBorder; show_border python:show_border and not ajax_load"
                             tal:attributes="class python:show_border and 'documentEditable' or ''">
 
-                            <div class="editbar" tal:content="structure context/@@collective.rcse.editbar"></div>
-
                             <div metal:use-macro="context/global_statusmessage/macros/portal_message">
                              Status message
                             </div>
@@ -89,11 +87,7 @@
                                          <metal:comment tal:content="nothing">
                                              If you write a custom title always use for it
                                          </metal:comment>
-                                         <nav role="navigation" class="navbar navbar-inverse">
-                                           <div class="navbar-brand">
-                                             <h1 metal:use-macro="context/kss_generic_macros/macros/generic_title_view">title</h1>
-                                           </div>
-                                         </nav>
+                                         <h1 metal:use-macro="context/kss_generic_macros/macros/generic_title_view">title</h1>
                                      </metal:title>
                                      <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
 

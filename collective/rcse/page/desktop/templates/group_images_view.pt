@@ -11,7 +11,7 @@
     tal:define="disable_column_two python:request.set('disable_plone.rightcolumn',1);"/>
 
 <div metal:fill-slot="content-core">
-
+<div tal:replace="structure context/@@breadcrumb_view"></div>
 <div class="pinboard" tal:define="images python: view.get_content(batch=False, object=False)">
     <div class="pincolumns">
         <div class="pin" tal:repeat="image images">

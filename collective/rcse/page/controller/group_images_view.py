@@ -9,6 +9,9 @@ from plone.supermodel import model
 from plone.z3cform.layout import FormWrapper
 from collective.rcse.i18n import _
 from Products.statusmessages.interfaces import IStatusMessage
+from plone.dexterity import utils
+
+CONTENT_TYPE = "Image"
 
 class AddImageFormSchema(model.Schema):
     """Add image form"""
@@ -31,16 +34,22 @@ class AddImageFormAdapter(object):
 
 class AddImageForm(AutoExtensibleForm, form.Form):
     schema = AddImageFormSchema
+    enableCSRFProtection = True
 
-    @button.buttonAndHandler(_(u"Add"))
+    @button.buttonAndHandler(_(u"Add Image"))
     def handleAdd(self, action):
         data, errors = self.extractData()
         if errors:
             return False
         self.doAdd(data)
 
-    def doAdd(self):
-        import pdb;pdb.set_trace()
+    def doAdd(self, data):
+        container = self.context
+        item = utils.createContentInContainer(
+            container,
+            CONTENT_TYPE,
+            checkConstraints=True,
+            **data)
 
         IStatusMessage(self.request).add(_(u"Image added"))
         referer = self.request.get("HTTP_REFERER")

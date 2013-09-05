@@ -81,7 +81,69 @@
       </li>
     </ul>
   </div><!-- /.navbar-collapse -->
-
-
-
 </header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" id="portal-logo">
+        <img tal:attributes="src string:${view/portal_url}/logo.png"/>
+    </div>
+    <div class="col-md-3" id="edit-bar">
+        <div class="editbar" tal:content="structure context/@@collective.rcse.editbar"></div>
+    </div>
+    <div class="col-md-7 filters" id="portal-filters"
+         tal:define="filter_portal_type view/filter_portal_type">
+        <div class="filter-wrapper filter-video pull-right">
+            <a tal:attributes="href python:view.filter_url('collective.rcse.video')">
+                <span class="icon-film icon-3x"></span>
+                <br />
+                <span class="text">Videos</span>
+            </a>
+        </div>
+        <div class="filter-wrapper filter-image pull-right">
+            <a tal:attributes="href python:view.filter_url('Image')">
+                <span class="icon-picture icon-3x"></span>
+                <br />
+                <span class="text">Medias</span>
+            </a>
+        </div>
+        <div class="filter-wrapper filter-file pull-right">
+            <a tal:attributes="href python:view.filter_url('File')">
+                <span class="icon-folder-open icon-3x"></span>
+                <br />
+                <span class="text">File</span>
+            </a>
+        </div>
+
+        <div class="filter-wrapper filter-event pull-right">
+            <a tal:attributes="href python:view.filter_url('collective.rcse.event')">
+                <span class="icon-calendar icon-3x"></span>
+                <br />
+                <span class="text">Event</span>
+            </a>
+        </div>
+        <div class="filter-wrapper filter-discussion pull-right">
+            <a tal:attributes="href python:view.filter_url('collective.rcse.discussion')">
+                <span class="icon-comments icon-3x"></span>
+                <br />
+                <span class="text">Discussion</span>
+            </a>
+        </div>
+
+        <div class="filter-wrapper filter-link pull-right">
+            <a tal:attributes="href python:view.filter_url('Link')">
+                <span class="icon-bookmark-empty icon-3x"></span>
+                <br />
+                <span class="text">Signet</span>
+            </a>
+        </div>
+        <div class="filter-wrapper filter-blog pull-right pull-right">
+            <a tal:attributes="href python:view.filter_url('News Item')">
+                <span class="icon-edit icon-3x"></span>
+                <br />
+                <span class="text">Blog</span>
+            </a>
+        </div>
+        
+    </div>
+  </div>
+</div>

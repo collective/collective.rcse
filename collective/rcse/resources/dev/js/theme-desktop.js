@@ -186,10 +186,12 @@ var rcseInitTimeline = function() {
     $("a.rcse_tile").each(function() {
         var item = $(this);
         var parent = item.parent();
+        var url = item.attr('href') + '/@@group_tile_view';
+        item.wrap('<i class="icon-spinner icon-spin icon-large"></i>');
         $.ajax({
-            url : item.attr('href') + '/@@group_tile_view'
+            url : url,
         }).success(function(data) {
-            item.replaceWith(data);
+            item.unwrap().replaceWith(data).fadeIn(1000);
             rcseApplyTransform(parent);
         });
     });
@@ -211,7 +213,13 @@ var rcseUpdateComments = function(element) {
         form.append(ajaxDeleteComment);
     }
 }
-
+/**
+ * just check query param about a portal_type and update portal_header
+ */
+var rcseInitFilter = function(){
+    $('a[href="'+window.location.toString()+'"]').parents('.filter-wrapper')
+    .addClass('filter-current');
+}
 var rcseInitAjaxAction = function() {
     $(document).on(
             "click",
@@ -360,7 +368,13 @@ var rcseInitVideo = function(){
     });
 
 }
-
+var rcseInitBreadCrumb = function(){
+    $(document).on("change", "#breadcrumb select", function(){
+        var select = $(this);
+        var option = select.find('option:selected');
+        window.location = option.val();
+    })
+}
 var rcseApplyTransform = function(element) {
     if (element == undefined) {
         element = document;
@@ -384,6 +398,8 @@ $(document).on("ready", function() {
     rcseInitTimeline();
     rcseInitVideo();
     rcseInitNotifications();
+    rcseInitFilter();
+    rcseInitBreadCrumb();
 });
 $.webshims.setOptions("basePath", portal_url + "/++resource++webshims/");
 $.webshims.setOptions('forms', {
