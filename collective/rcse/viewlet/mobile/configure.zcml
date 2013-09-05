@@ -81,15 +81,6 @@
       permission="zope2.View"
       />
 
-  <browser:viewlet
-      name="collective.rcse.groupdisplaymenu"
-      for="collective.rcse.content.group.GroupSchema"
-      manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
-      class="collective.rcse.viewlet.mobile.viewlets.GroupDisplayMenu"
-      template="templates/group_display_menu.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
     <!-- header.leftaction.sections -->
     <browser:viewlet
         name="plonetheme.jquerymobile.header.leftaction.sections"
