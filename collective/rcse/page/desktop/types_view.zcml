@@ -69,7 +69,6 @@
       permission="zope2.View"
       />
 
-
     <browser:page
       for="collective.rcse.content.audio.AudioSchema"
       name="audio_view"
