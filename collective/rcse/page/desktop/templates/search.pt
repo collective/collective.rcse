@@ -1,0 +1,201 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal" xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n" lang="en"
+    metal:use-macro="context/main_template/macros/master" i18n:domain="plone">
+    <head>
+        <metal:block metal:fill-slot="head_slot">
+            <meta name="navigation_root_url" tal:attributes="content view/navroot_url" />
+        </metal:block>
+        <metal:block fill-slot="top_slot"
+            tal:define="dummy python:request.set('disable_border',1);
+                        disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                        disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+    </head>
+    <body>
+        <div id="content-core" metal:fill-slot="main"
+            tal:define="portal context/@@plone_portal_state/portal;
+                      first_call not:request/advanced_search|nothing;
+                      st python:request.get('SearchableText', '');
+                      DateTime python:modules['DateTime'].DateTime;
+                      navigation_root_url view/navroot_url;">
+            <h1 class="documentFirstHeading" i18n:translate="" tal:condition="not:st">
+                Search results
+            </h1>
+            <h1 class="documentFirstHeading" i18n:translate="" tal:condition="st">
+                Search results for
+                <strong id="search-term" tal:content="st" i18n:name="term">
+                    Search Term
+                </strong>
+            </h1>
+            <div id="search-results-wrapper"
+                tal:define="b_start python:0;
+                             b_start request/b_start | b_start;
+                             batch python: view.results(b_start=b_start);
+                             normalizeString nocall:context/@@plone/normalizeString;">
+                <div id="search-results-bar">
+                    <span i18n:translate="batch_x_items_matching_your_criteria"
+                        i18n:domain="plone">
+                        <strong i18n:name="number" id="search-results-number"
+                            tal:content="batch/sequence_length|string:0">234</strong>
+                        items matching your search terms.
+                    </span>
+                    <a data-toggle="modal" href="#search-filter" class="btn btn-primary"
+                        i18n:translate="narrow_search_options">Filter the results.</a>
+                    <div class="modal fade" id="search-filter" tabindex="-1"
+                        role="dialog" aria-labelledby="myModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close"
+                                        data-dismiss="modal" aria-hidden="true">&times;
+                                    </button>
+                                    <h4 class="modal-title" i18n:translate="">Filters</h4>
+                                </div>
+                                <div class="modal-body">
+<ul class="nav nav-tabs">
+  <li><a href="#itemtype" data-toggle="tab" i18n:translate="label_item_type">Item type</a></li>
+  <li><a href="#newitemsince" data-toggle="tab" i18n:translate="label_new_items_since">New items since</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="itemtype">
+    <div
+        tal:define="portal_types portal/portal_types;
+                   types_list view/types_list;
+                   all_checked python:(len(types_list) == len(request.get('portal_type', []))) or first_call;
+                   toggle_select_state python:all_checked and 'true' or 'false';">
+        <div class="checkbox optionsToggle">
+            <label>
+                <input type="checkbox" onchange="" name="pt_toggle" value="#"
+                    id="pt_toggle" class="noborder" checked="checked"
+                    tal:attributes="checked python:all_checked and 'checked' or '';
+                                    onchange string:javascript:toggleSelect(this, 'portal_type:list', ${toggle_select_state});" />
+                <tal:text i18n:translate="label_toggle">Select All/None</tal:text>
+            </label>
+        </div>
+        <div class="checkbox" tal:repeat="type types_list">
+            <label>
+                <input type="checkbox" name="portal_type:list" value="#"
+                    class="noborder" checked="checked"
+                    tal:attributes="value type;
+                                     id string:portal_type_${repeat/type/number};
+                                     checked python:((type in request.get('portal_type', [])) or first_call) and 'checked' or ''" />
+                <tal:text i18n:translate=""
+                    tal:content="python: portal_types.getTypeInfo(type).Title()" />
+            </label>
+        </div>
+    </div>
+  </div>
+  <div class="tab-pane" id="newitemsince">
+        <tal:datetime
+            define="today python:DateTime().earliestTime();
+                        yesterday python:(today-1).Date();
+                        lastweek python:(today-7).Date();
+                        lastmonth python:(today-31).Date();
+                        ever string:1970-01-02;
+                        checked python:request.get('created', []);
+                        checked python:(len(checked) == 1) and checked[0] or ever">
+
+<div class="radio">
+    <label>
+        <input type="radio" id="query-date-yesterday" name="created.query:record:list:date"
+            tal:attributes="value yesterday;
+                             checked python:checked==yesterday and 'checked' or '';" />
+        <tal:text i18n:translate="time_yesterday">Yesterday</tal:text>
+    </label>
+</div>
+<div class="radio">
+    <label>
+        <input type="radio" id="query-date-lastweek" name="created.query:record:list:date"
+            tal:attributes="value lastweek;
+                         checked python:checked==lastweek and 'checked' or '';" />
+        <tal:text i18n:translate="time_last_week">Last week</tal:text>
+    </label>
+</div>
+
+<div class="radio">
+    <label>
+        <input type="radio" id="query-date-lastmonth" name="created.query:record:list:date"
+            tal:attributes="value lastmonth;
+                             checked python:checked==lastmonth and 'checked' or '';" />
+        <tal:text i18n:translate="time_last_month">Last month</tal:text>
+    </label>
+</div>
+<div class="radio">
+    <label>
+        <input type="radio" id="query-date-ever" name="created.query:record:list:date"
+            tal:attributes="value ever;
+                         checked python:checked==ever and 'checked' or '';" />
+        <tal:text i18n:translate="time_ever">Ever</tal:text>
+    </label>
+</div>
+
+        </tal:datetime>
+
+  </div>
+</div>
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default"
+                                        data-dismiss="modal" i18n:translate="">Close</button>
+                                    <button type="button" class="btn btn-primary" i18n:translate="">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle"
+                            data-toggle="dropdown">
+                            <span i18n:translate="sort_by">Sort by</span>
+                            <span class="caret"></span>
+                        </button>
+                        <metal:sorting define-macro="sorting">
+                            <ul class="dropdown-menu" role="menu">
+                                <tal:block tal:repeat="item view/sort_options">
+                                    <tal:item define="selected item/selected">
+                                        <li tal:attributes="class python:selected and 'disabled' or ''">
+                                            <a data-sort="" tal:content="item/title"
+                                                tal:attributes="href item/url;
+                                                    data-sort python:item.sortkey and item.sortkey or None"></a>
+                                        </li>
+                                    </tal:item>
+                                </tal:block>
+                            </ul>
+                        </metal:sorting>
+                    </div>
+                </div>
+                <div class="visualClear"><!-- -->
+                </div>
+                <metal:searchresults define-macro="search_results">
+                    <div id="search-results"
+                        tal:define="navigation_root_url context/@@plone_portal_state/navigation_root_url;">
+                        <metal:noresults tal:condition="not: batch">
+                            <p i18n:domain="plone">
+                                <strong i18n:translate="description_no_results_found">No results were
+                                    found.</strong>
+                            </p>
+                        </metal:noresults>
+                        <metal:results tal:condition="batch"
+                            tal:define="isAnon context/@@plone_portal_state/anonymous;
+                                                   toLocalizedTime nocall: context/@@plone/toLocalizedTime;
+                                                   site_properties context/portal_properties/site_properties;
+                                                   use_view_action site_properties/typesUseViewActionInListings|python:();
+                                                   allowAnonymousViewAbout site_properties/allowAnonymousViewAbout;
+                                                   show_about python:not isAnon or allowAnonymousViewAbout;">
+                            <tal:results repeat="item batch">
+                                <div class="rcse_tile_wrapper">
+                                    <a class="rcse_tile" tal:attributes="href item/getURL"></a>
+                                </div>
+                            </tal:results>
+                            <div metal:use-macro="context/batch_macros/macros/navigation" />
+                        </metal:results>
+                    </div>
+                </metal:searchresults>
+            </div>
+            <div class="visualClear"><!-- -->
+            </div>
+        </div>
+    </body>
+</html>

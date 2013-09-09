@@ -79,4 +79,13 @@
       permission="zope2.View"
       />
 
+  <browser:page
+      for="*"
+      name="search"
+      class="plone.app.search.browser.Search"
+      template="templates/search.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
+
 </configure>

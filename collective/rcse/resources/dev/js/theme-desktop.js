@@ -388,6 +388,49 @@ var rcseInitBreadCrumb = function(){
         window.location = option.val();
     })
 }
+var rcseInitSearchForm = function(){
+    $(document).on("click", '#search-results-bar button.btn-primary', function(){
+        //serialize our values to build a new search URL and redirect to it
+        var searchURL = location.href.split('?')[0],
+            query = location.search.split('?')[1],
+            queryObj = {}
+            created = $('input[name="created.query:record:list:date"]').val();
+        queryObj['SearchableText'] = $('input[name="SearchableText"]').val();
+        queryObj['portal_type:list'] = "";
+        queryObj['created.query:record:list:date'] = "1970-01-02";
+        $('[name="portal_type:list"]:checked').each(function(){
+            queryObj['portal_type:list'] +=
+                "&portal_type:list=" + encodeURIComponent($(this).val());
+        });
+        if (created != undefined){
+            queryObj['created.query:record:list:date'] = encodeURIComponent(created);
+        }
+        window.location = searchURL
+            + '?SearchableText=' + queryObj['SearchableText']
+            + queryObj["portal_type:list"]
+            + '&created.query:record:list:date=' + queryObj['created.query:record:list:date'];
+    });
+    $(document).on("click", "#search-results-bar a.btn-primary", function(){
+        //serialize our search URL to update our inputs
+        var qs = (function(a) {
+            if (a == "") return {};
+            var b = {};
+            for (var i = 0; i < a.length; ++i)
+            {
+                var p=a[i].split('=');
+                if (p.length != 2) continue;
+                b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+            }
+            return b;
+        })(window.location.search.substr(1).split('&'));
+        if (qs["SearchableText"] != undefined){
+            $('input[name="SearchableText"]').val(qs["SearchableText"]);
+        }
+        if (qs["created.query:record:list:date"] != undefined){
+            $('input[name="created.query:record:list:date"]').val(qs["created.query:record:list:date"]);
+        }
+    })
+}
 var rcseApplyTransform = function(element) {
     if (element == undefined) {
         element = document;
@@ -400,8 +443,9 @@ var rcseApplyTransform = function(element) {
     rcseUpdateForms(element);
     picturefill(element);
     rcseUpdatePortalMessage(element);
-    $(element).find("img.lazy").removeClass("lazy")
-        .lazyload({skip_invisible: false});
+    $(element).find("img.lazy")
+        .removeClass("lazy").lazyload({skip_invisible: false});
+
     return element;
 }
 
@@ -414,6 +458,7 @@ $(document).on("ready", function() {
     rcseInitFilter();
     rcseInitBreadCrumb();
     rcseInitAddButton();
+    rcseInitSearchForm();
 });
 $.webshims.setOptions("basePath", portal_url + "/++resource++webshims/");
 $.webshims.setOptions('forms', {
