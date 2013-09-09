@@ -196,7 +196,7 @@ var rcseInitTimeline = function() {
             parent.hide();
             item.unwrap().replaceWith(data)
             rcseApplyTransform(parent);
-            parent.fadeIn(1000);
+            parent.addClass('animated flipInX').show();
         });
     }, {offset: '100%'});
 }
@@ -373,7 +373,7 @@ var rcseInitVideo = function(){
 
 }
 var rcseInitBreadCrumb = function(){
-    $(document).on("change", "#breadcrumb select", function(){
+    $(document).on("change", ".breadcrumb select", function(){
         var select = $(this);
         var option = select.find('option:selected');
         window.location = option.val();
@@ -383,7 +383,6 @@ var rcseApplyTransform = function(element) {
     if (element == undefined) {
         element = document;
     }
-//    $(element).find("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
     $(element).find("select").select2();
     $(element).find(".readmore").readmore();
     rcseUpdatePortlets(element);
@@ -392,7 +391,7 @@ var rcseApplyTransform = function(element) {
     rcseUpdateForms(element);
     picturefill(element);
     rcseUpdatePortalMessage(element);
-    $(element).find("img.lazy").lazyload({effect: "fadeIn", skip_invisible  : false}).removeClass("lazy");
+    $(element).find("img.lazy").addClass('animated fadeIn').lazyload({skip_invisible  : false}).removeClass("lazy");
     return element;
 }
 

@@ -1,11 +1,17 @@
-<div id="breadcrumb">
-  <tal:crumb tal:repeat="parent view/parents_info">
-    <select>
-      <tal:option tal:repeat="sibling parent">
-        <option tal:content="sibling/title"
-            tal:attributes="selected python:sibling['current'] and 'selected' or None;
-                value sibling/url">group title</option>
-      </tal:option>
-    </select>
-  </tal:crumb>
+<div class="breadcrumb-wrapper">
+    <ol class="breadcrumb">
+        <tal:crumb tal:repeat="parent view/parents_info">
+            <li>
+                <select>
+                    <option value="" i18n:translate="">Select a group</option>
+                    <option value="" i18n:translate="">Back to current group</option>
+                    <tal:option tal:repeat="sibling parent">
+                        <option tal:content="sibling/title"
+                            tal:attributes="selected python:sibling['current'] and 'selected' or None;
+                                value sibling/url">group title</option>
+                    </tal:option>
+                </select>
+            </li>
+        </tal:crumb>
+    </ol>
 </div>
