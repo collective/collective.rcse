@@ -324,6 +324,15 @@ var rcseInitNotifications = function() {
     });
 }
 
+var rcseInitAddButton = function(){
+    $(document).on("click", "#rcseaddform .btn-primary", function(){
+        var where = $("#form-widgets-where").val(),
+            what = $("#form-widgets-what").val();
+        //TODO: add precondition
+        window.location = portal_url + '/resolveuid/' + where + '/++add++' + what;
+    })
+}
+
 var rcseInitVideo = function(){
     $(document).on('mouseenter', 'div.download',
 	function(){
@@ -391,7 +400,8 @@ var rcseApplyTransform = function(element) {
     rcseUpdateForms(element);
     picturefill(element);
     rcseUpdatePortalMessage(element);
-    $(element).find("img.lazy").addClass('animated fadeIn').lazyload({skip_invisible  : false}).removeClass("lazy");
+    $(element).find("img.lazy").removeClass("lazy")
+        .lazyload({skip_invisible: false});
     return element;
 }
 
@@ -403,6 +413,7 @@ $(document).on("ready", function() {
     rcseInitNotifications();
     rcseInitFilter();
     rcseInitBreadCrumb();
+    rcseInitAddButton();
 });
 $.webshims.setOptions("basePath", portal_url + "/++resource++webshims/");
 $.webshims.setOptions('forms', {

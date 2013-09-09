@@ -7,16 +7,20 @@
   <include package="plone.directives.form" />
 
   <utility component=".vocabularies.groupTypes"
-	   name="collective.rcse.vocabulary.groupTypes"
-	   provides="zope.schema.interfaces.IVocabularyFactory"/>
+       name="collective.rcse.vocabulary.groupTypes"
+       provides="zope.schema.interfaces.IVocabularyFactory"/>
+
+  <utility component=".vocabularies.groups"
+       name="collective.rcse.vocabulary.groups"
+       provides="zope.schema.interfaces.IVocabularyFactory"/>
 
   <utility component=".vocabularies.companies"
-	   name="collective.rcse.vocabulary.companies"
-	   provides="zope.schema.interfaces.IVocabularyFactory"/>
+       name="collective.rcse.vocabulary.companies"
+       provides="zope.schema.interfaces.IVocabularyFactory"/>
 
   <subscriber handler=".workflow.createCompanyIfNotExists"
-	      for="collective.rcse.content.member.IMember
-		   Products.DCWorkflow.interfaces.IAfterTransitionEvent" />
+          for="collective.rcse.content.member.IMember
+           Products.DCWorkflow.interfaces.IAfterTransitionEvent" />
 
   <adapter factory=".settings.SettingsFactory" />
 

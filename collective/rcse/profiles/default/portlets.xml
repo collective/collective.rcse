@@ -5,15 +5,16 @@
 
  <!-- Remove some portlets -->
  <portlet addview="portlets.Classic" remove="true" />
-
  <portletmanager
      name="dashboard.group.left"
      type="collective.rcse.page.controller.group_dashboard_view.IDashboardPortletManager"
+     remove="true"
      />
 
  <portletmanager
      name="dashboard.group.right"
      type="collective.rcse.page.controller.group_dashboard_view.IDashboardPortletManager"
+     remove="true"
      />
 
 </portlets>

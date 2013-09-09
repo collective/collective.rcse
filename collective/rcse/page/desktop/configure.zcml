@@ -70,5 +70,13 @@
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
+  <browser:page
+      for="*"
+      name="collective.rcse.addbutton"
+      class="collective.rcse.page.controller.addbutton.AddButton"
+      template="templates/addbutton.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
 
 </configure>

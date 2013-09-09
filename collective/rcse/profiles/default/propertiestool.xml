@@ -4,5 +4,13 @@
   <property name="external_links_open_new_window" type="string">true</property>
   <property name="mark_special_links" type="string">true</property>
   <property name="redirect_links" type="boolean">False</property>
+  <property name="types_not_searched" type="lines" purge="false">
+   <element value="collective.rcse.directory"/>
+   <element value="collective.rcse.member"/>
+   <element value="collective.rcse.company"/>
+   <element value="Collection"/>
+   <element value="Event"/>
+   <element value="Topic"/>
+  </property>
  </object>
 </object>

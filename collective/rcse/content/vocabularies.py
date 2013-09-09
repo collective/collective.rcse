@@ -53,3 +53,19 @@ def companies(context):
                    title=_(u"Create a new company"))
         ]
     return SimpleVocabulary(terms)
+
+
+def groups(context):
+    catalog = getToolByName(context, 'portal_catalog')
+    query = {"portal_type": "collective.rcse.group",
+             "sort_on": "sortable_title"}
+    terms = []
+    brains = catalog(**query)
+    for brain in brains:
+        terms.append(SimpleVocabulary.createTerm(
+            unicode(brain.UID),
+            str(brain.UID),
+            brain.Title
+        ))
+
+    return SimpleVocabulary(terms)

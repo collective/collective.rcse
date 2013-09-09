@@ -6,9 +6,17 @@
     <!-- NAVIGATION ROOT -->
     <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
-      name="timeline_view"
-      class="collective.rcse.page.controller.timeline_view.TimelineView"
-      template="templates/timeline_watchers_view.pt"
+      name="blog_view"
+      class="collective.rcse.page.controller.blog_view.NavigationRootBlogView"
+      template="templates/blog_view.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
+  <browser:page
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      name="companies_directory_view"
+      template="templates/companies_directory_view.pt"
+      class="collective.rcse.page.controller.companies_directory.CompaniesDirectoryView"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
@@ -46,17 +54,25 @@
       />
     <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
-      name="blog_view"
-      class="collective.rcse.page.controller.blog_view.NavigationRootBlogView"
-      template="templates/blog_view.pt"
+      name="links_view"
+      class="collective.rcse.page.controller.links_view.NavigationRootLinksView"
+      template="templates/links_view.pt"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
     <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
-      name="links_view"
-      class="collective.rcse.page.controller.links_view.NavigationRootLinksView"
-      template="templates/links_view.pt"
+      name="timeline_view"
+      class="collective.rcse.page.controller.timeline_view.TimelineView"
+      template="templates/timeline_watchers_view.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
+    <browser:page
+      for="*"
+      name="users_directory_view"
+      template="templates/users_directory_view.pt"
+      class="collective.rcse.page.controller.users_directory.UsersDirectoryView"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />

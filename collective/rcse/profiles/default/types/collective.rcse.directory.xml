@@ -30,10 +30,11 @@
  </property>
 
  <!-- View information -->
- <property name="default_view">view</property>
+ <property name="default_view">users_directory_view</property>
  <property name="default_view_fallback">False</property>
  <property name="view_methods">
-  <element value="base_view"/>
+  <element value="companies_directory_view"/>
+  <element value="users_directory_view"/>
  </property>
 
  <!-- Method aliases -->
