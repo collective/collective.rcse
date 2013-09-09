@@ -183,7 +183,9 @@ var rcseUpdateForms = function(element){
     })
 }
 var rcseInitTimeline = function() {
-    $("a.rcse_tile").each(function() {
+    console.log("init");
+    $("a.rcse_tile").waypoint(function(direction) {
+        console.log("waypoint");
         var item = $(this);
         var parent = item.parent();
         var url = item.attr('href') + '/@@group_tile_view';
@@ -191,10 +193,12 @@ var rcseInitTimeline = function() {
         $.ajax({
             url : url,
         }).success(function(data) {
-            item.unwrap().replaceWith(data).fadeIn(1000);
+            parent.hide();
+            item.unwrap().replaceWith(data)
             rcseApplyTransform(parent);
+            parent.fadeIn(1000);
         });
-    });
+    }, {offset: '100%'});
 }
 
 var rcseUpdateComments = function(element) {
@@ -388,7 +392,7 @@ var rcseApplyTransform = function(element) {
     rcseUpdateForms(element);
     picturefill(element);
     rcseUpdatePortalMessage(element);
-    $(element).find("img.lazy").lazyload();
+    $(element).find("img.lazy").lazyload({effect: "fadeIn", skip_invisible  : false}).removeClass("lazy");
     return element;
 }
 

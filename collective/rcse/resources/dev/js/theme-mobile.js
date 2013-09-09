@@ -3,17 +3,22 @@
  */
 $.event.special.swipe.horizontalDistanceThreshold = 100;
 var rcseInitTimeline = function() {
-    $("a.rcse_tile").each(function() {
+    $("a.rcse_tile").waypoint(function(direction) {
+        if (direction == "up"){
+            return false;
+        }
         var item = $(this);
         var parent = item.parent();
         $.ajax({
             url : $(this).attr('href') + '/@@group_tile_view'
         }).success(function(data) {
             var element = rcseApplyTransform(data);
+            parent.hide();
             item.replaceWith(element);
             parent.trigger("create");
+            parent.fadeIn(1000);
         });
-    });
+    },{offset: '150%'});
 }
 var rcseInitOpenAuthorInDialog = function() {
     $(document).on("click", 'a[rel="author"]', function(eventObject) {
