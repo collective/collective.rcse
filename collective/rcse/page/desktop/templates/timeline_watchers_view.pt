@@ -10,10 +10,6 @@
   <div metal:fill-slot="main" tal:define="auth_memberinfo context/auth_memberinfo">
     <tal:main-macro metal:define-macro="main">
 
-    <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
-
-    <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" tal:condition="not:ajax_load" />
-
     <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" tal:condition="not:ajax_load" />
 
     <nav role="navigation" class="navbar navbar-inverse">
