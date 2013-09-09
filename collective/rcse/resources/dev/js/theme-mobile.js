@@ -1,6 +1,7 @@
 /*
  * theme-mobile.js
  */
+$.event.special.swipe.horizontalDistanceThreshold = 100;
 var rcseInitTimeline = function() {
     $("a.rcse_tile").each(function() {
         var item = $(this);
