@@ -54,7 +54,6 @@ setup(
         'collective.subscribe',
         'collective.themeswitcher',
         'collective.transcode.star',
-        'collective.uploadify',
         'collective.watcherlist',
         'collective.whathappened',
         'plone.app.dexterity',
