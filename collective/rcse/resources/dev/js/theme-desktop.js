@@ -217,6 +217,7 @@ var rcseUpdateComments = function(element) {
         form.append(ajaxDeleteComment);
     }
 }
+
 /**
  * just check query param about a portal_type and update portal_header
  */
@@ -224,6 +225,7 @@ var rcseInitFilter = function(){
     $('a[href="'+window.location.toString()+'"]').parents('.filter-wrapper')
     .addClass('filter-current');
 }
+
 var rcseInitAjaxAction = function() {
     $(document).on(
             "click",
@@ -294,7 +296,6 @@ var rcseInitNotifications = function() {
             var see_all_text = see_all.text();
 
             $("#notifications-count").text('('+data['unseenCount']+')');
-
             $("#notifications ul").remove();
             $("#notifications")
                 .append('<ul class="dropdown-menu"></ul>');

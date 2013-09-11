@@ -79,6 +79,8 @@ class AuthenticatedMemberInfoView(BrowserView):
     def __getattribute__(self, name):
         if name in AuthenticatedMemberInfoView.member_fields:
             membrane = self.get_membrane()
+            if membrane is None:
+                return None
             pref = '%s%s' % (NAMESPACE, name)
             if getattr(membrane, pref, True):
                 return getattr(membrane, name)
