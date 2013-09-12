@@ -82,7 +82,7 @@
   <browser:page
       for="*"
       name="search"
-      class="plone.app.search.browser.Search"
+      class="collective.rcse.page.controller.search.Search"
       template="templates/search.pt"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
