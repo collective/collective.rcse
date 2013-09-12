@@ -20,7 +20,7 @@
   <!-- directories -->
 
   <browser:page
-      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      for="*"
       name="users_directory_view"
       template="templates/users_directory_view.pt"
       class="collective.rcse.page.controller.users_directory.UsersDirectoryView"
@@ -29,14 +29,13 @@
       />
 
   <browser:page
-      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      for="*"
       name="companies_directory_view"
       template="templates/companies_directory_view.pt"
       class="collective.rcse.page.controller.companies_directory.CompaniesDirectoryView"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
-
 
   <!-- VCard -->
 

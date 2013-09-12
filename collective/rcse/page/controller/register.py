@@ -34,6 +34,9 @@ class RegisterFormAdapter(object):
 
     def __init__(self, context):
         self.context = context
+        self.login = ''
+        self.password = ''
+        self.password_confirm = ''
 
 
 class RegisterForm(AutoExtensibleForm, form.Form):
