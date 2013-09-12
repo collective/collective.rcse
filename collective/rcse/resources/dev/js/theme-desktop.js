@@ -195,7 +195,7 @@ var rcseInitTimeline = function() {
             parent.hide();
             item.replaceWith(data)
             rcseApplyTransform(parent);
-            parent.addClass('animated flipInX').show();
+            parent.addClass('animated pulse').show();
         });
     }, {offset: '100%'});
 }
