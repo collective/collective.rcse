@@ -44,7 +44,6 @@
         </tal:tile>
         <div metal:use-macro="context/batch_macros/macros/navigation" />
     </div>
-    <div id="viewlet-below-content" tal:content="structure provider:plone.belowcontent" tal:condition="not:ajax_load" />
 
     </tal:main-macro>
   </div>
