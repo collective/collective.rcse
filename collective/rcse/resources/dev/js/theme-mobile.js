@@ -16,7 +16,7 @@ var rcseInitTimeline = function() {
             parent.hide();
             item.replaceWith(element);
             parent.trigger("create");
-            parent.addClass('animated flipInX').show();
+            parent.addClass('animated pulse').show();
         });
     },{offset: '150%'});
 }
