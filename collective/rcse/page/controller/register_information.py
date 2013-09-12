@@ -124,7 +124,7 @@ class RegisterInformationFormWrapper(FormWrapper):
         portal_url = self.portal_state.portal_url()
         if self.portal_state.anonymous():
             self.request.response.redirect('%s/login' % portal_url)
-        if self.member_data.company_id is not None:
+        if self.member_data and self.member_data.company_id is not None:
             self.request.response.redirect(
                 '%s/@@personal-information' % portal_url
                 )
