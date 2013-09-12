@@ -1,5 +1,4 @@
-<div tal:omit-tag=""
-     i18n:domain="plone">
+<div tal:omit-tag="" i18n:domain="plone" tal:condition="view/should_display">
   <div class="document-actions-wrapper">
     <div class="documentActions" data-role="controlgroup" data-type="vertical" data-mini="true">
     <tal:docactions tal:condition="python:view.actions_icon or view.actions" tal:define="normalizeString nocall: context/@@plone/normalizeString">

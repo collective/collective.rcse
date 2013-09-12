@@ -189,12 +189,11 @@ var rcseInitTimeline = function() {
         var item = $(this);
         var parent = item.parent();
         var url = item.attr('href') + '/@@group_tile_view';
-        item.wrap('<i class="icon-spinner icon-spin icon-large"></i>');
         $.ajax({
             url : url,
         }).success(function(data) {
             parent.hide();
-            item.unwrap().replaceWith(data)
+            item.replaceWith(data)
             rcseApplyTransform(parent);
             parent.addClass('animated flipInX').show();
         });
