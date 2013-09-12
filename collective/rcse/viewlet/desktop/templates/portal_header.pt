@@ -45,7 +45,7 @@
     </ul>
     <form class="navbar-form navbar-right" role="search" tal:attributes="action string:${view/site_url}/@@search">
       <div class="form-group">
-        <input type="text" class="form-control" name="SearchableText" placeholder="Search" i18n:attributes="placeholder">
+        <input type="text" class="form-control" name="SearchableText" placeholder="Search" i18n:attributes="placeholder" tal:attributes="value request/SearchableText|nothing">
       </div>
     </form>
     <ul class="nav navbar-nav navbar-right">
