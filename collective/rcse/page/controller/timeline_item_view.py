@@ -8,6 +8,7 @@ from plone.registry.interfaces import IRegistry
 
 from cioppino.twothumbs import rate
 from collective.favoriting.browser.favoriting_view import VIEW_NAME
+from collective.rcse import icons
 
 
 class TimelineItemView(BrowserView):
@@ -64,6 +65,7 @@ class TimelineItemView(BrowserView):
             self.rate = rate.getTally(self.context)
         if self.fav is None:
             self.fav = self.context.restrictedTraverse(VIEW_NAME)
+        self.icon = icons.get(self.context.portal_type)
 
     def get_content(self):
         return self.context.restrictedTraverse('tile_view')()

@@ -11,6 +11,7 @@
                         tal:attributes="href creator_info/url" tal:content="creator_info/fullname">John
                     </a>
                 </h4>
+                <span tal:attributes="class string:icon ${view/icon} icon-3x"></span>
                 <a class="group" data-inline="true" tal:attributes="href view/group_url"
                     tal:content="view/group_title">group</a>
                 <span class="date" tal:condition="view/effective_date"
