@@ -13,7 +13,7 @@
       permission="zope2.View"
       />
   <browser:page
-      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      for="*"
       name="companies_directory_view"
       template="templates/companies_directory_view.pt"
       class="collective.rcse.page.controller.companies_directory.CompaniesDirectoryView"
