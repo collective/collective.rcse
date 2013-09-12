@@ -17,7 +17,9 @@ from collective.rcse.i18n import _
 from collective.rcse.page.controller.group_base import BaseView
 from collective.rcse.page.controller.navigationroot import NavigationRootBaseView
 
+
 CONTENT_TYPE = "collective.rcse.discussion"
+
 
 class AddDiscussionFormSchema(model.Schema):
     """Add form"""
@@ -35,6 +37,7 @@ class AddDiscussionFormAdapter(object):
         self.context = context
         self.image = None
         self.description = None
+
 
 class AddDiscussionForm(AutoExtensibleForm, form.Form):
     schema = AddDiscussionFormSchema
