@@ -11,6 +11,27 @@ from zope.browser.interfaces import IBrowserView
 from zope.component._api import getMultiAdapter
 from collective.rcse.page.controller.comments_view import should_display_comments
 
+CONTENT_VIEWS = (
+    'blog_view',
+    'discussions_view',
+    'events_view',
+    'favorites_view',
+    'files_view',
+    'images_view',
+    'links_view',
+    'timeline_view',
+    'videos_view',
+
+    'audio_view',
+    'discussion_view',
+    'document_view',
+    'etherpad_view',
+    'event_view',
+    'link_redirect_view',
+    'image_view',
+    'video_view',
+)
+
 
 class DocumentIconActionsViewlet(DocumentActionsViewlet):
     """We replace action by icons if it is set in the registry.
@@ -62,6 +83,10 @@ class DocumentIconActionsViewlet(DocumentActionsViewlet):
     def get_how_many_comments(self):
         return self.comments_view.how_many()
 
+    def should_display(self):
+        viewid = self.context_state.view_template_id
+        return viewid in CONTENT_VIEWS
+
 
 class DocumentActionsView(DocumentIconActionsViewlet):
     """replace the viewlet by a view to easier ajax response"""
@@ -73,3 +98,6 @@ class DocumentActionsView(DocumentIconActionsViewlet):
     def __call__(self):
         self.update()
         return self.index()
+
+    def should_display(self):
+        return True

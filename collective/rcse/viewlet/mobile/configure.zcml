@@ -17,6 +17,13 @@
   <!-- Render the document actions -->
   <browser:viewlet
       name="plone.abovecontenttitle.documentactions"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+      class="collective.rcse.viewlet.common.HiddenViewlet"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
+  <browser:viewlet
+      name="plone.abovecontenttitle.documentactions"
       for="Products.CMFCore.interfaces.IContentish"
       manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
       class="collective.rcse.viewlet.controller.document_actions.DocumentIconActionsViewlet"
