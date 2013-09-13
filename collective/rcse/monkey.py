@@ -1,5 +1,6 @@
 import logging
 from collective.z3cform.widgets import enhancedtextlines
+from Products.CMFPlone.PloneBatch import Batch
 
 logger = logging.getLogger("collective.rcse")
 
@@ -37,3 +38,26 @@ def patch_contenttree():
     ContentTreeBase.render = render
 
 patch_contenttree()
+
+
+logger.info("monkey: fix batching")
+def patch_batch():
+    def batchgetitem(self, index):
+        """ Get item from batch
+        """
+        #this doesn't work at all .... lets remove this
+        #actual = getattr(self._sequence, 'actual_result_count', None)
+        #if actual is not None and actual != len(self._sequence):
+            # optmized batch that contains only the wanted items in the
+            # sequence
+        #    return self._sequence[index]
+        if index < 0:
+            if index + self.end < self.first:
+                raise IndexError(index)
+            return self._sequence[index + self.end]
+        if index >= self.length:
+            raise IndexError(index)
+        return self._sequence[index + self.first]
+    Batch.__getitem__ = batchgetitem
+
+patch_batch()
