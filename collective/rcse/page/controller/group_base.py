@@ -1,10 +1,19 @@
-from plone.app.search.browser import quote_chars
+from zope import interface
+from zope import schema
+from z3c.form import form
+
 from Products.CMFCore.interfaces._tools import ICatalogTool
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.PloneBatch import Batch
 from Products.Five.browser import BrowserView
-from zope import interface
-from zope import schema
+from Products.statusmessages.interfaces import IStatusMessage
+
+from plone.autoform.form import AutoExtensibleForm
+from plone.app.search.browser import quote_chars
+from plone.dexterity import utils
+from plone.z3cform.layout import FormWrapper
+
+from collective.rcse.i18n import _
 
 
 class IBaseView(interface.Interface):
@@ -88,3 +97,45 @@ class BaseView(BrowserView):
         if full:
             results = [brain.getObject() for brain in results]
         return results
+
+
+class BaseAddForm(AutoExtensibleForm, form.Form):
+#    schema = AddFormSchema
+    enableCSRFProtection = True
+    msg_added = _(u"Content Added")
+    CONTENT_TYPE = ""
+
+#    @button.buttonAndHandler(_(u"Add Image"))
+    def handleAdd(self, action):
+        data, errors = self.extractData()
+        if errors:
+            return False
+        self.doAdd(data)
+
+    def doAdd(self, data):
+        container = self.context
+        item = utils.createContentInContainer(
+            container,
+            self.CONTENT_TYPE,
+            checkConstraints=True,
+            **data)
+
+        IStatusMessage(self.request).add(self.msg_added)
+        referer = self.request.get("HTTP_REFERER")
+        if not referer:
+            referer = self.context.absolute_url()
+        self.request.response.redirect(referer)
+
+
+class BaseAddFormView(BaseView, FormWrapper):
+    """A filterable timeline"""
+#    filter_type = [CONTENT_TYPE]
+#    form = AddForm
+
+    def __init__(self, context, request):
+        BaseView.__init__(self, context, request)
+        FormWrapper.__init__(self, context, request)
+
+    def update(self):
+        BaseView.update(self)
+        FormWrapper.update(self)

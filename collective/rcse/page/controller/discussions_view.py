@@ -14,14 +14,14 @@ from plone.supermodel import model
 from plone.z3cform.layout import FormWrapper
 
 from collective.rcse.i18n import _
-from collective.rcse.page.controller.group_base import BaseView
+from collective.rcse.page.controller import group_base
 from collective.rcse.page.controller.navigationroot import NavigationRootBaseView
 
 
 CONTENT_TYPE = "collective.rcse.discussion"
 
 
-class AddDiscussionFormSchema(model.Schema):
+class AddFormSchema(model.Schema):
     """Add form"""
     title = schema.TextLine(title=PloneMessageFactory(u"Title"))
     body = schema.Text(title=_(u"Subject"))
@@ -29,8 +29,8 @@ class AddDiscussionFormSchema(model.Schema):
                          required=False)
 
 
-class AddDiscussionFormAdapter(object):
-    interface.implements(AddDiscussionFormSchema)
+class AddFormAdapter(object):
+    interface.implements(AddFormSchema)
     component.adapts(interface.Interface)
 
     def __init__(self, context):
@@ -39,44 +39,26 @@ class AddDiscussionFormAdapter(object):
         self.description = None
 
 
-class AddDiscussionForm(AutoExtensibleForm, form.Form):
-    schema = AddDiscussionFormSchema
-    enableCSRFProtection = True
+class AddForm(group_base.BaseAddForm):
+    schema = AddFormSchema
+    CONTENT_TYPE = CONTENT_TYPE
+    msg_added = _(u"Discussion added")
 
     @button.buttonAndHandler(_(u"Add Discussion"))
     def handleAdd(self, action):
-        data, errors = self.extractData()
-        if errors:
-            return False
-        self.doAdd(data)
+        group_base.BaseAddForm.handleAdd(self, action)
 
-    def doAdd(self, data):
-        container = self.context
-        item = utils.createContentInContainer(
-            container,
-            CONTENT_TYPE,
-            checkConstraints=True,
-            **data)
-
-        IStatusMessage(self.request).add(_(u"Discussion added"))
+        IStatusMessage(self.request).add()
         referer = self.request.get("HTTP_REFERER")
         if not referer:
             referer = self.context.absolute_url()
         self.request.response.redirect(referer)
 
 
-class DiscussionsView(BaseView, FormWrapper):
+class DiscussionsView(group_base.BaseAddFormView):
     """A filterable timeline"""
     filter_type = [CONTENT_TYPE]
-    form = AddDiscussionForm
-
-    def __init__(self, context, request):
-        BaseView.__init__(self, context, request)
-        FormWrapper.__init__(self, context, request)
-
-    def update(self):
-        BaseView.update(self)
-        FormWrapper.update(self)
+    form = AddForm
 
 
 class NavigationRootDiscussionsView(DiscussionsView, NavigationRootBaseView):

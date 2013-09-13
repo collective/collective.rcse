@@ -7,10 +7,21 @@
       i18n:domain="collective.rcse">
 
 <body>
-<div metal:fill-slot="content-core">
+<metal:override fill-slot="top_slot"
+    tal:define="disable_column_two python:request.set('disable_plone.rightcolumn',1);"/>
 
-TODO
+<div metal:fill-slot="content-core">
+<div tal:replace="structure context/@@breadcrumb_view"></div>
 
 </div>
+
+<div id="portal-column-one" class="col-md-3 col-mg-3"
+    metal:fill-slot="column_one_slot">
+    <nav role="navigation" class="navbar navbar-inverse">
+      <div class="navbar-brand" i18n:translate="" tal:content="view/label">Add image</div>
+    </nav>
+    <div tal:content="structure view/form_instance"></div>
+</div>
+
 </body>
 </html>

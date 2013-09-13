@@ -31,7 +31,7 @@
 <div id="portal-column-one" class="col-md-3 col-mg-3"
     metal:fill-slot="column_one_slot">
     <nav role="navigation" class="navbar navbar-inverse">
-      <div class="navbar-brand" i18n:translate="">Add image</div>
+      <div class="navbar-brand" i18n:translate="" tal:content="view/label"></div>
     </nav>
     <div tal:content="structure view/form_instance"></div>
 </div>

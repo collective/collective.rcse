@@ -134,6 +134,7 @@
       permission="zope2.View"
       />
   <adapter factory=".addbutton.AddFormAdapter"/>
-  <adapter factory=".images_view.AddImageFormAdapter"/>
-  <adapter factory=".discussions_view.AddDiscussionFormAdapter"/>
+  <adapter factory=".blog_view.AddFormAdapter"/>
+  <adapter factory=".images_view.AddFormAdapter"/>
+  <adapter factory=".discussions_view.AddFormAdapter"/>
 </configure>
