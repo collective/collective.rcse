@@ -11,6 +11,8 @@ from plone.memoize.view import memoize
 
 def should_display_comments(context, request):
     """Return True if comments on this context should be displayed"""
+    if context.portal_type == "collective.rcse.discussion":
+        return True
     should_display_comments = False
 #     displayed = request.displayeds.get("DISPLAY_COMMENTS", "")
     sdm = context.session_data_manager
@@ -25,6 +27,8 @@ def should_display_comments(context, request):
 
 def must_display_comments(context, request):
     """Mark this context to ask to display comments"""
+    if context.portal_type == "collective.rcse.discussion":
+        return
     context_path = '/'.join(context.getPhysicalPath())
 #    displayed = request.cookies.get("DISPLAY_COMMENTS", "")
     sdm = context.session_data_manager
@@ -43,6 +47,8 @@ def must_display_comments(context, request):
 
 
 def dont_display_comments(context, request):
+    if context.portal_type == "collective.rcse.discussion":
+        return
     context_path = '/'.join(context.getPhysicalPath())
     #displayed = request.cookies.get("DISPLAY_COMMENTS", "")
     sdm = context.session_data_manager
