@@ -88,4 +88,13 @@
       permission="zope2.View"
       />
 
+  <browser:page
+      for="*"
+      name="plone"
+      class=".bootstrap_view.Plone"
+      permission="zope.Public"
+      layer="collective.rcse.layer.DesktopLayer"
+      allowed_interface="Products.CMFPlone.browser.interfaces.IPlone"
+      />
+
 </configure>

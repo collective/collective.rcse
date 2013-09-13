@@ -6,31 +6,17 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="collective.rcse">
 <body>
-  <div metal:fill-slot="content-core" class="directory-wrapper">
+<metal:override fill-slot="top_slot" />
+
+  <div metal:fill-slot="content-core">
+
+    <div tal:replace="structure context/@@breadcrumb_view"></div>
+
     <div id="links-view"
          tal:define="b_start python:0;
                      b_start request/b_start | b_start;
                      links python: view.get_content(b_start=b_start, full=True)"
          tal:condition="python: len(links) > 0">
-
-      <!-- example, to be placed in a css file -->
-      <style>
-	@media (min-width: 40em) {
-	#links-table td,
-	#links-table th,
-	#links-table tbody th,
-	#links-table tbody td,
-	#links-table thead td,
-	#links-table thead th {
-	display: table-cell;
-	margin: 0;
-	}
-	#links-table th .ui-table-cell-label,
-	#links-table td .ui-table-cell-label {
-	display: none;
-	}
-	}
-      </style>
 
       <table data-role="table" id="links-table">
 	<thead>
@@ -51,6 +37,14 @@
       </table>
       <div metal:use-macro="context/batch_macros/macros/navigation" />
     </div>
+  </div>
+
+  <div id="portal-column-one" class="col-md-3 col-mg-3"
+       metal:fill-slot="column_one_slot">
+    <nav role="navigation" class="navbar navbar-inverse">
+      <div class="navbar-brand" i18n:translate="" tal:content="view/label">Add image</div>
+    </nav>
+    <div tal:content="structure view/form_instance"></div>
   </div>
 </body>
 </html>

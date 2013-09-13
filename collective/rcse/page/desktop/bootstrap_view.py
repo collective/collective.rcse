@@ -4,6 +4,16 @@ from zope.interface import Interface
 from Products.Five import BrowserView
 from plone.app.layout.navigation.navtree import buildFolderTree
 from Products.CMFPlone.browser.navtree import NavtreeQueryBuilder
+from Products.CMFPlone.browser.ploneview import Plone as basePlone
+
+
+class Plone(basePlone):
+    def have_portlets(self, manager_name, view=None):
+        if view is not None:
+            if getattr(view, 'portlets_show', None) is not None:
+                if manager_name in view.portlets_show.keys():
+                    return view.portlets_show[manager_name]
+        return super(Plone, self).have_portlets(manager_name, view)
 
 
 class IBootstrapView(Interface):
@@ -26,6 +36,12 @@ class BootstrapView(BrowserView):
 
         sl = plone_view.have_portlets('plone.leftcolumn', view=view)
         sr = plone_view.have_portlets('plone.rightcolumn', view=view)
+
+        if view is not None:
+            if getattr(view, 'portlet_sl', None) is not None:
+                sl = view.portlet_sl
+            if getattr(view, 'portlet_sr', None) is not None:
+                sr = view.portlet_sr
 
         isRTL = portal_state.is_rtl()
 

@@ -129,6 +129,10 @@ class BaseAddForm(AutoExtensibleForm, form.Form):
 
 class BaseAddFormView(BaseView, FormWrapper):
     """A filterable timeline"""
+    portlets_show = {
+        'plone.leftcolumn': True,
+        'plone.rightcolumn': False,
+        }
 #    filter_type = [CONTENT_TYPE]
 #    form = AddForm
 
