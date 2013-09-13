@@ -39,7 +39,6 @@ var rcseUpdatePortlets = function(element) {
                 $(newList).addClass("list-group");
                 $(newPortlet).append(newTitle);
                 if ($(this).hasClass('portletNavigationTree')) {
-                    console.log('navtree');
                     $(this).find('a').addClass('list-group-item');
                     $(this).find('div > a').unwrap();
                     $(this).find('li > a').unwrap();
@@ -183,9 +182,7 @@ var rcseUpdateForms = function(element){
     })
 }
 var rcseInitTimeline = function() {
-    console.log("init");
     $("a.rcse_tile").waypoint(function(direction) {
-        console.log("waypoint");
         var item = $(this);
         var parent = item.parent();
         var url = item.attr('href') + '/@@group_tile_view';
@@ -226,28 +223,24 @@ var rcseInitFilter = function(){
 }
 
 var rcseInitAjaxAction = function() {
-    $(document).on(
-            "click",
-            ".document-actions-wrapper a.action",
-            function(eventObject) {
-                eventObject.stopImmediatePropagation();
-                eventObject.preventDefault();
-                var link = $(this);
-                var container = $(eventObject.target).parents(".document-actions-wrapper");
-                var parent = container.parent();
-                $.ajax({
-                    url : $(this).attr('href'),
-                    context : eventObject,
-                    data : {
-                        'ajax_load' : true
-                    }
-                }).success(
-                        function(data) {
-                            var element = data['document-actions-wrapper'];
-                            container.replaceWith(element);
-                            rcseApplyTransform(parent);
-                        });
-            })
+    $(document).on("click", ".document-actions-wrapper a.action", function(eventObject) {
+        eventObject.stopImmediatePropagation();
+        eventObject.preventDefault();
+        var link = $(this);
+        var container = $(eventObject.target).parents(".document-actions-wrapper");
+        var parent = container.parent();
+        $.ajax({
+            url : $(this).attr('href'),
+            context : eventObject,
+            data : {
+                'ajax_load' : true
+            }
+        }).success(function(data) {
+            var element = data['document-actions-wrapper'];
+            container.replaceWith(element);
+            rcseApplyTransform(parent);
+        });
+    });
     $(document).on("submit", '.commenting form', function(e) {
         e.preventDefault();
     });
@@ -257,22 +250,20 @@ var rcseInitAjaxAction = function() {
         var form = $(eventObject.target).parents("form"),
             uid = $(eventObject.target).parents(".discussion").attr("id"),
             data = {
-                ajax : true,
+                ajax_load : true,
                 uid : uid
             };
-        console.log("ajax: comment submit" + uid);
         data[$(eventObject.target).attr("name")] = 1;
         form.ajaxSubmit({
             context : form,
             data : data,
             url : portal_url + "/@@plone.comments.ajax",
-            success : function(response, status, xhr,
-                    jqform) {
-                var parent = jqform
-                        .parents(".document-actions-wrapper");
-                parent
-                        .replaceWith(response['document-actions-wrapper']);
-                parent.find("textarea").val("");
+            success : function(response, status, xhr, jqform) {
+                var parent = jqform.parents(".document-actions-wrapper"),
+                    content = parent.parent();
+                parent.replaceWith(response['document-actions-wrapper']);
+                $("textarea").val('');
+                rcseApplyTransform(content);
             }
         });
     });
