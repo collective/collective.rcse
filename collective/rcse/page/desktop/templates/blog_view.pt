@@ -19,12 +19,37 @@
             DATE
           </div>
           <div class="media-body">
-            <h4 class="media-heading" tal:content="article/Title">Media heading</h4>
+            <h4 class="media-heading">
+              <a class="load-content-tile-in-modal" data-toggle="modal" href="#content-modal" 
+                 tal:attributes="data-href article/getURL"
+                 tal:content="article/Title">Media heading</a>
+            </h4>
             <p tal:content="article/Description">Description</p>
           </div>
         </div>
 
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="content-modal" tabindex="-1" role="dialog"
+        aria-labelledby="content modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                     <div class="rcse_tile_wrapper">
+                       <a class="rcse_tile">test</a>
+                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                        data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <div id="portal-column-one" class="col-md-3 col-mg-3"

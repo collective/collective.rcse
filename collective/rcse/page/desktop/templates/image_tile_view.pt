@@ -1,5 +1,3 @@
 <h2 tal:content="context/Title"></h2>
 <p class="documentDescription" tal:content="context/Description"></p>
-<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-     class="lazy"
-     tal:attributes="data-original string:${context/absolute_url}/@@images/image/preview" alt="image"/>
+<img tal:attributes="src string:${context/absolute_url}/@@images/image/preview" alt="image"/>

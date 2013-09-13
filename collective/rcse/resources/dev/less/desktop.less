@@ -1,3 +1,15 @@
+/*TRY TO FIX A BUG FROM BOOTSTRAP 3.0.0*/
+.media,
+.media-body {
+  overflow: visible;
+}
+
+.media:after,
+.media-body:after{
+ content:'';
+ clear:both;
+ display:block;
+}
 /*FIXED TOP http://getbootstrap.com/components/#navbar-fixed-top*/
 body { padding-top: 54px!important; }
 

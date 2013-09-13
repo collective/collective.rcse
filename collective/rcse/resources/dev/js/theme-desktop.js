@@ -185,6 +185,9 @@ var rcseInitTimeline = function() {
     $("a.rcse_tile").waypoint(function(direction) {
         var item = $(this);
         var parent = item.parent();
+        if (item.attr('href') == "undefined"){
+            return
+        }
         var url = item.attr('href') + '/@@group_tile_view';
         $.ajax({
             url : url,
@@ -416,6 +419,17 @@ var rcseInitSearchForm = function(){
         }
     })
 }
+var rcseInitLoadTileContentInModal = function(){
+	$(document).on("click", ".load-content-tile-in-modal", function(){
+		var title = $(this).text(),
+		    href = $(this).attr('data-href'),
+		    modal = $("#content-modal");
+		modal.find(".modal-title").text(title);
+		modal.find(".modal-body .rcse_tile").attr("href", href);
+		rcseInitTimeline();
+	});
+}
+
 var rcseApplyTransform = function(element) {
     if (element == undefined) {
         element = document;
@@ -435,6 +449,7 @@ var rcseApplyTransform = function(element) {
 }
 
 $(document).on("ready", function() {
+    rcseInitLoadTileContentInModal();
     rcseInitAjaxAction();
     rcseApplyTransform();
     rcseInitTimeline();
