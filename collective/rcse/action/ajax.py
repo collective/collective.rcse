@@ -14,6 +14,21 @@ from plone.app.discussion.browser.moderation import DeleteComment
 
 class AjaxAction(BrowserView):
     """Make an action url handle ajax request
+    Process
+    * js: InitAjaxAction
+      [resources/dev/js/themedesktop.js]
+     make link of actions behing ajax throw this base action. Assure ajax_load
+     is here, using data:{ajax_load:true} or adding an input name="ajax_load"
+     to the form
+
+    * user: click an ajax action
+
+    * server: this current base view do the following:
+      - detect if this is an ajax action (using ajax_load from request)
+      - execute the action
+      - if it's ajax -> block redirect, render
+        '@@plone.abovecontenttitle.documentactions'
+      - return the rendered content with messages in json
     """
     action_class = None
 
@@ -93,6 +108,9 @@ class TriggerDisplayComments(AjaxAction):
 
 
 class Comments(AjaxAction):
+    """name="plone.comments.ajax"
+    it is a quite differnet use case because the update do the action.
+    """
     action_class = comments_view.CommentsView
 
     def __call__(self):
