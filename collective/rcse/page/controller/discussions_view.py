@@ -48,12 +48,6 @@ class AddForm(group_base.BaseAddForm):
     def handleAdd(self, action):
         group_base.BaseAddForm.handleAdd(self, action)
 
-        IStatusMessage(self.request).add()
-        referer = self.request.get("HTTP_REFERER")
-        if not referer:
-            referer = self.context.absolute_url()
-        self.request.response.redirect(referer)
-
 
 class DiscussionsView(group_base.BaseAddFormView):
     """A filterable timeline"""
