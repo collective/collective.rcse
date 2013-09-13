@@ -11,11 +11,7 @@
                        wtool context/@@plone_tools/workflow;"
     tal:condition="python:isDiscussionAllowed or has_replies" i18n:domain="plone">
     <div class="discussion panel panel-default"
-        tal:attributes="class python: showCommenterImage and 'discussion showCommenterImage' or 'discussion';"
-        tal:condition="has_replies">
-        <div class="panel-heading">
-            <h4 i18n:translate="label_comments">Comments</h4>
-        </div>
+         tal:attributes="id view/uid">
         <div class="panel-body">
             <tal:getreplies repeat="reply_dict replies">
                 <div
@@ -97,8 +93,6 @@
                     </tal:remove>
                 </div>
             </tal:getreplies>
-        </div>
-        <div class="panel-footer">
             <div tal:condition="python: has_replies and not isDiscussionAllowed"
                 class="discreet" i18n:domain="plone.app.discussion"
                 i18n:translate="label_commenting_disabled"> Commenting has been disabled.

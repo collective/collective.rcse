@@ -91,7 +91,6 @@ class CommentsView(base.CommentsViewlet):
         return self.index()
 
     def update(self):
-        import pdb;pdb.set_trace()
         self.context = get_comments_context(self.context, self.request)
         base.CommentsViewlet.update(self)
 
@@ -101,3 +100,6 @@ class CommentsView(base.CommentsViewlet):
         if replies:
             return len(list(replies))
         return 0
+
+    def uid(self):
+        return IUUID(self.context, None)

@@ -251,37 +251,31 @@ var rcseInitAjaxAction = function() {
     $(document).on("submit", '.commenting form', function(e) {
         e.preventDefault();
     });
-    $(document)
-            .on(
-                    "click",
-                    '.commenting input[type="submit"]',
-                    function(eventObject) {
-                        eventObject.stopImmediatePropagation();
-                        eventObject.preventDefault();
-                        console.log("ajax: comment submit");
-                        var form = $(eventObject.target).parents("form");
-                        var data = {
-                            ajax : true,
-                            uid : $(eventObject.target).parents(".rcsetile")
-                                    .attr("id")
-                        }
-                        data[$(eventObject.target).attr("name")] = 1;
-                        form
-                                .ajaxSubmit({
-                                    context : form,
-                                    data : data,
-                                    url : portal_url + "/@@plone.comments.ajax",
-                                    success : function(response, status, xhr,
-                                            jqform) {
-                                        var parent = jqform
-                                                .parents(".document-actions-wrapper");
-                                        parent
-                                                .replaceWith(response['document-actions-wrapper']);
-                                        parent.find("textarea").val("");
-                                    }
-                                });
-                    })
-
+    $(document).on("click", '.commenting input[type="submit"]', function(eventObject) {
+        eventObject.stopImmediatePropagation();
+        eventObject.preventDefault();
+        var form = $(eventObject.target).parents("form"),
+            uid = $(eventObject.target).parents(".discussion").attr("id"),
+            data = {
+                ajax : true,
+                uid : uid
+            };
+        console.log("ajax: comment submit" + uid);
+        data[$(eventObject.target).attr("name")] = 1;
+        form.ajaxSubmit({
+            context : form,
+            data : data,
+            url : portal_url + "/@@plone.comments.ajax",
+            success : function(response, status, xhr,
+                    jqform) {
+                var parent = jqform
+                        .parents(".document-actions-wrapper");
+                parent
+                        .replaceWith(response['document-actions-wrapper']);
+                parent.find("textarea").val("");
+            }
+        });
+    });
 }
 
 var rcseInitNotifications = function() {

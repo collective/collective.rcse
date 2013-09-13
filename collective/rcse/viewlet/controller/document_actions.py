@@ -28,6 +28,7 @@ CONTENT_VIEWS = (
     'etherpad_view',
     'event_view',
     'link_redirect_view',
+    'newsitem_view',
     'image_view',
     'video_view',
 )
@@ -84,8 +85,10 @@ class DocumentIconActionsViewlet(DocumentActionsViewlet):
         return self.comments_view.how_many()
 
     def should_display(self):
-        viewid = self.context_state.view_template_id
-        return viewid in CONTENT_VIEWS
+        viewid = self.context_state.view_template_id()
+        should_display = viewid in CONTENT_VIEWS
+        import logging; logging.getLogger("log").info("%s in CONTENT_VIEWS: %s" % (viewid, should_display))
+        return should_display
 
 
 class DocumentActionsView(DocumentIconActionsViewlet):

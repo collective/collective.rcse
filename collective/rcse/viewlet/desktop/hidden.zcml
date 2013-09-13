@@ -3,7 +3,6 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
 
-<!-- hide some viewlets -->
 
     <!-- The skip links for accessibility -->
     <browser:viewlet

@@ -12,6 +12,16 @@
       layer="collective.rcse.layer.DesktopLayer"
       />
 
+  <!-- Comments viewlet -->
+  <browser:viewlet
+      for="Products.CMFCore.interfaces.IContentish"
+      view="plone.app.layout.globals.interfaces.IViewView"
+      name="plone.comments"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+      class="plonetheme.jquerymobile.browser.viewlets.hidden.HiddenViewlet"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
 
     <browser:viewlet
         name="plone.header"

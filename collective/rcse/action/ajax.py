@@ -4,7 +4,6 @@ from Products.Five.browser import BrowserView
 from Products.statusmessages import STATUSMESSAGEKEY
 from Products.statusmessages.interfaces import IStatusMessage
 from Products.statusmessages.adapter import _decodeCookieValue
-from plone.uuid.interfaces import IUUID
 from collective.favoriting.browser import favoriting_view
 from zope.annotation.interfaces import IAnnotations
 from collective.rcse.action import cioppino_twothumbs
