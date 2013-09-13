@@ -8,6 +8,7 @@
 
 <body>
   <div metal:fill-slot="content-core">
+  <div tal:replace="structure context/@@breadcrumb_view"></div>
 
   <div tal:replace="structure view/get_body_as_html"></div>
 
