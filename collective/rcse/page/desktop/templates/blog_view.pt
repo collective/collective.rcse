@@ -11,8 +11,20 @@
     tal:define="disable_column_two python:request.set('disable_plone.rightcolumn',1);"/>
 
 <div metal:fill-slot="content-core">
-<div tal:replace="structure context/@@breadcrumb_view"></div>
+    <div tal:replace="structure context/@@breadcrumb_view"></div>
+    <div tal:define="articles python:view.get_content(batch=True, full=False)">
 
+        <div class="media" tal:repeat="article articles">
+          <div class="pull-left" href="#">
+            DATE
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading" tal:content="article/Title">Media heading</h4>
+            <p tal:content="article/Description">Description</p>
+          </div>
+        </div>
+
+    </div>
 </div>
 
 <div id="portal-column-one" class="col-md-3 col-mg-3"

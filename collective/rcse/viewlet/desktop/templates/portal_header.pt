@@ -91,7 +91,7 @@
         <div class="editbar" tal:content="structure context/@@collective.rcse.addbutton"></div>
     </div>
     <div class="col-md-8 filters" id="portal-filters"
-         tal:define="base_url view/context_state/canonical_object_url">
+         tal:define="base_url view/group_url">
         <div class="filter-wrapper filter-video pull-right">
             <a tal:attributes="href string:${base_url}/videos_view">
                 <span class="icon-film icon-3x"></span>

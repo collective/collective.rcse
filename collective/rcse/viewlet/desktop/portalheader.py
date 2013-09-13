@@ -20,6 +20,7 @@ from zope import schema
 from zope import interface
 from urlparse import parse_qs
 from urllib import urlencode
+from collective.rcse.content.group import get_group
 
 
 class PortalHeaderViewlet(RCSESections, HotViewlet):
@@ -53,3 +54,11 @@ class PortalHeaderViewlet(RCSESections, HotViewlet):
     def filter_portal_type(self):
         if self.filter_query:
             return self.filter_query.get('portal_type', None)
+
+    def group_url(self):
+        group = get_group(self.context)
+        if group is None:
+            group_url = self.portal_state.navigation_root_url()
+        else:
+            group_url = group.absolute_url()
+        return group_url

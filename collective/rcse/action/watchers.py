@@ -100,6 +100,7 @@ def get_group_watchers(context):
     watchers = []
     context = aq_inner(context)
     group = context
+
     if hasattr(context, 'creators'):
         watchers.extend(context.creators)
     elif hasattr(context, 'Creators'):
@@ -107,7 +108,8 @@ def get_group_watchers(context):
 
     if context.portal_type != "collective.rcse.group":
         group = get_group(context)
-        watchers.extend(group.creators)
+        if group and hasattr(group, 'creators'):
+            watchers.extend(group.creators)
     if context.portal_type == "Discussion Item":
         return
 
