@@ -15,15 +15,12 @@
     <div
         tal:define="b_start python:0;
                    b_start request/b_start | b_start;
-                   batch python: view.get_content(b_start=b_start, full=True);">
+                   batch python: view.get_content(b_start=b_start);">
         <tal:tile tal:repeat="item batch">
             <div class="media" tal:repeat="discussion view/get_content">
-                <a class="pull-left" href="#">
-                    <div class="media-object">Date</div>
-                </a>
+                <div class="pull-left">Date</div>
                 <div class="media-body">
-                    <h4 class="media-heading" tal:content="discussion/Title">Discussion title
-                    </h4>
+                    <h4 class="media-heading"><a tal:attributes="href discussion/getURL" tal:content="discussion/Title">Discussion title</a><span class="badge pull-right" tal:content="discussion/total_comments">3</span></h4>
                     <div tal:content="discussion/description"></div>
                 </div>
             </div>
