@@ -3,6 +3,7 @@ from Products.CMFCore.utils import getToolByName
 
 from collective.rcse.i18n import RCSEMessageFactory
 from collective.rcse.page.controller.group_base import BaseView
+from Products.Five.browser import BrowserView
 
 
 _ = RCSEMessageFactory
@@ -67,3 +68,12 @@ class NavigationRootTimelineView(TimelineView):
         #hack the  query
         self.query["path"] = self.context_path
         self.query["group_watchers"] = self.member.getId()
+
+
+class ContentAsTimeLineView(BrowserView):
+    """We don't want to provide dedicated view for each content type so
+    here is a base view to use the timeline template to display it"""
+
+    def get_content(self, batch=True, b_size=10, b_start=0, pagerange=7,
+                    full=False):
+        return [{"getURL": self.context.absolute_url}]

@@ -3,6 +3,17 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
 
+    <!-- WE DONT WANT TO PROVIDE A CUSTOM VIEW FOR EACH TYPES SO LETS USE TIMELINE -->
+    <browser:page
+      for="*"
+      name="timeline_view"
+      class="collective.rcse.page.controller.timeline_view.ContentAsTimeLineView"
+      template="templates/timeline_view.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
+
+
     <!-- NAVIGATION ROOT -->
     <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
