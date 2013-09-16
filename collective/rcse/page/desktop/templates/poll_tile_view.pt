@@ -1,15 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      lang="en"
-      metal:use-macro="context/main_template/macros/master"
-      i18n:domain="collective.polls">
-<body>
-
-<metal:main fill-slot="content-core">
-    <metal:content-core define-macro="content-core"
-         tal:define="results view/getResults;
+<h2 tal:content="context/Title"></h2>
+<p class="newsDescription" tal:content="context/Description"></p>
+<tal:poll tal:define="results view/getResults;
                      has_voted view/has_voted;
                      can_vote view/can_vote;
                      can_edit view/can_edit;">
@@ -61,9 +52,4 @@
         <span i18n:translate="">Total Votes:</span><span tal:content="context/total_votes">23</span>
     </div>
     </tal:total_votes>
-    </metal:content-core>
-</metal:main>
-
-</body>
-</html>
-
+</tal:poll>

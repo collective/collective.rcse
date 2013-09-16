@@ -90,6 +90,15 @@
       />
 
   <browser:page
+      for=" collective.polls.content.poll.IPoll"
+      name="tile_view"
+      class="collective.rcse.page.controller.poll_view.PollView"
+      template="templates/poll_tile_view.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.DesktopLayer"
+      />
+
+  <browser:page
       for="plone.app.contenttypes.interfaces.IImage"
       name="tile_view"
       template="templates/image_tile_view.pt"
