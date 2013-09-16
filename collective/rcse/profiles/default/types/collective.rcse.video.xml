@@ -31,10 +31,10 @@
  </property>
 
  <!-- View information -->
- <property name="default_view">video_view</property>
+ <property name="default_view">timeline_view</property>
  <property name="default_view_fallback">False</property>
  <property name="view_methods">
-  <element value="video_view"/>
+  <element value="timeline_view"/>
  </property>
 
  <!-- Method aliases -->

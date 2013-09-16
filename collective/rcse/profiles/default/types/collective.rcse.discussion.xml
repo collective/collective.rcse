@@ -38,10 +38,10 @@
  </property>
 
  <!-- View information -->
- <property name="default_view">discussion_view</property>
+ <property name="default_view">timeline_view</property>
  <property name="default_view_fallback">False</property>
  <property name="view_methods">
-  <element value="discussion_view"/>
+  <element value="timeline_view"/>
  </property>
 
  <!-- Method aliases -->

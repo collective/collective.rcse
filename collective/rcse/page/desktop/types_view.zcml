@@ -96,46 +96,11 @@
       permission="zope2.View"
       />
 
-    <browser:page
-      for="collective.rcse.content.audio.AudioSchema"
-      name="audio_view"
-      class="collective.rcse.page.controller.audio_view.AudioView"
-      template="templates/audio_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
-      />
-
-  <browser:page
-      for="collective.rcse.content.discussion.DiscussionSchema"
-      name="discussion_view"
-      class="collective.rcse.page.controller.discussion_view.DiscussionView"
-      template="templates/discussion_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
-      />
-
-  <browser:page
-      for="plone.app.contenttypes.interfaces.IDocument"
-      name="document_view"
-      template="templates/document_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
-      />
-
   <browser:page
       for="collective.rcse.content.etherpad.EtherpadSchema"
       name="etherpad_view"
       class="collective.etherpad.etherpad_view.EtherpadView"
       template="templates/etherpad_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
-      />
-
-  <browser:page
-      for="collective.rcse.content.event.EventSchema"
-      name="event_view"
-      class="collective.rcse.page.controller.event_view.EventView"
-      template="templates/event_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.DesktopLayer"
       />
@@ -227,41 +192,6 @@
       template="templates/links_view.pt"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
-      />
-  <browser:page
-      name="link_redirect_view"
-      for="plone.app.contenttypes.interfaces.ILink"
-      class="plone.app.contenttypes.browser.link_redirect_view.LinkRedirectView"
-      template="templates/link_redirect_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
-    />
-  <browser:page
-      for="plone.app.contenttypes.interfaces.INewsItem"
-      name="image_view"
-      template="templates/news_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
-      />
-
-
-  <browser:page
-      for="plone.app.contenttypes.interfaces.IImage"
-      name="image_view"
-      template="templates/image_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
-      />
-
-
-
-  <browser:page
-      for="collective.rcse.content.video.VideoSchema"
-      name="video_view"
-      class="collective.rcse.page.controller.video_view.VideoView"
-      template="templates/video_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
       />
 
 

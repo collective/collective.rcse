@@ -17,3 +17,22 @@ def make_group_owner_siteadmin(context):
         creators = group.creators
         for creator in creators:
             group.manage_setLocalRoles(creator, roles)
+
+
+def addTimeLineViewToContentTypes(context):
+    common(context)
+    ptypes = getToolByName(context, "portal_types")
+    RCSE_CONTENT_TYPES = (
+        'Document',
+        'File',
+        'Image',
+        'News Item',
+    )
+    for t in RCSE_CONTENT_TYPES:
+        fti = ptypes.getTypeInfo(t)
+        if fti.default_view != "timeline_view":
+            fti._updateProperty('default_view', "timeline_view")
+        views = list(fti.view_methods)
+        if "timeline_view" not in views:
+            views.append("timeline_view")
+            fti._updateProperty('view_methods', views)
