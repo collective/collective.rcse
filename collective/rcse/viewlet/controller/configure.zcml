@@ -6,7 +6,7 @@
     <browser:viewlet
         name="collective.rcse.validate_authenticated_member"
         class="collective.rcse.viewlet.controller.validate_authenticated_member.ValidateAuthenticatedMember"
-        manager="plonetheme.jquerymobile.browser.viewlets.manager.IHeaderLeft"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
         layer="collective.rcse.layer.CommonLayer"
         permission="zope2.View"
         />
