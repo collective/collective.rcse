@@ -68,10 +68,10 @@
 
                                     <tal:groups tal:repeat="group groups">
                                         <tal:group
-                                            tal:define="fieldset_name repeat/group/index; form_name group/label; group_description group/description|nothing">
+                                            tal:define="fieldset_name repeat/group/index; form_id group/id; form_name group/label; group_description group/description|nothing">
                                             <li>
                                                 <a
-                                                    tal:attributes="href string:edit#${form_name}"
+                                                    tal:attributes="href string:edit#${form_id}"
                                                     data-toggle="tab" tal:content="form_name">Form name</a>
                                             </li>
                                         </tal:group>
@@ -97,9 +97,9 @@
 
                                     <tal:groups tal:repeat="group groups">
                                         <tal:group
-                                            tal:define="fieldset_name repeat/group/index; form_name group/label; group_description group/description|nothing">
+                                            tal:define="fieldset_name repeat/group/index; form_id group/id; form_name group/label; group_description group/description|nothing">
                                             <div class="tab-pane"
-                                                tal:attributes="id string:${form_name}">
+                                                tal:attributes="id string:${form_id}">
                                                 <tal:block
                                                     tal:define="errors group/widgets/errors"
                                                     tal:condition="errors"
