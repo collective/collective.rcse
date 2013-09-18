@@ -42,7 +42,8 @@
                       has_groups python:bool(groups);
                       form_tabbing python:(has_groups and enable_form_tabbing) and 'enableFormTabbing' or '';
                       show_default_label python:has_groups and default_fieldset_label and len(view.widgets);
-                      enableUnloadProtection python:'enableUnloadProtection' if getattr(view, 'enableUnloadProtection', True) else '';"
+                      enableUnloadProtection python:'enableUnloadProtection' if getattr(view, 'enableUnloadProtection', True) else '';
+		      "
                     tal:attributes="action view/action|request/getURL;
                       enctype view/enctype;
                       class python:'rowlike %s %s %s kssattr-formname-%s' % (enableUnloadProtection, form_tabbing, form_class, view.__name__ or request.getURL().split('/')[-1]);
@@ -61,14 +62,14 @@
 
                                 <ul class="nav nav-tabs" tal:attributes="id string:nav-tabs-${view/id};" tal:condition="show_default_label">
                                         <li class="active">
-                                            <a href="edit#default"
+                                            <a tal:attributes="href string:edit#${form_name}_default"
                                                data-toggle="tab"
                                                tal:content="default_fieldset_label"></a>
                                         </li>
 
                                     <tal:groups tal:repeat="group groups">
                                         <tal:group
-                                            tal:define="fieldset_name repeat/group/index; form_id group/id; form_name group/label; group_description group/description|nothing">
+                                            tal:define="fieldset_name repeat/group/index; form_id group/__name__ ; form_name group/label; group_description group/description|nothing">
                                             <li>
                                                 <a
                                                     tal:attributes="href string:edit#${form_id}"
@@ -78,7 +79,8 @@
                                     </tal:groups>
                                 </ul>
                                 <div class="tab-content">
-                                        <div class="tab-pane active" id="default">
+                                        <div class="tab-pane active"
+					     tal:attributes="id string:${form_name}_default">
                                             <metal:define
                                                 define-macro="widget_rendering">
                                                 <tal:widgets
@@ -97,7 +99,7 @@
 
                                     <tal:groups tal:repeat="group groups">
                                         <tal:group
-                                            tal:define="fieldset_name repeat/group/index; form_id group/id; form_name group/label; group_description group/description|nothing">
+                                            tal:define="fieldset_name repeat/group/index; form_id group/__name__; form_name group/label; group_description group/description|nothing">
                                             <div class="tab-pane"
                                                 tal:attributes="id string:${form_id}">
                                                 <tal:block

@@ -35,6 +35,11 @@ class PortalHeaderViewlet(RCSESections, HotViewlet):
         )
         self.query_str = self.request.get('QUERY_STRING', None)
         self.filter_query = parse_qs(self.query_str)
+        self.updateUserName();
+
+    def updateUserName(self):
+        self.auth_user = self.context.restrictedTraverse('auth_memberinfo')
+        self.user_name = self.auth_user.fullname
 
     def updateUserActions(self):
         pass

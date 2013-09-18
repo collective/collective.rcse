@@ -34,6 +34,7 @@ class AddFormAdapter(object):
 
 class AddForm(AutoExtensibleForm, form.Form):
     schema = AddFormSchema
+    form_name = 'add_content'
 
 
 class AddButton(layout.FormWrapper):
