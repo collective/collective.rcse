@@ -94,7 +94,7 @@ class AuthenticatedMemberInfoView(BrowserView):
         if membrane:
             avatar = membrane.avatar
             if avatar:
-                return avatar.absolute_url()
+                return "%s/@@images/avatar" % membrane.absolute_url()
 
         #TODO: replace by gravatar
         path = '/++resource++collective.rcse/defaultUser.png'
