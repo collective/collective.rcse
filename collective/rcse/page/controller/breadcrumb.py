@@ -32,30 +32,29 @@ class BreadCrumb(BrowserView):
         self.navroot = self.portal_state.navigation_root()
         self.navroot_path = self.navroot.getPhysicalPath()
         parents_ids = self.path[len(self.navroot_path):]
-        if self.context.portal_type == "collective.rcse.group":
-            parents_ids = parents_ids[:-1]
-        current_path = "/".join(self.navroot_path)
-        self.parents_path = [current_path]
-        for parent_id in parents_ids:
-            current_path = "%s/%s" % (current_path, parent_id)
-            self.parents_path.append(current_path)
 
-        current = self.context.aq_inner
-        current_path = "/".join(current.getPhysicalPath())
-        self.parents = {current_path: current}
-        while current_path != "/".join(self.navroot_path):
-            current = aq_parent(current)
-            current_path = "/".join(current.getPhysicalPath())
-            self.parents[current_path] = current
+        #the breadcrumb let you select two levels of groups
 
         self.parents_info = []
-        for path in self.parents_path:
-            query = {"path": {"query": path, "depth": 1}, 
-                     "portal_type": "collective.rcse.group"}
-            query.update(self.filter)
-            brains = self.catalog(**query)
-            parents = self.get_brain_info(brains)
-            self.parents_info.append(parents)
+        query1 = {"path": {"query": '/'.join(self.navroot_path), "depth": 1},
+                  "portal_type": "collective.rcse.group"}
+        brains = self.catalog(**query1)
+        parents = self.get_brain_info(brains)
+        self.parents_info.append(parents)
+        self.parent_url = None
+
+        #level2.
+        #FIXME: il faut voir au niveau du parents_ids.
+        if len(parents_ids) > 0:  #context is in a group
+            self.parent_url = self.context.aq_inner.aq_parent.absolute_url()
+            #We add Back to current group in the list
+            path = '/'.join(self.navroot_path + parents_ids[:1])
+            query2 = {"path": {"query": path, "depth": 1}, 
+                      "portal_type": "collective.rcse.group"}
+            brains = self.catalog(**query2)
+            if brains:
+                parents = self.get_brain_info(brains)
+                self.parents_info.append(parents)
 
     def get_brain_info(self, brains):
         def get(brain):
@@ -69,3 +68,9 @@ class BreadCrumb(BrowserView):
                     "portal_type": brain.portal_type,
                     "current": current}
         return map(get, brains)
+
+    def has_current(self, parents):
+        for parent in parents:
+            if parent["current"]:
+                return True
+        return False
