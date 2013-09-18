@@ -39,5 +39,5 @@ class PersonalInformation(BrowserView):
                 )
         else:
             self.request.response.redirect(
-                '%s/edit' % self.member_data.absolute_url()
+                self.member_data.absolute_url()
                 )
