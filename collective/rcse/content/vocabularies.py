@@ -1,4 +1,5 @@
 from plone.i18n.normalizer.base import baseNormalize
+from plone.uuid.interfaces import IUUID
 from Products.CMFCore.utils import getToolByName
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
@@ -59,7 +60,9 @@ def groups(context):
     catalog = getToolByName(context, 'portal_catalog')
     query = {"portal_type": "collective.rcse.group",
              "sort_on": "sortable_title"}
-    terms = []
+    site = getToolByName(context, 'portal_url').getPortalObject()
+    home = site['home']
+    terms = [SimpleTerm(value=IUUID(home), title=_(u"Home"))]
     brains = catalog(**query)
     for brain in brains:
         terms.append(SimpleVocabulary.createTerm(

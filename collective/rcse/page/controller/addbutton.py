@@ -43,4 +43,3 @@ class AddButton(layout.FormWrapper):
 
     def update(self):
         super(AddButton, self).update()
-        
