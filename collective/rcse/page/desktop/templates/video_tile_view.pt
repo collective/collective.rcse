@@ -4,6 +4,9 @@
 <tal:video tal:define="width view/request/width|python:630;
                        height python:int(int(width)/1.75);">
 
+<p i18n:translate="" tal:condition="python: not view.isTranscoded()">Video is being transcoded. Please wait a moment.</p>
+
+<tal:block tal:condition="view/isTranscoded">
 <video controls
     tal:define="mp4 string:${view/profiles/mp4-low/address|nothing}/${view/profiles/mp4-low/path|nothing};
                 webm string:${view/profiles/webm-low/address|nothing}/${view/profiles/webm-low/path|nothing};
@@ -60,5 +63,5 @@
        </li>
     </ul>
 </div>
-
+</tal:block>
 </tal:video>

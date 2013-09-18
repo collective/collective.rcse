@@ -2,6 +2,7 @@ from plone.directives import form
 from plone.namedfile.field import NamedBlobFile
 
 from collective.transcode.star.browser.viewlets import TranscodeViewlet
+from collective.transcode.star.interfaces import ITranscoded
 from collective.rcse.i18n import RCSEMessageFactory
 
 
@@ -18,3 +19,6 @@ class VideoView(TranscodeViewlet):
     def __call__(self):
         self.update()
         return self.index()
+
+    def isTranscoded(self):
+        return ITranscoded.providedBy(self.context)
