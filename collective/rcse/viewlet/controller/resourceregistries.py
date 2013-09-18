@@ -28,25 +28,29 @@ class ResourcesViewlet(ViewletBase):
         for info in items:
             item = copy(info)
             itemid = item["id"]
-            if '.min.' in itemid and develmode:
-                try:
-                    id = itemid.replace(".min.", ".")
-                    content = portal.restrictedTraverse(id)
-                    itemid = id
-                except KeyError:
-                    content = portal.restrictedTraverse(itemid)
+            if itemid.startswith('http'):
+                info['src'] = itemid
+                results.append(info)
             else:
-                content = portal.restrictedTraverse(itemid)
-            if content and IBrowserPublisher.providedBy(content):
-                path = content.context.path
-                time = str(os.path.getmtime(path))
-                info["src"] = "%s/%s?time%s" % (self.site_url,
-                                                itemid,
-                                                time)
-                results.append(info)
-            elif content:
-                info["src"] = "%s/%s" % (self.site_url,info["id"])
-                results.append(info)
+                if '.min.' in itemid and develmode:
+                    try:
+                        id = itemid.replace(".min.", ".")
+                        content = portal.restrictedTraverse(id)
+                        itemid = id
+                    except KeyError:
+                        content = portal.restrictedTraverse(itemid)
+                else:
+                    content = portal.restrictedTraverse(itemid)
+                if content and IBrowserPublisher.providedBy(content):
+                    path = content.context.path
+                    time = str(os.path.getmtime(path))
+                    info["src"] = "%s/%s?time%s" % (self.site_url,
+                                                    itemid,
+                                                    time)
+                    results.append(info)
+                elif content:
+                    info["src"] = "%s/%s" % (self.site_url,info["id"])
+                    results.append(info)
         return results
 
     def getDevelMode(self):
