@@ -3,6 +3,15 @@
     i18n_domain="collective.rcse">
 
     <upgradeStep
+        source="1057"
+        destination="1058"
+        title="Upgrade"
+        description=""
+        profile="collective.rcse:default"
+        handler=".upgrades.common"
+        />
+
+    <upgradeStep
         source="1056"
         destination="1057"
         title="Add timeline_view as default for all content types"
