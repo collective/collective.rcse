@@ -39,7 +39,11 @@ class PortalHeaderViewlet(RCSESections, HotViewlet):
 
     def updateUserName(self):
         self.auth_user = self.context.restrictedTraverse('auth_memberinfo')
-        self.user_name = self.auth_user.fullname
+        try:
+            self.auth_user.update()
+            self.user_name = self.auth_user.fullname
+        except ValueError:
+            self.user_name = ''
 
     def updateUserActions(self):
         pass
