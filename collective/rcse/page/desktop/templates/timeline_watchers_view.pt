@@ -21,7 +21,7 @@
         <div class="panel-body">
             <div class="media">
                 <a class="pull-left" href="#" tal:attributes="href memberinfo/url">
-                    <img class="media-object" tal:attributes="src memberinfo/photo"/>
+                    <img class="media-object avatar" tal:attributes="src memberinfo/photo"/>
                 </a>
                 <div class="media-body">
                     <h4 class="media-heading"><a tal:attributes="href memberinfo/url" tal:content="memberinfo/fullname">Fullname</a></h4>

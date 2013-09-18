@@ -3,7 +3,7 @@
     <div class="panel-heading">
         <div class="media vcard byline" tal:define="creator_info context/creator_memberinfo">
             <a rel="author" class="pull-left" tal:attributes="href creator_info/url">
-                <img class="media-object img-thumbnail" tal:attributes="src creator_info/photo" />
+                <img class="media-object img-thumbnail avatar" tal:attributes="src creator_info/photo" />
             </a>
             <div class="media-body">
                 <h4 class="media-heading">
