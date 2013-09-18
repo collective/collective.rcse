@@ -15,6 +15,9 @@ CONTENT_TYPE = "Image"
 
 class AddFormSchema(model.Schema):
     """Add form"""
+    title = schema.TextLine(
+        title=_(u"Title")
+        )
     image = NamedBlobImage(
         title=_(u"Image"),
         description=_(u"Please put an image file here"))
