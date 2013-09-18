@@ -13,6 +13,15 @@ from collective.rcse.i18n import _
 from collective.rcse.content.visibility import NAMESPACE
 
 
+class IMemberInfoView(interface.Interface):
+    """ """
+    def get_membrain():
+        """ """
+
+    def get_membrane():
+        """ """
+
+
 class AuthenticatedMemberInfoView(BrowserView):
     """Person view helper to display member info"""
     interface.implements(member.IMember)

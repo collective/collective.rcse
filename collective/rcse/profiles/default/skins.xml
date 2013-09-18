@@ -5,6 +5,8 @@
     directory="collective.rcse:skins/collective_rcse_mobile"/>
  <object name="collective_rcse_desktop" meta_type="Filesystem Directory View"
     directory="collective.rcse:skins/collective_rcse_desktop"/>
+ <object name="collective_rcse_common" meta_type="Filesystem Directory View"
+    directory="collective.rcse:skins/collective_rcse_common"/>
 
  <skin-path name="collective.rcse.mobile" based-on="plonetheme.jquerymobile">
   <layer name="collective_rcse_mobile" insert-after="custom"/>
@@ -12,6 +14,10 @@
 
  <skin-path name="collective.rcse.desktop" based-on="Plone Classic Theme">
   <layer name="collective_rcse_desktop" insert-after="custom"/>
+ </skin-path>
+
+ <skin-path name="*">
+  <layer name="collective_rcse_common" insert-after="custom"/>
  </skin-path>
 
 </object>

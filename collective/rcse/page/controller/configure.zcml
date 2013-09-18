@@ -23,6 +23,7 @@
       class=".person_view.GetMemberInfoView"
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
+      allowed_interface="collective.rcse.page.controller.person_view.IMemberInfoView"
       />
 
 

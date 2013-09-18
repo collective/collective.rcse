@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+    <metal:block fill-slot="top_slot"
+                 tal:define="dummy python:request.set('disable_border',1);
+                             disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                             disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+</head>
+
+<body>
+<metal:main fill-slot="content"
+    tal:define="errors options/state/getErrors;">
+    <tal:main-macro metal:define-macro="main"
+                    tal:define="site_properties here/portal_properties/site_properties;
+                                url_unquote_plus python:modules['Products.PythonScripts.standard'].url_unquote_plus;
+                                author python:(len(request.traverse_subpath) > 0 and url_unquote_plus(request.traverse_subpath[0])) or request.get('author', None);
+				memberinfo python:context.restrictedTraverse('get_memberinfo');
+				dummy python:memberinfo(author);
+				">
+
+      <div tal:define="memberurl python:memberinfo.get_membrain().getURL();
+		       dummy python:request.response.redirect(memberurl)"
+	 tal:content="memberurl"></div>
+
+    </tal:main-macro>
+
+</metal:main>
+
+</body>
+</html>
