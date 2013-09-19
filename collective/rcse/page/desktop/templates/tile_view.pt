@@ -8,7 +8,10 @@
             <div class="media-body">
                 <h4 class="media-heading">
                     <a rel="author" data-rel="dialog" class="fn url"
-                        tal:attributes="href creator_info/url" tal:content="creator_info/fullname">John
+                       tal:attributes="href creator_info/url"
+		       tal:content="creator_info/fullname"
+		       tal:omit-tag="not:creator_info/member">
+		      John
                     </a>
                 </h4>
                 <span tal:attributes="class string:icon ${view/icon} icon-3x"></span>

@@ -117,6 +117,11 @@ class CreatorMemberInfoView(AuthenticatedMemberInfoView):
             self.memberid = self.context.Creator()
         if self.member is None and self.memberid is not None:
             self.member = self.membership.getMemberById(self.memberid)
+        if self.fullname is None:
+            if self.member:
+                self.fullname = self.member.getProperty('fullname')
+            else:
+                self.fullname = self.memberid
 
 
 class BrainCreatorMemberInfoView(AuthenticatedMemberInfoView):
@@ -126,6 +131,11 @@ class BrainCreatorMemberInfoView(AuthenticatedMemberInfoView):
             self.memberid = self.context.Creator
         if self.member is None and self.memberid is not None:
             self.member = self.membership.getMemberById(self.memberid)
+        if self.fullname is None:
+            if self.member:
+                self.fullname = self.member.getProperty('fullname')
+            else:
+                self.fullname = self.memberid
 
 
 class RequestMemberInfoView(AuthenticatedMemberInfoView):
