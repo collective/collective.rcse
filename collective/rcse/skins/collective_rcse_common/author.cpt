@@ -24,10 +24,14 @@
 				dummy python:memberinfo(author);
 				">
 
-      <div tal:define="memberurl python:memberinfo.get_membrain().getURL();
-		       dummy python:request.response.redirect(memberurl)"
-	 tal:content="memberurl"></div>
-
+      <tal:block tal:condition="memberinfo/get_membrain">
+	<div tal:define="memberurl python:memberinfo.get_membrain().getURL();
+			 dummy python:request.response.redirect(memberurl)"
+	     tal:content="memberurl"></div>
+      </tal:block>
+      <tal:block tal:condition="not:memberinfo/get_membrain">
+	<p>Error: unknown id.</p>
+      </tal:block>
     </tal:main-macro>
 
 </metal:main>
