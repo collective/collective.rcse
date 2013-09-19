@@ -42,23 +42,20 @@ var rcseInitAjaxAction = function() {
                     function(eventObject) {
                         eventObject.stopImmediatePropagation();
                         eventObject.preventDefault();
-                        $
-                                .ajax({
-                                    url : $(this).attr('href'),
-                                    context : eventObject,
-                                    data : {
-                                        'ajax_load' : true
-                                    }
-                                })
-                                .success(
-                                        function(data) {
-                                            var parent = $(eventObject.target)
-                                                    .parents(
-                                                            ".document-actions-wrapper");
-                                            var element = rcseApplyTransform(data['document-actions-wrapper']);
-                                            parent.replaceWith(element);
-                                            $(document).trigger("create");
-                                        });
+                        $.ajax({
+                            url : $(this).attr('href'),
+                            context : eventObject,
+                            data : {
+                                'ajax_load' : true
+                            }
+                        })
+                        .success(function(data) {
+                                    var parent = $(eventObject.target).parents(".document-actions-wrapper");
+                                    var super_parent = parent.parent();
+                                    parent.replaceWith(data['document-actions-wrapper']);
+                                    rcseApplyTransform(super_parent.find(".document-actions-wrapper").get());
+                                    $(document).trigger("create");
+                                });
                     });
     $(document).on("submit", ".commenting form", function(e) {
         e.preventDefault();
