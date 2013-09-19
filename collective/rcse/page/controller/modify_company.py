@@ -71,6 +71,9 @@ class ModifyCompanyForm(AutoExtensibleForm, form.Form):
             self.context.company = companies.getTerm(data['company']).title
         self.request.response.redirect(self.context.absolute_url())
 
+    @button.buttonAndHandler(_(u"Cancel"), name="cancel")
+    def handleCancel(self, action):
+        self.request.response.redirect(self.context.absolute_url())
 
 class ModifyCompanyFormWrapper(FormWrapper):
     form = ModifyCompanyForm
