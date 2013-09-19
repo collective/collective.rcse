@@ -85,7 +85,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-4 col-md-2" id="portal-logo">
-      <div class="inner-logo">
+      <div class="portal-logo-inner">
         <h1><a tal:attributes="href view/portal_state/navigation_root_url">&icirc;lia</a></h1>
       </div>
     </div>
