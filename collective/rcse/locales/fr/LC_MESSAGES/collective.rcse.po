@@ -114,7 +114,7 @@ msgstr "Audio"
 #: ./content/audio.py:12
 #: ./content/discussion.py:15
 msgid "Audio file"
-msgstr "Fichier aidop"
+msgstr "Fichier audio"
 
 #: ./content/member.py:113
 msgid "Avatar"
