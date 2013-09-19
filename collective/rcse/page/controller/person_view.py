@@ -173,8 +173,8 @@ class MemberInfoView(AuthenticatedMemberInfoView):
 #             self.member.getProperty('professional_mobile_phone')
 
     def getWorkflowTransitions(self):
-        sm = getSecurityManager()
-        if not sm.checkPermission(ReviewPortalContent, self.context):
+        checkPermission = self.membership.checkPermission
+        if not checkPermission(ReviewPortalContent, self.context):
             return None
         wtool = getToolByName(self.context, 'portal_workflow')
         transitions = wtool.getTransitionsFor(self.context)
@@ -189,7 +189,7 @@ class MemberInfoView(AuthenticatedMemberInfoView):
         return brains
 
     def canModify(self):
-        sm = getSecurityManager()
-        if not sm.checkPermission(ModifyPortalContent, self.context):
+        checkPermission = self.membership.checkPermission
+        if not checkPermission(ModifyPortalContent, self.context):
             return False
         return True

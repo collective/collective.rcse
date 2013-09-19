@@ -84,10 +84,12 @@
 </header>
 <div class="container">
   <div class="row">
-    <div class="col-md-2 col-sm-3 col-xs-6" id="portal-logo">
-        <a tal:attributes="href view/portal_state/navigation_root_url"><img alt="logo" tal:attributes="src string:${view/portal_url}/logo.png"/></a>
+    <div class="col-xs-4 col-sm-3 col-md-2" id="portal-logo">
+      <div class="portal-logo-inner">
+        <h1><a tal:attributes="href view/portal_state/navigation_root_url">&icirc;lia</a></h1>
+      </div>
     </div>
-    <div class="col-md-2 col-sm-3 col-xs-6" id="edit-bar">
+    <div class="col-xs-8 col-sm-3 col-md-2" id="edit-bar">
         <div class="editbar" tal:content="structure context/@@collective.rcse.addbutton"></div>
     </div>
     <div class="col-md-8 col-sm-6 col-xs-12 filters" id="portal-filters"
