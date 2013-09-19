@@ -44,11 +44,15 @@ def getDefaultSettings():
     return settings
 
 
-FEATURES = ("breadcrumb",)
+FEATURES = (
+    "breadcrumb",
+)
 
 class Features(object):
     def __init__(self):
         self.environ = os.environ
+        #Validated features are simple attribute not listed in FEATURES
+        #self.my_validated_feature = True
 
     def __getattribute__(self, name):
         if name in FEATURES:

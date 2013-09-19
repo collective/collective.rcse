@@ -1,8 +1,11 @@
-from Products.Five.browser import BrowserView
-from Products.CMFCore.utils import getToolByName
 from zope import component
 from Acquisition import aq_parent
+from Products.CMFCore import permissions
+from Products.CMFCore.utils import getToolByName, _checkPermission
+from Products.Five.browser import BrowserView
 
+from collective.rcse.content.group import get_group
+from collective.rcse import settings
 
 
 class BreadCrumb(BrowserView):
@@ -18,6 +21,8 @@ class BreadCrumb(BrowserView):
         return self.index()
 
     def update(self):
+        self.features = settings.features
+        self.group = get_group(self.context)
         self.catalog = getToolByName(self.context, 'portal_catalog')
         self.path = self.context.getPhysicalPath()
         self.path_str = "/".join(self.context.getPhysicalPath())
@@ -74,3 +79,14 @@ class BreadCrumb(BrowserView):
             if parent["current"]:
                 return True
         return False
+
+    def can_edit(self):
+        if not self.group:
+            return False
+        return _checkPermission(permissions.ModifyPortalContent, self.group)
+
+    def group_edit_url(self):
+        """return the group manage screen"""
+        if not self.group:
+            return None
+        return self.group.absolute_url() + '/@@rcse_group_edit'

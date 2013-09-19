@@ -1,4 +1,4 @@
-<div class="breadcrumb-wrapper">
+<div class="breadcrumb-wrapper" tal:condition="view/features/breadcrumb">
     <ol class="breadcrumb">
         <tal:crumb tal:repeat="parent view/parents_info">
             <li class="select-group">
@@ -20,4 +20,5 @@
           </a>
         </li>
     </ol>
+<span tal:condition="view/can_edit" class="manage-group-link"><a tal:attributes="href string:${view/group_edit_url}"><span class="icon-gear"></span></a></span>
 </div>
