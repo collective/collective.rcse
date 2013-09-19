@@ -112,7 +112,14 @@
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
-
+  <browser:page
+      for="collective.rcse.content.group.GroupSchema"
+      name="rcse_group_edit"
+      class="collective.rcse.page.controller.group_edit.GroupEditView"
+      template="templates/group_edit.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="cmf.ModifyPortalContent"
+      />
   <browser:page
       for="collective.rcse.content.group.GroupSchema"
       name="timeline_view"

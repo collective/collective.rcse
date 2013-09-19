@@ -459,6 +459,7 @@ $(document).on("ready", function() {
     rcseInitBreadCrumb();
     rcseInitAddButton();
     rcseInitSearchForm();
+    $('a[data-toggle="tooltip"]').tooltip();
 });
 $.webshims.setOptions("basePath", portal_url + "/++resource++webshims/");
 $.webshims.setOptions('forms', {
