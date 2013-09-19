@@ -51,7 +51,7 @@
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="files_view"
       class="collective.rcse.page.controller.files_view.NavigationRootFilesView"
-      template="templates/files_view.pt"
+      template="templates/objects_view.pt"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
@@ -65,9 +65,25 @@
       />
     <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      name="audios_view"
+      class="collective.rcse.page.controller.audios_view.NavigationRootAudiosView"
+      template="templates/objects_view.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
+    <browser:page
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="links_view"
       class="collective.rcse.page.controller.links_view.NavigationRootLinksView"
-      template="templates/links_view.pt"
+      template="templates/objects_view.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
+    <browser:page
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      name="etherpads_view"
+      class="collective.rcse.page.controller.etherpads_view.NavigationRootEtherpadsView"
+      template="templates/objects_view.pt"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
@@ -125,7 +141,7 @@
       for="collective.rcse.content.group.GroupSchema"
       name="audios_view"
       class="collective.rcse.page.controller.audios_view.AudiosView"
-      template="templates/audios_view.pt"
+      template="templates/objects_view.pt"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
@@ -165,7 +181,7 @@
       for="collective.rcse.content.group.GroupSchema"
       name="files_view"
       class="collective.rcse.page.controller.files_view.FilesView"
-      template="templates/files_view.pt"
+      template="templates/objects_view.pt"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
@@ -189,7 +205,15 @@
       for="collective.rcse.content.group.GroupSchema"
       name="links_view"
       class="collective.rcse.page.controller.links_view.LinksView"
-      template="templates/links_view.pt"
+      template="templates/objects_view.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
+    <browser:page
+      for="collective.rcse.content.group.GroupSchema"
+      name="etherpads_view"
+      class="collective.rcse.page.controller.etherpads_view.EtherpadsView"
+      template="templates/objects_view.pt"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />

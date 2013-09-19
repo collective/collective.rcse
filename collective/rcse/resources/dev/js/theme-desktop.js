@@ -421,12 +421,13 @@ var rcseInitSearchForm = function(){
 }
 var rcseInitLoadTileContentInModal = function(){
 	$(document).on("click", ".load-content-tile-in-modal", function(){
-		var title = $(this).text(),
-		    href = $(this).attr('data-href'),
-		    modal = $("#content-modal");
-		modal.find(".modal-title").text(title);
-		modal.find(".modal-body .rcse_tile").attr("href", href);
-		rcseInitTimeline();
+	    var title = $(this).text();
+	    var href = $(this).attr('data-href');
+	    var modal = $("#content-modal");
+	    modal.find(".modal-title").text(title);
+	    modal.find(".modal-body").html('<a>Loading...</a>');
+	    modal.find(".modal-body a").attr("class", "rcse_tile").attr("href", href);
+	    rcseInitTimeline();
 	});
 }
 

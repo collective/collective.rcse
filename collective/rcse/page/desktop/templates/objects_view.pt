@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.rcse">
+<body>
+<metal:override fill-slot="top_slot" />
+
+  <div metal:fill-slot="content-core">
+
+    <div tal:replace="structure context/@@breadcrumb_view"></div>
+
+    <div id="objects-view"
+         tal:define="b_start python:0;
+                     b_start request/b_start | b_start;
+                     objects python: view.get_content(b_start=b_start)"
+         tal:condition="python: len(objects) > 0">
+
+      <tal:block tal:repeat="object objects">
+	<div class="object">
+	  <div class="object-header">
+	    <h2 class="object-title">
+	      <a class="load-content-tile-in-modal"
+		 data-toggle="modal"
+		 href="#content-modal"
+		 tal:attributes="data-href object/getURL"
+		 tal:content="object/Title"></a>
+	    </h2>
+	    <div class="object-author"
+		 tal:define="author object/@@creator_memberinfo"
+		 tal:content="author/fullname">
+	      Authors
+	    </div>
+	  </div>
+	  <p class="object-description"
+	     tal:condition="object/Description"
+	     tal:content="object/Description"></p>
+	</div>
+      </tal:block>
+
+      <div metal:use-macro="context/batch_macros/macros/navigation" />
+    </div>
+
+    <div class="modal fade" id="content-modal" tabindex="-1" role="dialog"
+	 aria-labelledby="content modal" aria-hidden="true">
+      <div class="modal-dialog">
+	<div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            <div class="rcse_tile_wrapper">
+              <a class="rcse_tile" i18n:translate="">Loading...</a>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default"
+                    data-dismiss="modal">Close</button>
+          </div>
+	</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="portal-column-one" class="col-md-3 col-mg-3"
+       metal:fill-slot="column_one_slot">
+    <nav role="navigation" class="navbar navbar-inverse">
+      <div class="navbar-brand" i18n:translate="" tal:content="view/label">Add Objects</div>
+    </nav>
+    <div tal:content="structure view/form_instance"></div>
+  </div>
+</body>
+</html>

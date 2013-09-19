@@ -84,31 +84,38 @@
 </header>
 <div class="container">
   <div class="row">
-    <div class="col-md-2" id="portal-logo">
+    <div class="col-md-2 col-sm-3 col-xs-6" id="portal-logo">
         <a tal:attributes="href view/portal_state/navigation_root_url"><img alt="logo" tal:attributes="src string:${view/portal_url}/logo.png"/></a>
     </div>
-    <div class="col-md-2" id="edit-bar">
+    <div class="col-md-2 col-sm-3 col-xs-6" id="edit-bar">
         <div class="editbar" tal:content="structure context/@@collective.rcse.addbutton"></div>
     </div>
-    <div class="col-md-8 filters" id="portal-filters"
+    <div class="col-md-8 col-sm-6 col-xs-12 filters" id="portal-filters"
          tal:define="base_url view/group_url">
         <div class="filter-wrapper filter-video pull-right">
             <a tal:attributes="href string:${base_url}/videos_view">
-                <span class="icon-film icon-3x"></span>
+                <span class="icon-film icon-2x"></span>
                 <br />
                 <span class="text">Videos</span>
             </a>
         </div>
         <div class="filter-wrapper filter-image pull-right">
+            <a tal:attributes="href string:${base_url}/audios_view">
+                <span class="icon-volume-up icon-2x"></span>
+                <br />
+                <span class="text">Audios</span>
+            </a>
+        </div>
+        <div class="filter-wrapper filter-image pull-right">
             <a tal:attributes="href string:${base_url}/images_view">
-                <span class="icon-picture icon-3x"></span>
+                <span class="icon-picture icon-2x"></span>
                 <br />
                 <span class="text">Images</span>
             </a>
         </div>
         <div class="filter-wrapper filter-file pull-right">
             <a tal:attributes="href string:${base_url}/files_view">
-                <span class="icon-folder-open icon-3x"></span>
+                <span class="icon-folder-open icon-2x"></span>
                 <br />
                 <span class="text">File</span>
             </a>
@@ -116,14 +123,21 @@
 
         <div class="filter-wrapper filter-event pull-right">
             <a tal:attributes="href string:${base_url}/events_view">
-                <span class="icon-calendar icon-3x"></span>
+                <span class="icon-calendar icon-2x"></span>
                 <br />
                 <span class="text">Event</span>
             </a>
         </div>
         <div class="filter-wrapper filter-discussion pull-right">
+            <a tal:attributes="href string:${base_url}/etherpads_view">
+                <span class="icon-edit icon-2x"></span>
+                <br />
+                <span class="text">Etherpad</span>
+            </a>
+        </div>
+        <div class="filter-wrapper filter-discussion pull-right">
             <a tal:attributes="href string:${base_url}/discussions_view">
-                <span class="icon-comments icon-3x"></span>
+                <span class="icon-comments icon-2x"></span>
                 <br />
                 <span class="text">Discussion</span>
             </a>
@@ -131,16 +145,23 @@
 
         <div class="filter-wrapper filter-link pull-right">
             <a tal:attributes="href string:${base_url}/links_view">
-                <span class="icon-bookmark-empty icon-3x"></span>
+                <span class="icon-bookmark-empty icon-2x"></span>
                 <br />
                 <span class="text">Signet</span>
             </a>
         </div>
         <div class="filter-wrapper filter-blog pull-right pull-right">
             <a tal:attributes="href string:${base_url}/blog_view">
-                <span class="icon-edit icon-3x"></span>
+                <span class="icon-file-text icon-2x"></span>
                 <br />
                 <span class="text">Blog</span>
+            </a>
+        </div>
+        <div class="filter-wrapper filter-blog pull-right pull-right">
+            <a tal:attributes="href base_url">
+                <span class="icon-reorder icon-2x"></span>
+                <br />
+                <span class="text">Timeline</span>
             </a>
         </div>
     </div>

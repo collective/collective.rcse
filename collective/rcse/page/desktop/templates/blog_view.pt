@@ -20,7 +20,7 @@
           </div>
           <div class="media-body">
             <h4 class="media-heading">
-              <a class="load-content-tile-in-modal" data-toggle="modal" href="#content-modal" 
+              <a class="load-content-tile-in-modal" data-toggle="modal" href="#content-modal"
                  tal:attributes="data-href article/getURL"
                  tal:content="article/Title">Media heading</a>
             </h4>
