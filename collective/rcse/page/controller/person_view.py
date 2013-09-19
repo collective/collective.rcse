@@ -119,6 +119,15 @@ class CreatorMemberInfoView(AuthenticatedMemberInfoView):
             self.member = self.membership.getMemberById(self.memberid)
 
 
+class BrainCreatorMemberInfoView(AuthenticatedMemberInfoView):
+    """creator_memberinfo"""
+    def update_member(self):
+        if self.memberid is None:
+            self.memberid = self.context.Creator
+        if self.member is None and self.memberid is not None:
+            self.member = self.membership.getMemberById(self.memberid)
+
+
 class RequestMemberInfoView(AuthenticatedMemberInfoView):
     """member info throw request param
     """
