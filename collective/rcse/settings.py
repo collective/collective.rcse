@@ -1,3 +1,4 @@
+import os
 from Products.CMFCore.utils import getToolByName
 from zope import component
 from zope import interface
@@ -41,3 +42,17 @@ def getDefaultSettings():
         for name, description in interface.namesAndDescriptions():
             settings[name] = description.default
     return settings
+
+
+FEATURES = ("breadcrumb",)
+
+class Features(object):
+    def __init__(self):
+        self.environ = os.environ
+
+    def __getattribute__(self, name):
+        if name in FEATURES:
+            return bool(self.environ.get("rcse_features_%s" % name, False))
+        return object.__getattribute__(self, name)
+
+features = Features()
