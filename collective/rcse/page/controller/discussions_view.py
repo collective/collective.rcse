@@ -43,6 +43,7 @@ class AddForm(group_base.BaseAddForm):
     schema = AddFormSchema
     CONTENT_TYPE = CONTENT_TYPE
     msg_added = _(u"Discussion added")
+    label = _(u"Add Discussion")
 
     @button.buttonAndHandler(_(u"Add Discussion"))
     def handleAdd(self, action):

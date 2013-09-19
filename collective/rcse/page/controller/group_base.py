@@ -110,7 +110,9 @@ class BaseAddForm(AutoExtensibleForm, form.Form):
     def handleAdd(self, action):
         data, errors = self.extractData()
         if errors:
-            return False
+            self.status = self.formErrorsMessage
+            self.errors = errors
+            return
         if self.request.response.getStatus() not in (302, 303):
             self.doAdd(data)
 

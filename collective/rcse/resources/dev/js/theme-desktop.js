@@ -180,6 +180,26 @@ var rcseUpdateForms = function(element){
     $(element).find('span.named-image-widget').each(function(){
         $(this).find('br').remove();
     })
+    /*required field -> add a required red * using font awesome
+     * <span class="required horizontal" title="Requis">&nbsp;</span>
+     * ->
+     * <span class="required icon-asterisk"></span>
+     * */
+    $(element).find('.required.horizontal').each(function(){
+    	$(this).addClass('icon-asterisk');
+    });
+    /* ERROR DISPLAY in a field
+     * <div class="fieldErrorBox">
+            <div class="error">Champ obligatoire</div>
+       </div>
+       ->
+       <div class="alert alert-danger">
+            <div class="error">Champ obligatoire</div>
+       </div>
+     */
+    $(element).find('.fieldErrorBox .error').each(function(){
+    	$(this).parent().addClass('alert alert-danger');
+    });
 }
 var rcseInitTimeline = function() {
     $("a.rcse_tile").waypoint(function(direction) {
