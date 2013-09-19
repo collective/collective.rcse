@@ -50,8 +50,8 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-           ><span class="icon-user"></span> <tal:label tal:content="view/user_name">John</tal:label></a>
+        <a href="#" class="dropdown-toggle user-menu" data-toggle="dropdown"
+           ><span class="icon-user"></span> <span class="hidden-sm" tal:content="view/user_name">John</span></a>
           <ul class="dropdown-menu">
             <li tal:repeat="action view/user_actions"
                 tal:attributes="id string:personaltools-${action/id}">
