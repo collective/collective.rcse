@@ -9,15 +9,20 @@
 <body>
 <div metal:fill-slot="main">
   <h1 i18n:translate="">Manage users</h1>
-  <div tal:repeat="user view/getUsersForms">
-    <div>
-      <a tal:attributes="href user/user/getURL"
-	 tal:content="user/user/Title"></a>
-      <tal:with-form-as-view define="view nocall:user/form">
-	<metal:block use-macro="user/form/@@ploneform-macros/titlelessform" />
-      </tal:with-form-as-view>
+  <tal:block tal:define="users view/getUsersForms">
+    <div tal:repeat="user users">
+      <div>
+	<a tal:attributes="href user/user/getURL"
+	   tal:content="user/user/Title"></a>
+	<tal:with-form-as-view define="view nocall:user/form">
+	  <metal:block use-macro="user/form/@@ploneform-macros/titlelessform" />
+	</tal:with-form-as-view>
+      </div>
     </div>
-  </div>
+    <div tal:condition="python:len(users) == 0" i18n:translate="">
+      No members waiting for approval.
+    </div>
+  </tal:block>
 </div>
 </body>
 </html>
