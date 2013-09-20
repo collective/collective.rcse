@@ -34,11 +34,13 @@ class UsersDirectoryView(BrowserView):
             'sort_on': 'sortable_title',
             'sort_order': 'ascending',
             'sort_limit': 20,
-            'portal_type': 'collective.rcse.member'
+            'portal_type': 'collective.rcse.member',
             }
 
     def getMembers(self, batch=True, b_size=10, b_start=0):
-        results = self.catalog(self.query)
+        results = [result
+                   for result in self.catalog(self.query)
+                   if result.Creator != '']
         if batch:
             results = Batch(results, b_size, b_start)
         return results
