@@ -40,7 +40,11 @@ class UsersDirectoryView(BrowserView):
     def getMembers(self, batch=True, b_size=10, b_start=0):
         results = [result
                    for result in self.catalog(self.query)
-                   if result.Creator != '']
+                   if result.Title != '']
         if batch:
             results = Batch(results, b_size, b_start)
         return results
+
+    def canManageUsers(self):
+        # @TODO
+        return True

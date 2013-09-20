@@ -96,6 +96,15 @@
       permission="zope2.View"
       />
     <browser:page
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      name="videos_view"
+      class="collective.rcse.page.controller.videos_view.NavigationRootVideosView"
+      template="templates/videos_view.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
+
+    <browser:page
       for="*"
       name="users_directory_view"
       template="templates/users_directory_view.pt"
@@ -104,12 +113,12 @@
       permission="zope2.View"
       />
     <browser:page
-      for="plone.app.layout.navigation.interfaces.INavigationRoot"
-      name="videos_view"
-      class="collective.rcse.page.controller.videos_view.NavigationRootVideosView"
-      template="templates/videos_view.pt"
+      for="*"
+      name="rcse_users_manage"
+      template="templates/users_manage.pt"
+      class="collective.rcse.page.controller.users_manage.ManageUsersView"
       layer="collective.rcse.layer.DesktopLayer"
-      permission="zope2.View"
+      permission="cmf.ReviewPortalContent"
       />
 
   <browser:page

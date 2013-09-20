@@ -141,6 +141,7 @@
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
       />
+  <adapter factory=".users_manage.ManageUsersFormAdapter" />
   <adapter factory=".addbutton.AddFormAdapter"/>
   <adapter factory=".files_view.AddFormAdapter"/>
   <adapter factory=".audios_view.AddFormAdapter"/>
