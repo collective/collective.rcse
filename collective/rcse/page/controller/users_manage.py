@@ -1,3 +1,4 @@
+
 from plone.autoform import directives
 from plone.autoform.form import AutoExtensibleForm
 from plone.z3cform.layout import FormWrapper
@@ -34,6 +35,10 @@ class ManageUsersFormAdapter(object):
 class ManageUsersForm(AutoExtensibleForm, form.Form):
     schema = ManageUsersFormSchema
     enableCSRFProtection = True
+
+    def updateActions(self):
+        super(ManageUsersForm, self).updateActions()
+        self.actions['approve'].addClass('btn-primary')
 
     @button.buttonAndHandler(_(u"Approve"), name="approve")
     def handleApprove(self, action):
