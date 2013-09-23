@@ -198,7 +198,20 @@ var rcseUpdateForms = function(element){
        </div>
      */
     $(element).find('.fieldErrorBox .error').each(function(){
-    	$(this).parent().addClass('alert alert-danger');
+        $(this).parent().addClass('alert alert-danger');
+    });
+    /*
+     * Lazy load CKEDITOR if there is contenteditable in the page
+     */
+    $(element).find('div[contenteditable="true"]').each(function(){
+        if ($("#ckeditor-script").length == 0){
+            debugger;
+            var script = document.createElement( 'script' );
+            script.type = 'text/javascript';
+            script.id = 'ckeditor-script'
+            script.src = portal_url + '/++resource++ckeditor/ckeditor.js';
+            document.body.appendChild(script);
+        }
     });
 }
 var rcseInitTimeline = function() {
