@@ -65,7 +65,9 @@
       </li>
       <li id="notifications" tal:condition="python:not view.anonymous">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          <span class="icon-bell"></span> <span id="notifications-count" tal:content="string:(${view/unseenCount})"></span>
+          <span class="icon-bell"></span> <span id="notifications-count"
+						class="badge"
+						tal:content="string:${view/unseenCount}"></span>
         </a>
         <ul class="dropdown-menu">
 	  <li tal:repeat="notification view/notifications">
@@ -86,7 +88,8 @@
   <div class="row">
     <div class="col-xs-4 col-sm-3 col-md-2" id="portal-logo">
       <div class="portal-logo-inner">
-        <h1><a tal:attributes="href view/portal_state/navigation_root_url">Logo</a></h1>
+        <h1><a tal:attributes="href view/portal_state/navigation_root_url"
+	       tal:content="view/portal_properties/site_properties/title">Logo</a></h1>
       </div>
     </div>
     <div class="col-xs-8 col-sm-3 col-md-2" id="edit-bar">

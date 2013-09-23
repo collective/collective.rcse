@@ -315,7 +315,7 @@ var rcseInitNotifications = function() {
             var see_all_href = see_all.attr('href');
             var see_all_text = see_all.text();
 
-            $("#notifications-count").text('('+data['unseenCount']+')');
+            $("#notifications-count").text(data['unseenCount']);
             $("#notifications ul").remove();
             $("#notifications")
                 .append('<ul class="dropdown-menu"></ul>');

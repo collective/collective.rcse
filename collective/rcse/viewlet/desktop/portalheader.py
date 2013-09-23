@@ -4,6 +4,7 @@ from collective.rcse.viewlet.controller.sections import RCSESections
 from collective.whathappened.browser.notifications import HotViewlet
 from copy import copy
 import urllib
+
 from Acquisition import aq_inner
 from plone.app.layout.viewlets import ViewletBase
 from plone.autoform.form import AutoExtensibleForm
@@ -11,6 +12,7 @@ from plone.autoform import directives
 from plone.supermodel import model
 from plone.z3cform.interfaces import IWrappedForm
 from plone.z3cform import z2
+from Products.CMFCore.utils import getToolByName
 from z3c.form import form
 from z3c.form import button
 from z3c.form.interfaces import IFormLayer
@@ -33,6 +35,8 @@ class PortalHeaderViewlet(RCSESections, HotViewlet):
             (self.context, self.request),
             name=u'plone_context_state'
         )
+        self.portal_properties = getToolByName(self.context,
+                                               'portal_properties')
         self.query_str = self.request.get('QUERY_STRING', None)
         self.filter_query = parse_qs(self.query_str)
         self.updateUserName();
