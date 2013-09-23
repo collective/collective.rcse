@@ -12,6 +12,7 @@ _ = RCSEMessageFactory
 
 class TimelineView(BaseView):
     """Timeline view"""
+    is_content_timeline = False
 
     def __call__(self):
         self.update()
@@ -93,7 +94,16 @@ class NavigationRootTimelineView(TimelineView):
 class ContentAsTimeLineView(BrowserView):
     """We don't want to provide dedicated view for each content type so
     here is a base view to use the timeline template to display it"""
+    is_content_timeline = True
+
+    def __call__(self):
+        self.update()
+        return self.index()
+
+    def update(self):
+        self.group = None
 
     def get_content(self, batch=True, b_size=10, b_start=0, pagerange=7,
                     full=False):
         return [{"getURL": self.context.absolute_url}]
+

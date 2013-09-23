@@ -205,7 +205,6 @@ var rcseUpdateForms = function(element){
      */
     $(element).find('div[contenteditable="true"]').each(function(){
         if ($("#ckeditor-script").length == 0){
-            debugger;
             var script = document.createElement( 'script' );
             script.type = 'text/javascript';
             script.id = 'ckeditor-script'

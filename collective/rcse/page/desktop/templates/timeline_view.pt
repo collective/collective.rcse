@@ -12,6 +12,7 @@
 
     <div tal:replace="structure context/@@breadcrumb_view"></div>
     <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" tal:condition="not:ajax_load" />
+    <tal:group tal:condition="nocall:view/group">
     <nav role="navigation" class="navbar navbar-inverse">
        <div class="navbar-brand">
          <h4 class="documentFirstHeading" i18n:translate="" tal:content="view/group_title">My profile / Group title</h4>
@@ -36,9 +37,10 @@
                  tal:content="structure view/group_actions"></div>
         </div>
     </div>
+    </tal:group>
     <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" tal:condition="not:ajax_load" />
 
-    <nav role="navigation" class="navbar navbar-inverse">
+    <nav role="navigation" class="navbar navbar-inverse" tal:condition="not:view/is_content_timeline">
        <div class="navbar-brand">
          <h4 class="documentFirstHeading" i18n:translate="">News</h4>
        </div>
