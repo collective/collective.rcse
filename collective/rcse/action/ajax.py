@@ -1,15 +1,20 @@
 import json
 from Acquisition import aq_inner, aq_parent
+from plone.app.discussion.browser.moderation import DeleteComment
 from Products.Five.browser import BrowserView
 from Products.statusmessages import STATUSMESSAGEKEY
 from Products.statusmessages.interfaces import IStatusMessage
 from Products.statusmessages.adapter import _decodeCookieValue
-from collective.favoriting.browser import favoriting_view
 from zope.annotation.interfaces import IAnnotations
-from collective.rcse.action import cioppino_twothumbs
 from zope.i18n import translate
+from zope import component
+
+from collective.watcherlist.interfaces import IWatcherList
+from collective.favoriting.browser import favoriting_view
+from collective.rcse.action import cioppino_twothumbs
 from collective.rcse.page.controller import comments_view
-from plone.app.discussion.browser.moderation import DeleteComment
+from collective.whathappened.browser import subscribe
+from collective.rcse.action import watchers
 
 
 class AjaxAction(BrowserView):
@@ -91,6 +96,54 @@ class Like(AjaxAction):
 
 class DisLike(AjaxAction):
     action_class = cioppino_twothumbs.DisLike
+
+
+class Subscribe(AjaxAction, subscribe.Subscribe):
+    action_class = subscribe.Subscribe
+
+    def __init__(self, context, request):
+        subscribe.Subscribe.__init__(self, context, request)
+        AjaxAction.__init__(self, context, request)
+
+    def __call__(self):
+        self.update()
+        return AjaxAction.__call__(self)
+
+
+class Unsubscribe(Subscribe):
+    action_class = subscribe.Unsubscribe
+
+
+class Blacklist(Subscribe):
+    action_class = subscribe.Blacklist
+
+
+class Unblacklist(Subscribe):
+    action_class = subscribe.Unblacklist
+
+
+class ToggleDisplayInMyNews(AjaxAction):
+    action_class = watchers.ToggleDisplayInMyNews
+
+    def __init__(self, context, request):
+        super(ToggleDisplayInMyNews, self).__init__(context, request)
+        self.watchers = None
+
+    def update(self):
+        if self.watchers is None:
+            context = aq_inner(self.context)
+            self.watchers = component.queryAdapter(
+                context,
+                interface=IWatcherList,
+                name="group_watchers",
+                default=None
+            )
+
+    def is_watching(self):
+        self.update()
+        if self.watchers is None:
+            return False
+        return self.watchers.isWatching()
 
 
 class TriggerDisplayComments(AjaxAction):

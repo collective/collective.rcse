@@ -5,11 +5,12 @@ from collective.favoriting.layer import Layer as FavLayer
 from plone.app.event.interfaces import IBrowserLayer as EventLayer
 from plone.app.contenttypes.interfaces import IPloneAppContenttypesLayer
 from z3c.form.interfaces import IFormLayer
+from collective.whathappened.layer import Layer as WhathappenedLayer
 
 
 class CommonLayer(
     FavLayer, IDiscussionLayer, EventLayer,
-    IPloneAppContenttypesLayer
+    IPloneAppContenttypesLayer, WhathappenedLayer
 ):
     """Marker interface which is used in both theme"""
 
