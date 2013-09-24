@@ -68,6 +68,14 @@ class NavigationRootTimelineView(TimelineView):
         self.member = None
 
     def update(self):
+        if self.membership is None:
+            self.membership = getToolByName(self.context, 'portal_membership')
+        if self.member is None:
+            self.member = self.membership.getAuthenticatedMember()
+            if self.member.getId() is None:
+                self.isAnon = True
+        if self.isAnon:
+            self.group = self.member
         if self.group is None:
             self.group = self.context.restrictedTraverse('@@auth_memberinfo')
             self.group.update()
@@ -76,16 +84,7 @@ class NavigationRootTimelineView(TimelineView):
             self.group_url = self.group.url
             self.group_photo = self.group.photo()
             self.group_actions = None
-            #FEATURE: it should be easy to add doc actions on member profile
-            #name = "@@plone.abovecontenttitle.documentactions"
-            #self.group_actions = self.membrane.restrictedTraverse(name)
         super(NavigationRootTimelineView, self).update()
-        if self.membership is None:
-            self.membership = getToolByName(self.context, 'portal_membership')
-        if self.member is None:
-            self.member = self.membership.getAuthenticatedMember()
-            if self.member.getId() is None:
-                self.isAnon = True
         #hack the  query
         self.query["path"] = self.context_path
         self.query["group_watchers"] = self.member.getId()

@@ -11,13 +11,6 @@
       permission="zope2.View"
       layer="collective.rcse.layer.DesktopLayer"
       />
-  <browser:viewlet
-      name="collective.rcse.validate_authenticated_member"
-      class="collective.rcse.viewlet.controller.validate_authenticated_member.ValidateAuthenticatedMember"
-      manager="plone.app.layout.viewlets.interfaces.IPortalTop"
-      layer="collective.rcse.layer.DesktopLayer"
-      permission="zope2.View"
-      />
 
   <!-- Comments viewlet -->
   <browser:viewlet

@@ -53,7 +53,7 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
         if data['company'] == '__new_company' or data['company'] == '':
             data['company'] = data['new_company']
             data['company_id'] = createCompany(self.context,
-                                               self.request, 
+                                               self.request,
                                                self.member.getId(),
                                                data['company'])
         else:
@@ -62,6 +62,7 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
             data['company'] = companies.getTerm(data['company']).title
         self._updateUser(self.member.getId(), data)
         self._renameUserContent()
+        self._sendMail()
         portal_url = getToolByName(self.context, "portal_url")
         self.request.response.redirect(
             '%s/@@personal-information' % portal_url()
@@ -88,6 +89,13 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
             raise ValueError("No user found.")
         for key, value in data.items():
             setattr(self.member_data, key, value)
+
+    def _sendMail(self):
+        pass
+#        host = getToolByName(self.context, 'MailHost')
+#        mail_template = self.context.email_validate_email
+#        mail_text = mail_template(request=self.request)
+#        host.send(mail_text)
 
     @sudo()
     def _renameUserContent(self):
