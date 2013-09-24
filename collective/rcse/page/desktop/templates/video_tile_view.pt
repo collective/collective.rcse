@@ -1,10 +1,20 @@
 <h2 tal:content="context/Title"></h2>
 <p class="documentDescription" tal:content="context/Description"></p>
 
+<tal:isVideoLink tal:condition="view/isVideoLink">
+<div class="video-wrapper">
+  <a class="oembed oembed-responsive" style="display:none" tal:attributes="href context/remoteUrl;">&nbsp;</a>
+</div>
+<a tal:attributes="href context/remoteUrl;" i18n:translate="">Open the original video link</a>
+</tal:isVideoLink>
+
+<tal:isVideoFile tal:condition="view/isVideoFile">
+
 <tal:video tal:define="width view/request/width|python:630;
                        height python:int(int(width)/1.75);">
 
-<p i18n:translate="" tal:condition="python: not view.isTranscoded()">Video is being transcoded. Please wait a moment.</p>
+
+<p i18n:translate="" tal:condition="not:view/isTranscoded">Video is being transcoded. Please wait a moment.</p>
 
 <tal:block tal:condition="view/isTranscoded">
 <video controls
@@ -65,3 +75,4 @@
 </div>
 </tal:block>
 </tal:video>
+</tal:isVideoFile>
