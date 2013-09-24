@@ -40,6 +40,8 @@ class TimelineView(BaseView):
             self.group_photo = self.group.absolute_url() + "/group_photo"
             name = "@@plone.abovecontenttitle.documentactions"
             self.group_actions = self.group.restrictedTraverse(name)
+            name = "@@collective.rcse.editbar"
+            self.group_edit_bar = self.group.restrictedTraverse(name)
         super(TimelineView, self).update()
 
     @property
@@ -76,6 +78,7 @@ class NavigationRootTimelineView(TimelineView):
             self.group_url = self.group.url
             self.group_photo = self.group.photo()
             self.group_actions = None
+            self.group_edit_bar = None
             #FEATURE: it should be easy to add doc actions on member profile
             #name = "@@plone.abovecontenttitle.documentactions"
             #self.group_actions = self.membrane.restrictedTraverse(name)

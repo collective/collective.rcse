@@ -1,6 +1,6 @@
 <tal:wrapper tal:define="menus view/menus; uid view/object_uid">
 <div data-role="controlgroup" data-type="horizontal" tal:attributes="id string:edit-bar-$uid" data-mini="true" i18n:domain="plone">
-      <tal:groupjoin tal:condition="view/should_render">
+      <tal:groupjoin tal:condition="view/isVisitor">
         <a class="ajax-action" data-role="button" data-icon="signin"
            tal:attributes="href string:${view/group_url}/@@join-this-group"
            tal:condition="view/can_join">Join this group</a>
