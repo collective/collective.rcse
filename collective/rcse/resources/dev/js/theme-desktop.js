@@ -38,6 +38,17 @@ var rcseUpdatePortlets = function(element) {
                 $(newTitle).append(titleWrapper);
                 $(newList).addClass("list-group");
                 $(newPortlet).append(newTitle);
+                if ($(this).hasClass('portletCalendar')) {
+                    //add btn and pull-left/right to button;
+                    var next = $(this).find(".calendarNext").addClass("navbar-btn btn btn-default").get();
+                    var prev = $(this).find(".calendarPrevious").addClass("navbar-btn btn btn-default").get();
+                    $(newPortlet).find(".navbar").append(prev);
+                    $(newPortlet).find(".navbar").append(next);
+                    $(newPortlet).find(".navbar-brand").text(
+                    	$(newPortlet).find(".navbar-brand").text().replace("«", "").replace("»", "")
+                    );
+                }
+                
                 if ($(this).hasClass('portletNavigationTree')) {
                     $(this).find('a').addClass('list-group-item');
                     $(this).find('div > a').unwrap();
@@ -45,7 +56,13 @@ var rcseUpdatePortlets = function(element) {
                     $(this).find('ul > a').unwrap();
                     $(this).find('a > img').remove();
                     $(newList).append($(this).html());
-                } else {
+                } else if ($(this).hasClass('portletCalendar')){
+                	//do not add list-group-item
+                    $(newList).append($(this).find(".portletItem").html());
+                    //FIXME: why the tooltip doens't work ?
+                    $(newList).tooltip({html:true, delay: {show: 0, hide: 2000}});
+                }
+                else{
                     $(this).find("dd").each(function() {
                         $(this).find('a').addClass('list-group-item');
                         $(newList).append($(this).html());
@@ -225,6 +242,37 @@ var rcseUpdateForms = function(element){
         }
     });
 }
+var rcseInitPortletCalendar = function(){
+	//paste from portlet_calendar.js
+    function load_portlet_calendar(event, elem) {
+        // depends on plone_javascript_variables.js for portal_url
+        event.preventDefault();
+        var pw = elem.closest('.portletWrapper');
+        var elem_data = elem.data();
+        var portlethash = pw.attr('id');
+        portlethash = portlethash.substring(15, portlethash.length);
+        url = portal_url +
+              '/@@render-portlet?portlethash=' + portlethash +
+              '&year=' + elem_data.year +
+              '&month=' + elem_data.month;
+        $.ajax({
+            url: url,
+            success: function(data) {
+                pw.html(data);
+                rcseApplyTransform(pw);
+            }
+        });
+    }
+	//forked from portlet_calendar.js to use on
+
+	$(document).on("click", '.portletCalendar a.calendarNext', function(event) {
+        load_portlet_calendar(event, $(this));
+    });
+	$(document).on("click", '.portletCalendar a.calendarPrevious', function(event) {
+        load_portlet_calendar(event, $(this));
+    });
+}
+
 var rcseInitTimeline = function() {
     $("a.rcse_tile").waypoint(function(direction) {
         var item = $(this);
@@ -504,6 +552,7 @@ $(document).on("ready", function() {
     rcseInitBreadCrumb();
     rcseInitAddButton();
     rcseInitSearchForm();
+    rcseInitPortletCalendar();
     $('a[data-toggle="tooltip"]').tooltip();
 });
 $.webshims.setOptions("basePath", portal_url + "/++resource++webshims/");
