@@ -201,6 +201,18 @@ var rcseUpdateForms = function(element){
         $(this).parent().addClass('alert alert-danger');
     });
     /*
+     * <div class="field error form-group">
+          <div class="error">You must provide at least a file or a link</div>
+       </div>
+       ->
+       <div class="alert alert-danger">
+          <div class="error">You must provide at least a file or a link</div>
+       </div>
+     */
+    $(element).find('.field.error').each(function(){
+        $(this).addClass('alert alert-danger').removeClass('field error');
+    });
+    /*
      * Lazy load CKEDITOR if there is contenteditable in the page
      */
     $(element).find('div[contenteditable="true"]').each(function(){
