@@ -3,44 +3,8 @@
     i18n_domain="collective.rcse">
 
     <upgradeStep
-        source="1057"
-        destination="1058"
-        title="Upgrade"
-        description=""
-        profile="collective.rcse:default"
-        handler=".upgrades.common"
-        />
-
-    <upgradeStep
-        source="1056"
-        destination="1057"
-        title="Add timeline_view as default for all content types"
-        description=""
-        profile="collective.rcse:default"
-        handler=".upgrades.addTimeLineViewToContentTypes"
-        />
-
-    <upgradeStep
-        source="1035"
-        destination="1056"
-        title="Upgrade"
-        description=""
-        profile="collective.rcse:default"
-        handler=".upgrades.common"
-        />
-
-    <upgradeStep
-        source="1034"
-        destination="1035"
-        title="Upgrade"
-        description=""
-        profile="collective.rcse:default"
-        handler=".upgrades.make_group_owner_siteadmin"
-        />
-
-    <upgradeStep
         source="*"
-        destination="1034"
+        destination="1058"
         title="Upgrade"
         description=""
         profile="collective.rcse:default"

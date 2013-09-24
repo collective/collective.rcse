@@ -39,6 +39,7 @@ def setupVarious(context):
     uninstallDependencies(portal)
     activateComments(portal)
     deactivateSourceUsers(portal)
+    addTimeLineViewToContentTypes(portal)
 
 
 def deactivateSourceUsers(portal):
@@ -253,3 +254,21 @@ def activateComments(portal):
             document_fti._updateProperty(property, True)
         except BadRequest:
             continue
+
+
+def addTimeLineViewToContentTypes(context):
+    ptypes = getToolByName(context, "portal_types")
+    RCSE_CONTENT_TYPES = (
+        'Document',
+        'File',
+        'Image',
+        'News Item',
+    )
+    for t in RCSE_CONTENT_TYPES:
+        fti = ptypes.getTypeInfo(t)
+        if fti.default_view != "timeline_view":
+            fti._updateProperty('default_view', "timeline_view")
+        views = list(fti.view_methods)
+        if "timeline_view" not in views:
+            views.append("timeline_view")
+            fti._updateProperty('view_methods', views)

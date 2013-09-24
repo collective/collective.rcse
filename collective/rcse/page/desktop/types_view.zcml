@@ -90,8 +90,8 @@
     <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="timeline_view"
-      class="collective.rcse.page.controller.timeline_view.TimelineView"
-      template="templates/timeline_watchers_view.pt"
+      class="collective.rcse.page.controller.timeline_view.NavigationRootTimelineView"
+      template="templates/timeline_view.pt"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
