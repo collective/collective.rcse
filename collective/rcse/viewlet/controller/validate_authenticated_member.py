@@ -94,20 +94,13 @@ class ValidateAuthenticatedMember(ViewletBase):
         return True
 
     def has_required_info(self):
-        has_required_info = True
         #we will check all required field against the schema
-        required_fields = []
         fields = schema.getFields(self.member_schema)
         for field_name, field in fields.iteritems():
             if field.required:
-                required_fields.append(field_name)
-
-        for field_name in required_fields:
-            if getattr(self.member_data, field_name, None) is None:
-                has_required_info = False
-                break
-
-        return has_required_info
+                if getattr(self.member_data, field_name, None) is None:
+                    return False
+        return True
 
     def is_registred(self):
         return self.member_data and self.member_data.company_id is not None

@@ -1,5 +1,6 @@
 from plone.autoform import directives
 from plone.autoform.form import AutoExtensibleForm
+from plone.supermodel import model
 from plone.z3cform.layout import FormWrapper
 from Products.CMFCore.utils import getToolByName
 from z3c.form import form
@@ -11,10 +12,24 @@ from zope import interface
 from zope import schema
 
 from collective.rcse.i18n import _
+from collective.rcse.page.controller.register_information import RegisterInformationFormSchema
 
 
-class RegisterFormSchema(interface.Interface):
+class RegisterFormSchema(RegisterInformationFormSchema):
     """Form used by user to register."""
+
+    model.fieldset(
+        'profile',
+        label=_(u'Profile'),
+        fields=[
+            'first_name',
+            'last_name',
+            'function',
+            'company',
+            'new_company'
+            ]
+        )
+
     login = schema.ASCIILine(
         title=_(u'Login')
         )

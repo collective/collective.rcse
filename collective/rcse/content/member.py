@@ -17,6 +17,7 @@ from collective.rcse.content.visibility import addVisibilityCheckbox
         'company_id',
         'company',
         'email',
+        'email_validation'
         'first_name',
         'last_name'
         ])
@@ -66,6 +67,11 @@ class IMember(model.Schema):
         description=_(u"This is the email you will receive information on."
                       u" It will not be displayed to other users."),
         required=True,
+    )
+    email_validation = schema.ASCIILine(
+        title=_("E-mail validation"),
+        readonly=True,
+        required=False
     )
     first_name = schema.TextLine(
         title=_(u"First Name"),

@@ -4,6 +4,7 @@ from Products.CMFPlone.utils import getToolByName
 from Products.membrane.interfaces import IUserAdder
 from zope import interface
 from zope.component.hooks import getSite
+from zope.globalrequest import getRequest
 
 from collective.rcse.utils import sudo
 from collective.rcse.page.controller.person_view import GetMemberInfoView
