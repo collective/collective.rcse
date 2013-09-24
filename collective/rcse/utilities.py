@@ -3,8 +3,10 @@ from plone.dexterity import utils
 from Products.CMFPlone.utils import getToolByName
 from Products.membrane.interfaces import IUserAdder
 from zope import interface
+from zope.component.hooks import getSite
 
 from collective.rcse.utils import sudo
+from collective.rcse.page.controller.person_view import GetMemberInfoView
 from collective.whathappened.utility import IDisplay
 from collective.whathappened.i18n import _ as _w
 
@@ -38,6 +40,7 @@ class BaseDisplay(object):
 
     def display(self, context, request, notification):
         where = notification.where.encode('utf-8')
+        self.what = notification.what
         if context is not None:
             try:
                 title = context.restrictedTraverse(where).Title()
@@ -47,8 +50,25 @@ class BaseDisplay(object):
                 self.where = title.decode('utf-8')
         else:
             self.where = where.split('/')[-1]
+        for index, who in enumerate(notification.who):
+            user = GetMemberInfoView(getSite(), request)
+            user(who)
+            if user is not None and user.fullname is not None:
+                notification.who[index] = user.fullname
         self.who = ', '.join(notification.who)
         self.plural = True if len(notification.who) > 1 else False
+        if self.plural:
+            return _w(u"${who} have ${what} ${where}",
+                     mapping={'who': self.who,
+                              'what': self.what,
+                              'where': self.where
+                              })
+        else:
+            return _w(u"${who} has ${what} ${where}",
+                     mapping={'who': self.who,
+                              'what': self.what,
+                              'where': self.where
+                              })
 
 
 class LikedDisplay(BaseDisplay):

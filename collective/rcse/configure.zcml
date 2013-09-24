@@ -76,6 +76,10 @@
 	   provides="Products.membrane.interfaces.IUserAdder"
 	   name="rcse" />
 
+
+  <utility factory=".utilities.BaseDisplay"
+	   provides="collective.whathappened.utility.IDisplay"
+	   name="default_display" />
   <utility factory=".utilities.LikedDisplay"
 	   provides="collective.whathappened.utility.IDisplay"
 	   name="liked" />
