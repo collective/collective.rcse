@@ -1,0 +1,9 @@
+<tal:email tal:define="lt string:&lt;;
+                  gt string:&gt;;
+		  dummy python:request.response.setHeader('Content-Type', 'text/plain;; charset=UTF-8');"
+>From: "<span tal:replace="python:here.email_from_name" />" <span tal:replace="structure lt"/><span tal:replace="python:here.email_from_address" /><span tal:replace="structure gt"/>
+To: <tal:email tal:replace="options/email"></tal:email>
+Subject: <tal:subject tal:replace="options/subject"></tal:subject>
+Content-Type: text/plain; charset=UTF-8
+<tal:body i18n:translate="">To validate your e-mail, please got to <tal:url tal:replace="options/validation_url"></tal:url>.</tal:body>
+</tal:email>
