@@ -92,8 +92,8 @@
 	       tal:content="view/portal_properties/site_properties/title">Logo</a></h1>
       </div>
     </div>
-    <div class="col-xs-8 col-sm-3 col-md-2" id="edit-bar">
-        <div class="editbar" tal:content="structure context/@@collective.rcse.addbutton"></div>
+    <div class="col-xs-8 col-sm-3 col-md-2" id="addbutton">
+        <div class="addbutton" tal:content="structure context/@@collective.rcse.addbutton"></div>
     </div>
     <div class="col-md-8 col-sm-6 col-xs-12 filters" id="portal-filters"
          tal:define="base_url view/group_url">
