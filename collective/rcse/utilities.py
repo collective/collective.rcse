@@ -17,15 +17,15 @@ class RcseUserAdder(SimpleItem):
     interface.implements(IUserAdder)
 
     def addUser(self, login, password):
-        self.mtool = getToolByName(self, 'membrane_tool')
+        self.mtool = getToolByName(getSite(), 'membrane_tool')
         results = self.mtool.searchResults(getUserName=login)
         if len(results) > 0:
             return
-        self._createUser(login)
+        return self._createUser(login)
 
     @sudo()
     def _createUser(self, username):
-        container = self.unrestrictedTraverse('users_directory')
+        container = getSite().unrestrictedTraverse('users_directory')
         item = utils.createContentInContainer(
             container,
             'collective.rcse.member',
@@ -33,6 +33,7 @@ class RcseUserAdder(SimpleItem):
             username=username)
         item.manage_setLocalRoles(username, ['Owner'])
         item.reindexObjectSecurity()
+        return item
 
 
 class BaseDisplay(object):

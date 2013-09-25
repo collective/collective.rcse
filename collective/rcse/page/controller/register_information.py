@@ -50,16 +50,7 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
             self.status = _(u"There were errors.")
             return
         self.member = self.mtool.getAuthenticatedMember()
-        if data['company'] == '__new_company' or data['company'] == '':
-            data['company'] = data['new_company']
-            data['company_id'] = createCompany(self.context,
-                                               self.request,
-                                               self.member.getId(),
-                                               data['company'])
-        else:
-            data['company_id'] = data['company']
-            companies = vocabularies.companies(self.context)
-            data['company'] = companies.getTerm(data['company']).title
+        self._updateDataCompany(data, self.member.getId())
         self._updateUser(self.member.getId(), data)
         self._renameUserContent()
         self._sendMail()
@@ -67,6 +58,18 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
         self.request.response.redirect(
             '%s/@@personal-information' % portal_url()
             )
+
+    def _updateDataCompany(self, data, username):
+        if data['company'] == '__new_company' or data['company'] == '':
+            data['company'] = data['new_company']
+            data['company_id'] = createCompany(self.context,
+                                               self.request,
+                                               username,
+                                               data['company'])
+        else:
+            data['company_id'] = data['company']
+            companies = vocabularies.companies(self.context)
+            data['company'] = companies.getTerm(data['company']).title
 
     def _checkForm(self, data):
         if data['company'] == '__new_company' or data['company'] == '':
@@ -78,13 +81,16 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
                         )
                     )
 
-    def _updateUser(self, username, data):
-        self.member_data = None
+    def _updateUser(self, username, data, member_data=None):
         self.catalog = getToolByName(self, 'membrane_tool')
-        if username:
-            results = self.catalog(getUserName=username)
-            if results:
-                self.member_data = results[0].getObject()
+        if member_data is not None:
+            self.member_data = member_data
+        else:
+            self.member_data = None
+            if username:
+                results = self.catalog(getUserName=username)
+                if results:
+                    self.member_data = results[0].getObject()
         if self.member_data is None:
             raise ValueError("No user found.")
         for key, value in data.items():
