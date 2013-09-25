@@ -109,6 +109,9 @@ class AuthenticatedMemberInfoView(BrowserView):
         path = '/++resource++collective.rcse/defaultUser.png'
         return self.portal_url() + path
 
+    def emailIsValidated(self):
+        return self.get_membrane().email_validation == 'ok'
+
 
 class CreatorMemberInfoView(AuthenticatedMemberInfoView):
     """creator_memberinfo"""
