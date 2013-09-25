@@ -6,8 +6,27 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="collective.rcse">
 <body>
-  <div metal:fill-slot="content-core" class="directory-wrapper">
-    <tal:main-macro metal:define-macro="content-core">
+  <div metal:fill-slot="main" class="directory-wrapper">
+    <tal:main-macro metal:define-macro="main">
+          <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" />
+          <div id="viewlet-above-content-title"
+               tal:content="structure provider:plone.abovecontenttitle" />
+
+
+          <div id="viewlet-above-content-body"
+               tal:content="structure provider:plone.abovecontentbody" />
+
+<div class="rcse_tile_wrapper" style="min-height:100px" tal:condition="nocall:view/group">
+    <div class="rcsetile" id="eb87ae4601c14e409c3da8eef1f92b14">
+        <div class="vcard">
+            <img class="photo" tal:attributes="src view/group_photo"/>
+            <a tal:attributes="href view/group_url" tal:content="view/group_title">Group</a>
+            <p tal:define="desc view/group_description"
+               tal:condition="desc" tal:content="desc"></p>
+        </div>
+        <div id="edit-bar" tal:condition="show_border" tal:content="structure provider:plonetheme.jquerymobile.editbar" />
+    </div>
+</div>
 
       <div tal:define="b_start python:0; b_start request/b_start | b_start;
                      batch python: view.get_content(b_start=b_start, b_size=4);">
