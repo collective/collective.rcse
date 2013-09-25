@@ -41,6 +41,7 @@ def setupVarious(context):
     deactivateSourceUsers(portal)
     addTimeLineViewToContentTypes(portal)
     renameDocumentToArticle(portal)
+    installOnce(portal)
 
 
 def deactivateSourceUsers(portal):
@@ -280,3 +281,17 @@ def renameDocumentToArticle(context):
     ptypes = getToolByName(context, "portal_types")
     fti = ptypes.getTypeInfo("Document")
     fti._updateProperty('title', "Article")
+
+
+def installOnce(context):
+    """Some addon like Products.mebrane must be installed once, the profile
+    must not be re-applied because it use catalog.xml
+    """
+    #first install Products.mebrane if not already installed
+    qi = getToolByName(context, "portal_quickinstaller")
+    addons = ["Products.membrane",
+              "cioppino.twothumbs",
+              "collective.favoriting"]
+    for addon in addons:
+        if qi.isProductInstallable(addon):
+            qi.installProduct(addon)
