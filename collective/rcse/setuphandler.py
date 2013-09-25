@@ -40,6 +40,7 @@ def setupVarious(context):
     activateComments(portal)
     deactivateSourceUsers(portal)
     addTimeLineViewToContentTypes(portal)
+    renameDocumentToArticle(portal)
 
 
 def deactivateSourceUsers(portal):
@@ -272,3 +273,10 @@ def addTimeLineViewToContentTypes(context):
         if "timeline_view" not in views:
             views.append("timeline_view")
             fti._updateProperty('view_methods', views)
+
+
+def renameDocumentToArticle(portal):
+    """plone.po doesn't work... so let's just rename the title of the type"""
+    ptypes = getToolByName(context, "portal_types")
+    fti = ptypes.getTypeInfo("Document")
+    fti._updateProperty('title', "Article")
