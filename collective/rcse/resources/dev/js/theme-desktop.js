@@ -42,8 +42,8 @@ var rcseUpdatePortlets = function(element) {
                     //add btn and pull-left/right to button;
                     var next = $(this).find(".calendarNext").addClass("navbar-btn btn btn-default").get();
                     var prev = $(this).find(".calendarPrevious").addClass("navbar-btn btn btn-default").get();
-                    $(newPortlet).find(".navbar").append(prev);
-                    $(newPortlet).find(".navbar").append(next);
+                    $(newPortlet).find(".navbar").append('<div class="controlgroup pull-right"></div>')
+                        .find('.controlgroup').append(prev).append(next);
                     $(newPortlet).find(".navbar-brand").text(
                     	$(newPortlet).find(".navbar-brand").text().replace("«", "").replace("»", "")
                     );
@@ -59,8 +59,6 @@ var rcseUpdatePortlets = function(element) {
                 } else if ($(this).hasClass('portletCalendar')){
                 	//do not add list-group-item
                     $(newList).append($(this).find(".portletItem").html());
-                    //FIXME: why the tooltip doens't work ?
-                    $(newList).tooltip({html:true, delay: {show: 0, hide: 2000}});
                 }
                 else{
                     $(this).find("dd").each(function() {
@@ -70,7 +68,11 @@ var rcseUpdatePortlets = function(element) {
                 }
                 newPortlet.appendChild(newList);
                 $(this).replaceWith(newPortlet);
-            });
+            }
+    );
+    $(element).find('.portletCalendar').each(function(){
+        $(this).find('.event a').tooltip({html:true, delay: {show: 0, hide: 2000}});
+    });
 }
 /**
 <dl class="portalMessage error">

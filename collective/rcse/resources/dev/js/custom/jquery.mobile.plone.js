@@ -157,17 +157,38 @@ theme: use theme-b
     </ul>
 </div></div>
 */
-var PloneThemeJQMConvertPortletToJQM = function (){
-	$("dl.portlet").each(function(){
+var PloneThemeJQMConvertPortletToJQM = function (element){
+    if (element == undefined) {
+        element = document;
+    }
+	$(element).find("dl.portlet").each(function(){
 		var newPortlet = document.createElement("div");
 		var newTitle = document.createElement("h4");
 		var newList = document.createElement("ul");
 
-		var title = $(this).find("dt").remove(".portletTopLeft").remove(".portletTopRight").text();
-		$(newPortlet).attr("data-role", "collapsible").attr("data-collapsed", "false").addClass($(this).attr("class"));
+		var title = $(this).find("dt").remove(".portletTopLeft")
+		    .remove(".portletTopRight").text();
+		if ($(this).hasClass('portletCalendar')) {
+			title.replace("«", "").replace("»", "");
+		}
+
+		$(newPortlet).attr("data-role", "collapsible").attr("data-collapsed", "false")
+		    .addClass($(this).attr("class"));
 		$(newTitle).html(title);
 		$(newPortlet).append(newTitle);
 		$(newList).attr("data-role", "listview");
+
+		if ($(this).hasClass('portletCalendar')) {
+			var newNextPrev = document.createElement("div");
+			var next = $(this).find(".calendarNext").attr("data-role", "button")
+			    .attr('data-ajax', 'false').wrap('<li></li>').parent().get();
+            var prev = $(this).find(".calendarPrevious").attr("data-role", "button")
+                .attr('data-ajax', 'false').wrap('<li></li>').parent().get();
+            $(newNextPrev).attr("data-role", "navbar")
+                .append("<ul></ul>").find('ul').append(prev).append(next);
+            $(newList).append(newNextPrev);
+            $(this).find('table').attr('width', '100%');
+        }
 		$(this).find("dd").each(function(){
 			var newItem = document.createElement("li");
 			newItem.appendChild(this);
@@ -176,10 +197,44 @@ var PloneThemeJQMConvertPortletToJQM = function (){
 		newPortlet.appendChild(newList);
 		$(this).replaceWith(newPortlet);
 	});
-	$('.portlet[data-role="collapsible"]').attr("data-theme", "b");
-	$('.portlet[data-role="collapsible"]').parent().trigger("create");
-	$('fieldset[data-role="collapsible"]').attr("data-theme", "b");
+	$(element).find('.portlet[data-role="collapsible"]').attr("data-theme", "b");
+	$(element).find('.portlet[data-role="collapsible"]').parent().trigger("create");
+	$(element).find('fieldset[data-role="collapsible"]').attr("data-theme", "b");
 }
+var PloneThemeJQMInitPortletCalendar = function(){
+	//paste from portlet_calendar.js
+    function load_portlet_calendar(event, elem) {
+        // depends on plone_javascript_variables.js for portal_url
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        var pw = elem.closest('.portletWrapper');
+        var elem_data = elem.data();
+        var portlethash = pw.attr('id');
+        portlethash = portlethash.substring(15, portlethash.length);
+        url = portal_url +
+              '/@@render-portlet?portlethash=' + portlethash +
+              '&year=' + elem_data.year +
+              '&month=' + elem_data.month;
+        $.ajax({
+            url: url,
+            success: function(data) {
+                pw.html(data);
+                PloneThemeJQMConvertPortletToJQM(pw);
+                pw.trigger("create");
+            }
+        });
+    }
+	//forked from portlet_calendar.js to use on
+
+	$(document).on("click", '.portletCalendar a.calendarNext', function(event) {
+        load_portlet_calendar(event, $(this));
+    });
+	$(document).on("click", '.portletCalendar a.calendarPrevious', function(event) {
+        load_portlet_calendar(event, $(this));
+    });
+
+}
+
 var PloneThemeJQMUpdate = function(){
 //	console.log('PloneThemeJQMUpdate');
 	PloneThemeJQMResponsiveIframes();
@@ -195,6 +250,7 @@ $(document).on("pagebeforeshow", function(){
 });
 
 $( document ).on( "pageinit", ".page", function() {
+	PloneThemeJQMInitPortletCalendar();
 	$( document ).on( "swipeleft swiperight", ".page", function( e ) {
 		if ( $.mobile.activePage.jqmData( "panel" ) !== "open" ) {
             if ( e.type === "swipeleft"  ) {
