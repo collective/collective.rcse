@@ -20,5 +20,4 @@
           </a>
         </li>
     </ol>
-<span tal:condition="view/can_edit" class="manage-group-link"><a tal:attributes="href string:${view/group_edit_url}"><span class="icon-gear"></span></a></span>
 </div>

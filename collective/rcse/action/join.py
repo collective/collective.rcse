@@ -32,7 +32,7 @@ class Join(ajax.AjaxAction):
             self.context.manage_setLocalRoles(member.getId(), [role])
             msg = _(u"You have joined this group")
         else:
-            #create a request
+            #You are supposed to already have view context to be here
             manager = self.context.restrictedTraverse("@@request_manager")
             request = manager.create()
             request.role = role

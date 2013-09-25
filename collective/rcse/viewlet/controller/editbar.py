@@ -11,6 +11,7 @@ from zope.browsermenu.interfaces import IBrowserMenu
 from plone.stringinterp.interfaces import IStringSubstitution
 from Products.CMFCore.WorkflowCore import WorkflowException
 from plone.uuid.interfaces import IUUID
+from collective.rcse.content.group import get_group
 
 MENUS = (
     'plone_contentmenu_actions',
@@ -49,21 +50,13 @@ class EditBar(ViewletBase):
                 self.review_state = None
         except WorkflowException:
             self.review_state = None
+
         self.object_uid = unicode(IUUID(self.context, u""))
 
-        #registration
-        context = aq_inner(self.context)
-        while context.portal_type != "collective.rcse.group":
-            if context.portal_type == "Plone Site":
-                break
-            context = aq_parent(context)
-            if context.portal_type == "Plone Site":
-                break
-        if context.portal_type == "collective.rcse.group":
-            self.group = context
-        else:
-            self.group = None
+        self.group = get_group(self.context)
+        self.isGroup = self.context.portal_type == "collective.rcse.group"
         self.member = self.portal_state.member()
+
         if self.member is not None and self.group is not None:
             self.memberid = self.member.getId()
             getroles = self.group.manage_getUserRolesAndPermissions
@@ -80,10 +73,15 @@ class EditBar(ViewletBase):
         if self.group:
             return self.group.absolute_url()
 
-    def should_render(self):
+    def isVisitor(self):
         if not self.member or not self.group:
             return False
         return not self.isOwner and not self.isManager and not self.isSiteAdmin
+
+    def can_manage(self):
+        if not self.member or not self.group:
+            return False
+        return self.isOwner or self.isManager or self.isSiteAdmin
 
     def can_join(self):
         """You can join a group if:

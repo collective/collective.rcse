@@ -1,6 +1,9 @@
 <tal:wrapper tal:define="menus view/menus; uid view/object_uid">
-<div data-role="controlgroup" data-type="horizontal" tal:attributes="id string:edit-bar-$uid" data-mini="true" i18n:domain="plone">
-      <tal:groupjoin tal:condition="view/should_render">
+<div data-role="controlgroup" data-type="horizontal" data-mini="true"
+     tal:attributes="id string:edit-bar-$uid"
+     i18n:domain="plone">
+    <tal:isgroup tal:condition="view/isGroup">
+      <tal:groupjoin tal:condition="view/isVisitor">
         <a class="ajax-action" data-role="button" data-icon="signin"
            tal:attributes="href string:${view/group_url}/@@join-this-group"
            tal:condition="view/can_join">Join this group</a>
@@ -8,9 +11,17 @@
            tal:attributes="href string:${view/group_url}/@@quit-this-group"
            tal:condition="view/can_quit">Quit this group</a>
       </tal:groupjoin>
-
+      <tal:manage tal:condition="view/can_manage">
+        <a class="ajax-action" data-role="button" data-icon="gear"
+           tal:attributes="href string:${view/group_url}/@@rcse_group_edit">
+           <tal:label i18n:translate="">Manage</tal:label>
+        </a>
+      </tal:manage>
+    </tal:isgroup>
+    <tal:notgroup tal:condition="not:view/isGroup">
         <a href="#popupAddContentMenu"
-           data-role="button" data-rel="popup" data-transition="pop" data-icon="plus" data-theme="b"
+           data-role="button" data-rel="popup" data-transition="pop"
+           data-icon="plus" data-theme="b"
            tal:condition="python:context.portal_type in ('Folder', 'collective.rcse.group')"
            tal:attributes="href string:#popupAddContentMenu-$uid"
            i18n:translate="">Add</a>
@@ -23,13 +34,14 @@
         <tal:delete tal:repeat="menu menus/plone_contentmenu_actions">
              <a tal:condition="python:menu['extra']['id'] == 'plone-contentmenu-actions-delete'"
                 tal:attributes="href menu/action; title menu/description"
-                 data-role="button" data-icon="remove"
+                data-role="button" data-icon="remove"
                 tal:content="menu/title" i18n:translate=""></a>
         </tal:delete>
         <a tal:condition="menus/plone_contentmenu_workflow"
            tal:attributes="href string:#popupWorkflowContentMenu-$uid"
            data-role="button" data-rel="popup" data-transition="pop" data-icon="lock"
            i18n:translate="">State</a>
+    </tal:notgroup>
 </div>
 <div data-role="popup"
      tal:attributes="id string:popupAddContentMenu-$uid"

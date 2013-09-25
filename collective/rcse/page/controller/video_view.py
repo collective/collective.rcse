@@ -20,5 +20,8 @@ class VideoView(TranscodeViewlet):
         self.update()
         return self.index()
 
-    def isTranscoded(self):
-        return ITranscoded.providedBy(self.context)
+    def update(self):
+        super(VideoView, self).update()
+        self.isVideoFile = self.context.file is not None
+        self.isVideoLink = self.context.remoteUrl is not None
+        self.isTranscoded = ITranscoded.providedBy(self.context)

@@ -79,14 +79,3 @@ class BreadCrumb(BrowserView):
             if parent["current"]:
                 return True
         return False
-
-    def can_edit(self):
-        if not self.group:
-            return False
-        return _checkPermission(permissions.ModifyPortalContent, self.group)
-
-    def group_edit_url(self):
-        """return the group manage screen"""
-        if not self.group:
-            return None
-        return self.group.absolute_url() + '/@@rcse_group_edit'
