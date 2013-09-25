@@ -275,7 +275,7 @@ def addTimeLineViewToContentTypes(context):
             fti._updateProperty('view_methods', views)
 
 
-def renameDocumentToArticle(portal):
+def renameDocumentToArticle(context):
     """plone.po doesn't work... so let's just rename the title of the type"""
     ptypes = getToolByName(context, "portal_types")
     fti = ptypes.getTypeInfo("Document")
