@@ -1,3 +1,4 @@
+<html tal:omit-tag="" i18n:domain="collective.rcse">
 <a data-toggle="modal" href="#rcseaddform" class="btn btn-warning btn-lg">
     <span class="icon-stack">
         <i class="icon-check-empty icon-stack-base"></i>
@@ -20,3 +21,4 @@
       </div>
     </div>
   </div>
+</html>
