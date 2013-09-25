@@ -13,6 +13,7 @@ from zope import schema
 from collective.rcse.content.member import IMember
 from collective.rcse.content.member import vocabularies
 from collective.rcse.content.utils import createCompany
+from collective.rcse.page.controller.validate_email import generateKeyAndSendEmail
 from collective.rcse.i18n import _
 from collective.rcse.utils import sudo
 
@@ -97,11 +98,8 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
             setattr(self.member_data, key, value)
 
     def _sendMail(self):
-        pass
-#        host = getToolByName(self.context, 'MailHost')
-#        mail_template = self.context.email_validate_email
-#        mail_text = mail_template(request=self.request)
-#        host.send(mail_text)
+        generateKeyAndSendEmail(self.context, self.request,
+                                self.member_data)
 
     @sudo()
     def _renameUserContent(self):
@@ -112,6 +110,7 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
         new_id = INameChooser(directory).chooseName(title, self.member_data)
         self.catalog.unindexObject(self.member_data)
         directory.manage_renameObject(self.member_data.id, new_id)
+        self.catalog.indexObject(self.member_data)
 
 
 class RegisterInformationFormWrapper(FormWrapper):

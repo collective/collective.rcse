@@ -1,10 +1,12 @@
 import os
 from smtplib import SMTPException
+from AccessControl import Unauthorized
 from Products.CMFPlone.utils import getToolByName
 from Products.Five.browser import BrowserView
 
 from collective.rcse.i18n import _
 from collective.rcse.page.controller.person_view import AuthenticatedMemberInfoView
+from collective.rcse.page.controller.person_view import GetMemberInfoView
 
 
 class ValidateEmailView(BrowserView):
@@ -15,7 +17,10 @@ class ValidateEmailView(BrowserView):
 
     def __call__(self):
         memberview = AuthenticatedMemberInfoView(self.context, self.request)
-        memberview.update()
+        try:
+            memberview.update()
+        except ValueError:
+            raise Unauthorized
         self.memberinfo = memberview.get_membrane()
         key = self.request.get('key', None)
         if key is None:
@@ -36,7 +41,10 @@ class SendValidationEmailView(BrowserView):
 
     def __call__(self):
         memberview = AuthenticatedMemberInfoView(self.context, self.request)
-        memberview.update()
+        try:
+            memberview.update()
+        except ValueError:
+            raise Unauthorized
         self.memberinfo = memberview.get_membrane()
         if self.memberinfo.email_validation == 'ok':
             self.message = _(u'Your email has already been validated.')
@@ -73,9 +81,7 @@ class SendValidationEmailView(BrowserView):
         host.send(mail_text.encode('utf8'))
 
 
-def generateKeyAndSendEmail(context, request, userid):
-    memberview = GetMemberInfoView(context, request)
-    memberinfo = memberview(userid).get_membrane()
+def generateKeyAndSendEmail(context, request, memberinfo):
     key = os.urandom(16).encode('hex')
     memberinfo.email_validation = key
     host = getToolByName(context, 'MailHost')

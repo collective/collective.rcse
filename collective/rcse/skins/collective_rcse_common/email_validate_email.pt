@@ -5,5 +5,5 @@
 To: <tal:email tal:replace="options/email"></tal:email>
 Subject: <tal:subject tal:replace="options/subject"></tal:subject>
 Content-Type: text/plain; charset=UTF-8
-<tal:body i18n:translate="">To validate your e-mail, please got to <tal:url tal:replace="options/validation_url"></tal:url>.</tal:body>
+<tal:body i18n:translate="">To validate your e-mail, please go to <tal:url tal:replace="options/validation_url"></tal:url>.</tal:body>
 </tal:email>
