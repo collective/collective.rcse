@@ -106,11 +106,16 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
 
     def _sendNotificationToAdmin(self):
         where = '/'.join(self.member_data.getPhysicalPath())
-        createNotification('waiting_for_validation',
-                           where,
-                           datetime.datetime.now(),
-                           [self.member_data.username],
-                           'admin')
+        groups = getToolByName(self.context, 'portal_groups')
+        group = groups.getGroupById('Site Administrators')
+        if group is None:
+            return
+        for member in group.getGroupMembers():
+            createNotification('waiting_for_validation',
+                               where,
+                               datetime.datetime.now(),
+                               [self.member_data.username],
+                               member.id)
 
     @sudo()
     def _renameUserContent(self):
