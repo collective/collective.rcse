@@ -105,13 +105,6 @@
             </a>
         </div>
         <div class="filter-wrapper filter-image pull-right">
-            <a tal:attributes="href string:${base_url}/audios_view">
-                <span class="icon-volume-up icon-2x"></span>
-                <br />
-                <span class="text">Audios</span>
-            </a>
-        </div>
-        <div class="filter-wrapper filter-image pull-right">
             <a tal:attributes="href string:${base_url}/images_view">
                 <span class="icon-picture icon-2x"></span>
                 <br />
