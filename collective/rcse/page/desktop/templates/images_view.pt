@@ -11,21 +11,48 @@
     tal:define="disable_column_two python:request.set('disable_plone.rightcolumn',1);"/>
 
 <div metal:fill-slot="content-core">
-<div tal:replace="structure context/@@breadcrumb_view"></div>
-<div class="pinboard" tal:define="images python: view.get_content(batch=False, full=False)">
-    <div class="pincolumns">
-        <div class="pin" tal:repeat="image images">
-            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                 class="lazy"
-                 tal:attributes="data-original string:${image/getURL}/@@images/image/preview"/>
-            <p tal:content="image/Description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                feugiat consectetur pellentesque. Nam ac elit risus, ac blandit
-                dui. Duis rutrum porta tortor ut convallis. Duis rutrum porta
-                tortor ut convallis.
-            </p>
+    <div tal:replace="structure context/@@breadcrumb_view"></div>
+
+    <div class="row masonry"
+         tal:define="images python: view.get_content(batch=False, full=False)">
+      <div class="masonry-wrapper col-sm-6 col-md-4" tal:repeat="image images">
+            <a class="load-content-tile-in-modal" data-toggle="modal"
+                href="#content-modal" tal:attributes="data-href image/getURL">
+        <div class="thumbnail">
+<!--               <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                   class="lazy"
+                   tal:attributes="data-original string:${image/getURL}/@@images/image/preview"/>
+ -->              <img tal:attributes="src string:${image/getURL}/@@images/image/preview"/>
+          <div class="caption">
+            <h3 tal:content="image/Title">Thumbnail label</h3>
+          </div>
+        </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="content-modal" tabindex="-1" role="dialog"
+        aria-labelledby="content modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                     <div class="rcse_tile_wrapper">
+                       <a class="rcse_tile">test</a>
+                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                        data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+
+
 </div>
 
 <div id="portal-column-one" class="col-md-3 col-mg-3"
@@ -35,5 +62,6 @@
     </nav>
     <div tal:content="structure view/form_instance"></div>
 </div>
+
 </body>
 </html>
