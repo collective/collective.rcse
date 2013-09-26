@@ -57,7 +57,7 @@ class ValidateAuthenticatedMember(ViewletBase):
         elif not self.is_registred():
             msg = _(u"You are not registred, please proceed")
             self.status.add(msg)
-            url =  '%s/@@register_information' % (self.portal_state.portal_url())
+            url = '%s/@@register_information' % (self.portal_state.portal_url())
             self.lock_rendering_and_redirect(url=url)
             return ''
         elif IMembraneUser.providedBy(self.context) and self.context.username == self.member.getUserName():
@@ -65,13 +65,19 @@ class ValidateAuthenticatedMember(ViewletBase):
         elif not self.has_required_info():
             msg = _(u"Your profile is missing some required information")
             self.status.add(msg)
-            url =  '%s/edit' % (self.member_data.absolute_url())
+            url = '%s/edit' % (self.member_data.absolute_url())
+            self.lock_rendering_and_redirect(url=url)
+            return ''
+        elif self.is_disabled_user():
+            msg = _(u"Your profile has been disabled.")
+            self.status.add(msg)
+            url = self.member_data.absolute_url()
             self.lock_rendering_and_redirect(url=url)
             return ''
         elif not self.is_validated_user():
             msg = _(u"Your profile is waiting for approval")
             self.status.add(msg)
-            url =  self.member_data.absolute_url()
+            url = self.member_data.absolute_url()
             self.lock_rendering_and_redirect(url=url)
             return ''
         elif ICompany.providedBy(self.context) and self.context.id == self.member_data.company_id:
@@ -104,6 +110,11 @@ class ValidateAuthenticatedMember(ViewletBase):
 
     def is_registred(self):
         return self.member_data and self.member_data.company_id is not None
+
+    def is_disabled_user(self):
+        tool = getToolByName(self.context, "portal_workflow")
+        data = aq_inner(self.member_data)
+        return tool.getInfoFor(data, 'review_state', None) == "disabled"
 
     def is_validated_user(self):
         tool = getToolByName(self.context, "portal_workflow")
