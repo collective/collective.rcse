@@ -21,7 +21,10 @@ class RcseUserAdder(SimpleItem):
         results = self.mtool.searchResults(getUserName=login)
         if len(results) > 0:
             return
-        return self._createUser(login)
+        self.item = self._createUser(login)
+
+    def getUser(self):
+        return self.item
 
     @sudo()
     def _createUser(self, username):
@@ -149,3 +152,10 @@ class UnfavoritedDisplay(BaseDisplay):
             return _w(u"${who} has removed ${where} from his favorites",
                       mapping={'who': self.who,
                                'where': self.where})
+
+
+class WaitingForValidationDisplay(BaseDisplay):
+    def display(self, context, request, notification):
+        super(WaitingForValidationDisplay, self).display(context, request, notification)
+        return _w(u"${who} is waiting for validation",
+                  mapping={'who': self.who})

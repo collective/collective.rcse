@@ -1,3 +1,5 @@
+import datetime
+
 from plone.autoform.form import AutoExtensibleForm
 from plone.dexterity import utils
 from plone.z3cform.layout import FormWrapper
@@ -15,7 +17,7 @@ from collective.rcse.content.member import vocabularies
 from collective.rcse.content.utils import createCompany
 from collective.rcse.page.controller.validate_email import generateKeyAndSendEmail
 from collective.rcse.i18n import _
-from collective.rcse.utils import sudo
+from collective.rcse.utils import sudo, createNotification
 
 
 class RegisterInformationFormSchema(IMember):
@@ -54,7 +56,8 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
         self._updateDataCompany(data, self.member.getId())
         self._updateUser(self.member.getId(), data)
         self._renameUserContent()
-        self._sendMail()
+        self._sendMailToUser()
+        self._sendNotificationToAdmin()
         portal_url = getToolByName(self.context, "portal_url")
         self.request.response.redirect(
             '%s/@@personal-information' % portal_url()
@@ -97,9 +100,17 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
         for key, value in data.items():
             setattr(self.member_data, key, value)
 
-    def _sendMail(self):
+    def _sendMailToUser(self):
         generateKeyAndSendEmail(self.context, self.request,
                                 self.member_data)
+
+    def _sendNotificationToAdmin(self):
+        where = '/'.join(self.member_data.getPhysicalPath())
+        createNotification('waiting_for_validation',
+                           where,
+                           datetime.datetime.now(),
+                           [self.member_data.username],
+                           'admin')
 
     @sudo()
     def _renameUserContent(self):

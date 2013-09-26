@@ -102,5 +102,8 @@
   <utility factory=".utilities.UnfavoritedDisplay"
 	   provides="collective.whathappened.utility.IDisplay"
 	   name="unfavorited" />
+  <utility factory=".utilities.WaitingForValidationDisplay"
+	   provides="collective.whathappened.utility.IDisplay"
+	   name="waiting_for_validation" />
 
 </configure>

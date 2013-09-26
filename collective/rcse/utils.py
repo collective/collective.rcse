@@ -3,6 +3,9 @@ from AccessControl.SecurityManagement import newSecurityManager,\
 from AccessControl.User import UnrestrictedUser
 from zope.component.hooks import getSite
 
+from collective.whathappened.storage_manager import StorageManager
+from collective.whathappened.notification import Notification
+
 
 def sudo(role='Manager'):
     """Give admin power to the current call"""
@@ -21,3 +24,14 @@ def sudo(role='Manager'):
             return ret
         return wrapper
     return wrapper
+
+
+def createNotification(what, where, when, who, user):
+    """Create a new notification and store it."""
+
+    storage = StorageManager(getSite())
+    storage.setUser(user)
+    notification = Notification(what, where, when, who, user, 'rcse_utils')
+    storage.initialize()
+    storage.storeNotification(notification)
+    storage.terminate()
