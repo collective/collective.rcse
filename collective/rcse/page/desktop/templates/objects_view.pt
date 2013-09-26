@@ -71,6 +71,7 @@
       <div class="navbar-brand" i18n:translate="" tal:content="view/label">Add Objects</div>
     </nav>
     <div tal:content="structure view/form_instance"></div>
+    <p tal:condition="python:getattr(view, 'bookmark_url', None)" i18n:translate="">Bookmark this <a tal:attributes="href view/bookmark_url">link</a> to add contents faster.</p>
   </div>
 </body>
 </html>
