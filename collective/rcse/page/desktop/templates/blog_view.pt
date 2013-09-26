@@ -14,20 +14,23 @@
     <div tal:replace="structure context/@@breadcrumb_view"></div>
     <div tal:define="articles python:view.get_content(batch=True, full=False)">
 
-        <div class="media" tal:repeat="article articles">
-          <div class="pull-left" href="#">
-            DATE
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">
-              <a class="load-content-tile-in-modal" data-toggle="modal" href="#content-modal"
-                 tal:attributes="data-href article/getURL"
-                 tal:content="article/Title">Media heading</a>
-            </h4>
-            <p tal:content="article/Description">Description</p>
-          </div>
-        </div>
-
+    <ul class="list-group">
+        <li class="list-group-item" tal:repeat="article articles">
+            <div class="media">
+                <div class="pull-left" href="#"> DATE
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <a class="load-content-tile-in-modal" data-toggle="modal"
+                            href="#content-modal" tal:attributes="data-href article/getURL"
+                            tal:content="article/Title">Media heading</a>
+                    </h4>
+                    <p tal:content="article/Description">Description</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+    
     </div>
     <!-- Modal -->
     <div class="modal fade" id="content-modal" tabindex="-1" role="dialog"

@@ -18,28 +18,24 @@
                      objects python: view.get_content(b_start=b_start)"
          tal:condition="python: len(objects) > 0">
 
-      <tal:block tal:repeat="object objects">
-	<div class="object">
-	  <div class="object-header">
-	    <h2 class="object-title">
-	      <a class="load-content-tile-in-modal"
-		 data-toggle="modal"
-		 href="#content-modal"
-		 tal:attributes="data-href object/getURL"
-		 tal:content="object/Title"></a>
-	    </h2>
-	    <div class="object-author"
-		 tal:define="author object/@@creator_memberinfo"
-		 tal:content="author/fullname">
-	      Authors
-	    </div>
-	  </div>
-	  <p class="object-description"
-	     tal:condition="object/Description"
-	     tal:content="object/Description"></p>
-	</div>
-      </tal:block>
-
+<ul class="list-group">
+    <tal:block tal:repeat="object objects">
+        <li class="list-group-item">
+            <dl class="object-title">
+                <a class="load-content-tile-in-modal" data-toggle="modal"
+                    href="#content-modal" tal:attributes="data-href object/getURL"
+                    tal:content="object/Title"></a>
+            </dl>
+            <dt>
+                <span tal:define="author object/@@creator_memberinfo"
+                    tal:content="author/fullname">Authors
+                </span>
+                <p class="object-description" tal:condition="object/Description"
+                    tal:content="object/Description"></p>
+            </dt>
+        </li>
+    </tal:block>
+</ul>
       <div metal:use-macro="context/batch_macros/macros/navigation" />
     </div>
 

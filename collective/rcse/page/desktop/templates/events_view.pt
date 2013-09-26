@@ -7,10 +7,61 @@
       i18n:domain="collective.rcse">
 
 <body>
-<div metal:fill-slot="content-core">
+<metal:override fill-slot="top_slot"
+    tal:define="disable_column_two python:request.set('disable_plone.rightcolumn',1);"/>
 
-TODO
+<div metal:fill-slot="content-core">
+    <div tal:replace="structure context/@@breadcrumb_view"></div>
+    <div tal:define="articles python:view.get_content(batch=True, full=False)">
+
+    <ul class="list-group">
+        <li class="list-group-item" tal:repeat="article articles">
+            <div class="media">
+                <div class="pull-left" href="#"> DATE
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <a class="load-content-tile-in-modal" data-toggle="modal"
+                            href="#content-modal" tal:attributes="data-href article/getURL"
+                            tal:content="article/Title">Media heading</a>
+                    </h4>
+                    <p tal:content="article/Description">Description</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+    
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="content-modal" tabindex="-1" role="dialog"
+        aria-labelledby="content modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                     <div class="rcse_tile_wrapper">
+                       <a class="rcse_tile">test</a>
+                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                        data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
+
+<div id="portal-column-one" class="col-md-3 col-mg-3"
+    metal:fill-slot="column_one_slot">
+    <nav role="navigation" class="navbar navbar-inverse">
+      <div class="navbar-brand" i18n:translate="" tal:content="view/label">Add event</div>
+    </nav>
+    <div tal:content="structure view/form_instance"></div>
+</div>
+
 </body>
 </html>

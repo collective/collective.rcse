@@ -16,16 +16,20 @@
         tal:define="b_start python:0;
                    b_start request/b_start | b_start;
                    batch python: view.get_content(b_start=b_start);">
-        <tal:tile tal:repeat="item batch">
-            <div class="media" tal:repeat="discussion view/get_content">
+<ul class="list-group">
+        <tal:tile tal:repeat="discussion batch">
+        <li class="list-group-item">
+            <div class="media">
                 <div class="pull-left">Date</div>
                 <div class="media-body">
                     <h4 class="media-heading"><a tal:attributes="href discussion/getURL" tal:content="discussion/Title">Discussion title</a><span class="badge pull-right" tal:content="discussion/total_comments">3</span></h4>
                     <div tal:content="discussion/description"></div>
                 </div>
             </div>
+        </li>
         </tal:tile>
         <div metal:use-macro="context/batch_macros/macros/navigation" />
+</ul>
     </div>
 </div>
 

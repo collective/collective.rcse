@@ -163,11 +163,14 @@
       />
   <adapter factory=".users_manage.ManageUsersFormAdapter" />
   <adapter factory=".addbutton.AddFormAdapter"/>
-  <adapter factory=".files_view.AddFormAdapter"/>
   <adapter factory=".audios_view.AddFormAdapter"/>
   <adapter factory=".blog_view.AddFormAdapter"/>
-  <adapter factory=".links_view.AddFormAdapter"/>
-  <adapter factory=".etherpads_view.AddFormAdapter"/>
-  <adapter factory=".images_view.AddFormAdapter"/>
   <adapter factory=".discussions_view.AddFormAdapter"/>
+  <adapter factory=".etherpads_view.AddFormAdapter"/>
+  <adapter factory=".events_view.AddFormAdapter"/>
+  <adapter factory=".files_view.AddFormAdapter"/>
+  <adapter factory=".images_view.AddFormAdapter"/>
+  <adapter factory=".links_view.AddFormAdapter"/>
+  <adapter factory=".videos_view.AddFormAdapter"/>
+
 </configure>
