@@ -87,7 +87,6 @@ class DocumentIconActionsViewlet(DocumentActionsViewlet):
     def should_display(self):
         viewid = self.context_state.view_template_id()
         should_display = viewid in CONTENT_VIEWS
-        import logging; logging.getLogger("log").info("%s in CONTENT_VIEWS: %s" % (viewid, should_display))
         return should_display
 
 

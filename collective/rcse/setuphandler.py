@@ -40,6 +40,8 @@ def setupVarious(context):
     activateComments(portal)
     deactivateSourceUsers(portal)
     addTimeLineViewToContentTypes(portal)
+    renameDocumentToArticle(portal)
+    installOnce(portal)
 
 
 def deactivateSourceUsers(portal):
@@ -272,3 +274,24 @@ def addTimeLineViewToContentTypes(context):
         if "timeline_view" not in views:
             views.append("timeline_view")
             fti._updateProperty('view_methods', views)
+
+
+def renameDocumentToArticle(context):
+    """plone.po doesn't work... so let's just rename the title of the type"""
+    ptypes = getToolByName(context, "portal_types")
+    fti = ptypes.getTypeInfo("Document")
+    fti._updateProperty('title', "Article")
+
+
+def installOnce(context):
+    """Some addon like Products.mebrane must be installed once, the profile
+    must not be re-applied because it use catalog.xml
+    """
+    #first install Products.mebrane if not already installed
+    qi = getToolByName(context, "portal_quickinstaller")
+    addons = ["Products.membrane",
+              "cioppino.twothumbs",
+              "collective.favoriting"]
+    for addon in addons:
+        if qi.isProductInstallable(addon):
+            qi.installProduct(addon)
