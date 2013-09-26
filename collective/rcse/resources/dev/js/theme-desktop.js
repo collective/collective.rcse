@@ -524,6 +524,12 @@ var rcseInitLoadTileContentInModal = function(){
 	    rcseInitTimeline();
 	});
 }
+var rcseInitMasonry = function(){
+	var $container = $('.masonry');
+	$container.imagesLoaded(function() {
+		window.setTimeout($container.masonry(), 1000);
+	});
+}
 
 var rcseApplyTransform = function(element) {
     if (element == undefined) {
@@ -555,6 +561,7 @@ $(document).on("ready", function() {
     rcseInitAddButton();
     rcseInitSearchForm();
     rcseInitPortletCalendar();
+    rcseInitMasonry();
     $('a[data-toggle="tooltip"]').tooltip();
 });
 $.webshims.setOptions("basePath", portal_url + "/++resource++webshims/");
