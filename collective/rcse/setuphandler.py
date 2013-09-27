@@ -168,9 +168,16 @@ def _subscribe_on_like_rule(portal, request):
         'plone.conditions.PortalType',
         data
         )
+    data = {'preference': 'subscribe_when_favorited', 'condition': True}
+    _add_rule_condition(
+        request,
+        rule,
+        'collective.rcse.conditions.Preference',
+        data
+        )
 
-    data = {'watching': 'watch'}
-    action = 'collective.watcherlist.actions.Watching'
+    data = {'subscription': 'subscribe'}
+    action = 'collective.whathappened.actions.Subscription'
     _add_rule_action(request, rule, action, data)
     #activate it on context
     _activate_rule(RULE_ID, portal)
@@ -183,8 +190,16 @@ def _watch_on_like_rule(portal, request):
                         "Watch on like",
                         ILikeEvent)
 
-    data = {'subscription': 'subscribe'}
-    action = 'collective.whathappened.actions.Subscription'
+    data = {'preference': 'watch_when_favorited', 'condition': True}
+    _add_rule_condition(
+        request,
+        rule,
+        'collective.rcse.conditions.Preference',
+        data
+        )
+
+    data = {'watching': 'watch'}
+    action = 'collective.watcherlist.actions.Watching'
     _add_rule_action(request, rule, action, data)
     #activate it on context
     _activate_rule(RULE_ID, portal)

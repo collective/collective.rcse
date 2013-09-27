@@ -4,7 +4,7 @@ from Products.CMFCore.utils import getToolByName
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
 from collective.rcse.i18n import _, _t
-
+from collective.rcse.settings import IPersonalPreferences
 
 gender = SimpleVocabulary([
     SimpleTerm(value=u"female", title=_(u"Female")),
@@ -72,3 +72,9 @@ def groups(context):
         ))
 
     return SimpleVocabulary(terms)
+
+
+settings = SimpleVocabulary([
+        SimpleTerm(value=field[0], title=field[1].title)
+        for field in IPersonalPreferences.namesAndDescriptions()
+        ])

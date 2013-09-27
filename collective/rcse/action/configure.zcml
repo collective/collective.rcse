@@ -177,4 +177,35 @@
       allowed_interface="collective.whathappened.browser.subscribe.ISubscribe"
       />
 
+  <!-- Condition -->
+
+  <include package="plone.contentrules" />
+  <include package="plone.contentrules" file="meta.zcml" />
+
+  <adapter factory=".conditions.PreferenceConditionExecutor" />
+
+  <browser:page
+      for="plone.app.contentrules.browser.interfaces.IRuleConditionAdding"
+      name="collective.rcse.conditions.Preference"
+      class=".conditions.PreferenceConditionAddForm"
+      permission="cmf.ManagePortal"
+      />
+
+  <browser:page
+      for="collective.rcse.action.conditions.IPreferenceCondition"
+      name="edit"
+      class=".conditions.PreferenceConditionEditForm"
+      permission="cmf.ManagePortal"
+      />
+
+  <plone:ruleCondition
+      name="collective.rcse.conditions.Preference"
+      title="Preference"
+      description="Apply only if the user's preference match."
+      for="*"
+      event="zope.component.interfaces.IObjectEvent"
+      addview="collective.rcse.conditions.Preference"
+      editview="edit"
+      />
+
 </configure>

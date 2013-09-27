@@ -16,11 +16,13 @@ from collective.rcse.content.visibility import NAMESPACE
 class IMemberInfoView(interface.Interface):
     """ """
     def get_membrain():
-        """ """
+        """Get membrane brain"""
 
     def get_membrane():
-        """ """
+        """Get membrane object."""
 
+    def get_settings():
+        """Get user settings."""
 
 class AuthenticatedMemberInfoView(BrowserView):
     """Person view helper to display member info"""
@@ -57,6 +59,11 @@ class AuthenticatedMemberInfoView(BrowserView):
         brain = self.get_membrain()
         if brain:
             return brain.getObject()
+
+    @memoize
+    def get_settings(self):
+        membrane = self.get_membrane()
+        return membrane.restrictedTraverse('get_settings')
 
     def update(self):
         self.update_dependencies()
