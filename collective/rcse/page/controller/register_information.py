@@ -1,4 +1,5 @@
 import datetime
+import re
 
 from plone.autoform.form import AutoExtensibleForm
 from plone.dexterity import utils
@@ -39,10 +40,85 @@ class RegisterInformationFormAdapter(object):
         self.context = context
 
 
+def _attrGender(value):
+    v = {'MALE': 'male',
+         'FEMALE': 'female'}
+    return v[value]
+
+
+def _attrCity(value):
+    if value[0] == '{':
+        p = re.compile('city:([^,}]+)')
+        m = p.findall(value)
+        if m:
+            return m[0]
+    return value
+
+
+def _attrLang(value):
+    v = {'fr': 'French',
+         'en': 'English'}
+    if value[0] not in ('[', '{'):
+        if value in v.keys():
+            return [v[value]]
+        return [value]
+    # Facebook
+    p = re.compile('name:([^,}]+)')
+    m = p.findall(value)
+    return list(m)
+
+
 class RegisterInformationForm(AutoExtensibleForm, form.Form):
     schema = RegisterInformationFormSchema
     enableCSRFProtection = True
     label = _(u"Register your information")
+
+    # CAS Attribute to field name
+    attributes_key = {
+        'gender': 'gender',
+        'email': 'email',
+        'email-address': 'email',
+        'first-name': 'first_name',
+        'last-name': 'last_name',
+        'first_name': 'first_name',
+        'last_name': 'last_name',
+        'given_name': 'first_name',
+        'family_name': 'last_name',
+        'language': 'lang',
+        'languages': 'lang',
+        'locale': 'lang',
+        'bio': 'bio',
+        'introduction': 'bio',
+        'location': 'city',
+        }
+    # field name : function taking value returning new value
+    attributes_value = {
+        'gender': _attrGender,
+        'city': _attrCity,
+        'lang': _attrLang,
+        }
+
+    def update(self):
+        super(RegisterInformationForm, self).update()
+        sdm = getToolByName(self.context, 'session_data_manager')
+        session = sdm.getSessionData(create=False)
+        attributes = session.get('cas_attributes', {})
+        for attribute, value in attributes.items():
+            if attribute in self.attributes_key.keys():
+                key = self.attributes_key[attribute]
+                if key in self.attributes_value.keys():
+                    value = self.attributes_value[key](value)
+                self._updateWidgets(key, value)
+
+    def _updateWidgets(self, key, value):
+        if key in self.widgets.keys():
+            self.widgets[key].value = value
+            return
+        for group in self.groups:
+            if key in group.widgets.keys():
+                group.widgets[key].value = value
+                return
+        raise KeyError(key)
 
     @button.buttonAndHandler(_(u"Submit"), name="submit")
     def handleApply(self, action):
