@@ -5,6 +5,7 @@ from collective.rcse.i18n import RCSEMessageFactory
 from collective.rcse.page.controller.group_base import BaseView
 from Products.Five.browser import BrowserView
 from collective.rcse.content.group import get_group
+from Products.CMFCore import permissions
 
 
 _ = RCSEMessageFactory
@@ -105,7 +106,33 @@ class ContentAsTimeLineView(BrowserView):
     def update(self):
         self.group = None
 
-    def get_content(self, batch=True, b_size=10, b_start=0, pagerange=7,
-                    full=False):
+    def get_content(self, **kwargs):
         return [{"getURL": self.context.absolute_url}]
 
+
+class ProxyGroupTimelineView(BrowserView):
+    is_content_timeline = True
+
+    def __call__(self):
+        self.update()
+        return self.index()
+
+    def update(self):
+        #TODO: check if current user as view access to the real group and redirect
+        self.manager = self.context.restrictedTraverse("@@proxy_group_manager")
+        self.manager.update()
+        self.mtool = getToolByName(self.context, 'portal_membership')
+        checkPermission = self.mtool.checkPermission
+        if checkPermission(permissions.View, self.manager.group):
+            self.request.response.redirect(self.manager.group.absolute_url())
+        self.group = self.context
+        self.group_title = self.manager.title()
+        self.group_description = self.manager.description()
+        self.group_url = self.group.absolute_url()
+        self.group_photo = self.group_url + "/group_photo"
+        self.group_actions = None
+        name = "@@collective.rcse.editbar"
+        self.group_edit_bar = self.context.restrictedTraverse(name)
+
+    def get_content(self, **kwargs):
+        return []

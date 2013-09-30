@@ -10,9 +10,13 @@
  <object name="collective_rcse_content_workflow" meta_type="Workflow" />
  <object name="collective_rcse_member_workflow" meta_type="Workflow" />
  <object name="collective_rcse_group_workflow" meta_type="Workflow" />
+ <object name="collective_rcse_proxygroup_workflow" meta_type="Workflow" />
  <bindings>
    <type type_id="collective.rcse.group">
      <bound-workflow workflow_id="collective_rcse_group_workflow" />
+   </type>
+   <type type_id="collective.rcse.proxygroup">
+     <bound-workflow workflow_id="collective_rcse_proxygroup_workflow" />
    </type>
    <type type_id="collective.rcse.member">
      <bound-workflow workflow_id="collective_rcse_member_workflow" />

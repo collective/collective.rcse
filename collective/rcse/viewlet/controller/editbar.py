@@ -54,7 +54,9 @@ class EditBar(ViewletBase):
         self.object_uid = unicode(IUUID(self.context, u""))
 
         self.group = get_group(self.context)
-        self.isGroup = self.context.portal_type == "collective.rcse.group"
+        self.isGroup = self.context.portal_type in (
+            "collective.rcse.group", "collective.rcse.proxygroup"
+        )
         self.member = self.portal_state.member()
 
         if self.member is not None and self.group is not None:

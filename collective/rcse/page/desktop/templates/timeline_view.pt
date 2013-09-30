@@ -37,11 +37,12 @@
                 </div>
             </div>
         </div>
-        <div class="panel-footer" tal:condition="view/group_actions">
+        <div class="panel-footer" tal:condition="python: view.group_actions is not None or view.group_edit_bar is not None">
             <div class="pull-right" tal:condition="view/group_edit_bar"
                  tal:content="structure view/group_edit_bar"></div>
             <div class="document-actions-wrapper"
                  tal:content="structure view/group_actions"></div>
+            <div tal:condition="python:view.group_actions is None">&nbsp;</div>
         </div>
     </div>
     </tal:group>

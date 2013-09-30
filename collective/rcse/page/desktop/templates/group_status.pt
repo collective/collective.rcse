@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.rcse">
+
+<body>
+<div metal:fill-slot="main">
+
+<h1 class="documentFirstHeading"
+    i18n:translate="group_status_title">Workflow for 
+    <span i18n:name="group" class="label label-default" tal:content="context/Title"></span>
+</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                <span i18n:translate="">Private</span>
+            </th>
+            <th>
+                <span i18n:translate="">Moderated</span>
+            </th>
+            <th>
+                <span i18n:translate="">Open</span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <ul>
+                    <li i18n:translate="">Access: Owner, Readers and
+                        Administrators</li>
+                    <li i18n:translate="">Request Access: Invitation</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li i18n:translate="">Access: Owners, Readers and
+                        Administrators</li>
+                    <li i18n:translate="">Request Access: Request and Invitation
+                    </li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li i18n:translate="">Access: Authenticated users</li>
+                    <li i18n:translate="">Request Access: Request and Invitation</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="#" class="btn btn-default"
+                    tal:attributes="href string:${context/absolute_url}/content_status_modify?workflow_action=hide;
+           disabled view/is_private"> Make private
+                </a>
+            </td>
+            <td>
+                <a href="#" class="btn btn-default"
+                    tal:attributes="href string:${context/absolute_url}/content_status_modify?workflow_action=make_moderated;
+           disabled view/is_moderated"> Make moderated
+                </a>
+            </td>
+            <td>
+                <a href="#" class="btn btn-default"
+                    tal:attributes="href string:${context/absolute_url}/content_status_modify?workflow_action=show_internally;
+           disabled view/is_open"> Make open
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+</body>
+</html>

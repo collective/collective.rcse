@@ -139,6 +139,14 @@
       />
   <browser:page
       for="collective.rcse.content.group.GroupSchema"
+      name="group_status"
+      class="collective.rcse.page.controller.group_status.GroupStatusView"
+      template="templates/group_status.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
+  <browser:page
+      for="collective.rcse.content.group.GroupSchema"
       name="rcse_group_edit"
       class="collective.rcse.page.controller.group_edit.GroupEditView"
       template="templates/group_edit.pt"
@@ -282,6 +290,14 @@
       name="vcard_view"
       class="collective.rcse.page.controller.company_view.CompanyInfoView"
       template="templates/vcard_company_view.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
+  <browser:page
+      for="collective.rcse.content.proxygroup.ProxyGroupSchema"
+      name="timeline_view"
+      class="collective.rcse.page.controller.timeline_view.ProxyGroupTimelineView"
+      template="templates/timeline_view.pt"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />

@@ -22,6 +22,7 @@
     Visible to all intranet users.
   </description>
   <exit-transition transition_id="hide"/>
+  <exit-transition transition_id="make_moderated"/>
   <permission-map name="Access contents information"
                   acquired="False">
    <permission-role>Manager</permission-role>
@@ -54,6 +55,38 @@
     Can only be seen and edited by the owner.
   </description>
   <exit-transition transition_id="show_internally"/>
+  <exit-transition transition_id="make_moderated"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Contributor</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
+  <permission-map name="View" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Reader</permission-role>
+<!--    <permission-role>Contributor</permission-role> -->
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
+ </state>
+ <state state_id="moderated" title="Moderated" i18n:attributes="title">
+  <description i18n:translate="">
+    Can only be seen and edited by the owner, but exposed to requestaccess
+  </description>
+  <exit-transition transition_id="show_internally"/>
+  <exit-transition transition_id="hide"/>
   <permission-map name="Access contents information"
                   acquired="False">
    <permission-role>Manager</permission-role>
@@ -105,7 +138,22 @@
   </description>
   <action url="%(content_url)s/content_status_modify?workflow_action=show_internally"
           category="workflow"
-          i18n:translate="">Show internally</action>
+          i18n:translate="">Open</action>
+  <guard>
+   <guard-permission>Modify portal content</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="make_moderated"
+             title="Member makes content private but open to request access"
+             new_state="moderated" trigger="USER"
+             before_script="" after_script=""
+             i18n:attributes="title">
+  <description i18n:translate="">
+    Member makes content private but open to request access
+  </description>
+  <action url="%(content_url)s/content_status_modify?workflow_action=make_moderated"
+          category="workflow"
+          i18n:translate="">Make moderated</action>
   <guard>
    <guard-permission>Modify portal content</guard-permission>
   </guard>

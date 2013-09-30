@@ -37,6 +37,10 @@
       title="collective.rcse: Add group"
       />
     <permission
+      id="collective.rcse.AddProxyGroup"
+      title="collective.rcse: Add proxy group"
+      />
+    <permission
       id="collective.rcse.AddImage"
       title="collective.rcse: Add image"
       />

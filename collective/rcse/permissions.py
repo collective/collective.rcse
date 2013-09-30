@@ -35,3 +35,7 @@ AddVideo = "collective.rcse: Add video"
 security.declarePublic('AddCompany')
 setDefaultRoles('collective.rcse: Add company', ('Manager', 'Authenticated',))
 AddCompany = "collective.rcse: Add company"
+
+security.declarePublic('AddPoxyGroup')
+setDefaultRoles('collective.rcse: Add proxy group', ('Manager',))
+AddCompany = "collective.rcse: Add proxy group"

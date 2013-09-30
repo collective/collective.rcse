@@ -7,6 +7,7 @@
     <object meta_type="Dexterity FTI" name="collective.rcse.etherpad" />
     <object meta_type="Dexterity FTI" name="collective.rcse.event" />
     <object meta_type="Dexterity FTI" name="collective.rcse.group" />
+    <object meta_type="Dexterity FTI" name="collective.rcse.proxygroup" />
     <object meta_type="Dexterity FTI" name="collective.rcse.video" />
     <object meta_type="Dexterity FTI" name="collective.rcse.member" />
     <object meta_type="Dexterity FTI" name="collective.rcse.company" />

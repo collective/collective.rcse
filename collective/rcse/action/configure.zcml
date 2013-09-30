@@ -86,9 +86,23 @@
       layer="collective.rcse.layer.CommonLayer"
       />
   <browser:page
+      for="collective.rcse.content.group.ProxyGroupSchema"
+      name="join-this-group"
+      class=".join.ProxyJoin"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+  <browser:page
       for="collective.rcse.content.group.GroupSchema"
       name="quit-this-group"
       class=".join.Quit"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+  <browser:page
+      for="collective.rcse.content.group.ProxyGroupSchema"
+      name="quit-this-group"
+      class=".join.ProxyQuit"
       permission="zope2.View"
       layer="collective.rcse.layer.CommonLayer"
       />

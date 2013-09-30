@@ -22,6 +22,33 @@
           for="collective.rcse.content.member.IMember
            Products.DCWorkflow.interfaces.IAfterTransitionEvent" />
 
+  <subscriber handler=".proxygroup.handle_group_edit"
+          for="collective.rcse.content.group.GroupSchema
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent" />
+  <subscriber handler=".proxygroup.handle_group_wfstate_change"
+          for="collective.rcse.content.group.GroupSchema
+           Products.DCWorkflow.interfaces.IAfterTransitionEvent" />
+  <subscriber handler=".proxygroup.handle_group_moved"
+          for="collective.rcse.content.group.GroupSchema
+           zope.lifecycleevent.interfaces.IObjectMovedEvent" />
+  <subscriber handler=".proxygroup.handle_group_removed"
+          for="collective.rcse.content.group.GroupSchema
+           zope.lifecycleevent.interfaces.IObjectRemovedEvent" />
+
+
   <adapter factory=".settings.SettingsFactory" />
+
+  <browser:page
+    for="collective.rcse.content.proxygroup.ProxyGroupSchema"
+    name="proxy_group_manager"
+    class="collective.rcse.content.proxygroup.ProxyGroupManager"
+    permission="zope2.View"
+    />
+  <browser:page
+    for="collective.rcse.content.group.GroupSchema"
+    name="proxy_group_manager"
+    class="collective.rcse.content.proxygroup.ProxyGroupManager"
+    permission="zope2.View"
+    />
 
 </configure>

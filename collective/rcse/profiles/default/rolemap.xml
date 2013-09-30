@@ -51,6 +51,9 @@
       <role name="Owner"/>
       <role name="Contributor"/>
     </permission>
+    <permission name="collective.rcse: Add proxy group" acquire="True">
+      <role name="Manager"/>
+    </permission>
     <permission name="collective.rcse: Add image" acquire="True">
       <role name="Manager"/>
       <role name="Site Administrator"/>
