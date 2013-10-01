@@ -164,9 +164,7 @@ class RequestMemberInfoView(AuthenticatedMemberInfoView):
 class GetMemberInfoView(AuthenticatedMemberInfoView):
     """Need to be called with userid parameter
     """
-    def __call__(self, userid=None):
-        if userid is None:
-            return self
+    def __call__(self, userid):
         self.memberid = userid
         self.update()
 
