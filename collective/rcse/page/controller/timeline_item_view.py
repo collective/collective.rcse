@@ -9,6 +9,7 @@ from plone.registry.interfaces import IRegistry
 from cioppino.twothumbs import rate
 from collective.favoriting.browser.favoriting_view import VIEW_NAME
 from collective.rcse import icons
+from collective.rcse.content.group import get_group
 
 
 class TimelineItemView(BrowserView):
@@ -46,7 +47,7 @@ class TimelineItemView(BrowserView):
         if self.tileid is None:
             self.tileid = IUUID(self.context)
         if self.group is None:
-            self.group = self.context.aq_inner.aq_parent
+            self.group = get_group(self.context)
         if self.group_url is None:
             self.group_url = self.group.absolute_url()
         if self.group_title is None:
