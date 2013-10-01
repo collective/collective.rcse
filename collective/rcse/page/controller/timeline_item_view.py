@@ -48,10 +48,11 @@ class TimelineItemView(BrowserView):
             self.tileid = IUUID(self.context)
         if self.group is None:
             self.group = get_group(self.context)
-        if self.group_url is None:
-            self.group_url = self.group.absolute_url()
-        if self.group_title is None:
-            self.group_title = self.group.Title()
+        if self.group is not None:
+            if self.group_url is None:
+                self.group_url = self.group.absolute_url()
+            if self.group_title is None:
+                self.group_title = self.group.Title()
         if self.effective_date is None:
             self.effective_date = self.get_effective_date()
         if self.creator_info is None:
