@@ -9,9 +9,8 @@
 
     <dd class="portletItem odd">
       <tal:block tal:repeat="user view/getUsers">
-        <a tal:define="memberinfo context/@@get_memberinfo;
-		       dummy python:memberinfo(user.id);
-		       dummy2 python:memberinfo.update();"
+        <a tal:define="memberinfo nocall:context/@@get_memberinfo;
+		       dummy python:memberinfo(user.id);"
 	   tal:attributes="href string:${context/portal_url}/author/${user/id}">
 	    <img tal:attributes="alt memberinfo/fullname;
 				 title memberinfo/fullname;
