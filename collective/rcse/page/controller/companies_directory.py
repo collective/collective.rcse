@@ -30,15 +30,16 @@ class CompaniesDirectoryView(BrowserView):
 
     def makeQuery(self):
         self.query = {
-            'path': {'query': self.directory_url, 'depth': 1},
-            'sort_on': 'sortable_title',
-            'sort_order': 'ascending',
-            'sort_limit': 20,
+#            'path': {'query': self.directory_url, 'depth': 1},
+#            'sort_on': 'sortable_title',
+#            'sort_order': 'ascending',
+#            'sort_limit': 20,
             'portal_type': 'collective.rcse.company'
             }
 
     def getCompanies(self, batch=True, b_size=10, b_start=0):
-        results = self.catalog(self.query)
-        if batch:
-            results = Batch(results, b_size, b_start)
+#        brains = self.catalog(**self.query)
+        results = []
+        for id, item in self.context.contentItems():
+                results.append(item)
         return results
