@@ -12,8 +12,27 @@
                 disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
   </head>
   <body>
-    <div metal:fill-slot="content-core" class="directory-wrapper">
-      <tal:main-macro metal:define-macro="content-core">
+    <div metal:fill-slot="main">
+      <tal:main-macro metal:define-macro="main">
+
+<ul class="nav nav-pills" i18n:domain="collective.rcse">
+    <li>
+        <a tal:attributes="href string:${context/absolute_url}/@@search"
+            i18n:translate="">Search for contents
+        </a>
+    </li>
+    <li class="active">
+        <a tal:attributes="href string:${context/absolute_url}/users_directory"
+           i18n:translate="">Search for users</a>
+    </li>
+    <li>
+        <a tal:attributes="href string:${context/absolute_url}/companies_directory"
+           i18n:translate="">Search for companies</a>
+    </li>
+</ul>
+
+<h1 class="documentFirstHeading" i18n:translate="">Users directory</h1>
+
 	<div tal:condition="view/canManageUsers" class="manage-users-link">
 	  <a href="@@rcse_users_manage">
 	    <span class="icon-gear"></span>
@@ -40,7 +59,7 @@
                     <a tal:attributes="href member/url"><img tal:attributes="src member/photo" width="40" /></a>
                 </td>
                 <td tal:condition="view/canManageUsers" tal:content="member/userid"></td>
-                <td tal:content="string:${member/first_name} ${member/last_name}"></td>
+                <td> <a tal:attributes="href member/url" tal:content="string:${member/first_name} ${member/last_name}"></a></td>
                 <td tal:content="member/function"></td>
                 <td tal:content="member/company"></td>
                 <td tal:content="member/city"></td>
