@@ -1,5 +1,6 @@
 import datetime
 import re
+import logging
 
 from plone.autoform.form import AutoExtensibleForm
 from plone.dexterity import utils
@@ -19,6 +20,8 @@ from collective.rcse.content.utils import createCompany
 from collective.rcse.page.controller.validate_email import generateKeyAndSendEmail
 from collective.rcse.i18n import _
 from collective.rcse.utils import sudo, createNotification
+
+logger = logging.getLogger("collective.rcse")
 
 
 class RegisterInformationFormSchema(IMember):
@@ -109,6 +112,8 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
                 if key in self.attributes_value.keys():
                     value = self.attributes_value[key](value)
                 self._updateWidgets(key, value)
+            else:
+                logger.info("Unused attribute %s: %s" % (attribute, value))
 
     def _updateWidgets(self, key, value):
         if key in self.widgets.keys():
