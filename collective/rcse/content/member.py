@@ -17,9 +17,9 @@ from collective.rcse.content.visibility import addVisibilityCheckbox
         'company_id',
         'company',
         'email',
-        'email_validation'
+        'email_validation',
         'first_name',
-        'last_name'
+        'last_name',
         ])
 class IMember(model.Schema):
     """This is an interface to describe a member"""
