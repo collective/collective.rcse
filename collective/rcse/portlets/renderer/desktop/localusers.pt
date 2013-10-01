@@ -11,8 +11,7 @@
       <tal:block tal:repeat="user view/getUsers">
 	<div>
           <a tal:define="memberinfo context/@@get_memberinfo;
-			 dummy python:memberinfo(user.id);
-			 dummy2 python:memberinfo.update();"
+			 dummy python:memberinfo(user.id);"
 	     tal:attributes="href string:${context/portal_url}/author/${user/id}">
 	    <img class="img-thumbnail"
 		 tal:attributes="alt memberinfo/fullname;

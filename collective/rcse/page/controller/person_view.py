@@ -116,7 +116,7 @@ class AuthenticatedMemberInfoView(BrowserView):
                 return "%s/@@images/avatar" % membrane.absolute_url()
 
         #TODO: replace by gravatar
-        path = '/defaultUser.png/@@images/image'
+        path = '/defaultuser.png/@@images/image'
         return self.portal_url() + path
 
     def emailIsValidated(self):
