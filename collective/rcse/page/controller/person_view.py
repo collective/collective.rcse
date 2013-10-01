@@ -24,6 +24,7 @@ class IMemberInfoView(interface.Interface):
     def get_settings():
         """Get user settings."""
 
+
 class AuthenticatedMemberInfoView(BrowserView):
     """Person view helper to display member info"""
     interface.implements(member.IMember)
@@ -93,7 +94,9 @@ class AuthenticatedMemberInfoView(BrowserView):
             self.fullname = self.member.getProperty('fullname')
 
     def __getattribute__(self, name):
-        if name in AuthenticatedMemberInfoView.member_fields:
+        if name == "member_fields":
+            return BrowserView.__getattribute__(self, name)
+        if name in self.member_fields:
             membrane = self.get_membrane()
             if membrane is None:
                 return None

@@ -5,6 +5,12 @@
       lang="en"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="collective.rcse">
+  <head>
+  <metal:block fill-slot="top_slot"
+    tal:define="dummy python:request.set('disable_border',1);
+                disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+  </head>
   <body>
     <div metal:fill-slot="content-core" class="directory-wrapper">
       <tal:main-macro metal:define-macro="content-core">
@@ -15,17 +21,34 @@
 	  </a>
 	</div>
 
-	<div class="directory"
-             tal:define="b_start python:0;
-			 b_start request/b_start | b_start;
-			 batch python: view.getMembers(b_start=b_start);">
-	  <tal:members tal:repeat="member batch">
-	    <tal:block tal:define="m python: member.getObject()"
-		       tal:replace="structure m/@@vcard_view">
-	    </tal:block>
-	  </tal:members>
-	  <div metal:use-macro="context/batch_macros/macros/navigation" />
-	</div>
+<table cellpadding="0" cellspacing="0" border="0" id="members-datatable"
+    width="100%" tal:define="members view/getMembers">
+    <thead>
+        <tr>
+            <th i18n:translate="">Portrait</th>
+            <th i18n:translate="" tal:condition="view/canManageUsers">userid</th>
+            <th i18n:translate="">Name</th>
+            <th i18n:translate="">Function</th>
+            <th i18n:translate="">Company</th>
+            <th i18n:translate="">City</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tal:members tal:repeat="member members">
+            <tr>
+                <td>
+                    <a tal:attributes="href member/url"><img tal:attributes="src member/photo" width="40" /></a>
+                </td>
+                <td tal:condition="view/canManageUsers" tal:content="member/userid"></td>
+                <td tal:content="string:${member/first_name} ${member/last_name}"></td>
+                <td tal:content="member/function"></td>
+                <td tal:content="member/company"></td>
+                <td tal:content="member/city"></td>
+            </tr>
+        </tal:members>
+    </tbody>
+</table>
+
       </tal:main-macro>
     </div>
   </body>

@@ -21,7 +21,7 @@ class UsersDirectoryView(BrowserView):
 
     def update(self):
         if self.catalog is None:
-            self.catalog = getToolByName(self.context, 'portal_catalog')
+            self.catalog = getToolByName(self.context, 'membrane_tool')
         if self.directory_url is None:
             portal_url = getToolByName(self.context, 'portal_url')
             root = portal_url.getPortalObject()
@@ -30,20 +30,37 @@ class UsersDirectoryView(BrowserView):
 
     def makeQuery(self):
         self.query = {
-            'path': {'query': self.directory_url, 'depth': 1},
-            'sort_on': 'sortable_title',
-            'sort_order': 'ascending',
-            'sort_limit': 20,
+#            'path': {'query': self.directory_url, 'depth': 1},
+            #'sort_on': 'sortable_title',
+            #'sort_order': 'ascending',
+            #'sort_limit': 20,
             'portal_type': 'collective.rcse.member',
+            'review_state': 'enabled',
             }
 
-    def getMembers(self, batch=True, b_size=10, b_start=0):
-        results = [result
-                   for result in self.catalog(self.query)
-                   if result.Title != '']
-        if batch:
-            results = Batch(results, b_size, b_start)
-        return results
+    def getMembers(self):
+        results = self.catalog(self.query)
+        return self._results2info(results)
+
+    def _results2info(self, brains):
+        userids = [brain.getUserId for brain in brains]
+
+        def getInfo(userid):
+            person_view = self.context.restrictedTraverse('get_memberinfo')
+            person_view(userid)
+            return {
+                "userid": userid,
+                "url": person_view.url,
+                "photo": person_view.photo(),
+                "email": person_view.email,
+                "first_name": person_view.first_name,
+                "last_name": person_view.last_name,
+                "company": person_view.company,
+                "function": person_view.function,
+                "city": person_view.city
+            }
+        info = map(getInfo, userids)
+        return info
 
     def canManageUsers(self):
         # @TODO

@@ -530,6 +530,18 @@ var rcseInitMasonry = function(){
 		window.setTimeout($container.masonry(), 1000);
 	});
 }
+var rcseInitDatatable = function(){
+	$("#members-datatable").dataTable({
+		"iDisplayLength" : -1,
+		"aaSorting" : [ [ 2, "asc" ] ],
+		"oLanguage": {
+			"sUrl": "@@collective.js.datatables.translation"
+		},
+		"bRetrieve": true,
+        "aLengthMenu" : [ [ 20, 30, 50, -1 ],
+                        [ 20, 30, 50, "Tous" ] ]
+	});
+}
 
 var rcseApplyTransform = function(element) {
     if (element == undefined) {
@@ -562,6 +574,7 @@ $(document).on("ready", function() {
     rcseInitSearchForm();
     rcseInitPortletCalendar();
     rcseInitMasonry();
+    rcseInitDatatable();
     $('a[data-toggle="tooltip"]').tooltip();
 });
 $.webshims.setOptions("basePath", portal_url + "/++resource++webshims/");
