@@ -18,6 +18,21 @@
                       st python:request.get('SearchableText', '');
                       DateTime python:modules['DateTime'].DateTime;
                       navigation_root_url view/navroot_url;">
+<ul class="nav nav-pills" i18n:domain="collective.rcse">
+    <li class="active">
+        <a tal:attributes="href string:${context/absolute_url}/@@search"
+            i18n:translate="">Search for contents
+        </a>
+    </li>
+    <li>
+        <a tal:attributes="href string:${context/absolute_url}/users_directory"
+           i18n:translate="">Search for users</a>
+    </li>
+    <li>
+        <a tal:attributes="href string:${context/absolute_url}/companies_directory"
+           i18n:translate="">Search for companies</a>
+    </li>
+</ul>
             <h1 class="documentFirstHeading" i18n:translate="" tal:condition="not:st">
                 Search results
             </h1>
