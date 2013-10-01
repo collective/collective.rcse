@@ -244,6 +244,10 @@ var rcseUpdateForms = function(element){
         }
     });
 }
+var rcseUpdateOthers = function(element){
+    $('#region-content,#content').highlightSearchTerms();
+}
+
 var rcseInitPortletCalendar = function(){
 	//paste from portlet_calendar.js
     function load_portlet_calendar(event, elem) {
@@ -557,7 +561,7 @@ var rcseApplyTransform = function(element) {
     rcseUpdatePortalMessage(element);
     $(element).find("img.lazy")
         .removeClass("lazy").lazyload({skip_invisible: false});
-
+    rcseUpdateOthers(element);
     return element;
 }
 
