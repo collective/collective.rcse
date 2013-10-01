@@ -1,0 +1,32 @@
+<dl class="portlet portletLocalUsers"
+    i18n:domain="collective.portlet.localusers">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <tal:title tal:content="view/data/title">Header</tal:title>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem odd">
+      <tal:block tal:repeat="user view/getUsers">
+	<div>
+          <a tal:define="memberinfo context/@@get_memberinfo;
+			 dummy python:memberinfo(user.id);
+			 dummy2 python:memberinfo.update();"
+	     tal:attributes="href string:${context/portal_url}/author/${user/id}">
+	    <img class="img-thumbnail"
+		 tal:attributes="alt memberinfo/fullname;
+				 title memberinfo/fullname;
+				 src string:${memberinfo/photo}/thumb;" />
+	    <span tal:content="memberinfo/fullname">Fullname</span>
+	  </a>
+	</div>
+      </tal:block>
+    </dd>
+
+    <dd class="portletFooter">
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+
+</dl>

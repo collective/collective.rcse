@@ -4,14 +4,8 @@
     i18n_domain="collective.rcse">
 
     <plone:portletRenderer
-        portlet="collective.polls.portlet.voteportlet.IVotePortlet"
-        layer="collective.rcse.layer.MobileLayer"
-        template="voteportlet.pt"
-        />
-
-    <plone:portletRenderer
         portlet="collective.portlet.localusers.localusers.ILocalUsers"
-        layer="collective.rcse.layer.MobileLayer"
+        layer="collective.rcse.layer.DesktopLayer"
         template="localusers.pt"
         />
 

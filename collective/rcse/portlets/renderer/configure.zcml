@@ -2,6 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     i18n_domain="collective.rcse">
 
+  <include package=".desktop"/>
   <include package=".mobile"/>
 
 </configure>

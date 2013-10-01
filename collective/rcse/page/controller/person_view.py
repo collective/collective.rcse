@@ -113,7 +113,7 @@ class AuthenticatedMemberInfoView(BrowserView):
                 return "%s/@@images/avatar" % membrane.absolute_url()
 
         #TODO: replace by gravatar
-        path = '/++resource++collective.rcse/defaultUser.png'
+        path = '/defaultUser.png/@@images/image'
         return self.portal_url() + path
 
     def emailIsValidated(self):
@@ -161,7 +161,9 @@ class RequestMemberInfoView(AuthenticatedMemberInfoView):
 class GetMemberInfoView(AuthenticatedMemberInfoView):
     """Need to be called with userid parameter
     """
-    def __call__(self, userid):
+    def __call__(self, userid=None):
+        if userid is None:
+            return self
         self.memberid = userid
         self.update()
 
