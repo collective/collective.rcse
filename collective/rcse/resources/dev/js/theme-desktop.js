@@ -315,7 +315,7 @@ var rcseUpdateComments = function(element) {
  * just check query param about a portal_type and update portal_header
  */
 var rcseInitFilter = function(){
-    $('a[href="'+window.location.toString()+'"]').parents('.filter-wrapper')
+    $('a[href="'+window.location.toString()+'"]').children('.filter-wrapper')
     .addClass('filter-current');
 }
 

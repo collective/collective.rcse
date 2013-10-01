@@ -97,71 +97,71 @@
     </div>
     <div class="col-md-8 col-sm-6 col-xs-12 filters" id="portal-filters"
          tal:define="base_url view/group_url">
+      <a tal:attributes="href string:${base_url}/videos_view">
         <div class="filter-wrapper filter-video pull-right">
-            <a tal:attributes="href string:${base_url}/videos_view">
-                <span class="icon-film icon-2x"></span>
-                <br />
-                <span class="text">Videos</span>
-            </a>
+          <span class="icon-film icon-2x"></span>
+          <br />
+          <span class="text">Videos</span>
         </div>
+      </a>
+      <a tal:attributes="href string:${base_url}/images_view">
         <div class="filter-wrapper filter-image pull-right">
-            <a tal:attributes="href string:${base_url}/images_view">
-                <span class="icon-picture icon-2x"></span>
-                <br />
-                <span class="text">Images</span>
-            </a>
+          <span class="icon-picture icon-2x"></span>
+          <br />
+          <span class="text">Images</span>
         </div>
+      </a>
+      <a tal:attributes="href string:${base_url}/files_view">
         <div class="filter-wrapper filter-file pull-right">
-            <a tal:attributes="href string:${base_url}/files_view">
-                <span class="icon-folder-open icon-2x"></span>
-                <br />
-                <span class="text">File</span>
-            </a>
+          <span class="icon-folder-open icon-2x"></span>
+          <br />
+          <span class="text">File</span>
         </div>
+      </a>
 
+      <a tal:attributes="href string:${base_url}/events_view">
         <div class="filter-wrapper filter-event pull-right">
-            <a tal:attributes="href string:${base_url}/events_view">
-                <span class="icon-calendar icon-2x"></span>
-                <br />
-                <span class="text">Event</span>
-            </a>
+          <span class="icon-calendar icon-2x"></span>
+          <br />
+          <span class="text">Event</span>
         </div>
+      </a>
+      <a tal:attributes="href string:${base_url}/etherpads_view">
         <div class="filter-wrapper filter-discussion pull-right">
-            <a tal:attributes="href string:${base_url}/etherpads_view">
-                <span class="icon-edit icon-2x"></span>
-                <br />
-                <span class="text">Etherpad</span>
-            </a>
+          <span class="icon-edit icon-2x"></span>
+          <br />
+          <span class="text">Etherpad</span>
         </div>
+      </a>
+      <a tal:attributes="href string:${base_url}/discussions_view">
         <div class="filter-wrapper filter-discussion pull-right">
-            <a tal:attributes="href string:${base_url}/discussions_view">
-                <span class="icon-comments icon-2x"></span>
-                <br />
-                <span class="text">Discussion</span>
-            </a>
+          <span class="icon-comments icon-2x"></span>
+          <br />
+          <span class="text">Discussion</span>
         </div>
+      </a>
 
+      <a tal:attributes="href string:${base_url}/links_view">
         <div class="filter-wrapper filter-link pull-right">
-            <a tal:attributes="href string:${base_url}/links_view">
-                <span class="icon-bookmark-empty icon-2x"></span>
-                <br />
-                <span class="text">Signet</span>
-            </a>
+          <span class="icon-bookmark-empty icon-2x"></span>
+          <br />
+          <span class="text">Signet</span>
         </div>
-        <div class="filter-wrapper filter-blog pull-right pull-right">
-            <a tal:attributes="href string:${base_url}/blog_view">
-                <span class="icon-file-text icon-2x"></span>
-                <br />
-                <span class="text">Blog</span>
-            </a>
+      </a>
+      <a tal:attributes="href string:${base_url}/blog_view">
+        <div class="filter-wrapper filter-blog pull-right">
+          <span class="icon-file-text icon-2x"></span>
+          <br />
+          <span class="text">Blog</span>
         </div>
-        <div class="filter-wrapper filter-blog pull-right pull-right">
-            <a tal:attributes="href base_url">
-                <span class="icon-reorder icon-2x"></span>
-                <br />
-                <span class="text">Timeline</span>
-            </a>
-        </div>
+      </a>
+      <a tal:attributes="href base_url">
+        <div class="filter-wrapper filter-blog pull-right">
+          <span class="icon-reorder icon-2x"></span>
+          <br />
+          <span class="text">Timeline</span>
+          </div>
+        </a>
     </div>
   </div>
 </div>
