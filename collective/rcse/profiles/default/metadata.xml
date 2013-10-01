@@ -6,6 +6,7 @@
     <dependency>profile-collective.whathappened:default</dependency>
     <dependency>profile-collective.history:default</dependency>
     <dependency>profile-collective.js.ckeditor:default</dependency>
+    <dependency>profile-collective.js.datatables:default</dependency>
     <dependency>profile-collective.mediaelementjs:default</dependency>
     <dependency>profile-collective.oembed:default</dependency>
     <dependency>profile-collective.picturefill:default</dependency>

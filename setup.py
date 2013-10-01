@@ -42,6 +42,7 @@ setup(
         'collective.fontawesome',
         'collective.history',
         'collective.js.ckeditor',
+        'collective.js.datatables',
         'collective.js.jquerymobile',
         'collective.mediaelementjs',
         'collective.oembed',
