@@ -200,7 +200,7 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
 
     @sudo()
     def _renameUserContent(self):
-        directory = self.member_data.aq_parent
+        directory = self.member_data.aq_inner.aq_parent
         title = '%s %s' % (self.member_data.first_name,
                            self.member_data.last_name)
         self.member_data.setTitle(title)
