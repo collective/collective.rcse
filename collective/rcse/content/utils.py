@@ -8,7 +8,11 @@ from collective.rcse.utils import sudo
 
 
 @sudo()
-def createCompany(context, request, username, company_name):
+def createCompany(context, request, username=None, company_name=None):
+    if username is None:
+        username = context.username
+    if company_name is None:
+        company_name = context.company
     portal_state = getMultiAdapter((context, request),
                                    name=u'plone_portal_state')
     directory = portal_state.portal()['companies_directory']
