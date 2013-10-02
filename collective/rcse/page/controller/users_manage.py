@@ -73,16 +73,13 @@ class ManageUsersForm(AutoExtensibleForm, form.Form):
 
 class ManageUsersView(UsersDirectoryView):
     def getUsersForms(self):
-        users = [user for user in self.getMembers(batch=False)
-                 if user.review_state == 'pending']
+        users = self.getMembers(review_state="pending")
         forms = []
         for user in users:
-            form = {}
-            form['user'] = user
-            form['form'] = ManageUsersForm(self.context, self.request)
-            form['form'].next_url = '/@@rcse_users_manage'
-            form['form'].update()
-            form['form'].widgets['user_id'].mode = HIDDEN_MODE
-            form['form'].widgets['user_id'].value = user.id
-            forms.append(form)
+            user['form'] = ManageUsersForm(self.context, self.request)
+            user['form'].next_url = '/@@rcse_users_manage'
+            user['form'].update()
+            user['form'].widgets['user_id'].mode = HIDDEN_MODE
+            user['form'].widgets['user_id'].value = user["userid"]
+            forms.append(user)
         return forms

@@ -35,11 +35,12 @@ class UsersDirectoryView(BrowserView):
             #'sort_order': 'ascending',
             #'sort_limit': 20,
             'portal_type': 'collective.rcse.member',
-            'review_state': 'enabled',
+            #'review_state': 'enabled',
             }
 
-    def getMembers(self):
-        results = self.catalog(self.query)
+    def getMembers(self, review_state="enabled"):
+        self.query.update({'review_state': review_state})
+        results = self.catalog(**self.query)
         return self._results2info(results)
 
     def _results2info(self, brains):
