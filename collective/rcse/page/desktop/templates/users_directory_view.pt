@@ -14,6 +14,9 @@
   <body>
     <div metal:fill-slot="main">
       <tal:main-macro metal:define-macro="main">
+    <div id="viewlet-above-content"
+         tal:content="structure provider:plone.abovecontent"
+         tal:condition="not:ajax_load" />
 
 <ul class="nav nav-pills" i18n:domain="collective.rcse">
     <li>
@@ -33,11 +36,18 @@
 
 <h1 class="documentFirstHeading" i18n:translate="">Users directory</h1>
 
-	<div tal:condition="view/canManageUsers" class="manage-users-link">
-	  <a href="@@rcse_users_manage">
-	    <span class="icon-gear"></span>
-	    <span i18n:translate="">Manage users</span>
-	  </a>
+	<div tal:condition="view/canManageUsers" class="manage-users-link btn-group">
+      <a class="btn btn-default" disabled="disabled" tal:attributes="href context/absolute_url">
+        <span i18n:translate="">Watch enabled users</span>
+      </a>
+      <a class="btn btn-default" href="@@users_manage_pending">
+        <span class="icon-time"></span>
+        <span i18n:translate="">Manage pending users</span>
+      </a>
+      <a class="btn btn-default" href="@@users_manage_disabled">
+        <span class="icon-thumb-down"></span>
+        <span i18n:translate="">Manage disabled users</span>
+      </a>
 	</div>
 
 <table cellpadding="0" cellspacing="0" border="0" id="members-datatable"

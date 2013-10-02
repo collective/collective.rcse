@@ -38,25 +38,12 @@
             <tal:label tal:content="menu/title" i18n:translate=""></tal:label>
         </a>
     </tal:delete>
-    <div class="btn-group" tal:condition="menus/plone_contentmenu_workflow">
-        <button type="button" class="btn btn-sm btn-default dropdown-toggle"
-            data-toggle="dropdown">
-            <span class="icon-lock"></span>
-            <tal:label i18n:translate="">State</tal:label>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-            <li class="disabled">
-                <span i18n:translate="">label_state</span>
-                <span tal:content="view/review_state" i18n:translate="">published
-                </span>
-            </li>
-            <li class="divider"></li>
-            <li tal:repeat="menu menus/plone_contentmenu_workflow">
-                <a tal:attributes="href menu/action" tal:content="menu/title"
+    <tal:publish tal:condition="menus/plone_contentmenu_workflow">
+            <tal:button tal:repeat="menu menus/plone_contentmenu_workflow">
+                <a  class="btn btn-sm btn-default" tal:attributes="href menu/action" tal:content="menu/title"
                     i18n:translate="">menu</a>
-            </li>
-        </ul>
-    </div>
+            </tal:button>
+    </tal:publish>
 </tal:notgroup>
 </div>
 

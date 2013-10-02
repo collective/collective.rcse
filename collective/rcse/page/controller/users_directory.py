@@ -61,7 +61,7 @@ class UsersDirectoryView(BrowserView):
                 "last_name": person_view.last_name,
                 "company": person_view.company,
                 "function": person_view.function,
-                "city": person_view.city
+                "city": person_view.city,
             }
         info = map(getInfo, userids)
         return info

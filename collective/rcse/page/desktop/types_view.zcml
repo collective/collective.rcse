@@ -114,9 +114,17 @@
       />
     <browser:page
       for="*"
-      name="rcse_users_manage"
+      name="users_manage_pending"
       template="templates/users_manage.pt"
-      class="collective.rcse.page.controller.users_manage.ManageUsersView"
+      class="collective.rcse.page.controller.users_manage.ManagePendingUsersView"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="cmf.ReviewPortalContent"
+      />
+    <browser:page
+      for="*"
+      name="users_manage_disabled"
+      template="templates/users_manage.pt"
+      class="collective.rcse.page.controller.users_manage.ManageDisabledUsersView"
       layer="collective.rcse.layer.DesktopLayer"
       permission="cmf.ReviewPortalContent"
       />

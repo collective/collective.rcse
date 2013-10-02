@@ -36,6 +36,9 @@ class EditBar(ViewletBase):
                 IBrowserMenu,
                 name=menu,
             ).getMenuItems(self.context, self.request)
+        #remove advanced workflow action if exists
+        if len(self.menus["plone_contentmenu_workflow"]):
+            del self.menus["plone_contentmenu_workflow"][-1]
         self.context_state = getMultiAdapter((self.context, self.request),
                                              name=u'plone_context_state')
         self.object_actions = self.context_state.actions('object')
