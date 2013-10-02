@@ -8,9 +8,9 @@ _ = RCSEMessageFactory
 
 
 class DiscussionSchema(form.Schema):
-    """An audio file.
+    """A discussion.
     """
     title = schema.TextLine(title=PloneMessageFactory(u"Title"))
     body = schema.Text(title=_(u"Subject"))
-    file = NamedBlobFile(title=_(u"Audio file"),
+    file = NamedBlobFile(title=_(u"File"),
                          required=False)
