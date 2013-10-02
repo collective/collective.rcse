@@ -1,3 +1,5 @@
+from AccessControl import getSecurityManager
+from Products.CMFCore.permissions import ReviewPortalContent
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.PloneBatch import Batch
 from Products.Five.browser import BrowserView
@@ -65,5 +67,6 @@ class UsersDirectoryView(BrowserView):
         return info
 
     def canManageUsers(self):
-        # @TODO
-        return True
+        usersDirectory = self.context.restrictedTraverse('users_directory')
+        sm = getSecurityManager()
+        return sm.checkPermission(ReviewPortalContent, usersDirectory)
