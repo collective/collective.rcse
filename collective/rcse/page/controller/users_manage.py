@@ -80,6 +80,6 @@ class ManageUsersView(UsersDirectoryView):
             user['form'].next_url = '/@@rcse_users_manage'
             user['form'].update()
             user['form'].widgets['user_id'].mode = HIDDEN_MODE
-            user['form'].widgets['user_id'].value = user["userid"]
+            user['form'].widgets['user_id'].value = user["dataid"]
             forms.append(user)
         return forms

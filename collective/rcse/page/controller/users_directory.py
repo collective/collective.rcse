@@ -51,6 +51,7 @@ class UsersDirectoryView(BrowserView):
             person_view(userid)
             return {
                 "userid": userid,
+                "dataid": person_view.get_membrane().getId(),
                 "url": person_view.url,
                 "photo": person_view.photo(),
                 "email": person_view.email,
