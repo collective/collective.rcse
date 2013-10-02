@@ -18,6 +18,23 @@
        name="collective.rcse.vocabulary.companies"
        provides="zope.schema.interfaces.IVocabularyFactory"/>
 
+  <subscriber handler=".workflow.createCompanyIfNotExists"
+          for="collective.rcse.content.member.IMember
+           Products.DCWorkflow.interfaces.IAfterTransitionEvent" />
+
+  <subscriber handler=".member.handle_member_added"
+          for="collective.rcse.content.member.IMember
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent" />
+  <subscriber handler=".member.handle_member_modified"
+          for="collective.rcse.content.member.IMember
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent" />
+  <subscriber handler=".member.handle_member_modified"
+          for="collective.rcse.content.member.IMember
+           zope.lifecycleevent.interfaces.IObjectMovedEvent" />
+  <subscriber handler=".member.handle_member_removed"
+          for="collective.rcse.content.member.IMember
+           zope.lifecycleevent.interfaces.IObjectRemovedEvent" />
+
   <subscriber handler=".proxygroup.handle_group_edit"
           for="collective.rcse.content.group.GroupSchema
            zope.lifecycleevent.interfaces.IObjectModifiedEvent" />

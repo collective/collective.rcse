@@ -10,6 +10,7 @@ from zope import schema
 from collective.rcse.i18n import _
 from collective.rcse.content import vocabularies
 from collective.rcse.content.visibility import addVisibilityCheckbox
+from Products.CMFCore.utils import getToolByName
 
 
 @addVisibilityCheckbox([
@@ -170,3 +171,18 @@ class IMember(model.Schema):
     linkedin = schema.URI(title=_(u"LinkedIn"), required=False)
     google = schema.URI(title=_(u"Google+"), required=False)
     twitter = schema.URI(title=_(u"Twitter"), required=False)
+
+
+def handle_member_added(context, event):
+    mtool = getToolByName(context, 'membrane_tool')
+    mtool.indexObject(context)
+
+
+def handle_member_modified(context, event):
+    mtool = getToolByName(context, 'membrane_tool')
+    mtool.reindexObject(context)
+
+
+def handle_member_removed(context, event):
+    mtool = getToolByName(context, 'membrane_tool')
+    mtool.unindexObject(context)
