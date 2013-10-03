@@ -48,6 +48,14 @@
       id="collective.rcse.AddVideo"
       title="collective.rcse: Add video"
       />
+    <permission
+      id="collective.rcse.MakePrivate"
+      title="collective.rcse: Make private"
+      />
+    <permission
+      id="collective.rcse.MakePublishedInternally"
+      title="collective.rcse: Make published internally"
+      />
 
   </configure>
 

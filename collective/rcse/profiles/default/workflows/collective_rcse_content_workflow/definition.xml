@@ -98,7 +98,7 @@
           category="workflow"
           i18n:translate="">Make private</action>
   <guard>
-   <guard-permission>Modify portal content</guard-permission>
+   <guard-permission>collective.rcse: Make private</guard-permission>
   </guard>
  </transition>
  <transition transition_id="publish_internally" new_state="internally_published"
@@ -113,7 +113,7 @@
           category="workflow"
           i18n:translate="">Publish internally</action>
   <guard>
-   <guard-permission>Review portal content</guard-permission>
+   <guard-permission>collective.rcse: Make published internally</guard-permission>
   </guard>
  </transition>
  <transition transition_id="publish_externally" new_state="external"

@@ -88,6 +88,7 @@ class DevSyncUsers(BrowserView):
         regtool = getToolByName(self.context, 'portal_registration')
         for username, password in TEST_USERS:
             regtool.addMember(username, password)
+            #TODO: add member role
 
     def fix_not_indexed_users(self):
         indexed = [brain.getObject() for brain in self.membrane_tool()]

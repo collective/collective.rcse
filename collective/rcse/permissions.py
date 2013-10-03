@@ -39,3 +39,11 @@ AddCompany = "collective.rcse: Add company"
 security.declarePublic('AddPoxyGroup')
 setDefaultRoles('collective.rcse: Add proxy group', ('Manager',))
 AddCompany = "collective.rcse: Add proxy group"
+
+security.declarePublic('MakePrivate')
+MakePrivate = "collective.rcse: Make private"
+setDefaultRoles(MakePrivate, TYPE_ROLES)
+
+security.declarePublic('MakePublishedInternally')
+MakePublishedInternally = "collective.rcse: Make published internally"
+setDefaultRoles(MakePublishedInternally, TYPE_ROLES)
