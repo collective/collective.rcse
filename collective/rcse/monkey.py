@@ -61,3 +61,11 @@ def patch_batch():
     Batch.__getitem__ = batchgetitem
 
 patch_batch()
+
+
+logger.info("monkey: change content_type for plone.app.event")
+def patch_event():
+    from plone.app.event.dx.behaviors import EventAccessor
+    EventAccessor.event_type = 'collective.rcse.event'
+
+patch_event()
