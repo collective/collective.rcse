@@ -8,16 +8,17 @@
 <body>
   <div metal:fill-slot="content-core" class="directory-wrapper">
     <tal:main-macro metal:define-macro="content-core">
-      <div class="directory"
-	   tal:define="b_start python:0;
-                       b_start request/b_start | b_start;
-                       batch python: view.getMembers(b_start=b_start);">
-	<tal:members tal:repeat="member batch">
-	  <tal:block tal:define="m python: member.getObject()"
-		     tal:replace="structure m/@@vcard_view">
-	  </tal:block>
-	</tal:members>
-	<div metal:use-macro="context/batch_macros/macros/navigation" />
+      <div class="directory" tal:define="members view/getMembers">
+      <ul data-role="listview" data-filter="true" data-autodividers="true"
+          i18n:attributes="data-filter-placeholder" data-filter-placeholder="Search members">
+         <li tal:repeat="member members">
+           <a tal:attributes="href member/url">
+             <img tal:attributes="src member/photo"/>
+             <h2 tal:content="string:${member/first_name} ${member/last_name}"></h2>
+             <p tal:content="string:${member/function} ${member/company} ${member/city}"></p>
+           </a>
+         </li>
+       </ul>
       </div>
     </tal:main-macro>
   </div>

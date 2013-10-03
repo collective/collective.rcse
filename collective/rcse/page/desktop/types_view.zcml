@@ -253,14 +253,6 @@
 
   <!-- Member and Company -->
   <browser:page
-      for="collective.rcse.content.member.IMember"
-      name="member_view"
-      class="collective.rcse.page.controller.person_view.MemberInfoView"
-      template="templates/user_view.pt"
-      layer="collective.rcse.layer.DesktopLayer"
-      permission="zope2.View"
-      />
-  <browser:page
       for="collective.rcse.content.company.ICompany"
       name="company_view"
       class="collective.rcse.page.controller.company_view.CompanyInfoView"
