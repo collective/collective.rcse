@@ -35,7 +35,8 @@
                     </li>
                 </ul>
             </div>
-            <h1 class="documentFirstHeading" i18n:translate="">Users directory</h1>
+
+  <h1 class="documentFirstHeading" i18n:translate="">Manage users</h1>
             <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" />
             <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" />
             <div data-role="navbar" tal:condition="view/canManageUsers">
@@ -46,32 +47,35 @@
                     </li>
                     <li>
                         <a class="btn btn-default" href="@@users_manage_pending"
-                            data-icon="time" i18n:translate="">Manage pending users
-                        </a>
+                           data-icon="time" i18n:translate="">Manage pending users</a>
                     </li>
                     <li>
                         <a class="btn btn-default" href="@@users_manage_disabled"
-                            data-icon="thumb-down" i18n:translate="">Manage
-                            disabled users</a>
+                           data-icon="thumb-down" i18n:translate="">Manage disabled users</a>
                     </li>
                 </ul>
             </div>
-            <div class="directory" tal:define="members view/getMembers">
+
+
+            <div class="directory" tal:define="members view/getUsersForms">
                 <ul data-role="listview" data-filter="true"
                     i18n:attributes="data-filter-placeholder"
                     data-filter-placeholder="Search members">
                     <li tal:repeat="member members">
-                        <a tal:attributes="href member/url">
                             <img tal:attributes="src member/photo" />
                             <h2
                                 tal:content="string:${member/first_name} ${member/last_name}"></h2>
                             <p
                                 tal:content="string:${member/function} ${member/company} ${member/city}"></p>
-                        </a>
+
+                    <tal:with-form-as-view define="view nocall:member/form">
+                        <metal:block use-macro="member/form/@@ploneform-macros/titlelessform" />
+                    </tal:with-form-as-view>
+
                     </li>
                 </ul>
             </div>
-        </tal:main-macro>
-    </div>
+    </tal:main-macro>
+</div>
 </body>
 </html>

@@ -33,6 +33,22 @@
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
+    <browser:page
+      for="*"
+      name="users_manage_pending"
+      template="templates/users_manage.pt"
+      class="collective.rcse.page.controller.users_manage.ManagePendingUsersView"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="cmf.ReviewPortalContent"
+      />
+    <browser:page
+      for="*"
+      name="users_manage_disabled"
+      template="templates/users_manage.pt"
+      class="collective.rcse.page.controller.users_manage.ManageDisabledUsersView"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="cmf.ReviewPortalContent"
+      />
 
   <browser:page
       for="*"

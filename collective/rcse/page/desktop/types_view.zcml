@@ -104,31 +104,6 @@
       permission="zope2.View"
       />
 
-    <browser:page
-      for="*"
-      name="users_directory_view"
-      template="templates/users_directory_view.pt"
-      class="collective.rcse.page.controller.users_directory.UsersDirectoryView"
-      layer="collective.rcse.layer.DesktopLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="*"
-      name="users_manage_pending"
-      template="templates/users_manage.pt"
-      class="collective.rcse.page.controller.users_manage.ManagePendingUsersView"
-      layer="collective.rcse.layer.DesktopLayer"
-      permission="cmf.ReviewPortalContent"
-      />
-    <browser:page
-      for="*"
-      name="users_manage_disabled"
-      template="templates/users_manage.pt"
-      class="collective.rcse.page.controller.users_manage.ManageDisabledUsersView"
-      layer="collective.rcse.layer.DesktopLayer"
-      permission="cmf.ReviewPortalContent"
-      />
-
   <browser:page
       for="collective.rcse.content.etherpad.EtherpadSchema"
       name="etherpad_view"
