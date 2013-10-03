@@ -31,7 +31,7 @@ class CompaniesDirectoryView(BrowserView):
     def makeQuery(self):
         self.query = {
 #            'path': {'query': self.directory_url, 'depth': 1},
-#            'sort_on': 'sortable_title',
+            'sort_on': 'sortable_title',
 #            'sort_order': 'ascending',
 #            'sort_limit': 20,
             'portal_type': 'collective.rcse.company'

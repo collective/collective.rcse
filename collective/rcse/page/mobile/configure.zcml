@@ -14,6 +14,14 @@
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
+    <browser:page
+        name="search"
+        for="*"
+        class="plone.app.search.browser.Search"
+        permission="zope2.View"
+        template="templates/search.pt"
+        layer="collective.rcse.layer.MobileLayer"
+        />
 
   <!-- directories -->
 

@@ -5,21 +5,54 @@
       lang="en"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="collective.rcse">
+    <head>
+        <metal:block fill-slot="top_slot"
+            tal:define="dummy python:request.set('disable_border',1);
+                        disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                        disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+    </head>
 <body>
-  <div metal:fill-slot="content-core">
-    <tal:main-macro metal:define-macro="content-core">
-      <div class="directory"
-	   tal:define="b_start python:0;
-		       b_start request/b_start | b_start;
-                       batch python: view.getCompanies(b_start=b_start);">
-    	<tal:members tal:repeat="company batch">
-    	  <tal:block tal:define="c python: company.getObject()"
-    		     tal:replace="structure c/@@vcard_view">
-          </tal:block>
-    	</tal:members>
-	<div metal:use-macro="context/batch_macros/macros/navigation" /> 
-      </div>
-    </tal:main-macro>
-  </div>
+
+    <div metal:fill-slot="main">
+        <tal:main-macro metal:define-macro="main">
+            <div id="edit-bar" tal:condition="show_border"
+                tal:content="structure provider:plonetheme.jquerymobile.editbar" />
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a tal:attributes="href string:${context/absolute_url}/@@search"
+                           i18n:translate="">Search for contents
+                        </a>
+                    </li>
+                    <li>
+                        <a tal:attributes="href string:${context/absolute_url}/users_directory"
+                           i18n:translate="">Search for users
+                        </a>
+                    </li>
+                    <li>
+                        <a tal:attributes="href string:${context/absolute_url}/companies_directory"
+                           class="ui-btn-active"  i18n:translate="">Search for companies
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <h1 class="documentFirstHeading" i18n:translate="">Companies directory</h1>
+            <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" />
+            <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" />
+            <div class="directory" tal:define="companies view/getCompanies">
+                <ul data-role="listview" data-filter="true"
+                    i18n:attributes="data-filter-placeholder"
+                    data-filter-placeholder="Search companies">
+                    <li tal:repeat="company companies">
+                        <a tal:attributes="href company/absolute_url">
+                            <img tal:condition="company/logo" tal:attributes="src string:${company/absolute_url}/@@images/logo/thumb" />
+                            <h2 tal:content="string:${company/Title}"></h2>
+                            <p tal:content="string:${company/sector} ${company/service} ${company/city}"></p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </tal:main-macro>
+    </div>
 </body>
 </html>

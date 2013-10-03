@@ -5,22 +5,74 @@
       lang="en"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="collective.rcse">
+    <head>
+        <metal:block fill-slot="top_slot"
+            tal:define="dummy python:request.set('disable_border',1);
+                        disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                        disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+    </head>
 <body>
-  <div metal:fill-slot="content-core" class="directory-wrapper">
-    <tal:main-macro metal:define-macro="content-core">
-      <div class="directory" tal:define="members view/getMembers">
-      <ul data-role="listview" data-filter="true" data-autodividers="true"
-          i18n:attributes="data-filter-placeholder" data-filter-placeholder="Search members">
-         <li tal:repeat="member members">
-           <a tal:attributes="href member/url">
-             <img tal:attributes="src member/photo"/>
-             <h2 tal:content="string:${member/first_name} ${member/last_name}"></h2>
-             <p tal:content="string:${member/function} ${member/company} ${member/city}"></p>
-           </a>
-         </li>
-       </ul>
-      </div>
-    </tal:main-macro>
-  </div>
+    <div metal:fill-slot="main">
+        <tal:main-macro metal:define-macro="main">
+            <div id="edit-bar" tal:condition="show_border"
+                tal:content="structure provider:plonetheme.jquerymobile.editbar" />
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a tal:attributes="href string:${context/absolute_url}/@@search"
+                            i18n:translate="">Search for contents
+                        </a>
+                    </li>
+                    <li>
+                        <a tal:attributes="href string:${context/absolute_url}/users_directory"
+                            class="ui-btn-active" i18n:translate="">Search for
+                            users</a>
+                    </li>
+                    <li>
+                        <a
+                            tal:attributes="href string:${context/absolute_url}/companies_directory"
+                            i18n:translate="">Search for companies</a>
+                    </li>
+                </ul>
+            </div>
+            <h1 class="documentFirstHeading" i18n:translate="">Users directory
+            </h1>
+            <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" />
+            <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody" />
+            <div data-role="navbar" tal:condition="view/canManageUsers">
+                <ul>
+                    <li>
+                        <a tal:attributes="href context/absolute_url"
+                            i18n:translate="">Watch enabled users</a>
+                    </li>
+                    <li>
+                        <a class="btn btn-default" href="@@users_manage_pending"
+                            data-icon="time" i18n:translate="">Manage pending users
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn btn-default" href="@@users_manage_disabled"
+                            data-icon="thumb-down" i18n:translate="">Manage
+                            disabled users</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="directory" tal:define="members view/getMembers">
+                <ul data-role="listview" data-filter="true"
+                    i18n:attributes="data-filter-placeholder"
+                    data-filter-placeholder="Search members">
+                    <li tal:repeat="member members">
+                        <a tal:attributes="href member/url">
+                            <img tal:attributes="src member/photo" />
+                            <h2
+                                tal:content="string:${member/first_name} ${member/last_name}"></h2>
+                            <p
+                                tal:content="string:${member/function} ${member/company} ${member/city}"></p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </tal:main-macro>
+    </div>
 </body>
 </html>
