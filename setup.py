@@ -72,7 +72,7 @@ setup(
         # -*- Extra requirements: -*-
     ],
     extras_require=dict(
-        test=['plone.app.testing', 'plone.app.robotframework', 'plone.api'],
+        test=['plone.app.testing', 'plone.app.robotframework', 'plone.api', 'selenium'],
     ),
     entry_points="""
     # -*- Entry points: -*-
