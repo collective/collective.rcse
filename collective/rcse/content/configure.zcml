@@ -18,10 +18,6 @@
        name="collective.rcse.vocabulary.companies"
        provides="zope.schema.interfaces.IVocabularyFactory"/>
 
-  <subscriber handler=".workflow.createCompanyIfNotExists"
-          for="collective.rcse.content.member.IMember
-           Products.DCWorkflow.interfaces.IAfterTransitionEvent" />
-
   <subscriber handler=".member.handle_member_added"
           for="collective.rcse.content.member.IMember
            zope.lifecycleevent.interfaces.IObjectModifiedEvent" />
