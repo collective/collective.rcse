@@ -52,6 +52,9 @@ class Join(ajax.AjaxAction):
 class Quit(ajax.AjaxAction):
     """Quit this group"""
     kind = GroupSchema
+    def get_group(self):
+        return self.context
+
     def action(self):
         if not self.kind.providedBy(self.context):
             raise ValueError("can t join something that is not a group")
