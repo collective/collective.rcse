@@ -1,10 +1,14 @@
 from AccessControl import Unauthorized
+from plone.autoform import directives
 from plone.autoform.form import AutoExtensibleForm
 from plone.z3cform.layout import FormWrapper
 from z3c.form import form
 from z3c.form import button
+from z3c.form.browser.password import PasswordFieldWidget
+from z3c.form.interfaces import WidgetActionExecutionError
 from zope import component
 from zope import interface
+from zope import schema
 
 from collective.rcse.settings import IPersonalPreferences
 from collective.rcse.i18n import _
@@ -35,12 +39,16 @@ class PersonalPreferencesForm(AutoExtensibleForm, form.Form):
         if self.member_context is None:
             raise Unauthorized
         self.settings = self.member_context.restrictedTraverse('get_settings')
+        self._updateSettings()
+
+    def _updateSettings(self):
         for field in self.fields:
-            try:
-                value = self.settings.get(field)
-                self.fields[field].field.default = value
-            except KeyError:
-                pass
+            if field in IPersonalPreferences.names():
+                try:
+                    value = self.settings.get(field)
+                    self.fields[field].field.default = value
+                except KeyError:
+                    pass
 
     @button.buttonAndHandler(_(u"Save"), name="save")
     def handleApply(self, action):
@@ -52,7 +60,8 @@ class PersonalPreferencesForm(AutoExtensibleForm, form.Form):
         self.member_context = self.member.get_membrane()
         self.settings = self.member_context.restrictedTraverse('get_settings')
         for key, value in data.items():
-            self.settings.set(key, value)
+            if key in IPersonalPreferences.names():
+                self.settings.set(key, value)
 
 
 class PersonalPreferencesFormWrapper(FormWrapper):

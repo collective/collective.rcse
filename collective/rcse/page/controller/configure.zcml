@@ -105,12 +105,12 @@
       permission="zope2.View"
       />
 
-  <adapter factory=".personal-preferences.PersonalPreferencesFormAdapter" />
+  <adapter factory=".personal_preferences.PersonalPreferencesFormAdapter" />
 
   <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="personal-preferences"
-      class=".personal-preferences.PersonalPreferencesFormWrapper"
+      class=".personal_preferences.PersonalPreferencesFormWrapper"
       template="templates/form.pt"
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
