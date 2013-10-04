@@ -280,6 +280,7 @@ def addTimeLineViewToContentTypes(context):
         'File',
         'Image',
         'News Item',
+        'collective.polls.poll',
     )
     for t in RCSE_CONTENT_TYPES:
         fti = ptypes.getTypeInfo(t)
