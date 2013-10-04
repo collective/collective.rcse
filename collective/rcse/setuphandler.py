@@ -30,6 +30,7 @@ def setupVarious(context):
         return
 
     portal = context.getSite()
+    installOnce(portal)
     updateWelcomePage(portal)
     createDirectories(portal)
     setupRegistration(portal)
@@ -41,7 +42,6 @@ def setupVarious(context):
     deactivateSourceUsers(portal)
     addTimeLineViewToContentTypes(portal)
     renameDocumentToArticle(portal)
-    installOnce(portal)
 
 
 def deactivateSourceUsers(portal):
