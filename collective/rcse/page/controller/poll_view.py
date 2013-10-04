@@ -1,6 +1,5 @@
 from AccessControl import Unauthorized
 from Acquisition import aq_inner, aq_parent
-from five import grok
  
 from zope import schema
  
@@ -112,9 +111,8 @@ class PollView(BrowserView):
         if hasattr(self, '_has_voted') and self._has_voted:
             # This is mainly to avoid anonymous users seeing the form again
             return False
-        utility = self.utility
         try:
-            return utility.allowed_to_vote(self.context, self.request)
+            return self.utility.allowed_to_vote(self.context, self.request)
         except Unauthorized:
             return False
  

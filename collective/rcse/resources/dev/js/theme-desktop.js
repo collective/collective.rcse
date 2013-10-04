@@ -546,7 +546,63 @@ var rcseInitDatatable = function(){
                         [ 20, 30, 50, "Tous" ] ]
 	});
 }
-
+var rcseInitScrollableColumns = function(){
+    $(window).scroll(function(){
+        var hasone = $('#portal-column-one').length == 1,
+            hastwo = $('#portal-column-two').length == 1,
+            oneoffset = $('#portal-column-one').offset(),
+            columnsoffset = $('#portal-columns').offset(),
+            oneheight = $('#portal-column-one').height(),
+            oneposition = $('#portal-column-one').position(),
+            twooffset = $('#portal-column-two').offset(),
+            twoheight = $('#portal-column-two').height(),
+            twoposition = $('#portal-column-two').position(),
+            scrolltop = $(this).scrollTop(),
+            viewport = getViewport(),
+            wwidth = viewport[0], wheight = viewport[1];
+        if (wwidth < 992){
+            //do nothing because columns will be displayed later
+            return
+        }
+        if (scrolltop<columnsoffset.top){
+            //reset
+            $('#portal-column-one').removeAttr('style');
+            $('#portal-column-two').removeAttr('style');
+        }
+        if (hasone) {
+            //column one
+            if (oneheight < wheight){
+                //stick to top
+                if(scrolltop>oneoffset.top) {
+                    $('#portal-column-one').css('position','fixed').css('top','8px')
+                        .css('left', oneposition.left);
+                }
+            }else{
+                if(scrolltop>oneheight) {
+                    //stick to bottom
+                    $('#portal-column-one').css('position','fixed').css('bottom','8px')
+                    .css('left', oneposition.left);
+                }
+            }
+        }
+        if (hastwo){
+            //column two
+            if (twoheight < wheight){
+                //stick to top
+                if(scrolltop>twooffset.top) {
+                    $('#portal-column-two').css('position','fixed').css('top','8px')
+                        .css('left', twoposition.left);
+                }
+            }else{
+                if(scrolltop>twoheight) {
+                    //stick to bottom
+                    $('#portal-column-two').css('position','fixed').css('bottom','8px')
+                    .css('left', twoposition.left);
+                }
+            }
+        }
+    });
+}
 var rcseApplyTransform = function(element) {
     if (element == undefined) {
         element = document;
@@ -580,6 +636,7 @@ $(document).on("ready", function() {
     rcseInitMasonry();
     rcseInitDatatable();
     $('a[data-toggle="tooltip"]').tooltip();
+    rcseInitScrollableColumns();
 });
 $.webshims.setOptions("basePath", portal_url + "/++resource++webshims/");
 $.webshims.setOptions('forms', {

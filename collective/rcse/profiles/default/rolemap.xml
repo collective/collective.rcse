@@ -66,5 +66,15 @@
       <role name="Owner"/>
       <role name="Contributor"/>
     </permission>
+    <permission name="collective.polls: Vote" acquire="False">
+      <role name="Manager"/>
+      <role name="Authenticated"/>
+    </permission>
+    <permission name="collective.polls: Close poll" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Reviewer"/>
+      <role name="Owner"/>
+    </permission>
   </permissions>
 </rolemap>
