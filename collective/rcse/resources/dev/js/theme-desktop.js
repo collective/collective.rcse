@@ -571,14 +571,14 @@ var rcseInitScrollableColumns = function(){
         }
         if (hasone) {
             //column one
-            if (oneheight < wheight){
+            if (oneoffset.top + oneheight < wheight){
                 //stick to top
                 if(scrolltop>oneoffset.top) {
                     $('#portal-column-one').css('position','fixed').css('top','8px')
                         .css('left', oneposition.left);
                 }
             }else{
-                if(scrolltop>oneheight) {
+                if(scrolltop>oneoffset.top + oneheight - wheight) {
                     //stick to bottom
                     $('#portal-column-one').css('position','fixed').css('bottom','8px')
                     .css('left', oneposition.left);
@@ -587,14 +587,14 @@ var rcseInitScrollableColumns = function(){
         }
         if (hastwo){
             //column two
-            if (twoheight < wheight){
+            if (twooffset.top + twoheight < wheight){
                 //stick to top
                 if(scrolltop>twooffset.top) {
                     $('#portal-column-two').css('position','fixed').css('top','8px')
                         .css('left', twoposition.left);
                 }
             }else{
-                if(scrolltop>twoheight) {
+                if(scrolltop>twooffset.top + twoheight - wheight) {
                     //stick to bottom
                     $('#portal-column-two').css('position','fixed').css('bottom','8px')
                     .css('left', twoposition.left);
