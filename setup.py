@@ -57,6 +57,7 @@ setup(
         'collective.transcode.star',
         'collective.watcherlist',
         'collective.whathappened',
+        'dexterity.membrane',
         'plone.app.async',
         'plone.app.dexterity',
         'plone.app.versioningbehavior',
