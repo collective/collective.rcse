@@ -33,7 +33,7 @@
                       <a tal:attributes="href view/group_url"
                          tal:content="view/group_title">Fullname / Group title</a></h4>
                     <p tal:define="desc view/group_description"
-                       tal:condition="desc" tal:content="desc"></p>
+                       tal:condition="desc" tal:content="structure desc"></p>
                 </div>
             </div>
         </div>
