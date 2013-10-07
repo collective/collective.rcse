@@ -547,23 +547,25 @@ var rcseInitDatatable = function(){
 	});
 }
 var rcseInitScrollableColumns = function(){
-    $(window).scroll(function(){
-        var hasone = $('#portal-column-one').length == 1,
-            hastwo = $('#portal-column-two').length == 1,
-            oneoffset = $('#portal-column-one').offset(),
-            columnsoffset = $('#portal-columns').offset(),
-            oneheight = $('#portal-column-one').height(),
-            oneposition = $('#portal-column-one').position(),
-            twooffset = $('#portal-column-two').offset(),
+    var hasone = $('#portal-column-one').length == 1,
+    hastwo = $('#portal-column-two').length == 1,
+    oneposition = $('#portal-column-one').position(),
+    twoposition = $('#portal-column-two').position(),
+    columnsoffset = $('#portal-columns').offset(),
+    viewport = getViewport(),
+    wwidth = viewport[0], wheight = viewport[1];
+
+    $(window).scroll(function(eventObject){
+      function fixColumns(){
+            var oneheight = $('#portal-column-one').height(),
             twoheight = $('#portal-column-two').height(),
-            twoposition = $('#portal-column-two').position(),
-            scrolltop = $(this).scrollTop(),
-            viewport = getViewport(),
-            wwidth = viewport[0], wheight = viewport[1];
+            scrolltop = $(this).scrollTop();
+
         if (wwidth < 992){
             //do nothing because columns will be displayed later
             return
         }
+
         if (scrolltop<columnsoffset.top){
             //reset
             $('#portal-column-one').removeAttr('style');
@@ -571,36 +573,42 @@ var rcseInitScrollableColumns = function(){
         }
         if (hasone) {
             //column one
-            if (oneoffset.top + oneheight < wheight){
-                //stick to top
-                if(scrolltop>oneoffset.top) {
+            if (columnsoffset.top + oneheight < wheight){
+                //The column is less high than the viewport
+                if(scrolltop>columnsoffset.top) {
+                    //stick to top
                     $('#portal-column-one').css('position','fixed').css('top','8px')
                         .css('left', oneposition.left);
                 }
             }else{
-                if(scrolltop>oneoffset.top + oneheight - wheight) {
+                //The column is higher than the viewport
+                if(scrolltop > columnsoffset.top + oneheight - wheight) {
                     //stick to bottom
                     $('#portal-column-one').css('position','fixed').css('bottom','8px')
-                    .css('left', oneposition.left);
+                      .css('left', oneposition.left);
                 }
             }
         }
         if (hastwo){
             //column two
-            if (twooffset.top + twoheight < wheight){
-                //stick to top
-                if(scrolltop>twooffset.top) {
+            if (columnsoffset.top + twoheight < wheight){
+                //The column is less high than the viewport
+                if(scrolltop>columnsoffset.top) {
+                    //stick to top
                     $('#portal-column-two').css('position','fixed').css('top','8px')
-                        .css('left', twoposition.left);
+                       .css('left', twoposition.left);
                 }
             }else{
-                if(scrolltop>twooffset.top + twoheight - wheight) {
+                //The column is higher than the viewport
+                if(scrolltop>columnsoffset.top + twoheight - wheight) {
                     //stick to bottom
                     $('#portal-column-two').css('position','fixed').css('bottom','8px')
-                    .css('left', twoposition.left);
+                      .css('left', twoposition.left);
                 }
             }
         }
+    }
+      setTimeout(fixColumns, 100)
     });
 }
 var rcseApplyTransform = function(element) {
