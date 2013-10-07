@@ -15,36 +15,18 @@
          tal:content="structure provider:plone.abovecontent"
          tal:condition="not:ajax_load" />
     <tal:group tal:condition="nocall:view/group">
-    <nav role="navigation" class="navbar navbar-inverse">
+    <nav role="navigation" class="navbar navbar-inverse"
+         tal:define="label_timeline view/label_timeline|view/group_title|nothing">
        <div class="navbar-brand">
          <h4 class="documentFirstHeading" i18n:translate=""
-             tal:content="view/group_title">My profile / Group title</h4>
+             tal:content="label_timeline">My profile / Group title</h4>
        </div>
     </nav>
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="media">
-                <a class="pull-left" href="#" tal:attributes="href view/group_url">
-                    <img class="media-object avatar"
-                         tal:attributes="src view/group_photo"/>
-                </a>
-                <div class="media-body">
-                    <h4 class="media-heading">
-                      <a tal:attributes="href view/group_url"
-                         tal:content="view/group_title">Fullname / Group title</a></h4>
-                    <p tal:define="desc view/group_description"
-                       tal:condition="desc" tal:content="structure desc"></p>
-                </div>
-            </div>
-        </div>
-        <div class="panel-footer" tal:condition="python: view.group_actions is not None or view.group_edit_bar is not None">
-            <div class="pull-right" tal:condition="view/group_edit_bar"
-                 tal:content="structure view/group_edit_bar"></div>
-            <div class="document-actions-wrapper"
-                 tal:content="structure view/group_actions"></div>
-            <div tal:condition="python:view.group_actions is None">&nbsp;</div>
-        </div>
+
+    <div class="rcse_tile_wrapper">
+       <a class="rcse_tile" tal:attributes="href view/group_url"></a>
     </div>
+
     </tal:group>
     <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent"
          tal:condition="not:ajax_load" />
@@ -52,7 +34,7 @@
     <nav role="navigation" class="navbar navbar-inverse"
          tal:condition="not:view/is_content_timeline">
        <div class="navbar-brand">
-         <h4 class="documentFirstHeading" i18n:translate="">News</h4>
+         <h4 class="documentFirstHeading" tal:content="python:view.label_content or 'News'" i18n:translate="">News</h4>
        </div>
     </nav>
     <div tal:define="b_start python:0; b_start request/b_start | b_start;

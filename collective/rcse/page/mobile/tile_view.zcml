@@ -29,6 +29,14 @@
       permission="zope2.View"
       layer="collective.rcse.layer.MobileLayer"
       />
+  <browser:page
+      for="collective.rcse.content.company.ICompany"
+      name="tile_view"
+      class="collective.rcse.page.controller.company_view.CompanyInfoView"
+      template="templates/company_tile_view.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
 
   <browser:page
       for="plone.app.contenttypes.interfaces.IDocument"

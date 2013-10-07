@@ -15,24 +15,9 @@
           <div id="viewlet-above-content-body"
                tal:content="structure provider:plone.abovecontentbody" />
 
-<div class="rcse_tile_wrapper" style="min-height:100px" tal:condition="nocall:view/group">
-    <div class="rcsetile" id="eb87ae4601c14e409c3da8eef1f92b14">
-        <div class="vcard">
-            <img class="photo" tal:attributes="src view/group_photo"/>
-            <a tal:attributes="href view/group_url"
-               tal:content="view/group_title">Fullname / Group title</a>
-            <p tal:define="desc view/group_description"
-               tal:condition="desc" tal:content="structure desc"></p>
-        </div>
-        <div class="panel-footer" tal:condition="view/group_actions">
-            <div class="pull-right" tal:condition="view/group_edit_bar"
-                 tal:content="structure view/group_edit_bar"></div>
-            <div class="document-actions-wrapper"
-                 tal:content="structure view/group_actions"></div>
-        </div>
-
-    </div>
-</div>
+          <div class="rcse_tile_wrapper" tal:condition="nocall:view/group">
+              <a class="rcse_tile" tal:attributes="href view/group_url"></a>
+          </div>
 
       <div tal:define="b_start python:0; b_start request/b_start | b_start;
                      batch python: view.get_content(b_start=b_start, b_size=4);">

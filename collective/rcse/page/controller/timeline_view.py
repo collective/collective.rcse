@@ -9,18 +9,21 @@ from Products.CMFCore import permissions
 
 
 _ = RCSEMessageFactory
+msg_unauthorized = _(u"You must be logged in to access to the RCSE")
 
 
-class TimelineView(BaseView):
+class GroupTimelineView(BaseView):
     """Timeline view"""
     is_content_timeline = False
+    label_content = _(u"News")
+    label_timeline = _(u"Group")
 
     def __call__(self):
         self.update()
         return self.index()
 
     def __init__(self, context, request):
-        super(TimelineView, self).__init__(context, request)
+        super(GroupTimelineView, self).__init__(context, request)
         self.plone_utils = None
         self.use_view_action = None
         self.group = None
@@ -43,7 +46,7 @@ class TimelineView(BaseView):
             self.group_actions = self.group.restrictedTraverse(name)
             name = "@@collective.rcse.editbar"
             self.group_edit_bar = self.group.restrictedTraverse(name)
-        super(TimelineView, self).update()
+        super(GroupTimelineView, self).update()
 
     @property
     def filter_type(self):
@@ -52,11 +55,12 @@ class TimelineView(BaseView):
         return portal_types
 
 
-msg_unauthorized = _(u"You must be logged in to access to the RCSE")
 
 
-class NavigationRootTimelineView(TimelineView):
+class NavigationRootTimelineView(GroupTimelineView):
     """This is the page as default home when rcse is activated"""
+    label_content = _(u"News")
+    label_timeline = _(u"My profile")
 
     def __call__(self):
         self.update()
@@ -82,22 +86,25 @@ class NavigationRootTimelineView(TimelineView):
         if self.group is None:
             self.group = self.context.restrictedTraverse('@@auth_memberinfo')
             self.group.update()
-            self.group_title = self.group.fullname
-            self.group_description = self.group.bio
-            self.group_url = self.group.url
-            self.group_photo = self.group.photo()
-            self.group_actions = None
-            self.group_edit_bar = None
+            membrane = self.group.get_membrane()
+            self.group_url = membrane.absolute_url()
+#            self.group_title = self.group.fullname
+#            description = membrane.restrictedTraverse('@@tile_view')()
+#            self.group_description = description
+#            self.group_photo = self.group.photo()
+#            self.group_actions = None
+#            self.group_edit_bar = None
         super(NavigationRootTimelineView, self).update()
         #hack the  query
         self.query["path"] = self.context_path
         self.query["group_watchers"] = self.member.getId()
 
 
-class ContentAsTimeLineView(BrowserView):
+class ContentAsTimelineView(BrowserView):
     """We don't want to provide dedicated view for each content type so
     here is a base view to use the timeline template to display it"""
     is_content_timeline = True
+    label_content = None
 
     def __call__(self):
         self.update()
@@ -112,6 +119,7 @@ class ContentAsTimeLineView(BrowserView):
 
 class ProxyGroupTimelineView(BrowserView):
     is_content_timeline = True
+    label_content = None
 
     def __call__(self):
         self.update()
@@ -127,12 +135,66 @@ class ProxyGroupTimelineView(BrowserView):
             self.request.response.redirect(self.manager.group.absolute_url())
         self.group = self.context
         self.group_title = self.manager.title()
-        self.group_description = self.manager.description()
         self.group_url = self.group.absolute_url()
-        self.group_photo = self.group_url + "/group_photo"
-        self.group_actions = None
-        name = "@@collective.rcse.editbar"
-        self.group_edit_bar = self.context.restrictedTraverse(name)
+#        self.group_description = self.manager.description()
+#        self.group_photo = self.group_url + "/group_photo"
+#        self.group_actions = None
+#        name = "@@collective.rcse.editbar"
+#        self.group_edit_bar = self.context.restrictedTraverse(name)
 
     def get_content(self, **kwargs):
         return []
+
+
+class MemberTimelineView(GroupTimelineView):
+    label_timeline = _(u"Member")
+    def update(self):
+        if self.group is None:
+            self.group = self.context
+            self.group_title = _(u"Member")
+            self.group_url = self.group.absolute_url()
+#            description = self.context.restrictedTraverse('@@tile_view')()
+#            self.group_description = description
+#            self.group_photo = None
+#            name = "@@plone.abovecontenttitle.documentactions"
+#            self.group_actions = self.group.restrictedTraverse(name)
+#            name = "@@collective.rcse.editbar"
+#            self.group_edit_bar = self.group.restrictedTraverse(name)
+        super(MemberTimelineView, self).update()
+        self.query["Creator"] = self.context.username
+        del self.query['path']
+        self.label_content = _(
+            u"Contents created by ${name}",
+            mapping={'name': self.group.Title()}
+        )
+
+
+class CompanyTimelineView(BrowserView):
+    is_content_timeline = False
+    label_content = _(u"Members")
+
+    def __call__(self):
+        self.update()
+        return self.index()
+
+    def update(self):
+        self.catalog = getToolByName(self.context, 'portal_catalog')
+        self.portal_url = getToolByName(self.context, 'portal_url')
+
+        self.group = self.context
+        self.group_title = _(u"Company")  # the title is already in the desc
+        self.group_url = self.group.absolute_url()
+#        name = "@@company_description_view"
+#        self.group_description = self.context.restrictedTraverse(name)()
+#        if self.context.logo:
+#            self.group_photo = "%s/@@images/logo" % self.group_url
+#        else:
+#            self.group_photo = None
+#        self.group_actions = None
+#        name = "@@collective.rcse.editbar"
+#        self.group_edit_bar = self.context.restrictedTraverse(name)
+#        name = "@@plone.abovecontenttitle.documentactions"
+#        self.group_actions = self.group.restrictedTraverse(name)
+
+    def get_content(self, **kwargs):
+        return self.catalog(company_id=self.context.getId())

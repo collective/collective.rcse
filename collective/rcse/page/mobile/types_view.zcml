@@ -7,7 +7,7 @@
     <browser:page
       for="*"
       name="timeline_view"
-      class="collective.rcse.page.controller.timeline_view.ContentAsTimeLineView"
+      class="collective.rcse.page.controller.timeline_view.ContentAsTimelineView"
       template="templates/timeline_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
@@ -24,7 +24,7 @@
   <browser:page
       for="collective.rcse.content.group.GroupSchema"
       name="timeline_view"
-      class="collective.rcse.page.controller.timeline_view.TimelineView"
+      class="collective.rcse.page.controller.timeline_view.GroupTimelineView"
       template="templates/timeline_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
@@ -57,16 +57,8 @@
       />
   <browser:page
       for="collective.rcse.content.company.ICompany"
-      name="company_description_view"
-      class="collective.rcse.page.controller.company_view.CompanyInfoView"
-      template="templates/company_description_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
-  <browser:page
-      for="collective.rcse.content.company.ICompany"
       name="timeline_view"
-      class="collective.rcse.page.controller.company_view.CompanyTimelineView"
+      class="collective.rcse.page.controller.timeline_view.CompanyTimelineView"
       template="templates/timeline_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
