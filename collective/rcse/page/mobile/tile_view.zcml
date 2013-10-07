@@ -92,6 +92,7 @@
   <browser:page
       for="collective.rcse.content.member.IMember"
       name="tile_view"
+      class="collective.rcse.page.controller.person_view.MemberInfoView"
       template="templates/member_tile_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.MobileLayer"
