@@ -235,6 +235,7 @@ var rcseUpdateForms = function(element){
      * Lazy load CKEDITOR if there is contenteditable in the page
      */
     $(element).find('div[contenteditable="true"]').each(function(){
+        $(this).addClass('form-control');
         if ($("#ckeditor-script").length == 0){
             var script = document.createElement( 'script' );
             script.type = 'text/javascript';
