@@ -294,7 +294,8 @@ var rcseInitTimeline = function() {
             parent.hide();
             item.replaceWith(data)
             rcseApplyTransform(parent);
-            parent.addClass('animated pulse').show();
+            //parent.addClass('animated pulse').show();
+            parent.show();
         });
     }, {offset: '100%'});
 }
