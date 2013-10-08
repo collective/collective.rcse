@@ -38,11 +38,10 @@ class TestSetup(base.IntegrationTestCase):
         ptypes = self.portal.portal_types
         gtype = ptypes.getTypeInfo("collective.rcse.group")
         for content in (
-            "audio",
-            "document",
+#            "audio",
+            "discussion",
+            "etherpad",
             "event",
-            "file",
-            "image",
             "video",
         ):
             ctype = "collective.rcse." + content
@@ -58,20 +57,20 @@ class TestSetup(base.IntegrationTestCase):
         gtype = ptypes.getTypeInfo("collective.rcse.audio")
         self.assertEqual(gtype.Title(), u"Audio")
 
+    def test_type_discussion(self):
+        ptypes = self.portal.portal_types
+        gtype = ptypes.getTypeInfo("collective.rcse.discussion")
+        self.assertEqual(gtype.Title(), u"Discussion")
+
+    def test_type_etherpad(self):
+        ptypes = self.portal.portal_types
+        gtype = ptypes.getTypeInfo("collective.rcse.etherpad")
+        self.assertEqual(gtype.Title(), u"Etherpad")
+
     def test_type_event(self):
         ptypes = self.portal.portal_types
         gtype = ptypes.getTypeInfo("collective.rcse.event")
         self.assertEqual(gtype.Title(), u"Event")
-
-    def test_type_file(self):
-        ptypes = self.portal.portal_types
-        gtype = ptypes.getTypeInfo("collective.rcse.file")
-        self.assertEqual(gtype.Title(), u"File")
-
-    def test_type_image(self):
-        ptypes = self.portal.portal_types
-        gtype = ptypes.getTypeInfo("collective.rcse.image")
-        self.assertEqual(gtype.Title(), u"Image")
 
     def test_type_video(self):
         ptypes = self.portal.portal_types

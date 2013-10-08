@@ -4,6 +4,7 @@ from collective.rcse import testing
 from plone.app.testing import (
     setRoles,
     TEST_USER_ID,
+    TEST_USER_PASSWORD,
 )
 
 
@@ -28,6 +29,9 @@ class IntegrationTestCase(unittest.TestCase):
     def login(self, role):
         setRoles(self.portal, TEST_USER_ID, [role])
 
+    def create_user(self, username):
+        acl_users = self.portal.acl_users
+        acl_users.userFolderAddUser(username, TEST_USER_PASSWORD, ["Member"], [])
 
 class FunctionalTestCase(IntegrationTestCase):
 
