@@ -32,7 +32,10 @@ def sudo(role='Manager'):
 
 
 def createNotification(what, where, when, who, user):
-    """Create a new notification and store it."""
+    """Create a new notification and store it.
+
+    who is a list of userids.
+    """
 
     storage = StorageManager(getSite())
     storage.setUser(user)

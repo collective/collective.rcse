@@ -51,6 +51,8 @@ class BaseDisplay(object):
                 title = context.restrictedTraverse(where).Title()
             except KeyError:
                 self.where = where.split('/')[-1]
+            except AttributeError:
+                self.where = where
             else:
                 self.where = title.decode('utf-8')
         else:
@@ -159,3 +161,70 @@ class WaitingForValidationDisplay(BaseDisplay):
         super(WaitingForValidationDisplay, self).display(context, request, notification)
         return _w(u"${who} is waiting for validation",
                   mapping={'who': self.who})
+
+
+class RequestAccessRequest(BaseDisplay):
+    def display(self, context, request, notification):
+        super(RequestAccessRequest, self).display(context, request, notification)
+        mapping = {
+            'who': self.who,
+            'where': self.where
+            }
+        if self.plural:
+            return _w(u"${who} have requested access to ${where}",
+                      mapping=mapping)
+        else:
+            return _w(u"${who} has requested access to ${where}",
+                      mapping=mapping)
+
+
+class RequestAccessInvitation(BaseDisplay):
+    def display(self, context, request, notification):
+        super(RequestAccessInvitation, self).display(context, request, notification)
+        mapping = {
+            'who': self.who
+            }
+        if self.plural:
+            return _w(u"${who} have sent you invitations",
+                      mapping=mapping)
+        else:
+            return _w(u"${who} has sent you an invitation",
+                      mapping=mapping)
+
+
+class RequestAccessValidated(BaseDisplay):
+    def display(self, context, request, notification):
+        super(RequestAccessValidated, self).display(context, request, notification)
+        mapping = {
+            'who': self.who,
+            'where': self.where
+            }
+        if notification.where.endswith('@@my_requests_view'):
+            if self.plural:
+                return _w(u"${who} have accepted your invitations",
+                          mapping=mapping)
+            else:
+                return _w(u"${who} has accepted your invitation",
+                          mapping=mapping)
+        else:
+            return _w(u"Your request for ${where} has been validated",
+                      mapping=mapping)
+
+
+class RequestAccessRefused(BaseDisplay):
+    def display(self, context, request, notification):
+        super(RequestAccessRefused, self).display(context, request, notification)
+        mapping = {
+            'who': self.who,
+            'where': self.where
+            }
+        if notification.where.endswith('@@my_requests_view'):
+            if self.plural:
+                return _w(u"${who} have refused your invitations",
+                          mapping=mapping)
+            else:
+                return _w(u"${who} has refused your invitation",
+                          mapping=mapping)
+        else:
+            return _w(u"Your request for ${where} has been refused",
+                      mapping=mapping)

@@ -65,6 +65,18 @@
 	      for="collective.rcse.content.member.IMember
 		   Products.DCWorkflow.interfaces.IAfterTransitionEvent"
 	      />
+  <subscriber handler=".subscribers.handle_request_added"
+	      for="collective.requestaccess.interfaces.RequestSchema
+		   collective.requestaccess.event.IRequestAddedEvent"
+	      />
+  <subscriber handler=".subscribers.handle_request_validated"
+	      for="collective.requestaccess.interfaces.RequestSchema
+		   collective.requestaccess.event.IRequestValidatedEvent"
+	      />
+  <subscriber handler=".subscribers.handle_request_refused"
+	      for="collective.requestaccess.interfaces.RequestSchema
+		   collective.requestaccess.event.IRequestRefusedEvent"
+	      />
 
   <adapter factory=".adapter.CioppinoLike" />
   <adapter factory=".adapter.CioppinoUnlike" />
@@ -103,6 +115,18 @@
   <utility factory=".utilities.WaitingForValidationDisplay"
 	   provides="collective.whathappened.utility.IDisplay"
 	   name="waiting_for_validation" />
+  <utility factory=".utilities.RequestAccessRequest"
+	   provides="collective.whathappened.utility.IDisplay"
+	   name="request_access_request" />
+  <utility factory=".utilities.RequestAccessInvitation"
+	   provides="collective.whathappened.utility.IDisplay"
+	   name="request_access_invitation" />
+  <utility factory=".utilities.RequestAccessValidated"
+	   provides="collective.whathappened.utility.IDisplay"
+	   name="request_access_validated" />
+  <utility factory=".utilities.RequestAccessRefused"
+	   provides="collective.whathappened.utility.IDisplay"
+	   name="request_access_refused" />
 
   <browser:page
     for="*"
