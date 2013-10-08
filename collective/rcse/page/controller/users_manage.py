@@ -60,7 +60,8 @@ class ManageUserForm(AutoExtensibleForm, form.Form):
         try:
             wtool.doActionFor(user, action)
         except WorkflowException:
-            message.add(_(u"Can't enable the member %s" % user))
+            message.add(_(u"Can't enable the member ${user}",
+                          mapping={'user': user}))
             logger.info("Can't enable the member %s" % user)
             return
         referer = self.request.get("HTTP_REFERER")
@@ -99,7 +100,8 @@ class ManageDisabledUserForm(ManageUserForm):
         data, errors = self.extractData()
         userid = data['user_id']
         self.context.manage_delObjects([userid])
-        msg = _(u"User %s has been deleted" % userid)
+        msg = _(u"User ${user} has been deleted",
+                mapping={'user': userid})
         IStatusMessage(self.request).add(msg)
         referer = self.request.get("HTTP_REFERER")
         if not referer:

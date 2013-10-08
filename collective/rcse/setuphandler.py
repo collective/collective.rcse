@@ -40,7 +40,7 @@ def setupVarious(context):
     uninstallDependencies(portal)
     activateComments(portal)
     deactivateSourceUsers(portal)
-    addTimeLineViewToContentTypes(portal)
+    addTimelineViewToContentTypes(portal)
     renameDocumentToArticle(portal)
 
 
@@ -273,7 +273,7 @@ def activateComments(portal):
             continue
 
 
-def addTimeLineViewToContentTypes(context):
+def addTimelineViewToContentTypes(context):
     ptypes = getToolByName(context, "portal_types")
     RCSE_CONTENT_TYPES = (
         'Document',

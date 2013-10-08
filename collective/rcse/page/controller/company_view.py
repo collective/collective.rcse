@@ -1,5 +1,6 @@
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
+from collective.rcse.i18n import _
 
 
 class CompanyInfoView(BrowserView):
@@ -12,7 +13,7 @@ class CompanyInfoView(BrowserView):
 
     def __call__(self):
         self.update()
-        self.getCompanyProperties()
+        self.url = self.context.absolute_url()
         if self.__name__.endswith("_view"):
             return self.index()
         return self
@@ -24,10 +25,3 @@ class CompanyInfoView(BrowserView):
             self.wtool = getToolByName(self.context, 'portal_workflow')
         if self.catalog is None:
             self.catalog = getToolByName(self.context, 'portal_catalog')
-
-    def getCompanyProperties(self):
-        self.url = '/'.join(self.context.getPhysicalPath())
-
-    def getUsers(self):
-        brains = self.catalog(company_id=self.context.id)
-        return [brain.getObject() for brain in brains]

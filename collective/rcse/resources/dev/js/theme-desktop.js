@@ -235,6 +235,7 @@ var rcseUpdateForms = function(element){
      * Lazy load CKEDITOR if there is contenteditable in the page
      */
     $(element).find('div[contenteditable="true"]').each(function(){
+        $(this).addClass('form-control');
         if ($("#ckeditor-script").length == 0){
             var script = document.createElement( 'script' );
             script.type = 'text/javascript';
@@ -551,60 +552,77 @@ var rcseInitDatatable = function(){
 	});
 }
 var rcseInitScrollableColumns = function(){
-    $(window).scroll(function(){
-        var hasone = $('#portal-column-one').length == 1,
-            hastwo = $('#portal-column-two').length == 1,
-            oneoffset = $('#portal-column-one').offset(),
-            columnsoffset = $('#portal-columns').offset(),
-            oneheight = $('#portal-column-one').height(),
-            oneposition = $('#portal-column-one').position(),
-            twooffset = $('#portal-column-two').offset(),
-            twoheight = $('#portal-column-two').height(),
-            twoposition = $('#portal-column-two').position(),
-            scrolltop = $(this).scrollTop(),
-            viewport = getViewport(),
-            wwidth = viewport[0], wheight = viewport[1];
+    var cone = $('#portal-column-one'),
+    ctwo = $('#portal-column-two'),
+    hasone = cone.length == 1,
+    hastwo = ctwo.length == 1,
+    oneposition = cone.position(),
+    twoposition = ctwo.position(),
+    columnsoffset = $('#portal-columns').offset(),
+    viewport = getViewport(),
+    wwidth = viewport[0], wheight = viewport[1];
+    $(window).resize(function(eventObject){
+        cone = $('#portal-column-one');
+        ctwo = $('#portal-column-two');
+        hasone = cone.length == 1;
+        hastwo = ctwo.length == 1;
+        oneposition = cone.position();
+        twoposition = ctwo.position();
+        columnsoffset = $('#portal-columns').offset();
+        viewport = getViewport();
+        wwidth = viewport[0], wheight = viewport[1];
+    });
+
+    $(window).scroll(function(eventObject){
+      function fixColumns(){
+            var oneheight = cone.height() + parseInt(cone.css('padding-top')) + parseInt(cone.css('margin-top')),
+            twoheight = ctwo.height() + parseInt(ctwo.css('padding-top')) + parseInt(ctwo.css('margin-top')),
+            scrolltop = $(this).scrollTop();
+
         if (wwidth < 992){
             //do nothing because columns will be displayed later
             return
         }
-        if (scrolltop<columnsoffset.top){
+
+        if (scrolltop < columnsoffset.top){
             //reset
-            $('#portal-column-one').removeAttr('style');
-            $('#portal-column-two').removeAttr('style');
+            if (hasone){
+                cone.removeAttr('style');
+            }
+            if (hastwo){
+                ctwo.removeAttr('style');
+            }
         }
-        if (hasone) {
-            //column one
-            if (oneoffset.top + oneheight < wheight){
-                //stick to top
-                if(scrolltop>oneoffset.top) {
-                    $('#portal-column-one').css('position','fixed').css('top','8px')
-                        .css('left', oneposition.left);
+        if (scrolltop >= columnsoffset.top){
+            if (hasone){
+                cone.css('position','fixed').css('left', oneposition.left);
+                if (wheight > oneheight) {
+                    console.log('stick to top ONE');
+                    cone.css('top','8px');
+                }else if(scrolltop + wheight >= columnsoffset.top + oneheight + 20) {
+                    console.log('stick to bottom ONE');
+                    cone.css('bottom','8px');
+                }else{
+                    console.log('stick to current ONE');
+                    cone.css('top', 8 + columnsoffset.top - scrolltop + 'px');
                 }
-            }else{
-                if(scrolltop>oneoffset.top + oneheight - wheight) {
-                    //stick to bottom
-                    $('#portal-column-one').css('position','fixed').css('bottom','8px')
-                    .css('left', oneposition.left);
+            }
+            if (hastwo){
+                ctwo.css('position','fixed').css('left', twoposition.left);
+                if (wheight > twoheight) {
+                    console.log('stick to top TWO');
+                    ctwo.css('top','8px');
+                }else if(scrolltop + wheight >= columnsoffset.top + twoheight + 20) {
+                    console.log('stick to bottom TWO');
+                    ctwo.css('bottom','8px');
+                }else{
+                    console.log('stick to current TWO');
+                    ctwo.css('top', 8 + columnsoffset.top - scrolltop + 'px');
                 }
             }
         }
-        if (hastwo){
-            //column two
-            if (twooffset.top + twoheight < wheight){
-                //stick to top
-                if(scrolltop>twooffset.top) {
-                    $('#portal-column-two').css('position','fixed').css('top','8px')
-                        .css('left', twoposition.left);
-                }
-            }else{
-                if(scrolltop>twooffset.top + twoheight - wheight) {
-                    //stick to bottom
-                    $('#portal-column-two').css('position','fixed').css('bottom','8px')
-                    .css('left', twoposition.left);
-                }
-            }
-        }
+      }
+      fixColumns();
     });
 }
 var rcseApplyTransform = function(element) {

@@ -62,18 +62,18 @@ class PollView(BrowserView):
         # check the permissions.
         container = aq_parent(aq_inner(self.context))
  
-        if 'open' == self.wf_state and not ISiteRoot.providedBy(container):
-            roles = [
-                r['name'] for r in
-                self.context.rolesOfPermission('collective.polls: Vote')
-                if r['selected']]
- 
-            if 'Anonymous' not in roles and self.context.allow_anonymous:
-                messages.addStatusMessage(_(
-                    u"Anonymous user won't be able to vote, you forgot to "
-                    u"publish the parent folder, you must sent back the poll "
-                    u"to private state, publish the parent folder and open "
-                    u"the poll again"), type="info")
+#         if 'open' == self.wf_state and not ISiteRoot.providedBy(container):
+#             roles = [
+#                 r['name'] for r in
+#                 self.context.rolesOfPermission('collective.polls: Vote')
+#                 if r['selected']]
+#  
+#             if 'Anonymous' not in roles and self.context.allow_anonymous:
+#                 messages.addStatusMessage(_(
+#                     u"Anonymous user won't be able to vote, you forgot to "
+#                     u"publish the parent folder, you must sent back the poll "
+#                     u"to private state, publish the parent folder and open "
+#                    u"the poll again"), type="info")
  
         INVALID_OPTION = _(u'Invalid option')
         if 'poll.submit' in form:

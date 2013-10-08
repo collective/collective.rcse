@@ -1,4 +1,32 @@
-<div class="tile-wrapper">
+<div class="tile-wrapper" i18n:domain="collective.rcse">
+
+<tal:block
+     tal:condition="view/getWorkflowTransitions"
+     tal:repeat="transition view/getWorkflowTransitions">
+    <a class="btn btn-default"
+       i18n:translate=""
+       tal:attributes="href transition/url"
+       tal:content="transition/name">
+    </a>
+</tal:block>
+
+<tal:block
+     tal:condition="view/canModify">
+    <a class="btn btn-default"
+       i18n:translate=""
+       tal:attributes="href string:${context/absolute_url}/modify_company">
+      Modify company
+    </a>
+    <p tal:condition="not:view/emailIsValidated">
+      <span i18n:translate="">The e-mail has not been validated yet.</span>
+      <a tal:attributes="href string:${view/portal_url}/@@send_email_validation"
+         i18n:translate="">
+        Resend the validation e-mail.
+      </a>
+    </p>
+</tal:block>
+
+
     <h2 tal:content="string:${context/first_name} ${context/last_name}"></h2>
     <h3 tal:content="string:${context/function} in ${context/company}"></h3>
     <a i18n:translate="" tal:attributes="href string:${context/absolute_url}/groups_view">See groups</a>
@@ -10,7 +38,7 @@
         i18n:translate="">Personal information</h3>
     <div class="birthdate" tal:condition="context/birthdate" i18n:translate="">
         Born the
-        <span tal:content="context/birthdate"></span>
+        <span i18n:name="birthdate" tal:content="context/birthdate"></span>
     </div>
     <h3 tal:condition="context/bio">Presentation</h3>
     <div class="bio" tal:condition="context/bio" tal:content="structure context/bio/output"></div>

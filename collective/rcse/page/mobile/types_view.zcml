@@ -7,7 +7,7 @@
     <browser:page
       for="*"
       name="timeline_view"
-      class="collective.rcse.page.controller.timeline_view.ContentAsTimeLineView"
+      class="collective.rcse.page.controller.timeline_view.ContentAsTimelineView"
       template="templates/timeline_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
@@ -24,7 +24,7 @@
   <browser:page
       for="collective.rcse.content.group.GroupSchema"
       name="timeline_view"
-      class="collective.rcse.page.controller.timeline_view.TimelineView"
+      class="collective.rcse.page.controller.timeline_view.GroupTimelineView"
       template="templates/timeline_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
@@ -39,14 +39,6 @@
       />
 
   <!-- Member and Company -->
-  <browser:page
-      for="collective.rcse.content.company.ICompany"
-      name="company_view"
-      class="collective.rcse.page.controller.company_view.CompanyInfoView"
-      template="templates/company_view.pt"
-      layer="collective.rcse.layer.MobileLayer"
-      permission="zope2.View"
-      />
 
   <browser:page
       for="collective.rcse.content.member.IMember"
@@ -60,6 +52,14 @@
       name="members_view"
       class="collective.rcse.page.controller.company_view.CompanyInfoView"
       template="templates/company_users_view.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
+  <browser:page
+      for="collective.rcse.content.company.ICompany"
+      name="timeline_view"
+      class="collective.rcse.page.controller.timeline_view.CompanyTimelineView"
+      template="templates/timeline_view.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
