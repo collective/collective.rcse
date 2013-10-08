@@ -12,7 +12,7 @@ from collective.whathappened.utility import IDisplay
 from collective.whathappened.i18n import _ as _w
 
 
-class RcseUserAdder(SimpleItem):
+class RcseUserAdder(object):
     """Used by Products.membrane when a user is added."""
     interface.implements(IUserAdder)
 
