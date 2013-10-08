@@ -15,6 +15,7 @@ from plone.app.event import testing as event_testing
 from plone.app.contenttypes import testing as ptypes_testing
 from Products.CMFCore.utils import getToolByName
 import collective.rcse
+import transaction
 
 
 class Layer(mobile_testing.Layer,
@@ -31,22 +32,26 @@ class Layer(mobile_testing.Layer,
         event_testing.PAEventDXLayer.setUpZope(self, app, configurationContext)
         ptypes_testing.PloneAppContenttypes.setUpZope(self, app, configurationContext)
         import plone.app.versioningbehavior
+        import five.localsitemanager
         import Products.membrane
         import plone.app.contentrules
         self.loadZCML(package=plone.app.versioningbehavior)
         self.loadZCML(package=plone.app.contentrules)
+        self.loadZCML(package=five.localsitemanager)
         self.loadZCML(package=Products.membrane)
         z2.installProduct(app, 'Products.membrane')  # initialize
         self.loadZCML(package=collective.rcse)
 
     def setUpPloneSite(self, portal):
         #make global request work
-        from five.globalrequest import hooks
-        class FakeEvent:
-            def __init__(self, request):
-                self.request = request
-        event = FakeEvent(portal.REQUEST)
-        hooks.set_(event)
+#        from five.globalrequest import hooks
+#        class FakeEvent:
+#            def __init__(self, request):
+#                self.request = request
+#        event = FakeEvent(portal.REQUEST)
+#        hooks.set_(event)
+#        from five.localsitemanager import make_objectmanager_site
+#        make_objectmanager_site(portal)
 
         mobile_testing.Layer.setUpPloneSite(self, portal)
         event_testing.PAEventLayer.setUpPloneSite(self, portal)
@@ -59,13 +64,15 @@ class Layer(mobile_testing.Layer,
         portal.acl_users.source_users.manage_activateInterfaces([
             "IAuthenticationPlugin",
             "IUserAdderPlugin",
-            "IUserEnumerationPlugin"
+            "IUserEnumerationPlugin",
+            #"IUserIntrospection",
+            #"IUserManagement",
         ])
-        import pdb;pdb.set_trace()
         login(portal, SITE_OWNER_NAME)
 #        login(portal, TEST_USER_NAME)
 #        setRoles(portal, TEST_USER_ID, ['Manager'])
-#        self.create_user(portal, "simplemember1")
+#        transaction.commit()
+        self.create_user(portal, "simplemember1")
 #        self.create_user(portal, "simplemember2")
 #        self.create_user(portal, "simplemember3")
 #        self.create_user(portal, "siteadmin", role="Site Administrator")
@@ -73,8 +80,10 @@ class Layer(mobile_testing.Layer,
         logout()
 
     def create_user(self, portal, username, role="Member"):
-        acl_users = getToolByName(portal, 'acl_users')
-        acl_users.userFolderAddUser(username, TEST_USER_PASSWORD, [role], [])
+#        acl_users = getToolByName(portal, 'acl_users')
+#        acl_users.userFolderAddUser(username, TEST_USER_PASSWORD, [role], [])
+        regtool = getToolByName(portal, 'portal_registration')
+        regtool.addMember(username, username)
 #        self.ploneapi.user.create(
 #            email="%s@example.com" % username,
 #            username=username,

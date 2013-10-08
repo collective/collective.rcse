@@ -207,16 +207,20 @@ def _watch_on_like_rule(portal, request):
 
 def _add_rule_condition(request, rule, condition_id, data):
     condition = component.getUtility(IRuleCondition, name=condition_id)
-    adding = component.getMultiAdapter((rule, request), name='+condition')
-    addview = component.getMultiAdapter((adding, request),
-                                        name=condition.addview)
+    adding = rule.restrictedTraverse('+condition')
+    addview = adding.restrictedTraverse(str(condition.addview))
+    #adding = component.getMultiAdapter((rule, request), name='+condition')
+#    addview = component.getMultiAdapter((adding, request),
+#                                        name=condition.addview)
     addview.createAndAdd(data=data)
 
 
 def _add_rule_action(request, rule, action_id, data):
     action = component.getUtility(IRuleAction, name=action_id)
-    adding = component.getMultiAdapter((rule, request), name='+action')
-    addview = component.getMultiAdapter((adding, request), name=action.addview)
+    adding = rule.restrictedTraverse('+action')
+    addview = adding.restrictedTraverse(str(action.addview))
+#    adding = component.getMultiAdapter((rule, request), name='+action')
+#    addview = component.getMultiAdapter((adding, request), name=action.addview)
     addview.createAndAdd(data=data)
 
 
