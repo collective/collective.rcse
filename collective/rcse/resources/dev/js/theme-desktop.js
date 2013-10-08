@@ -325,7 +325,11 @@ var rcseInitFilter = function(){
 }
 
 var rcseInitAjaxAction = function() {
-    var ajax_blacklist = ['add_request_access', 'add_invite_access'];
+    var ajax_blacklist = [
+	'add_request_access',
+	'add_invite_access',
+	'review_requests',
+    ];
 
     $(document).on("click", ".document-actions-wrapper a.action", function(eventObject) {
 	if (ajax_blacklist.indexOf($(this).attr('id')) != -1)

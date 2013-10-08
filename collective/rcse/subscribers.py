@@ -16,7 +16,8 @@ def handle_request_added(context, event):
             if [r for r in role if r in ('Owner', 'Site Administrator')]:
                 createNotification(what, where, when, who, user)
     elif context.rtype == 'invitation':
-        root = getSite().portal_url.getPortalObject().absolute_url()
+        portal = getSite().portal_url.getPortalObject()
+        root = '/'.join(portal.getPhysicalPath())
         where = '%s/@@my_requests_view' % root
         what = 'request_access_invitation'
         when = datetime.datetime.now()
@@ -28,7 +29,8 @@ def handle_request_added(context, event):
 def _handle_request(context, event, what):
     target = uuidToObject(context.target)
     if target is None or context.rtype == 'invitation':
-        root = getSite().portal_url.getPortalObject().absolute_url()
+        portal = getSite().portal_url.getPortalObject()
+        root = '/'.join(portal.getPhysicalPath())
         where = '%s/@@my_requests_view' % root
     else:
         where = '/'.join(target.getPhysicalPath())
