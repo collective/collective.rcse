@@ -558,21 +558,21 @@ var rcseInitDatatable = function(){
 var rcseInitScrollableColumns = function(){
     var cone = $('#portal-column-one'),
     ctwo = $('#portal-column-two'),
+    columns = $('#portal-columns'),
+    content = $('#portal-column-content'),
     hasone = cone.length == 1,
     hastwo = ctwo.length == 1,
     oneposition = cone.position(),
     twoposition = ctwo.position(),
-    columnsoffset = $('#portal-columns').offset(),
+    columnsoffset = columns.offset(),
     viewport = getViewport(),
     wwidth = viewport[0], wheight = viewport[1];
     $(window).resize(function(eventObject){
-        cone = $('#portal-column-one');
-        ctwo = $('#portal-column-two');
         hasone = cone.length == 1;
         hastwo = ctwo.length == 1;
         oneposition = cone.position();
         twoposition = ctwo.position();
-        columnsoffset = $('#portal-columns').offset();
+        columnsoffset = columns.offset();
         viewport = getViewport();
         wwidth = viewport[0], wheight = viewport[1];
     });
@@ -581,10 +581,15 @@ var rcseInitScrollableColumns = function(){
       function fixColumns(){
             var oneheight = cone.height() + parseInt(cone.css('padding-top')) + parseInt(cone.css('margin-top')),
             twoheight = ctwo.height() + parseInt(ctwo.css('padding-top')) + parseInt(ctwo.css('margin-top')),
+            contentheight = content.height() + parseInt(content.css('padding-top')) + parseInt(content.css('margin-top')),
+            columnsheight = columns.height() + parseInt(columns.css('padding-top')) + parseInt(columns.css('margin-top')),
             scrolltop = $(this).scrollTop();
 
         if (wwidth < 992){
             //do nothing because columns will be displayed later
+            return
+        }
+        if (contentheight < columnsheight){
             return
         }
 
