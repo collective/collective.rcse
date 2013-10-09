@@ -20,7 +20,7 @@
 
   <subscriber handler=".member.handle_member_added"
           for="collective.rcse.content.member.IMember
-           zope.lifecycleevent.interfaces.IObjectModifiedEvent" />
+           zope.lifecycleevent.interfaces.IObjectAddedEvent" />
   <subscriber handler=".member.handle_member_modified"
           for="collective.rcse.content.member.IMember
            zope.lifecycleevent.interfaces.IObjectModifiedEvent" />

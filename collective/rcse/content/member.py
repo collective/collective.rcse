@@ -12,6 +12,10 @@ from collective.rcse.content import vocabularies
 from collective.rcse.content.visibility import addVisibilityCheckbox
 from Products.CMFCore.utils import getToolByName
 
+import logging
+
+logger = logging.getLogger('collective.rcse')
+
 
 @addVisibilityCheckbox([
         'username',
@@ -174,15 +178,18 @@ class IMember(model.Schema):
 
 
 def handle_member_added(context, event):
+    logger.info('Member object added.')
     mtool = getToolByName(context, 'membrane_tool')
     mtool.indexObject(context)
 
 
 def handle_member_modified(context, event):
+    logger.info('Member object modified.')
     mtool = getToolByName(context, 'membrane_tool')
     mtool.reindexObject(context)
 
 
 def handle_member_removed(context, event):
+    logger.info('Member object removed.')
     mtool = getToolByName(context, 'membrane_tool')
     mtool.unindexObject(context)
