@@ -7,8 +7,8 @@ from plone.testing import layered
 
 def test_suite():
     suite = unittest.TestSuite()
-    suite.addTests([
-        layered(robotsuite.RobotTestSuite('test_robot.robot'),
-                layer=ROBOT),
-    ])
+#    suite.addTests([
+#        layered(robotsuite.RobotTestSuite('test_robot.robot'),
+#                layer=ROBOT),
+#    ])
     return suite
