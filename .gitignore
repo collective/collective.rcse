@@ -69,11 +69,17 @@ Thumbs.db
 
 # Buildout generated folders #
 ##############################
-bin
-parts
-develop-eggs
-var
-src
-collective/rcse/resources/dev/app
-collective/rcse/resources/dev/node_modules
-
+/bin
+/parts
+/develop-eggs
+/var
+/src
+/collective/rcse/resources/ckeditor/
+/collective/rcse/resources/desktop
+/collective/rcse/resources/dev/app
+/collective/rcse/resources/dev/js
+/collective/rcse/resources/dev/less
+/collective/rcse/resources/dev/node_modules
+/collective/rcse/resources/webshims
+/collective/rcse/resources/foundation/.sass-cache/
+/collective/rcse/resources/mobile

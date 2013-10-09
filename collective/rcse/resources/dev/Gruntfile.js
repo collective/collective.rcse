@@ -2,7 +2,6 @@
 
 module.exports = function(grunt) {
     "use strict";
-
     // Project configuration.
     grunt.initConfig({
 
@@ -136,7 +135,7 @@ module.exports = function(grunt) {
                         'app/bower_components/mediaelement/build/mediaelementplayer.css',
                         'app/bower_components/font-awesome/css/font-awesome.css',
                         'app/bower_components/animate.css/animate.css',
-                        '../desktop/app.css' ],
+                        '../desktop/css/app.css' ],
                 dest : '../desktop/css/desktop.css'
             },
             desktopmincss : {
@@ -144,7 +143,7 @@ module.exports = function(grunt) {
                         'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
                         'app/bower_components/font-awesome/css/font-awesome.min.css',
                         'app/bower_components/animate.css/animate.min.css',
-                        '../desktop/app.min.css' ],
+                        '../desktop/css/app.min.css' ],
                 dest : '../desktop/css/desktop.min.css'
             },
             mobilecss : {
@@ -155,18 +154,20 @@ module.exports = function(grunt) {
                 src : [
                         'app/bower_components/mediaelement/build/mediaelementplayer.css',
                         'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.css',
+                        'app/bower_components/jquery-mobile-bower/css/jquery.mobile.theme-1.3.2.css',
                         'app/bower_components/mediaelement/build/mediaelementplayer.css',
                         'app/bower_components/animate.css/animate.css',
-                        '../desktop/mobile.css' ],
+                        '../mobile/css/app.css' ],
                 dest : '../mobile/css/mobile.css'
             },
             mobilemincss : {
                 src : [
-                        'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.min.css',
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.min.css',
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.theme-1.3.2.min.css',
                         'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
                         'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
                         'app/bower_components/animate.css/animate.min.css',
-                        '../desktop/mobile.min.css' ],
+                        '../mobile/app.min.css' ],
                 dest : '../mobile/css/mobile.min.css'
             }
         },
@@ -196,18 +197,20 @@ module.exports = function(grunt) {
                 },
                 src : [ 'app/bower_components/select2/select2.css',
                         'app/bower_components/datatables/media/css/jquery.dataTables.css',
+                        'app/bower_components/bootstrap/dist/css/bootstrap.css',
+                        'app/bower_components/bootstrap/dist/css/bootstrap-theme.css',
                         'less/desktop.plone.less',
                         'less/desktop.less',
                         'less/collective.polls.css'],
-                dest : '../desktop/app.css'
+                dest : '../desktop/css/app.css'
             },
             desktopmin : {
                 options : {
                     compile : false,
                     compress : true
                 },
-                src : '../desktop/app.css',
-                dest : '../desktop/app.min.css'
+                src : '../desktop/css/app.css',
+                dest : '../desktop/css/app.min.css'
             },
             mobileless : {
                 options : {
@@ -216,7 +219,7 @@ module.exports = function(grunt) {
                 },
                 src : [ 'less/font-awesome-mobile.less',
                         'less/mobile.plone.less', 'less/mobile.less'],
-                dest : '../desktop/mobile.css'
+                dest : '../mobile/css/mobile.css'
             },
             mobilemin : {
                 options : {
@@ -225,7 +228,7 @@ module.exports = function(grunt) {
                 },
                 src : [ 'less/font-awesome-mobile.less',
                         'less/mobile.plone.less', 'less/mobile.less'],
-                dest : '../desktop/mobile.min.css'
+                dest : '../mobile/app.min.css'
             },
         },
 
