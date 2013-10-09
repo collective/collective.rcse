@@ -97,6 +97,14 @@
       />
     <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      name="timeline_header_navroot_view"
+      class="collective.rcse.page.controller.person_view.AuthenticatedMemberInfoView"
+      template="templates/timeline_header_navroot.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
+    <browser:page
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="videos_view"
       class="collective.rcse.page.controller.videos_view.NavigationRootVideosView"
       template="templates/videos_view.pt"
@@ -120,6 +128,14 @@
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
+    <browser:page
+      for="collective.rcse.content.group.GroupSchema"
+      name="timeline_header_group"
+      template="templates/timeline_header_group.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
+
   <browser:page
       for="collective.rcse.content.group.GroupSchema"
       name="group_status"
@@ -250,6 +266,13 @@
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
+    <browser:page
+      for="collective.rcse.content.member.IMember"
+      name="timeline_header_member_view"
+      template="templates/timeline_header_member.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
 
   <browser:page
       for="collective.rcse.content.company.ICompany"
@@ -283,6 +306,15 @@
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
+    <browser:page
+      for="collective.rcse.content.company.ICompany"
+      name="timeline_header_company"
+      template="templates/timeline_header_company.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
+
+
   <browser:page
       for="collective.rcse.content.proxygroup.ProxyGroupSchema"
       name="timeline_view"

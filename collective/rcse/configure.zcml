@@ -44,7 +44,10 @@
        title="collective.rcse"
        description=""
        handler="collective.rcse.setuphandler.setupVarious">
+     <depends name="membranetool" />
+     <depends name="plugins" />
      <depends name="typeinfo" />
+     <depends name="toolset" />
      <depends name="workflow" />
   </genericsetup:importStep>
 
