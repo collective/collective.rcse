@@ -74,10 +74,10 @@ Thumbs.db
 /develop-eggs
 /var
 /src
-#/collective/rcse/resources/ckeditor/
-#/collective/rcse/resources/desktop
+/collective/rcse/resources/ckeditor/
+/collective/rcse/resources/desktop
 /collective/rcse/resources/dev/app
 /collective/rcse/resources/dev/node_modules
 /collective/rcse/resources/webshims
 /collective/rcse/resources/foundation/.sass-cache/
-#/collective/rcse/resources/mobile
+/collective/rcse/resources/mobile
