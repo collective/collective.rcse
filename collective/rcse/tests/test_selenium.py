@@ -1,3 +1,4 @@
+import time
 import unittest
 
 from collective.rcse import testing
@@ -117,19 +118,62 @@ class SeleniumTestCase(unittest.TestCase):
             self.select2(browser, 'form-widgets-role', role)
             browser.find_element_by_link_text('Propose an access').click()
 
+    def missing_info(self, browser, email, first_name, last_name, function, 
+                     department):
+        if self.is_mobile(browser):
+            pass
+        else:
+            browser.find_element_by_name("form.widgets.email").send_keys(email)
+            browser.find_element_by_name("form.widgets.first_name").send_keys(first_name)
+            browser.find_element_by_name("form.widgets.last_name").send_keys(last_name)
 
-class ContentTypes(SeleniumTestCase):
+            self.select2(browser, "form-widgets-function", function)
+            self.select2(browser, "form-widgets-function", department)
+
+            browser.find_element_by_name("form.buttons.save").click()
+
+    def register_info(self, browser, email, first_name, last_name, function,
+                       department, company):
+        if self.is_mobile(browser):
+            pass
+        else:
+            browser.find_element_by_name("form.widgets.email").send_keys(email)
+            browser.find_element_by_name("form.widgets.first_name").send_keys(first_name)
+            browser.find_element_by_name("form.widgets.last_name").send_keys(last_name)
+            browser.find_element_by_name("form.widgets.function").send_keys(function)
+            self.select2(browser, "form-widgets-company", "Create a new company")
+
+            browser.find_element_by_name("form.buttons.submit").click()
+
+    def verify_user(self, browser, username):
+        email = "jmf+adria%s@makina-corpus.com" % username
+        email = email.replace(" ", "")
+        first_name = "test"
+        last_name = username
+        function = "Achats"
+        department = "Loire Atlantique"
+        company = "Makina Corpus"
+
+        #rcse redirect the user depends on what is the state of the current user
+        if browser.current_url.endswith("@@register_information"):
+            self.register_info(browser, email, first_name, last_name, function,
+                       department, company)
+        if browser.current_url.endswith("edit"):
+            self.missing_info(browser, email, first_name, last_name, function,
+                         department)
+
+class ContentTypesTestCase(SeleniumTestCase):
     def setUp(self):
-        super(ContentTypes, self).setUp()
+        super(ContentTypesTestCase, self).setUp()
         self.user1 = self.getNewBrowser(self.portal_url)
-        self.user2 = self.getNewBrowser(self.portal_url)
-#        self.user3 = self.getNewBrowser(self.portal_url)
-#        self.user4 = self.getNewBrowser(self.portal_url)
-
-    def test_create_group(self):
-        import pdb;pdb.set_trace()
         self.login(self.user1, "simplemember1", "secret")
-        self.login(self.user1, "simplemember2", "secret")
+        self.verify_user(self.user1, "simplemember1")
+        self.user2 = self.getNewBrowser(self.portal_url)
+        self.login(self.user2, "simplemember2", "secret")
+        self.verify_user(self.user2, "simplemember1")
+
+    def test_add_group(self):
+        self.open_add(self.user1, what="Group")
 
 
 def test_suite():
