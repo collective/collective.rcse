@@ -76,6 +76,7 @@ class ToggleDisplayInMyNews(BrowserView):
         self.reindex_last_items()
 
     def reindex_last_items(self):
+        self.context.reindexObject(idxs=["group_watchers"])
         query = {}
         query["path"] = {
             "query": "/".join(self.context.getPhysicalPath()),
@@ -106,12 +107,16 @@ def get_group_watchers(context):
     elif hasattr(context, 'Creators'):
         watchers.extend(context.Creators())
 
+    if context.portal_type in (
+        "Discussion Item",
+        "collective.history.useraction"
+    ):
+        return
     if context.portal_type != "collective.rcse.group":
         group = get_group(context)
+
         if group and hasattr(group, 'creators'):
             watchers.extend(group.creators)
-    if context.portal_type == "Discussion Item":
-        return
 
     watcherlist = component.queryAdapter(
         group, interface=IWatcherList, name="group_watchers", default=None
