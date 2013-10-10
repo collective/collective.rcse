@@ -25,7 +25,7 @@ class AddFormAdapter(object):
     interface.implements(AddFormSchema)
     component.adapts(interface.Interface)
     def __init__(self, context):
-        self.what = None
+        self.what = "collective.rcse.group"
         self.where = None
         group = get_group(context)
         if group:
