@@ -38,7 +38,7 @@
     <div tal:define="b_start python:0; b_start request/b_start | b_start;
                      batch python: view.get_content(b_start=b_start);">
         <tal:tile tal:repeat="item batch">
-         <div class="rcse_tile_wrapper">
+         <div class="rcse_tile_wrapper" tal:condition="python:hasattr(item, 'getPath') and item.getPath() != view.context_path or 1">
            <a class="rcse_tile" tal:attributes="href item/getURL"></a>
          </div>
         </tal:tile>
