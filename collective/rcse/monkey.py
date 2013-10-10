@@ -1,6 +1,9 @@
 import logging
 from collective.z3cform.widgets import enhancedtextlines
 from Products.CMFPlone.PloneBatch import Batch
+from zope.schema.interfaces import IObject
+from zope.component._api import getMultiAdapter
+from z3c.form.interfaces import IDataManager
 
 logger = logging.getLogger("collective.rcse")
 
@@ -69,3 +72,41 @@ def patch_event():
     EventAccessor.event_type = 'collective.rcse.event'
 
 patch_event()
+
+
+logger.info("monkey: z3c.form.util.changedField handle naive date exception")
+def patch_z3cform():
+    """TypeError: can't compare offset-naive and offset-aware datetimes
+    """
+    def changedField(field, value, context=None):
+        """Figure if a field's value changed
+
+        Comparing the value of the context attribute and the given value"""
+        if context is None:
+            context = field.context
+        if context is None:
+            # IObjectWidget madness
+            return True
+        if IObject.providedBy(field):
+            return True
+
+        # Get the datamanager and get the original value
+        dm = getMultiAdapter(
+            (context, field), IDataManager)
+        # now figure value chaged status
+        # Or we can not get the original value, in which case we can not check
+        # Or it is an Object, in case we'll never know
+        try:
+            test = dm.query() != value
+            if test:
+                return True
+        except TypeError as e:
+            return True
+        if not dm.canAccess():
+            return True
+        return False
+
+    from z3c.form import util
+    util.changedField = changedField
+
+patch_z3cform()
