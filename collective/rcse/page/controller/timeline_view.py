@@ -154,6 +154,7 @@ class CompanyTimelineView(BrowserView):
     def update(self):
         self.catalog = getToolByName(self.context, 'portal_catalog')
         self.portal_url = getToolByName(self.context, 'portal_url')
+        self.context_path = '/'.join(self.context.getPhysicalPath())
 
         self.group = self.context
         self.group_title = _(u"Company")  # the title is already in the desc
