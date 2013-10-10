@@ -11,6 +11,7 @@
                         <a class="fn url" tal:attributes="href context/absolute_url" tal:content="context/Title"></a>
                     </h4>
                     <p tal:content="context/Description"></p>
+                    <div class="editbar" tal:content="structure context/@@collective.rcse.editbar"></div>
                 </div>
             </div>
         </div>
