@@ -30,6 +30,7 @@ var rcseUpdatePortlets = function(element) {
                         .remove(".portletTopRight").text();
 
                 $(newPortlet).addClass($(this).attr("class"));
+                $(newPortlet).attr('id', $(this).attr("id"));
                 $(titleWrapper).addClass("navbar-brand");
                 $(newTitle).attr("role", "navigation").addClass(
                         "navbar navbar-inverse")
@@ -57,10 +58,12 @@ var rcseUpdatePortlets = function(element) {
                     $(this).find('a > img').remove();
                     $(newList).append($(this).html());
                 } else if ($(this).hasClass('portletCalendar')){
-                	//do not add list-group-item
+                    //do not add list-group-item
                     $(newList).append($(this).find(".portletItem").html());
-                }
-                else{
+                } else if ($(this).attr('id') == 'portlet-prefs'){
+                    $(this).find('li').addClass('list-group-item');
+                    $(newList).append($(this).html());
+                }else{
                     $(this).find("dd").each(function() {
                         $(this).find('a').addClass('list-group-item');
                         $(newList).append($(this).html());
@@ -317,6 +320,29 @@ var rcseUpdateComments = function(element) {
         form.append(ajaxDeleteComment);
     }
 }
+/**
+ * rcseInitEditBar
+ * <div id="edit-bar">
+        <ul class="contentViews" id="content-views">
+          <li class="selected"><a href="#">Utilisateurs</a></li>
+          <li><a href="#">Groupes</a></li>
+        </ul>
+    </div>
+    ->
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">Messages</a></li>
+    </ul>
+ */
+var rcseInitEditBar = function(){
+    $('#edit-bar ul').each(function(){
+        var self = $(this);
+        self.addClass('nav nav-tabs');
+        self.find('.selected').addClass('active');
+    });
+}
+
 
 /**
  * just check query param about a portal_type and update portal_header
@@ -688,6 +714,7 @@ $(document).on("ready", function() {
     $('a[data-toggle="tooltip"]').tooltip();
     rcseInitScrollableColumns();
     rcseInitMemberDatatables();
+    rcseInitEditBar();
 });
 $.webshims.setOptions("basePath", portal_url + "/++resource++webshims/");
 $.webshims.setOptions('forms', {
