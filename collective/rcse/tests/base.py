@@ -5,6 +5,7 @@ from plone.app.testing import (
     setRoles,
     TEST_USER_ID,
     TEST_USER_PASSWORD,
+    logout
 )
 
 
@@ -20,18 +21,9 @@ class IntegrationTestCase(unittest.TestCase):
 
     def setUp(self):
         super(IntegrationTestCase, self).setUp()
+        logout()
         self.portal = self.layer['portal']
-        self.login('Manager')
-        self.portal.invokeFactory('Folder', 'test-folder')
-        self.login('Member')
-        self.folder = self.portal['test-folder']
 
-    def login(self, role):
-        setRoles(self.portal, TEST_USER_ID, [role])
-
-    def create_user(self, username):
-        acl_users = self.portal.acl_users
-        acl_users.userFolderAddUser(username, TEST_USER_PASSWORD, ["Member"], [])
 
 class FunctionalTestCase(IntegrationTestCase):
 
