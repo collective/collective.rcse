@@ -636,6 +636,23 @@ var rcseInitScrollableColumns = function(){
       fixColumns();
     });
 }
+var rcseInitMemberDatatables = function(){
+    datatableconfig = {
+            "iDisplayLength": -1,
+            "aLengthMenu": [[100, 200, 500, -1],[100, 200, 500, "All"]],
+            "oLanguage": {
+                "sUrl": "@@collective.js.datatables.translation"
+            }
+    };
+        $('body.template-member_search_results .listing').dataTable(datatableconfig);
+        $('body.template-prefs_group_members .listing').dataTable(datatableconfig);
+        $('body.template-usergroup-groupprefs .listing').dataTable(datatableconfig);
+        $('body.template-usergroup-userprefs .listing').dataTable(datatableconfig);
+        $('body.template-prefs_users_roles .listing').dataTable(datatableconfig);
+        $('body.template-sharing #user-group-sharing').dataTable(datatableconfig);
+        $('body.template-usergroup-groupmembership .listing').dataTable(datatableconfig);
+
+}
 var rcseApplyTransform = function(element) {
     if (element == undefined) {
         element = document;
@@ -670,6 +687,7 @@ $(document).on("ready", function() {
     rcseInitDatatable();
     $('a[data-toggle="tooltip"]').tooltip();
     rcseInitScrollableColumns();
+    rcseInitMemberDatatables();
 });
 $.webshims.setOptions("basePath", portal_url + "/++resource++webshims/");
 $.webshims.setOptions('forms', {
