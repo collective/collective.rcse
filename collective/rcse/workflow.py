@@ -12,7 +12,6 @@ def handle_user_validation(context, event):
     if event.status['action'] not in ('approve', 'decline'):
         return
     _sendMail(context, event)
-    _createCompanyIfNotExists(context, event)
 
 
 def _sendMail(context, event):
@@ -37,15 +36,3 @@ def _sendMail(context, event):
     except:
         # @TODO
         pass
-
-
-def _createCompanyIfNotExists(context, event):
-    if event.new_state.id != 'enabled':
-        return
-    request = getRequest()
-    portal_state = getMultiAdapter((context, request),
-                                   name=u'plone_portal_state')
-    directory = portal_state.portal()['companies_directory']
-    if not context.company_id or context.company_id not in directory:
-        mtool = getToolByName(context, 'portal_membership')
-        context.company_id = createCompany(context, request)

@@ -135,7 +135,7 @@
       permission="zope2.View"
       />
 
-  <!-- adapter factory=".register.RegisterFormAdapter" />
+  <adapter factory=".register.RegisterFormAdapter" />
 
   <browser:page
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
@@ -144,7 +144,7 @@
       template="templates/form.pt"
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
-      / -->
+      />
 
   <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"

@@ -25,7 +25,8 @@ class addVisibilityCheckbox(object):
             if isinstance(attr, schema.Field):
                 field = schema.Bool(
                     title=_(u'Display: ${attr}',
-                            mapping={'attr': attr.title})
+                            mapping={'attr': attr.title}),
+                    required=False
                     )
                 fields['%s%s' % (NAMESPACE, name)] = field
         fieldset = model.Fieldset(

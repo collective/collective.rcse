@@ -12,6 +12,9 @@
  <object name="collective_rcse_group_workflow" meta_type="Workflow" />
  <object name="collective_rcse_proxygroup_workflow" meta_type="Workflow" />
  <bindings>
+   <type type_id="Folder">
+     <bound-workflow workflow_id="(Default)" />
+   </type>
    <type type_id="collective.rcse.group">
      <bound-workflow workflow_id="collective_rcse_group_workflow" />
    </type>

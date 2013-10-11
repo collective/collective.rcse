@@ -12,24 +12,16 @@ from zope import interface
 from zope import schema
 
 from collective.rcse.i18n import _
-from collective.rcse.page.controller.register_information import RegisterInformationFormSchema
+from collective.rcse.page.controller import register_information
 
 
-class RegisterFormSchema(RegisterInformationFormSchema):
+class RegisterFormSchema(register_information.RegisterInformationFormSchema):
     """Form used by user to register."""
-
-    model.fieldset(
-        'profile',
-        label=_(u'Profile'),
-        fields=[
-            'first_name',
-            'last_name',
-            'function',
-            'company',
-            'new_company'
-            ]
+    directives.order_after(
+        login='email',
+        password='login',
+        password_confirm='password',
         )
-
     login = schema.ASCIILine(
         title=_(u'Login')
         )
@@ -54,7 +46,7 @@ class RegisterFormAdapter(object):
         self.password_confirm = ''
 
 
-class RegisterForm(AutoExtensibleForm, form.Form):
+class RegisterForm(register_information.RegisterInformationForm):
     schema = RegisterFormSchema
     enableCSRFProtection = True
     label = _('Register')
@@ -70,6 +62,15 @@ class RegisterForm(AutoExtensibleForm, form.Form):
                 interface.Invalid(_(u'Passwords do not match.'))
                 )
         self._registerUser(data)
+        self._updateDataCompany(data, data['login'])
+        self._updateUser(data['login'], data)
+        self._renameUserContent()
+        self._sendMailToUser()
+        self._sendNotificationToAdmin()
+        portal_url = getToolByName(self.context, "portal_url")
+        self.request.response.redirect(
+            '%s/login' % portal_url()
+            )
 
     def _registerUser(self, data):
         regtool = getToolByName(self.context, 'portal_registration')

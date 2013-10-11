@@ -11,16 +11,29 @@ class TestSetup(base.IntegrationTestCase):
         dependencies = [
             "cioppino.twothumbs",
             "collective.etherpad",
+            "collective.whathappened",
             "collective.history",
             "collective.js.ckeditor",
+            "collective.js.datatables",
             "collective.mediaelementjs",
+            "collective.oembed",
             "collective.picturefill",
+            "collective.polls",
+            "collective.portlet.favoriting",
+            "collective.portlet.localusers",
+            "collective.requestaccess",
+            "collective.readitlater",
+            "collective.transcode.star",
             "collective.themeswitcher",
+            "plone.app.event",
+            "plone.app.contenttypes",
+            "plone.app.versioningbehavior",
+            "dexterity.membrane",
             "plone.app.dexterity",
             "plonetheme.jquerymobile",
         ]
         for name in dependencies:
-            self.assertTrue(qi.isProductInstalled(name))
+            self.assertTrue(qi.isProductInstalled(name), '%s is not installed' % name)
 
     def test_type_group(self):
         ptypes = self.portal.portal_types
@@ -48,7 +61,7 @@ class TestSetup(base.IntegrationTestCase):
             self.assertTrue(gtype.allowType(ctype))
             info = ptypes.getTypeInfo(ctype)
             self.assertTrue(info.allowDiscussion())
-            self.assertFalse(info.globalAllow())
+            self.assertFalse(info.globalAllow(), '%s is globally allowed' % content)
             addperm = "collective.rcse.Add" + content.capitalize()
             self.assertEqual(info.add_permission, addperm)
 

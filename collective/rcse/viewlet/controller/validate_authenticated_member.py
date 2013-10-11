@@ -82,7 +82,7 @@ class ValidateAuthenticatedMember(ViewletBase):
             return ''
         elif ICompany.providedBy(self.context) and self.context.id == self.member_data.company_id:
             return ''
-        elif not self.has_company_info():
+        elif not self.has_company_info() and self.is_company_owner():
             msg = _(u"Please complete your company information")
             self.status.add(msg)
             url = '%s/edit' % self.company.absolute_url()
@@ -98,6 +98,12 @@ class ValidateAuthenticatedMember(ViewletBase):
                 if getattr(self.company, field_name, None) is None:
                     return False
         return True
+
+    def is_company_owner(self):
+        for user, roles in self.company.get_local_roles():
+            if self.username == user and 'Owner' in roles:
+                return True
+        return False
 
     def has_required_info(self):
         #we will check all required field against the schema

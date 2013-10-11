@@ -22,6 +22,7 @@ class RcseUserAdder(object):
         if len(results) > 0:
             return
         self.item = self._createUser(login)
+        self._addToSourceUsers(login, password)
 
     def getUser(self):
         return self.item
@@ -37,6 +38,11 @@ class RcseUserAdder(object):
         item.manage_setLocalRoles(username, ['Owner'])
         item.reindexObjectSecurity()
         return item
+
+    @sudo()
+    def _addToSourceUsers(self, login, password):
+        acl_users = getToolByName(getSite(), 'acl_users')
+        acl_users.source_users.doAddUser(login, password)
 
 
 class BaseDisplay(object):

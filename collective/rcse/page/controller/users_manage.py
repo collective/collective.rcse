@@ -59,10 +59,12 @@ class ManageUserForm(AutoExtensibleForm, form.Form):
         wtool = getToolByName(self.context, 'portal_workflow')
         try:
             wtool.doActionFor(user, action)
-        except WorkflowException:
+        except WorkflowException as e:
             message.add(_(u"Can't enable the member ${user}",
-                          mapping={'user': user}))
-            logger.info("Can't enable the member %s" % user)
+                          mapping={'user': user}),
+                        type="error")
+            logger.error("Can't enable the member %s: %s" %
+                         (user.username, e.message))
             return
         referer = self.request.get("HTTP_REFERER")
         if not referer:

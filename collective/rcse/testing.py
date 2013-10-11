@@ -19,6 +19,7 @@ import transaction
 from zope.event import notify
 from zope.lifecycleevent import ObjectCreatedEvent, ObjectAddedEvent
 from plone.app.testing.selenium_layers import SeleniumLayer
+from zope.container.interfaces import INameChooser
 
 #import layers from addons
 from plonetheme.jquerymobile import testing as mobile_testing
@@ -50,6 +51,9 @@ from plone.app.testing.layers import PloneFixture
 from plone.app.testing.helpers import PloneSandboxLayer
 from Testing.ZopeTestCase.utils import setupCoreSessions
 
+from collective.rcse.content.utils import createCompany
+from zope.globalrequest import getRequest
+from plone.dexterity.utils import createContentInContainer
 
 #class OverrideContentTypesLayer(ptypes_testing.PloneAppContenttypes):
 #    """Because we are using a fork of plone.formwidget.autocomplete we need
@@ -129,35 +133,80 @@ class Layer(PloneSandboxLayer):
         self.applyProfile(portal, 'plone.app.versioningbehavior:default')
         self.applyProfile(portal, 'collective.rcse:default')
 
-        portal.membrane_tool.user_adder = "rcse"
-        portal.membrane_tool.membrane_types.append("collective.rcse.member")
+        #portal.membrane_tool.user_adder = "rcse"
+        #portal.membrane_tool.membrane_types.append("collective.rcse.member")
         #The setup unactivate source users to use CAS. because we are in test
         #we just reactivate sources users
-        portal.acl_users.source_users.manage_activateInterfaces([
-            "IAuthenticationPlugin",
-            "IUserAdderPlugin",
-            "IUserEnumerationPlugin",
-            #"IUserIntrospection",
-            #"IUserManagement",
-        ])
-        self.create_user(portal, "simplemember1")
-        self.create_user(portal, "simplemember2")
+        #portal.acl_users.source_users.manage_activateInterfaces([
+        #    "IAuthenticationPlugin",
+        #    "IUserAdderPlugin",
+        #    "IUserEnumerationPlugin",
+        #    "IUserIntrospection",
+        #    "IUserManagement",
+        #])
 
-    def create_user(self, portal, username, role="Member"):
+        self.regtool = getToolByName(portal, 'portal_registration')
+        self.mtool = getToolByName(portal, 'membrane_tool')
+
+        self.create_test_user(portal)
+
+        self.create_user(portal, "adminmember1", role="Manager",
+                         function="Admin")
+        simplemember1 = self.create_user(portal, "simplemember1")
+        self.create_user(portal, "simplemember2")
+        self.create_company(portal, simplemember1)
+
+    def create_test_user(self, portal):
+        directory = portal.users_directory
+        createContentInContainer(directory, 'collective.rcse.member',
+                                 username=TEST_USER_NAME)
+
+    def create_user(self, portal, username,
+                    role="Member", company='company1',
+                    first_name="John", last_name="Doe",
+                    email="no-reply@example.com", function="Function",
+                    city="City", **kwargs):
         # https://pypi.python.org/pypi/plone.app.testing/4.2.2#id1
-        acl_users = getToolByName(portal, 'acl_users')
-        acl_users.source_users.doAddUser(username, 'secret')
-        container = portal.users_directory
-        portal_type = "collective.rcse.member"
-        membrane = utils.createContentInContainer(
-            container,
-            portal_type,
-            checkConstraints=False,
-            username=username)
-        event = ObjectAddedEvent(
-            membrane, newParent=container, newName=membrane.getId()
-        )
-        notify(event)
+        # Create user content
+        self.regtool.addMember(username, 'secret')
+        # Update user content
+        item = self.mtool(getUserName=username)[0].getObject()
+        item.company_id=company
+        item.company=company
+        item.first_name=first_name
+        item.last_name=last_name
+        item.email=email
+        item.function=function
+        item.city=city
+        for key, value in kwargs.items():
+            setattr(item, key, value)
+        self._renameUserContent(item)
+        # Activate user
+        wtool = getToolByName(portal, 'portal_workflow')
+        wtool.doActionFor(item, 'approve')
+        return item
+
+    def _renameUserContent(self, item):
+        directory = item.aq_inner.aq_parent
+        title = '%s %s' % (item.first_name,
+                           item.last_name)
+        item.setTitle(title)
+        new_id = INameChooser(directory).chooseName(title, item)
+        self.mtool.unindexObject(item)
+        directory.manage_renameObject(item.id, new_id)
+        self.mtool.indexObject(item)
+
+    def create_company(self, portal, user_item, corporate_name="Corporate name",
+                       sector="Sector", postal_code="Postal code",
+                       city="City", **kwargs):
+        company_id = createCompany(user_item, getRequest())
+        company = portal.companies_directory[company_id]
+        company.corporate_name = corporate_name
+        company.sector = sector
+        company.postal_code = postal_code
+        company.city = city
+        for key, value in kwargs.items():
+            setattr(company, key, value)
 
 
 class SeleniumLayer(BaseLayer):

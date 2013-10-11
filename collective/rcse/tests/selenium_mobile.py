@@ -5,13 +5,15 @@ from collective.rcse import testing
 import transaction
 from selenium.common.exceptions import NoSuchElementException
 
+
 def sleep(f):
-    def wrapper(*args):
+    def wrapper(*args, **kwargs):
         time.sleep(2)
-        results = f(*args)
+        results = f(*args, **kwargs)
         time.sleep(2)
         return results
     return wrapper
+
 
 class MobileTheme(unittest.TestCase):
     layer = testing.SELENIUM

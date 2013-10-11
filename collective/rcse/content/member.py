@@ -99,6 +99,10 @@ class IMember(model.Schema):
         title=_(u"Function"),
     )
 
+    city = schema.TextLine(
+        title=_(u"City"),
+        )
+
     bio = RichText(
         title=_(u"Presentation"),
         required=False

@@ -38,22 +38,22 @@ def setupVarious(context):
     setupCatalog(portal)
     fixMembraneCatalog(portal)
     uninstallDependencies(portal)
-    activateComments(portal)
     deactivateSourceUsers(portal)
+    activateComments(portal)
     addTimelineViewToContentTypes(portal)
     renameDocumentToArticle(portal)
-
-
-def deactivateSourceUsers(portal):
-    acl_users = getToolByName(portal, 'acl_users')
-    source_users = acl_users['source_users']
-    source_users.manage_activateInterfaces([])
 
 
 def setupRegistration(site):
     securitySchema = ISecuritySchema(site)
     securitySchema.enable_self_reg = True
     securitySchema.enable_user_pwd_choice = True
+
+
+def deactivateSourceUsers(portal):
+    acl_users = getToolByName(portal, 'acl_users')
+    source_users = acl_users['source_users']
+    source_users.manage_activateInterfaces(["IAuthenticationPlugin",])
 
 
 def setupCatalog(portal):
