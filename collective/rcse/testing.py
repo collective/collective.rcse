@@ -65,6 +65,12 @@ from plone.dexterity.utils import createContentInContainer
 
 
 #PLONE_APP_CONTENTTYPES_FIXTURE = OverrideContentTypesLayer()
+TEST_USER_ADMIN = "adminmember1"
+TEST_USER_1 = "simplemember1"
+TEST_USER_2 = "simplemember2"
+TEST_USER_3 = "simplemember3"
+TEST_USER_4 = "simplemember4"
+PASSWORD = "secret"
 
 
 class Layer(PloneSandboxLayer):
@@ -147,19 +153,23 @@ class Layer(PloneSandboxLayer):
 
         self.regtool = getToolByName(portal, 'portal_registration')
         self.mtool = getToolByName(portal, 'membrane_tool')
-
         self.create_test_user(portal)
 
-        self.create_user(portal, "adminmember1", role="Manager",
-                         function="Admin")
-        simplemember1 = self.create_user(portal, "simplemember1")
-        self.create_user(portal, "simplemember2")
+        login(portal, SITE_OWNER_NAME)
+        self.create_user(portal, TEST_USER_ADMIN, function="Admin")
+        setRoles(portal, TEST_USER_ADMIN, ["Site Administrator"])
+        simplemember1 = self.create_user(portal, TEST_USER_1)
+        self.create_user(portal, TEST_USER_2)
         self.create_company(portal, simplemember1)
+        logout()
+        transaction.commit()
 
     def create_test_user(self, portal):
         directory = portal.users_directory
         createContentInContainer(directory, 'collective.rcse.member',
                                  username=TEST_USER_NAME)
+        createContentInContainer(directory, 'collective.rcse.member',
+                                 username=SITE_OWNER_NAME)
 
     def create_user(self, portal, username,
                     role="Member", company='company1',
@@ -168,7 +178,7 @@ class Layer(PloneSandboxLayer):
                     city="City", **kwargs):
         # https://pypi.python.org/pypi/plone.app.testing/4.2.2#id1
         # Create user content
-        self.regtool.addMember(username, 'secret')
+        self.regtool.addMember(username, PASSWORD)
         # Update user content
         item = self.mtool(getUserName=username)[0].getObject()
         item.company_id=company
