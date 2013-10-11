@@ -151,9 +151,10 @@ class Layer(PloneSandboxLayer):
         self.create_test_user(portal)
 
         self.create_user(portal, "adminmember1", role="Manager",
-                         function="Admin")
-        simplemember1 = self.create_user(portal, "simplemember1")
-        self.create_user(portal, "simplemember2")
+                         function="Admin", first_name="Admin")
+        simplemember1 = self.create_user(portal, "simplemember1",
+                                         first_name="User1")
+        self.create_user(portal, "simplemember2", first_name="User2")
         self.create_company(portal, simplemember1)
 
     def create_test_user(self, portal):
@@ -162,7 +163,7 @@ class Layer(PloneSandboxLayer):
                                  username=TEST_USER_NAME)
 
     def create_user(self, portal, username,
-                    role="Member", company='company1',
+                    role="Member", company='Company',
                     first_name="John", last_name="Doe",
                     email="no-reply@example.com", function="Function",
                     city="City", **kwargs):
