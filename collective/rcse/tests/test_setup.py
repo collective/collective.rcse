@@ -25,7 +25,8 @@ class TestSetup(base.IntegrationTestCase):
             "collective.readitlater",
             "collective.transcode.star",
             "collective.themeswitcher",
-            "plone.app.event",
+#            "plone.app.event",
+            "plone.app.event.dx",
             "plone.app.contenttypes",
             "plone.app.versioningbehavior",
             "dexterity.membrane",
@@ -39,10 +40,6 @@ class TestSetup(base.IntegrationTestCase):
         ptypes = self.portal.portal_types
         gtype = ptypes.getTypeInfo("collective.rcse.group")
         self.assertEqual(gtype.Title(), u"Group")
-        self.login("Manager")
-        self.assertTrue(gtype.isConstructionAllowed(self.portal))
-        self.login("Member")
-        self.assertFalse(gtype.isConstructionAllowed(self.portal))
         self.assertTrue(gtype.allowDiscussion())
         self.assertTrue(gtype.globalAllow())
         self.assertEqual(gtype.add_permission, "collective.rcse.AddGroup")
@@ -61,7 +58,7 @@ class TestSetup(base.IntegrationTestCase):
             self.assertTrue(gtype.allowType(ctype))
             info = ptypes.getTypeInfo(ctype)
             self.assertTrue(info.allowDiscussion())
-            self.assertFalse(info.globalAllow(), '%s is globally allowed' % content)
+            self.assertTrue(info.globalAllow(), '%s is globally allowed' % content)
             addperm = "collective.rcse.Add" + content.capitalize()
             self.assertEqual(info.add_permission, addperm)
 
