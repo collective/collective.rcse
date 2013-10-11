@@ -12,6 +12,8 @@ def handle_user_validation(context, event):
     if event.status['action'] not in ('approve', 'decline'):
         return
     _sendMail(context, event)
+    mtool = getToolByName(context, 'membrane_tool')
+    mtool.reindexObject(context)
 
 
 def _sendMail(context, event):

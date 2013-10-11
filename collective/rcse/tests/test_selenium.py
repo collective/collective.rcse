@@ -8,11 +8,32 @@ class ScenarioTestCase(unittest.TestCase):
         pass
 
     def test_register(self):
-        import pdb; pdb.set_trace()
-        # self.register
-        # self.login
-        # self.verify_user
-        # self.admin.approve_user
+        self.user = self.getNewBrowser(self.portal_url)
+        self.register(self.user, 'toto', 'passs', email="toto@example.com",
+                      first_name="Toto", last_name="Pass", function="tester",
+                      company="The company", city="TotoLand")
+        self.login(self.user, 'toto', 'passs')
+        self.user.get(self.portal_url)
+        self.assertIn('Your profile is waiting for approval',
+                      self.user.page_source)
+
+        self.admin = self.getNewBrowser(self.portal_url)
+        self.login(self.admin, 'adminmember1', 'secret')
+        self.admin.get('%s/users_directory/@@users_manage_pending'
+                       % self.portal_url)
+        xpath = ('//table[@id="members-datatable"]//td[text()="toto"]/'
+                 'parent::tr/td/form//input[@id="form-buttons-approve"]')
+        self.admin.find_element_by_xpath(xpath).click()
+        self.user.get(self.portal_url)
+        self.assertIn('Please complete your company information',
+                      self.user.page_source)
+
+        self.edit_company(self.user, title="The company",
+                         corporate_name="The company")
+        self.assertIn('My profile', self.user.page_source)
+        self.assertIn('News', self.user.page_source)
+        self.user.quit()
+        self.admin.quit()
 
     #def test_add_group(self):
     #    self.open_add(self.users['simple1'], what="Group")

@@ -27,12 +27,8 @@ class DesktopTheme(unittest.TestCase):
         transaction.commit()
 
         self.users = {}
-        self.users['admin1'] = self.getNewBrowser(self.portal_url)
-        self.login(self.users['admin1'], "adminmember1", "secret")
-        self.users['simple1'] = self.getNewBrowser(self.portal_url)
-        self.login(self.users['simple1'], "simplemember1", "secret")
-        self.users['simple2'] = self.getNewBrowser(self.portal_url)
-        self.login(self.users['simple2'], "simplemember2", "secret")
+        #self.users['admin1'] = self.getNewBrowser(self.portal_url)
+        #self.login(self.users['admin1'], "adminmember1", "secret")
 
     @sleep(before=1, after=1)
     def _select2(self, browser, byid, value):
@@ -57,48 +53,74 @@ class DesktopTheme(unittest.TestCase):
 
     def login(self, browser, username, password, next_url=None):
         """Login a user and redirect to next_url"""
-#        browser.get()
+        browser.get('%s/login' % self.portal_url)
         browser.find_element_by_name("__ac_name").send_keys(username)
         browser.find_element_by_name("__ac_password").send_keys(password)
         browser.find_element_by_name('submit').click()
         if next_url:
             browser.get(next_url)
 
-    def verify_user(self, browser, username):
-        email = "jmf+adria%s@makina-corpus.com" % username
-        email = email.replace(" ", "")
-        first_name = "test"
-        last_name = username
-        function = "Achats"
-        department = "Loire Atlantique"
-        company = "Makina Corpus"
+    def logout(self, browser):
+        browser.get('%s/logout' % self.portal_url)
 
+    def register(self, browser, username, password, send=True,
+                 email="no-reply@example.com", first_name="John",
+                 last_name="Doe", function="Function", company="Company",
+                 city="City"):
+        self.logout(browser)
+        browser.get('%s/@@register' % self.portal_url)
+        browser.find_element_by_name("form.widgets.login").send_keys(username)
+        browser.find_element_by_name("form.widgets.password").send_keys(password)
+        browser.find_element_by_name("form.widgets.password_confirm").send_keys(password)
+        self.register_info(browser, False, email, first_name, last_name,
+                           function, company, city)
+        if send:
+            browser.find_element_by_name("form.buttons.register").click()
+
+    def verify_user(self, browser, **kwargs):
+        browser.get('%s/@@personal-information' % self.portal_url)
         #rcse redirect the user depends on what is the state of the current user
         if browser.current_url.endswith("@@register_information"):
-            self.register_info(browser, email, first_name, last_name, function,
-                       department, company)
+            self.register_info(browser, **kwargs)
         if browser.current_url.endswith("edit"):
-            self.missing_info(browser, email, first_name, last_name, function,
-                         department)
+            self.edit_member(browser, **kwargs)
 
-    def register_info(self, browser, email, first_name, last_name, function,
-                       department, company):
+    def register_info(self, browser, send=True, email="no-reply@example.com",
+                      first_name="John", last_name="Doe", function="Function",
+                      company="Company", city="City"):
         browser.find_element_by_name("form.widgets.email").send_keys(email)
         browser.find_element_by_name("form.widgets.first_name").send_keys(first_name)
         browser.find_element_by_name("form.widgets.last_name").send_keys(last_name)
         browser.find_element_by_name("form.widgets.function").send_keys(function)
+        browser.find_element_by_name("form.widgets.city").send_keys(city)
         rcompany = self._select2(browser, "form-widgets-company", company)
         if rcompany != company:
             self._select2(browser, "form-widgets-company", "Create a new company")
             browser.find_element_by_name("form.widgets.new_company").send_keys(company)
-        browser.find_element_by_name("form.buttons.submit").click()
+        if send:
+            browser.find_element_by_name("form.buttons.submit").click()
 
-    def missing_info(self, browser, email, first_name, last_name, function,
-                     department):
+    def edit_member(self, browser, send=True, email="no-reply@example.com",
+                    first_name="John", last_name="Doe", function="Function",
+                    company="Company", city="City"):
         browser.find_element_by_name("form.widgets.email").send_keys(email)
         browser.find_element_by_name("form.widgets.first_name").send_keys(first_name)
         browser.find_element_by_name("form.widgets.last_name").send_keys(last_name)
         browser.find_element_by_name("form.widgets.function").send_keys(function)
+        browser.find_element_by_name("form.widgets.city").send_keys(city)
+        browser.find_element_by_name("form.buttons.save").click()
+
+    # Company
+
+    def edit_company(self, browser, send=True, title="Company",
+                     corporate_name="Corporate name", sector="Sector",
+                     postal_code="Postal code", city="City"):
+        browser.find_element_by_name("form.widgets.IBasic.title").clear()
+        browser.find_element_by_name("form.widgets.IBasic.title").send_keys(title)
+        browser.find_element_by_name("form.widgets.corporate_name").send_keys(corporate_name)
+        browser.find_element_by_name("form.widgets.sector").send_keys(sector)
+        browser.find_element_by_name("form.widgets.postal_code").send_keys(postal_code)
+        browser.find_element_by_name("form.widgets.city").send_keys(city)
         browser.find_element_by_name("form.buttons.save").click()
 
     # Group
