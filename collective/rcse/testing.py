@@ -246,6 +246,7 @@ class SeleniumLayer(BaseLayer):
         for browser in self['browsers']:
             browser.quit()
             del browser
+        pass
 
 SELENIUM_FIXTURE = SeleniumLayer()
 

@@ -33,8 +33,6 @@ class ScenarioTestCase(unittest.TestCase):
                          corporate_name="The company")
         self.assertIn('My profile', self.user.page_source)
         self.assertIn('News', self.user.page_source)
-        self.user.quit()
-        self.admin.quit()
 
     def test_portlet_calendar(self):
         browser = self.getNewBrowser(self.portal_url)
@@ -42,7 +40,6 @@ class ScenarioTestCase(unittest.TestCase):
         self.open_add_portlet(browser, "left", "Calendar portlet", submit=True)
         browser.find_element_by_link_text("Return").click()
         self.open_panel(browser, "left")
-        browser.quit()
 
 
 class DesktopContentTypesTestCase(ScenarioTestCase, DesktopTheme):
