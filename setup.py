@@ -46,6 +46,7 @@ setup(
         'collective.js.jquerymobile',
         'collective.localrolesdatatables',
         'collective.mediaelementjs',
+        'collective.memberdatatables',
         'collective.oembed',
         'collective.picturefill',
         'collective.polls',

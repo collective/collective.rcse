@@ -9,6 +9,7 @@
     <dependency>profile-collective.js.datatables:default</dependency>
     <dependency>profile-collective.localrolesdatatables:default</dependency>
     <dependency>profile-collective.mediaelementjs:default</dependency>
+    <dependency>profile-collective.memberdatatables:default</dependency>
     <dependency>profile-collective.oembed:default</dependency>
     <dependency>profile-collective.picturefill:default</dependency>
     <dependency>profile-collective.polls:default</dependency>
