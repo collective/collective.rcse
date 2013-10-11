@@ -65,7 +65,7 @@ class BaseView(BrowserView):
             "path": self.context_path,
             "sort_on": "modified",
             "sort_order": "reverse",
-            "sort_limit": 20,
+#            "sort_limit": 20,
             }
         self._update_query_portal_type()
         text = self.request.get('SearchableText', None)

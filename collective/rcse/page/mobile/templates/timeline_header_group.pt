@@ -1,0 +1,10 @@
+<div class="rcsetile" i18n:domain="collective.rcse">
+  <div class="vcard">
+    <img class="photo" tal:attributes="src string:${context/absolute_url}/group_photo"/>
+    <a data-rel="dialog" class="fn url"
+       tal:attributes="href context/absolute_url"
+       tal:content="context/Title">John</a><br/>
+  </div>
+  <div class="editbar" tal:content="structure context/@@collective.rcse.editbar"></div>
+  <div class="document-actions-wrapper" tal:content="structure context/@@plone.abovecontenttitle.documentactions"></div>
+</div>

@@ -1,0 +1,19 @@
+<div class="rcse_tile_wrapper">
+    <div class="rcsetile panel panel-default">
+        <div class="panel-heading">
+            <div class="media vcard byline">
+                <div class="pull-left">
+                  <img class="media-object img-thumbnail avatar"
+                       tal:attributes="src string:${context/absolute_url}/group_photo" />
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <a class="fn url" tal:attributes="href context/absolute_url" tal:content="context/Title"></a>
+                    </h4>
+                    <p tal:content="context/Description"></p>
+                    <div class="editbar" tal:content="structure context/@@collective.rcse.editbar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

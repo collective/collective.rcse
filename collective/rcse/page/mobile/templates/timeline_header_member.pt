@@ -1,0 +1,3 @@
+<div class="rcse_tile_wrapper">
+    <a class="rcse_tile" tal:attributes="href context/absolute_url"></a>
+</div>

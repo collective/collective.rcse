@@ -1,0 +1,20 @@
+<div class="rcse_tile_wrapper">
+    <div class="rcsetile panel panel-default">
+        <div class="panel-heading">
+            <div class="media vcard byline">
+                <a class="pull-left" tal:attributes="href view/url">
+                    <img class="media-object img-thumbnail avatar"
+                        tal:attributes="src view/photo" />
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <a class="fn url" tal:attributes="href view/url" tal:content="view/fullname"></a>
+                    </h4>
+                    <p tal:content="string:${view/function} in ${view/company}"></p>
+                    <div tal:condition="view/areas_of_expertise" tal:content="python: ', '.join(view.areas_of_expertise)"></div>
+                    <div class="bio" tal:condition="view/bio" tal:content="structure view/bio/output"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

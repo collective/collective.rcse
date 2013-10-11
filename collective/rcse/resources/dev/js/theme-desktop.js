@@ -281,6 +281,7 @@ var rcseInitPortletCalendar = function(){
 }
 
 var rcseInitTimeline = function() {
+    $("a.rcse_tile").append('<i class="icon-spinner icon-spin icon-large"></i>');
     $("a.rcse_tile").waypoint(function(direction) {
         var item = $(this);
         var parent = item.parent();

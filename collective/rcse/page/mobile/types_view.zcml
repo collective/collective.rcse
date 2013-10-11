@@ -3,6 +3,16 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
 
+    <browser:page
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      name="timeline_header_navroot_view"
+      class="collective.rcse.page.controller.person_view.AuthenticatedMemberInfoView"
+      template="templates/timeline_header_navroot.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
+
+
     <!-- WE DONT WANT TO PROVIDE A CUSTOM VIEW FOR EACH TYPES SO LETS USE TIMELINE -->
     <browser:page
       for="*"
@@ -37,16 +47,16 @@
       layer="collective.rcse.layer.MobileLayer"
       permission="cmf.ModifyPortalContent"
       />
-
-  <!-- Member and Company -->
-
-  <browser:page
-      for="collective.rcse.content.member.IMember"
-      name="groups_view"
-      template="templates/user_groups_view.pt"
+    <browser:page
+      for="collective.rcse.content.group.GroupSchema"
+      name="timeline_header_group"
+      template="templates/timeline_header_group.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
+
+  <!-- Member and Company -->
+
   <browser:page
       for="collective.rcse.content.company.ICompany"
       name="members_view"
@@ -63,7 +73,29 @@
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
+  <browser:page
+      for="collective.rcse.content.company.ICompany"
+      name="vcard_view"
+      class="collective.rcse.page.controller.company_view.CompanyInfoView"
+      template="templates/vcard_company_view.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
+    <browser:page
+      for="collective.rcse.content.company.ICompany"
+      name="timeline_header_company"
+      template="templates/timeline_header_company.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
 
+  <browser:page
+      for="collective.rcse.content.member.IMember"
+      name="groups_view"
+      template="templates/user_groups_view.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
   <browser:page
       for="collective.rcse.content.member.IMember"
       name="vcard_view"
@@ -73,10 +105,17 @@
       permission="zope2.View"
       />
   <browser:page
-      for="collective.rcse.content.company.ICompany"
-      name="vcard_view"
-      class="collective.rcse.page.controller.company_view.CompanyInfoView"
-      template="templates/vcard_company_view.pt"
+      for="collective.rcse.content.member.IMember"
+      name="timeline_view"
+      class="collective.rcse.page.controller.timeline_view.MemberTimelineView"
+      template="templates/timeline_view.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
+    <browser:page
+      for="collective.rcse.content.member.IMember"
+      name="timeline_header_member_view"
+      template="templates/timeline_header_member.pt"
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />

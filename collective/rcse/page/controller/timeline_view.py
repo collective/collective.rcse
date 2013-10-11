@@ -38,23 +38,15 @@ class GroupTimelineView(BaseView):
             )
         if self.group is None:
             self.group = get_group(self.context)
-            self.group_title = self.group.Title()
-            self.group_description = self.group.Description()
-            self.group_url = self.group.absolute_url()
-            self.group_photo = self.group.absolute_url() + "/group_photo"
-            name = "@@plone.abovecontenttitle.documentactions"
-            self.group_actions = self.group.restrictedTraverse(name)
-            name = "@@collective.rcse.editbar"
-            self.group_edit_bar = self.group.restrictedTraverse(name)
+            name = "@@timeline_header_group"
+            self.group_description = self.group.restrictedTraverse(name)()
         super(GroupTimelineView, self).update()
 
     @property
     def filter_type(self):
         portal_types = self.plone_utils.getUserFriendlyTypes()
-        portal_types.remove("collective.rcse.group")
+        #portal_types.remove("collective.rcse.group")
         return portal_types
-
-
 
 
 class NavigationRootTimelineView(GroupTimelineView):
@@ -84,18 +76,11 @@ class NavigationRootTimelineView(GroupTimelineView):
         if self.isAnon:
             self.group = self.member
         if self.group is None:
-            self.group = self.context.restrictedTraverse('@@auth_memberinfo')
-            self.group.update()
-            membrane = self.group.get_membrane()
-            self.group_url = membrane.absolute_url()
-#            self.group_title = self.group.fullname
-#            description = membrane.restrictedTraverse('@@tile_view')()
-#            self.group_description = description
-#            self.group_photo = self.group.photo()
-#            self.group_actions = None
-#            self.group_edit_bar = None
+            self.group = True
+            name = "@@timeline_header_navroot_view"
+            self.group_description = self.context.restrictedTraverse(name)()
         super(NavigationRootTimelineView, self).update()
-        #hack the  query
+
         self.query["path"] = self.context_path
         self.query["group_watchers"] = self.member.getId()
 
@@ -136,11 +121,6 @@ class ProxyGroupTimelineView(BrowserView):
         self.group = self.context
         self.group_title = self.manager.title()
         self.group_url = self.group.absolute_url()
-#        self.group_description = self.manager.description()
-#        self.group_photo = self.group_url + "/group_photo"
-#        self.group_actions = None
-#        name = "@@collective.rcse.editbar"
-#        self.group_edit_bar = self.context.restrictedTraverse(name)
 
     def get_content(self, **kwargs):
         return []
@@ -152,14 +132,8 @@ class MemberTimelineView(GroupTimelineView):
         if self.group is None:
             self.group = self.context
             self.group_title = _(u"Member")
-            self.group_url = self.group.absolute_url()
-#            description = self.context.restrictedTraverse('@@tile_view')()
-#            self.group_description = description
-#            self.group_photo = None
-#            name = "@@plone.abovecontenttitle.documentactions"
-#            self.group_actions = self.group.restrictedTraverse(name)
-#            name = "@@collective.rcse.editbar"
-#            self.group_edit_bar = self.group.restrictedTraverse(name)
+            description = self.context.restrictedTraverse('@@timeline_header_member_view')()
+            self.group_description = description
         super(MemberTimelineView, self).update()
         self.query["Creator"] = self.context.username
         del self.query['path']
@@ -180,21 +154,14 @@ class CompanyTimelineView(BrowserView):
     def update(self):
         self.catalog = getToolByName(self.context, 'portal_catalog')
         self.portal_url = getToolByName(self.context, 'portal_url')
+        self.context_path = '/'.join(self.context.getPhysicalPath())
 
         self.group = self.context
         self.group_title = _(u"Company")  # the title is already in the desc
         self.group_url = self.group.absolute_url()
-#        name = "@@company_description_view"
-#        self.group_description = self.context.restrictedTraverse(name)()
-#        if self.context.logo:
-#            self.group_photo = "%s/@@images/logo" % self.group_url
-#        else:
-#            self.group_photo = None
-#        self.group_actions = None
-#        name = "@@collective.rcse.editbar"
-#        self.group_edit_bar = self.context.restrictedTraverse(name)
-#        name = "@@plone.abovecontenttitle.documentactions"
-#        self.group_actions = self.group.restrictedTraverse(name)
+        name = "@@timeline_header_company"
+        self.group_description = self.context.restrictedTraverse(name)()
+
 
     def get_content(self, **kwargs):
         return self.catalog(company_id=self.context.getId())

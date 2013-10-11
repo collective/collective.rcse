@@ -11,6 +11,7 @@
    <element value="Collection"/>
    <element value="Event"/>
    <element value="Topic"/>
+   <element value="Folder"/>
   </property>
  </object>
 </object>
