@@ -1,5 +1,6 @@
 from collective.rcse.tests.selenium_desktop import DesktopTheme
 from collective.rcse.tests.selenium_mobile import MobileTheme
+from collective.rcse import testing
 import unittest2 as unittest
 
 
@@ -18,7 +19,7 @@ class ScenarioTestCase(unittest.TestCase):
                       self.user.page_source)
 
         self.admin = self.getNewBrowser(self.portal_url)
-        self.login(self.admin, 'adminmember1', 'secret')
+        self.login(self.admin, testing.TEST_USER_ADMIN, testing.PASSWORD)
         self.admin.get('%s/users_directory/@@users_manage_pending'
                        % self.portal_url)
         xpath = ('//table[@id="members-datatable"]//td[text()="toto"]/'
@@ -35,8 +36,13 @@ class ScenarioTestCase(unittest.TestCase):
         self.user.quit()
         self.admin.quit()
 
-    #def test_add_group(self):
-    #    self.open_add(self.users['simple1'], what="Group")
+    def test_portlet_calendar(self):
+        browser = self.getNewBrowser(self.portal_url)
+        self.login(browser, testing.TEST_USER_ADMIN, testing.PASSWORD)
+        self.open_add_portlet(browser, "left", "Calendar portlet", submit=True)
+        browser.find_element_by_link_text("Return").click()
+        self.open_panel(browser, "left")
+        browser.quit()
 
 
 class DesktopContentTypesTestCase(ScenarioTestCase, DesktopTheme):
@@ -56,5 +62,5 @@ class MobileContentTypesTestCase(ScenarioTestCase, MobileTheme):
 def test_suite():
     test_suite = unittest.TestSuite()
     test_suite.addTest(unittest.makeSuite(DesktopContentTypesTestCase))
-#    test_suite.addTest(unittest.makeSuite(MobileContentTypesTestCase))
+    test_suite.addTest(unittest.makeSuite(MobileContentTypesTestCase))
     return test_suite

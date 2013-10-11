@@ -26,10 +26,6 @@ class DesktopTheme(unittest.TestCase):
         self.getNewBrowser = self.layer['getNewBrowser']
         transaction.commit()
 
-        self.users = {}
-        #self.users['admin1'] = self.getNewBrowser(self.portal_url)
-        #self.login(self.users['admin1'], "adminmember1", "secret")
-
     @sleep(before=1, after=1)
     def _select2(self, browser, byid, value):
         """when you use select2, you have to use id.
@@ -189,3 +185,22 @@ class DesktopTheme(unittest.TestCase):
             rwhere = self._select2(browser, 'form-widgets-where', where)
             self.assertEqual(rwhere, where)
         browser.find_element_by_id("rcseaddform").find_element_by_class_name('btn-primary').click()
+
+    @sleep(before=0)
+    def open_manage_portlet(self, browser):
+        browser.get(browser.current_url + '/@@manage-portlets')
+
+    @sleep(before=0)
+    def open_add_portlet(self, browser, column, portlet, submit=False):
+        """column in ("left", "right")
+        """
+        if not browser.current_url.endswith('/@@manage-portlets'):
+            self.open_manage_portlet(browser)
+        name = "portletmanager-plone-%scolumn" % column
+        manager = browser.find_element_by_id(name)
+        #find id of the select2
+        s2 = manager.find_element_by_class_name('select2-container')
+        id = s2.get_attribute('id').replace('s2id_', '')
+        self._select2(browser, id, portlet)
+        if submit:
+            browser.find_element_by_id('form.actions.save').click()

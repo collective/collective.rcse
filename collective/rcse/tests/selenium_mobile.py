@@ -6,13 +6,15 @@ import transaction
 from selenium.common.exceptions import NoSuchElementException
 
 
-def sleep(f):
-    def wrapper(*args, **kwargs):
-        time.sleep(2)
-        results = f(*args, **kwargs)
-        time.sleep(2)
-        return results
-    return wrapper
+def sleep(before=2, after=2):
+    def decorator(f):
+        def wrapper(*args, **kwargs):
+            time.sleep(before)
+            results = f(*args, **kwargs)
+            time.sleep(after)
+            return results
+        return wrapper
+    return decorator
 
 
 class MobileTheme(unittest.TestCase):
@@ -22,19 +24,14 @@ class MobileTheme(unittest.TestCase):
         super(MobileTheme, self).setUp()
         self.portal = self.layer['portal']
         self.portal_url = self.portal.absolute_url()
-        self.getNewBrowser = self.layer['getNewBrowser']
         transaction.commit()
 
-        self.user1 = self.getNewBrowser(self.portal_url)
-        self.user1.find_element_by_id('siteaction-themeswitcher_mobile').click()
-        self.login(self.user1, "simplemember1", "secret")
-        self.verify_user(self.user1, "simplemember1")
-        self.user2 = self.getNewBrowser(self.portal_url)
-        self.user2.find_element_by_id('siteaction-themeswitcher_mobile').click()
-        self.login(self.user2, "simplemember2", "secret")
-        self.verify_user(self.user2, "simplemember2")
+    def getNewBrowser(self, url=None):
+        browser = self.layer['getNewBrowser'](url=url)
+        browser.find_element_by_id('siteaction-themeswitcher_mobile').click()
+        return browser
 
-    @sleep
+    @sleep()
     def login(self, browser, username, password, next_url=None):
         """Login a user and redirect to next_url"""
 #        browser.get()
@@ -44,16 +41,16 @@ class MobileTheme(unittest.TestCase):
         if next_url:
             browser.get(next_url)
 
-    @sleep
+    @sleep()
     def open_add(self, browser, what=None, where=None):
         """Use the addbutton in RCSE header to get an add form"""
         pass
 
-    @sleep
+    @sleep()
     def do_create_group(self, browser, title, description=None, image=None):
         pass
 
-    @sleep
+    @sleep()
     def is_group(browser):
         css_class = browser.find_element_by_tag_name('body').get_attribute('class')
         return 'portaltype-collective-rcse-group' in css_class
@@ -61,7 +58,7 @@ class MobileTheme(unittest.TestCase):
     def open_group_manage(self, browser, action=None):
         pass
 
-    @sleep
+    @sleep()
     def assertGroupState(self, browser, state):
         """verify state of the current group"""
         if not self.is_group(browser):
@@ -124,3 +121,37 @@ class MobileTheme(unittest.TestCase):
             self.register_info(browser, email, first_name, last_name, function, company)
         if browser.current_url.endswith("edit"):
             self.missing_info(browser, email, first_name, last_name, function)
+
+    @sleep(before=0, after=1)
+    def open_manage_portlet(self, browser):
+        browser.get(browser.current_url + '/@@manage-portlets')
+
+    @sleep(before=0)
+    def open_add_portlet(self, browser, column, portlet, submit=False):
+        """column in ("left", "right")
+        """
+        if not browser.current_url.endswith('/@@manage-portlets'):
+            self.open_manage_portlet(browser)
+        self.open_panel(browser, column)
+        name = "portletmanager-plone-%scolumn" % column
+        manager = browser.find_element_by_id(name)
+        select = manager.find_element_by_tag_name("select")
+        options = select.find_elements_by_tag_name("option")
+        for option in options:
+            if portlet in option.text:
+                option.click()
+                break
+        if submit:
+            browser.find_element_by_id('form.actions.save').click()
+
+    def click_icon(self, browser, icon):
+        selector = '[data-icon="%s"]' % icon
+        browser.find_element_by_css_selector(selector).click()
+
+    def open_panel(self, browser, side):
+        if side == "left":
+            self.click_icon(browser, "bars")
+        elif side == "right":
+            self.click_icon(browser, "grid")
+        else:
+            self.assertTrue(False, msg="Panel %s doesn't exists" % side)
