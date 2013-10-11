@@ -44,6 +44,7 @@ setup(
         'collective.js.ckeditor',
         'collective.js.datatables',
         'collective.js.jquerymobile',
+        'collective.localrolesdatatables',
         'collective.mediaelementjs',
         'collective.oembed',
         'collective.picturefill',
