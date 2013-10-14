@@ -33,8 +33,8 @@ var rcseUpdatePortlets = function(element) {
                 $(newPortlet).attr('id', $(this).attr("id"));
                 $(titleWrapper).addClass("navbar-brand");
                 $(newTitle).attr("role", "navigation").addClass(
-                        "navbar navbar-inverse")
-                        .addClass($(this).attr("class"));
+                        "navbar navbar-inverse");
+//                        .addClass($(this).attr("class"));
                 $(titleWrapper).html(title);
                 $(newTitle).append(titleWrapper);
                 $(newList).addClass("list-group");

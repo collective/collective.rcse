@@ -33,15 +33,21 @@ var PloneThemeJQMResponsiveIframes = function()
        <dt>Avertissement</dt>
        <dd>MESSASGE HTML <p>paragraph</p></dd>
    </dl>
+   <div class="field error">
+      <div class="error">error message</div>
+   </div>
 transformed to ->
     <div class="ui-bar portalMessage portalMessage-info ui-bar-b">
-        <h3>Bienvenue ! Vous êtes maintenant connecté(e).</h3>
+        <h3>MESSAGE HTML <p>paragrapg</p></h3>
+        <div class="ui-icon ui-icon-info"></div>
+    </div>
+    <div class="ui-bar portalMessage portalMessage-info ui-bar-b">
+        <h3>Message</h3>
         <div class="ui-icon ui-icon-info"></div>
     </div>
 */
 var PloneThemeJQMConvertStatusMessageToJQM = function(){
 	$('dl.portalMessage:visible').each(function() {
-		console.log("status message transformed ");
 		var message = $(this).find("dd").html();
 		var parent = $(this).parent();
 		var newMessage = document.createElement("div");
@@ -52,6 +58,17 @@ var PloneThemeJQMConvertStatusMessageToJQM = function(){
 		parent.append($(newMessage));
 		$(this).replaceWith(newMessage);
 	});
+	$("div.field.error .error").each(function(){
+        var parent = $(this).parent();
+        var message = $(this).html();
+        var newMessage = document.createElement("div");
+        var newMessageTitle = document.createElement("h3");
+        $(newMessageTitle).html(message);
+        newMessage.appendChild(newMessageTitle);
+        $(newMessage).addClass("ui-bar").addClass('ui-bar-b').addClass($(this).attr('class'));
+        parent.append($(newMessage));
+        $(this).replaceWith(newMessage);
+    });
 }
 /**
 @function convertControlPanelToJQM

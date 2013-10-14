@@ -45,6 +45,7 @@ class DesktopTheme(unittest.TestCase):
 
     # User
 
+    @sleep(before=0)
     def login(self, browser, username, password, next_url=None):
         """Login a user and redirect to next_url"""
         browser.get('%s/login' % self.portal_url)
@@ -53,6 +54,9 @@ class DesktopTheme(unittest.TestCase):
         browser.find_element_by_name('submit').click()
         if next_url:
             browser.get(next_url)
+        else:
+            browser.find_element_by_id("content-core")\
+                .find_element_by_tag_name("a").click()
 
     def logout(self, browser):
         browser.get('%s/logout' % self.portal_url)
@@ -188,12 +192,13 @@ class DesktopTheme(unittest.TestCase):
     def open_manage_portlet(self, browser):
         browser.get(browser.current_url + '/@@manage-portlets')
 
-    @sleep(before=0)
+    @sleep(before=1)
     def open_add_portlet(self, browser, column, portlet, submit=False):
         """column in ("left", "right")
         """
         if not browser.current_url.endswith('/@@manage-portlets'):
             self.open_manage_portlet(browser)
+            time.sleep(1)
         name = "portletmanager-plone-%scolumn" % column
         manager = browser.find_element_by_id(name)
         #find id of the select2

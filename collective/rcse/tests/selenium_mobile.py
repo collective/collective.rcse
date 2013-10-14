@@ -166,7 +166,15 @@ class MobileTheme(unittest.TestCase):
 
     def click_icon(self, browser, icon):
         selector = '[data-icon="%s"]' % icon
-        browser.find_element_by_css_selector(selector).click()
+        icons = browser.find_elements_by_css_selector(selector)
+        found = False
+        for icon in icons:
+            if icon.is_displayed():
+                icon.click()
+                found = True
+                break
+        if not found:
+            raise ValueError("icon %s not found in the current page" % icon)
 
     @sleep()
     def open_add(self, browser, what=None, where=None):
@@ -186,12 +194,13 @@ class MobileTheme(unittest.TestCase):
     def open_manage_portlet(self, browser):
         browser.get(browser.current_url + '/@@manage-portlets')
 
-    @sleep(before=0)
+    @sleep()
     def open_add_portlet(self, browser, column, portlet, submit=False):
         """column in ("left", "right")
         """
         if not browser.current_url.endswith('/@@manage-portlets'):
             self.open_manage_portlet(browser)
+            time.sleep(1)
         self.open_panel(browser, column)
         name = "portletmanager-plone-%scolumn" % column
         manager = browser.find_element_by_id(name)
