@@ -23,9 +23,15 @@
 	         <a tal:attributes="href string:${view/portal_state/portal_url}/companies_directory" i18n:translate="">Companies directory</a>
 	      </li>
         <li>
+          <a data-toggle="modal" href="#rcseaddform">
+             <span class="icon-plus"></span>
+             <tal:label i18n:translate="">Add a group</tal:label>
+          </a>
+        </li>
+        <li>
           <a tal:attributes="href string:${view/portal_state/navigation_root_url}/@@search?portal_type=collective.rcse.group&sort_on=sortable_title&b_size=100">
-             <tal:label i18n:translate="">All groups</tal:label>
              <span class="icon-search"></span>
+             <tal:label i18n:translate="">All groups</tal:label>
           </a>
         </li>
         <li class="divider" i18n:translate=""
