@@ -45,6 +45,20 @@ class ScenarioTestCase(unittest.TestCase):
         self.open_panel(browser, "left")
         portlets = browser.find_elements_by_class_name("portletCalendar")
         self.assertEqual(len(portlets), 1)
+        browser.close()
+
+    def test_comments(self):
+        browser = self.getNewBrowser(self.portal_url)
+        self.login(browser, testing.TEST_USER_ADMIN, testing.PASSWORD)
+        self.do_create_group(browser, 'group for comments')
+        self.open_add(browser, what="Article")
+        title_id = 'form-widgets-IDublinCore-title'
+        title = "Please commenting me"
+        browser.find_element_by_id(title_id).send_keys(title)
+        browser.find_element_by_id('form-buttons-save').click()
+        tile = self.find_tile_by_title(browser, title)
+        self.click_icon(tile, "comments-alt")
+        browser.close()
 
     def test_disabled_member(self):
         user = self.getNewBrowser(self.portal_url)

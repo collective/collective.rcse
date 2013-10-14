@@ -154,12 +154,17 @@ class Layer(PloneSandboxLayer):
         self.regtool = getToolByName(portal, 'portal_registration')
         self.mtool = getToolByName(portal, 'membrane_tool')
         self.create_test_user(portal)
+        key = 'collective.rcse.security.ISecuritySettings.addGroupPermission'
+        portal.portal_registry[key] = "Member"
 
         login(portal, SITE_OWNER_NAME)
-        self.create_user(portal, TEST_USER_ADMIN, function="Admin")
-        setRoles(portal, TEST_USER_ADMIN, ["Site Administrator"])
-        simplemember1 = self.create_user(portal, TEST_USER_1)
-        self.create_user(portal, TEST_USER_2)
+        self.create_user(portal, TEST_USER_ADMIN, function="Admin",
+                         first_name="admin", last_name="rcse")
+        setRoles(portal, TEST_USER_ADMIN, ["Member", "Site Administrator"])
+        simplemember1 = self.create_user(portal, TEST_USER_1,
+                         first_name="User", last_name="1")
+        self.create_user(portal, TEST_USER_2,
+                         first_name="User", last_name="2")
         self.create_company(portal, simplemember1)
         logout()
         transaction.commit()
