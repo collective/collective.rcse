@@ -3,6 +3,7 @@
  */
 $.event.special.swipe.horizontalDistanceThreshold = 100;
 var rcseInitTimeline = function() {
+    $("a.rcse_tile").append('<i class="ui-icon-spinner icon-spin icon-large"></i>');
     $("a.rcse_tile").waypoint(function(direction) {
         if (direction == "up"){
             return false;
