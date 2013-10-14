@@ -56,8 +56,15 @@ class ScenarioTestCase(unittest.TestCase):
         title = "Please commenting me"
         browser.find_element_by_id(title_id).send_keys(title)
         browser.find_element_by_id('form-buttons-save').click()
+        sleep(2)
         tile = self.find_tile_by_title(browser, title)
+        self.assertIsNotNone(tile)
         self.click_icon(tile, "comments-alt")
+        tile.find_element_by_tag_name("textarea").send_keys("coucou")
+        tile.find_element_by_id("form-buttons-comment").click()
+        comments = tile.find_elements_by_class_name("commentBody")
+        comments = [comment.text for comment in comments]
+        self.assertIn("coucou", comments)
         browser.close()
 
     def test_disabled_member(self):
