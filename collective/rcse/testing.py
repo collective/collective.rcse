@@ -244,7 +244,7 @@ class SeleniumLayer(BaseLayer):
 
     def testTearDown(self):
         for browser in self['browsers']:
-            browser.quit()
+            browser.close()
             del browser
         pass
 
