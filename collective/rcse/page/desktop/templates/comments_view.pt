@@ -28,22 +28,24 @@
                     tal:attributes="class python:'media comment replyTreeLevel'+str(depth)+' state-'+str(review_state);
                                  id string:${reply/getId}"
                     tal:condition="python:canReview or review_state == 'published'">
-                    <tal:commentImage tal:condition="showCommenterImage">
-                        <a href="" class="pull-left" tal:condition="has_author_link"
-                            tal:attributes="href author_home_url">
-                            <img src="defaultUser.gif" alt=""
-                                class="defaultuserimg media-object"
-                                tal:attributes="src portrait_url;
-                                              alt reply/author_name" />
-                        </a>
-                        <img src="defaultUser.gif" alt=""
-                            class="defaultuserimg media-object" height="32"
-                            tal:condition="not: has_author_link"
-                            tal:attributes="src portrait_url;
-                                         alt reply/author_name" />
-                    </tal:commentImage>
+
                     <div class="media-body">
                         <div class="documentByLine" i18n:domain="plone.app.discussion">
+                          <tal:commentImage tal:condition="showCommenterImage">
+                            <a href="" class="pull-left" tal:condition="has_author_link"
+                               tal:attributes="href author_home_url">
+                              <img src="defaultUser.gif" alt=""
+                                   class="defaultuserimg media-object"
+                                   tal:attributes="src portrait_url;
+                                            alt reply/author_name" />
+                            </a>
+                              <img src="defaultUser.gif" alt=""
+                                   class="defaultuserimg media-object" height="32"
+                                   tal:condition="not: has_author_link"
+                                   tal:attributes="src portrait_url;
+                                                   alt reply/author_name" />
+                          </tal:commentImage>
+                          <div class="media-head">
                             <tal:name>
                                 <h4 class="media-heading">
                                     <a href="" tal:condition="has_author_link"
@@ -56,10 +58,11 @@
                                 <span tal:condition="not: reply/author_name"
                                     i18n:translate="label_anonymous">Anonymous</span>
                             </tal:name>
-                            <tal:posted i18n:translate="label_says">says:</tal:posted>
+                            <div class="commentDate"><tal:posted i18n:translate="label_says">says:</tal:posted></div>
                             <div class="commentDate"
                                 tal:content="python:view.format_time(reply.modification_date)"> 8/23/2001 12:40:44 PM
                             </div>
+                          </div>
                         </div>
                         <div class="commentBody">
                             <span tal:replace="structure reply/getText" />

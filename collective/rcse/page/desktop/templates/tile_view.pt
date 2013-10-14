@@ -17,8 +17,8 @@
                 <span tal:attributes="class string:icon ${view/icon} icon-3x"></span>
                 <a class="group" data-inline="true" tal:attributes="href view/group_url"
                     tal:content="view/group_title">group</a>
-                <span class="date" tal:condition="view/effective_date"
-                    tal:content="view/effective_date"></span>
+                <div class="date" tal:condition="view/effective_date"
+                     tal:content="view/effective_date"></div>
                 <div class="editbar" tal:content="structure context/@@collective.rcse.editbar"></div>
             </div>
         </div>
