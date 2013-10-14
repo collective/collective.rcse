@@ -18,9 +18,12 @@
                     tal:define="reply reply_dict/comment;
                              depth reply_dict/depth|python:0;
                              depth python: depth > 10 and '10' or depth;
+                             author reply/author_username;
+                             author_info_view nocall:context/@@get_memberinfo;
+                             dummy python:author_info_view(author);
                              author_home_url python:view.get_commenter_home_url(username=reply.author_username);
                              has_author_link python:author_home_url and not isAnon;
-                             portrait_url python:view.get_commenter_portrait(reply.author_username);
+                             portrait_url string:${author_info_view/photo}/tile;
                              review_state python:wtool.getInfoFor(reply, 'review_state', 'none');"
                     tal:attributes="class python:'media comment replyTreeLevel'+str(depth)+' state-'+str(review_state);
                                  id string:${reply/getId}"
