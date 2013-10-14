@@ -24,7 +24,6 @@ class MobileTheme(unittest.TestCase):
         super(MobileTheme, self).setUp()
         self.portal = self.layer['portal']
         self.portal_url = self.portal.absolute_url()
-        self.getNewBrowser = self.layer['getNewBrowser']
         transaction.commit()
 
     def _select(self, browser, byid, value):
@@ -40,12 +39,18 @@ class MobileTheme(unittest.TestCase):
         active.click()
         return active.text
 
+    def getNewBrowser(self, url=None):
+        browser = self.layer['getNewBrowser'](url=url)
+        browser.find_element_by_id("siteaction-themeswitcher_mobile").click()
+        return browser
+
     # User
 
     @sleep()
     def login(self, browser, username, password, next_url=None):
         """Login a user and redirect to next_url"""
         browser.get('%s/login' % self.portal_url)
+        time.sleep(1)
         browser.find_element_by_name("__ac_name").send_keys(username)
         browser.find_element_by_name("__ac_password").send_keys(password)
         browser.find_element_by_name('submit').click()
@@ -61,6 +66,7 @@ class MobileTheme(unittest.TestCase):
                  city="City"):
         self.logout(browser)
         browser.get('%s/@@register' % self.portal_url)
+        time.sleep(1)
         browser.find_element_by_name("form.widgets.login").send_keys(username)
         browser.find_element_by_name("form.widgets.password").send_keys(password)
         browser.find_element_by_name("form.widgets.password_confirm").send_keys(password)

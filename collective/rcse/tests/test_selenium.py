@@ -9,9 +9,6 @@ class ScenarioTestCase(unittest.TestCase):
         pass
 
     def test_register(self):
-
-        import pdb; pdb.set_trace()
-
         self.user = self.getNewBrowser(self.portal_url)
         self.register(self.user, 'toto', 'passs', email="toto@example.com",
                       first_name="Toto", last_name="Pass", function="tester",
@@ -24,8 +21,12 @@ class ScenarioTestCase(unittest.TestCase):
         self.login(self.admin, testing.TEST_USER_ADMIN, testing.PASSWORD)
         self.admin.get('%s/users_directory/@@users_manage_pending'
                        % self.portal_url)
-        xpath = ('//table[@id="members-datatable"]//td[text()="toto"]/'
-                 'parent::tr/td/form//input[@id="form-buttons-approve"]')
+        if not self.is_mobile:
+            xpath = ('//table[@id="members-datatable"]//td[text()="toto"]/'
+                     'parent::tr/td/form//input[@id="form-buttons-approve"]')
+        else:
+            xpath = ('//div[@class="directory"]/ul/li/h2[text()="Toto Pass"]/'
+                     'parent::li/form//input[@id="form-buttons-approve"]')
         self.admin.find_element_by_xpath(xpath).click()
         self.user.get(self.portal_url)
         self.assertIn('Please complete your company information',
@@ -46,6 +47,7 @@ class ScenarioTestCase(unittest.TestCase):
 
 
 class DesktopContentTypesTestCase(ScenarioTestCase, DesktopTheme):
+    is_mobile = False
 
     def setUp(self):
         DesktopTheme.setUp(self)
@@ -53,6 +55,7 @@ class DesktopContentTypesTestCase(ScenarioTestCase, DesktopTheme):
 
 
 class MobileContentTypesTestCase(ScenarioTestCase, MobileTheme):
+    is_mobile = True
 
     def setUp(self):
         MobileTheme.setUp(self)
