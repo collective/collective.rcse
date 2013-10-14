@@ -26,7 +26,7 @@ class DesktopTheme(unittest.TestCase):
         self.getNewBrowser = self.layer['getNewBrowser']
         transaction.commit()
 
-    @sleep(before=1, after=1)
+    @sleep(before=0, after=1)
     def _select2(self, browser, byid, value):
         """when you use select2, you have to use id.
         if select id was "form-widgets-function"
@@ -36,12 +36,10 @@ class DesktopTheme(unittest.TestCase):
         select2 = browser.find_element_by_id(newid)
         select2.find_element_by_tag_name("a").click()
         options = browser.find_elements_by_class_name("select2-result")
-
         for option in options:
             if option.text == value:
                 option.click()
                 return value
-
         select2.find_element_by_tag_name("a").click()
         return select2.find_element_by_class_name('select2-chosen').text
 
