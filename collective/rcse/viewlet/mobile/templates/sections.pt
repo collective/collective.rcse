@@ -41,6 +41,13 @@
                  id string:portaltab-favorites-${tab/getId};"
              tal:content="tab/Title">Add</a></li>
         <li data-role="list-divider" i18n:translate=""
+            tal:condition="view/my_groups">My groups</li>
+        <li tal:repeat="tab view/my_groups">
+          <a data-rel="popup"
+             tal:attributes="href tab/getURL;
+                 id string:portaltab-registred-${tab/getId};"
+             tal:content="tab/Title">Add</a></li>
+        <li data-role="list-divider" i18n:translate=""
             tal:condition="view/registred">Registred</li>
         <li tal:repeat="tab view/registred">
           <a data-rel="popup"

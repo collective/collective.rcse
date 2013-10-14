@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-10-14 14:32+0000\n"
+"POT-Creation-Date: 2013-10-14 15:08+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -402,7 +402,7 @@ msgstr "Evénement ajouté"
 msgid "Expertise"
 msgstr "Expertise"
 
-#: ./viewlet/desktop/templates/portal_header.pt:37
+#: ./viewlet/desktop/templates/portal_header.pt:38
 #: ./viewlet/mobile/templates/sections.pt:36
 msgid "Favorites"
 msgstr "Favoris"
@@ -627,6 +627,11 @@ msgstr "Modifier votre entreprise"
 msgid "My account"
 msgstr "Mon compte"
 
+#: ./viewlet/desktop/templates/portal_header.pt:45
+#: ./viewlet/mobile/templates/sections.pt:43
+msgid "My groups"
+msgstr "Mes groupes"
+
 #: ./page/controller/templates/welcome_view.pt:16
 #: ./page/controller/timeline_view.py:55
 #: ./profiles/default/actions.xml
@@ -759,8 +764,8 @@ msgstr "S'enregistrer"
 msgid "Register your information"
 msgstr "Enregistrer vos informations"
 
-#: ./viewlet/desktop/templates/portal_header.pt:43
-#: ./viewlet/mobile/templates/sections.pt:43
+#: ./viewlet/desktop/templates/portal_header.pt:53
+#: ./viewlet/mobile/templates/sections.pt:50
 msgid "Registred"
 msgstr "Enregistré"
 
@@ -792,7 +797,7 @@ msgstr "Inverser"
 msgid "Save"
 msgstr "Sauvegarder"
 
-#: ./viewlet/desktop/templates/portal_header.pt:54
+#: ./viewlet/desktop/templates/portal_header.pt:64
 #: ./viewlet/mobile/filters.py:26
 msgid "Search"
 msgstr "Rechercher"
@@ -835,7 +840,7 @@ msgstr "Rechercher des membres"
 msgid "Sector"
 msgstr "Secteur"
 
-#: ./viewlet/desktop/templates/portal_header.pt:87
+#: ./viewlet/desktop/templates/portal_header.pt:97
 msgid "See all notifications"
 msgstr "Voir toutes les notifications"
 

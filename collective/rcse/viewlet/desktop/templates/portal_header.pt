@@ -34,14 +34,24 @@
              <tal:label i18n:translate="">All groups</tal:label>
           </a>
         </li>
-        <li class="divider" i18n:translate=""
-            tal:condition="view/favorites">Favorites</li>
+        <li class="divider" tal:condition="view/favorites"></li>
+	<li i18n:translate="" tal:condition="view/favorites"
+	    role="presentation" class="dropdown-header">Favorites</li>
         <li tal:repeat="tab view/favorites">
           <a tal:attributes="href tab/getURL; id string:portaltab-favorites-${tab/getId};"
              ><span class="icon-star"></span>
              <tal:label tal:content="tab/Title"></tal:label></a></li>
-        <li class="divider" i18n:translate=""
-            tal:condition="view/registred">Registred</li>
+        <li class="divider" tal:condition="view/my_groups"></li>
+	<li i18n:translate="" tal:condition="view/my_groups"
+	    role="presentation" class="dropdown-header">My groups</li>
+        <li tal:repeat="tab view/my_groups">
+          <a tal:attributes="href tab/getURL;
+                 id string:portaltab-registred-${tab/getId};"
+             tal:content="tab/Title"></a>
+	</li>
+        <li class="divider" tal:condition="view/registred"></li>
+	<li i18n:translate="" tal:condition="view/registred"
+	    role="presentation" class="dropdown-header">Registred</li>
         <li tal:repeat="tab view/registred">
           <a tal:attributes="href tab/getURL;
                  id string:portaltab-registred-${tab/getId};"
