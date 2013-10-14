@@ -40,10 +40,6 @@ class ManageUserForm(AutoExtensibleForm, form.Form):
     schema = ManageUserFormSchema
     enableCSRFProtection = True
 
-    def updateActions(self):
-        super(ManageUserForm, self).updateActions()
-        self.actions['approve'].addClass('btn-primary')
-
     def _handleUser(self, action):
         data, errors = self.extractData()
         message = IStatusMessage(self.request)
@@ -82,6 +78,10 @@ class ManageUserForm(AutoExtensibleForm, form.Form):
 
 class ManagePendingUserForm(ManageUserForm):
 
+    def updateActions(self):
+        super(ManageUserForm, self).updateActions()
+        self.actions['approve'].addClass('btn-primary')
+
     @button.buttonAndHandler(_(u"Approve"), name="approve")
     def handleApprove(self, action):
         self._handleUser('approve')
@@ -92,6 +92,10 @@ class ManagePendingUserForm(ManageUserForm):
 
 
 class ManageDisabledUserForm(ManageUserForm):
+
+    def updateActions(self):
+        super(ManageUserForm, self).updateActions()
+        self.actions['enable'].addClass('btn-primary')
 
     @button.buttonAndHandler(_(u"Enable"), name="enable")
     def handleApprove(self, action):
@@ -109,6 +113,7 @@ class ManageDisabledUserForm(ManageUserForm):
         if not referer:
             referer = self.context.absolute_url()
         self.request.response.redirect(referer)
+
 
 class ManagePendingUsersView(UsersDirectoryView):
     state = "pending"

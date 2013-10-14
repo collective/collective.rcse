@@ -7,13 +7,13 @@ from collective.rcse.content.utils import createCompany
 
 
 def handle_user_validation(context, event):
+    mtool = getToolByName(context, 'membrane_tool')
+    mtool.reindexObject(context)
     if event.old_state.id != 'pending':
         return
     if event.status['action'] not in ('approve', 'decline'):
         return
     _sendMail(context, event)
-    mtool = getToolByName(context, 'membrane_tool')
-    mtool.reindexObject(context)
 
 
 def _sendMail(context, event):
