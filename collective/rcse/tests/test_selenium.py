@@ -54,7 +54,20 @@ class ScenarioTestCase(unittest.TestCase):
         admin.get('%s/users_directory/john-doe-1/'
                   'content_status_modify?workflow_action=disable'
                   % self.portal_url)
+        user.get(self.portal_url)
+        self.assertIn('Your profile has been disabled.', user.page_source)
         admin.get('%s/users_directory/@@users_manage_disabled' % self.portal_url)
+        if not self.is_mobile:
+            xpath = ('//table[@id="members-datatable"]//td[text()="simplemember1"]/'
+                     'parent::tr/td/form//input[@id="form-buttons-enable"]')
+        else:
+            xpath = ('//div[@class="directory"]/ul/li/h2[text()="John Doe"]/'
+                     'parent::li/form//input[@id="form-buttons-enable"]')
+        admin.find_element_by_xpath(xpath).click()
+        user.get(self.portal_url)
+        sleep(1)
+        self.assertIn('My profile', user.page_source)
+        self.assertIn('News', user.page_source)
 
 
 class DesktopContentTypesTestCase(ScenarioTestCase, DesktopTheme):
