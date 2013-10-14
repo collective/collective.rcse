@@ -9,17 +9,17 @@ class ScenarioTestCase(unittest.TestCase):
         pass
 
     def test_register(self):
-        self.user = self.getNewBrowser(self.portal_url)
-        self.register(self.user, 'toto', 'passs', email="toto@example.com",
+        user = self.getNewBrowser(self.portal_url)
+        self.register(user, 'toto', 'passs', email="toto@example.com",
                       first_name="Toto", last_name="Pass", function="tester",
                       company="The company", city="TotoLand")
-        self.login(self.user, 'toto', 'passs')
-        self.user.get(self.portal_url)
+        self.login(user, 'toto', 'passs')
+        user.get(self.portal_url)
         self.assertIn('Your profile is waiting for approval',
-                      self.user.page_source)
-        self.admin = self.getNewBrowser(self.portal_url)
-        self.login(self.admin, testing.TEST_USER_ADMIN, testing.PASSWORD)
-        self.admin.get('%s/users_directory/@@users_manage_pending'
+                      user.page_source)
+        admin = self.getNewBrowser(self.portal_url)
+        self.login(admin, testing.TEST_USER_ADMIN, testing.PASSWORD)
+        admin.get('%s/users_directory/@@users_manage_pending'
                        % self.portal_url)
         if not self.is_mobile:
             xpath = ('//table[@id="members-datatable"]//td[text()="toto"]/'
@@ -27,14 +27,14 @@ class ScenarioTestCase(unittest.TestCase):
         else:
             xpath = ('//div[@class="directory"]/ul/li/h2[text()="Toto Pass"]/'
                      'parent::li/form//input[@id="form-buttons-approve"]')
-        self.admin.find_element_by_xpath(xpath).click()
-        self.user.get(self.portal_url)
+        admin.find_element_by_xpath(xpath).click()
+        user.get(self.portal_url)
         self.assertIn('Please complete your company information',
-                      self.user.page_source)
-        self.edit_company(self.user, title="The company",
+                      user.page_source)
+        self.edit_company(user, title="The company",
                          corporate_name="The company")
-        self.assertIn('My profile', self.user.page_source)
-        self.assertIn('News', self.user.page_source)
+        self.assertIn('My profile', user.page_source)
+        self.assertIn('News', user.page_source)
 
     def test_portlet_calendar(self):
         browser = self.getNewBrowser(self.portal_url)
@@ -44,6 +44,16 @@ class ScenarioTestCase(unittest.TestCase):
         self.open_panel(browser, "left")
         portlets = browser.find_elements_by_class_name("portletCalendar")
         self.assertEqual(len(portlets), 1)
+
+    def test_disabled_member(self):
+        user = self.getNewBrowser(self.portal_url)
+        self.login(user, testing.TEST_USER_1, testing.PASSWORD)
+        admin = self.getNewBrowser(self.portal_url)
+        self.login(admin, testing.TEST_USER_ADMIN, testing.PASSWORD)
+        admin.get('%s/users_directory/john-doe-1/'
+                  'content_status_modify?workflow_action=disable'
+                  % self.portal_url)
+        admin.get('%s/users_directory/@@users_manage_disabled' % self.portal_url)
 
 
 class DesktopContentTypesTestCase(ScenarioTestCase, DesktopTheme):
