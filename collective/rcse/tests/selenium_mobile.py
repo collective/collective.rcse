@@ -24,8 +24,12 @@ class MobileTheme(unittest.TestCase):
         super(MobileTheme, self).setUp()
         self.portal = self.layer['portal']
         self.portal_url = self.portal.absolute_url()
-        self.getNewBrowser = self.layer['getNewBrowser']
         transaction.commit()
+
+    def getNewBrowser(self, url=None):
+        browser = self.layer['getNewBrowser'](url=url)
+        browser.find_element_by_id("siteaction-themeswitcher_mobile").click()
+        return browser
 
     # User
 
