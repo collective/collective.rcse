@@ -27,12 +27,25 @@ class MobileTheme(unittest.TestCase):
         self.getNewBrowser = self.layer['getNewBrowser']
         transaction.commit()
 
+    def _select(self, browser, byid, value):
+        select_menu = browser.find_element_by_id("%s-menu" % byid)
+        browser.find_element_by_id("%s-button" % byid).click()
+        options = select_menu.find_elements_by_tag_name('a')
+        for option in options:
+            if option.text == value:
+                option.click()
+                return value
+        active = select_menu.find_element_by_class_name('ui-btn-active').\
+            find_element_by_tag_name('a')
+        active.click()
+        return active.text
+
     # User
 
     @sleep()
     def login(self, browser, username, password, next_url=None):
         """Login a user and redirect to next_url"""
-#        browser.get()
+        browser.get('%s/login' % self.portal_url)
         browser.find_element_by_name("__ac_name").send_keys(username)
         browser.find_element_by_name("__ac_password").send_keys(password)
         browser.find_element_by_name('submit').click()
@@ -72,9 +85,9 @@ class MobileTheme(unittest.TestCase):
         browser.find_element_by_name("form.widgets.last_name").send_keys(last_name)
         browser.find_element_by_name("form.widgets.function").send_keys(function)
         browser.find_element_by_name("form.widgets.city").send_keys(city)
-        rcompany = self._select2(browser, "form-widgets-company", company)
+        rcompany = self._select(browser, "form-widgets-company", company)
         if rcompany != company:
-            self._select2(browser, "form-widgets-company", "Create a new company")
+            self._select(browser, "form-widgets-company", "Create a new company")
             browser.find_element_by_name("form.widgets.new_company").send_keys(company)
         if send:
             browser.find_element_by_name("form.buttons.submit").click()
@@ -152,6 +165,7 @@ class MobileTheme(unittest.TestCase):
     @sleep()
     def open_add(self, browser, what=None, where=None):
         """Use the addbutton in RCSE header to get an add form"""
+        # NOT IN MOBILE
         pass
 
     def open_panel(self, browser, side):

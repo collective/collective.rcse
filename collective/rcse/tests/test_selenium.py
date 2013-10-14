@@ -9,6 +9,9 @@ class ScenarioTestCase(unittest.TestCase):
         pass
 
     def test_register(self):
+
+        import pdb; pdb.set_trace()
+
         self.user = self.getNewBrowser(self.portal_url)
         self.register(self.user, 'toto', 'passs', email="toto@example.com",
                       first_name="Toto", last_name="Pass", function="tester",
@@ -17,7 +20,6 @@ class ScenarioTestCase(unittest.TestCase):
         self.user.get(self.portal_url)
         self.assertIn('Your profile is waiting for approval',
                       self.user.page_source)
-
         self.admin = self.getNewBrowser(self.portal_url)
         self.login(self.admin, testing.TEST_USER_ADMIN, testing.PASSWORD)
         self.admin.get('%s/users_directory/@@users_manage_pending'
@@ -28,7 +30,6 @@ class ScenarioTestCase(unittest.TestCase):
         self.user.get(self.portal_url)
         self.assertIn('Please complete your company information',
                       self.user.page_source)
-
         self.edit_company(self.user, title="The company",
                          corporate_name="The company")
         self.assertIn('My profile', self.user.page_source)
