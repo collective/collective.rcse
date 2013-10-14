@@ -40,6 +40,8 @@ class ScenarioTestCase(unittest.TestCase):
         self.open_add_portlet(browser, "left", "Calendar portlet", submit=True)
         browser.find_element_by_link_text("Return").click()
         self.open_panel(browser, "left")
+        portlets = browser.find_elements_by_class_name("portletCalendar")
+        self.assertEqual(len(portlets), 1)
 
 
 class DesktopContentTypesTestCase(ScenarioTestCase, DesktopTheme):

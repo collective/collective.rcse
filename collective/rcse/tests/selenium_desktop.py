@@ -202,3 +202,6 @@ class DesktopTheme(unittest.TestCase):
         self._select2(browser, id, portlet)
         if submit:
             browser.find_element_by_id('form.actions.save').click()
+
+    def open_panel(self, browser, side):
+        pass
