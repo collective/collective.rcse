@@ -2,6 +2,7 @@ from collective.rcse.tests.selenium_desktop import DesktopTheme
 from collective.rcse.tests.selenium_mobile import MobileTheme
 from collective.rcse import testing
 import unittest2 as unittest
+from time import sleep
 
 
 class ScenarioTestCase(unittest.TestCase):
