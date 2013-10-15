@@ -39,6 +39,9 @@ var rcseInitAjaxAction = function() {
     $(document).on("click", "a.action", function(eventObject) {
         eventObject.stopImmediatePropagation();
         eventObject.preventDefault();
+        var link = $(this);
+        var container = $(eventObject.target).parents(".document-actions-wrapper");
+        var parent = container.parent();
         $.ajax({
             url : $(this).attr('href'),
             context : eventObject,
@@ -47,12 +50,11 @@ var rcseInitAjaxAction = function() {
             }
         })
         .success(function(data) {
-                    var parent = $(eventObject.target).parents(".document-actions-wrapper");
-                    var super_parent = parent.parent();
-                    parent.replaceWith(data['document-actions-wrapper']);
-                    rcseApplyTransform(super_parent.find(".document-actions-wrapper").get());
-                    $(document).trigger("create");
-                });
+            var element = data['document-actions-wrapper'];
+            container.replaceWith(element);
+            rcseApplyTransform(parent);
+            $(document).trigger("create");
+        });
     });
     $(document).on("submit", ".commenting form", function(e) {
         e.preventDefault();
@@ -61,25 +63,24 @@ var rcseInitAjaxAction = function() {
         var form = $(eventObject.target).parents("form");
         var data = {
             ajax_load : true,
-            uid : $(eventObject.target).parents(".rcsetile")
-                    .attr("id")
+            uid : $(eventObject.target).parents(".rcsetile").attr("id")
         }
         data[$(eventObject.target).attr("name")] = 1;
-        form
-                .ajaxSubmit({
-                    context : form,
-                    data : data,
-                    url : portal_url + "/@@plone.comments.ajax",
-                    success : function(response, status, xhr,
-                            jqform) {
-                        var parent = jqform
-                                .parents(".document-actions-wrapper");
-                        var element = rcseApplyTransform(response['document-actions-wrapper']);
-                        $(element).find("textarea").val("");
-                        parent.replaceWith(element);
-                        $(document).trigger("create");
-                    }
-                });
+        form.ajaxSubmit({
+            context : form,
+            data : data,
+            url : portal_url + "/@@plone.comments.ajax",
+            success : function(response, status, xhr, jqform) {
+                debugger;
+                var container = jqform.parents(".document-actions-wrapper");
+                var parent = $(container).parent();
+                var element = response['document-actions-wrapper'];
+                container.replaceWith(element);
+                rcseApplyTransform(parent);
+                $(document).trigger("create");
+                parent.find("textarea").val("");
+            }
+        });
     });
 
 }
