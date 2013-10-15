@@ -44,9 +44,9 @@ sortBy = SimpleVocabulary([
 
 def companies(context):
     catalog = getToolByName(context, 'portal_catalog')
-    companies = catalog.searchResults({
-            'portal_type': {'query': 'collective.rcse.company'}
-            })
+    query = {'portal_type': 'collective.rcse.company',
+             'sort_on': 'sortable_title'}
+    companies = catalog(**query)
     terms = [SimpleTerm(value=company.id, title=company.Title)
              for company in companies]
     terms += [
@@ -60,6 +60,21 @@ def groups(context):
     catalog = getToolByName(context, 'portal_catalog')
     query = {"portal_type": "collective.rcse.group",
              "sort_on": "sortable_title"}
+    terms = []
+    brains = catalog(**query)
+    for brain in brains:
+        terms.append(SimpleVocabulary.createTerm(
+            unicode(brain.UID),
+            str(brain.UID),
+            brain.Title
+        ))
+    return SimpleVocabulary(terms)
+
+
+def groups_with_home(context):
+    catalog = getToolByName(context, 'portal_catalog')
+    query = {"portal_type": "collective.rcse.group",
+             "sort_on": "sortable_title"}
     site = getToolByName(context, 'portal_url').getPortalObject()
     home = site['home']
     terms = [SimpleTerm(value=IUUID(home), title=_(u"Home"))]
@@ -70,7 +85,6 @@ def groups(context):
             str(brain.UID),
             brain.Title
         ))
-
     return SimpleVocabulary(terms)
 
 

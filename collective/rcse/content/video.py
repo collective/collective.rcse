@@ -25,12 +25,6 @@ class VideoSchema(form.Schema):
     file = NamedBlobFile(title=_(u"Video file"), required=False)
     remoteUrl = schema.URI(
         title=_p(u"URL"),
-        description=_p(
-            u"""The link is used almost verbatim, relative links become
-            absolute and the strings "${navigation_root_url}" and
-            ${portal_url}" get replaced with the real navigation_root_url
-            or portal_url. If in doubt which one to use, please use
-            navigation_root_url."""),
         required=False
     )
 

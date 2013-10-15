@@ -7,9 +7,11 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.PloneBatch import Batch
 from Products.Five.browser import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
+from plone.supermodel import model
 
 from plone.autoform.form import AutoExtensibleForm
 from plone.app.search.browser import quote_chars
+from plone.app.uuid.utils import uuidToObject
 from plone.dexterity import utils
 from plone.z3cform.layout import FormWrapper
 
@@ -100,6 +102,13 @@ class BaseView(BrowserView):
         return results
 
 
+class BaseAddFormSchema(model.Schema):
+    where = schema.Choice(
+        title=u"Where",
+        vocabulary="collective.rcse.vocabulary.groups"
+    )
+
+
 class BaseAddForm(AutoExtensibleForm, form.Form):
 #    schema = AddFormSchema
     enableCSRFProtection = True
@@ -107,17 +116,17 @@ class BaseAddForm(AutoExtensibleForm, form.Form):
     CONTENT_TYPE = ""
 
 #    @button.buttonAndHandler(_(u"Add Image"))
-    def handleAdd(self, action):
+    def handleAdd(self, action, referer=True):
         data, errors = self.extractData()
         if errors:
             self.status = self.formErrorsMessage
             self.errors = errors
             return
         if self.request.response.getStatus() not in (302, 303):
-            self.doAdd(data)
+            self.doAdd(data, referer)
 
-    def doAdd(self, data):
-        container = self.context
+    def doAdd(self, data, referer):
+        container = uuidToObject(data['where'])
         item = utils.createContentInContainer(
             container,
             self.CONTENT_TYPE,
@@ -125,10 +134,13 @@ class BaseAddForm(AutoExtensibleForm, form.Form):
             **data)
 
         IStatusMessage(self.request).add(self.msg_added)
-        referer = self.request.get("HTTP_REFERER")
-        if not referer:
-            referer = self.context.absolute_url()
-        self.request.response.redirect(referer)
+        referer_url = self.request.get("HTTP_REFERER")
+        if not referer_url:
+            referer_url = item.absolute_url()
+        if referer:
+            self.request.response.redirect(referer_url)
+        else:
+            self.request.response.redirect(item.absolute_url())
 
 
 class BaseAddFormView(BaseView, FormWrapper):

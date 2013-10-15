@@ -19,8 +19,9 @@ class AddFormSchema(interface.Interface):
     )
     where = schema.Choice(
         title=u"Where",
-        vocabulary="collective.rcse.vocabulary.groups"
+        vocabulary="collective.rcse.vocabulary.groups_with_home"
     )
+
 
 class AddFormAdapter(object):
     interface.implements(AddFormSchema)
