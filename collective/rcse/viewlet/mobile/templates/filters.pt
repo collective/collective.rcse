@@ -1,4 +1,4 @@
-<div class="ui-grid-a" i18n:domain="collective.rcse">
+<div class="ui-grid-a ui-responsive" i18n:domain="collective.rcse">
     <div class="ui-block-a">
         <div id="addbutton-wrapper" data-role="collapsible" data-mini="true" data-theme="b">
             <h4 i18n:translate="">Add</h4>

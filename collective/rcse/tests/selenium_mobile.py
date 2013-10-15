@@ -6,17 +6,6 @@ import transaction
 from selenium.common.exceptions import NoSuchElementException
 
 
-def sleep(before=2, after=2):
-    def decorator(f):
-        def wrapper(*args, **kwargs):
-            time.sleep(before)
-            results = f(*args, **kwargs)
-            time.sleep(after)
-            return results
-        return wrapper
-    return decorator
-
-
 class MobileTheme(unittest.TestCase):
     layer = testing.SELENIUM
 
@@ -46,11 +35,9 @@ class MobileTheme(unittest.TestCase):
 
     # User
 
-    @sleep()
     def login(self, browser, username, password, next_url=None):
         """Login a user and redirect to next_url"""
         browser.get('%s/login' % self.portal_url)
-        time.sleep(1)
         browser.find_element_by_name("__ac_name").send_keys(username)
         browser.find_element_by_name("__ac_password").send_keys(password)
         browser.find_element_by_name('submit').click()
@@ -70,7 +57,6 @@ class MobileTheme(unittest.TestCase):
                  city="City"):
         self.logout(browser)
         browser.get('%s/@@register' % self.portal_url)
-        time.sleep(1)
         browser.find_element_by_name("form.widgets.login").send_keys(username)
         browser.find_element_by_name("form.widgets.password").send_keys(password)
         browser.find_element_by_name("form.widgets.password_confirm").send_keys(password)
@@ -127,11 +113,15 @@ class MobileTheme(unittest.TestCase):
 
     # Group
 
-    @sleep()
     def do_create_group(self, browser, title, description=None, image=None):
-        pass
+        self.open_add(browser, what='Group')
+        title_id = 'form-widgets-IDublinCore-title'
+        desc_id = 'form-widgets-IDublinCore-description'
+        browser.find_element_by_id(title_id).send_keys(title)
+        if description is not None:
+            browser.find_element_by_id(desc_id).send_keys(description)
+        browser.find_element_by_id('form-buttons-save').click()
 
-    @sleep()
     def is_group(browser):
         css_class = browser.find_element_by_tag_name('body').get_attribute('class')
         return 'portaltype-collective-rcse-group' in css_class
@@ -139,7 +129,6 @@ class MobileTheme(unittest.TestCase):
     def open_group_manage(self, browser, action=None):
         pass
 
-    @sleep()
     def assertGroupState(self, browser, state):
         """verify state of the current group"""
         if not self.is_group(browser):
@@ -180,11 +169,17 @@ class MobileTheme(unittest.TestCase):
         if not found:
             raise ValueError("icon %s not found in the current page" % icon)
 
-    @sleep()
     def open_add(self, browser, what=None, where=None):
         """Use the addbutton in RCSE header to get an add form"""
-        # NOT IN MOBILE
-        pass
+        browser.find_element_by_id("addbutton-wrapper")\
+            .find_element_by_tag_name("a").click()
+        if what is not None:
+            rwhat = self._select(browser, 'form-widgets-what', what)
+            self.assertEqual(rwhat, what)
+        if where is not None:
+            rwhere = self._select(browser, 'form-widgets-where', where)
+            self.assertEqual(rwhere, where)
+        browser.find_element_by_id("addbutton").click()
 
     def open_panel(self, browser, side):
         if side == "left":
@@ -194,17 +189,14 @@ class MobileTheme(unittest.TestCase):
         else:
             self.assertTrue(False, msg="Panel %s doesn't exists" % side)
 
-    @sleep(before=0, after=1)
     def open_manage_portlet(self, browser):
         browser.get(browser.current_url + '/@@manage-portlets')
 
-    @sleep()
     def open_add_portlet(self, browser, column, portlet, submit=False):
         """column in ("left", "right")
         """
         if not browser.current_url.endswith('/@@manage-portlets'):
             self.open_manage_portlet(browser)
-            time.sleep(1)
         self.open_panel(browser, column)
         name = "portletmanager-plone-%scolumn" % column
         manager = browser.find_element_by_id(name)
@@ -216,3 +208,35 @@ class MobileTheme(unittest.TestCase):
                 break
         if submit:
             browser.find_element_by_id('form.actions.save').click()
+
+    #Tiles
+
+    def find_tiles(self, browser):
+        return browser.find_elements_by_class_name("rcse_tile_wrapper")
+
+    def find_tile_by_title(self, browser, title):
+        contents = self.find_tiles(browser)
+        css = '.tile-wrapper > h2'
+        for content in contents:
+            titles = content.find_elements_by_css_selector(css)
+            for t in titles:
+                if t.text == title:
+                    return content
+
+    def find_tile_by_author(self, browser, author):
+        contents = self.find_tiles(browser)
+        css = '[rel="author"]'
+        for content in contents:
+            authors = content.find_elements_by_css_selector(css)
+            for t in authors:
+                if t.text == author:
+                    return content
+
+    def find_tile_by_group(self, browser, group):
+        contents = self.find_tiles(browser)
+        css = 'a.group'
+        for content in contents:
+            authors = content.find_elements_by_css_selector(css)
+            for t in authors:
+                if t.text == group:
+                    return content

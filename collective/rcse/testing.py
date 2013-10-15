@@ -242,10 +242,12 @@ class SeleniumLayer(BaseLayer):
         self['getNewBrowser'] = self.getNewBrowser
 
     def getNewBrowser(self, url=None):
-        self['browsers'].append(self['webdriver'].WebDriver(*self['args']))
+        browser = self['webdriver'].WebDriver(*self['args'])
+        browser.implicitly_wait(10)  # zope/plone are quite slow
+        self['browsers'].append(browser)
         if url is not None:
-            self['browsers'][-1].get(url)
-        return self['browsers'][-1]
+            browser.get(url)
+        return browser
 
     def testTearDown(self):
         for browser in self['browsers']:

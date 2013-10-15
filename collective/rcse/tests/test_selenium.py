@@ -2,7 +2,6 @@ from collective.rcse.tests.selenium_desktop import DesktopTheme
 from collective.rcse.tests.selenium_mobile import MobileTheme
 from collective.rcse import testing
 import unittest2 as unittest
-from time import sleep
 
 
 class ScenarioTestCase(unittest.TestCase):
@@ -56,7 +55,6 @@ class ScenarioTestCase(unittest.TestCase):
         title = "Please commenting me"
         browser.find_element_by_id(title_id).send_keys(title)
         browser.find_element_by_id('form-buttons-save').click()
-        sleep(2)
         tile = self.find_tile_by_title(browser, title)
         self.assertIsNotNone(tile)
         self.click_icon(tile, "comments-alt")
@@ -86,7 +84,6 @@ class ScenarioTestCase(unittest.TestCase):
                      'parent::li/form//input[@id="form-buttons-enable"]')
         admin.find_element_by_xpath(xpath).click()
         user.get(self.portal_url)
-        sleep(1)
         self.assertIn('My profile', user.page_source)
         self.assertIn('News', user.page_source)
 
