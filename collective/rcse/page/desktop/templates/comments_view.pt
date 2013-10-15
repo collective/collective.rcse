@@ -47,18 +47,18 @@
                           </tal:commentImage>
                           <div class="media-head">
                             <tal:name>
-                                <h4 class="media-heading">
+                                <h5 class="media-heading">
                                     <a href="" tal:condition="has_author_link"
                                         tal:content="reply/author_name"
                                         tal:attributes="href author_home_url"> Poster Name
                                     </a>
-                                </h4>
+                                </h5>
                                 <span tal:condition="not: has_author_link"
                                     tal:replace="reply/author_name" />
                                 <span tal:condition="not: reply/author_name"
                                     i18n:translate="label_anonymous">Anonymous</span>
                             </tal:name>
-                            <div class="commentDate"><tal:posted i18n:translate="label_says">says:</tal:posted></div>
+                            <div class="commentDate"><span class="icon-comment">&nbsp;</span><tal:posted i18n:translate="label_says">says:</tal:posted></div>
                             <div class="commentDate"
                                 tal:content="python:view.format_time(reply.modification_date)"> 8/23/2001 12:40:44 PM
                             </div>
