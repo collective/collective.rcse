@@ -23,6 +23,8 @@ from zope import interface
 from urlparse import parse_qs
 from urllib import urlencode
 from collective.rcse.content.group import get_group
+from plonetheme.jquerymobile.browser.viewlets.header import PanelLeftAction,\
+    PanelRightAction, GlobalSections, SearchRightAction
 
 
 class PortalHeaderViewlet(RCSESections, HotViewlet):
@@ -39,7 +41,7 @@ class PortalHeaderViewlet(RCSESections, HotViewlet):
                                                'portal_properties')
         self.query_str = self.request.get('QUERY_STRING', None)
         self.filter_query = parse_qs(self.query_str)
-        self.updateUserName();
+        self.updateUserName()
 
     def updateUserName(self):
         self.auth_user = self.context.restrictedTraverse('auth_memberinfo')
