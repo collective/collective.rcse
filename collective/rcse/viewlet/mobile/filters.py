@@ -16,6 +16,7 @@ from zope import interface
 
 from collective.rcse.i18n import _
 from collective.rcse.content.vocabularies import sortBy
+from collective.rcse.page.controller.addbutton import AddForm
 
 
 class FiltersFormSchema(model.Schema):
@@ -94,6 +95,11 @@ class FiltersFormView(ViewletBase):
     def update(self):
         super(FiltersFormView, self).update()
         z2.switch_on(self, request_layer=IFormLayer)
-        self.form = FiltersForm(aq_inner(self.context), self.request)
-        interface.alsoProvides(self.form, IWrappedForm)
-        self.form.update()
+        context = aq_inner(self.context)
+        self.form_filter = FiltersForm(context, self.request)
+        interface.alsoProvides(self.form_filter, IWrappedForm)
+        self.form_filter.update()
+
+        self.form_addbutton = AddForm(context, self.request)
+        interface.alsoProvides(self.form_addbutton, IWrappedForm)
+        self.form_addbutton.update()
