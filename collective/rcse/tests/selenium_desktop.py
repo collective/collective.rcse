@@ -5,17 +5,6 @@ import unittest
 from collective.rcse import testing
 
 
-def sleep(before=2, after=2):
-    def decorator(f):
-        def wrapper(*args, **kwargs):
-            time.sleep(before)
-            results = f(*args, **kwargs)
-            time.sleep(after)
-            return results
-        return wrapper
-    return decorator
-
-
 class DesktopTheme(unittest.TestCase):
     layer = testing.SELENIUM
 
@@ -26,7 +15,6 @@ class DesktopTheme(unittest.TestCase):
         self.getNewBrowser = self.layer['getNewBrowser']
         transaction.commit()
 
-    @sleep(before=0, after=1)
     def _select2(self, browser, byid, value):
         """when you use select2, you have to use id.
         if select id was "form-widgets-function"
@@ -45,7 +33,6 @@ class DesktopTheme(unittest.TestCase):
 
     # User
 
-    @sleep(before=0)
     def login(self, browser, username, password, next_url=None):
         """Login a user and redirect to next_url"""
         browser.get('%s/login' % self.portal_url)
@@ -132,21 +119,17 @@ class DesktopTheme(unittest.TestCase):
             browser.find_element_by_id(desc_id).send_keys(description)
         browser.find_element_by_id('form-buttons-save').click()
 
-    @sleep(after=0)
     def is_group(browser):
         css_class = browser.find_element_by_tag_name('body').get_attribute('class')
         return 'portaltype-collective-rcse-group' in css_class
 
-    @sleep()
     def open_group_manage(self, browser, action=None):
         if not self.is_group(browser):
             raise ValueError("can manage group if current page is not on group")
         browser.find_element_by_link_text("Manage").click()
-        time.sleep(1)
         if action is not None:
             browser.find_element_by_link_text(action).click()
 
-    @sleep(after=0)
     def assertGroupState(self, browser, state):
         """verify state of the current group"""
         if not self.is_group(browser):
@@ -175,11 +158,9 @@ class DesktopTheme(unittest.TestCase):
 
     # Utils
 
-    @sleep()
     def open_add(self, browser, what=None, where=None):
         """Use the addbutton in RCSE header to get an add form"""
         browser.find_element_by_id('addbutton').find_element_by_tag_name('a').click()
-        time.sleep(1)
         if what is not None:
             rwhat = self._select2(browser, 'form-widgets-what', what)
             self.assertEqual(rwhat, what)
@@ -188,17 +169,14 @@ class DesktopTheme(unittest.TestCase):
             self.assertEqual(rwhere, where)
         browser.find_element_by_id("rcseaddform").find_element_by_class_name('btn-primary').click()
 
-    @sleep(before=0)
     def open_manage_portlet(self, browser):
         browser.get(browser.current_url + '/@@manage-portlets')
 
-    @sleep(before=1)
     def open_add_portlet(self, browser, column, portlet, submit=False):
         """column in ("left", "right")
         """
         if not browser.current_url.endswith('/@@manage-portlets'):
             self.open_manage_portlet(browser)
-            time.sleep(1)
         name = "portletmanager-plone-%scolumn" % column
         manager = browser.find_element_by_id(name)
         #find id of the select2
@@ -223,6 +201,8 @@ class DesktopTheme(unittest.TestCase):
 
     def open_panel(self, browser, side):
         pass
+
+    #Tiles
 
     def find_tiles(self, browser):
         return browser.find_elements_by_class_name("rcse_tile_wrapper")
