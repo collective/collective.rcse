@@ -4,6 +4,7 @@ from zope import schema
 from zope import component
 from z3c.form import button
 
+from collective.rcse.content.group import get_group
 from collective.rcse.i18n import _
 from collective.rcse.page.controller import group_base
 from collective.rcse.page.controller.navigationroot import NavigationRootBaseView
@@ -11,7 +12,7 @@ from collective.rcse.page.controller.navigationroot import NavigationRootBaseVie
 CONTENT_TYPE = 'collective.rcse.etherpad'
 
 
-class AddFormSchema(model.Schema):
+class AddFormSchema(group_base.BaseAddFormSchema):
     """Add form"""
     title = schema.TextLine(title=_(u"Title"))
     description = schema.Text(
@@ -27,6 +28,10 @@ class AddFormAdapter(object):
         self.context = context
         self.title = None
         self.description = None
+        self.where = None
+        group = get_group(context)
+        if group:
+            self.where = IUUID(group)
 
 
 class AddForm(group_base.BaseAddForm):

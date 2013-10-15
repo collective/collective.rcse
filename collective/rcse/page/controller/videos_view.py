@@ -8,6 +8,7 @@ from plone.namedfile.field import NamedBlobImage
 from plone.supermodel import model
 
 from collective.rcse.i18n import _
+from collective.rcse.content.group import get_group
 from collective.rcse.page.controller import group_base
 from collective.rcse.page.controller.navigationroot import NavigationRootBaseView
 from collective.rcse.content.video import VideoSchema
@@ -15,7 +16,7 @@ from collective.rcse.content.video import VideoSchema
 CONTENT_TYPE = "collective.rcse.video"
 
 
-class AddFormSchema(VideoSchema):
+class AddFormSchema(group_base.BaseAddFormSchema, VideoSchema):
     """Add form"""
 
     title = schema.TextLine(title=_(u"Title"))
@@ -36,6 +37,10 @@ class AddFormAdapter(object):
         self.title = None
         self.file = None
         self.remoteUrl = None
+        self.where = None
+        group = get_group(context)
+        if group:
+            self.where = IUUID(group)
 
 
 class AddForm(group_base.BaseAddForm):

@@ -5,6 +5,7 @@ from zope import schema
 from zope import component
 from z3c.form import button
 
+from collective.rcse.content.group import get_group
 from collective.rcse.i18n import _
 from collective.rcse.page.controller import group_base
 from collective.rcse.page.controller.navigationroot import NavigationRootBaseView

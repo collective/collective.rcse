@@ -10,6 +10,7 @@ from plone.supermodel import model
 from plone.app.event import messageFactory as _pae
 
 
+from collective.rcse.content.group import get_group
 from collective.rcse.i18n import _
 from collective.rcse.page.controller import group_base
 from collective.rcse.page.controller.navigationroot import NavigationRootBaseView
@@ -18,7 +19,7 @@ CONTENT_TYPE = "collective.rcse.event"
 
 
 #class AddFormSchema(IEventBasic):
-class AddFormSchema(model.Schema):
+class AddFormSchema(group_base.BaseAddFormSchema):
     """Add form"""
 
     title = schema.TextLine(title=_(u"Title"))
@@ -102,6 +103,10 @@ class AddFormAdapter(object):
         self.whole_day = None
         self.open_end = None
         self.timezone = None
+        self.where = None
+        group = get_group(context)
+        if group:
+            self.where = IUUID(group)
 
 
 class AddForm(group_base.BaseAddForm):

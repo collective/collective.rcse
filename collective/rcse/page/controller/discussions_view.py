@@ -13,6 +13,7 @@ from plone.namedfile.field import NamedBlobFile
 from plone.supermodel import model
 from plone.z3cform.layout import FormWrapper
 
+from collective.rcse.content.group import get_group
 from collective.rcse.i18n import _
 from collective.rcse.page.controller import group_base
 from collective.rcse.page.controller.navigationroot import NavigationRootBaseView
@@ -21,7 +22,7 @@ from collective.rcse.page.controller.navigationroot import NavigationRootBaseVie
 CONTENT_TYPE = "collective.rcse.discussion"
 
 
-class AddFormSchema(model.Schema):
+class AddFormSchema(group_base.BaseAddFormSchema):
     """Add form"""
     title = schema.TextLine(title=PloneMessageFactory(u"Title"))
     body = schema.Text(title=_(u"Subject"))
@@ -37,6 +38,10 @@ class AddFormAdapter(object):
         self.context = context
         self.image = None
         self.description = None
+        self.where = None
+        group = get_group(context)
+        if group:
+            self.where = IUUID(group)
 
 
 class AddForm(group_base.BaseAddForm):
