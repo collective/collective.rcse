@@ -1,4 +1,5 @@
 from plone.supermodel import model
+from plone.uuid.interfaces import IUUID
 from zope import interface
 from zope import schema
 from zope import component

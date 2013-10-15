@@ -5,6 +5,7 @@ from z3c.form import button
 
 from plone.namedfile.field import NamedBlobImage
 from plone.supermodel import model
+from plone.uuid.interfaces import IUUID
 
 from collective.rcse.content.group import get_group
 from collective.rcse.i18n import _

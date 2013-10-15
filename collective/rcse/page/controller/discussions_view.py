@@ -12,6 +12,7 @@ from plone.dexterity import utils
 from plone.namedfile.field import NamedBlobFile
 from plone.supermodel import model
 from plone.z3cform.layout import FormWrapper
+from plone.uuid.interfaces import IUUID
 
 from collective.rcse.content.group import get_group
 from collective.rcse.i18n import _

@@ -8,7 +8,7 @@ from plone.autoform import directives
 from plone.namedfile.field import NamedBlobImage
 from plone.supermodel import model
 from plone.app.event import messageFactory as _pae
-
+from plone.uuid.interfaces import IUUID
 
 from collective.rcse.content.group import get_group
 from collective.rcse.i18n import _
