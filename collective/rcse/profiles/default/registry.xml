@@ -58,8 +58,8 @@
   <!-- plone.app.discussion -->
    <records interface="plone.app.discussion.interfaces.IDiscussionSettings">
        <value key="globally_enabled">True</value>
+       <value key="text_transform">text/x-web-intelligent</value>
    </records>
-
 
   <!-- collective.requestaccess -->
   <record name="collective.request.access.filter.types_whitelist">

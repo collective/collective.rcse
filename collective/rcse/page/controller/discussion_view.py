@@ -23,8 +23,8 @@ class DiscussionView(BrowserView):
 
     def convertToHTML(self, content, mimetype):
         data = self.transformer.convertTo(
-          "text/x-html-safe",
-          content,
+          "text/x-web-intelligent",
+          content.encode('utf-8'),
           mimetype=mimetype
         )
         result = data.getData()
