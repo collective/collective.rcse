@@ -38,6 +38,13 @@
       description='Extension profile'
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+  <genericsetup:registerProfile
+      name="settings"
+      title="collective.rcse"
+      directory="profiles/settings"
+      description='Extension profile'
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
   <include file="upgrades.zcml" />
   <genericsetup:importStep
        name="collective.rcse"

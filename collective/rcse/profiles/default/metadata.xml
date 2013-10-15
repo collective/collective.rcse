@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>1063</version>
+  <version>1064</version>
   <dependencies>
     <dependency>profile-collective.etherpad:default</dependency>
     <dependency>profile-collective.whathappened:default</dependency>
@@ -25,11 +25,11 @@
     <dependency>profile-plone.app.collection:default</dependency>
     <dependency>profile-plone.app.versioningbehavior:default</dependency>
     <dependency>profile-plonetheme.jquerymobile:default</dependency>
-    <dependency>profile-plone.app.dexterity:default</dependency>
 <!--     These are installed only once because of catalog.xml
     <dependency>profile-cioppino.twothumbs:default</dependency>
     <dependency>profile-collective.favoriting:default</dependency>
     <dependency>profile-Products.membrane:default</dependency> -->
     <dependency>profile-dexterity.membrane:default</dependency>
+    <dependency>profile-collective.rcse:settings</dependency>
   </dependencies>
 </metadata>

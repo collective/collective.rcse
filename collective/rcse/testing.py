@@ -72,6 +72,20 @@ TEST_USER_3 = "simplemember3"
 TEST_USER_4 = "simplemember4"
 PASSWORD = "secret"
 
+PROFILES = (
+    'Products.membrane:default',
+    'plone.app.versioningbehavior:default',
+    'collective.mediaelementjs:default',
+    'collective.memberdatatables:default',
+    'collective.oembed:default',
+    'collective.picturefill:default',
+    'collective.requestaccess:default',
+    'collective.transcode.star:default',
+    'plone.app.dexterity:default',
+    'plone.app.contenttypes:default',
+    'dexterity.membrane:default',
+    'collective.rcse:settings',
+)
 
 class Layer(PloneSandboxLayer):
 
@@ -135,9 +149,8 @@ class Layer(PloneSandboxLayer):
         from zope.globalrequest import setRequest
         setRequest(portal.REQUEST)
 
-        self.applyProfile(portal, 'Products.membrane:default')
-        self.applyProfile(portal, 'plone.app.versioningbehavior:default')
-        self.applyProfile(portal, 'collective.rcse:default')
+        for profile in PROFILES:
+            self.applyProfile(portal, profile)
 
         #portal.membrane_tool.user_adder = "rcse"
         #portal.membrane_tool.membrane_types.append("collective.rcse.member")
