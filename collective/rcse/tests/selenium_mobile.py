@@ -56,6 +56,10 @@ class MobileTheme(unittest.TestCase):
         browser.find_element_by_name('submit').click()
         if next_url:
             browser.get(next_url)
+        else:
+            browser.find_element_by_id("content-core")\
+                .find_element_by_tag_name("a").click()
+
 
     def logout(self, browser):
         browser.get('%s/logout' % self.portal_url)

@@ -1,0 +1,140 @@
+<metal:page define-macro="master">
+<tal:doctype tal:replace="structure string:&lt;!DOCTYPE html PUBLIC
+  &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
+  &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;" />
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    tal:define="portal_state context/@@plone_portal_state;
+        context_state context/@@plone_context_state;
+        plone_view context/@@plone;
+        lang portal_state/language;
+        view nocall:view | nocall: plone_view;
+        dummy python: plone_view.mark_view(view);
+        portal_url portal_state/portal_url;
+        checkPermission nocall: context/portal_membership/checkPermission;
+        site_properties context/portal_properties/site_properties;
+        ajax_load request/ajax_load | nothing;
+        ajax_include_head request/ajax_include_head | nothing"
+    tal:attributes="lang lang;">
+
+    <metal:cache use-macro="context/global_cache_settings/macros/cacheheaders">
+    Get the global cache headers located in global_cache_settings.
+    </metal:cache>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <tal:comment replace="nothing">
+      Forces IE8+ into newest rendering engine even if on an intranet. This has to be defined before any script/style tags.
+    </tal:comment>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <metal:baseslot define-slot="base">
+        <base tal:attributes="href plone_view/renderBase" /><!--[if lt IE 7]></base><![endif]-->
+    </metal:baseslot>
+
+    <tal:notajax tal:condition="python:not ajax_load or ajax_include_head">
+        <div tal:replace="structure provider:plone.htmlhead" />
+        <link tal:replace="structure provider:plone.htmlhead.links" />
+
+        <tal:comment replace="nothing">
+            Various slots where you can insert elements in the header from a template.
+        </tal:comment>
+        <metal:topslot define-slot="top_slot" />
+        <metal:headslot define-slot="head_slot" />
+        <metal:styleslot define-slot="style_slot" />
+        <metal:javascriptslot define-slot="javascript_head_slot" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Plone - http://plone.org" />
+    </tal:notajax>
+</head>
+
+<body tal:define="isRTL portal_state/is_rtl;
+                  sl python:plone_view.have_portlets('plone.leftcolumn', view);
+                  sr python:plone_view.have_portlets('plone.rightcolumn', view);
+                  body_class python:plone_view.bodyClass(template, view);
+                  classes python:context.restrictedTraverse('@@sunburstview').getColumnsClasses(view)"
+    tal:attributes="class body_class;
+                    dir python:isRTL and 'rtl' or 'ltr'">
+
+<div data-role="page" class="page ui-responsive-panel" tal:attributes="id python:plone_view.getPageId(template, view);">
+
+  <div tal:replace="structure provider:plone.portaltop" />
+
+  <div data-role="content" id="content">
+    <metal:block define-slot="content">
+    <div metal:define-macro="content"
+         tal:define="show_border context/@@plone/showEditableBorder;
+             show_border python:show_border and not ajax_load;">
+      <metal:slot define-slot="body">
+        <metal:bodytext define-slot="main">
+
+          <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" />
+          <div id="edit-bar" tal:condition="show_border" tal:content="structure provider:plonetheme.jquerymobile.editbar" />
+          <div id="viewlet-above-content-title"
+               tal:content="structure provider:plone.abovecontenttitle" />
+          <metal:title define-slot="content-title">
+              <metal:comment tal:content="nothing">
+                  If you write a custom title always use
+                  <h1 class="documentFirstHeading"></h1> for it
+              </metal:comment>
+              <h1 metal:use-macro="context/kss_generic_macros/macros/generic_title_view">
+                  Generic KSS Title. Is rendered with class="documentFirstHeading".
+              </h1>
+          </metal:title>
+
+          <div id="viewlet-below-content-title"
+              tal:content="structure provider:plone.belowcontenttitle" />
+
+          <metal:description define-slot="content-description">
+              <metal:comment tal:content="nothing">
+                  If you write a custom description always use
+                  <div class="documentDescription"></div> for it
+              </metal:comment>
+              <div metal:use-macro="context/kss_generic_macros/macros/generic_description_view">
+                  Generic KSS Description. Is rendered with class="documentDescription".
+              </div>
+          </metal:description>
+
+          <div id="viewlet-above-content-body"
+               tal:content="structure provider:plone.abovecontentbody" />
+          <metal:text define-slot="content-core" tal:content="nothing">
+            Page body text
+          </metal:text>
+          <div id="viewlet-below-content-body"
+               tal:content="structure provider:plone.belowcontentbody" />
+
+          <div id="viewlet-below-content"
+               tal:content="structure provider:plone.belowcontent" />
+
+        </metal:bodytext>
+      </metal:slot>
+    </div>
+    </metal:block>
+  </div>
+
+  <div data-role="footer">
+    <div tal:replace="structure provider:plone.portalfooter" />
+  </div>
+
+<tal:panels i18n:domain="plonetheme.jquerymobile">
+<div id="panel-left" tal:condition="python:plone_view.have_portlets('plone.leftcolumn', view=view)"
+     data-role="panel" data-position="left" data-position-fixed="true"
+     data-swipe-close="true" data-dismissible="true">
+  <div tal:content="structure provider:plonetheme.jquerymobile.panelleft" />
+  <div tal:replace="structure provider:plone.leftcolumn"></div>
+</div>
+<div id="panel-right" tal:condition="python:plone_view.have_portlets('plone.rightcolumn', view=view)"
+     data-role="panel" data-position="right" data-position-fixed="true"
+     data-swipe-close="true" data-dismissible="true">
+  <div tal:content="structure provider:plonetheme.jquerymobile.panelright" />
+  <div tal:replace="structure provider:plone.rightcolumn"></div>
+</div>
+</tal:panels>
+
+</div>
+
+</body>
+</html>
+</metal:page>

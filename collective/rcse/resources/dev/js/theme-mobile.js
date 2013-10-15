@@ -36,87 +36,79 @@ var rcseInitOpenAuthorInDialog = function() {
 }
 
 var rcseInitAjaxAction = function() {
-    $(document)
-            .on(
-                    "click",
-                    "a.action",
-                    function(eventObject) {
-                        eventObject.stopImmediatePropagation();
-                        eventObject.preventDefault();
-                        $.ajax({
-                            url : $(this).attr('href'),
-                            context : eventObject,
-                            data : {
-                                'ajax_load' : true
-                            }
-                        })
-                        .success(function(data) {
-                                    var parent = $(eventObject.target).parents(".document-actions-wrapper");
-                                    var super_parent = parent.parent();
-                                    parent.replaceWith(data['document-actions-wrapper']);
-                                    rcseApplyTransform(super_parent.find(".document-actions-wrapper").get());
-                                    $(document).trigger("create");
-                                });
-                    });
+    $(document).on("click", "a.action", function(eventObject) {
+        eventObject.stopImmediatePropagation();
+        eventObject.preventDefault();
+        $.ajax({
+            url : $(this).attr('href'),
+            context : eventObject,
+            data : {
+                'ajax_load' : true
+            }
+        })
+        .success(function(data) {
+                    var parent = $(eventObject.target).parents(".document-actions-wrapper");
+                    var super_parent = parent.parent();
+                    parent.replaceWith(data['document-actions-wrapper']);
+                    rcseApplyTransform(super_parent.find(".document-actions-wrapper").get());
+                    $(document).trigger("create");
+                });
+    });
     $(document).on("submit", ".commenting form", function(e) {
         e.preventDefault();
     });
-    $(document)
-            .on(
-                    "click",
-                    '.commenting input[type="submit"]',
-                    function(eventObject) {
-                        var form = $(eventObject.target).parents("form");
-                        var data = {
-                            ajax_load : true,
-                            uid : $(eventObject.target).parents(".rcsetile")
-                                    .attr("id")
-                        }
-                        data[$(eventObject.target).attr("name")] = 1;
-                        form
-                                .ajaxSubmit({
-                                    context : form,
-                                    data : data,
-                                    url : portal_url + "/@@plone.comments.ajax",
-                                    success : function(response, status, xhr,
-                                            jqform) {
-                                        var parent = jqform
-                                                .parents(".document-actions-wrapper");
-                                        var element = rcseApplyTransform(response['document-actions-wrapper']);
-                                        $(element).find("textarea").val("");
-                                        parent.replaceWith(element);
-                                        $(document).trigger("create");
-                                    }
-                                });
-                    });
+    $(document).on("click", '.commenting input[type="submit"]', function(eventObject) {
+        var form = $(eventObject.target).parents("form");
+        var data = {
+            ajax_load : true,
+            uid : $(eventObject.target).parents(".rcsetile")
+                    .attr("id")
+        }
+        data[$(eventObject.target).attr("name")] = 1;
+        form
+                .ajaxSubmit({
+                    context : form,
+                    data : data,
+                    url : portal_url + "/@@plone.comments.ajax",
+                    success : function(response, status, xhr,
+                            jqform) {
+                        var parent = jqform
+                                .parents(".document-actions-wrapper");
+                        var element = rcseApplyTransform(response['document-actions-wrapper']);
+                        $(element).find("textarea").val("");
+                        parent.replaceWith(element);
+                        $(document).trigger("create");
+                    }
+                });
+    });
 
 }
 
 var rcseInitBindChangeEventStartDate = function() {
     $(document).on("blur", "#form-widgets-IEventBasic-start", function(e) {
-                        var endItem = $("#form-widgets-IEventBasic-end");
-                        if (endItem.attr('value') === "") {
-                            endItem.attr('value', $(this).attr('value'));
-                        } else if (new Date(
-                                document
-                                        .getElementById("form-widgets-IEventBasic-start").value) > new Date(
-                                document
-                                        .getElementById("form-widgets-IEventBasic-end").value)) {
-                            endItem.attr('value', $(this).attr('value'));
-                        }
-                    });
+        var endItem = $("#form-widgets-IEventBasic-end");
+        if (endItem.attr('value') === "") {
+            endItem.attr('value', $(this).attr('value'));
+        } else if (new Date(
+                document
+                        .getElementById("form-widgets-IEventBasic-start").value) > new Date(
+                document
+                        .getElementById("form-widgets-IEventBasic-end").value)) {
+            endItem.attr('value', $(this).attr('value'));
+        }
+    });
     $(document).on("blur", "#form-widgets-IEventBasic-end", function(e) {
-                        var startItem = $("#form-widgets-IEventBasic-start");
-                        if (startItem.attr('value') === "") {
-                            startItem.attr('value', $(this).attr('value'));
-                        } else if (new Date(
-                                document
-                                        .getElementById("form-widgets-IEventBasic-start").value) > new Date(
-                                document
-                                        .getElementById("form-widgets-IEventBasic-end").value)) {
-                            startItem.attr('value', $(this).attr('value'));
-                        }
-                    });
+        var startItem = $("#form-widgets-IEventBasic-start");
+        if (startItem.attr('value') === "") {
+            startItem.attr('value', $(this).attr('value'));
+        } else if (new Date(
+                document
+                        .getElementById("form-widgets-IEventBasic-start").value) > new Date(
+                document
+                        .getElementById("form-widgets-IEventBasic-end").value)) {
+            startItem.attr('value', $(this).attr('value'));
+        }
+    });
 }
 
 
@@ -230,6 +222,14 @@ var rcseInitVideo = function(){
 	event.preventDefault();
     });
 }
+var rcseInitAddButton = function(){
+    $(document).on("click", "#addbutton", function(){
+        var where = $("#form-widgets-where").val(),
+            what = $("#form-widgets-what").val();
+        //TODO: add precondition
+        window.location = portal_url + '/resolveuid/' + where + '/++add++' + what;
+    })
+}
 
 var rcseApplyTransform = function(element) {
     if (element == undefined) {
@@ -255,4 +255,5 @@ $(document).on("pageshow", function() {
     rcseInitTimeline();
     rcseInitVideo();
     rcseInitNotifications();
+    rcseInitAddButton();
 });

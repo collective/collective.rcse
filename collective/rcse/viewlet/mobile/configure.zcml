@@ -14,6 +14,16 @@
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
+
+  <browser:viewlet
+      name="plone.header"
+      manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+      template="templates/portal_header.pt"
+      class="collective.rcse.viewlet.mobile.portalheader.PortalHeaderViewletMobile"
+      permission="zope2.View"
+      layer="collective.rcse.layer.MobileLayer"
+      />
+
   <!-- Render the document actions -->
   <browser:viewlet
       name="plone.abovecontenttitle.documentactions"
@@ -58,6 +68,15 @@
       />
 
   <!-- Filters viewlet -->
+  <browser:viewlet
+      name="collective.rcse.filters"
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+      class="collective.rcse.viewlet.mobile.filters.FiltersFormView"
+      template="templates/filters.pt"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope2.View"
+      />
   <browser:viewlet
       name="collective.rcse.filters"
       for="collective.rcse.content.group.GroupSchema"

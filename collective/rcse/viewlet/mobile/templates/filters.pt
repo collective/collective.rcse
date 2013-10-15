@@ -1,6 +1,15 @@
-<tal:block i18n:domain="collective.rcse">
-  <div id="filters" data-role="collapsible" data-mini="true">
-    <h4 i18n:translate="">Filters</h4>
-    <tal:form tal:replace="structure view/form/render"></tal:form>
-  </div>
-</tal:block>
+<div class="ui-grid-a" i18n:domain="collective.rcse">
+    <div class="ui-block-a">
+        <div id="addbutton-wrapper" data-role="collapsible" data-mini="true" data-theme="b">
+            <h4 i18n:translate="">Add</h4>
+            <tal:form tal:replace="structure view/form_addbutton/render"></tal:form>
+            <a id="addbutton" data-role="button" data-theme="b" i18n:translate="">Add</a>
+        </div>
+    </div>
+    <div class="ui-block-b">
+        <div id="filters" data-role="collapsible" data-mini="true">
+            <h4 i18n:translate="">Filters</h4>
+            <tal:form tal:replace="structure view/form_filter/render"></tal:form>
+        </div>
+    </div>
+</div>

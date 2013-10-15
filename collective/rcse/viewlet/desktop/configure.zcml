@@ -27,7 +27,7 @@
         name="plone.header"
         manager="plone.app.layout.viewlets.interfaces.IPortalTop"
         template="templates/portal_header.pt"
-        class="collective.rcse.viewlet.desktop.portalheader.PortalHeaderViewlet"
+        class="collective.rcse.viewlet.controller.portalheader.PortalHeaderViewlet"
         permission="zope2.View"
         layer="collective.rcse.layer.DesktopLayer"
         />

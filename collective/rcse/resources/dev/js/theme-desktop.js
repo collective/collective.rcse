@@ -679,6 +679,24 @@ var rcseInitMemberDatatables = function(){
         $('body.template-usergroup-groupmembership .listing').dataTable(datatableconfig);
 
 }
+/**
+ * hack to make ckeditor working on chrome.
+ * http://ckeditor.com/forums/Support/inline-editor-div-contenteditable-when-loaded-hidden-doesnt-work.
+ */
+var rcseInitChromeContentEditableWorkaround = function(){
+    $(document).on("click", '[contenteditable="false"]', function(){
+        var name;
+        for(name in CKEDITOR.instances) {
+            var instance = CKEDITOR.instances[name];
+            if(this && this == instance.element.$) {
+                instance.destroy();
+            }
+        }
+
+        $(this).attr('contenteditable', true);
+        CKEDITOR.inline(this);
+    });
+}
 var rcseApplyTransform = function(element) {
     if (element == undefined) {
         element = document;
@@ -715,6 +733,7 @@ $(document).on("ready", function() {
     rcseInitScrollableColumns();
     rcseInitMemberDatatables();
     rcseInitEditBar();
+    rcseInitChromeContentEditableWorkaround();
 });
 $.webshims.setOptions("basePath", portal_url + "/++resource++webshims/");
 $.webshims.setOptions('forms', {

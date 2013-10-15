@@ -209,9 +209,9 @@ class DesktopTheme(unittest.TestCase):
             browser.find_element_by_id('form.actions.save').click()
 
     def click_icon(self, browser, icon):
-        if not icon.starstwith("icon-"):
+        if not icon.startswith("icon-"):
             icon = "icon-%s" % icon
-        browser.find_elements_by_class_name(icon)
+        icons = browser.find_elements_by_class_name(icon)
         found = False
         for icon in icons:
             if icon.is_displayed():
