@@ -1,6 +1,19 @@
+import logging
 
 
-def get(t, prefix=None):
+logger = logging.getLogger('collective.rcse')
+
+def getStatus(t):
+    if t in ['private', 'closed']:
+        return 'icon-lock'
+    if t in ['internally_published', 'open']:
+        return 'icon-unlock'
+    if t in ['moderated']:
+        return 'icon-unlock-alt'
+    logger.info('No icon for status: %s' % t)
+    return ''
+
+def getType(t, prefix=None):
     """Return the icon to use. it use font-awesome syntax: icon-XX
     if you use this is jquerymobile you must add prefix="ui-"
     """
@@ -33,4 +46,5 @@ def get(t, prefix=None):
         return 'icon-group'
 #    elif '' in t:
 #        return 'icon-'
+    logger.info('No icon for type: %s' % t)
     return ""

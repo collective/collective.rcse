@@ -26,6 +26,7 @@ class TimelineItemView(BrowserView):
             self.context = context
         self.request = request
         self.membership = None
+        self.wtool = None
         self.portal_url = None
         self.tileid = None
         self.group = None
@@ -38,10 +39,14 @@ class TimelineItemView(BrowserView):
         self.typesUseViewActionInListings = None
         self.rate = None
         self.fav = None
+        self.icon = None
+        self.icon_status = None
 
     def update(self):
         if self.membership is None:
             self.membership = getToolByName(self.context, "portal_membership")
+        if self.wtool is None:
+            self.wtool = getToolByName(self.context, "portal_workflow")
         if self.portal_url is None:
             self.portal_url = getToolByName(self.context, 'portal_url')()
         if self.tileid is None:
@@ -67,7 +72,9 @@ class TimelineItemView(BrowserView):
             self.rate = rate.getTally(self.context)
         if self.fav is None:
             self.fav = self.context.restrictedTraverse(VIEW_NAME)
-        self.icon = icons.get(self.context.portal_type)
+        self.icon_type = icons.getType(self.context.portal_type)
+        status = self.wtool.getInfoFor(self.context, 'review_state', None)
+        self.icon_status = icons.getStatus(status)
 
     def get_content(self):
         return self.context.restrictedTraverse('tile_view')()
