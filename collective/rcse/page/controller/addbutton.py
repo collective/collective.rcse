@@ -18,7 +18,8 @@ class AddFormSchema(interface.Interface):
         default="collective.rcse.group"
     )
     where = schema.Choice(
-        title=u"Where",
+        title=_(u"Where"),
+        description=_(u"Warning, only groups can be added into Home"),
         vocabulary="collective.rcse.vocabulary.groups_with_home"
     )
 

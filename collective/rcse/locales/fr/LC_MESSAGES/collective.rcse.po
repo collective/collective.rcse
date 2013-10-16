@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-10-16 11:51+0000\n"
+"POT-Creation-Date: 2013-10-16 15:42+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -172,7 +172,7 @@ msgstr "Approuver"
 msgid "Approve This Member"
 msgstr "Approuver ce membre"
 
-#: ./action/delete.py:36
+#: ./action/delete.py:42
 msgid "Are you sure you want to delete ${title} and all it's content ?"
 msgstr "Etes vous sûr de vouloir supprimer ${title} ainsi que tout ce qu'il contient ?"
 
@@ -260,13 +260,13 @@ msgstr "Collaborer en temps réel"
 
 #: ./page/desktop/templates/companies_directory_view.pt:31
 #: ./page/mobile/templates/companies_directory_view.pt:39
-#: ./setuphandler.py:91
+#: ./setuphandler.py:92
 msgid "Companies directory"
 msgstr "Annuaire des entreprises"
 
 #: ./content/member.py:91
-#: ./page/controller/modify_company.py:23
 #: ./page/controller/timeline_view.py:160
+#: ./page/desktop/templates/users_directory_view.pt:61
 msgid "Company"
 msgstr "Société"
 
@@ -312,7 +312,7 @@ msgstr "Refuser"
 msgid "Decline This Member"
 msgstr "Refuser ce membre"
 
-#: ./action/delete.py:11
+#: ./action/delete.py:13
 #: ./page/controller/users_manage.py:104
 msgid "Delete"
 msgstr "Supprimer"
@@ -485,7 +485,7 @@ msgid "Groups"
 msgstr "Groupes"
 
 #: ./content/vocabularies.py:76
-#: ./setuphandler.py:104
+#: ./setuphandler.py:105
 #: ./viewlet/desktop/templates/portal_header.pt:11
 msgid "Home"
 msgstr "Accueil"
@@ -534,9 +534,9 @@ msgstr "Option invalide"
 msgid "Invite a person"
 msgstr "Inviter un utilisateur"
 
-#: ./action/delete.py:27
+#: ./action/delete.py:33
 msgid "Item and it's content has been deleted"
-msgstr ""
+msgstr "L'élément ainsi que tout son contenu ont été supprimés."
 
 #: ./content/member.py:86
 msgid "Last Name"
@@ -629,7 +629,7 @@ msgstr "Modéré"
 msgid "Modify company"
 msgstr "Modifier l'entreprise"
 
-#: ./page/controller/modify_company.py:43
+#: ./page/controller/modify_company.py:44
 msgid "Modify your company"
 msgstr "Modifier votre entreprise"
 
@@ -654,10 +654,6 @@ msgstr "Mon profil"
 msgid "Name"
 msgstr "Nom"
 
-#: ./page/controller/modify_company.py:27
-msgid "New company"
-msgstr "Nouvelle entreprise"
-
 #: ./page/controller/timeline_view.py:18
 msgid "News"
 msgstr "Actualité"
@@ -671,6 +667,7 @@ msgstr "Aucune clé proposée."
 msgid "Open"
 msgstr "Ouvrir"
 
+#: ./page/controller/modify_company.py:28
 #: ./page/controller/register_information.py:34
 msgid "Or create it"
 msgstr "Ou créez la"
@@ -870,6 +867,7 @@ msgstr "Voir les groupes"
 msgid "Select default view"
 msgstr "Sélectionner la vue par défaut"
 
+#: ./page/controller/modify_company.py:23
 #: ./page/controller/register_information.py:29
 msgid "Select your company"
 msgstr "Selectionnez votre entreprise"
@@ -912,7 +910,7 @@ msgstr "Etat"
 msgid "Subject"
 msgstr "Sujet"
 
-#: ./page/controller/modify_company.py:45
+#: ./page/controller/modify_company.py:46
 #: ./page/controller/register_information.py:62
 msgid "Submit"
 msgstr "Envoyer"
@@ -992,7 +990,7 @@ msgstr "Nom d'utilisateur"
 
 #: ./page/desktop/templates/users_directory_view.pt:37
 #: ./page/mobile/templates/users_directory_view.pt:38
-#: ./setuphandler.py:78
+#: ./setuphandler.py:79
 msgid "Users directory"
 msgstr "Annuaire des utilisateurs"
 
@@ -1029,6 +1027,10 @@ msgstr "Voir le profil complet"
 msgid "Waiting for validation"
 msgstr "En attente de validation"
 
+#: ./page/controller/addbutton.py:22
+msgid "Warning, only groups can be added into Home"
+msgstr "Attention, seul les groupes peuvent être ajoutés dans Accueil."
+
 #: ./page/desktop/templates/users_directory_view.pt:41
 #: ./page/desktop/templates/users_manage.pt:41
 #: ./page/mobile/templates/users_directory_view.pt:44
@@ -1053,6 +1055,10 @@ msgstr "Bienvenue"
 #: ./page/controller/addbutton.py:16
 msgid "What"
 msgstr "Quoi"
+
+#: ./page/controller/addbutton.py:21
+msgid "Where"
+msgstr "Ou"
 
 #: ./page/controller/poll_view.py:97
 msgid "You are not authorized to vote"

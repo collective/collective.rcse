@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-10-16 11:51+0000\n"
+"POT-Creation-Date: 2013-10-16 15:42+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -170,7 +170,7 @@ msgstr ""
 msgid "Approve This Member"
 msgstr ""
 
-#: ./action/delete.py:36
+#: ./action/delete.py:42
 msgid "Are you sure you want to delete ${title} and all it's content ?"
 msgstr ""
 
@@ -258,13 +258,13 @@ msgstr ""
 
 #: ./page/desktop/templates/companies_directory_view.pt:31
 #: ./page/mobile/templates/companies_directory_view.pt:39
-#: ./setuphandler.py:91
+#: ./setuphandler.py:92
 msgid "Companies directory"
 msgstr ""
 
 #: ./content/member.py:91
-#: ./page/controller/modify_company.py:23
 #: ./page/controller/timeline_view.py:160
+#: ./page/desktop/templates/users_directory_view.pt:61
 msgid "Company"
 msgstr ""
 
@@ -310,7 +310,7 @@ msgstr ""
 msgid "Decline This Member"
 msgstr ""
 
-#: ./action/delete.py:11
+#: ./action/delete.py:13
 #: ./page/controller/users_manage.py:104
 msgid "Delete"
 msgstr ""
@@ -483,7 +483,7 @@ msgid "Groups"
 msgstr ""
 
 #: ./content/vocabularies.py:76
-#: ./setuphandler.py:104
+#: ./setuphandler.py:105
 #: ./viewlet/desktop/templates/portal_header.pt:11
 msgid "Home"
 msgstr ""
@@ -532,7 +532,7 @@ msgstr ""
 msgid "Invite a person"
 msgstr ""
 
-#: ./action/delete.py:27
+#: ./action/delete.py:33
 msgid "Item and it's content has been deleted"
 msgstr ""
 
@@ -627,7 +627,7 @@ msgstr ""
 msgid "Modify company"
 msgstr ""
 
-#: ./page/controller/modify_company.py:43
+#: ./page/controller/modify_company.py:44
 msgid "Modify your company"
 msgstr ""
 
@@ -652,10 +652,6 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: ./page/controller/modify_company.py:27
-msgid "New company"
-msgstr ""
-
 #: ./page/controller/timeline_view.py:18
 msgid "News"
 msgstr ""
@@ -669,6 +665,7 @@ msgstr ""
 msgid "Open"
 msgstr ""
 
+#: ./page/controller/modify_company.py:28
 #: ./page/controller/register_information.py:34
 msgid "Or create it"
 msgstr ""
@@ -868,6 +865,7 @@ msgstr ""
 msgid "Select default view"
 msgstr ""
 
+#: ./page/controller/modify_company.py:23
 #: ./page/controller/register_information.py:29
 msgid "Select your company"
 msgstr ""
@@ -910,7 +908,7 @@ msgstr ""
 msgid "Subject"
 msgstr ""
 
-#: ./page/controller/modify_company.py:45
+#: ./page/controller/modify_company.py:46
 #: ./page/controller/register_information.py:62
 msgid "Submit"
 msgstr ""
@@ -990,7 +988,7 @@ msgstr ""
 
 #: ./page/desktop/templates/users_directory_view.pt:37
 #: ./page/mobile/templates/users_directory_view.pt:38
-#: ./setuphandler.py:78
+#: ./setuphandler.py:79
 msgid "Users directory"
 msgstr ""
 
@@ -1027,6 +1025,10 @@ msgstr ""
 msgid "Waiting for validation"
 msgstr ""
 
+#: ./page/controller/addbutton.py:22
+msgid "Warning, only groups can be added into Home"
+msgstr ""
+
 #: ./page/desktop/templates/users_directory_view.pt:41
 #: ./page/desktop/templates/users_manage.pt:41
 #: ./page/mobile/templates/users_directory_view.pt:44
@@ -1050,6 +1052,10 @@ msgstr ""
 
 #: ./page/controller/addbutton.py:16
 msgid "What"
+msgstr ""
+
+#: ./page/controller/addbutton.py:21
+msgid "Where"
 msgstr ""
 
 #: ./page/controller/poll_view.py:97
