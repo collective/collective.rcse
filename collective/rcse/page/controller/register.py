@@ -54,6 +54,7 @@ class RegisterForm(register_information.RegisterInformationForm):
     @button.buttonAndHandler(_(u"Register"), name="register")
     def handleRegister(self, action):
         data, errors = self.extractData()
+        self._checkForm(data)
         if errors:
             return
         if data['password'] != data['password_confirm']:

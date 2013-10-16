@@ -26,11 +26,12 @@ logger = logging.getLogger("collective.rcse")
 
 class RegisterInformationFormSchema(IMember):
     company = schema.Choice(
-        title=_(u"Company"),
-        vocabulary='collective.rcse.vocabulary.companies'
+        title=_(u"Select your company"),
+        vocabulary='collective.rcse.vocabulary.companies',
+        required=False
         )
     new_company = schema.TextLine(
-        title=_(u"New company"),
+        title=_(u"Or create it"),
         required=False
         )
 
@@ -78,7 +79,7 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
             )
 
     def _updateDataCompany(self, data, username):
-        if data['company'] == '__new_company' or data['company'] == '':
+        if data['new_company'] is not None:
             data['company'] = data['new_company']
             data['company_id'] = createCompany(self.context,
                                                self.request,
@@ -90,14 +91,13 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
             data['company'] = companies.getTerm(data['company']).title
 
     def _checkForm(self, data):
-        if data['company'] == '__new_company' or data['company'] == '':
-            if not data['new_company']:
-                raise interfaces.WidgetActionExecutionError(
-                    'new_company',
-                    interface.Invalid(
-                        _(u"You need to specify your company name.")
-                        )
+        if data['company'] is None and data['new_company'] is None:
+            raise interfaces.WidgetActionExecutionError(
+                'new_company',
+                interface.Invalid(
+                    _(u"You need to specify your company name.")
                     )
+                )
 
     @sudo()
     def _updateUser(self, username, data, member_data=None):

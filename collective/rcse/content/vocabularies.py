@@ -49,10 +49,6 @@ def companies(context):
     companies = catalog(**query)
     terms = [SimpleTerm(value=company.id, title=company.Title)
              for company in companies]
-    terms += [
-        SimpleTerm(value=u"__new_company",
-                   title=_(u"Create a new company"))
-        ]
     return SimpleVocabulary(terms)
 
 

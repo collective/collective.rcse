@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-10-14 15:08+0000\n"
+"POT-Creation-Date: 2013-10-16 09:09+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -18,23 +18,23 @@ msgstr ""
 "Language: fr\n"
 "X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
 
-#: ./profiles/default/types/collective.rcse.directory.xml
+#: ./profiles/settings/types/collective.rcse.directory.xml
 msgid "A directory"
 msgstr "Un annuaire"
 
-#: ./profiles/default/types/collective.rcse.group.xml
+#: ./profiles/settings/types/collective.rcse.group.xml
 msgid "A group"
 msgstr "Un groupe"
 
-#: ./profiles/default/types/collective.rcse.proxygroup.xml
+#: ./profiles/settings/types/collective.rcse.proxygroup.xml
 msgid "A group which proxy an other"
 msgstr "Un faux groupe (proxy)"
 
-#: ./profiles/default/types/collective.rcse.discussion.xml
+#: ./profiles/settings/types/collective.rcse.discussion.xml
 msgid "A question where people will answer it"
 msgstr "Une question à laquelle les autres peuvent répondre."
 
-#: ./profiles/default/types/collective.rcse.video.xml
+#: ./profiles/settings/types/collective.rcse.video.xml
 msgid "A video file"
 msgstr "Un fichier vidéo"
 
@@ -59,26 +59,27 @@ msgid "Actions"
 msgstr "Actions"
 
 #: ./page/desktop/templates/addbutton.pt:7
+#: ./viewlet/mobile/templates/filters.pt:4
 msgid "Add"
 msgstr "Ajouter"
 
-#: ./page/controller/blog_view.py:46
+#: ./page/controller/blog_view.py:52
 msgid "Add Blog"
 msgstr "Ajouter un Article"
 
-#: ./page/controller/discussions_view.py:46
+#: ./page/controller/discussions_view.py:52
 msgid "Add Discussion"
 msgstr "Ajouter une Discussion"
 
-#: ./page/controller/etherpads_view.py:35
+#: ./page/controller/etherpads_view.py:41
 msgid "Add Etherpad"
 msgstr "Ajouter un étherpad"
 
-#: ./page/controller/files_view.py:38
+#: ./page/controller/files_view.py:44
 msgid "Add File"
 msgstr "Ajouter un ficher"
 
-#: ./page/controller/images_view.py:46
+#: ./page/controller/images_view.py:52
 msgid "Add Image"
 msgstr "Ajouter une Image"
 
@@ -90,11 +91,11 @@ msgstr ""
 msgid "Add a group"
 msgstr "Ajouter un groupe"
 
-#: ./page/controller/audios_view.py:38
+#: ./page/controller/audios_view.py:40
 msgid "Add audio"
 msgstr "Ajouter un fichier audio"
 
-#: ./page/controller/blog_view.py:44
+#: ./page/controller/blog_view.py:50
 msgid "Add blog"
 msgstr "Ajouter un article"
 
@@ -102,15 +103,15 @@ msgstr "Ajouter un article"
 msgid "Add discussion"
 msgstr "Ajouter une discussion"
 
-#: ./page/controller/etherpads_view.py:38
+#: ./page/controller/etherpads_view.py:44
 msgid "Add etherpad"
 msgstr "Ajouter un etherpad"
 
-#: ./page/controller/events_view.py:111
+#: ./page/controller/events_view.py:116
 msgid "Add event"
 msgstr "Ajouter un événement"
 
-#: ./page/controller/files_view.py:41
+#: ./page/controller/files_view.py:47
 msgid "Add file"
 msgstr "Ajouter un fichier"
 
@@ -122,19 +123,19 @@ msgstr "Formulaire d'ajout de contenu"
 msgid "Add group"
 msgstr "Ajouter un groupe"
 
-#: ./page/controller/images_view.py:44
+#: ./page/controller/images_view.py:50
 msgid "Add image"
 msgstr "Ajouter une image"
 
-#: ./page/controller/links_view.py:38
+#: ./page/controller/links_view.py:44
 msgid "Add link"
 msgstr "Ajouter un lien"
 
-#: ./profiles/default/actions.xml
+#: ./profiles/settings/actions.xml
 msgid "Add to my news"
 msgstr "Ajouter à mon fil d'actualité"
 
-#: ./page/controller/videos_view.py:45
+#: ./page/controller/videos_view.py:51
 msgid "Add video"
 msgstr "Ajouter une vidéo"
 
@@ -148,11 +149,11 @@ msgstr "Adresse"
 msgid "All groups"
 msgstr "Tous les groupes"
 
-#: ./profiles/default/types/collective.rcse.audio.xml
+#: ./profiles/settings/types/collective.rcse.audio.xml
 msgid "An audio file"
 msgstr "Un fichier audio"
 
-#: ./profiles/default/types/collective.rcse.event.xml
+#: ./profiles/settings/types/collective.rcse.event.xml
 msgid "An event"
 msgstr "Un événement"
 
@@ -164,7 +165,7 @@ msgstr ""
 msgid "Approve"
 msgstr "Approuver"
 
-#: ./profiles/default/workflows/collective_rcse_member_workflow/definition.xml
+#: ./profiles/settings/workflows/collective_rcse_member_workflow/definition.xml
 msgid "Approve This Member"
 msgstr "Approuver ce membre"
 
@@ -173,20 +174,20 @@ msgstr "Approuver ce membre"
 msgid "Areas of expertise"
 msgstr "Domaine d'expertise"
 
-#: ./page/controller/discussions_view.py:28
+#: ./page/controller/discussions_view.py:30
 msgid "Attachment"
 msgstr "Piéce jointe"
 
-#: ./profiles/default/types/collective.rcse.audio.xml
+#: ./profiles/settings/types/collective.rcse.audio.xml
 msgid "Audio"
 msgstr "Audio"
 
-#: ./page/controller/audios_view.py:37
+#: ./page/controller/audios_view.py:39
 msgid "Audio added"
 msgstr "Fichier audio ajouté"
 
 #: ./content/audio.py:12
-#: ./page/controller/audios_view.py:18
+#: ./page/controller/audios_view.py:20
 msgid "Audio file"
 msgstr "Fichier audio"
 
@@ -212,7 +213,7 @@ msgstr "Date de naissance"
 msgid "Blog"
 msgstr "Blog"
 
-#: ./page/controller/blog_view.py:43
+#: ./page/controller/blog_view.py:49
 msgid "Blog post added"
 msgstr "Article ajouté"
 
@@ -242,11 +243,11 @@ msgstr "Ville"
 msgid "Close"
 msgstr "Fermer"
 
-#: ./profiles/default/types/collective.rcse.etherpad.xml
+#: ./profiles/settings/types/collective.rcse.etherpad.xml
 msgid "Collaborate"
 msgstr "Collaborer"
 
-#: ./profiles/default/types/collective.rcse.etherpad.xml
+#: ./profiles/settings/types/collective.rcse.etherpad.xml
 msgid "Collaborate in real time"
 msgstr "Collaborer en temps réel"
 
@@ -258,7 +259,7 @@ msgstr "Annuaire des entreprises"
 
 #: ./content/member.py:91
 #: ./page/controller/modify_company.py:23
-#: ./page/controller/register_information.py:29
+#: ./page/controller/timeline_view.py:160
 msgid "Company"
 msgstr "Société"
 
@@ -279,7 +280,7 @@ msgstr "Confirmez le mot de passe"
 msgid "Contact information"
 msgstr "Informations de contacts"
 
-#: ./page/controller/group_base.py:106
+#: ./page/controller/group_base.py:115
 msgid "Content Added"
 msgstr "Contenu ajouté"
 
@@ -292,10 +293,6 @@ msgstr "Contenu créé par ${name}"
 msgid "Corporate name"
 msgstr "Raison social"
 
-#: ./content/vocabularies.py:54
-msgid "Create a new company"
-msgstr "Créer une nouvelle entreprise"
-
 #: ./content/vocabularies.py:40
 msgid "Date"
 msgstr "Date"
@@ -304,7 +301,7 @@ msgstr "Date"
 msgid "Decline"
 msgstr "Refuser"
 
-#: ./profiles/default/workflows/collective_rcse_member_workflow/definition.xml
+#: ./profiles/settings/workflows/collective_rcse_member_workflow/definition.xml
 msgid "Decline This Member"
 msgstr "Refuser ce membre"
 
@@ -312,29 +309,29 @@ msgstr "Refuser ce membre"
 msgid "Delete"
 msgstr "Supprimer"
 
-#: ./page/controller/audios_view.py:20
-#: ./page/controller/blog_view.py:20
-#: ./page/controller/etherpads_view.py:18
+#: ./page/controller/audios_view.py:22
+#: ./page/controller/blog_view.py:22
+#: ./page/controller/etherpads_view.py:20
 msgid "Description"
 msgstr "Description"
 
-#: ./profiles/default/types/collective.rcse.directory.xml
+#: ./profiles/settings/types/collective.rcse.directory.xml
 msgid "Directory"
 msgstr "Annuaire"
 
-#: ./profiles/default/workflows/collective_rcse_member_workflow/definition.xml
+#: ./profiles/settings/workflows/collective_rcse_member_workflow/definition.xml
 msgid "Disable This Member"
 msgstr "Désactiver ce membre"
 
-#: ./profiles/default/types/collective.rcse.discussion.xml
+#: ./profiles/settings/types/collective.rcse.discussion.xml
 msgid "Discussion"
 msgstr "Discussion"
 
-#: ./page/controller/discussions_view.py:45
+#: ./page/controller/discussions_view.py:51
 msgid "Discussion added"
 msgstr "Discussion ajoutée"
 
-#: ./profiles/default/actions.xml
+#: ./profiles/settings/actions.xml
 msgid "Display new content of this group in your news"
 msgstr "Afficher les nouveaux contenu de ce groupe dans votre fil d'actualité"
 
@@ -342,7 +339,7 @@ msgstr "Afficher les nouveaux contenu de ce groupe dans votre fil d'actualité"
 msgid "Display: ${attr}"
 msgstr "Afficher: ${attr}"
 
-#: ./profiles/default/actions.xml
+#: ./profiles/settings/actions.xml
 msgid "Do not display anymore new content from this group in your news"
 msgstr "Ne plus afficher les nouveaux contenu de ce groupe dans votre fil d'actualité"
 
@@ -370,7 +367,7 @@ msgstr "L'email a été envoyé."
 msgid "Enable"
 msgstr "Activer"
 
-#: ./profiles/default/workflows/collective_rcse_member_workflow/definition.xml
+#: ./profiles/settings/workflows/collective_rcse_member_workflow/definition.xml
 msgid "Enable This Member"
 msgstr "Activer ce membre"
 
@@ -382,19 +379,19 @@ msgstr "Erreur soulevée si le fichier n'est pas du type vidéo valide."
 msgid "Error while sending the email."
 msgstr "Erreur durant l'envoit de l'email."
 
-#: ./profiles/default/types/collective.rcse.etherpad.xml
+#: ./profiles/settings/types/collective.rcse.etherpad.xml
 msgid "Etherpad"
 msgstr "Etherpad"
 
-#: ./page/controller/etherpads_view.py:34
+#: ./page/controller/etherpads_view.py:40
 msgid "Etherpad added"
 msgstr "Etherpad ajouté"
 
-#: ./profiles/default/types/collective.rcse.event.xml
+#: ./profiles/settings/types/collective.rcse.event.xml
 msgid "Event"
 msgstr "Evénement"
 
-#: ./page/controller/events_view.py:110
+#: ./page/controller/events_view.py:115
 msgid "Event added"
 msgstr "Evénement ajouté"
 
@@ -412,19 +409,19 @@ msgid "Female"
 msgstr "Femme"
 
 #: ./content/discussion.py:15
-#: ./page/controller/files_view.py:18
+#: ./page/controller/files_view.py:20
 msgid "File"
 msgstr "Fichier"
 
-#: ./page/controller/files_view.py:37
+#: ./page/controller/files_view.py:43
 msgid "File added"
 msgstr "Fichier ajouté"
 
-#: ./viewlet/mobile/filters.py:78
+#: ./viewlet/mobile/filters.py:79
 msgid "Filter"
 msgstr "Filtrer"
 
-#: ./viewlet/mobile/templates/filters.pt:3
+#: ./viewlet/mobile/templates/filters.pt:11
 msgid "Filters"
 msgstr "Filtres"
 
@@ -471,7 +468,7 @@ msgid "Google+"
 msgstr "Google+"
 
 #: ./page/controller/timeline_view.py:19
-#: ./profiles/default/types/collective.rcse.group.xml
+#: ./profiles/settings/types/collective.rcse.group.xml
 msgid "Group"
 msgstr "Groupe"
 
@@ -479,35 +476,35 @@ msgstr "Groupe"
 msgid "Groups"
 msgstr "Groupes"
 
-#: ./content/vocabularies.py:65
+#: ./content/vocabularies.py:76
 #: ./setuphandler.py:104
 #: ./viewlet/desktop/templates/portal_header.pt:11
 msgid "Home"
 msgstr "Accueil"
 
-#: ./profiles/default/actions.xml
+#: ./profiles/settings/actions.xml
 msgid "I dislike this"
 msgstr "Je n'aime pas ça"
 
-#: ./profiles/default/actions.xml
+#: ./profiles/settings/actions.xml
 msgid "I don't dislike this anymore"
 msgstr "Je n'aime plus pas ça"
 
-#: ./profiles/default/actions.xml
+#: ./profiles/settings/actions.xml
 msgid "I don't like this anymore"
 msgstr "Je n'aime plus ça"
 
-#: ./profiles/default/actions.xml
+#: ./profiles/settings/actions.xml
 msgid "I like this (click again to undo)"
 msgstr "J'aime ça"
 
 #: ./content/event.py:19
-#: ./page/controller/blog_view.py:23
-#: ./page/controller/images_view.py:22
+#: ./page/controller/blog_view.py:25
+#: ./page/controller/images_view.py:24
 msgid "Image"
 msgstr "Image"
 
-#: ./page/controller/images_view.py:43
+#: ./page/controller/images_view.py:49
 msgid "Image added"
 msgstr "Image ajoutée"
 
@@ -537,11 +534,11 @@ msgstr "Nom"
 msgid "Last name: ${lastname}"
 msgstr "Nom : ${lastname}"
 
-#: ./profiles/default/actions.xml
+#: ./profiles/settings/actions.xml
 msgid "Like"
 msgstr "Aimer"
 
-#: ./page/controller/links_view.py:37
+#: ./page/controller/links_view.py:43
 msgid "Link added"
 msgstr "Lien ajouté"
 
@@ -603,7 +600,7 @@ msgid "Media URL"
 msgstr "URL du média"
 
 #: ./page/controller/timeline_view.py:130
-#: ./profiles/default/types/collective.rcse.member.xml
+#: ./profiles/settings/types/collective.rcse.member.xml
 msgid "Member"
 msgstr "Membre"
 
@@ -623,7 +620,7 @@ msgstr "Modifier l'entreprise"
 msgid "Modify your company"
 msgstr "Modifier votre entreprise"
 
-#: ./profiles/default/actions.xml
+#: ./profiles/settings/actions.xml
 msgid "My account"
 msgstr "Mon compte"
 
@@ -634,7 +631,7 @@ msgstr "Mes groupes"
 
 #: ./page/controller/templates/welcome_view.pt:16
 #: ./page/controller/timeline_view.py:55
-#: ./profiles/default/actions.xml
+#: ./profiles/settings/actions.xml
 msgid "My profile"
 msgstr "Mon profil"
 
@@ -645,7 +642,6 @@ msgid "Name"
 msgstr "Nom"
 
 #: ./page/controller/modify_company.py:27
-#: ./page/controller/register_information.py:33
 msgid "New company"
 msgstr "Nouvelle entreprise"
 
@@ -661,11 +657,15 @@ msgstr "Aucune clé proposée."
 msgid "Open"
 msgstr "Ouvrir"
 
+#: ./page/controller/register_information.py:34
+msgid "Or create it"
+msgstr "Ou créez la"
+
 #: ./page/controller/register.py:30
 msgid "Password"
 msgstr "Mot de passe"
 
-#: ./page/controller/register.py:62
+#: ./page/controller/register.py:63
 msgid "Passwords do not match."
 msgstr "Les mot de passes ne sont pas pareil."
 
@@ -697,8 +697,8 @@ msgstr "Préférences personnel"
 msgid "Please complete your company information"
 msgstr "Veuillez completer les informations de votre entreprise"
 
-#: ./page/controller/blog_view.py:24
-#: ./page/controller/images_view.py:23
+#: ./page/controller/blog_view.py:26
+#: ./page/controller/images_view.py:25
 msgid "Please put an image file here"
 msgstr "Veuillez mettre un fichier image ici"
 
@@ -747,11 +747,11 @@ msgstr "Téléphone fixe professionnel"
 msgid "Professional mobile phone"
 msgstr "Téléphone portable professionnel"
 
-#: ./profiles/default/types/collective.rcse.proxygroup.xml
+#: ./profiles/settings/types/collective.rcse.proxygroup.xml
 msgid "Proxy Group"
 msgstr "Faux groupe (proxy)"
 
-#: ./profiles/default/controlpanel.xml
+#: ./profiles/settings/controlpanel.xml
 #: ./security.py:71
 msgid "RCSE Security settings"
 msgstr "RCSE configuration"
@@ -760,7 +760,7 @@ msgstr "RCSE configuration"
 msgid "Register"
 msgstr "S'enregistrer"
 
-#: ./page/controller/register_information.py:49
+#: ./page/controller/register_information.py:50
 msgid "Register your information"
 msgstr "Enregistrer vos informations"
 
@@ -773,7 +773,7 @@ msgstr "Enregistré"
 msgid "Relevance"
 msgstr "Pertinence"
 
-#: ./profiles/default/actions.xml
+#: ./profiles/settings/actions.xml
 msgid "Remove from my news"
 msgstr "Retirer de mon fil d'actualité"
 
@@ -789,7 +789,7 @@ msgstr "Demande d'accès: Demande et Invitation"
 msgid "Resend the validation e-mail."
 msgstr "Renvoyer l'email de validation."
 
-#: ./viewlet/mobile/filters.py:46
+#: ./viewlet/mobile/filters.py:47
 msgid "Reversed"
 msgstr "Inverser"
 
@@ -798,7 +798,7 @@ msgid "Save"
 msgstr "Sauvegarder"
 
 #: ./viewlet/desktop/templates/portal_header.pt:64
-#: ./viewlet/mobile/filters.py:26
+#: ./viewlet/mobile/filters.py:27
 msgid "Search"
 msgstr "Rechercher"
 
@@ -853,6 +853,10 @@ msgstr "Voir les groupes"
 msgid "Select default view"
 msgstr "Sélectionner la vue par défaut"
 
+#: ./page/controller/register_information.py:29
+msgid "Select your company"
+msgstr "Selectionnez votre entreprise"
+
 #: ./content/company.py:29
 #: ./page/desktop/templates/companies_directory_view.pt:40
 #: ./page/desktop/templates/company_description.pt:11
@@ -872,7 +876,7 @@ msgstr "Skype"
 msgid "Something goes wrong with etherpad so you can't access to it's content."
 msgstr "Quelque chose ne vas pas avec etherpad. Vous ne pouvez pas accéder à son contenu"
 
-#: ./viewlet/mobile/filters.py:40
+#: ./viewlet/mobile/filters.py:41
 msgid "Sort on"
 msgstr "Trier par"
 
@@ -887,12 +891,12 @@ msgid "State"
 msgstr "Etat"
 
 #: ./content/discussion.py:14
-#: ./page/controller/discussions_view.py:27
+#: ./page/controller/discussions_view.py:29
 msgid "Subject"
 msgstr "Sujet"
 
 #: ./page/controller/modify_company.py:45
-#: ./page/controller/register_information.py:61
+#: ./page/controller/register_information.py:62
 msgid "Submit"
 msgstr "Envoyer"
 
@@ -908,12 +912,12 @@ msgstr "Merci pour votre vote"
 msgid "The e-mail has not been validated yet."
 msgstr "Votre adresse email n'a pas encore été validée."
 
-#: ./content/video.py:47
+#: ./content/video.py:41
 msgid "The file must be a video. You are trying to use a '${mime_type}'"
 msgstr "Le fichier doit être du type vidéo. Vous avez utiliser le type '${mime_type}'."
 
 #: ./page/controller/modify_company.py:60
-#: ./page/controller/register_information.py:67
+#: ./page/controller/register_information.py:68
 msgid "There were errors."
 msgstr "Il y a eu des erreurs"
 
@@ -922,8 +926,8 @@ msgid "This is the email you will receive information on. It will not be display
 msgstr "Email sur lequel vous recevrez les infromations. Il ne sera pas montré aux autres utilisateurs."
 
 #: ./content/vocabularies.py:41
-#: ./page/controller/audios_view.py:17
-#: ./page/controller/blog_view.py:18
+#: ./page/controller/audios_view.py:19
+#: ./page/controller/blog_view.py:20
 msgid "Title"
 msgstr "Titre"
 
@@ -941,23 +945,23 @@ msgstr "Chiffre d'affaire"
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ./viewlet/mobile/filters.py:32
+#: ./viewlet/mobile/filters.py:33
 msgid "Types"
 msgstr "Types"
 
-#: ./page/controller/links_view.py:21
+#: ./page/controller/links_view.py:23
 msgid "URL"
 msgstr "URL"
 
-#: ./profiles/default/actions.xml
+#: ./profiles/settings/actions.xml
 msgid "Ugh"
 msgstr "Pouah"
 
-#: ./profiles/default/actions.xml
+#: ./profiles/settings/actions.xml
 msgid "Undo Like"
 msgstr "Annuler J'aime"
 
-#: ./profiles/default/actions.xml
+#: ./profiles/settings/actions.xml
 msgid "Undo Ugh"
 msgstr "Annuler Pouah"
 
@@ -984,11 +988,11 @@ msgstr "UUID Utilisateurs"
 msgid "Viadeo"
 msgstr "Viadeo"
 
-#: ./profiles/default/types/collective.rcse.video.xml
+#: ./profiles/settings/types/collective.rcse.video.xml
 msgid "Video"
 msgstr "Vidéo"
 
-#: ./page/controller/videos_view.py:44
+#: ./page/controller/videos_view.py:50
 msgid "Video added"
 msgstr "Vidéo ajoutée"
 
@@ -1073,7 +1077,7 @@ msgstr "Vous aimez cet élément. Merci de votre retour!"
 msgid "You must be logged in to access to the RCSE"
 msgstr "Vous devez être connecté pour accéder au RCSE"
 
-#: ./content/video.py:40
+#: ./content/video.py:34
 msgid "You must provide at least a file or a link"
 msgstr "Vous devez au moins ajouter un fichier ou un lien d'une vidéo"
 
@@ -1090,7 +1094,7 @@ msgstr "Vous serez automatiquement abonné aux contenues que vous ajoutez à vos
 msgid "You will automatically watch groups you add to your favorites."
 msgstr "Vous suivrez automatiquement les groupes que vous ajouterez à vos favoris."
 
-#: ./page/controller/register.py:80
+#: ./page/controller/register.py:81
 msgid "Your can now log in."
 msgstr "Vous pouvez maintenant vous connectez."
 
@@ -1161,11 +1165,11 @@ msgstr ""
 msgid "return_to_view"
 msgstr "Retour"
 
-#: ./profiles/default/actions.xml
+#: ./profiles/settings/actions.xml
 msgid "themeswitcher_desktop"
 msgstr "Version desktop"
 
-#: ./profiles/default/actions.xml
+#: ./profiles/settings/actions.xml
 msgid "themeswitcher_mobile"
 msgstr "Version mobile"
 
