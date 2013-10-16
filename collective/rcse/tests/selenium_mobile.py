@@ -83,7 +83,6 @@ class MobileTheme(unittest.TestCase):
         browser.find_element_by_name("form.widgets.city").send_keys(city)
         rcompany = self._select(browser, "form-widgets-company", company)
         if rcompany != company:
-            self._select(browser, "form-widgets-company", "Create a new company")
             browser.find_element_by_name("form.widgets.new_company").send_keys(company)
         if send:
             browser.find_element_by_name("form.buttons.submit").click()

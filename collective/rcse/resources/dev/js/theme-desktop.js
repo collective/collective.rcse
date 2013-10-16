@@ -87,6 +87,8 @@ var rcseUpdatePortalMessage = function(element){
     $(document).find('.portalMessage:visible').each(function(){
         var wrapper = $(this);
         var title = wrapper.find('dt').html(); // -> str
+	if (!title)
+	    return
         var message = wrapper.find('dd').html();
         var cssclasses = wrapper.attr('class');
         var level = "info";
@@ -94,11 +96,11 @@ var rcseUpdatePortalMessage = function(element){
             level = "error";
         }
         var newWrapper = document.createElement("div");
-        $(newWrapper).addClass("alert");
+        $(newWrapper).addClass("alert portalMessage");
         if (level == "info"){
-            $(newWrapper).addClass("alert-info");
+            $(newWrapper).addClass("alert-info portalMessage-info");
         }else if (level == "error"){
-            $(newWrapper).addClass("alert-danger");
+            $(newWrapper).addClass("alert-danger portalMessage-danger");
         }
         var newTitle = document.createElement('h4');
         $(newTitle).html(title);
@@ -220,7 +222,7 @@ var rcseUpdateForms = function(element){
        </div>
      */
     $(element).find('.fieldErrorBox .error').each(function(){
-        $(this).parent().addClass('alert alert-danger');
+        $(this).parent().addClass('portalMessage alert alert-danger');
     });
     /*
      * <div class="field error form-group">
@@ -232,7 +234,7 @@ var rcseUpdateForms = function(element){
        </div>
      */
     $(element).find('.field.error').each(function(){
-        $(this).addClass('alert alert-danger').removeClass('field error');
+        $(this).addClass('portalMessage alert alert-danger').removeClass('field error');
     });
     /*
      * Lazy load CKEDITOR if there is contenteditable in the page
