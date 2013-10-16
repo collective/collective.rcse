@@ -327,6 +327,8 @@ def setupDeletedStateInWorkflows(portal):
     #add transitions delete and undo_delete
     #for all states add delete trnasiations
     for definition in wftool.objectValues():
+        if definition.id == "one_state_workflow":
+            continue
         states = definition.states
         if 'deleted' not in states:
             states.addState('deleted')
