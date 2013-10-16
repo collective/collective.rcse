@@ -10,12 +10,10 @@
                        wtool context/@@plone_tools/workflow;"
            tal:condition="python:isDiscussionAllowed or has_replies"
            i18n:domain="plone">
-
     <div class="discussion"
          tal:attributes="class python: showCommenterImage and 'discussion showCommenterImage' or 'discussion';"
          tal:condition="has_replies">
         <tal:getreplies repeat="reply_dict replies">
-
             <div class="comment"
                  tal:define="reply reply_dict/comment;
                              depth reply_dict/depth|python:0;
@@ -27,7 +25,6 @@
                  tal:attributes="class python:'comment replyTreeLevel'+str(depth)+' state-'+str(review_state);
                                  id string:${reply/getId}"
                  tal:condition="python:canReview or review_state == 'published'">
-
                 <div class="commentImage" tal:condition="showCommenterImage">
                     <a href="" tal:condition="has_author_link"
                                tal:attributes="href author_home_url">
@@ -46,31 +43,29 @@
                          tal:attributes="src portrait_url;
                                          alt reply/author_name" />
                 </div>
-
                 <div class="documentByLine" i18n:domain="plone.app.discussion">
                     <tal:name>
+                      <h5 class="media-heading">
                         <a href=""
                            tal:condition="has_author_link"
                            tal:content="reply/author_name"
                            tal:attributes="href author_home_url">
                             Poster Name
                         </a>
-                        <span tal:condition="not: has_author_link"
-                              tal:replace="reply/author_name" />
-                        <span tal:condition="not: reply/author_name"
-                              i18n:translate="label_anonymous">Anonymous</span>
+                      </h5>
+                      <span tal:condition="not: has_author_link"
+                            tal:replace="reply/author_name" />
+                      <span tal:condition="not: reply/author_name"
+                            i18n:translate="label_anonymous">Anonymous</span>
                     </tal:name>
-                    <tal:posted i18n:translate="label_says">says:</tal:posted>
+                    <div class="commentDate"><tal:posted i18n:translate="label_says">says:</tal:posted>&nbsp;</div>
                     <div class="commentDate"
                          tal:content="python:view.format_time(reply.modification_date)">
                          8/23/2001 12:40:44 PM
                     </div>
                 </div>
-
                 <div class="commentBody">
-
                     <span tal:replace="structure reply/getText" />
-
                     <div class="commentActions">
                         <form name="delete"
                               action=""
@@ -85,7 +80,6 @@
                                    i18n:attributes="value label_delete;"
                                    />
                         </form>
-
                         <!-- Workflow actions (e.g. 'publish') -->
                         <form name=""
                               action=""
@@ -104,8 +98,6 @@
                                    />
                         </form>
                     </div>
-
-
                 </div>
                 <tal:remove tal:content="nothing">
                 <button class="context reply-to-comment-button hide allowMultiSubmit"
@@ -115,18 +107,14 @@
                 </button>
                 </tal:remove>
             </div>
-
         </tal:getreplies>
-
         <div tal:condition="python: has_replies and not isDiscussionAllowed"
              class="discreet"
              i18n:domain="plone.app.discussion"
              i18n:translate="label_commenting_disabled">
             Commenting has been disabled.
         </div>
-
     </div>
-
     <div class="reply"
          tal:condition="python:has_replies and (isAnon and not isAnonymousDiscussionAllowed)">
         <form tal:attributes="action view/login_action">
@@ -137,14 +125,9 @@
                    />
         </form>
     </div>
-
     <div class="commenting reply" tal:condition="python:isDiscussionAllowed and (isAnon and isAnonymousDiscussionAllowed or userHasReplyPermission)">
-
         <fieldset>
-
             <div tal:replace="structure view/form/render" />
-
         </fieldset>
     </div>
-
 </tal:block>
