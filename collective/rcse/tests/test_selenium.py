@@ -68,9 +68,7 @@ class ScenarioTestCase(unittest.TestCase):
                      'parent::li/form//input[@id="form-buttons-enable"]')
         admin.find_element_by_xpath(xpath).click()
         user.get(self.portal_url)
-        headers = user.find_elements_by_class_name('documentFirstHeading')
-        self.assertIn('My profile', headers[0].text)
-        self.assertIn('News', headers[1].text)
+        self.assertEqual(user.current_url, '%s/home' % self.portal_url)
 
     def test_portlet_calendar(self):
         browser = self.getNewBrowser(self.portal_url)
@@ -100,7 +98,6 @@ class ScenarioTestCase(unittest.TestCase):
         comments = [comment.text for comment in comments]
         self.assertIn("coucou", comments)
         browser.close()
-
 
 class DesktopContentTypesTestCase(ScenarioTestCase, DesktopTheme):
     is_mobile = False
