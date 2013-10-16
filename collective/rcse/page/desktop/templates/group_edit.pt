@@ -27,7 +27,7 @@
      i18n:domain="plone" i18n:translate="">Rename</a>
 </li>
 <li class="list-group-item" tal:condition="view/can_delete">
-  <a tal:attributes="href string:${context/absolute_url}/delete_confirmation"
+  <a tal:attributes="href string:${context/absolute_url}/@@rcse_delete"
      data-toggle="tooltip" data-placement="right"
      title="Update group's title and id. The id is the URL representation of the group."
      i18n:domain="plone" i18n:translate="">Delete</a>

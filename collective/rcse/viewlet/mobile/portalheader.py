@@ -16,11 +16,15 @@ class PortalHeaderViewletMobile(PortalHeaderViewlet):
     sections_pt = ViewPageTemplateFile("templates/sections.pt")
 
     def action_open_left_panel_html(self):
+        if not self.user_name:
+            return u""
         viewlet = PanelLeftAction(self.context, self.request, self)
         viewlet.update()
         return viewlet.render()
 
     def action_open_right_panel_html(self):
+        if not self.user_name:
+            return u""
         viewlet = PanelRightAction(self.context, self.request, self)
         viewlet.update()
         return viewlet.render()
@@ -32,12 +36,16 @@ class PortalHeaderViewletMobile(PortalHeaderViewlet):
         return viewlet.render()
 
     def action_open_globalsections_html(self):
+        if not self.user_name:
+            return u""
         viewlet = GlobalSections(self.context, self.request, self)
         viewlet.index = self.sections_pt
         viewlet.update()
         return viewlet.render()
 
     def action_open_search_html(self):
+        if not self.user_name:
+            return u""
         viewlet = SearchRightAction(self.context, self.request, self)
         viewlet.update()
         return viewlet.render()

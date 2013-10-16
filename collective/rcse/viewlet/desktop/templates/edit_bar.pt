@@ -30,14 +30,6 @@
         <tal:label tal:content="action/title" i18n:translate=""></tal:label>
       </a>
     </tal:edit>
-    <tal:delete tal:repeat="menu menus/plone_contentmenu_actions">
-        <a tal:condition="python:menu['extra']['id'] == 'plone-contentmenu-actions-delete'"
-           tal:attributes="href menu/action; title menu/description"
-           class="btn btn-sm btn-default">
-            <span class="icon-remove"></span>
-            <tal:label tal:content="menu/title" i18n:translate=""></tal:label>
-        </a>
-    </tal:delete>
     <tal:publish tal:condition="menus/plone_contentmenu_workflow">
             <tal:button tal:repeat="menu menus/plone_contentmenu_workflow">
                 <a  class="btn btn-sm btn-default" tal:attributes="href menu/action" tal:content="menu/title"

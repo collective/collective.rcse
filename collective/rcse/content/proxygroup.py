@@ -92,7 +92,7 @@ class ProxyGroupManager(BrowserView):
 
 def handle_group_edit(context, event):
     """update the proxy / Be care about rename action"""
-    manager = context.restrictedTraverse("@@proxy_group_manager")
+    manager = context.unrestrictedTraverse("@@proxy_group_manager")
     manager.update()
     manager.create_or_update_proxy()
 
@@ -102,7 +102,7 @@ def handle_group_wfstate_change(context, event):
     #if new state == moderated -> create a proxy space
     #else: delete proxy if exists
     """
-    manager = context.restrictedTraverse("@@proxy_group_manager")
+    manager = context.unrestrictedTraverse("@@proxy_group_manager")
     manager.update()
     old_state = event.old_state.id
     new_state = event.status.get('review_state', None)
@@ -117,7 +117,7 @@ def handle_group_removed(context, event):
     status = wftool.getInfoFor(event.object, "review_state")
     if status != "moderated":
         return
-    manager = context.restrictedTraverse("@@proxy_group_manager")
+    manager = context.unrestrictedTraverse("@@proxy_group_manager")
     manager.update()
     manager.delete_proxy()
 
