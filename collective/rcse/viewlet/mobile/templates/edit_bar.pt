@@ -19,49 +19,19 @@
       </tal:manage>
     </tal:isgroup>
     <tal:notgroup tal:condition="not:view/isGroup">
-        <a href="#popupAddContentMenu"
-           data-role="button" data-rel="popup" data-transition="pop"
-           data-icon="plus" data-theme="b"
-           tal:condition="python:context.portal_type in ('Folder', 'collective.rcse.group')"
-           tal:attributes="href string:#popupAddContentMenu-$uid"
-           i18n:translate="">Add</a>
         <tal:edit tal:repeat="action view/object_actions">
              <a tal:condition="python:action['id'] == 'edit'"
                 tal:attributes="href action/url; title action/title"
-                 data-role="button" data-icon="pencil"
+                data-role="button" data-icon="pencil"
                 tal:content="action/title" i18n:translate=""></a>
         </tal:edit>
-        <tal:delete tal:repeat="menu menus/plone_contentmenu_actions">
-             <a tal:condition="python:menu['extra']['id'] == 'plone-contentmenu-actions-delete'"
-                tal:attributes="href menu/action; title menu/description"
-                data-role="button" data-icon="remove"
-                tal:content="menu/title" i18n:translate=""></a>
-        </tal:delete>
-        <a tal:condition="menus/plone_contentmenu_workflow"
-           tal:attributes="href string:#popupWorkflowContentMenu-$uid"
-           data-role="button" data-rel="popup" data-transition="pop" data-icon="lock"
-           i18n:translate="">State</a>
+        <tal:publish tal:condition="menus/plone_contentmenu_workflow">
+            <tal:button tal:repeat="menu menus/plone_contentmenu_workflow">
+                <a data-role="button"
+                   tal:attributes="href menu/action; class menu/extra/id" tal:content="menu/title"
+                   i18n:translate="">menu</a>
+            </tal:button>
+        </tal:publish>
     </tal:notgroup>
-</div>
-<div data-role="popup"
-     tal:attributes="id string:popupAddContentMenu-$uid"
-     tal:condition="python:context.portal_type in ('Folder', 'collective.rcse.group')"
-     i18n:domain="plone">
-  <ul data-role="listview" data-inset="true" data-icon="false">
-      <li tal:repeat="menu menus/plone_contentmenu_factory">
-        <a tal:attributes="href menu/action" tal:content="menu/title">menu</a>
-      </li>
-  </ul>
-</div>
-<div data-role="popup"
-     i18n:domain="plone"
-     tal:attributes="id string:popupWorkflowContentMenu-$uid"
-     tal:condition="view/review_state">
-  <ul data-role="listview" data-inset="true" data-icon="false">
-      <li data-role="list-divider"><span i18n:translate="">label_state</span><span tal:content="view/review_state" i18n:translate="">published</span></li>
-      <li tal:repeat="menu menus/plone_contentmenu_workflow">
-        <a tal:attributes="href menu/action" tal:content="menu/title" i18n:translate="">menu</a>
-      </li>
-  </ul>
 </div>
 </tal:wrapper>
