@@ -73,7 +73,7 @@ TEST_USER_4 = "simplemember4"
 PASSWORD = "secret"
 
 PROFILES = (
-    'Products.membrane:default',
+#    'Products.membrane:default',  # installed by the setuphandler
     'plone.app.versioningbehavior:default',
     'collective.mediaelementjs:default',
     'collective.memberdatatables:default',
@@ -149,6 +149,7 @@ class Layer(PloneSandboxLayer):
         from zope.globalrequest import setRequest
         setRequest(portal.REQUEST)
 
+        #We apply profile of addon which has no testing layer here
         for profile in PROFILES:
             self.applyProfile(portal, profile)
 
