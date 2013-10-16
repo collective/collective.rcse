@@ -20,11 +20,12 @@ from collective.rcse.i18n import _
 
 class ModifyCompanyFormSchema(interface.Interface):
     company = schema.Choice(
-        title=_(u"Company"),
-        vocabulary='collective.rcse.vocabulary.companies'
+        title=_(u"Select your company"),
+        vocabulary='collective.rcse.vocabulary.companies',
+        required=False
         )
     new_company = schema.TextLine(
-        title=_(u"New company"),
+        title=_(u"Or create it"),
         required=False
         )
 
@@ -48,18 +49,17 @@ class ModifyCompanyForm(AutoExtensibleForm, form.Form):
         if not sm.checkPermission(ModifyPortalContent, self.context):
             raise Unauthorized
         data, errors = self.extractData()
-        if data['company'] == '__new_company' or data['company'] == '':
-            if not data['new_company']:
-                raise interfaces.WidgetActionExecutionError(
-                    'new_company',
-                    interface.Invalid(
-                        _(u"You need to specify your company name.")
-                        )
+        if data['company'] is None and data['new_company'] is None:
+            raise interfaces.WidgetActionExecutionError(
+                'new_company',
+                interface.Invalid(
+                    _(u"You need to specify your company name.")
                     )
+                )
         if errors:
             self.status = _(u"There were errors.")
             return
-        if data['company'] == '__new_company' or data['company'] == '':
+        if data['new_company'] is not None:
             self.context.company = data['new_company']
             self.context.company_id = createCompany(self.context,
                                                     self.request,
