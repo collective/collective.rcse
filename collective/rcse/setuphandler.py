@@ -42,6 +42,7 @@ def setupVarious(context):
     activateComments(portal)
     addTimelineViewToContentTypes(portal)
     renameDocumentToArticle(portal)
+    setupDeletedStateInWorkflows(portal)
 
 
 def setupRegistration(site):
@@ -315,3 +316,63 @@ def installOnce(context):
     for addon in addons:
         if qi.isProductInstallable(addon):
             qi.installProduct(addon)
+
+
+def setupDeletedStateInWorkflows(portal):
+    wftool = portal.portal_workflow
+    from Products.DCWorkflow.States import States
+    from Products.CMFCore import permissions
+    #for workflow in all:
+    #add new state deleted
+    #add transitions delete and undo_delete
+    #for all states add delete trnasiations
+    for definition in wftool.objectValues():
+        states = definition.states
+        if 'deleted' not in states:
+            states.addState('deleted')
+        deleted = states.get('deleted')
+        deleted.title = "Deleted"
+        deleted.description = "Visible to Manager only."
+        deleted.transitions = ('undo_delete',)
+        MANAGER = ("Manager",)
+        deleted.permission_roles = {
+            "Access contents information": MANAGER,
+            "Modify portal content": MANAGER,
+            "View": MANAGER,
+        }
+        transitions = definition.transitions
+        if 'delete' not in transitions:
+            transitions.addTransition('delete')
+        transition = transitions.get('delete')
+        transition.title = "Member makes content deleted"
+        transition.description = "Making an item deleted means that it will not be visible to anyone but the manager."
+        transition.new_state_id = "deleted"
+        # transition's trigger is user by default
+        guard = transition.getGuard()
+        guard.permissions = (permissions.DeleteObjects,)
+        transition.guard = guard
+        transition.actbox_name = "Delete"
+        transition.actbox_url = "%(content_url)s/@@rcse_delete"
+        transition.actbox_category = "workflow"
+
+        if 'undo_delete' not in transitions:
+            transitions.addTransition('undo_delete')
+        transition = transitions.get('undo_delete')
+        transition.title = "Member makes content private"
+        transition.description = "Restore item to private state."
+        transition.new_state_id = "private"
+        # transition's trigger is user by default
+        guard = transition.getGuard()
+        guard.permissions = (permissions.ManagePortal,)
+        transition.guard = guard
+        transition.actbox_name = "Undo delete"
+        transition.actbox_url = "%(content_url)s/content_status_modify?workflow_action=undo_delete"
+        transition.actbox_category = "workflow"
+        for state_id in states:
+            if state_id == "deleted":
+                continue
+            state = states.get(state_id)
+            transitions = list(state.transitions)
+            if 'delete' not in transitions:
+                transitions.append('delete')
+                state.transitions = tuple(transitions)

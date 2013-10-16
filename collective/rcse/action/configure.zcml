@@ -222,4 +222,11 @@
       editview="edit"
       />
 
+  <browser:page
+      for="*"
+      name="rcse_delete"
+      class=".delete.Delete"
+      permission="zope2.DeleteObjects"
+      />
+
 </configure>

@@ -118,7 +118,7 @@ class DesktopTheme(unittest.TestCase):
             browser.find_element_by_id(desc_id).send_keys(description)
         browser.find_element_by_id('form-buttons-save').click()
 
-    def is_group(browser):
+    def is_group(self, browser):
         css_class = browser.find_element_by_tag_name('body').get_attribute('class')
         return 'portaltype-collective-rcse-group' in css_class
 

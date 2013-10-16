@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-16 09:09+0000\n"
+"POT-Creation-Date: 2013-10-16 11:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,14 +38,17 @@ msgid "A video file"
 msgstr ""
 
 #: ./page/desktop/templates/group_status.pt:50
+#: ./page/mobile/templates/group_status.pt:50
 msgid "Access: Authenticated users"
 msgstr ""
 
 #: ./page/desktop/templates/group_status.pt:35
+#: ./page/mobile/templates/group_status.pt:35
 msgid "Access: Owner, Readers and Administrators"
 msgstr ""
 
 #: ./page/desktop/templates/group_status.pt:42
+#: ./page/mobile/templates/group_status.pt:42
 msgid "Access: Owners, Readers and Administrators"
 msgstr ""
 
@@ -166,6 +169,10 @@ msgstr ""
 
 #: ./profiles/settings/workflows/collective_rcse_member_workflow/definition.xml
 msgid "Approve This Member"
+msgstr ""
+
+#: ./action/delete.py:36
+msgid "Are you sure you want to delete ${title} and all it's content ?"
 msgstr ""
 
 #: ./content/member.py:133
@@ -304,6 +311,7 @@ msgstr ""
 msgid "Decline This Member"
 msgstr ""
 
+#: ./action/delete.py:11
 #: ./page/controller/users_manage.py:104
 msgid "Delete"
 msgstr ""
@@ -525,6 +533,10 @@ msgstr ""
 msgid "Invite a person"
 msgstr ""
 
+#: ./action/delete.py:27
+msgid "Item and it's content has been deleted"
+msgstr ""
+
 #: ./content/member.py:86
 msgid "Last Name"
 msgstr ""
@@ -608,6 +620,7 @@ msgid "Members"
 msgstr ""
 
 #: ./page/desktop/templates/group_status.pt:24
+#: ./page/mobile/templates/group_status.pt:24
 msgid "Moderated"
 msgstr ""
 
@@ -653,6 +666,7 @@ msgid "No key provided."
 msgstr ""
 
 #: ./page/desktop/templates/group_status.pt:27
+#: ./page/mobile/templates/group_status.pt:27
 msgid "Open"
 msgstr ""
 
@@ -728,6 +742,7 @@ msgid "Privacy"
 msgstr ""
 
 #: ./page/desktop/templates/group_status.pt:21
+#: ./page/mobile/templates/group_status.pt:21
 msgid "Private"
 msgstr ""
 
@@ -777,10 +792,12 @@ msgid "Remove from my news"
 msgstr ""
 
 #: ./page/desktop/templates/group_status.pt:37
+#: ./page/mobile/templates/group_status.pt:37
 msgid "Request Access: Invitation"
 msgstr ""
 
 #: ./page/desktop/templates/group_status.pt:44
+#: ./page/mobile/templates/group_status.pt:44
 msgid "Request Access: Request and Invitation"
 msgstr ""
 
@@ -1132,6 +1149,7 @@ msgstr ""
 
 #. Default: "Workflow for ${group}"
 #: ./page/desktop/templates/group_status.pt:14
+#: ./page/mobile/templates/group_status.pt:14
 msgid "group_status_title"
 msgstr ""
 

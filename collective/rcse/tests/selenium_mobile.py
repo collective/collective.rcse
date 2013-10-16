@@ -121,12 +121,17 @@ class MobileTheme(unittest.TestCase):
             browser.find_element_by_id(desc_id).send_keys(description)
         browser.find_element_by_id('form-buttons-save').click()
 
-    def is_group(browser):
+    def is_group(self, browser):
         css_class = browser.find_element_by_tag_name('body').get_attribute('class')
         return 'portaltype-collective-rcse-group' in css_class
 
     def open_group_manage(self, browser, action=None):
-        pass
+        if not self.is_group(browser):
+            raise ValueError("can manage group if current page is not on group")
+#        browser.find_element_by_link_text("Manage").click()
+        browser.find_element_by_class_name("editbar").find_element_by_tag_name("a").click()
+        if action is not None:
+            browser.find_element_by_link_text(action).click()
 
     def assertGroupState(self, browser, state):
         """verify state of the current group"""
