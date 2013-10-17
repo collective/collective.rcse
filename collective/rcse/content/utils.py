@@ -50,7 +50,6 @@ def _createCompaniesGroups(home, company, username,
     private_group.manage_setLocalRoles(username, ['Owner'])
     private_group.setCreators([username])
     private_group.reindexObjectSecurity()
-    # TODO (Workflow) set group to private group
     company.private_group = private_group.id
     public_group = createContentInContainer(
         home,
@@ -66,5 +65,6 @@ def _createCompaniesGroups(home, company, username,
     public_group.manage_setLocalRoles(username, ['Owner'])
     public_group.setCreators([username])
     public_group.reindexObjectSecurity()
-    # TODO (Workflow) set group to public group
+    wtool = getToolByName(company, 'portal_workflow')
+    wtool.doActionFor(public_group, 'show_internally')
     company.public_group = public_group.id

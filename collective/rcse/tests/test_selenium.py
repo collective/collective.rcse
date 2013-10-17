@@ -21,6 +21,51 @@ class ScenarioTestCase(unittest.TestCase):
                 time.sleep(1)
         self.assertIn(message, text)
 
+    def test_notification(self):
+        user1 = self.getNewBrowser(self.portal_url)
+        self.login(user1, testing.TEST_USER_1, testing.PASSWORD)
+        user2 = self.getNewBrowser(self.portal_url)
+        self.login(user2, testing.TEST_USER_2, testing.PASSWORD)
+        user2.get('%s/home/companys-public-group' % self.portal_url)
+        if self.is_mobile:
+            group_header2 = user2.find_element_by_class_name('description-wrapper')
+        else:
+            group_header2 = user2.find_element_by_id('group-header')
+        group_header2.find_element_by_id('cioppino_twothumbs_like').click()
+        user1.get('%s/home/companys-public-group' % self.portal_url)
+        if self.is_mobile:
+            group_header = user1.find_element_by_class_name('description-wrapper')
+            button = group_header.find_element_by_xpath('self::*//*[@data-rel="popup"]')
+            button.click()
+            href = button.get_attribute('href')
+            href = href[(href.rfind('/') + 2):]
+            group_header = user1.find_element_by_id(href)
+        else:
+            group_header = user1.find_element_by_id('group-header')
+            group_header.find_element_by_class_name('dropdown-toggle').click()
+        group_header.find_element_by_id('collective_whathappened_subscribe').click()
+        group_header2.find_element_by_id('favoriting_add').click()
+        user1.get(self.portal_url)
+        count = user1.find_element_by_id('notifications-count').text
+        self.assertEqual(count, u'1', 'Notifications count is not right')
+        if self.is_mobile:
+            user1.find_element_by_id('notifications').click()
+            time.sleep(1)
+            notification = user1.find_element_by_xpath('//*[@id="popup-notifications"]/ul/li[1]//a').text
+        else:
+            user1.find_element_by_xpath('//*[@id="notifications"]/a').click()
+            time.sleep(1)
+            notification = user1.find_element_by_xpath('//*[@id="notifications"]/ul/li[1]/a').text
+        self.assertEqual(notification, u'User 2 has added Company\'s public group to his favorites')
+        user1.get('%s/@@collective_whathappened_notifications_all' % self.portal_url)
+        content = user1.find_element_by_id('content').text
+        self.assertIn(notification, content, 'Notification not in all notifications')
+        user1.get('%s/home/companys-public-group' % self.portal_url)
+        count = user1.find_element_by_id('notifications-count').text
+        self.assertEqual(count, u'0', 'Notification was not validated')
+
+    """
+
     def test_register(self):
         user = self.getNewBrowser(self.portal_url)
         self.register(user, 'toto', 'passs', email="toto@example.com",
@@ -98,6 +143,7 @@ class ScenarioTestCase(unittest.TestCase):
         comments = [comment.text for comment in comments]
         self.assertIn("coucou", comments)
         browser.close()
+    """
 
 class DesktopContentTypesTestCase(ScenarioTestCase, DesktopTheme):
     is_mobile = False

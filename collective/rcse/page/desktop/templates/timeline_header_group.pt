@@ -1,5 +1,5 @@
 <div class="rcse_tile_wrapper">
-    <div class="rcsetile panel panel-default">
+    <div id="group-header" class="rcsetile panel panel-default">
         <div class="panel-heading">
             <div class="media vcard byline">
                 <div class="pull-left">
@@ -10,10 +10,16 @@
                     <h4 class="media-heading">
                         <a class="fn url" tal:attributes="href context/absolute_url" tal:content="context/Title"></a>
                     </h4>
-                    <p tal:content="context/Description"></p>
-                    <div class="editbar" tal:content="structure context/@@collective.rcse.editbar"></div>
+                   <div class="editbar" tal:content="structure context/@@collective.rcse.editbar"></div>
                 </div>
             </div>
         </div>
+	<div class="panel-body" tal:condition="context/Description">
+          <p class="tilecontent" tal:content="context/Description"></p>
+ 	</div>
+	<div class="panel-footer">
+          <div class="document-actions-wrapper"
+               tal:content="structure context/@@plone.abovecontenttitle.documentactions"></div>
+	</div>
     </div>
 </div>

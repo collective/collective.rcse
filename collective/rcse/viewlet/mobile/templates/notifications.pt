@@ -3,7 +3,7 @@
    data-rel="popup" data-role="button" data-inline="true"
    data-transition="fade" data-icon="bell"
    data-iconpos="left" class="ui-li-has-arrow ui-li-has-count">
-   <span class="ui-btn-up-c ui-btn-corner-all" tal:content="view/unseenCount">0</span>
+   <span id="notifications-count" class="ui-btn-up-c ui-btn-corner-all" tal:content="view/unseenCount">0</span>
 </a>
 
 <div data-role="popup" id="popup-notifications" i18n:domain="plone">
