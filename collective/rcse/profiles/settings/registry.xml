@@ -1,6 +1,11 @@
 <registry>
   <records interface="collective.rcse.security.ISecuritySettings"/>
 
+  <record name="collective.history.backend">
+    <field type="plone.registry.field.ASCIILine"/>
+    <value>collective.history.backend.sqlite</value>
+  </record>
+
   <!-- collective.readitlater -->
   <records interface="collective.readitlater.registry.IReaditlaterSettings">
         <value key="folder_query">{"portal_type": {"query": "collective.rcse.group"},"path": {"query": "/"}}</value>
