@@ -9,6 +9,9 @@ from Products.statusmessages.interfaces import IStatusMessage
 from zope import interface
 from zope import component
 from dexterity.membrane.membrane_helpers import get_membrane_user
+from logging import getLogger
+
+logger = getLogger(__name__)
 
 """
 The global process of this is quite simple:
@@ -100,17 +103,25 @@ class ToggleDisplayInMyNews(BrowserView):
 def get_followers(context):
     """Return people who follow the first creator"""
 
+    creator = None
+    membrane = None
     if context.portal_type == "collective.rcse.member":
         membrane = context
+        try:
+            creator = context.creators[0]
+        except IndexError:
+            logger.debug("%s has no creator" % context.absolute_url())
     else:
-        creator = None
         if hasattr(context, 'creators'):
-            creators = context.creators
-            if len(creators):
-                creator = creators[0]
+            try:
+                creator = context.creators[0]
+            except IndexError:
+                logger.debug("%s has no creator" % context.absolute_url())
         elif hasattr(context, 'Creators'):
-            creators = context.Creators()
-            creator = creators[0]
+            try:
+                creator = context.Creators()[0]
+            except IndexError:
+                logger.debug("%s has no creator" % context.absolute_url())
         if not creator:
             return
         membrane = get_membrane_user(
@@ -124,6 +135,8 @@ def get_followers(context):
     )
 
     if watcherlist:
+        msg = "watchers of %s: %s" % (creator, watcherlist.watchers)
+        logger.debug(msg)
         return watcherlist.watchers
 
     return []

@@ -96,7 +96,7 @@ class BaseView(BrowserView):
                     full=False):
         results = self.catalog(self.query)
         if batch:
-            results = Batch(results, int(b_size), int(b_start))#, pagerange=pagerange)
+            results = Batch(results, int(b_size), int(b_start))
         if full:
             results = [brain.getObject() for brain in results]
         return results
