@@ -7,12 +7,15 @@ from plone.autoform import directives as form
 from plone.namedfile.field import NamedBlobImage
 from plone.supermodel import model
 from plone.uuid.interfaces import IUUID
+from Products.CMFPlone.utils import getToolByName
 
+from collective.transcode.star.interfaces import ITranscodeTool
 from collective.rcse.i18n import _
 from collective.rcse.content.group import get_group
 from collective.rcse.page.controller import group_base
 from collective.rcse.page.controller.navigationroot import NavigationRootBaseView
 from collective.rcse.content.video import VideoSchema
+
 
 CONTENT_TYPE = "collective.rcse.video"
 
@@ -60,6 +63,10 @@ class VideosView(group_base.BaseAddFormView):
     """A filterable blog view"""
     filter_type = [CONTENT_TYPE]
     form = AddForm
+
+    def update(self):
+        super(VideosView, self).update()
+        self.tt = component.getUtility(ITranscodeTool)
 
 
 class NavigationRootVideosView(VideosView, NavigationRootBaseView):
