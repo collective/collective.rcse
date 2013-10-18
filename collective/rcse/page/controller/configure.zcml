@@ -173,4 +173,12 @@
   <adapter factory=".links_view.AddFormAdapter"/>
   <adapter factory=".videos_view.AddFormAdapter"/>
 
+  <browser:page
+      for="*"
+      name="calendar_events_view"
+      class=".events_view.CalendarEventsView"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+
 </configure>

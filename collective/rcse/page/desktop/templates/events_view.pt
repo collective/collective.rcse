@@ -17,9 +17,16 @@
     <ul class="list-group">
         <li class="list-group-item" tal:repeat="article articles">
             <div class="media">
-                <div class="pull-left" href="#"
-		     tal:content="python:article.creation_date.strftime(u'Le %d/%m/%Y \xe0 %Hh%M')"> DATE
-                </div>
+                <div class="pull-left">
+		  <div tal:condition="article/start"
+		       tal:content="python:article.start.strftime(u'Du %d/%m/%Y \xe0 %Hh%M')">
+		    start
+		  </div>
+                  <div tal:condition="article/end"
+		       tal:content="python:article.end.strftime(u'Au %d/%m/%Y \xe0 %Hh%M')">
+		    end
+                  </div>
+		</div>
                 <div class="media-body">
                     <h4 class="media-heading">
                         <a class="load-content-tile-in-modal" data-toggle="modal"
@@ -62,10 +69,15 @@
 
 <div id="portal-column-one" class="col-md-3 col-mg-3"
     metal:fill-slot="column_one_slot">
+  <div class="portletWrapper">
+    <div tal:replace="structure context/@@calendar_events_view"></div>
+  </div>
+  <div>
     <nav role="navigation" class="navbar navbar-inverse">
       <div class="navbar-brand" i18n:translate="" tal:content="view/label">Add event</div>
     </nav>
     <div tal:content="structure view/form_instance"></div>
+  </div>
 </div>
 
 </body>

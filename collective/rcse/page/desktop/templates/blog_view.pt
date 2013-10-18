@@ -18,7 +18,8 @@
         <li class="list-group-item" tal:repeat="article articles">
             <div class="media">
                 <div class="pull-left" href="#"
-		     tal:content="python:article.creation_date.strftime(u'Le %d/%m/%Y \xe0 %Hh%M')"> DATE
+		     tal:content="python:article.created.strftime(u'Le %d/%m/%Y \xe0 %Hh%M')">
+		  DATE
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading">

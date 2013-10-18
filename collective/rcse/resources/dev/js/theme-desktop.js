@@ -49,7 +49,7 @@ var rcseUpdatePortlets = function(element) {
                     	$(newPortlet).find(".navbar-brand").text().replace("«", "").replace("»", "")
                     );
                 }
-                
+
                 if ($(this).hasClass('portletNavigationTree')) {
                     $(this).find('a').addClass('list-group-item');
                     $(this).find('div > a').unwrap();
@@ -262,25 +262,42 @@ var rcseInitPortletCalendar = function(){
         var pw = elem.closest('.portletWrapper');
         var elem_data = elem.data();
         var portlethash = pw.attr('id');
-        portlethash = portlethash.substring(15, portlethash.length);
-        url = portal_url +
-              '/@@render-portlet?portlethash=' + portlethash +
-              '&year=' + elem_data.year +
-              '&month=' + elem_data.month;
-        $.ajax({
-            url: url,
-            success: function(data) {
-                pw.html(data);
-                rcseApplyTransform(pw);
-            }
-        });
+	if (portlethash !== undefined) {
+            portlethash = portlethash.substring(15, portlethash.length);
+            url = portal_url +
+		'/@@render-portlet?portlethash=' + portlethash +
+		'&year=' + elem_data.year +
+		'&month=' + elem_data.month;
+            $.ajax({
+		url: url,
+		success: function(data) {
+                    pw.html(data);
+                    rcseApplyTransform(pw);
+		}
+            });
+	}
+	else {
+	    // On events_view
+	    var location = document.location.href;
+	    location = location.substr(0, location.length - 12);
+            url = location + '/@@calendar_events_view?' +
+		'year=' + elem_data.year +
+		'&month=' + elem_data.month;
+            $.ajax({
+		url: url,
+		success: function(data) {
+                    pw.html(data);
+                    rcseApplyTransform(pw);
+		}
+            });
+	}
     }
 	//forked from portlet_calendar.js to use on
 
-	$(document).on("click", '.portletCalendar a.calendarNext', function(event) {
+    $(document).on("click", '.portletCalendar a.calendarNext', function(event) {
         load_portlet_calendar(event, $(this));
     });
-	$(document).on("click", '.portletCalendar a.calendarPrevious', function(event) {
+    $(document).on("click", '.portletCalendar a.calendarPrevious', function(event) {
         load_portlet_calendar(event, $(this));
     });
 }

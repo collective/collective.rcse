@@ -4,11 +4,14 @@ from zope import component
 from z3c.form import button
 from collective.z3cform.html5widgets.widget_datetime import DateTimeWidget
 
+from plone.app.event.portlets import portlet_calendar
 from plone.autoform import directives
 from plone.namedfile.field import NamedBlobImage
 from plone.supermodel import model
 from plone.app.event import messageFactory as _pae
 from plone.uuid.interfaces import IUUID
+from Products.Five.browser import BrowserView
+from Products.CMFPlone.utils import getToolByName
 
 from collective.rcse.content.group import get_group
 from collective.rcse.i18n import _
@@ -121,6 +124,23 @@ class AddForm(group_base.BaseAddForm):
     @button.buttonAndHandler(_(u"Add event"))
     def handleAdd(self, action):
         group_base.BaseAddForm.handleAdd(self, action)
+
+
+class CalendarEventsView(BrowserView):
+    def update(self):
+        portal = getToolByName(self.context, 'portal_url').getPortalObject()
+        portal_url = '/'.join(portal.getPhysicalPath())
+        search_base = '/'.join(self.context.getPhysicalPath())
+        search_base = search_base[len(portal_url):]
+        data = type('Dummy', (object,), {'state': None,
+                                         'search_base': search_base})
+        self.renderer = portlet_calendar.Renderer(self.context, self.request,
+                                                  None, None, data)
+        self.renderer.update()
+
+    def __call__(self):
+        self.update()
+        return self.renderer.render()
 
 
 class EventsView(group_base.BaseAddFormView):
