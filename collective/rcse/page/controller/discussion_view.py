@@ -18,7 +18,7 @@ class DiscussionView(BrowserView):
             self.transformer = getToolByName(self.context, "portal_transforms")
 
     def get_body_as_html(self):
-        html = self.convertToHTML(self.context.body, "text/plain")
+        html = self.convertToHTML(self.context.description, "text/plain")
         return html
 
     def convertToHTML(self, content, mimetype):
