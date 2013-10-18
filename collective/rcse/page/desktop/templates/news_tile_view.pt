@@ -1,12 +1,13 @@
-<h2 tal:content="context/Title"></h2>
-<p class="newsDescription" tal:content="context/Description"></p>
-<div class="newsImage" tal:condition="context/image">
-  <div class="picturefill-wrapper" tal:content="structure context/@@picturefill"></div>
-  <p tal:condition="context/image_caption"
-     tal:content="context/image_caption"></p>
+<div class="tile-wrapper">
+    <p class="newsDescription" tal:content="context/Description"></p>
+    <div class="newsImage" tal:condition="context/image">
+      <div class="picturefill-wrapper" tal:content="structure context/@@picturefill"></div>
+      <p tal:condition="context/image_caption"
+         tal:content="context/image_caption"></p>
+    </div>
+    <tal:cond  tal:condition="context/text">
+    <div class="newsText readmore"
+         tal:define="output context/@@text-transform/text/text/plain"
+         tal:content="python: output[:300] + (output[300:] and '...')"></div>
+    </tal:cond>
 </div>
-<tal:cond  tal:condition="context/text">
-<div class="newsText readmore"
-     tal:define="output context/@@text-transform/text/text/plain"
-     tal:content="python: output[:300] + (output[300:] and '...')"></div>
-</tal:cond>

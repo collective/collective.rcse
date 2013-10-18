@@ -1,30 +1,30 @@
 <div class="tile-wrapper" i18n:domain="collective.rcse">
 
-<tal:block
-     tal:condition="view/getWorkflowTransitions"
-     tal:repeat="transition view/getWorkflowTransitions">
-    <a class="btn btn-default"
-       i18n:translate=""
-       tal:attributes="href transition/url"
-       tal:content="transition/name">
-    </a>
-</tal:block>
+    <tal:block
+         tal:condition="view/getWorkflowTransitions"
+         tal:repeat="transition view/getWorkflowTransitions">
+        <a class="btn btn-default"
+           i18n:translate=""
+           tal:attributes="href transition/url"
+           tal:content="transition/name">
+        </a>
+    </tal:block>
 
-<tal:block
-     tal:condition="view/canModify">
-    <a class="btn btn-default"
-       i18n:translate=""
-       tal:attributes="href string:${context/absolute_url}/modify_company">
-      Modify company
-    </a>
-    <p tal:condition="not:view/emailIsValidated">
-      <span i18n:translate="">The e-mail has not been validated yet.</span>
-      <a tal:attributes="href string:${view/portal_url}/@@send_email_validation"
-         i18n:translate="">
-        Resend the validation e-mail.
-      </a>
-    </p>
-</tal:block>
+    <tal:block
+         tal:condition="view/canModify">
+        <a class="btn btn-default"
+           i18n:translate=""
+           tal:attributes="href string:${context/absolute_url}/modify_company">
+          Modify company
+        </a>
+        <p tal:condition="not:view/emailIsValidated">
+          <span i18n:translate="">The e-mail has not been validated yet.</span>
+          <a tal:attributes="href string:${view/portal_url}/@@send_email_validation"
+             i18n:translate="">
+            Resend the validation e-mail.
+          </a>
+        </p>
+    </tal:block>
 
 
     <h2 tal:content="string:${context/first_name} ${context/last_name}"></h2>

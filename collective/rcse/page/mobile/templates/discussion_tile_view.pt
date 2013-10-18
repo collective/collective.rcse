@@ -1,5 +1,6 @@
-<h2 tal:content="context/Title"></h2>
-<p class="documentDescription" tal:content="context/Description"></p>
-  <div class="readmore">
-    <div tal:replace="structure view/get_body_as_html"></div>
-  </div>
+<div class="tile-wrapper">
+    <p class="documentDescription" tal:content="context/Description"></p>
+    <div class="readmore">
+        <div tal:replace="structure view/get_body_as_html"></div>
+    </div>
+</div>

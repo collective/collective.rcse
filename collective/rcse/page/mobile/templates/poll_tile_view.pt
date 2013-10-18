@@ -4,7 +4,6 @@
         can_vote view/can_vote;
         can_edit view/can_edit;">
 
-  <h2 tal:content="context/Title"></h2>
   <p class="documentDescription" tal:content="context/Description"></p>
 
     <tal:editing tal:condition="can_edit">

@@ -1,5 +1,4 @@
 <div class="tile-wrapper" tal:define="data nocall:view/data">
-    <h2 tal:content="context/Title"></h2>
     <p class="documentDescription" tal:content="context/Description"></p>
     <div class="readmore" tal:content="structure data/text"></div>
     <p>
