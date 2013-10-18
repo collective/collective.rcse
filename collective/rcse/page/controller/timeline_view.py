@@ -141,7 +141,17 @@ class MemberTimelineView(GroupTimelineView):
             u"Contents created by ${name}",
             mapping={'name': self.group.Title()}
         )
+        wftool = getToolByName(self.context, 'portal_workflow')
+        self.group_review_state = wftool.getInfoFor(
+            self.context, "review_state", None
+        )
+        if self.group_review_state != "enabled":
+            self.is_content_timeline = True
 
+    def get_content(self, **kwargs):
+        if self.group_review_state != "enabled":
+            return []
+        return super(MemberTimelineView, self).get_content()
 
 class CompanyTimelineView(BrowserView):
     is_content_timeline = False
