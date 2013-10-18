@@ -15,15 +15,19 @@
 
     <div class="row masonry" tal:define="images python: view.get_content(batch=False, full=False)">
         <div class="masonry-wrapper col-sm-6 col-md-4" tal:repeat="image images">
+	  <div class="thumbnail" tal:define="memberinfo image/@@creator_memberinfo">
             <a class="load-content-tile-in-modal" data-toggle="modal" href="#content-modal"
-                tal:attributes="data-href image/getURL">
-                <div class="thumbnail">
-                    <img tal:attributes="src string:${image/getURL}/@@images/image/preview" />
-                    <div class="caption">
-                        <h3 tal:content="image/Title">Thumbnail label</h3>
-                    </div>
+               tal:attributes="data-href image/getURL">
+	      <div class="thumbnail">
+                <img tal:attributes="src string:${image/getURL}/@@images/image/preview" />
+                <div class="caption">
+                  <h3 tal:content="image/Title">Thumbnail label</h3>
                 </div>
+	      </div>
             </a>
+	    <a tal:attributes="href memberinfo/url"><h4 tal:content="memberinfo/fullname">Author</h4></a>
+	    <h5 tal:content="python:image.created.strftime(u'Le %d/%m/%Y \xe0 %Hh%M')">Date</h5>
+	  </div>
         </div>
     </div>
 
