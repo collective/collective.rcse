@@ -6,9 +6,7 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="collective.rcse">
 <body>
-<metal:override fill-slot="top_slot" />
-
-  <div metal:fill-slot="content-core">
+  <div metal:fill-slot="main">
 
     <div tal:replace="structure context/@@breadcrumb_view"></div>
 
@@ -18,26 +16,26 @@
                      objects python: view.get_content(b_start=b_start)"
          tal:condition="python: len(objects) > 0">
 
-<ul class="list-group">
-    <tal:block tal:repeat="object objects">
-        <li class="list-group-item">
+      <ul class="list-group">
+	<tal:block tal:repeat="object objects">
+          <li class="list-group-item">
             <div class="media">
-                <div class="media-body">
-                    <h4 class="media-heading">
-                        <a class="load-content-tile-in-modal" data-toggle="modal"
-                            href="#content-modal" tal:attributes="data-href object/getURL"
-                            tal:content="object/Title">Title</a>
-			<span> - </span>
-			<a tal:define="memberinfo object/@@creator_memberinfo"
-			   tal:attributes="href memberinfo/url"
-                           tal:content="memberinfo/fullname">Author</a>
-                    </h4>
-                    <p tal:content="object/Description">Description</p>
-                </div>
+              <div class="media-body">
+                <h4 class="media-heading">
+                  <a class="load-content-tile-in-modal" data-toggle="modal"
+                     href="#content-modal" tal:attributes="data-href object/getURL"
+                     tal:content="object/Title">Title</a>
+		  <span> - </span>
+		  <a tal:define="memberinfo object/@@creator_memberinfo"
+		     tal:attributes="href memberinfo/url"
+                     tal:content="memberinfo/fullname">Author</a>
+                </h4>
+                <p tal:content="object/Description">Description</p>
+              </div>
             </div>
-        </li>
-    </tal:block>
-</ul>
+          </li>
+	</tal:block>
+      </ul>
       <div metal:use-macro="context/batch_macros/macros/navigation" />
     </div>
 

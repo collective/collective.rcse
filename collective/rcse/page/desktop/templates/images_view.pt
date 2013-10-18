@@ -10,7 +10,7 @@
 <metal:override fill-slot="top_slot"
     tal:define="disable_column_two python:request.set('disable_plone.rightcolumn',1);"/>
 
-<div metal:fill-slot="content-core">
+<div metal:fill-slot="main">
     <div tal:replace="structure context/@@breadcrumb_view"></div>
 
     <div class="row masonry" tal:define="images python: view.get_content(batch=False, full=False)">

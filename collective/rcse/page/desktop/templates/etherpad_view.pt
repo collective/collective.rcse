@@ -7,7 +7,7 @@
       i18n:domain="collective.rcse">
 
 <body>
-<div metal:fill-slot="content-core">
+<div metal:fill-slot="main">
     <tal:etherpad  tal:condition="view/sessionID">
         <div class="flex-video">
             <iframe tal:condition="view/can_edit" tal:attributes="src string:${view/etherpad_iframe_url}" width="800" height="500"></iframe>

@@ -10,8 +10,12 @@
 <metal:override fill-slot="top_slot"
     tal:define="disable_column_two python:request.set('disable_plone.rightcolumn',1);"/>
 
-<div metal:fill-slot="content-core">
+<div metal:fill-slot="main">
     <div tal:replace="structure context/@@breadcrumb_view"></div>
+    <div id="viewlet-above-content"
+         tal:content="structure provider:plone.abovecontent"
+         tal:condition="not:ajax_load" />
+
     <div tal:define="articles python:view.get_content(batch=True, full=False)">
 
     <ul class="list-group">

@@ -7,45 +7,42 @@
       i18n:domain="collective.rcse">
 
 <body>
-<div metal:fill-slot="main">
+  <div metal:fill-slot="main">
     <tal:main-macro metal:define-macro="main">
 
-    <div tal:replace="structure context/@@breadcrumb_view"></div>
-    <div id="viewlet-above-content"
-         tal:content="structure provider:plone.abovecontent"
-         tal:condition="not:ajax_load" />
+      <div tal:replace="structure context/@@breadcrumb_view"></div>
+      <div id="viewlet-above-content"
+           tal:content="structure provider:plone.abovecontent"
+           tal:condition="not:ajax_load" />
 
-    <tal:group tal:condition="nocall:view/group">
-    <nav role="navigation" class="navbar navbar-inverse"
-         tal:define="label_timeline view/label_timeline|view/group_title|nothing">
-       <div class="navbar-brand">
-         <h4 class="documentFirstHeading" i18n:translate=""
-             tal:content="label_timeline">My profile / Group title</h4>
-       </div>
-    </nav>
-    <div class="description-wrapper" tal:content="structure view/group_description"></div>
-    </tal:group>
+      <tal:group tal:condition="nocall:view/group">
+	<nav role="navigation" class="navbar navbar-inverse"
+             tal:define="label_timeline view/label_timeline|view/group_title|nothing">
+	  <div class="navbar-brand">
+            <h4 class="documentFirstHeading" i18n:translate=""
+		tal:content="label_timeline">My profile / Group title</h4>
+	  </div>
+	</nav>
+	<div class="description-wrapper" tal:content="structure view/group_description"></div>
+      </tal:group>
 
-    <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent"
-         tal:condition="not:ajax_load" />
+      <nav role="navigation" class="navbar navbar-inverse"
+           tal:condition="not:view/is_content_timeline">
+	<div class="navbar-brand">
+          <h4 class="documentFirstHeading" tal:content="python:view.label_content or 'News'" i18n:translate="">News</h4>
+	</div>
+      </nav>
 
-    <nav role="navigation" class="navbar navbar-inverse"
-         tal:condition="not:view/is_content_timeline">
-       <div class="navbar-brand">
-         <h4 class="documentFirstHeading" tal:content="python:view.label_content or 'News'" i18n:translate="">News</h4>
-       </div>
-    </nav>
-
-    <div tal:define="b_start python:0; b_start request/b_start | b_start;
-                     batch python: view.get_content(b_start=b_start);">
+      <div tal:define="b_start python:0; b_start request/b_start | b_start;
+                       batch python: view.get_content(b_start=b_start);">
         <tal:tile tal:repeat="item batch">
-         <div class="rcse_tile_wrapper"
-	      tal:condition="python:hasattr(item, 'getPath') and item.getPath() != view.context_path or view.is_content_timeline">
-           <a class="rcse_tile" tal:attributes="href item/getURL"></a>
-         </div>
+          <div class="rcse_tile_wrapper"
+	       tal:condition="python:hasattr(item, 'getPath') and item.getPath() != view.context_path or view.is_content_timeline">
+            <a class="rcse_tile" tal:attributes="href item/getURL"></a>
+          </div>
         </tal:tile>
         <div metal:use-macro="context/batch_macros/macros/navigation" />
-    </div>
+      </div>
 
     </tal:main-macro>
   </div>
