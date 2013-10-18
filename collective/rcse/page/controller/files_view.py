@@ -20,6 +20,7 @@ class AddFormSchema(group_base.BaseAddFormSchema):
     file = NamedBlobFile(title=_(u"File"))
     description = schema.Text(
         title=_(u"Description"),
+        required=False
     )
 
 

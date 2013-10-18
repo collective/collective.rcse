@@ -24,6 +24,7 @@ class AddFormSchema(group_base.BaseAddFormSchema, VideoSchema):
 
     description = schema.Text(
         title=_(u"Description"),
+        required=False
     )
     form.order_before(title='*')
     form.order_before(description='file')

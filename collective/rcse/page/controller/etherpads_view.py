@@ -18,6 +18,7 @@ class AddFormSchema(group_base.BaseAddFormSchema):
     title = schema.TextLine(title=_(u"Title"))
     description = schema.Text(
         title=_(u"Description"),
+        required=False
     )
 
 

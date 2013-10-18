@@ -35,10 +35,12 @@
          <h4 class="documentFirstHeading" tal:content="python:view.label_content or 'News'" i18n:translate="">News</h4>
        </div>
     </nav>
+
     <div tal:define="b_start python:0; b_start request/b_start | b_start;
                      batch python: view.get_content(b_start=b_start);">
         <tal:tile tal:repeat="item batch">
-         <div class="rcse_tile_wrapper" tal:condition="python:hasattr(item, 'getPath') and item.getPath() != view.context_path">
+         <div class="rcse_tile_wrapper"
+	      tal:condition="python:hasattr(item, 'getPath') and item.getPath() != view.context_path or view.is_content_timeline">
            <a class="rcse_tile" tal:attributes="href item/getURL"></a>
          </div>
         </tal:tile>

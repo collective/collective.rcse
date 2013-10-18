@@ -21,18 +21,20 @@
 <ul class="list-group">
     <tal:block tal:repeat="object objects">
         <li class="list-group-item">
-            <dl class="object-title">
-                <a class="load-content-tile-in-modal" data-toggle="modal"
-                    href="#content-modal" tal:attributes="data-href object/getURL"
-                    tal:content="object/Title"></a>
-            </dl>
-            <dt>
-                <span tal:define="author object/@@creator_memberinfo"
-                    tal:content="author/fullname">Authors
-                </span>
-                <p class="object-description" tal:condition="object/Description"
-                    tal:content="object/Description"></p>
-            </dt>
+            <div class="media">
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <a class="load-content-tile-in-modal" data-toggle="modal"
+                            href="#content-modal" tal:attributes="data-href object/getURL"
+                            tal:content="object/Title">Title</a>
+			<span> - </span>
+			<a tal:define="memberinfo object/@@creator_memberinfo"
+			   tal:attributes="href memberinfo/url"
+                           tal:content="memberinfo/fullname">Author</a>
+                    </h4>
+                    <p tal:content="object/Description">Description</p>
+                </div>
+            </div>
         </li>
     </tal:block>
 </ul>

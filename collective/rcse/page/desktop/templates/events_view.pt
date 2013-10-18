@@ -17,13 +17,18 @@
     <ul class="list-group">
         <li class="list-group-item" tal:repeat="article articles">
             <div class="media">
-                <div class="pull-left" href="#"> DATE
+                <div class="pull-left" href="#"
+		     tal:content="python:article.creation_date.strftime(u'Le %d/%m/%Y \xe0 %Hh%M')"> DATE
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading">
                         <a class="load-content-tile-in-modal" data-toggle="modal"
                             href="#content-modal" tal:attributes="data-href article/getURL"
-                            tal:content="article/Title">Media heading</a>
+                            tal:content="article/Title">Title</a>
+			<span> - </span>
+			<a tal:define="memberinfo article/@@creator_memberinfo"
+			   tal:attributes="href memberinfo/url"
+                           tal:content="memberinfo/fullname">Author</a>
                     </h4>
                     <p tal:content="article/Description">Description</p>
                 </div>

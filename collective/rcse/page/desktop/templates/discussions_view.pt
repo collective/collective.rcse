@@ -10,27 +10,57 @@
 <metal:override fill-slot="top_slot"
     tal:define="disable_column_two python:request.set('disable_plone.rightcolumn',1);"/>
 
-<div metal:fill-slot="main">
-    <div tal:replace="structure context/@@breadcrumb_view"></div>
-    <div
-        tal:define="b_start python:0;
+<div metal:fill-slot="content-core">
+  <div tal:replace="structure context/@@breadcrumb_view"></div>
+  <div tal:define="b_start python:0;
                    b_start request/b_start | b_start;
                    batch python: view.get_content(b_start=b_start);">
-<ul class="list-group">
-        <tal:tile tal:repeat="discussion batch">
+    <ul class="list-group">
+      <tal:tile tal:repeat="discussion batch">
         <li class="list-group-item">
-            <div class="media">
-                <div class="pull-left">Date</div>
-                <div class="media-body">
-                    <h4 class="media-heading"><a tal:attributes="href discussion/getURL" tal:content="discussion/Title">Discussion title</a><span class="badge pull-right" tal:content="discussion/total_comments">3</span></h4>
-                    <div tal:content="discussion/description"></div>
-                </div>
+          <div class="media">
+            <div class="media-body">
+	      <span class="badge pull-right"
+		    tal:content="discussion/total_comments">0</span>
+              <h4 class="media-heading">
+		<a class="load-content-tile-in-modal" data-toggle="modal"
+		   href="#content-modal"
+		   tal:attributes="data-href discussion/getURL"
+		   tal:content="discussion/Title">Discussion title</a>
+		<span> - </span>
+		<a tal:define="memberinfo discussion/@@creator_memberinfo"
+		   tal:attributes="href memberinfo/url"
+		   tal:content="memberinfo/fullname">Author</a>
+	      </h4>
+              <div tal:content="discussion/Description"></div>
             </div>
+          </div>
         </li>
-        </tal:tile>
-        <div metal:use-macro="context/batch_macros/macros/navigation" />
-</ul>
+      </tal:tile>
+      <div metal:use-macro="context/batch_macros/macros/navigation" />
+    </ul>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="content-modal" tabindex="-1" role="dialog"
+       aria-labelledby="content modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <div class="rcse_tile_wrapper">
+            <a class="rcse_tile">test</a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default"
+                  data-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <div id="portal-column-one" class="col-md-3 col-mg-3"
