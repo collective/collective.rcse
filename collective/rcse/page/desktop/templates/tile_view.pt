@@ -12,9 +12,9 @@
                 <span tal:attributes="class string:icon ${view/icon_status} icon-2x"></span>
                 <span tal:attributes="class string:icon ${view/icon_type} icon-2x"></span>
                 <a class="group" data-inline="true" tal:attributes="href view/group_url"
-                    tal:content="view/group_title">group</a>
+                    tal:content="view/group_title">group</a><br />
                 <div class="date" tal:condition="view/effective_date"
-                     tal:content="view/effective_date"></div>
+                     tal:content="view/effective_date"></div>&nbsp;
                 <a rel="author" data-rel="dialog" class="author fn url"
                    tal:attributes="href creator_info/url"
                    tal:content="creator_info/fullname"
