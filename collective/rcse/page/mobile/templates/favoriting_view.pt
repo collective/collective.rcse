@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.favoriting">
+<body>
+  <metal:block fill-slot="top_slot"
+	       tal:define="dummy python:request.set('disable_border',1);
+			   disable_column_one python:request.set('disable_plone.leftcolumn',1);
+			   disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+
+<div metal:fill-slot="main" tal:define="favoriting context/@@collective.favoriting">
+
+  <h1 i18n:translate="">My favorites</h1>
+
+  <div id="favorites">
+    <ul data-role="listview"
+	data-split-icon="delete"
+	data-split-theme="b"
+	data-inset="true"
+	data-filter="true"
+	i18n:attributes="data-filter-placeholder"
+	data-filter-placeholder="Search favorites">
+      <tal:fav tal:repeat="fav favoriting/get">
+	<li tal:define="memberinfo fav/@@creator_memberinfo">
+	  <a tal:attributes="href fav/getURL">
+	    <h2 tal:content="fav/Title"></h2>
+	    <p tal:content="memberinfo/fullname"></p>
+	  </a>
+	  <a tal:attributes="href string:${fav/getURL}/favoriting_rm"
+	     i18n:translate="">
+	    delete
+	  </a>
+	</li>
+      </tal:fav>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
