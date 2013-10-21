@@ -11,63 +11,63 @@
     tal:define="disable_column_two python:request.set('disable_plone.rightcolumn',1);"/>
 
 <div metal:fill-slot="main">
-    <div tal:replace="structure context/@@breadcrumb_view"></div>
-    <div tal:define="videos python:view.get_content(batch=True, full=False)">
+  <div tal:replace="structure context/@@breadcrumb_view"></div>
+  <div tal:define="videos python:view.get_content(batch=True, full=False)">
 
     <div class="row masonry" tal:define="videos python: view.get_content(batch=False, full=False)">
-        <div class="masonry-wrapper col-sm-6 col-md-4" tal:repeat="video videos">
-	  <div class="thumbnail"
-	       tal:define="memberinfo video/@@creator_memberinfo;
-			   uid video/UID;">
-            <a class="load-content-tile-in-modal" data-toggle="modal" href="#content-modal"
-               tal:attributes="data-href video/getURL">
-	      <div class="thumbnail">
-		<tal:thumbnail tal:condition="python:view.tt.has_key(uid)">
-                  <img alt="Thumbnail"
-		       tal:define="profiles python:view.tt[uid][view.tt[uid].keys()[0]]"
-		       tal:attributes="src string:${view/profiles/jpeg/address|nothing}/${view/profiles/jpeg/path|nothing}" />
-                </tal:thumbnail>
-		<div class="caption">
-                  <h3 tal:content="video/Title">Thumbnail label</h3>
-                </div>
-	      </div>
-            </a>
-	    <a tal:attributes="href memberinfo/url"><h4 tal:content="memberinfo/fullname">Author</h4></a>
-	    <h5 tal:content="python:video.created.strftime(u'Le %d/%m/%Y \xe0 %Hh%M')">Date</h5>
-	  </div>
-        </div>
+      <div class="masonry-wrapper col-sm-6 col-md-4" tal:repeat="video videos">
+	<div class="thumbnail"
+	     tal:define="memberinfo video/@@creator_memberinfo;
+			 uid video/UID;">
+          <a class="load-content-tile-in-modal" data-toggle="modal" href="#content-modal"
+             tal:attributes="data-href video/getURL">
+	    <div class="thumbnail">
+	      <tal:thumbnail tal:condition="python:view.tt.has_key(uid)">
+                <img alt="Thumbnail"
+		     tal:define="profiles python:view.tt[uid][view.tt[uid].keys()[0]]"
+		     tal:attributes="src string:${view/profiles/jpeg/address|nothing}/${view/profiles/jpeg/path|nothing}" />
+              </tal:thumbnail>
+	      <div class="caption">
+                <h3 tal:content="video/Title">Thumbnail label</h3>
+              </div>
+	    </div>
+          </a>
+	  <a tal:attributes="href memberinfo/url"><h4 tal:content="memberinfo/fullname">Author</h4></a>
+	  <h5 tal:content="python:video.created.strftime(u'Le %d/%m/%Y \xe0 %Hh%M')">Date</h5>
+	</div>
+      </div>
     </div>
 
     <!-- Modal -->
     <div class="modal fade" id="content-modal" tabindex="-1" role="dialog"
-        aria-labelledby="content modal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Modal title</h4>
-                </div>
-                <div class="modal-body">
-                     <div class="rcse_tile_wrapper">
-                       <a class="rcse_tile">test</a>
-                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default"
-                        data-dismiss="modal" i18n:translate="">Close</button>
-                </div>
+         aria-labelledby="content modal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            <div class="rcse_tile_wrapper">
+              <a class="rcse_tile">test</a>
             </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default"
+                    data-dismiss="modal" i18n:translate="">Close</button>
+          </div>
         </div>
+      </div>
     </div>
-
+  </div>
 </div>
 
-<div id="portal-column-one" class="col-md-3 col-mg-3"
-    metal:fill-slot="column_one_slot">
+  <div id="portal-column-one" class="col-md-3 col-mg-3"
+       metal:fill-slot="column_one_slot">
     <nav role="navigation" class="navbar navbar-inverse">
       <div class="navbar-brand" i18n:translate="" tal:content="view/label">Add image</div>
     </nav>
     <div tal:content="structure view/form_instance"></div>
-</div>
+  </div>
 
 </body>
 </html>
