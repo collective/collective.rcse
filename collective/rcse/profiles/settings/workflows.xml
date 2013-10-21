@@ -15,6 +15,9 @@
    <type type_id="Folder">
      <bound-workflow workflow_id="(Default)" />
    </type>
+   <type type_id="File">
+     <bound-workflow workflow_id="(Default)" />
+   </type>
    <type type_id="collective.rcse.group">
      <bound-workflow workflow_id="collective_rcse_group_workflow" />
    </type>

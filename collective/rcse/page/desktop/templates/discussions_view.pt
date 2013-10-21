@@ -23,13 +23,14 @@
 	      <span class="badge pull-right"
 		    tal:content="discussion/total_comments">0</span>
               <h4 class="media-heading">
-		<a class="load-content-tile-in-modal" data-toggle="modal"
+		<a class="load-content-tile-in-modal content-title" data-toggle="modal"
 		   href="#content-modal"
 		   tal:attributes="data-href discussion/getURL"
 		   tal:content="discussion/Title">Discussion title</a>
 		<span> - </span>
 		<a tal:define="memberinfo discussion/@@creator_memberinfo"
 		   tal:attributes="href memberinfo/url"
+           class="author fn url"
 		   tal:content="memberinfo/fullname">Author</a>
 	      </h4>
               <div tal:content="discussion/Description"></div>
@@ -56,7 +57,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default"
-                  data-dismiss="modal">Close</button>
+                  data-dismiss="modal" i18n:translate="">Close</button>
         </div>
       </div>
     </div>

@@ -38,7 +38,6 @@
         </div>
     </div>
 
-    </div>
     <!-- Modal -->
     <div class="modal fade" id="content-modal" tabindex="-1" role="dialog"
         aria-labelledby="content modal" aria-hidden="true">
@@ -54,7 +53,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default"
-                        data-dismiss="modal">Close</button>
+                        data-dismiss="modal" i18n:translate="">Close</button>
                 </div>
             </div>
         </div>

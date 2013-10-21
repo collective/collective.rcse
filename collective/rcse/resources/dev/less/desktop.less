@@ -35,20 +35,23 @@ a[href="edit#ownership"] {
 	.media-object{width: 64px;}
     .group, .date{display:block;}
 }
-.picturefill-wrapper img,
+.picturefill-wrapper img{max-width:100%}
+.rcse_tile_wrapper{
+    background-color: White;
+	> .rcse_tile{
+	    display: block;
+	    height: 200px;
+	    margin-bottom: 30px;
+	    text-align: center;
+	    > div > .icon-spinner{
+            position: relative;
+            top: 95px;
+        }
+	}
+}
 .rcsetile{
-	.panel-body img{max-width: 100%}
-}
-.rcse_tile_wrapper{background-color: White;}
-.rcse_tile_wrapper > .rcse_tile > div > .icon-spinner{
-    position: relative;
-    top: 95px;
-}
-.rcse_tile_wrapper > .rcse_tile{
-    display: block;
-    height: 200px;
-    margin-bottom: 30px;
-    text-align: center;
+    .media-heading {margin-top:0!important;}
+    .panel-body img{max-width: 100%}
 }
 .highlightedSearchTerm{
    background-color: #ffa;
@@ -157,4 +160,8 @@ a .filter-wrapper{text-decoration:none;}
 
 .configlets{
 	padding-left:0;
+}
+
+.author{
+	font-size: 13px;
 }

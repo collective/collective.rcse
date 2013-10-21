@@ -6,7 +6,7 @@
                 <img class="media-object img-thumbnail avatar" tal:attributes="src creator_info/photo" />
             </a>
             <div class="media-body">
-                <h2 class="media-heading">
+                <h2 class="media-heading content-title">
                   <a tal:attributes="href context/absolute_url" tal:content="context/Title"></a>
                 </h2>
                 <span tal:attributes="class string:icon ${view/icon_status} icon-2x"></span>
@@ -15,7 +15,7 @@
                     tal:content="view/group_title">group</a>
                 <div class="date" tal:condition="view/effective_date"
                      tal:content="view/effective_date"></div>
-                <a rel="author" data-rel="dialog" class="fn url"
+                <a rel="author" data-rel="dialog" class="author fn url"
                    tal:attributes="href creator_info/url"
                    tal:content="creator_info/fullname"
                    tal:omit-tag="not:creator_info/member">John</a>

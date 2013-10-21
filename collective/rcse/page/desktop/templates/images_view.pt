@@ -25,7 +25,7 @@
                 </div>
 	      </div>
             </a>
-	    <a tal:attributes="href memberinfo/url"><h4 tal:content="memberinfo/fullname">Author</h4></a>
+	    <h4><a class="author fn url" tal:attributes="href memberinfo/url" tal:content="memberinfo/fullname">Author</a></h4>
 	    <h5 tal:content="python:image.created.strftime(u'Le %d/%m/%Y \xe0 %Hh%M')">Date</h5>
 	  </div>
         </div>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default"
-                        data-dismiss="modal">Close</button>
+                        data-dismiss="modal" i18n:translate="">Close</button>
                 </div>
             </div>
         </div>

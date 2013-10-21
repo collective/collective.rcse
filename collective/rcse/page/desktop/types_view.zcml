@@ -113,15 +113,6 @@
       />
 
   <browser:page
-      for="collective.rcse.content.etherpad.EtherpadSchema"
-      name="etherpad_view"
-      class="collective.etherpad.etherpad_view.EtherpadView"
-      template="templates/etherpad_view.pt"
-      permission="zope2.View"
-      layer="collective.rcse.layer.DesktopLayer"
-      />
-
-  <browser:page
       for="collective.rcse.content.group.GroupSchema"
       name="members_view"
       template="templates/members_view.pt"
