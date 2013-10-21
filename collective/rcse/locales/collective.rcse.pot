@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-16 15:42+0000\n"
+"POT-Creation-Date: 2013-10-21 07:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,7 +65,7 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: ./page/controller/blog_view.py:52
+#: ./page/controller/blog_view.py:53
 msgid "Add Blog"
 msgstr ""
 
@@ -73,11 +73,11 @@ msgstr ""
 msgid "Add Discussion"
 msgstr ""
 
-#: ./page/controller/etherpads_view.py:41
+#: ./page/controller/etherpads_view.py:42
 msgid "Add Etherpad"
 msgstr ""
 
-#: ./page/controller/files_view.py:44
+#: ./page/controller/files_view.py:45
 msgid "Add File"
 msgstr ""
 
@@ -97,23 +97,23 @@ msgstr ""
 msgid "Add audio"
 msgstr ""
 
-#: ./page/controller/blog_view.py:50
+#: ./page/controller/blog_view.py:51
 msgid "Add blog"
 msgstr ""
 
-#: ./page/desktop/templates/discussions_view.pt:39
+#: ./page/desktop/templates/discussions_view.pt:69
 msgid "Add discussion"
 msgstr ""
 
-#: ./page/controller/etherpads_view.py:44
+#: ./page/controller/etherpads_view.py:45
 msgid "Add etherpad"
 msgstr ""
 
-#: ./page/controller/events_view.py:116
+#: ./page/controller/events_view.py:120
 msgid "Add event"
 msgstr ""
 
-#: ./page/controller/files_view.py:47
+#: ./page/controller/files_view.py:48
 msgid "Add file"
 msgstr ""
 
@@ -129,7 +129,7 @@ msgstr ""
 msgid "Add image"
 msgstr ""
 
-#: ./page/controller/links_view.py:44
+#: ./page/controller/links_view.py:45
 msgid "Add link"
 msgstr ""
 
@@ -137,7 +137,7 @@ msgstr ""
 msgid "Add to my news"
 msgstr ""
 
-#: ./page/controller/videos_view.py:51
+#: ./page/controller/videos_view.py:52
 msgid "Add video"
 msgstr ""
 
@@ -219,11 +219,11 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-#: ./page/controller/blog_view.py:49
+#: ./page/controller/blog_view.py:50
 msgid "Blog post added"
 msgstr ""
 
-#: ./page/desktop/templates/objects_view.pt:71
+#: ./page/desktop/templates/objects_view.pt:72
 msgid "Bookmark this"
 msgstr ""
 
@@ -264,7 +264,7 @@ msgid "Companies directory"
 msgstr ""
 
 #: ./content/member.py:91
-#: ./page/controller/timeline_view.py:160
+#: ./page/controller/timeline_view.py:170
 #: ./page/desktop/templates/users_directory_view.pt:61
 msgid "Company"
 msgstr ""
@@ -350,6 +350,7 @@ msgstr ""
 msgid "Do not display anymore new content from this group in your news"
 msgstr ""
 
+#: ./page/desktop/templates/file_tile_view.pt:3
 #: ./page/mobile/templates/file_view.pt:11
 msgid "Download"
 msgstr ""
@@ -390,7 +391,7 @@ msgstr ""
 msgid "Etherpad"
 msgstr ""
 
-#: ./page/controller/etherpads_view.py:40
+#: ./page/controller/etherpads_view.py:41
 msgid "Etherpad added"
 msgstr ""
 
@@ -398,7 +399,7 @@ msgstr ""
 msgid "Event"
 msgstr ""
 
-#: ./page/controller/events_view.py:115
+#: ./page/controller/events_view.py:119
 msgid "Event added"
 msgstr ""
 
@@ -420,11 +421,11 @@ msgstr ""
 msgid "File"
 msgstr ""
 
-#: ./page/controller/files_view.py:43
+#: ./page/controller/files_view.py:44
 msgid "File added"
 msgstr ""
 
-#: ./viewlet/mobile/filters.py:79
+#: ./viewlet/mobile/filters.py:77
 msgid "Filter"
 msgstr ""
 
@@ -506,7 +507,7 @@ msgid "I like this (click again to undo)"
 msgstr ""
 
 #: ./content/event.py:19
-#: ./page/controller/blog_view.py:25
+#: ./page/controller/blog_view.py:26
 #: ./page/controller/images_view.py:24
 msgid "Image"
 msgstr ""
@@ -549,7 +550,7 @@ msgstr ""
 msgid "Like"
 msgstr ""
 
-#: ./page/controller/links_view.py:43
+#: ./page/controller/links_view.py:44
 msgid "Link added"
 msgstr ""
 
@@ -558,7 +559,7 @@ msgstr ""
 msgid "LinkedIn"
 msgstr ""
 
-#: ./page/desktop/templates/objects_view.pt:51
+#: ./page/desktop/templates/objects_view.pt:52
 msgid "Loading..."
 msgstr ""
 
@@ -615,7 +616,7 @@ msgstr ""
 msgid "Member"
 msgstr ""
 
-#: ./page/controller/timeline_view.py:148
+#: ./page/controller/timeline_view.py:158
 msgid "Members"
 msgstr ""
 
@@ -707,7 +708,7 @@ msgstr ""
 msgid "Please complete your company information"
 msgstr ""
 
-#: ./page/controller/blog_view.py:26
+#: ./page/controller/blog_view.py:27
 #: ./page/controller/images_view.py:25
 msgid "Please put an image file here"
 msgstr ""
@@ -802,7 +803,7 @@ msgstr ""
 msgid "Resend the validation e-mail."
 msgstr ""
 
-#: ./viewlet/mobile/filters.py:47
+#: ./viewlet/mobile/filters.py:45
 msgid "Reversed"
 msgstr ""
 
@@ -853,7 +854,7 @@ msgstr ""
 msgid "Sector"
 msgstr ""
 
-#: ./viewlet/desktop/templates/portal_header.pt:97
+#: ./viewlet/desktop/templates/portal_header.pt:99
 msgid "See all notifications"
 msgstr ""
 
@@ -890,7 +891,7 @@ msgstr ""
 msgid "Something goes wrong with etherpad so you can't access to it's content."
 msgstr ""
 
-#: ./viewlet/mobile/filters.py:41
+#: ./viewlet/mobile/filters.py:39
 msgid "Sort on"
 msgstr ""
 
@@ -960,10 +961,10 @@ msgid "Twitter"
 msgstr ""
 
 #: ./viewlet/mobile/filters.py:33
-msgid "Types"
+msgid "Type"
 msgstr ""
 
-#: ./page/controller/links_view.py:23
+#: ./page/controller/links_view.py:24
 msgid "URL"
 msgstr ""
 
@@ -1006,7 +1007,7 @@ msgstr ""
 msgid "Video"
 msgstr ""
 
-#: ./page/controller/videos_view.py:50
+#: ./page/controller/videos_view.py:51
 msgid "Video added"
 msgstr ""
 
@@ -1163,7 +1164,7 @@ msgstr ""
 msgid "image_description"
 msgstr ""
 
-#: ./page/desktop/templates/objects_view.pt:72
+#: ./page/desktop/templates/objects_view.pt:73
 msgid "link"
 msgstr ""
 
@@ -1196,7 +1197,7 @@ msgstr ""
 msgid "themeswitcher_mobile"
 msgstr ""
 
-#: ./page/desktop/templates/objects_view.pt:73
+#: ./page/desktop/templates/objects_view.pt:74
 msgid "to add contents faster."
 msgstr ""
 

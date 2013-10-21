@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-10-16 15:42+0000\n"
+"POT-Creation-Date: 2013-10-21 07:07+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -66,7 +66,7 @@ msgstr "Actions"
 msgid "Add"
 msgstr "Ajouter"
 
-#: ./page/controller/blog_view.py:52
+#: ./page/controller/blog_view.py:53
 msgid "Add Blog"
 msgstr "Ajouter un Article"
 
@@ -74,11 +74,11 @@ msgstr "Ajouter un Article"
 msgid "Add Discussion"
 msgstr "Ajouter une Discussion"
 
-#: ./page/controller/etherpads_view.py:41
+#: ./page/controller/etherpads_view.py:42
 msgid "Add Etherpad"
 msgstr "Ajouter un étherpad"
 
-#: ./page/controller/files_view.py:44
+#: ./page/controller/files_view.py:45
 msgid "Add File"
 msgstr "Ajouter un ficher"
 
@@ -98,23 +98,23 @@ msgstr "Ajouter un groupe"
 msgid "Add audio"
 msgstr "Ajouter un fichier audio"
 
-#: ./page/controller/blog_view.py:50
+#: ./page/controller/blog_view.py:51
 msgid "Add blog"
 msgstr "Ajouter un article"
 
-#: ./page/desktop/templates/discussions_view.pt:39
+#: ./page/desktop/templates/discussions_view.pt:69
 msgid "Add discussion"
 msgstr "Ajouter une discussion"
 
-#: ./page/controller/etherpads_view.py:44
+#: ./page/controller/etherpads_view.py:45
 msgid "Add etherpad"
 msgstr "Ajouter un etherpad"
 
-#: ./page/controller/events_view.py:116
+#: ./page/controller/events_view.py:120
 msgid "Add event"
 msgstr "Ajouter un événement"
 
-#: ./page/controller/files_view.py:47
+#: ./page/controller/files_view.py:48
 msgid "Add file"
 msgstr "Ajouter un fichier"
 
@@ -130,7 +130,7 @@ msgstr "Ajouter un groupe"
 msgid "Add image"
 msgstr "Ajouter une image"
 
-#: ./page/controller/links_view.py:44
+#: ./page/controller/links_view.py:45
 msgid "Add link"
 msgstr "Ajouter un lien"
 
@@ -138,7 +138,7 @@ msgstr "Ajouter un lien"
 msgid "Add to my news"
 msgstr "Ajouter à mon fil d'actualité"
 
-#: ./page/controller/videos_view.py:51
+#: ./page/controller/videos_view.py:52
 msgid "Add video"
 msgstr "Ajouter une vidéo"
 
@@ -220,11 +220,11 @@ msgstr "Date de naissance"
 msgid "Blog"
 msgstr "Blog"
 
-#: ./page/controller/blog_view.py:49
+#: ./page/controller/blog_view.py:50
 msgid "Blog post added"
 msgstr "Article ajouté"
 
-#: ./page/desktop/templates/objects_view.pt:71
+#: ./page/desktop/templates/objects_view.pt:72
 msgid "Bookmark this"
 msgstr "Ajouter à vos favoris ce"
 
@@ -265,7 +265,7 @@ msgid "Companies directory"
 msgstr "Annuaire des entreprises"
 
 #: ./content/member.py:91
-#: ./page/controller/timeline_view.py:160
+#: ./page/controller/timeline_view.py:170
 #: ./page/desktop/templates/users_directory_view.pt:61
 msgid "Company"
 msgstr "Société"
@@ -351,6 +351,7 @@ msgstr "Afficher: ${attr}"
 msgid "Do not display anymore new content from this group in your news"
 msgstr "Ne plus afficher les nouveaux contenu de ce groupe dans votre fil d'actualité"
 
+#: ./page/desktop/templates/file_tile_view.pt:3
 #: ./page/mobile/templates/file_view.pt:11
 msgid "Download"
 msgstr "Télécharger"
@@ -391,7 +392,7 @@ msgstr "Erreur durant l'envoit de l'email."
 msgid "Etherpad"
 msgstr "Etherpad"
 
-#: ./page/controller/etherpads_view.py:40
+#: ./page/controller/etherpads_view.py:41
 msgid "Etherpad added"
 msgstr "Etherpad ajouté"
 
@@ -399,7 +400,7 @@ msgstr "Etherpad ajouté"
 msgid "Event"
 msgstr "Evénement"
 
-#: ./page/controller/events_view.py:115
+#: ./page/controller/events_view.py:119
 msgid "Event added"
 msgstr "Evénement ajouté"
 
@@ -421,11 +422,11 @@ msgstr "Femme"
 msgid "File"
 msgstr "Fichier"
 
-#: ./page/controller/files_view.py:43
+#: ./page/controller/files_view.py:44
 msgid "File added"
 msgstr "Fichier ajouté"
 
-#: ./viewlet/mobile/filters.py:79
+#: ./viewlet/mobile/filters.py:77
 msgid "Filter"
 msgstr "Filtrer"
 
@@ -507,7 +508,7 @@ msgid "I like this (click again to undo)"
 msgstr "J'aime ça"
 
 #: ./content/event.py:19
-#: ./page/controller/blog_view.py:25
+#: ./page/controller/blog_view.py:26
 #: ./page/controller/images_view.py:24
 msgid "Image"
 msgstr "Image"
@@ -550,7 +551,7 @@ msgstr "Nom : ${lastname}"
 msgid "Like"
 msgstr "Aimer"
 
-#: ./page/controller/links_view.py:43
+#: ./page/controller/links_view.py:44
 msgid "Link added"
 msgstr "Lien ajouté"
 
@@ -559,7 +560,7 @@ msgstr "Lien ajouté"
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: ./page/desktop/templates/objects_view.pt:51
+#: ./page/desktop/templates/objects_view.pt:52
 msgid "Loading..."
 msgstr "Chargement..."
 
@@ -616,7 +617,7 @@ msgstr "URL du média"
 msgid "Member"
 msgstr "Membre"
 
-#: ./page/controller/timeline_view.py:148
+#: ./page/controller/timeline_view.py:158
 msgid "Members"
 msgstr "Membres"
 
@@ -708,7 +709,7 @@ msgstr "Préférences personnel"
 msgid "Please complete your company information"
 msgstr "Veuillez completer les informations de votre entreprise"
 
-#: ./page/controller/blog_view.py:26
+#: ./page/controller/blog_view.py:27
 #: ./page/controller/images_view.py:25
 msgid "Please put an image file here"
 msgstr "Veuillez mettre un fichier image ici"
@@ -803,7 +804,7 @@ msgstr "Demande d'accès: Demande et Invitation"
 msgid "Resend the validation e-mail."
 msgstr "Renvoyer l'email de validation."
 
-#: ./viewlet/mobile/filters.py:47
+#: ./viewlet/mobile/filters.py:45
 msgid "Reversed"
 msgstr "Inverser"
 
@@ -854,7 +855,7 @@ msgstr "Rechercher des membres"
 msgid "Sector"
 msgstr "Secteur"
 
-#: ./viewlet/desktop/templates/portal_header.pt:97
+#: ./viewlet/desktop/templates/portal_header.pt:99
 msgid "See all notifications"
 msgstr "Voir toutes les notifications"
 
@@ -891,7 +892,7 @@ msgstr "Skype"
 msgid "Something goes wrong with etherpad so you can't access to it's content."
 msgstr "Quelque chose ne vas pas avec etherpad. Vous ne pouvez pas accéder à son contenu"
 
-#: ./viewlet/mobile/filters.py:41
+#: ./viewlet/mobile/filters.py:39
 msgid "Sort on"
 msgstr "Trier par"
 
@@ -961,10 +962,10 @@ msgid "Twitter"
 msgstr "Twitter"
 
 #: ./viewlet/mobile/filters.py:33
-msgid "Types"
-msgstr "Types"
+msgid "Type"
+msgstr "Type"
 
-#: ./page/controller/links_view.py:23
+#: ./page/controller/links_view.py:24
 msgid "URL"
 msgstr "URL"
 
@@ -1007,7 +1008,7 @@ msgstr "Viadeo"
 msgid "Video"
 msgstr "Vidéo"
 
-#: ./page/controller/videos_view.py:50
+#: ./page/controller/videos_view.py:51
 msgid "Video added"
 msgstr "Vidéo ajoutée"
 
@@ -1164,7 +1165,7 @@ msgstr "Contrôle d'accès de ${group}"
 msgid "image_description"
 msgstr "Description de l'image"
 
-#: ./page/desktop/templates/objects_view.pt:72
+#: ./page/desktop/templates/objects_view.pt:73
 msgid "link"
 msgstr "lien"
 
@@ -1197,7 +1198,7 @@ msgstr "Version desktop"
 msgid "themeswitcher_mobile"
 msgstr "Version mobile"
 
-#: ./page/desktop/templates/objects_view.pt:73
+#: ./page/desktop/templates/objects_view.pt:74
 msgid "to add contents faster."
 msgstr "pour ajouter du contenu plus rapidement."
 
