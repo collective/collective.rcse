@@ -8,6 +8,10 @@ from Products.Five.browser import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
 from zope import interface
 from zope import component
+from dexterity.membrane.membrane_helpers import get_membrane_user
+from logging import getLogger
+
+logger = getLogger(__name__)
 
 """
 The global process of this is quite simple:
@@ -96,8 +100,57 @@ class ToggleDisplayInMyNews(BrowserView):
         return self.watchers.isWatching()
 
 
+def get_followers(context):
+    """Return people who follow the first creator"""
+
+    creator = None
+    membrane = None
+    if context.portal_type == "collective.rcse.member":
+        membrane = context
+        try:
+            creator = context.creators[0]
+        except IndexError:
+            logger.debug("%s has no creator" % context.absolute_url())
+    else:
+        if hasattr(context, 'creators'):
+            try:
+                creator = context.creators[0]
+            except IndexError:
+                logger.debug("%s has no creator" % context.absolute_url())
+        elif hasattr(context, 'Creators'):
+            try:
+                creator = context.Creators()[0]
+            except IndexError:
+                logger.debug("%s has no creator" % context.absolute_url())
+        if not creator:
+            return
+        membrane = get_membrane_user(
+            context, creator,
+            member_type='collective.rcse.member',
+            get_object=True
+        )
+
+    watcherlist = component.queryAdapter(
+        membrane, interface=IWatcherList, name="group_watchers", default=None
+    )
+
+    if watcherlist:
+        msg = "watchers of %s: %s" % (creator, watcherlist.watchers)
+        logger.debug(msg)
+        return watcherlist.watchers
+
+    return []
+
+
 @indexer(interface.Interface)
 def get_group_watchers(context):
+    """Index people who should have context appear in their timeline."""
+    if context.portal_type in (
+        "Discussion Item",
+        "collective.history.useraction"
+    ):
+        return
+
     watchers = []
     context = aq_inner(context)
     group = context
@@ -107,11 +160,8 @@ def get_group_watchers(context):
     elif hasattr(context, 'Creators'):
         watchers.extend(context.Creators())
 
-    if context.portal_type in (
-        "Discussion Item",
-        "collective.history.useraction"
-    ):
-        return
+    watchers.extend(get_followers(context))
+
     if context.portal_type != "collective.rcse.group":
         group = get_group(context)
 

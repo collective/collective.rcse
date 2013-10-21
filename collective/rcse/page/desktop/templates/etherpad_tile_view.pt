@@ -1,5 +1,4 @@
 <div class="tile-wrapper">
-    <h2 tal:content="context/Title"></h2>
     <p class="documentDescription" tal:content="context/Description"></p>
     <div tal:condition="view/sessionID">
       <tal:etherpad-content
@@ -11,7 +10,8 @@
             </div>
       </tal:etherpad-iframe>
     </div>
-    <div tal:condition="not:view/sessionID" class="alert alert-danger" i18n:translate="" i18n:domain="collective.etherpad">
+    <div tal:condition="not:view/sessionID" class="alert alert-danger"
+         i18n:translate="" i18n:domain="collective.etherpad">
         Something goes wrong with etherpad so you can't access to it's content.
     </div>
 </div>

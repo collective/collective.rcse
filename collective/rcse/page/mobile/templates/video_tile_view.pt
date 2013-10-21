@@ -1,55 +1,53 @@
 <div class="tile-wrapper">
-  <h2 tal:content="context/Title"></h2>
-  <p class="documentDescription" tal:content="context/Description"></p>
+    <p class="documentDescription" tal:content="context/Description"></p>
 
-<tal:isVideoLink tal:condition="view/isVideoLink">
-    <div class="video-wrapper">
-        <a class="oembed oembed-responsive" style="display:none"
-            tal:attributes="href context/remoteUrl;">&nbsp;
-        </a>
+    <tal:isVideoLink tal:condition="view/isVideoLink">
+        <div class="video-wrapper">
+            <a class="oembed oembed-responsive" style="display:none"
+                tal:attributes="href context/remoteUrl;">&nbsp;
+            </a>
+        </div>
+        <a tal:attributes="href context/remoteUrl;"
+           i18n:translate="">Open the original video link</a>
+    </tal:isVideoLink>
+
+    <tal:isVideoFile tal:condition="view/isVideoFile">
+
+    <tal:video tal:define="width view/request/width|python:630;
+                           height python:int(int(width)/1.75);"
+               i18n:domain="collective.rcse">
+
+    <p i18n:translate="" tal:condition="not:view/isTranscoded">Video is being transcoded. Please wait a moment.</p>
+
+    <tal:block tal:condition="view/isTranscoded">
+
+    <video controls
+        tal:define="mp4 string:${view/profiles/mp4-low/address|nothing}/${view/profiles/mp4-low/path|nothing};
+                    webm string:${view/profiles/webm-low/address|nothing}/${view/profiles/webm-low/path|nothing};
+                    jpeg view/context/thumbnailImage/absolute_url|string:${view/profiles/jpeg/address|nothing}/${view/profiles/jpeg/path|nothing}"
+        tal:attributes="poster jpeg"
+        controls="controls" preload="metadata"
+           style="width:100%; height:100%;">
+       <source tal:condition="view/profiles/webm-low/path|view/profiles/webm-high/path|nothing" 
+           tal:attributes="src webm" type="video/webm" />
+       <source tal:condition="view/profiles/mp4-low/path|view/profiles/mp4-high/path|nothing"
+           tal:attributes="src mp4" type="video/mp4" />
+       <p i18n:translate="">Your mobile can not display this video.</p>
+    </video>
+
+    <div class="videobar">
+        <div class="hi-lo" tal:condition="view/profiles/webm-high/path|nothing">
+            <a class="player-low" style="display:none">
+                <span>View Standard Quality</span>
+            </a>
+            <a class="player-high">
+                <span>View High Quality</span>
+            </a>
+        </div>
     </div>
-    <a tal:attributes="href context/remoteUrl;" i18n:translate="">Open the original video link</a>
-</tal:isVideoLink>
 
-<tal:isVideoFile tal:condition="view/isVideoFile">
+    </tal:block>
 
-<tal:video tal:define="width view/request/width|python:630;
-                       height python:int(int(width)/1.75);"
-	   i18n:domain="collective.rcse">
-
-<p i18n:translate="" tal:condition="not:view/isTranscoded">Video is being transcoded. Please wait a moment.</p>
-
-<tal:block tal:condition="view/isTranscoded">
-
-<video controls
-    tal:define="mp4 string:${view/profiles/mp4-low/address|nothing}/${view/profiles/mp4-low/path|nothing};
-                webm string:${view/profiles/webm-low/address|nothing}/${view/profiles/webm-low/path|nothing};
-                jpeg view/context/thumbnailImage/absolute_url|string:${view/profiles/jpeg/address|nothing}/${view/profiles/jpeg/path|nothing}"
-    tal:attributes="poster jpeg"
-    controls="controls" preload="metadata"
-       style="width:100%; height:100%;">
-   <source tal:condition="view/profiles/webm-low/path|view/profiles/webm-high/path|nothing" 
-       tal:attributes="src webm" type="video/webm" />
-   <source tal:condition="view/profiles/mp4-low/path|view/profiles/mp4-high/path|nothing"
-       tal:attributes="src mp4" type="video/mp4" />
-   <p i18n:translate="">Your mobile can not display this video.</p>
-</video>
-<style>
-
-</style>
-<div class="videobar">
-    <div class="hi-lo" tal:condition="view/profiles/webm-high/path|nothing">
-        <a class="player-low" style="display:none">
-            <span>View Standard Quality</span>
-        </a>
-        <a class="player-high">
-            <span>View High Quality</span>
-        </a>
-    </div>
-</div>
-
-</tal:block>
-
-</tal:video>
-</tal:isVideoFile>
+    </tal:video>
+    </tal:isVideoFile>
 </div>

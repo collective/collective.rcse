@@ -1,4 +1,3 @@
 <div class="tile-wrapper">
-  <h2 tal:content="context/Title"></h2>
-  <p class="documentDescription" tal:content="context/Description"></p>
+    <p class="documentDescription" tal:content="context/Description"></p>
 </div>

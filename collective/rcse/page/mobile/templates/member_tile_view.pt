@@ -1,30 +1,31 @@
-<div class="ui-grid-a ui-responsive">
-<tal:block
-     tal:condition="view/getWorkflowTransitions"
-     tal:repeat="transition view/getWorkflowTransitions">
-    <a data-role="button"
-       i18n:translate=""
-       tal:attributes="href transition/url"
-       tal:content="transition/name">
-    </a>
-</tal:block>
-
-<tal:block
-     tal:condition="view/canModify">
-    <a data-role="button"
-       i18n:translate=""
-       tal:attributes="href string:${context/absolute_url}/modify_company">
-      Modify company
-    </a>
-    <p tal:condition="not:view/emailIsValidated">
-      <span i18n:translate="">The e-mail has not been validated yet.</span>
-      <a data-role="button"
-         tal:attributes="href string:${view/portal_url}/@@send_email_validation"
-         i18n:translate="">
-        Resend the validation e-mail.
-      </a>
-    </p>
-</tal:block>
+<div class="tile-wrapper">
+    <div class="ui-grid-a ui-responsive">
+    <tal:block
+         tal:condition="view/getWorkflowTransitions"
+         tal:repeat="transition view/getWorkflowTransitions">
+        <a data-role="button"
+           i18n:translate=""
+           tal:attributes="href transition/url"
+           tal:content="transition/name">
+        </a>
+    </tal:block>
+    
+    <tal:block
+         tal:condition="view/canModify">
+        <a data-role="button"
+           i18n:translate=""
+           tal:attributes="href string:${context/absolute_url}/modify_company">
+          Modify company
+        </a>
+        <p tal:condition="not:view/emailIsValidated">
+          <span i18n:translate="">The e-mail has not been validated yet.</span>
+          <a data-role="button"
+             tal:attributes="href string:${view/portal_url}/@@send_email_validation"
+             i18n:translate="">
+            Resend the validation e-mail.
+          </a>
+        </p>
+    </tal:block>
 
     <div class="ui-block-a">
       <img class="avatar"
@@ -96,5 +97,6 @@
       <div tal:content="context/google"></div>
       <div tal:condition="context/twitter"><i class="icon-twitter"></i>&nbsp;<span i18n:translate="">Twitter</span></div>
       <div  tal:content="context/twitter"></div>
+    </div>
     </div>
 </div>

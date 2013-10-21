@@ -1,7 +1,6 @@
 <div class="tile-wrapper">
-  <h2 tal:content="context/Title"></h2>
-  <p class="documentDescription" tal:content="context/Description"></p>
-  <div class="documentText readmore"
-       tal:condition="context/text"
-       tal:content="structure context/text/output" />
+    <p class="documentDescription" tal:content="context/Description"></p>
+    <div class="documentText readmore"
+         tal:condition="context/text"
+         tal:content="structure context/text/output" />
 </div>

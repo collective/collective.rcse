@@ -1,79 +1,80 @@
-<h2 tal:content="context/Title"></h2>
-<p class="documentDescription" tal:content="context/Description"></p>
-<tal:isVideoLink tal:condition="view/isVideoLink">
-    <div class="video-wrapper">
-        <a class="oembed oembed-responsive" style="display:none"
-            tal:attributes="href context/remoteUrl;">&nbsp;
-        </a>
+<div class="tile-wrapper">
+    <p class="documentDescription" tal:content="context/Description"></p>
+    <tal:isVideoLink tal:condition="view/isVideoLink">
+        <div class="video-wrapper">
+            <a class="oembed oembed-responsive" style="display:none"
+                tal:attributes="href context/remoteUrl;">&nbsp;
+            </a>
+        </div>
+        <a tal:attributes="href context/remoteUrl;" i18n:translate="">Open the original video link</a>
+    </tal:isVideoLink>
+    
+    <tal:isVideoFile tal:condition="view/isVideoFile">
+    
+    <tal:video tal:define="width view/request/width|python:630;
+                           height python:int(int(width)/1.75);">
+    
+    
+    <p i18n:translate="" tal:condition="not:view/isTranscoded">Video is being transcoded. Please wait a moment.</p>
+    
+    <tal:block tal:condition="view/isTranscoded">
+    <video controls
+        tal:define="mp4 string:${view/profiles/mp4-low/address|nothing}/${view/profiles/mp4-low/path|nothing};
+                    webm string:${view/profiles/webm-low/address|nothing}/${view/profiles/webm-low/path|nothing};
+                    jpeg view/context/thumbnailImage/absolute_url|string:${view/profiles/jpeg/address|nothing}/${view/profiles/jpeg/path|nothing}"
+        tal:attributes="poster jpeg"
+        controls="controls" preload="metadata"
+           style="width:100%; height:100%;">
+       <source tal:condition="view/profiles/webm-low/path|view/profiles/webm-high/path|nothing" 
+           tal:attributes="src webm" type="video/webm" />
+       <source tal:condition="view/profiles/mp4-low/path|view/profiles/mp4-high/path|nothing"
+           tal:attributes="src mp4" type="video/mp4" />
+       <object tal:condition="view/profiles/mp4-low/path|view/profiles/mp4-high/path|nothing"
+           tal:attributes="width width; height height"
+           type="application/x-shockwave-flash"
+           data="++resource++collective.mediaelementjs/flashmediaelement.swf">
+           <param name="movie" value="++resource++collective.mediaelementjs/flashmediaelement.swf" />
+           <param name="flashvars" tal:attributes="value string:controls=true&poster=${jpeg}&file=${mp4}" />
+           <!-- Image as a last resort -->
+           <img tal:attributes="src jpeg; width width; height height" title="No video playback capabilities" />
+       </object>
+    </video>
+    <div class="videobar">
+        <div class="hi-lo" tal:condition="view/profiles/webm-high/path|nothing">
+            <a class="player-low" style="display:none">
+                <span>View Standard Quality</span>
+            </a>
+            <a class="player-high">
+                <span>View High Quality</span>
+            </a>
+        </div>
+        <div class="download">
+            <a id="download">
+                <span>Download</span>
+            </a>
+        </div>
+    
+        <ul class="dl-links" style="display:none" tal:condition="view/fieldname|nothing">
+            <li><a tal:attributes="href view/download_original">original (<tal:size tal:content="view/display_size" />)</a></li>
+            <li><a tal:condition="view/profiles/mp4-low/address|nothing"
+                   tal:attributes="href string:${view/profiles/mp4-low/address|nothing}/${view/profiles/mp4-low/path|nothing};">
+                   mp4 low res</a>
+           </li>
+            <li><a tal:condition="view/profiles/mp4-high/address|nothing" target="new"
+                   tal:attributes="href string:${view/profiles/mp4-high/address|nothing}/${view/profiles/mp4-high/path|nothing};">
+                   mp4 high res</a>
+           </li>
+            <li><a tal:condition="view/profiles/webm-low/address|nothing" target="new"
+                   tal:attributes="href string:${view/profiles/webm-low/address|nothing}/${view/profiles/webm-low/path|nothing};">
+                   webm low res</a>
+           </li>
+            <li><a tal:condition="view/profiles/webm-high/address|nothing" target="new"
+                   tal:attributes="href string:${view/profiles/webm-high/address|nothing}/${view/profiles/webm-high/path|nothing};">
+                   webm high res</a>
+           </li>
+        </ul>
     </div>
-    <a tal:attributes="href context/remoteUrl;" i18n:translate="">Open the original video link</a>
-</tal:isVideoLink>
-
-<tal:isVideoFile tal:condition="view/isVideoFile">
-
-<tal:video tal:define="width view/request/width|python:630;
-                       height python:int(int(width)/1.75);">
-
-
-<p i18n:translate="" tal:condition="not:view/isTranscoded">Video is being transcoded. Please wait a moment.</p>
-
-<tal:block tal:condition="view/isTranscoded">
-<video controls
-    tal:define="mp4 string:${view/profiles/mp4-low/address|nothing}/${view/profiles/mp4-low/path|nothing};
-                webm string:${view/profiles/webm-low/address|nothing}/${view/profiles/webm-low/path|nothing};
-                jpeg view/context/thumbnailImage/absolute_url|string:${view/profiles/jpeg/address|nothing}/${view/profiles/jpeg/path|nothing}"
-    tal:attributes="poster jpeg"
-    controls="controls" preload="metadata"
-       style="width:100%; height:100%;">
-   <source tal:condition="view/profiles/webm-low/path|view/profiles/webm-high/path|nothing" 
-       tal:attributes="src webm" type="video/webm" />
-   <source tal:condition="view/profiles/mp4-low/path|view/profiles/mp4-high/path|nothing"
-       tal:attributes="src mp4" type="video/mp4" />
-   <object tal:condition="view/profiles/mp4-low/path|view/profiles/mp4-high/path|nothing"
-       tal:attributes="width width; height height"
-       type="application/x-shockwave-flash"
-       data="++resource++collective.mediaelementjs/flashmediaelement.swf">
-       <param name="movie" value="++resource++collective.mediaelementjs/flashmediaelement.swf" />
-       <param name="flashvars" tal:attributes="value string:controls=true&poster=${jpeg}&file=${mp4}" />
-       <!-- Image as a last resort -->
-       <img tal:attributes="src jpeg; width width; height height" title="No video playback capabilities" />
-   </object>
-</video>
-<div class="videobar">
-    <div class="hi-lo" tal:condition="view/profiles/webm-high/path|nothing">
-        <a class="player-low" style="display:none">
-            <span>View Standard Quality</span>
-        </a>
-        <a class="player-high">
-            <span>View High Quality</span>
-        </a>
-    </div>
-    <div class="download">
-        <a id="download">
-            <span>Download</span>
-        </a>
-    </div>
-
-    <ul class="dl-links" style="display:none" tal:condition="view/fieldname|nothing">
-        <li><a tal:attributes="href view/download_original">original (<tal:size tal:content="view/display_size" />)</a></li>
-        <li><a tal:condition="view/profiles/mp4-low/address|nothing"
-               tal:attributes="href string:${view/profiles/mp4-low/address|nothing}/${view/profiles/mp4-low/path|nothing};">
-               mp4 low res</a>
-       </li>
-        <li><a tal:condition="view/profiles/mp4-high/address|nothing" target="new"
-               tal:attributes="href string:${view/profiles/mp4-high/address|nothing}/${view/profiles/mp4-high/path|nothing};">
-               mp4 high res</a>
-       </li>
-        <li><a tal:condition="view/profiles/webm-low/address|nothing" target="new"
-               tal:attributes="href string:${view/profiles/webm-low/address|nothing}/${view/profiles/webm-low/path|nothing};">
-               webm low res</a>
-       </li>
-        <li><a tal:condition="view/profiles/webm-high/address|nothing" target="new"
-               tal:attributes="href string:${view/profiles/webm-high/address|nothing}/${view/profiles/webm-high/path|nothing};">
-               webm high res</a>
-       </li>
-    </ul>
+    </tal:block>
+    </tal:video>
+    </tal:isVideoFile>
 </div>
-</tal:block>
-</tal:video>
-</tal:isVideoFile>

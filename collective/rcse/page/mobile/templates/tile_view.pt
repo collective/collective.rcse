@@ -1,15 +1,16 @@
 <div class="rcsetile" tal:attributes="id view/tileid" i18n:domain="collective.rcse">
   <div class="vcard" tal:define="creator_info context/creator_memberinfo">
     <img class="photo" tal:attributes="src creator_info/photo"/>
-    <a rel="author" data-rel="dialog" class="fn url"
-       tal:attributes="href creator_info/url"
-       tal:content="creator_info/fullname">John</a><br/>
+    <h2><a tal:attributes="href context/absolute_url" tal:content="context/Title"></a></h2>
     <a data-inline="true" data-ajax="false"
        class="ui-link group"
        tal:attributes="href view/group_url"
        tal:content="view/group_title">group</a><br/>
     <span tal:condition="view/effective_date"
           tal:content="view/effective_date"></span>
+    <a rel="author" data-rel="dialog" class="fn url"
+       tal:attributes="href creator_info/url"
+       tal:content="creator_info/fullname">John</a><br/>
   </div>
   <div class="editbar" tal:content="structure context/@@collective.rcse.editbar"></div>
   <div class="tilecontent" tal:content="structure view/get_content"></div>
