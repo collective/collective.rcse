@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-10-21 07:50+0000\n"
+"POT-Creation-Date: 2013-10-21 15:27+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -136,7 +136,7 @@ msgstr ""
 msgid "Add to my news"
 msgstr ""
 
-#: ./page/controller/videos_view.py:52
+#: ./page/controller/videos_view.py:55
 msgid "Add video"
 msgstr ""
 
@@ -245,8 +245,8 @@ msgid "City"
 msgstr ""
 
 #: ./page/desktop/templates/addbutton.pt:18
+#: ./page/desktop/templates/blog_view.pt:60
 #: ./page/desktop/templates/discussions_view.pt:59
-#: ./page/desktop/templates/events_view.pt:62
 msgid "Close"
 msgstr ""
 
@@ -332,6 +332,7 @@ msgid "Disable This Member"
 msgstr ""
 
 #: ./profiles/settings/types/collective.rcse.discussion.xml
+#: ./viewlet/desktop/templates/portal_header.pt:159
 msgid "Discussion"
 msgstr ""
 
@@ -352,6 +353,7 @@ msgid "Do not display anymore new content from this group in your news"
 msgstr ""
 
 #: ./page/desktop/templates/file_tile_view.pt:3
+#: ./page/mobile/templates/file_tile_view.pt:3
 #: ./page/mobile/templates/file_view.pt:11
 msgid "Download"
 msgstr ""
@@ -389,6 +391,7 @@ msgid "Error while sending the email."
 msgstr ""
 
 #: ./profiles/settings/types/collective.rcse.etherpad.xml
+#: ./viewlet/desktop/templates/portal_header.pt:152
 msgid "Etherpad"
 msgstr ""
 
@@ -937,6 +940,10 @@ msgstr ""
 msgid "This is the email you will receive information on. It will not be displayed to other users."
 msgstr ""
 
+#: ./viewlet/desktop/templates/portal_header.pt:181
+msgid "Timeline"
+msgstr ""
+
 #: ./content/vocabularies.py:41
 #: ./page/controller/audios_view.py:19
 #: ./page/controller/blog_view.py:20
@@ -1001,10 +1008,11 @@ msgid "Viadeo"
 msgstr ""
 
 #: ./profiles/settings/types/collective.rcse.video.xml
+#: ./viewlet/desktop/templates/portal_header.pt:123
 msgid "Video"
 msgstr ""
 
-#: ./page/controller/videos_view.py:51
+#: ./page/controller/videos_view.py:54
 msgid "Video added"
 msgstr ""
 

@@ -25,7 +25,7 @@
 	      <tal:thumbnail tal:condition="python:view.tt.has_key(uid)">
                 <img alt="Thumbnail"
 		     tal:define="profiles python:view.tt[uid][view.tt[uid].keys()[0]]"
-		     tal:attributes="src string:${view/profiles/jpeg/address|nothing}/${view/profiles/jpeg/path|nothing}" />
+		     tal:attributes="src string:${profiles/jpeg/address|nothing}/${profiles/jpeg/path|nothing}" />
               </tal:thumbnail>
 	      <div class="caption">
                 <h3 tal:content="video/Title">Thumbnail label</h3>
