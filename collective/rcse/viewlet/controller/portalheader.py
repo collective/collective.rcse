@@ -23,6 +23,7 @@ from zope import interface
 from urlparse import parse_qs
 from urllib import urlencode
 from collective.rcse.content.group import get_group
+from collective.rcse.icons import getType
 from plonetheme.jquerymobile.browser.viewlets.header import PanelLeftAction,\
     PanelRightAction, GlobalSections, SearchRightAction
 
@@ -77,3 +78,6 @@ class PortalHeaderViewlet(RCSESections, HotViewlet):
         else:
             group_url = group.absolute_url()
         return group_url
+
+    def get_icon(self, term):
+        return getType(term)
