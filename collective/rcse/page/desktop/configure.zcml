@@ -130,4 +130,21 @@
       permission="zope2.View"
       />
 
+    <browser:page
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      name="my_requests_view"
+      class="collective.requestaccess.browser.requests.MyRequestsView"
+      template="templates/my_requests_view.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
+  <browser:page
+      for="*"
+      name="review_requests_view"
+      class="collective.requestaccess.browser.requests.ReviewRequestsView"
+      template="templates/review_requests_view.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="collective.requestaccess.reviewrequest"
+      />
+
 </configure>

@@ -1,0 +1,111 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.requestaccess">
+
+<body>
+
+  <metal:block fill-slot="top_slot"
+	       tal:define="dummy python:request.set('disable_border',1);
+			   disable_column_one python:request.set('disable_plone.leftcolumn',1);
+			   disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+
+<div metal:fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+
+    <tal:invite tal:condition="view/invites">
+    <h1 i18n:translate="">Invitations</h1>
+
+    <h1 i18n:translate="">My invitations</h1>
+
+    <table id="invitations-datatable">
+    <thead>
+      <tr>
+        <th i18n:translate="">Role</th>
+        <th i18n:translate="">Where</th>
+        <th i18n:translate="">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr tal:repeat="req view/invites">
+        <td i18n:domain="plone" i18n:translate="" tal:content="req/role">
+	</td>
+        <td>
+          <a class="load-content-tile-in-modal"
+	     data-toggle="modal"
+	     href="#content-modal"
+	     tal:attributes="data-href req/target_path"
+	     tal:content="req/target_title">
+	    Title
+          </a>
+        </td>
+        <td>
+          <tal:with-form-as-view define="view nocall:req/form">
+              <metal:block use-macro="req/form/@@ploneform-macros/titlelessform" />
+          </tal:with-form-as-view>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+    </tal:invite>
+
+    <h1 i18n:translate="">My requests</h1>
+
+    <table id="requests-datatable">
+    <thead>
+      <tr>
+        <th i18n:translate="">Role</th>
+        <th i18n:translate="">Where</th>
+        <th i18n:translate="">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr tal:repeat="req view/requests">
+        <td i18n:domain="plone" i18n:translate="" tal:content="req/role">
+	</td>
+        <td>
+          <a class="load-content-tile-in-modal"
+	     data-toggle="modal"
+	     href="#content-modal"
+	     tal:attributes="data-href req/target_path"
+	     tal:content="req/target_title">
+	    Title
+          </a>
+        </td>
+        <td>
+          <tal:with-form-as-view define="view nocall:req/form">
+              <metal:block use-macro="req/form/@@ploneform-macros/titlelessform" />
+          </tal:with-form-as-view>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+
+  <div class="modal fade" id="content-modal" tabindex="-1" role="dialog"
+       aria-labelledby="content modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <div class="rcse_tile_wrapper">
+            <a class="rcse_tile">test</a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default"
+                  data-dismiss="modal" i18n:translate="">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    </tal:main-macro>
+</div>
+
+</body>
+</html>

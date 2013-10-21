@@ -523,6 +523,7 @@ var rcseInitVideo = function(){
     });
 
 }
+
 var rcseInitBreadCrumb = function(){
     $(document).on("change", ".breadcrumb select", function(){
         var select = $(this);
@@ -530,6 +531,7 @@ var rcseInitBreadCrumb = function(){
         window.location = option.val();
     })
 }
+
 var rcseInitSearchForm = function(){
     $(document).on("click", '#search-results-bar button.btn-primary', function(){
         //serialize our values to build a new search URL and redirect to it
@@ -573,6 +575,7 @@ var rcseInitSearchForm = function(){
         }
     })
 }
+
 var rcseInitLoadTileContentInModal = function(){
 	$(document).on("click", ".load-content-tile-in-modal", function(){
 	    var title = $(this).text();
@@ -584,12 +587,14 @@ var rcseInitLoadTileContentInModal = function(){
 	    rcseInitTimeline();
 	});
 }
+
 var rcseInitMasonry = function(){
 	var $container = $('.masonry');
 	$container.imagesLoaded(function() {
 		window.setTimeout($container.masonry(), 1000);
 	});
 }
+
 var rcseInitDatatable = function(){
 	$("#members-datatable").dataTable({
 		"iDisplayLength" : -1,
@@ -609,7 +614,32 @@ var rcseInitDatatable = function(){
         "aLengthMenu" : [ [ 20, 30, 50, -1 ],
                         [ 20, 30, 50, "Tous" ] ]
     });
+    $("#review-requests-datatable").dataTable({
+	"iDisplayLength" : -1,
+	"oLanguage": {
+	    "sUrl": "@@collective.js.datatables.translation"
+	},
+        "aLengthMenu" : [ [ 20, 30, 50, -1 ],
+                        [ 20, 30, 50, "Tous" ] ]
+    });
+    $("#invitations-datatable").dataTable({
+	"iDisplayLength" : -1,
+	"oLanguage": {
+	    "sUrl": "@@collective.js.datatables.translation"
+	},
+        "aLengthMenu" : [ [ 20, 30, 50, -1 ],
+                        [ 20, 30, 50, "Tous" ] ]
+    });
+    $("#requests-datatable").dataTable({
+	"iDisplayLength" : -1,
+	"oLanguage": {
+	    "sUrl": "@@collective.js.datatables.translation"
+	},
+        "aLengthMenu" : [ [ 20, 30, 50, -1 ],
+                        [ 20, 30, 50, "Tous" ] ]
+    });
 }
+
 var rcseInitScrollableColumns = function(){
     var cone = $('#portal-column-one'),
     ctwo = $('#portal-column-two'),
