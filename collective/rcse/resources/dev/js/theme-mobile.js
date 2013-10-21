@@ -71,7 +71,6 @@ var rcseInitAjaxAction = function() {
             data : data,
             url : portal_url + "/@@plone.comments.ajax",
             success : function(response, status, xhr, jqform) {
-                debugger;
                 var container = jqform.parents(".document-actions-wrapper");
                 var parent = $(container).parent();
                 var element = response['document-actions-wrapper'];

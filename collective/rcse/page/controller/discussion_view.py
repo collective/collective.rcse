@@ -23,9 +23,9 @@ class DiscussionView(BrowserView):
 
     def convertToHTML(self, content, mimetype):
         data = self.transformer.convertTo(
-          "text/x-web-intelligent",
+          'text/x-html-safe',
           content.encode('utf-8'),
-          mimetype=mimetype
+          mimetype="text/x-web-intelligent",
         )
         result = data.getData()
         if result:
