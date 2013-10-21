@@ -28,10 +28,10 @@
 	  <a tal:attributes="href fav/getURL">
 	    <h2 tal:content="fav/Title"></h2>
 	    <p tal:content="memberinfo/fullname"></p>
-	  </a>
-	  <a tal:attributes="href string:${fav/getURL}/favoriting_rm"
-	     i18n:translate="">
-	    delete
+	    <a tal:attributes="href string:${fav/getURL}/favoriting_rm"
+	       i18n:translate="">
+	      delete
+	    </a>
 	  </a>
 	</li>
       </tal:fav>
