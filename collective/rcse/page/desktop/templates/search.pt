@@ -45,7 +45,9 @@
             <div id="search-results-wrapper"
                 tal:define="b_start python:0;
                              b_start request/b_start | b_start;
-                             batch python: view.results(b_start=b_start);
+			     b_size python:10;
+			     b_size request/b_size | b_size;
+                             batch python: view.results(b_start=b_start, b_size=b_size);
                              normalizeString nocall:context/@@plone/normalizeString;">
                 <div id="search-results-bar">
                     <span i18n:translate="batch_x_items_matching_your_criteria"
@@ -193,18 +195,18 @@
                             </p>
                         </metal:noresults>
                         <metal:results tal:condition="batch"
-                            tal:define="isAnon context/@@plone_portal_state/anonymous;
-                                                   toLocalizedTime nocall: context/@@plone/toLocalizedTime;
-                                                   site_properties context/portal_properties/site_properties;
-                                                   use_view_action site_properties/typesUseViewActionInListings|python:();
-                                                   allowAnonymousViewAbout site_properties/allowAnonymousViewAbout;
-                                                   show_about python:not isAnon or allowAnonymousViewAbout;">
-                            <tal:results repeat="item batch">
-                                <div class="rcse_tile_wrapper">
-                                    <a class="rcse_tile" tal:attributes="href item/getURL"></a>
-                                </div>
-                            </tal:results>
-                            <div metal:use-macro="context/batch_macros/macros/navigation" />
+				       tal:define="isAnon context/@@plone_portal_state/anonymous;
+						   toLocalizedTime nocall: context/@@plone/toLocalizedTime;
+						   site_properties context/portal_properties/site_properties;
+						   use_view_action site_properties/typesUseViewActionInListings|python:();
+						   allowAnonymousViewAbout site_properties/allowAnonymousViewAbout;
+						   show_about python:not isAnon or allowAnonymousViewAbout;">
+                          <tal:results repeat="item batch">
+                            <div class="rcse_tile_wrapper">
+                              <a class="rcse_tile" tal:attributes="href item/getURL"></a>
+                            </div>
+                          </tal:results>
+                          <div metal:use-macro="context/batch_macros/macros/navigation" />
                         </metal:results>
                     </div>
                 </metal:searchresults>

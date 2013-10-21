@@ -29,7 +29,7 @@
           </a>
         </li>
         <li>
-          <a tal:attributes="href string:${view/portal_state/navigation_root_url}/@@search?portal_type=collective.rcse.group&sort_on=sortable_title&b_size=100">
+          <a tal:attributes="href string:${view/portal_state/navigation_root_url}/@@search?portal_type=collective.rcse.group&sort_on=sortable_title&b_size:int=100">
              <span class="icon-search"></span>
              <tal:label i18n:translate="">All groups</tal:label>
           </a>

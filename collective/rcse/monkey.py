@@ -43,29 +43,6 @@ def patch_contenttree():
 patch_contenttree()
 
 
-logger.info("monkey: fix batching")
-def patch_batch():
-    def batchgetitem(self, index):
-        """ Get item from batch
-        """
-        #this doesn't work at all .... lets remove this
-        #actual = getattr(self._sequence, 'actual_result_count', None)
-        #if actual is not None and actual != len(self._sequence):
-            # optmized batch that contains only the wanted items in the
-            # sequence
-        #    return self._sequence[index]
-        if index < 0:
-            if index + self.end < self.first:
-                raise IndexError(index)
-            return self._sequence[index + self.end]
-        if index >= self.length:
-            raise IndexError(index)
-        return self._sequence[index + self.first]
-    Batch.__getitem__ = batchgetitem
-
-patch_batch()
-
-
 logger.info("monkey: change content_type for plone.app.event")
 def patch_event():
     from plone.app.event.dx.behaviors import EventAccessor
