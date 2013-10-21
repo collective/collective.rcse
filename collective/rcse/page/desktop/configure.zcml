@@ -122,4 +122,12 @@
       permission="cmf.ReviewPortalContent"
       />
 
+    <browser:page
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      name="favoriting_view"
+      template="templates/favoriting_view.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
+
 </configure>

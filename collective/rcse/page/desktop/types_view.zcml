@@ -177,14 +177,6 @@
       />
     <browser:page
       for="collective.rcse.content.group.GroupSchema"
-      name="favorites_view"
-      class="collective.rcse.page.controller.favorites_view.FavoritesView"
-      template="templates/favorites_view.pt"
-      layer="collective.rcse.layer.DesktopLayer"
-      permission="zope2.View"
-      />
-    <browser:page
-      for="collective.rcse.content.group.GroupSchema"
       name="discussions_view"
       class="collective.rcse.page.controller.discussions_view.DiscussionsView"
       template="templates/discussions_view.pt"

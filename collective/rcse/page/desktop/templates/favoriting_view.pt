@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.favoriting">
+<body>
+  <metal:block fill-slot="top_slot"
+	       tal:define="dummy python:request.set('disable_border',1);
+			   disable_column_one python:request.set('disable_plone.leftcolumn',1);
+			   disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+
+<div metal:fill-slot="main" tal:define="favoriting context/@@collective.favoriting">
+
+  <h1 i18n:translate="">My favorites</h1>
+
+  <table id="favorites-datatable">
+    <thead>
+      <tr>
+	<th i18n:translate="">Content</th>
+	<th i18n:translate="">Author</th>
+	<th i18n:translate="">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tal:fav tal:repeat="fav favoriting/get">
+	<tr tal:define="memberinfo fav/@@creator_memberinfo">
+	  <td>
+	    <a class="load-content-tile-in-modal"
+	       data-toggle="modal"
+	       href="#content-modal"
+	       tal:attributes="data-href fav/getURL"
+	       tal:content="fav/Title">
+	    </a>
+	  </td>
+	  <td>
+	    <a class="load-content-tile-in-modal"
+	       data-toggle="modal"
+	       href="#content-modal"
+	       tal:define="brain memberinfo/get_membrain;
+			   url brain/getURL | string:"
+	       tal:attributes="data-href url"
+	       tal:content="memberinfo/fullname">
+	    </a>
+	  </td>
+	  <td>
+	    <a tal:attributes="href string:${fav/getURL}/favoriting_rm"
+	       i18n:translate="">
+	      delete
+	    </a>
+	  </td>
+	</tr>
+      </tal:fav>
+    </tbody>
+  </table>
+
+  <div class="modal fade" id="content-modal" tabindex="-1" role="dialog"
+       aria-labelledby="content modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <div class="rcse_tile_wrapper">
+            <a class="rcse_tile">test</a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default"
+                  data-dismiss="modal" i18n:translate="">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -601,6 +601,14 @@ var rcseInitDatatable = function(){
         "aLengthMenu" : [ [ 20, 30, 50, -1 ],
                         [ 20, 30, 50, "Tous" ] ]
 	});
+    $("#favorites-datatable").dataTable({
+	"iDisplayLength" : -1,
+	"oLanguage": {
+	    "sUrl": "@@collective.js.datatables.translation"
+	},
+        "aLengthMenu" : [ [ 20, 30, 50, -1 ],
+                        [ 20, 30, 50, "Tous" ] ]
+    });
 }
 var rcseInitScrollableColumns = function(){
     var cone = $('#portal-column-one'),
