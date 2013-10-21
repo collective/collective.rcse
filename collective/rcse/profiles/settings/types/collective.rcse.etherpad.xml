@@ -30,10 +30,10 @@
  </property>
 
  <!-- View information -->
- <property name="default_view">etherpad_view</property>
+ <property name="default_view">timeline_view</property>
  <property name="default_view_fallback">False</property>
  <property name="view_methods">
-  <element value="etherpad_view"/>
+  <element value="timeline_view"/>
  </property>
 
  <!-- Method aliases -->
