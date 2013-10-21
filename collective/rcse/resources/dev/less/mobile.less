@@ -3,11 +3,34 @@ dd.portletItem{margin-left:0}
 .ui-content{
     padding: 8px;
 }
-.rcsetile .actions{
-    text-align: right;
-}
 .rcsetile{
     margin: 20px 0;
+    background-color:#fff;
+    border:1px solid #ddd;
+    .actions{
+      text-align: right;
+    }
+    .vcard{
+        content:" à ";
+        color:#5c5c5c;
+        > h2{
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        span:before{
+            content:"le ";
+        }
+        span:after{
+            content:" à ";
+        }
+    }
+    .tilecontent{
+        padding:0px 5px;
+    }
+    .ui-controlgroup-controls{
+        padding-right:10px;
+    }
+    img{max-width: 100%}
 }
 .rcse_tile_wrapper{
     background-color: White;
@@ -23,14 +46,8 @@ dd.portletItem{margin-left:0}
     text-align: center;
 }
 
-/*.rcsetile{
-    background-color: #eee;
-    padding: 10px 0;
-    margin: 10px 0;
-}
-*/
-.picturefill-wrapper img,
-.rcsetile img{max-width: 100%}
+.picturefill-wrapper img{max-width: 100%}
+
 
 /*.rcsetile .vcard {
     position: relative; height: 64px;
@@ -245,10 +262,6 @@ dd.portletItem{margin-left:0}
 }
 
 /* CONTENT */
-.rcsetile{
-  background-color:#fff;
-  border:1px solid #ddd;
-}
 /*.ui-collapsible-inset .ui-collapsible-content{
   padding:0px;
 }*/
@@ -271,15 +284,6 @@ dd.portletItem{margin-left:0}
 .vcard a{
   text-decoration:none;
 }
-.rcsetile .vcard{
-  color:#5c5c5c;
-}
-.rcsetile .vcard span:before{
-  content:"le ";
-}
-.rcsetile .vcard span:after{
-  content:" à ";
-}
 .vcard .photo{
   float:left;
   height:60px;
@@ -287,12 +291,6 @@ dd.portletItem{margin-left:0}
   padding:5px;
   background:#f2f2f2;
   margin-right:10px;
-}
-.rcsetile .tilecontent{
-  padding:0px 5px;
-}
-.rcsetile .ui-controlgroup-controls{
-  padding-right:10px;
 }
 /* a fix *//*.ui-content .ui-listview, .ui-panel-inner>.ui-listview {
   margin:0px;
