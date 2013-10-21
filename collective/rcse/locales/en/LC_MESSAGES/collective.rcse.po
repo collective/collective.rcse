@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-10-21 07:07+0000\n"
+"POT-Creation-Date: 2013-10-21 07:50+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -100,7 +100,7 @@ msgstr ""
 msgid "Add blog"
 msgstr ""
 
-#: ./page/desktop/templates/discussions_view.pt:69
+#: ./page/desktop/templates/discussions_view.pt:70
 msgid "Add discussion"
 msgstr ""
 
@@ -245,6 +245,8 @@ msgid "City"
 msgstr ""
 
 #: ./page/desktop/templates/addbutton.pt:18
+#: ./page/desktop/templates/discussions_view.pt:59
+#: ./page/desktop/templates/events_view.pt:62
 msgid "Close"
 msgstr ""
 
@@ -884,10 +886,6 @@ msgstr ""
 #: ./content/member.py:172
 #: ./page/desktop/templates/member_tile_view.pt:99
 msgid "Skype"
-msgstr ""
-
-#: ./page/desktop/templates/etherpad_view.pt:17
-msgid "Something goes wrong with etherpad so you can't access to it's content."
 msgstr ""
 
 #: ./viewlet/mobile/filters.py:39

@@ -29,13 +29,14 @@
 		</div>
                 <div class="media-body">
                     <h4 class="media-heading">
-                        <a class="load-content-tile-in-modal" data-toggle="modal"
+                        <a class="load-content-tile-in-modal content-title" data-toggle="modal"
                             href="#content-modal" tal:attributes="data-href article/getURL"
                             tal:content="article/Title">Title</a>
 			<span> - </span>
 			<a tal:define="memberinfo article/@@creator_memberinfo"
 			   tal:attributes="href memberinfo/url"
-                           tal:content="memberinfo/fullname">Author</a>
+               class="author fn url"
+               tal:content="memberinfo/fullname">Author</a>
                     </h4>
                     <p tal:content="article/Description">Description</p>
                 </div>
@@ -59,7 +60,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default"
-                        data-dismiss="modal">Close</button>
+                        data-dismiss="modal" i18n:translate="">Close</button>
                 </div>
             </div>
         </div>

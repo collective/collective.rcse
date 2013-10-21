@@ -21,7 +21,7 @@
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading">
-                        <a class="load-content-tile-in-modal" data-toggle="modal"
+                        <a class="load-content-tile-in-modal content-title" data-toggle="modal"
                             href="#content-modal" tal:attributes="data-href video/getURL"
                             tal:content="video/Title">Media heading</a>
                     </h4>
@@ -47,7 +47,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default"
-                        data-dismiss="modal">Close</button>
+                        data-dismiss="modal" i18n:translate="">Close</button>
                 </div>
             </div>
         </div>
