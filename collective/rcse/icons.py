@@ -18,32 +18,36 @@ def getType(t, prefix=None):
     if you use this is jquerymobile you must add prefix="ui-"
     """
     t = t.lower()
+    if prefix is None:
+        prefix = ""
     if 'video' in t:
-        return 'icon-film'
+        return prefix + 'icon-film'
     elif 'image' in t:
-        return 'icon-picture'
+        return prefix + 'icon-picture'
     elif 'file' in t:
-        return 'icon-file-alt'
+        return prefix + 'icon-file-alt'
     elif 'event' in t:
-        return 'icon-calendar'
+        return prefix + 'icon-calendar'
     elif 'discussion' in t or 'comment' in t:
-        return 'icon-comments'
+        return prefix + 'icon-comments'
     elif 'signet' in t or 'favori' in t:
-        return 'icon-bookmark-empty'
+        return prefix + 'icon-bookmark-empty'
     elif 'link' in t:
-        return 'icon-external-link'
+        return prefix + 'icon-external-link'
     elif 'blog' in t or 'document' in t or 'news' in t:
-        return 'icon-edit'
+        return prefix + 'icon-edit'
     elif 'poll' in t:
-        return 'icon-bar-chart'
+        return prefix + 'icon-bar-chart'
     elif 'etherpad' in t:
-        return 'icon-cloud'
+        return prefix + 'icon-cloud'
     elif 'audio' in t or 'sound' in t:
-        return 'icon-volume-up'
+        return prefix + 'icon-volume-up'
     elif 'folder' in t:
-        return 'icon-folder-open'
+        return prefix + 'icon-folder-open'
     elif 'group' in t:
-        return 'icon-group'
+        return prefix + 'icon-group'
+    elif 'timeline' in t:
+        return prefix + 'icon-reorder'
 #    elif '' in t:
 #        return 'icon-'
     logger.info('No icon for type: %s' % t)
