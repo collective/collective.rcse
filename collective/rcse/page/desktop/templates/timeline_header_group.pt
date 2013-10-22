@@ -8,7 +8,8 @@
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading">
-                        <a class="fn url" tal:attributes="href context/absolute_url" tal:content="context/Title"></a>
+                        <a class="fn url" tal:attributes="href context/absolute_url"
+			   tal:content="context/Title"></a>
                     </h4>
                    <div class="editbar" tal:content="structure context/@@collective.rcse.editbar"></div>
                 </div>
@@ -17,7 +18,8 @@
 	<div class="panel-body" tal:condition="context/Description">
           <p class="tilecontent" tal:content="context/Description"></p>
  	</div>
-	<div class="panel-footer">
+	<div class="panel-footer"
+	     tal:condition="python:context.portal_type == 'collective.rcse.group'">
           <div class="document-actions-wrapper"
                tal:content="structure context/@@plone.abovecontenttitle.documentactions"></div>
 	</div>

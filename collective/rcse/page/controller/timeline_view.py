@@ -104,14 +104,13 @@ class ContentAsTimelineView(BrowserView):
 
 class ProxyGroupTimelineView(BrowserView):
     is_content_timeline = True
-    label_content = None
+    label_content = _(u"Moderated group")
 
     def __call__(self):
         self.update()
         return self.index()
 
     def update(self):
-        #TODO: check if current user as view access to the real group and redirect
         self.manager = self.context.restrictedTraverse("@@proxy_group_manager")
         self.manager.update()
         self.mtool = getToolByName(self.context, 'portal_membership')
@@ -121,6 +120,8 @@ class ProxyGroupTimelineView(BrowserView):
         self.group = self.context
         self.group_title = self.manager.title()
         self.group_url = self.group.absolute_url()
+        name = "@@timeline_header_group"
+        self.group_description = self.context.restrictedTraverse(name)()
 
     def get_content(self, **kwargs):
         return []

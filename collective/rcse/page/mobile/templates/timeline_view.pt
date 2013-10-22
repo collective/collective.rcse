@@ -8,7 +8,6 @@
 <body>
   <div metal:fill-slot="main" class="directory-wrapper">
     <tal:main-macro metal:define-macro="main">
-          <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" />
           <div id="viewlet-above-content-title"
                tal:content="structure provider:plone.abovecontenttitle" />
 

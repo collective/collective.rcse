@@ -7,7 +7,9 @@
       i18n:domain="collective.rcse">
 
 <body>
-<div metal:fill-slot="main" tal:define="proxy_manager context/@@proxy_group_manager">
+<div metal:fill-slot="main"
+     tal:define="proxy_manager context/@@proxy_group_manager;
+		 dummy python:proxy_manager.update();">
 
 <h1 class="documentFirstHeading" tal:content="proxy_manager/title"></h1>
 <p tal:content="proxy_manager/description"></p>

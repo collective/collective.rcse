@@ -126,6 +126,13 @@
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
+    <browser:page
+      for="collective.rcse.content.group.ProxyGroupSchema"
+      name="timeline_header_group"
+      template="templates/timeline_header_group.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
 
   <browser:page
       for="collective.rcse.content.group.GroupSchema"
