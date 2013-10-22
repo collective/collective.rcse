@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-10-21 15:27+0000\n"
+"POT-Creation-Date: 2013-10-22 15:39+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -108,7 +108,7 @@ msgstr ""
 msgid "Add etherpad"
 msgstr ""
 
-#: ./page/controller/events_view.py:120
+#: ./page/controller/events_view.py:122
 msgid "Add event"
 msgstr ""
 
@@ -238,6 +238,14 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
+#: ./page/desktop/templates/group_edit.pt:42
+msgid "Change state of the current group"
+msgstr ""
+
+#: ./page/desktop/templates/group_edit.pt:55
+msgid "Change the view used by default."
+msgstr ""
+
 #: ./content/company.py:49
 #: ./content/member.py:103
 #: ./page/desktop/templates/companies_directory_view.pt:42
@@ -265,7 +273,7 @@ msgid "Companies directory"
 msgstr ""
 
 #: ./content/member.py:91
-#: ./page/controller/timeline_view.py:170
+#: ./page/controller/timeline_view.py:171
 #: ./page/desktop/templates/users_directory_view.pt:61
 msgid "Company"
 msgstr ""
@@ -291,7 +299,7 @@ msgstr ""
 msgid "Content Added"
 msgstr ""
 
-#: ./page/controller/timeline_view.py:140
+#: ./page/controller/timeline_view.py:141
 msgid "Contents created by ${name}"
 msgstr ""
 
@@ -300,7 +308,7 @@ msgstr ""
 msgid "Corporate name"
 msgstr ""
 
-#: ./content/vocabularies.py:40
+#: ./content/vocabularies.py:53
 msgid "Date"
 msgstr ""
 
@@ -332,7 +340,7 @@ msgid "Disable This Member"
 msgstr ""
 
 #: ./profiles/settings/types/collective.rcse.discussion.xml
-#: ./viewlet/desktop/templates/portal_header.pt:159
+#: ./viewlet/desktop/templates/portal_header.pt:162
 msgid "Discussion"
 msgstr ""
 
@@ -391,7 +399,7 @@ msgid "Error while sending the email."
 msgstr ""
 
 #: ./profiles/settings/types/collective.rcse.etherpad.xml
-#: ./viewlet/desktop/templates/portal_header.pt:152
+#: ./viewlet/desktop/templates/portal_header.pt:155
 msgid "Etherpad"
 msgstr ""
 
@@ -403,7 +411,7 @@ msgstr ""
 msgid "Event"
 msgstr ""
 
-#: ./page/controller/events_view.py:119
+#: ./page/controller/events_view.py:121
 msgid "Event added"
 msgstr ""
 
@@ -416,7 +424,7 @@ msgstr ""
 msgid "Favorites"
 msgstr ""
 
-#: ./content/vocabularies.py:10
+#: ./content/vocabularies.py:14
 msgid "Female"
 msgstr ""
 
@@ -445,7 +453,7 @@ msgstr ""
 msgid "First name: ${firstname}"
 msgstr ""
 
-#: ./page/desktop/templates/group_edit.pt:55
+#: ./page/desktop/templates/group_edit.pt:61
 #: ./page/mobile/templates/group_edit.pt:49
 msgid "Folder contents"
 msgstr ""
@@ -488,7 +496,7 @@ msgstr ""
 msgid "Groups"
 msgstr ""
 
-#: ./content/vocabularies.py:76
+#: ./content/vocabularies.py:89
 #: ./setuphandler.py:105
 #: ./viewlet/desktop/templates/portal_header.pt:11
 msgid "Home"
@@ -533,7 +541,7 @@ msgstr ""
 msgid "Invalid option"
 msgstr ""
 
-#: ./page/desktop/templates/group_edit.pt:62
+#: ./page/desktop/templates/group_edit.pt:68
 #: ./page/mobile/templates/group_edit.pt:55
 msgid "Invite a person"
 msgstr ""
@@ -542,12 +550,20 @@ msgstr ""
 msgid "Item and it's content has been deleted"
 msgstr ""
 
+#: ./viewlet/desktop/templates/edit_bar.pt:10
+msgid "Join this group"
+msgstr ""
+
 #: ./content/member.py:86
 msgid "Last Name"
 msgstr ""
 
 #: ./page/mobile/templates/user_dialog.pt:18
 msgid "Last name: ${lastname}"
+msgstr ""
+
+#: ./page/desktop/templates/group_edit.pt:68
+msgid "Let people contribute to the space"
 msgstr ""
 
 #: ./profiles/settings/actions.xml
@@ -576,11 +592,15 @@ msgstr ""
 msgid "Logo"
 msgstr ""
 
-#: ./content/vocabularies.py:11
+#: ./content/vocabularies.py:15
 msgid "Male"
 msgstr ""
 
-#: ./page/desktop/templates/group_edit.pt:43
+#: ./viewlet/desktop/templates/edit_bar.pt:23
+msgid "Manage"
+msgstr ""
+
+#: ./page/desktop/templates/group_edit.pt:49
 #: ./page/mobile/templates/group_edit.pt:39
 msgid "Manage dashboard"
 msgstr ""
@@ -597,11 +617,15 @@ msgstr ""
 msgid "Manage pending users"
 msgstr ""
 
+#: ./page/desktop/templates/group_edit.pt:49
+msgid "Manage portlets displayed in dashboard colums"
+msgstr ""
+
 #: ./page/mobile/templates/manage_group_dashboard_view.pt:35
 msgid "Manage portlets of the group"
 msgstr ""
 
-#: ./page/desktop/templates/group_edit.pt:68
+#: ./page/desktop/templates/group_edit.pt:74
 #: ./page/mobile/templates/group_edit.pt:60
 msgid "Manage request access"
 msgstr ""
@@ -615,12 +639,12 @@ msgstr ""
 msgid "Media URL"
 msgstr ""
 
-#: ./page/controller/timeline_view.py:130
+#: ./page/controller/timeline_view.py:131
 #: ./profiles/settings/types/collective.rcse.member.xml
 msgid "Member"
 msgstr ""
 
-#: ./page/controller/timeline_view.py:158
+#: ./page/controller/timeline_view.py:159
 msgid "Members"
 msgstr ""
 
@@ -629,8 +653,16 @@ msgstr ""
 msgid "Moderated"
 msgstr ""
 
+#: ./page/controller/timeline_view.py:107
+msgid "Moderated group"
+msgstr ""
+
 #: ./page/desktop/templates/member_tile_view.pt:15
 msgid "Modify company"
+msgstr ""
+
+#: ./page/desktop/templates/group_edit.pt:18
+msgid "Modify the group's title and/or description."
 msgstr ""
 
 #: ./page/controller/modify_company.py:44
@@ -767,6 +799,10 @@ msgstr ""
 msgid "Proxy Group"
 msgstr ""
 
+#: ./viewlet/desktop/templates/edit_bar.pt:16
+msgid "Quit this group"
+msgstr ""
+
 #: ./profiles/settings/controlpanel.xml
 #: ./security.py:71
 msgid "RCSE Security settings"
@@ -785,7 +821,7 @@ msgstr ""
 msgid "Registred"
 msgstr ""
 
-#: ./content/vocabularies.py:39
+#: ./content/vocabularies.py:52
 msgid "Relevance"
 msgstr ""
 
@@ -866,7 +902,7 @@ msgstr ""
 msgid "See groups"
 msgstr ""
 
-#: ./page/desktop/templates/group_edit.pt:49
+#: ./page/desktop/templates/group_edit.pt:55
 #: ./page/mobile/templates/group_edit.pt:44
 msgid "Select default view"
 msgstr ""
@@ -900,7 +936,7 @@ msgstr ""
 msgid "Spoken languages"
 msgstr ""
 
-#: ./page/desktop/templates/group_edit.pt:36
+#: ./page/desktop/templates/group_edit.pt:42
 #: ./page/mobile/templates/group_edit.pt:33
 msgid "State"
 msgstr ""
@@ -940,11 +976,11 @@ msgstr ""
 msgid "This is the email you will receive information on. It will not be displayed to other users."
 msgstr ""
 
-#: ./viewlet/desktop/templates/portal_header.pt:181
+#: ./viewlet/desktop/templates/portal_header.pt:184
 msgid "Timeline"
 msgstr ""
 
-#: ./content/vocabularies.py:41
+#: ./content/vocabularies.py:54
 #: ./page/controller/audios_view.py:19
 #: ./page/controller/blog_view.py:20
 msgid "Title"
@@ -984,6 +1020,10 @@ msgstr ""
 msgid "Undo Ugh"
 msgstr ""
 
+#: ./page/desktop/templates/group_edit.pt:26
+msgid "Update group's title and id. The id is the URL representation of the group."
+msgstr ""
+
 #: ./page/controller/users_manage.py:109
 msgid "User ${user} has been deleted"
 msgstr ""
@@ -1002,13 +1042,17 @@ msgstr ""
 msgid "Users uuid"
 msgstr ""
 
+#: ./page/desktop/templates/group_edit.pt:74
+msgid "Validate / Refuse access demands"
+msgstr ""
+
 #: ./content/member.py:178
 #: ./page/desktop/templates/member_tile_view.pt:114
 msgid "Viadeo"
 msgstr ""
 
 #: ./profiles/settings/types/collective.rcse.video.xml
-#: ./viewlet/desktop/templates/portal_header.pt:123
+#: ./viewlet/desktop/templates/portal_header.pt:126
 msgid "Video"
 msgstr ""
 
@@ -1026,6 +1070,10 @@ msgstr ""
 
 #: ./page/mobile/templates/user_dialog.pt:22
 msgid "View complete profile"
+msgstr ""
+
+#: ./page/desktop/templates/group_edit.pt:61
+msgid "View group's content and do batch actions like copy/delete/..."
 msgstr ""
 
 #: ./page/mobile/templates/vcard_view.pt:16
@@ -1221,5 +1269,9 @@ msgstr ""
 #: ./page/desktop/templates/users_directory_view.pt:58
 #: ./page/desktop/templates/users_manage.pt:59
 msgid "userid"
+msgstr ""
+
+#: ./page/desktop/templates/group_edit.pt:30
+msgid "x"
 msgstr ""
 

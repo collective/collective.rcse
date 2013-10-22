@@ -18,57 +18,63 @@
   <a tal:attributes="href string:${context/absolute_url}/edit"
      data-toggle="tooltip" data-placement="right"
      title="Modify the group's title and/or description."
-     i18n:domain="plone" i18n:attributes="title" i18n:translate="">Edit</a>
+     i18n:attributes="title">
+    <tal:translate i18n:domain="plone" i18n:translate="">Edit</tal:translate>
+  </a>
 </li>
 <li class="list-group-item" tal:condition="view/can_rename">
   <a tal:attributes="href string:${context/absolute_url}/object_rename"
      data-toggle="tooltip" data-placement="right"
      title="Update group's title and id. The id is the URL representation of the group."
-     i18n:domain="plone" i18n:translate="">Rename</a>
+     i18n:attributes="title" i18n:translate="">
+    <tal:translate i18n:domain="plone" i18n:translate="">Rename</tal:translate>
+  </a>
 </li>
 <li class="list-group-item" tal:condition="view/can_delete">
   <a tal:attributes="href string:${context/absolute_url}/@@rcse_delete"
      data-toggle="tooltip" data-placement="right"
      title="Update group's title and id. The id is the URL representation of the group."
-     i18n:domain="plone" i18n:translate="">Delete</a>
+     i18n:attributes="title" i18n:translate="">
+    <tal:translate i18n:domain="plone" i18n:translate="">Delete</tal:translate>
+  </a>
 </li>
 <li class="list-group-item" tal:condition="view/can_change_status">
   <a tal:attributes="href string:${context/absolute_url}/group_status"
      data-toggle="tooltip" data-placement="right"
      title="Change state of the current group"
-     i18n:translate="">State</a>
+     i18n:attributes="title" i18n:translate="">State</a>
      <span class="badge pull-right" i18n:domain="plone" tal:content="view/review_state"></span>
 </li>
 <li class="list-group-item" tal:condition="view/can_manage_portlets">
   <a tal:attributes="href string:${context/absolute_url}/@@manage-portlets"
      data-toggle="tooltip" data-placement="right"
      title="Manage portlets displayed in dashboard colums"
-     i18n:translate="">Manage dashboard</a>
+     i18n:attributes="title" i18n:translate="">Manage dashboard</a>
 </li>
 <li class="list-group-item" tal:condition="view/can_select_default_view">
   <a tal:attributes="href string:${context/absolute_url}/select_default_view"
      data-toggle="tooltip" data-placement="right"
      title="Change the view used by default."
-     i18n:translate="">Select default view</a>
+     i18n:attributes="title" i18n:translate="">Select default view</a>
 </li>
 <li class="list-group-item" tal:condition="view/can_list_folder_contents">
   <a tal:attributes="href string:${context/absolute_url}/@@folder_contents"
      data-toggle="tooltip" data-placement="right"
      title="View group's content and do batch actions like copy/delete/..."
-     i18n:translate="">Folder contents</a>
+     i18n:attributes="title" i18n:translate="">Folder contents</a>
      <span class="badge" tal:content="view/how_many_contents"></span>
 </li>
 <li class="list-group-item" tal:condition="view/can_invite_person">
   <a tal:attributes="href string:${context/absolute_url}/add_invite_form_view"
      data-toggle="tooltip" data-placement="right"
      title="Let people contribute to the space"
-     i18n:translate="">Invite a person</a>
+     i18n:attributes="title" i18n:translate="">Invite a person</a>
 </li>
 <li class="list-group-item" tal:condition="view/can_manage_request_access">
   <a tal:attributes="href string:${context/absolute_url}/review_requests_view"
      data-toggle="tooltip" data-placement="right"
      title="Validate / Refuse access demands"
-     i18n:translate="">Manage request access</a>
+     i18n:attributes="title" i18n:translate="">Manage request access</a>
      <span class="badge" tal:content="view/how_many_requests"></span>
 </li>
 

@@ -6,18 +6,21 @@
         <a class="ajax-action btn btn-sm btn-default"
            tal:attributes="href string:${view/group_url}/@@join-this-group"
            tal:condition="view/can_join">
-           <span class="icon-signin"></span> <tal:label i18n:translate="">Join this group</tal:label>
+           <span class="icon-signin"></span>
+	   <tal:label i18n:domain="collective.rcse" i18n:translate="">Join this group</tal:label>
         </a>
         <a class="ajax-action btn btn-sm btn-default"
            tal:attributes="href string:${view/group_url}/@@quit-this-group"
            tal:condition="view/can_quit">
-           <span class="icon-signout"></span> <tal:label i18n:translate="">Quit this group</tal:label>
+           <span class="icon-signout"></span>
+	   <tal:label i18n:domain="collective.rcse" i18n:translate="">Quit this group</tal:label>
         </a>
       </tal:groupjoin>
       <tal:manage tal:condition="view/can_manage">
         <a class="ajax-action btn btn-sm btn-default"
            tal:attributes="href string:${view/group_url}/@@rcse_group_edit">
-           <span class="icon-gear"></span> <tal:label i18n:translate="">Manage</tal:label>
+           <span class="icon-gear"></span>
+	   <tal:label i18n:domain="collective.rcse" i18n:translate="">Manage</tal:label>
         </a>
       </tal:manage>
 </tal:isgroup>

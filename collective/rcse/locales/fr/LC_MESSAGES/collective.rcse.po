@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-10-21 15:27+0000\n"
+"POT-Creation-Date: 2013-10-22 15:39+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -110,7 +110,7 @@ msgstr "Ajouter une discussion"
 msgid "Add etherpad"
 msgstr "Ajouter un etherpad"
 
-#: ./page/controller/events_view.py:120
+#: ./page/controller/events_view.py:122
 msgid "Add event"
 msgstr "Ajouter un événement"
 
@@ -240,6 +240,14 @@ msgstr "Impossible d'activer le membre ${user}"
 msgid "Cancel"
 msgstr "Annuler"
 
+#: ./page/desktop/templates/group_edit.pt:42
+msgid "Change state of the current group"
+msgstr "Change l'état du groupe courrent"
+
+#: ./page/desktop/templates/group_edit.pt:55
+msgid "Change the view used by default."
+msgstr "Change la vue utilisé par défaut"
+
 #: ./content/company.py:49
 #: ./content/member.py:103
 #: ./page/desktop/templates/companies_directory_view.pt:42
@@ -267,7 +275,7 @@ msgid "Companies directory"
 msgstr "Annuaire des entreprises"
 
 #: ./content/member.py:91
-#: ./page/controller/timeline_view.py:170
+#: ./page/controller/timeline_view.py:171
 #: ./page/desktop/templates/users_directory_view.pt:61
 msgid "Company"
 msgstr "Société"
@@ -293,7 +301,7 @@ msgstr "Informations de contacts"
 msgid "Content Added"
 msgstr "Contenu ajouté"
 
-#: ./page/controller/timeline_view.py:140
+#: ./page/controller/timeline_view.py:141
 msgid "Contents created by ${name}"
 msgstr "Contenu créé par ${name}"
 
@@ -302,7 +310,7 @@ msgstr "Contenu créé par ${name}"
 msgid "Corporate name"
 msgstr "Raison social"
 
-#: ./content/vocabularies.py:40
+#: ./content/vocabularies.py:53
 msgid "Date"
 msgstr "Date"
 
@@ -334,7 +342,7 @@ msgid "Disable This Member"
 msgstr "Désactiver ce membre"
 
 #: ./profiles/settings/types/collective.rcse.discussion.xml
-#: ./viewlet/desktop/templates/portal_header.pt:159
+#: ./viewlet/desktop/templates/portal_header.pt:162
 msgid "Discussion"
 msgstr "Discussion"
 
@@ -393,7 +401,7 @@ msgid "Error while sending the email."
 msgstr "Erreur durant l'envoit de l'email."
 
 #: ./profiles/settings/types/collective.rcse.etherpad.xml
-#: ./viewlet/desktop/templates/portal_header.pt:152
+#: ./viewlet/desktop/templates/portal_header.pt:155
 msgid "Etherpad"
 msgstr "Etherpad"
 
@@ -405,7 +413,7 @@ msgstr "Etherpad ajouté"
 msgid "Event"
 msgstr "Evénement"
 
-#: ./page/controller/events_view.py:119
+#: ./page/controller/events_view.py:121
 msgid "Event added"
 msgstr "Evénement ajouté"
 
@@ -418,7 +426,7 @@ msgstr "Expertise"
 msgid "Favorites"
 msgstr "Favoris"
 
-#: ./content/vocabularies.py:10
+#: ./content/vocabularies.py:14
 msgid "Female"
 msgstr "Femme"
 
@@ -447,7 +455,7 @@ msgstr "Prénom"
 msgid "First name: ${firstname}"
 msgstr "Prénom : ${firstname}"
 
-#: ./page/desktop/templates/group_edit.pt:55
+#: ./page/desktop/templates/group_edit.pt:61
 #: ./page/mobile/templates/group_edit.pt:49
 msgid "Folder contents"
 msgstr "Contenu du dossier"
@@ -490,7 +498,7 @@ msgstr "Groupe"
 msgid "Groups"
 msgstr "Groupes"
 
-#: ./content/vocabularies.py:76
+#: ./content/vocabularies.py:89
 #: ./setuphandler.py:105
 #: ./viewlet/desktop/templates/portal_header.pt:11
 msgid "Home"
@@ -535,7 +543,7 @@ msgstr "Intérêts"
 msgid "Invalid option"
 msgstr "Option invalide"
 
-#: ./page/desktop/templates/group_edit.pt:62
+#: ./page/desktop/templates/group_edit.pt:68
 #: ./page/mobile/templates/group_edit.pt:55
 msgid "Invite a person"
 msgstr "Inviter un utilisateur"
@@ -544,6 +552,10 @@ msgstr "Inviter un utilisateur"
 msgid "Item and it's content has been deleted"
 msgstr "L'élément ainsi que tout son contenu ont été supprimés."
 
+#: ./viewlet/desktop/templates/edit_bar.pt:10
+msgid "Join this group"
+msgstr "Rejoindre ce groupe"
+
 #: ./content/member.py:86
 msgid "Last Name"
 msgstr "Nom"
@@ -551,6 +563,10 @@ msgstr "Nom"
 #: ./page/mobile/templates/user_dialog.pt:18
 msgid "Last name: ${lastname}"
 msgstr "Nom : ${lastname}"
+
+#: ./page/desktop/templates/group_edit.pt:68
+msgid "Let people contribute to the space"
+msgstr "Permettre aux gens de contribuer à l'espace"
 
 #: ./profiles/settings/actions.xml
 msgid "Like"
@@ -578,11 +594,15 @@ msgstr "Login"
 msgid "Logo"
 msgstr "Logo"
 
-#: ./content/vocabularies.py:11
+#: ./content/vocabularies.py:15
 msgid "Male"
 msgstr "Homme"
 
-#: ./page/desktop/templates/group_edit.pt:43
+#: ./viewlet/desktop/templates/edit_bar.pt:23
+msgid "Manage"
+msgstr "Gérer"
+
+#: ./page/desktop/templates/group_edit.pt:49
 #: ./page/mobile/templates/group_edit.pt:39
 msgid "Manage dashboard"
 msgstr "Gérer le tableau de bord"
@@ -599,11 +619,15 @@ msgstr "Gérer les utilisateurs désactivés"
 msgid "Manage pending users"
 msgstr "Gérer les utilisateurs en attente de validation"
 
+#: ./page/desktop/templates/group_edit.pt:49
+msgid "Manage portlets displayed in dashboard colums"
+msgstr "Gérer les portlets affichées dans les colonnes."
+
 #: ./page/mobile/templates/manage_group_dashboard_view.pt:35
 msgid "Manage portlets of the group"
 msgstr "Gérer les portlets du groupe"
 
-#: ./page/desktop/templates/group_edit.pt:68
+#: ./page/desktop/templates/group_edit.pt:74
 #: ./page/mobile/templates/group_edit.pt:60
 msgid "Manage request access"
 msgstr "Gérer les demandes d'accès"
@@ -617,12 +641,12 @@ msgstr "Gérer les utilisateurs"
 msgid "Media URL"
 msgstr "URL du média"
 
-#: ./page/controller/timeline_view.py:130
+#: ./page/controller/timeline_view.py:131
 #: ./profiles/settings/types/collective.rcse.member.xml
 msgid "Member"
 msgstr "Membre"
 
-#: ./page/controller/timeline_view.py:158
+#: ./page/controller/timeline_view.py:159
 msgid "Members"
 msgstr "Membres"
 
@@ -631,9 +655,17 @@ msgstr "Membres"
 msgid "Moderated"
 msgstr "Modéré"
 
+#: ./page/controller/timeline_view.py:107
+msgid "Moderated group"
+msgstr "Groupe modéré"
+
 #: ./page/desktop/templates/member_tile_view.pt:15
 msgid "Modify company"
 msgstr "Modifier l'entreprise"
+
+#: ./page/desktop/templates/group_edit.pt:18
+msgid "Modify the group's title and/or description."
+msgstr "Modifier le titre et/ou la description du groupe."
 
 #: ./page/controller/modify_company.py:44
 msgid "Modify your company"
@@ -769,6 +801,10 @@ msgstr "Téléphone portable professionnel"
 msgid "Proxy Group"
 msgstr "Faux groupe (proxy)"
 
+#: ./viewlet/desktop/templates/edit_bar.pt:16
+msgid "Quit this group"
+msgstr "Quitter ce groupe"
+
 #: ./profiles/settings/controlpanel.xml
 #: ./security.py:71
 msgid "RCSE Security settings"
@@ -787,7 +823,7 @@ msgstr "Enregistrer vos informations"
 msgid "Registred"
 msgstr "Enregistré"
 
-#: ./content/vocabularies.py:39
+#: ./content/vocabularies.py:52
 msgid "Relevance"
 msgstr "Pertinence"
 
@@ -868,7 +904,7 @@ msgstr "Voir toutes les notifications"
 msgid "See groups"
 msgstr "Voir les groupes"
 
-#: ./page/desktop/templates/group_edit.pt:49
+#: ./page/desktop/templates/group_edit.pt:55
 #: ./page/mobile/templates/group_edit.pt:44
 msgid "Select default view"
 msgstr "Sélectionner la vue par défaut"
@@ -902,7 +938,7 @@ msgstr "Trier par"
 msgid "Spoken languages"
 msgstr "Langues parlées"
 
-#: ./page/desktop/templates/group_edit.pt:36
+#: ./page/desktop/templates/group_edit.pt:42
 #: ./page/mobile/templates/group_edit.pt:33
 msgid "State"
 msgstr "Etat"
@@ -942,11 +978,11 @@ msgstr "Il y a eu des erreurs"
 msgid "This is the email you will receive information on. It will not be displayed to other users."
 msgstr "Email sur lequel vous recevrez les informations. Il ne sera pas montré aux autres utilisateurs."
 
-#: ./viewlet/desktop/templates/portal_header.pt:181
+#: ./viewlet/desktop/templates/portal_header.pt:184
 msgid "Timeline"
 msgstr ""
 
-#: ./content/vocabularies.py:41
+#: ./content/vocabularies.py:54
 #: ./page/controller/audios_view.py:19
 #: ./page/controller/blog_view.py:20
 msgid "Title"
@@ -986,6 +1022,10 @@ msgstr "Annuler J'aime"
 msgid "Undo Ugh"
 msgstr "Annuler Pouah"
 
+#: ./page/desktop/templates/group_edit.pt:26
+msgid "Update group's title and id. The id is the URL representation of the group."
+msgstr "Changer le titre et l'id du groupe. L'id est la representation du groupe dans l'URL."
+
 #: ./page/controller/users_manage.py:109
 msgid "User ${user} has been deleted"
 msgstr "Le membre ${user} a été supprimé"
@@ -1004,13 +1044,17 @@ msgstr "Annuaire des utilisateurs"
 msgid "Users uuid"
 msgstr "UUID Utilisateurs"
 
+#: ./page/desktop/templates/group_edit.pt:74
+msgid "Validate / Refuse access demands"
+msgstr "Valider/Refuser les demandes d'accées."
+
 #: ./content/member.py:178
 #: ./page/desktop/templates/member_tile_view.pt:114
 msgid "Viadeo"
 msgstr "Viadeo"
 
 #: ./profiles/settings/types/collective.rcse.video.xml
-#: ./viewlet/desktop/templates/portal_header.pt:123
+#: ./viewlet/desktop/templates/portal_header.pt:126
 msgid "Video"
 msgstr "Vidéo"
 
@@ -1029,6 +1073,10 @@ msgstr "La video est en cours d'encodage. Veuillez patienter."
 #: ./page/mobile/templates/user_dialog.pt:22
 msgid "View complete profile"
 msgstr "Voir le profil complet"
+
+#: ./page/desktop/templates/group_edit.pt:61
+msgid "View group's content and do batch actions like copy/delete/..."
+msgstr "Voir le contenus du groupe et faire des actions de groupes tel que copier/supprimer/..."
 
 #: ./page/mobile/templates/vcard_view.pt:16
 msgid "Waiting for validation"
@@ -1224,4 +1272,8 @@ msgstr "Membre non trouvé dans l'annuaire"
 #: ./page/desktop/templates/users_manage.pt:59
 msgid "userid"
 msgstr "ID Utilisateur"
+
+#: ./page/desktop/templates/group_edit.pt:30
+msgid "x"
+msgstr ""
 
