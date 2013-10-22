@@ -10,6 +10,10 @@
        name="collective.rcse.vocabulary.groupTypes"
        provides="zope.schema.interfaces.IVocabularyFactory"/>
 
+  <utility component=".vocabularies.addableTypes"
+       name="collective.rcse.vocabulary.addableTypes"
+       provides="zope.schema.interfaces.IVocabularyFactory"/>
+
   <utility component=".vocabularies.groups"
        name="collective.rcse.vocabulary.groups"
        provides="zope.schema.interfaces.IVocabularyFactory"/>

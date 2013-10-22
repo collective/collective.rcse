@@ -10,4 +10,8 @@ class Search(browser.Search):
         sort_order = self.request.form.get('sort_order', None)
         if sort_order and type(sort_order) is unicode:
             self.request.form['sort_order'] = sort_order.encode('utf-8')
+        portal_type = self.request.form.get('portal_type', None)
+        if portal_type == 'collective.rcse.group':
+            self.request.form['portal_type'] = ['collective.rcse.group',
+                                                'collective.rcse.proxygroup']
         return super(Search, self).filter_query(query)

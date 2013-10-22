@@ -2,9 +2,13 @@ from plone.i18n.normalizer.base import baseNormalize
 from plone.uuid.interfaces import IUUID
 from Products.CMFCore.utils import getToolByName
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
+from zope.schema.interfaces import IVocabularyFactory
+from zope.component import getUtility
+from zope.globalrequest import getRequest
 
 from collective.rcse.i18n import _, _t
 from collective.rcse.settings import IPersonalPreferences
+
 
 gender = SimpleVocabulary([
     SimpleTerm(value=u"female", title=_(u"Female")),
@@ -32,6 +36,15 @@ def groupTypes(context):
             _(portal_types[t].title)
             ) for t in sorted(types)
         ]
+    return SimpleVocabulary(terms)
+
+
+def addableTypes(context):
+    blacklist = ['collective.rcse.proxygroup']
+    vocabulary = getUtility(IVocabularyFactory,
+                            name="plone.app.vocabularies.UserFriendlyTypes")
+    types = list(vocabulary(context))
+    terms = [t for t in types if t.token not in blacklist]
     return SimpleVocabulary(terms)
 
 
