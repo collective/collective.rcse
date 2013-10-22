@@ -115,23 +115,26 @@
     </div>
     <div class="col-md-8 col-sm-7 col-xs-12 filters" id="portal-filters"
          i18n:domain="plone"
-         tal:define="base_url view/group_url;viewid view/view/__name__">
+         tal:define="base_url view/group_url;
+            current_view view/view/__name__;
+            default_view view/context_state/view_template_id;"
+         tal:attributes="data-currentview current_view; data-defaultview default_view">
       <a tal:attributes="href string:${base_url}/videos_view" i18n:domain="collective.rcse">
-        <div class="filter-wrapper filter-video pull-right">
+        <div class="filter-wrapper filter-videos_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('video')"></span>
           <br />
           <span class="text" i18n:translate="">Video</span>
         </div>
       </a>
       <a tal:attributes="href string:${base_url}/images_view">
-        <div class="filter-wrapper filter-image pull-right">
+        <div class="filter-wrapper filter-images_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('image')"></span>
           <br />
           <span class="text" i18n:translate="">Image</span>
         </div>
       </a>
       <a tal:attributes="href string:${base_url}/files_view">
-        <div class="filter-wrapper filter-file pull-right">
+        <div class="filter-wrapper filter-files_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('file')"></span>
           <br />
           <span class="text" i18n:translate="">File</span>
@@ -139,21 +142,21 @@
       </a>
 
       <a tal:attributes="href string:${base_url}/event_listing">
-        <div class="filter-wrapper filter-event pull-right">
+        <div class="filter-wrapper filter-event_listing pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('event')"></span>
           <br />
           <span class="text" i18n:translate="">Event</span>
         </div>
       </a>
       <a tal:attributes="href string:${base_url}/etherpads_view" i18n:domain="collective.rcse">
-        <div class="filter-wrapper filter-discussion pull-right">
+        <div class="filter-wrapper filter-etherpads_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('etherpad')"></span>
           <br />
           <span class="text" i18n:translate="">Etherpad</span>
         </div>
       </a>
       <a tal:attributes="href string:${base_url}/discussions_view" i18n:domain="collective.rcse">
-        <div class="filter-wrapper filter-discussion pull-right">
+        <div class="filter-wrapper filter-discussion_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('discussion')"></span>
           <br />
           <span class="text" i18n:translate="">Discussion</span>
@@ -161,21 +164,21 @@
       </a>
 
       <a tal:attributes="href string:${base_url}/links_view">
-        <div class="filter-wrapper filter-link pull-right">
+        <div class="filter-wrapper filter-links_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('signet')"></span>
           <br />
           <span class="text" i18n:translate="">Link</span>
         </div>
       </a>
       <a tal:attributes="href string:${base_url}/blog_view">
-        <div class="filter-wrapper filter-blog pull-right">
+        <div class="filter-wrapper filter-blog_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('news')"></span>
           <br />
           <span class="text" i18n:translate="">News Item</span>
         </div>
       </a>
-      <a tal:attributes="href base_url" i18n:domain="collective.rcse">
-        <div class="filter-wrapper filter-blog pull-right">
+      <a tal:attributes="href string:${base_url}/timeline_view" i18n:domain="collective.rcse">
+        <div class="filter-wrapper filter-timeline_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('timeline')"></span>
           <br />
           <span class="text" i18n:translate="">Timeline</span>
