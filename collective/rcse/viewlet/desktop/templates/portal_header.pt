@@ -115,7 +115,7 @@
     </div>
     <div class="col-md-8 col-sm-7 col-xs-12 filters" id="portal-filters"
          i18n:domain="plone"
-         tal:define="base_url view/group_url">
+         tal:define="base_url view/group_url;viewid view/view/__name__">
       <a tal:attributes="href string:${base_url}/videos_view" i18n:domain="collective.rcse">
         <div class="filter-wrapper filter-video pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('video')"></span>
@@ -138,7 +138,7 @@
         </div>
       </a>
 
-      <a tal:attributes="href string:${base_url}/events_view">
+      <a tal:attributes="href string:${base_url}/event_listing">
         <div class="filter-wrapper filter-event pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('event')"></span>
           <br />
