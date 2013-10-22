@@ -63,6 +63,9 @@
   <div tal:replace="structure provider:plone.portaltop" />
 
   <div data-role="content" id="content">
+
+    <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" />
+
     <metal:block define-slot="content">
     <div metal:define-macro="content"
          tal:define="show_border context/@@plone/showEditableBorder;
@@ -70,7 +73,6 @@
       <metal:slot define-slot="body">
         <metal:bodytext define-slot="main">
 
-          <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" />
           <div id="edit-bar" tal:condition="show_border" tal:content="structure provider:plonetheme.jquerymobile.editbar" />
           <div id="viewlet-above-content-title"
                tal:content="structure provider:plone.abovecontenttitle" />
