@@ -279,7 +279,7 @@ var rcseInitPortletCalendar = function(){
 	else {
 	    // On events_view
 	    var location = document.location.href;
-	    location = location.substr(0, location.length - 12);
+	    location = location.substr(0, location.lastIndexOf('/'));
             url = location + '/@@calendar_events_view?' +
 		'year=' + elem_data.year +
 		'&month=' + elem_data.month;
