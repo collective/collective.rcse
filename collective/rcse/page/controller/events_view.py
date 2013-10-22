@@ -17,6 +17,8 @@ from collective.rcse.content.group import get_group
 from collective.rcse.i18n import _
 from collective.rcse.page.controller import group_base
 from collective.rcse.page.controller.navigationroot import NavigationRootBaseView
+from plone.app.event.browser.event_listing import EventListing
+from plone.z3cform.layout import FormWrapper
 
 CONTENT_TYPE = "collective.rcse.event"
 
@@ -143,13 +145,22 @@ class CalendarEventsView(BrowserView):
         return self.renderer.render()
 
 
-class EventsView(group_base.BaseAddFormView):
+class EventsView(FormWrapper, EventListing):
     """A filterable blog view"""
-    filter_type = [CONTENT_TYPE]
     form = AddForm
+    portlets_show = {
+        'plone.leftcolumn': True,
+        'plone.rightcolumn': False,
+        }
+
+    def __init__(self, context, request):
+        FormWrapper.__init__(self, context, request)
+        EventListing.__init__(self, context, request)
+
+    def __call__(self):
+        self.update()
+        return self.index()
 
 
-class NavigationRootEventsView(EventsView, NavigationRootBaseView):
-    def update(self):
-        EventsView.update(self)
-        NavigationRootBaseView.update(self)
+class NavigationRootEventsView(EventsView):
+    pass

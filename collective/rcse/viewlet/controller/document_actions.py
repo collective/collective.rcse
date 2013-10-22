@@ -14,7 +14,7 @@ from collective.rcse.page.controller.comments_view import should_display_comment
 CONTENT_VIEWS = (
     'blog_view',
     'discussions_view',
-    'events_view',
+    'event_listing',
     'favorites_view',
     'files_view',
     'images_view',

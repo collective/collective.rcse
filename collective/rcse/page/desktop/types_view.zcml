@@ -41,7 +41,7 @@
       />
     <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
-      name="events_view"
+      name="event_listing"
       class="collective.rcse.page.controller.events_view.NavigationRootEventsView"
       template="templates/events_view.pt"
       layer="collective.rcse.layer.DesktopLayer"
@@ -169,7 +169,7 @@
       />
     <browser:page
       for="collective.rcse.content.group.GroupSchema"
-      name="events_view"
+      name="event_listing"
       class="collective.rcse.page.controller.events_view.EventsView"
       template="templates/events_view.pt"
       layer="collective.rcse.layer.DesktopLayer"

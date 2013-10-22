@@ -12,38 +12,105 @@
 
 <div metal:fill-slot="main">
     <div tal:replace="structure context/@@breadcrumb_view"></div>
-    <div tal:define="articles python:view.get_content(batch=True, full=False)">
+  <div class="event_listing"
+       tal:define="batch python:view.events(ret_mode=3);
+                   mode request/mode|string:future;
+                   toLocalizedTime nocall: context/@@plone/toLocalizedTime;
+                   show_filter python:not (view.is_collection or view.is_topic);">
+    <header>
+        <tal:title tal:define="headers view/header_string">
+          <h1><tal:main tal:content="headers/main"></tal:main><tal:sub tal:content="headers/sub"></tal:sub></h1>
+        </tal:title>
+      <nav class="navbar navbar-default">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse" i18n:domain="plone.app.event">
+        <ul class="mode_selector nav navbar-nav">
+          <tal:cond condition="show_filter">
+          <li class="" tal:attributes="class python:mode=='future' and 'active' or ''">
+            <a class="mode_future"   href="" tal:attributes="href view/mode_future_url"   i18n:translate="mode_future_link">Upcoming</a>
+          </li>
+          <li class="" tal:attributes="class python:mode=='past' and 'active' or ''">
+            <a class="mode_past"   href="" tal:attributes="href view/mode_past_url"   i18n:translate="mode_past_link">Past</a>
+          </li>
+          <li class="" tal:attributes="class python:mode=='month' and 'active dropdown' or ''">
+            <a class="mode_month" href="" tal:attributes="href view/mode_month_url" i18n:translate="mode_month_link">Month</a>
+          </li>
+          <li class="" tal:attributes="class python:mode=='week' and 'active' or ''">
+            <a class="mode_week"  href="" tal:attributes="href view/mode_week_url"  i18n:translate="mode_week_link">Week</a>
+          </li>
+          <li class="" tal:attributes="class python:mode=='day' and 'active' or ''">
+            <a class="mode_day"   href="" tal:attributes="href view/mode_day_url"   i18n:translate="mode_day_link">Day</a> <input id="event_listing_calendar" type="hidden" />
+          </li>
+          </tal:cond>
+          <li>
+            <a class="mode_ical"  href="" tal:attributes="href view/ical_url"
+               title="Download this event in iCal format"
+               i18n:attributes="title title_add_to_ical;">
+                <i class="icon-download"></i>
+                <span i18n:translate="label_add_to_ical">iCal</span></a>
+
+          </li>
+        </ul>
+        </div>
+      </nav>
+      <div class="visualClear"/>
+      <tal:cond condition="show_filter" i18n:domain="plone.app.event">
+        <tal:month condition="python:mode=='month'">
+        <div class="btn-group">
+          <a class="prev_month btn btn-default" href="" tal:attributes="href view/prev_month_url"><i class="icon-double-angle-left"></i> <span i18n:translate="prev_month_link">Previous Month</span></a>
+          <a class="this_month btn btn-default" href="" tal:attributes="href view/this_month_url" i18n:translate="this_month_link">This Month</a>
+          <a class="next_month btn btn-default" href="" tal:attributes="href view/next_month_url"><span i18n:translate="next_month_link">Next Month</span> <i class="icon-double-angle-right"></i></a>
+        </div>
+        </tal:month>
+        <tal:week condition="python:mode=='week'">
+        <div class="btn-group">
+          <a class="prev_week btn btn-default"  href="" tal:attributes="href view/prev_week_url"><i class="icon-angle-left"></i> <span i18n:translate="prev_week_link">Previous Week</span></a>
+          <a class="this_week btn btn-default"  href="" tal:attributes="href view/this_week_url"  i18n:translate="this_week_link">This Week</a>
+          <a class="next_week btn btn-default"  href="" tal:attributes="href view/next_week_url"><span i18n:translate="next_week_link">Next Week</span> <i class="icon-angle-right"></i></a>
+        </div>
+        </tal:week>
+        <tal:day condition="python:mode in ('day', 'today')">
+        <div class="btn-group">
+          <a class="prev_day btn btn-default"   href="" tal:attributes="href view/prev_day_url"><i class="icon-caret-left"></i> <span i18n:translate="prev_day_link">Previous Day</span></a>
+          <a class="today btn btn-default"      href="" tal:attributes="href view/today_url"      i18n:translate="today_link">Today</a>
+          <a class="next_day btn btn-default"   href="" tal:attributes="href view/next_day_url"><span i18n:translate="next_day_link">Next Day</span> <i class="icon-caret-right"></i></a>
+        </div>
+        </tal:day>
+        </tal:cond>
+
+    </header>
+    <section>
 
     <ul class="list-group">
-        <li class="list-group-item" tal:repeat="article articles">
+        <li class="list-group-item" tal:repeat="data batch">
             <div class="media">
                 <div class="pull-left">
-		  <div tal:condition="article/start"
-		       tal:content="python:article.start.strftime(u'Du %d/%m/%Y \xe0 %Hh%M')">
-		    start
-		  </div>
-                  <div tal:condition="article/end"
-		       tal:content="python:article.end.strftime(u'Au %d/%m/%Y \xe0 %Hh%M')">
-		    end
-                  </div>
+        <tal:date tal:replace="structure python:view.formatted_date(data)"/>
 		</div>
                 <div class="media-body">
                     <h4 class="media-heading">
                         <a class="load-content-tile-in-modal content-title" data-toggle="modal"
-                            href="#content-modal" tal:attributes="data-href article/getURL"
-                            tal:content="article/Title">Title</a>
+                            href="#content-modal" tal:attributes="data-href data/getURL"
+                            tal:content="data/title">Title</a>
 			<span> - </span>
-			<a tal:define="memberinfo article/@@creator_memberinfo"
+			<a tal:define="memberinfo data/context/@@creator_memberinfo"
 			   tal:attributes="href memberinfo/url"
                class="author fn url"
                tal:content="memberinfo/fullname">Author</a>
                     </h4>
-                    <p tal:content="article/Description">Description</p>
+                    <p tal:content="data/description">Description</p>
                 </div>
             </div>
         </li>
     </ul>
-    
+    </section>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="content-modal" tabindex="-1" role="dialog"
