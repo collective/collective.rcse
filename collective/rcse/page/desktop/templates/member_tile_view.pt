@@ -73,7 +73,7 @@
         <i class="icon-envelope"></i>&nbsp;
         <span i18n:translate="">Personal e-mail</span>
     </div>
-    <div tal:content="context/professional_email"></div>
+    <div tal:content="context/personal_email"></div>
     <div tal:condition="context/professional_mobile_phone">
         <i class="icon-mobile-phone"></i>&nbsp;
         <span i18n:translate="">Professional mobile phone</span>
