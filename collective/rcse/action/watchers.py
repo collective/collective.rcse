@@ -102,7 +102,6 @@ class ToggleDisplayInMyNews(BrowserView):
 
 def get_followers(context):
     """Return people who follow the first creator"""
-
     creator = None
     membrane = None
     if context.portal_type == "collective.rcse.member":
@@ -123,22 +122,19 @@ def get_followers(context):
             except IndexError:
                 logger.debug("%s has no creator" % context.absolute_url())
         if not creator:
-            return
+            return []
         membrane = get_membrane_user(
             context, creator,
             member_type='collective.rcse.member',
             get_object=True
         )
-
     watcherlist = component.queryAdapter(
         membrane, interface=IWatcherList, name="group_watchers", default=None
     )
-
     if watcherlist:
         msg = "watchers of %s: %s" % (creator, watcherlist.watchers)
         logger.debug(msg)
         return watcherlist.watchers
-
     return []
 
 
@@ -150,28 +146,21 @@ def get_group_watchers(context):
         "collective.history.useraction"
     ):
         return
-
     watchers = []
     context = aq_inner(context)
     group = context
-
     if hasattr(context, 'creators'):
         watchers.extend(context.creators)
     elif hasattr(context, 'Creators'):
         watchers.extend(context.Creators())
-
     watchers.extend(get_followers(context))
-
     if context.portal_type != "collective.rcse.group":
         group = get_group(context)
-
         if group and hasattr(group, 'creators'):
             watchers.extend(group.creators)
-
     watcherlist = component.queryAdapter(
         group, interface=IWatcherList, name="group_watchers", default=None
     )
-
     if watcherlist:
         watchers.extend(watcherlist.watchers)
     watchers = tuple(set(watchers))
