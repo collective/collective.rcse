@@ -367,8 +367,9 @@ var rcseInitEditBar = function(){
  * just check query param about a portal_type and update portal_header
  */
 var rcseInitFilter = function(){
-    $('a[href="'+window.location.toString()+'"]').children('.filter-wrapper')
-    .addClass('filter-current');
+    var filters = $("#portal-filters"),
+        current_view = filters.attr('data-currentview');
+    filters.find('.filter-'+current_view).addClass('filter-current');
 }
 
 var rcseInitAjaxAction = function() {

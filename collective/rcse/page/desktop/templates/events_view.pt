@@ -19,7 +19,8 @@
                    show_filter python:not (view.is_collection or view.is_topic);">
     <header>
         <tal:title tal:define="headers view/header_string">
-          <h1><tal:main tal:content="headers/main"></tal:main><tal:sub tal:content="headers/sub"></tal:sub></h1>
+          <h1 tal:content="headers/main"></h1>
+          <h2 tal:condition="headers/sub" tal:content="headers/sub"></h2>
         </tal:title>
       <nav class="navbar navbar-default">
   <div class="navbar-header">
