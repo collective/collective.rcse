@@ -5,6 +5,13 @@
 
  <!-- Remove some portlets -->
  <portlet addview="portlets.Classic" remove="true" />
+ <portlet addview="collective.castle.Portlet" remove="true" />
+ <portlet addview="plone.portlet.collection.Collection" remove="true" />
+ <portlet addview="portlets.Login" remove="true" />
+ <portlet addview="portlets.Navigation" remove="true" />
+ <portlet addview="portlets.Review" remove="true" />
+ <portlet addview="portlets.Search" remove="true" />
+
  <portletmanager
      name="dashboard.group.left"
      type="collective.rcse.page.controller.group_dashboard_view.IDashboardPortletManager"
