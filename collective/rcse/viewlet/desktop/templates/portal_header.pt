@@ -123,21 +123,21 @@
         <div class="filter-wrapper filter-videos_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('video')"></span>
           <br />
-          <span class="text" i18n:translate="">Video</span>
+          <span class="text" i18n:translate="">Videos</span>
         </div>
       </a>
-      <a tal:attributes="href string:${base_url}/images_view">
+      <a tal:attributes="href string:${base_url}/images_view" i18n:domain="collective.rcse">
         <div class="filter-wrapper filter-images_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('image')"></span>
           <br />
-          <span class="text" i18n:translate="">Image</span>
+          <span class="text" i18n:translate="">Images</span>
         </div>
       </a>
-      <a tal:attributes="href string:${base_url}/files_view">
+      <a tal:attributes="href string:${base_url}/files_view" i18n:domain="collective.rcse">
         <div class="filter-wrapper filter-files_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('file')"></span>
           <br />
-          <span class="text" i18n:translate="">File</span>
+          <span class="text" i18n:translate="">Files</span>
         </div>
       </a>
 
@@ -145,36 +145,36 @@
         <div class="filter-wrapper filter-event_listing pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('event')"></span>
           <br />
-          <span class="text" i18n:translate="">Event</span>
+          <span class="text" i18n:translate="">Events</span>
         </div>
       </a>
       <a tal:attributes="href string:${base_url}/etherpads_view" i18n:domain="collective.rcse">
         <div class="filter-wrapper filter-etherpads_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('etherpad')"></span>
           <br />
-          <span class="text" i18n:translate="">Etherpad</span>
+          <span class="text" i18n:translate="">Etherpads</span>
         </div>
       </a>
       <a tal:attributes="href string:${base_url}/discussions_view" i18n:domain="collective.rcse">
         <div class="filter-wrapper filter-discussion_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('discussion')"></span>
           <br />
-          <span class="text" i18n:translate="">Discussion</span>
+          <span class="text" i18n:translate="">Discussions</span>
         </div>
       </a>
 
-      <a tal:attributes="href string:${base_url}/links_view">
+      <a tal:attributes="href string:${base_url}/links_view" i18n:domain="collective.rcse">
         <div class="filter-wrapper filter-links_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('signet')"></span>
           <br />
-          <span class="text" i18n:translate="">Link</span>
+          <span class="text" i18n:translate="">Links</span>
         </div>
       </a>
-      <a tal:attributes="href string:${base_url}/blog_view">
+      <a tal:attributes="href string:${base_url}/blog_view" i18n:domain="collective.rcse">
         <div class="filter-wrapper filter-blog_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('news')"></span>
           <br />
-          <span class="text" i18n:translate="">News Item</span>
+          <span class="text" i18n:translate="">News Items</span>
         </div>
       </a>
       <a tal:attributes="href string:${base_url}/timeline_view" i18n:domain="collective.rcse">

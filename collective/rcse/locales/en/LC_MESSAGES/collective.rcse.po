@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-10-22 15:39+0000\n"
+"POT-Creation-Date: 2013-10-23 07:53+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -340,12 +340,15 @@ msgid "Disable This Member"
 msgstr ""
 
 #: ./profiles/settings/types/collective.rcse.discussion.xml
-#: ./viewlet/desktop/templates/portal_header.pt:162
 msgid "Discussion"
 msgstr ""
 
 #: ./page/controller/discussions_view.py:51
 msgid "Discussion added"
+msgstr ""
+
+#: ./viewlet/desktop/templates/portal_header.pt:162
+msgid "Discussions"
 msgstr ""
 
 #: ./profiles/settings/actions.xml
@@ -399,12 +402,15 @@ msgid "Error while sending the email."
 msgstr ""
 
 #: ./profiles/settings/types/collective.rcse.etherpad.xml
-#: ./viewlet/desktop/templates/portal_header.pt:155
 msgid "Etherpad"
 msgstr ""
 
 #: ./page/controller/etherpads_view.py:41
 msgid "Etherpad added"
+msgstr ""
+
+#: ./viewlet/desktop/templates/portal_header.pt:155
+msgid "Etherpads"
 msgstr ""
 
 #: ./profiles/settings/types/collective.rcse.event.xml
@@ -413,6 +419,10 @@ msgstr ""
 
 #: ./page/controller/events_view.py:121
 msgid "Event added"
+msgstr ""
+
+#: ./viewlet/desktop/templates/portal_header.pt:148
+msgid "Events"
 msgstr ""
 
 #: ./content/member.py:135
@@ -435,6 +445,10 @@ msgstr ""
 
 #: ./page/controller/files_view.py:44
 msgid "File added"
+msgstr ""
+
+#: ./viewlet/desktop/templates/portal_header.pt:140
+msgid "Files"
 msgstr ""
 
 #: ./viewlet/mobile/filters.py:77
@@ -528,6 +542,10 @@ msgstr ""
 msgid "Image added"
 msgstr ""
 
+#: ./viewlet/desktop/templates/portal_header.pt:133
+msgid "Images"
+msgstr ""
+
 #: ./content/member.py:142
 msgid "Interest"
 msgstr ""
@@ -577,6 +595,10 @@ msgstr ""
 #: ./content/member.py:179
 #: ./page/desktop/templates/member_tile_view.pt:119
 msgid "LinkedIn"
+msgstr ""
+
+#: ./viewlet/desktop/templates/portal_header.pt:170
+msgid "Links"
 msgstr ""
 
 #: ./page/desktop/templates/objects_view.pt:52
@@ -692,6 +714,10 @@ msgstr ""
 
 #: ./page/controller/timeline_view.py:18
 msgid "News"
+msgstr ""
+
+#: ./viewlet/desktop/templates/portal_header.pt:177
+msgid "News Items"
 msgstr ""
 
 #: ./page/controller/validate_email.py:27
@@ -1052,7 +1078,6 @@ msgid "Viadeo"
 msgstr ""
 
 #: ./profiles/settings/types/collective.rcse.video.xml
-#: ./viewlet/desktop/templates/portal_header.pt:126
 msgid "Video"
 msgstr ""
 
@@ -1066,6 +1091,10 @@ msgstr ""
 
 #: ./page/mobile/templates/video_tile_view.pt:20
 msgid "Video is being transcoded. Please wait a moment."
+msgstr ""
+
+#: ./viewlet/desktop/templates/portal_header.pt:126
+msgid "Videos"
 msgstr ""
 
 #: ./page/mobile/templates/user_dialog.pt:22
@@ -1110,6 +1139,7 @@ msgid "What"
 msgstr ""
 
 #: ./page/controller/addbutton.py:21
+#: ./page/controller/group_base.py:107
 msgid "Where"
 msgstr ""
 

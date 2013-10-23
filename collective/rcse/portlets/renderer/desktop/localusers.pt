@@ -9,17 +9,14 @@
 
     <dd class="portletItem odd">
       <tal:block tal:repeat="user view/getUsers">
-	<div>
-          <a tal:define="memberinfo nocall:context/@@get_memberinfo;
-			 dummy python:memberinfo(user.id);"
-	     tal:attributes="href string:${context/portal_url}/author/${user/id}">
-	    <img class="img-thumbnail"
-		 tal:attributes="alt memberinfo/fullname;
-				 title memberinfo/fullname;
-				 src string:${memberinfo/photo}/thumb;" />
-	    <span tal:content="memberinfo/fullname">Fullname</span>
-	  </a>
-	</div>
+        <a tal:define="memberinfo nocall:context/@@get_memberinfo;
+		       dummy python:memberinfo(user.id);"
+	   tal:attributes="href string:${context/portal_url}/author/${user/id}">
+	  <img class="img-rounded"
+	       tal:attributes="alt memberinfo/fullname;
+			       title memberinfo/fullname;
+			       src string:${memberinfo/photo}/tile;" />
+	</a>
       </tal:block>
     </dd>
 
