@@ -104,7 +104,7 @@ class BaseView(BrowserView):
 
 class BaseAddFormSchema(model.Schema):
     where = schema.Choice(
-        title=u"Where",
+        title=_(u"Where"),
         vocabulary="collective.rcse.vocabulary.groups"
     )
 

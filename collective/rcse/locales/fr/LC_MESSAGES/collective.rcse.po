@@ -1113,7 +1113,7 @@ msgstr "Quoi"
 
 #: ./page/controller/addbutton.py:21
 msgid "Where"
-msgstr "Ou"
+msgstr "Où"
 
 #: ./page/controller/poll_view.py:97
 msgid "You are not authorized to vote"
