@@ -14,7 +14,7 @@
 	   tal:attributes="href string:${context/portal_url}/author/${user/id}">
 	    <img tal:attributes="alt memberinfo/fullname;
 				 title memberinfo/fullname;
-				 src string:${memberinfo/photo}/thumb;" />
+				 src string:${memberinfo/photo}/tile;" />
 	</a>
       </tal:block>
     </dd>
