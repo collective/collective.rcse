@@ -33,85 +33,85 @@ var rcseUpdatePortlets = function(element) {
 
     });
     $(element).find('div.portletStaticText').addClass('portletStaticTextNoBorder');
-    $(element).find('dl.portlet').each(
-            function() {
-                var newPortlet = document.createElement("div");
-                var newTitle = document.createElement("nav");
-                var newList = document.createElement("div");
-                var titleWrapper = document.createElement("div");
-                var title = $(this).find("dt").remove(".portletTopLeft")
-                        .remove(".portletTopRight").text();
-                var self = $(this);
-
-                $(newPortlet).addClass($(this).attr("class"));
-                $(newPortlet).attr('id', $(this).attr("id"));
-                $(titleWrapper).addClass("navbar-brand");
-                $(newTitle).attr("role", "navigation").addClass(
-                        "navbar navbar-inverse");
+    $(element).find('dl.portlet').each(function() {
+        var portlet = $(this);
+        var portletSupported = false;
+        var newPortlet = document.createElement("div");
+        var newTitle = document.createElement("nav");
+        var newList = document.createElement("div");
+        var titleWrapper = document.createElement("div");
+        var title = $(this).find("dt").remove(".portletTopLeft")
+                .remove(".portletTopRight").text();
+        $(newPortlet).addClass($(this).attr("class"));
+        $(newPortlet).attr('id', $(this).attr("id"));
+        $(titleWrapper).addClass("navbar-brand");
+        $(newTitle).attr("role", "navigation").addClass("navbar navbar-inverse");
 //                        .addClass($(this).attr("class"));
-                $(titleWrapper).html(title);
-                $(newTitle).append(titleWrapper);
-                $(newList).addClass("list-group");
-                $(newPortlet).append(newTitle);
+        $(titleWrapper).html(title);
+        $(newTitle).append(titleWrapper);
+        $(newList).addClass("list-group");
+        $(newPortlet).append(newTitle);
 
-                if (self.hasClass('portletCalendar')) {
-                    //add btn and pull-left/right to button;
-                    var next = self.find(".calendarNext").addClass("navbar-btn btn btn-default").get();
-                    var prev = self.find(".calendarPrevious").addClass("navbar-btn btn btn-default").get();
-                    $(newPortlet).find(".navbar").append('<div class="controlgroup pull-right"></div>')
-                        .find('.controlgroup').append(prev).append(next);
-                    $(newPortlet).find(".navbar-brand").text(
-                    	$(newPortlet).find(".navbar-brand").text().replace("«", "").replace("»", "")
-                    );
-                }
+        if (portlet.hasClass('portletCalendar')) {
+            //add btn and pull-left/right to button;
+            var next = portlet.find(".calendarNext").addClass("navbar-btn btn btn-default").get();
+            var prev = portlet.find(".calendarPrevious").addClass("navbar-btn btn btn-default").get();
+            $(newPortlet).find(".navbar").append('<div class="controlgroup pull-right"></div>')
+                .find('.controlgroup').append(prev).append(next);
+            $(newPortlet).find(".navbar-brand").text(
+            	$(newPortlet).find(".navbar-brand").text().replace("«", "").replace("»", "")
+            );
+            //do not add list-group-item
+            $(newList).append(portlet.find(".portletItem").html());
+            newPortlet.appendChild(newList);
 
-                if (self.hasClass('portletNavigationTree')) {
-                    self.find('a').addClass('list-group-item');
-                    self.find('div > a').unwrap();
-                    self.find('li > a').unwrap();
-                    self.find('ul > a').unwrap();
-                    self.find('a > img').remove();
-                    $(newList).append(self.html());
-                }else if (self.hasClass('portletCalendar')){
-                    //do not add list-group-item
-                    $(newList).append(self.find(".portletItem").html());
-                }else if (self.hasClass('portletEvents')){
-                    /* <a>AA</a>
-                     * <span class="portletItemDetails">DD</span>
-                     * ->
-                     * <a>
-                        <h4 class="list-group-item-heading">AA</h4>
-                        <p class="list-group-item-text">DD</p>
-                      </a>
-                     */
-                    self.find("dd").each(function() {
-//                        $(newList).append($(this).wrapInner('<div></div>').html());
-                        $(this).remove('.portletBottomLeft').remove('.portletBottomRight');
-                        var link = $(this).find('a');
-                        var details = $(this).find('.portletItemDetails');
-                        if (details.length == 0){
-                            link.addClass('list-group-item');
-                        }else{
-                            link.wrapInner('<h4 class="list-group-item-heading"></h4>');
-                            link.addClass('list-group-item');
-                            details.wrap('<p class="list-group-item-text"></p>');
-                            $(this).find('.list-group-item-text').detach().appendTo(link);
-                        }
-                        $(newList).append($(this).html());
-                    });
-                }else if (self.attr('id') == 'portlet-prefs'){
-                    self.find('li').addClass('list-group-item');
-                    $(newList).append(self.html());
+        }else if (portlet.hasClass('portletNavigationTree')) {
+            portlet.find('a').addClass('list-group-item');
+            portlet.find('div > a').unwrap();
+            portlet.find('li > a').unwrap();
+            portlet.find('ul > a').unwrap();
+            portlet.find('a > img').remove();
+            $(newList).append(portlet.html());
+            newPortlet.appendChild(newList);
+
+        }else if (portlet.hasClass('portletEvents')){
+            /* <a>AA</a>
+             * <span class="portletItemDetails">DD</span>
+             * ->
+             * <a>
+                <h4 class="list-group-item-heading">AA</h4>
+                <p class="list-group-item-text">DD</p>
+              </a>
+             */
+            portlet.find("dd").each(function() {
+                $(this).remove('.portletBottomLeft').remove('.portletBottomRight');
+                var link = $(this).find('a');
+                var details = $(this).find('.portletItemDetails');
+                if (details.length == 0){
+                    link.addClass('list-group-item');
                 }else{
-                    self.find("dd").each(function() {
-                        $(this).find('a').addClass('list-group-item');
-                        $(newList).append($(this).html());
-                    });
+                    link.wrapInner('<h4 class="list-group-item-heading"></h4>');
+                    link.addClass('list-group-item');
+                    details.wrap('<p class="list-group-item-text"></p>');
+                    $(this).find('.list-group-item-text').detach().appendTo(link);
                 }
+                $(newList).append($(this).html());
                 newPortlet.appendChild(newList);
-                self.replaceWith(newPortlet);
-            }
-    );
+            });
+        }else if (portlet.hasClass('portletStaticText')){
+        
+        }else if (portlet.attr('id') == 'portlet-prefs'){
+            portlet.find('li').addClass('list-group-item');
+            $(newList).append(portlet.html());
+            newPortlet.appendChild(newList);
+        }else{
+            portletSupported = false;
+        }
+        if (!portletSupported){
+            portlet.replaceWith(newPortlet);
+        }
+
+    });
     $(element).find('.portletCalendar').each(function(){
         $(this).find('.event a').tooltip({html:true, delay: {show: 0, hide: 2000}});
     });
