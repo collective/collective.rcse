@@ -23,14 +23,17 @@ var rcseUpdatePortlets = function(element) {
     //This handle the @@manage-portlets screen
     if ($("body.template-manage-portlets").length != 0){
         $(element).find('.portletHeader').each(function(){
-            var self = $(this),
-                title = self.find('a').text(),
-                link = self.find('a').addClass("btn btn-primary btn-sm").detach();
-            self.find('.portlet-action').addClass('pull-left');
-            self.find('button').addClass("btn btn-default btn-sm");
-            self.find('a').wrap('<div class="btn-group"></div>');
-
+            var portlet = $(this);
+            var title = portlet.find('a').text();
+            var link = portlet.find('a').addClass("edit-portlet");
+            portlet.find('.portlet-action').addClass('btn-group');
+            portlet.find('button').addClass("btn btn-default btn-sm");
+            portlet.find('a').wrap('<div class="portlet-title"></div>');
         });
+        $(".edit-portlet").prepend('<i class="icon-pencil"></i> ');
+        $("#portal-column-content").attr('class', 'col-md-4');
+        $("#portal-column-one").attr('class', 'col-md-4');
+        $("#portal-column-two").attr('class', 'col-md-4');
     }
     $(element).find('div.portletStaticText').addClass('portletStaticTextNoBorder');
     $(element).find('dl.portlet').each(function() {
