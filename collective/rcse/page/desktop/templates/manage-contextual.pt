@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+<head>
+    <metal:javascript fill-slot="javascript_head_slot" tal:omit-tag="">
+        <script type="text/javascript"
+            tal:attributes="src string:${context/absolute_url}/++resource++manage-portlets.js">
+        </script>
+    </metal:javascript>
+</head>
+
+<body>
+<metal:main fill-slot="main" tal:define="ploneview context/@@plone">
+
+  <h1 class="documentFirstHeading"
+      i18n:translate="title_manage_contextual_portlets">
+      Manage portlets for
+      <q i18n:name="context_title" tal:content="context/Title">title</q>
+  </h1>
+
+  <div id="content-core">
+
+    <tal:block tal:define="is_portal_root context/@@plone_context_state/is_portal_root;"
+               tal:condition="not:is_portal_root">
+    <a class="link-parent btn btn-default" tal:condition="plone_view/getParentObject|nothing"
+       tal:attributes="href python:plone_view.getParentObject().absolute_url()+'/@@manage-portlets'"
+       >
+       <span i18n:translate="">Go to parent folder</span>
+       <i class="icon-level-up"></i>
+    </a>
+    </tal:block>
+
+
+   <a href=""
+       class="link-parent btn btn-default"
+       tal:attributes="href string:${context/absolute_url}"
+       i18n:translate="return_to_view">Return</a>
+
+  </div>
+
+</metal:main>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+<head>
+    <metal:javascript fill-slot="javascript_head_slot" tal:omit-tag="">
+        <script type="text/javascript"
+            tal:attributes="src string:${context/absolute_url}/++resource++manage-portlets.js">
+        </script>
+    </metal:javascript>
+</head>
+
+<body>
+<metal:main fill-slot="main" tal:define="ploneview context/@@plone">
+
+  <h1 class="documentFirstHeading"
+      i18n:translate="title_manage_contextual_portlets">
+      Manage portlets for
+      <q i18n:name="context_title" tal:content="context/Title">title</q>
+  </h1>
+
+  <div id="content-core">
+
+    <div data-role="controlgroup" data-mini="true" data-type="horizontal">
+      <a data-role="button" data-icon="circle-arrow-left"
+         class="link-parent"
+         tal:attributes="href string:${context/absolute_url}"
+         i18n:translate="return_to_view">Return</a>
+
+        <tal:block tal:define="is_portal_root context/@@plone_context_state/is_portal_root;"
+                   tal:condition="not:is_portal_root">
+          <a class="link-parent" tal:condition="plone_view/getParentObject|nothing"
+             data-icon="circle-arrow-up" data-role="button"
+             tal:attributes="href python:plone_view.getParentObject().absolute_url()+'/@@manage-portlets'"
+             i18n:translate="" >Go to parent folder
+        </a>
+        </tal:block>
+    </div>
+
+    <div data-role="controlgroup" data-type="horizontal">
+        <a data-role="button" data-icon="double-angle-left"
+           href="#panel-left" i18n:translate="">Open left panel</a>
+        <a data-role="button" data-icon="double-angle-right" data-iconpos="right"
+           href="#panel-right" i18n:translate="">Open right panel</a>
+    </div>
+  </div>
+
+</metal:main>
+</body>
+</html>

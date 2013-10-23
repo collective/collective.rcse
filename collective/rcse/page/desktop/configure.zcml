@@ -146,5 +146,13 @@
       layer="collective.rcse.layer.DesktopLayer"
       permission="collective.requestaccess.reviewrequest"
       />
+      <browser:page
+        name="manage-portlets"
+        for="plone.portlets.interfaces.ILocalPortletAssignable"
+        class="collective.rcse.page.controller.manage_portlets.ManageContextualPortlets"
+        permission="plone.app.portlets.ManagePortlets"
+        template="templates/manage-contextual.pt"
+        layer="collective.rcse.layer.DesktopLayer"
+        />
 
 </configure>

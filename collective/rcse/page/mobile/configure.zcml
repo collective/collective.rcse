@@ -152,5 +152,13 @@
       permission="zope2.View"
       allowed_interface="collective.rcse.page.controller.comments_view.ICommentsView"
       />
+      <browser:page
+        name="manage-portlets"
+        for="plone.portlets.interfaces.ILocalPortletAssignable"
+        class="collective.rcse.page.controller.manage_portlets.ManageContextualPortlets"
+        permission="plone.app.portlets.ManagePortlets"
+        template="templates/manage-contextual.pt"
+        layer="collective.rcse.layer.MobileLayer"
+        />
 
 </configure>
