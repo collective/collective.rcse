@@ -21,21 +21,21 @@ var rcseUpdatePortlets = function(element) {
         element = document;
     }
     //This handle the @@manage-portlets screen
-    $(element).find('.portletHeader').each(function(){
-        var self = $(this),
-            title = self.find('a').text(),
-            link = self.find('a').addClass("btn btn-primary btn-sm").detach();
-//        self.addClass('panel panel-primary');
-        self.find('.portlet-action').addClass('pull-left');
-        self.find('button').addClass("btn btn-default btn-sm");
-//        self.find('.managedPortletActions').append(link);
-        self.find('a').wrap('<div class="btn-group"></div>');
+    if ($("body.template-manage-portlets").length != 0){
+        $(element).find('.portletHeader').each(function(){
+            var self = $(this),
+                title = self.find('a').text(),
+                link = self.find('a').addClass("btn btn-primary btn-sm").detach();
+            self.find('.portlet-action').addClass('pull-left');
+            self.find('button').addClass("btn btn-default btn-sm");
+            self.find('a').wrap('<div class="btn-group"></div>');
 
-    });
+        });
+    }
     $(element).find('div.portletStaticText').addClass('portletStaticTextNoBorder');
     $(element).find('dl.portlet').each(function() {
         var portlet = $(this);
-        var portletSupported = false;
+        var portletSupported = true;
         var newPortlet = document.createElement("div");
         var newTitle = document.createElement("nav");
         var newList = document.createElement("div");
@@ -63,6 +63,7 @@ var rcseUpdatePortlets = function(element) {
             );
             //do not add list-group-item
             $(newList).append(portlet.find(".portletItem").html());
+            portlet.find('.event a').tooltip({html:true, delay: {show: 0, hide: 2000}});
             newPortlet.appendChild(newList);
 
         }else if (portlet.hasClass('portletNavigationTree')) {
@@ -98,8 +99,7 @@ var rcseUpdatePortlets = function(element) {
                 $(newList).append($(this).html());
                 newPortlet.appendChild(newList);
             });
-        }else if (portlet.hasClass('portletStaticText')){
-        
+
         }else if (portlet.attr('id') == 'portlet-prefs'){
             portlet.find('li').addClass('list-group-item');
             $(newList).append(portlet.html());
@@ -107,13 +107,13 @@ var rcseUpdatePortlets = function(element) {
         }else{
             portletSupported = false;
         }
-        if (!portletSupported){
+        if (portletSupported){
             portlet.replaceWith(newPortlet);
         }
 
     });
     $(element).find('.portletCalendar').each(function(){
-        $(this).find('.event a').tooltip({html:true, delay: {show: 0, hide: 2000}});
+        
     });
 }
 /**
