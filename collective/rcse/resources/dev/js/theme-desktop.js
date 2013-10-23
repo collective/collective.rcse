@@ -35,6 +35,7 @@ var rcseUpdatePortlets = function(element) {
         $("#portal-column-one").attr('class', 'col-md-4');
         $("#portal-column-two").attr('class', 'col-md-4');
     }
+    $(element).find('.managePortletsLink a').addClass('btn btn-default');
     $(element).find('div.portletStaticText').addClass('portletStaticTextNoBorder');
     $(element).find('dl.portlet').each(function() {
         var portlet = $(this);
@@ -130,6 +131,15 @@ var rcseUpdatePortlets = function(element) {
         }else if (portlet.hasClass('votePortlet')){
             var content = portlet.find('.portletItem').wrapInner('<div class="portletVoteInner"></div>').html();
             $(newPortlet).append(content); 
+
+        }else if (portlet.hasClass('portletFavoritingPortlet')){
+            portlet.find("dd").each(function() {
+                var link = $(this).find('a');
+                link.addClass('list-group-item');
+                $(newList).append($(this).html());
+            });
+            newPortlet.appendChild(newList);
+
         }else if (portlet.attr('id') == 'portlet-prefs'){
             portlet.find('li').addClass('list-group-item');
             $(newList).append(portlet.html());
