@@ -100,7 +100,9 @@ var rcseUpdatePortlets = function(element) {
                 newPortlet.appendChild(newList);
             });
         }else if (portlet.hasClass('portletLocalUsers')){
-	    portlet.find('img').tooltip();
+            $(newList).append(portlet.find('.portletItem').html());
+	    $(newList).find('img').tooltip();
+	    newPortlet.appendChild(newList);
         }else if (portlet.attr('id') == 'portlet-prefs'){
             portlet.find('li').addClass('list-group-item');
             $(newList).append(portlet.html());
