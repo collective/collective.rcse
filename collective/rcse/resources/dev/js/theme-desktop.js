@@ -99,8 +99,34 @@ var rcseUpdatePortlets = function(element) {
                 $(newList).append($(this).html());
                 newPortlet.appendChild(newList);
             });
+
         }else if (portlet.hasClass('portletLocalUsers')){
-	    portlet.find('img').tooltip();
+            portlet.find('img').tooltip();
+
+        }else if (portlet.hasClass('portletStaticText')){
+            var content = portlet.find('.portletItem').wrapInner('<div class="portletStaticTextInner"></div>').html();
+            $(newPortlet).append(content); 
+
+        }else if (portlet.hasClass('portletRss')){
+            portlet.find("dd").each(function() {
+                var link = $(this).find('a');
+                link.addClass('list-group-item');
+                $(newList).append($(this).html());
+            });
+            newPortlet.appendChild(newList);
+
+        }else if (portlet.hasClass('portletRecent')){
+            portlet.find("dd").each(function() {
+                var link = $(this).find('a');
+                link.addClass('list-group-item');
+                $(newList).append($(this).html());
+            });
+            newPortlet.appendChild(newList);
+
+        }else if (portlet.hasClass('votePortlet')){
+            var content = portlet.find('.portletItem').wrapInner('<div class="portletVoteInner"></div>').html();
+            $(newPortlet).append(content); 
+
         }else if (portlet.attr('id') == 'portlet-prefs'){
             portlet.find('li').addClass('list-group-item');
             $(newList).append(portlet.html());
