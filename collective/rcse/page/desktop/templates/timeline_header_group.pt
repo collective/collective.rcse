@@ -7,6 +7,11 @@
                        tal:attributes="src string:${context/absolute_url}/group_photo" />
                 </div>
                 <div class="media-body">
+		    <div tal:define="creator_info context/creator_memberinfo"
+			 tal:condition="creator_info/advertiser"
+			 class="bullhorn pull-right">
+		      <span class="icon icon-bullhorn icon-3x"></span>
+		    </div>
                     <h4 class="media-heading">
                         <a class="fn url" tal:attributes="href context/absolute_url"
 			   tal:content="context/Title"></a>

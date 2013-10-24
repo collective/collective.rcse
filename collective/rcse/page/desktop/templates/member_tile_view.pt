@@ -26,6 +26,9 @@
         </p>
     </tal:block>
 
+    <div tal:condition="view/advertiser" class="bullhorn pull-right">
+      <span class="icon icon-bullhorn icon-5x"></span>
+    </div>
 
     <h2 tal:content="string:${view/first_name} ${view/last_name}"></h2>
     <h3 tal:content="string:${view/function} in ${view/company}"></h3>

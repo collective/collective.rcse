@@ -103,6 +103,10 @@ class IMember(model.Schema):
         title=_(u"City"),
         )
 
+    advertiser = schema.Bool(
+        title=_(u"Advertiser")
+        )
+
     bio = RichText(
         title=_(u"Presentation"),
         required=False
