@@ -64,8 +64,6 @@ class ScenarioTestCase(unittest.TestCase):
         count = user1.find_element_by_id('notifications-count').text
         self.assertEqual(count, u'0', 'Notification was not validated')
 
-    """
-
     def test_register(self):
         user = self.getNewBrowser(self.portal_url)
         self.register(user, 'toto', 'passs', email="toto@example.com",
@@ -143,7 +141,7 @@ class ScenarioTestCase(unittest.TestCase):
         comments = [comment.text for comment in comments]
         self.assertIn("coucou", comments)
         browser.close()
-    """
+
 
 class DesktopContentTypesTestCase(ScenarioTestCase, DesktopTheme):
     is_mobile = False
