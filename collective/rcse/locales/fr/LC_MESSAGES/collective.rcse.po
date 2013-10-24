@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-10-23 07:53+0000\n"
+"POT-Creation-Date: 2013-10-24 09:50+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -357,10 +357,6 @@ msgstr "Discussions"
 msgid "Display new content of this group in your news"
 msgstr "Afficher les nouveaux contenu de ce groupe dans votre fil d'actualité"
 
-#: ./content/visibility.py:27
-msgid "Display: ${attr}"
-msgstr "Afficher: ${attr}"
-
 #: ./profiles/settings/actions.xml
 msgid "Do not display anymore new content from this group in your news"
 msgstr "Ne plus afficher les nouveaux contenu de ce groupe dans votre fil d'actualité"
@@ -422,10 +418,6 @@ msgstr "Evénement"
 #: ./page/controller/events_view.py:121
 msgid "Event added"
 msgstr "Evénement ajouté"
-
-#: ./viewlet/desktop/templates/portal_header.pt:148
-msgid "Events"
-msgstr ""
 
 #: ./content/member.py:135
 msgid "Expertise"
@@ -511,6 +503,10 @@ msgstr "Groupe"
 #: ./viewlet/desktop/templates/portal_header.pt:17
 msgid "Groups"
 msgstr "Groupes"
+
+#: ./content/visibility.py:30
+msgid "Hide: ${attr}"
+msgstr "Masquer: ${attr}"
 
 #: ./content/vocabularies.py:89
 #: ./setuphandler.py:105
@@ -799,7 +795,7 @@ msgstr ""
 msgid "Presentation"
 msgstr "Présentation"
 
-#: ./content/visibility.py:34
+#: ./content/visibility.py:37
 msgid "Privacy"
 msgstr "Vie privée"
 
@@ -925,10 +921,6 @@ msgstr "Secteur"
 #: ./viewlet/desktop/templates/portal_header.pt:99
 msgid "See all notifications"
 msgstr "Voir toutes les notifications"
-
-#: ./page/desktop/templates/member_tile_view.pt:32
-msgid "See groups"
-msgstr "Voir les groupes"
 
 #: ./page/desktop/templates/group_edit.pt:55
 #: ./page/mobile/templates/group_edit.pt:44

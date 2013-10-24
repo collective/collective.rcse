@@ -101,7 +101,7 @@ class AuthenticatedMemberInfoView(BrowserView):
             if membrane is None:
                 return None
             pref = '%s%s' % (NAMESPACE, name)
-            if getattr(membrane, pref, True):
+            if not getattr(membrane, pref, False):
                 return getattr(membrane, name)
             else:
                 return ""

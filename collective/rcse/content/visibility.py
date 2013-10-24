@@ -1,8 +1,10 @@
+from collections import OrderedDict
 from plone.supermodel.interfaces import FIELDSETS_KEY
 from plone.supermodel import model
 from zope.i18n import translate
 from zope.interface.interface import InterfaceClass
 from zope import schema
+from zope.schema._schema import getFieldsInOrder
 
 from collective.rcse.i18n import _
 
@@ -17,14 +19,15 @@ class addVisibilityCheckbox(object):
         self.privacy_blacklist = privacy_blacklist
 
     def __call__(self, iface):
-        attrs = iface.__dict__['_InterfaceClass__attrs'].items()
-        fields = {}
+        #attrs = iface.__dict__['_InterfaceClass__attrs'].items()
+        attrs = getFieldsInOrder(iface)
+        fields = OrderedDict()
         for name, attr in attrs:
             if name in self.privacy_blacklist:
                 continue
             if isinstance(attr, schema.Field):
                 field = schema.Bool(
-                    title=_(u'Display: ${attr}',
+                    title=_(u'Hide: ${attr}',
                             mapping={'attr': attr.title}),
                     required=False
                     )

@@ -27,106 +27,106 @@
     </tal:block>
 
 
-    <h2 tal:content="string:${context/first_name} ${context/last_name}"></h2>
-    <h3 tal:content="string:${context/function} in ${context/company}"></h3>
-    <a i18n:translate="" tal:attributes="href string:${context/absolute_url}/groups_view">See groups</a>
-    <h3 tal:condition="python: context.birthdate
-                             or context.bio
-                             or context.lang
-                             or context.areas_of_expertise
-                             or context.interests"
+    <h2 tal:content="string:${view/first_name} ${view/last_name}"></h2>
+    <h3 tal:content="string:${view/function} in ${view/company}"></h3>
+    <!-- a i18n:translate="" tal:attributes="href string:${context/absolute_url}/groups_view">See groups</a -->
+    <h3 tal:condition="python: view.birthdate
+                             or view.bio
+                             or view.lang
+                             or view.areas_of_expertise
+                             or view.interests"
         i18n:translate="">Personal information</h3>
-    <div class="birthdate" tal:condition="context/birthdate" i18n:translate="">
+    <div class="birthdate" tal:condition="view/birthdate" i18n:translate="">
         Born the
-        <span i18n:name="birthdate" tal:content="context/birthdate"></span>
+        <span i18n:name="birthdate" tal:content="view/birthdate"></span>
     </div>
-    <h3 tal:condition="context/bio">Presentation</h3>
-    <div class="bio" tal:condition="context/bio" tal:content="structure context/bio/output"></div>
-    <h4 tal:condition="context/lang" i18n:translate="">Spoken languages</h4>
-    <div tal:condition="context/lang" tal:content="python: ', '.join(context.lang)"></div>
-    <h4 tal:condition="context/areas_of_expertise" i18n:translate="">Areas of
+    <h3 tal:condition="view/bio">Presentation</h3>
+    <div class="bio" tal:condition="view/bio" tal:content="structure view/bio/output"></div>
+    <h4 tal:condition="view/lang" i18n:translate="">Spoken languages</h4>
+    <div tal:condition="view/lang" tal:content="python: ', '.join(view.lang)"></div>
+    <h4 tal:condition="view/areas_of_expertise" i18n:translate="">Areas of
         expertise</h4>
-    <div tal:condition="context/areas_of_expertise" tal:content="python: ', '.join(context.areas_of_expertise)"></div>
-    <h4 tal:condition="context/interests" i18n:translate="">Interests</h4>
-    <div tal:condition="context/interests" tal:content="python: ', '.join(context.interests)"></div>
+    <div tal:condition="view/areas_of_expertise" tal:content="python: ', '.join(view.areas_of_expertise)"></div>
+    <h4 tal:condition="view/interests" i18n:translate="">Interests</h4>
+    <div tal:condition="view/interests" tal:content="python: ', '.join(view.interests)"></div>
     <h3
-        tal:condition="python: context.professional_email
-                             or context.personal_email
-                             or context.professional_mobile_phone
-                             or context.personal_mobile_phone
-                             or context.professional_landline_phone
-                             or context.personal_landline_phone
-                             or context.skype
-                             or context.website
-                             or context.blog
-                             or context.viadeo
-                             or context.linkedin
-                             or context.google
-                             or context.twitter"
+        tal:condition="python: view.professional_email
+                             or view.personal_email
+                             or view.professional_mobile_phone
+                             or view.personal_mobile_phone
+                             or view.professional_landline_phone
+                             or view.personal_landline_phone
+                             or view.skype
+                             or view.website
+                             or view.blog
+                             or view.viadeo
+                             or view.linkedin
+                             or view.google
+                             or view.twitter"
         i18n:translate="">Contact information</h3>
-    <div tal:condition="context/professional_email">
+    <div tal:condition="view/professional_email">
         <i class="icon-envelope"></i>&nbsp;
         <span i18n:translate="">Professional e-mail</span>
     </div>
-    <div tal:content="context/professional_email"></div>
-    <div tal:condition="context/personal_email">
+    <div tal:content="view/professional_email"></div>
+    <div tal:condition="view/personal_email">
         <i class="icon-envelope"></i>&nbsp;
         <span i18n:translate="">Personal e-mail</span>
     </div>
-    <div tal:content="context/personal_email"></div>
-    <div tal:condition="context/professional_mobile_phone">
+    <div tal:content="view/personal_email"></div>
+    <div tal:condition="view/professional_mobile_phone">
         <i class="icon-mobile-phone"></i>&nbsp;
         <span i18n:translate="">Professional mobile phone</span>
     </div>
-    <div tal:content="context/professional_mobile_phone"></div>
-    <div tal:condition="context/personal_mobile_phone">
+    <div tal:content="view/professional_mobile_phone"></div>
+    <div tal:condition="view/personal_mobile_phone">
         <i class="icon-mobile-phone"></i>&nbsp;
         <span i18n:translate="">Personal mobile phone</span>
     </div>
-    <div tal:content="context/personal_mobile_phone"></div>
-    <div tal:condition="context/professional_landline_phone">
+    <div tal:content="view/personal_mobile_phone"></div>
+    <div tal:condition="view/professional_landline_phone">
         <i class="icon-phone"></i>&nbsp;
         <span i18n:translate="">Professional landline phone</span>
     </div>
-    <div tal:content="context/professional_landline_phone"></div>
-    <div tal:condition="context/personal_landline_phone">
+    <div tal:content="view/professional_landline_phone"></div>
+    <div tal:condition="view/personal_landline_phone">
         <i class="icon-phone"></i>&nbsp;
         <span i18n:translate="">Personal landline phone</span>
     </div>
-    <div tal:content="context/personal_landline_phone"></div>
-    <div tal:condition="context/skype">
+    <div tal:content="view/personal_landline_phone"></div>
+    <div tal:condition="view/skype">
         <i class="icon-skype"></i>&nbsp;
         <span i18n:translate="">Skype</span>
     </div>
-    <div tal:content="context/skype"></div>
-    <div tal:condition="context/website">
+    <div tal:content="view/skype"></div>
+    <div tal:condition="view/website">
         <i class="icon-globe"></i>&nbsp;
         <span i18n:translate="">Website</span>
     </div>
-    <div tal:content="context/website"></div>
-    <div tal:condition="context/blog">
+    <div tal:content="view/website"></div>
+    <div tal:condition="view/blog">
         <i class="icon-hand-right"></i>&nbsp;
         <span i18n:translate="">Blog</span>
     </div>
-    <div tal:content="context/blog"></div>
-    <div tal:condition="context/viadeo">
+    <div tal:content="view/blog"></div>
+    <div tal:condition="view/viadeo">
         <i class="icon-arrow-right"></i>&nbsp;
         <span i18n:translate="">Viadeo</span>
     </div>
-    <div tal:content="context/viadeo"></div>
-    <div tal:condition="context/linkedin">
+    <div tal:content="view/viadeo"></div>
+    <div tal:condition="view/linkedin">
         <i class="icon-linkedin"></i>&nbsp;
         <span i18n:translate="">LinkedIn</span>
     </div>
-    <div tal:content="context/linkedin"></div>
-    <div tal:condition="context/google">
+    <div tal:content="view/linkedin"></div>
+    <div tal:condition="view/google">
         <i class="icon-google-plus"></i>&nbsp;
         <span i18n:translate="">Google+</span>
     </div>
-    <div tal:content="context/google"></div>
-    <div tal:condition="context/twitter">
+    <div tal:content="view/google"></div>
+    <div tal:condition="view/twitter">
         <i class="icon-twitter"></i>&nbsp;
         <span i18n:translate="">Twitter</span>
     </div>
-    <div tal:content="context/twitter"></div>
+    <div tal:content="view/twitter"></div>
 </div>

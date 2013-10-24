@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-23 07:53+0000\n"
+"POT-Creation-Date: 2013-10-24 09:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -356,10 +356,6 @@ msgstr ""
 msgid "Display new content of this group in your news"
 msgstr ""
 
-#: ./content/visibility.py:27
-msgid "Display: ${attr}"
-msgstr ""
-
 #: ./profiles/settings/actions.xml
 msgid "Do not display anymore new content from this group in your news"
 msgstr ""
@@ -420,10 +416,6 @@ msgstr ""
 
 #: ./page/controller/events_view.py:121
 msgid "Event added"
-msgstr ""
-
-#: ./viewlet/desktop/templates/portal_header.pt:148
-msgid "Events"
 msgstr ""
 
 #: ./content/member.py:135
@@ -509,6 +501,10 @@ msgstr ""
 
 #: ./viewlet/desktop/templates/portal_header.pt:17
 msgid "Groups"
+msgstr ""
+
+#: ./content/visibility.py:30
+msgid "Hide: ${attr}"
 msgstr ""
 
 #: ./content/vocabularies.py:89
@@ -798,7 +794,7 @@ msgstr ""
 msgid "Presentation"
 msgstr ""
 
-#: ./content/visibility.py:34
+#: ./content/visibility.py:37
 msgid "Privacy"
 msgstr ""
 
@@ -923,10 +919,6 @@ msgstr ""
 
 #: ./viewlet/desktop/templates/portal_header.pt:99
 msgid "See all notifications"
-msgstr ""
-
-#: ./page/desktop/templates/member_tile_view.pt:32
-msgid "See groups"
 msgstr ""
 
 #: ./page/desktop/templates/group_edit.pt:55
