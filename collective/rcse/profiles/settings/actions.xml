@@ -119,6 +119,39 @@
  </object>
 
  <object name="site_actions" meta_type="CMF Action Category">
+  <object name="legal_notices" meta_type="CMF Action" i18n:domain="collective.rcse">
+   <property name="title" i18n:translate="">Legal notices</property>
+   <property name="description" i18n:translate=""></property>
+   <property name="url_expr">string:$portal_url/legal-notices</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr"></property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+  <object name="terms_of_services" meta_type="CMF Action" i18n:domain="collective.rcse">
+   <property name="title" i18n:translate="">Terms of services</property>
+   <property name="description" i18n:translate=""></property>
+   <property name="url_expr">string:$portal_url/terms-of-services</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr"></property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+  <object name="credits" meta_type="CMF Action" i18n:domain="collective.rcse">
+   <property name="title" i18n:translate="">Credits</property>
+   <property name="description" i18n:translate=""></property>
+   <property name="url_expr">string:http://plone.org</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr"></property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">False</property>
+  </object>
   <object name="themeswitcher_desktop" meta_type="CMF Action" i18n:domain="collective.rcse">
    <property name="title" i18n:translate="">themeswitcher_desktop</property>
    <property name="description" i18n:translate=""></property>

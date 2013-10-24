@@ -3,9 +3,9 @@
     tal:condition="view/site_actions"
     i18n:domain="plone">
 
+<ul class="list-inline">
     <tal:link tal:repeat="saction view/site_actions">
-        <a
-           href="" class="btn btn-default"
+        <li><a href=""
            tal:define="title saction/title;
                        id saction/id;
                        accesskey python: accesskeys.get(id, '');"
@@ -17,5 +17,8 @@
                            title title;
                            accesskey accesskey;
                            id string:siteaction-${saction/id};"
-           >Site action</a></tal:link>
+           >Site action</a></li>
+    </tal:link>
+</ul>
+
 </div>
