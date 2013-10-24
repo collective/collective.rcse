@@ -35,7 +35,7 @@
 	    <a class="load-content-tile-in-modal"
 	       data-toggle="modal"
 	       href="#content-modal"
-	       tal:attributes="data-href python:memberinfo.get_membrain().getURL()"
+	       tal:attributes="data-href python:memberinfo.url"
 	       tal:content="memberinfo/fullname">
 	      userid
 	    </a>

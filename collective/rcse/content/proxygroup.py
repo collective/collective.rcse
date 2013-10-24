@@ -113,7 +113,7 @@ def handle_group_wfstate_change(context, event):
 
 
 def handle_group_removed(context, event):
-    wftool = getToolByName(self.context, "portal_workflow")
+    wftool = getToolByName(context, "portal_workflow")
     status = wftool.getInfoFor(event.object, "review_state")
     if status != "moderated":
         return

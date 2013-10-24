@@ -30,7 +30,7 @@ var rcseUpdatePortlets = function(element) {
             portlet.find('button').addClass("btn btn-default btn-sm");
             portlet.find('a').wrap('<div class="portlet-title"></div>');
         });
-        $(".edit-portlet").prepend('<i class="icon-pencil"></i> ');
+        $(element).find(".edit-portlet").prepend('<i class="icon-pencil"></i> ');
         $("#portal-column-content").attr('class', 'col-md-4');
         $("#portal-column-one").attr('class', 'col-md-4');
         $("#portal-column-two").attr('class', 'col-md-4');
@@ -380,7 +380,35 @@ var rcseInitPortletCalendar = function(){
         load_portlet_calendar(event, $(this));
     });
 }
-
+var rcseInitManagePortlets = function(){
+    $('body.template-manage-portlets #portal-columns').on('submit', '.portlet-action', function(e){
+        $('#kss-spinner').show();
+        var form = $(this);
+        var formdata = form.serializeArray();
+        var data = {};
+        for(var i=0; i<formdata.length; i++){
+            data[formdata[i].name] = formdata[i].value;
+        }
+        data.ajax = true;
+        $.ajax({
+            url: form.attr('action'),
+            data: data,
+            type: 'POST',
+            success: function(data){
+                debugger;
+                var container = form.parents('.portlets-manager');
+                var parent = container.parent();
+                container.replaceWith($(data));
+                rcseApplyTransform(parent);
+                $('#kss-spinner').hide();
+            },
+            error: function(){
+                $('#kss-spinner').hide();
+            }
+        });
+        return false;
+    });
+}
 var rcseInitTimeline = function() {
     $("a.rcse_tile").append('<div><i class="icon-spinner icon-spin icon-large"></i></div>');
     $("a.rcse_tile").waypoint(function(direction) {
@@ -880,6 +908,7 @@ $(document).on("ready", function() {
     rcseInitMemberDatatables();
     rcseInitEditBar();
     rcseInitChromeContentEditableWorkaround();
+    rcseInitManagePortlets();
 });
 $.webshims.setOptions("basePath", portal_url + "/++resource++webshims/");
 $.webshims.setOptions('forms', {
