@@ -38,10 +38,10 @@ module.exports = function(grunt) {
                 src : [ 'images/*.png', ],
                 dest : '../desktop/'
             },
-            desktopselect2 : {
+            desktopchosen : {
                 expand : true,
-                cwd : 'app/bower_components/select2/',
-                src : [ '*.png', '*.gif' ],
+                cwd : 'app/bower_components/chosen/',
+                src : [ '*.png' ],
                 dest : '../desktop/css/'
             },
             desktopmediaelement : {
@@ -83,7 +83,7 @@ module.exports = function(grunt) {
                         'app/bower_components/matchmedia/matchMedia.js',
                         'app/bower_components/bootstrap/dist/js/bootstrap.js',
                         'app/bower_components/picturefill/picturefill.js',
-                        'app/bower_components/select2/select2.js',
+                        'app/bower_components/chosen/chosen.jquery.js',
                         'app/bower_components/jquery-waypoints/waypoints.js',
                         'app/bower_components/jquery.lazyload/jquery.lazyload.js',
                         'app/bower_components/flot/jquery.flot.js',
@@ -116,7 +116,7 @@ module.exports = function(grunt) {
                 dest : '../desktop/js/desktop.js'
             },
             mobilejs : {
-                src : [ 'js/jquery-1.9.1.js',
+                src : [ 'app/bower_components/jquery-1.9/jquery.js',
                         'app/bower_components/jqueryform/jquery.form.js',
                         //'app/bower_components/jquery-mobile-bower/js/jquery.mobile-1.3.2.js',
                         'js/jquery.mobile.js',
@@ -195,7 +195,7 @@ module.exports = function(grunt) {
                     compile : true,
                     compress : false
                 },
-                src : [ 'app/bower_components/select2/select2.css',
+                src : [ 'app/bower_components/chosen/chosen.css',
                         'app/bower_components/datatables/media/css/jquery.dataTables.css',
                         'app/bower_components/bootstrap/dist/css/bootstrap.css',
                         'app/bower_components/bootstrap/dist/css/bootstrap-theme.css',
@@ -233,14 +233,33 @@ module.exports = function(grunt) {
         },
 
         watch : {
-            recess : {
-                files : [ 'less/*.less' ],
-                tasks : [ 'dist-css' ]
+            desktoprecess : {
+                files : [
+                         'less/desktop.plone.less',
+                         'less/desktop.less',
+                         'less/collective.polls.css',
+                         ],
+                tasks : [ 'desktop-dist-css' ]
             },
-            concat : {
-                files : [ 'js/*.js', 'js/custom/*.js' ],
-                tasks : [ 'dist-js' ]
-            }
+            mobilerecess : {
+                files : [
+                         'less/font-awesome-mobile.less',
+                         'less/mobile.plone.less', 'less/mobile.less'
+                         ],
+                tasks : [ 'mobile-dist-css' ]
+            },
+            desktopconcat : {
+                files : [
+                         'js/custom/jquery.oembed.js',
+                         'js/custom/cookie_functions.js',
+                         'js/custom/comments.js',
+                         'js/custom/jquery.highlightsearchterms.js',
+                         'js/polls.js',
+                         'js/collective.poll.js',
+                         'js/theme-common.js',
+                         'js/theme-desktop.js'
+                         ],
+                tasks : [ 'desktop-dist-js' ]
         }
     });
 
@@ -253,17 +272,17 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-recess');
     grunt.loadNpmTasks('grunt-bower-task');
 
-    // JS distribution task.
+    // bower
     grunt.registerTask('install', [ 'bower:install' ]);
     // JS distribution task.
-    grunt.registerTask('dist-js', [ 'concat:desktopjs', 'concat:mobilejs',
-            'uglify' ]);
+    grunt.registerTask('desktop-dist-js', [ 'concat:desktopjs' ]);
+    grunt.registerTask('mobile-dist-js', [ 'concat:mobilejs' ]);
+    grunt.registerTask('dist-js', [ 'desktop-dist-js', 'uglify:desktopjs', 'mobile-dist-js', 'uglify:mobilejs' ]);
 
     // CSS distribution task.
-    grunt
-            .registerTask('dist-css', [ 'recess', 'concat:desktopcss',
-                    'concat:mobilecss', 'concat:mobilemincss',
-                    'concat:desktopmincss' ]);
+    grunt.registerTask('desktop-dist-css', [ 'recess:desktopless', 'concat:desktopcss' ]);
+    grunt.registerTask('mobile-dist-css', [ 'recess:mobileless', 'concat:mobilecss' ]);
+    grunt.registerTask('dist-css', [ 'desktop-dist-css', 'mobile-dist-css' , 'concat:desktopmincss', 'concat:mobilemincss' ]);
 
     // Fonts distribution task.
     // grunt.registerTask('dist-fonts', ['copy']);
