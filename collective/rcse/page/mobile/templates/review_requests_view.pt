@@ -22,8 +22,9 @@
     <ul data-role="listview"
 	data-inset="true"
 	data-filter="true"
+	i18n:domain="collective.rcse"
 	i18n:attributes="data-filter-placeholder"
-	data-filter-placeholder="Search favorites">
+	data-filter-placeholder="Search requests">
       <tal:req tal:repeat="req view/requests">
 	<li tal:define="memberinfo nocall:context/get_memberinfo;
 			dummy python:memberinfo(req['userid'])">

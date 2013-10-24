@@ -4,6 +4,7 @@ from collective.rcse.tests.selenium_mobile import MobileTheme
 from collective.rcse import testing
 import unittest2 as unittest
 from selenium.common.exceptions import StaleElementReferenceException
+from selenium.common.exceptions import NoSuchElementException
 
 class ScenarioTestCase(unittest.TestCase):
     def setUp(self):
@@ -61,7 +62,7 @@ class ScenarioTestCase(unittest.TestCase):
         content = user1.find_element_by_id('content').text
         self.assertIn(notification, content, 'Notification not in all notifications')
         user1.get('%s/home/companys-public-group' % self.portal_url)
-        count = user1.find_element_by_id('notifications-count').text
+        self.assertRaises(NoSuchElementException, user1.find_element_by_id, 'notifications-count')
         self.assertEqual(count, u'0', 'Notification was not validated')
 
     def test_register(self):

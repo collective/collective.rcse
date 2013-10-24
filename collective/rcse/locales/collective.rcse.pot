@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-24 09:50+0000\n"
+"POT-Creation-Date: 2013-10-24 10:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -906,9 +906,18 @@ msgstr ""
 msgid "Search groups"
 msgstr ""
 
+#: ./page/mobile/templates/my_requests_view.pt:25
+msgid "Search invitations"
+msgstr ""
+
 #: ./page/mobile/templates/users_directory_view.pt:60
 #: ./page/mobile/templates/users_manage.pt:61
 msgid "Search members"
+msgstr ""
+
+#: ./page/mobile/templates/my_requests_view.pt:53
+#: ./page/mobile/templates/review_requests_view.pt:22
+msgid "Search requests"
 msgstr ""
 
 #: ./content/company.py:26
