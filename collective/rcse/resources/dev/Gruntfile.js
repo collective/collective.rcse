@@ -278,12 +278,15 @@ module.exports = function(grunt) {
     // JS distribution task.
     grunt.registerTask('desktop-dist-js', [ 'concat:desktopjs' ]);
     grunt.registerTask('mobile-dist-js', [ 'concat:mobilejs' ]);
-    grunt.registerTask('dist-js', [ 'desktop-dist-js', 'uglify:desktopjs', 'mobile-dist-js', 'uglify:mobilejs' ]);
+    grunt.registerTask('dist-js', [ 'desktop-dist-js', 'uglify:desktopjs',
+                                    'mobile-dist-js', 'uglify:mobilejs' ]);
 
     // CSS distribution task.
     grunt.registerTask('desktop-dist-css', [ 'recess:desktopless', 'concat:desktopcss' ]);
     grunt.registerTask('mobile-dist-css', [ 'recess:mobileless', 'concat:mobilecss' ]);
-    grunt.registerTask('dist-css', [ 'desktop-dist-css', 'mobile-dist-css' , 'concat:desktopmincss', 'concat:mobilemincss' ]);
+    grunt.registerTask('dist-css', [  'desktop-dist-css', 'recess:desktopmin',
+                                      'mobile-dist-css' , 'recess:mobilemin',
+                                      'concat:desktopmincss', 'concat:mobilemincss' ]);
 
     // Fonts distribution task.
     // grunt.registerTask('dist-fonts', ['copy']);
