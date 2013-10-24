@@ -36,7 +36,7 @@ class Join(ajax.AjaxAction):
             #just add the localrole
             group.manage_setLocalRoles(member.getId(), [role])
             msg = _(u"You have joined this group")
-        else:
+        elif state == "moderated":
             #You are supposed to already have view context to be here
             manager = group.restrictedTraverse("@@request_manager")
             request = manager.create()
@@ -73,7 +73,8 @@ class Quit(ajax.AjaxAction):
         )
         group.manage_delLocalRoles([member.getId()])
         msg = _(u"You have quit this group")
-        self.request.response.redirect(self.context.absolute_url())
+        url = group.aq_parent.absolute_url()
+        self.request.response.redirect(url)
         status = IStatusMessage(self.request)
         status.add(msg)
 
@@ -81,14 +82,10 @@ class Quit(ajax.AjaxAction):
 class ProxyJoin(Join):
     kind = ProxyGroupSchema
     def get_group(self):
-        manager = self.context.restrictedTraverse("@@proxy_group_manager")
-        manager.update()
-        return manager.group
+        return self.context
 
 
 class ProxyQuit(Quit):
     kind = ProxyGroupSchema
     def get_group(self):
-        manager = self.context.restrictedTraverse("@@proxy_group_manager")
-        manager.update()
-        return manager.group
+        return self.context

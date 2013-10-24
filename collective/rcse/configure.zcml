@@ -86,9 +86,9 @@
 		   collective.requestaccess.event.IRequestValidatedEvent"
 	      />
   <subscriber handler=".subscribers.handle_request_refused"
-	      for="collective.requestaccess.interfaces.RequestSchema
-		   collective.requestaccess.event.IRequestRefusedEvent"
-	      />
+          for="collective.requestaccess.interfaces.RequestSchema
+           collective.requestaccess.event.IRequestRefusedEvent"
+          />
 
   <adapter factory=".adapter.CioppinoLike" />
   <adapter factory=".adapter.CioppinoUnlike" />

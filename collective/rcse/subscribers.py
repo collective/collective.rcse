@@ -6,6 +6,8 @@ from zope.component.hooks import getSite
 
 def handle_request_added(context, event):
     target = uuidToObject(context.target)
+    if target is None:
+        import pdb;pdb.set_trace()
     if context.rtype == 'request':
         where = '/'.join(target.getPhysicalPath())
         what = 'request_access_request'
@@ -46,6 +48,19 @@ def _handle_request(context, event, what):
 
 def handle_request_validated(context, event):
     _handle_request(context, event, 'request_access_validated')
+    request = context
+    target = uuidToObject(request.target)
+    if target.portal_type == 'collective.rcse.proxygroup':
+        name = "@@proxy_group_manager"
+        manager = target.restrictedTraverse(name)
+        manager.update()
+        group = manager.group
+        roles = [request.role]
+        group.manage_setLocalRoles(
+            request.userid,
+            roles
+        )
+        group.reindexObject()
 
 
 def handle_request_refused(context, event):
