@@ -39,7 +39,7 @@
         </tal:block>
     </div>
 
-    <div data-role="controlgroup" data-type="horizontal">
+    <div data-role="controlgroup" data-type="horizontal" i18n:domain="plonetheme.jquerymobile">
         <a data-role="button" data-icon="double-angle-left"
            href="#panel-left" i18n:translate="">Open left panel</a>
         <a data-role="button" data-icon="double-angle-right" data-iconpos="right"
