@@ -237,7 +237,7 @@ module.exports = function(grunt) {
                 files : [
                          'less/desktop.plone.less',
                          'less/desktop.less',
-                         'less/collective.polls.css',
+                         'less/collective.polls.css'
                          ],
                 tasks : [ 'desktop-dist-css' ]
             },
@@ -260,6 +260,7 @@ module.exports = function(grunt) {
                          'js/theme-desktop.js'
                          ],
                 tasks : [ 'desktop-dist-js' ]
+           }
         }
     });
 

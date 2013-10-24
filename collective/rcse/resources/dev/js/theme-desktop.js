@@ -834,11 +834,20 @@ var rcseInitChromeContentEditableWorkaround = function(){
         CKEDITOR.inline(this);
     });
 }
+var rcseUpdateSelect = function(element){
+    if (element == undefined) {
+        element = document;
+    }
+    var select = $(element).find("select").each(function(){
+        var select = $(this);
+        select.chosen({disable_search_threshold: 10, width: "95%"});
+    });
+}
 var rcseApplyTransform = function(element) {
     if (element == undefined) {
         element = document;
     }
-    $(element).find("select").select2();
+    rcseUpdateSelect(element);
     $(element).find(".readmore").readmore();
     rcseUpdatePortlets(element);
     $(element).find('video,audio').mediaelementplayer();
