@@ -208,7 +208,7 @@ class DesktopTheme(unittest.TestCase):
 
     def find_tile_by_title(self, browser, title):
         contents = self.find_tiles(browser)
-        css = '.tilecontent > h2'
+        css = '.content-title'
         for content in contents:
             titles = content.find_elements_by_css_selector(css)
             for t in titles:
