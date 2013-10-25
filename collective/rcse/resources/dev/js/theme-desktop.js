@@ -16,6 +16,33 @@
  * limitations under the License.
  * ======================================================================== */
 
+var rcseUpdateFluidMedia = function(element){
+    if (element == undefined) {
+        element = document;
+    }
+    var transform = function(targetelement){
+        console.log('transform');
+        var target = $(targetelement)
+        var width = parseInt(target.attr("width"));
+        var height = parseInt(target.attr("height"));
+        var ratio = height / width;
+        target.wrap('<div class="fluid-media"></div>')
+          .parent().css('padding-top', (ratio * 100)+"%");
+        target.removeAttr('height').removeAttr('width');
+    }
+    $(element).once('fluid-media', function(){
+        $('iframe[width][height]').each(function(){
+            transform(this);
+        });
+    });
+}
+var rcseInitFluidMedia = function(){
+    console.log('init fluid');
+    $(document).on('oembed', function(event, data){
+        console.log('event oembed');
+        rcseUpdateFluidMedia($(event.target).parent());
+    });
+}
 var rcseUpdatePortlets = function(element) {
     if (element == undefined) {
         element = document;
@@ -781,8 +808,6 @@ var rcseInitScrollableColumns = function(){
             columnsheight = columns.height() + parseInt(columns.css('padding-top')) + parseInt(columns.css('margin-top')),
             scrolltop = $(this).scrollTop();
             footeroff = footer.offset();
-            console.log(footeroff.top);
-            console.log(scrolltop);
 
             if (wwidth < 992){
                 //do nothing because columns will be displayed later
@@ -810,26 +835,26 @@ var rcseInitScrollableColumns = function(){
                 if (hasone){
                     cone.css('position','fixed').css('left', oneposition.left);
                     if (wheight > oneheight) {
-                        console.log('stick to top ONE');
+//                        console.log('stick to top ONE');
                         cone.css('top','8px');
                     }else if(scrolltop + wheight >= columnsoffset.top + oneheight + 20) {
-                        console.log('stick to bottom ONE');
+//                        console.log('stick to bottom ONE');
                         cone.css('bottom','8px');
                     }else{
-                        console.log('stick to current ONE');
+//                        console.log('stick to current ONE');
                         cone.css('top', 8 + columnsoffset.top - scrolltop + 'px');
                     }
                 }
                 if (hastwo){
                     ctwo.css('position','fixed').css('left', twoposition.left);
                     if (wheight > twoheight) {
-                        console.log('stick to top TWO');
+//                        console.log('stick to top TWO');
                         ctwo.css('top','8px');
                     }else if(scrolltop + wheight >= columnsoffset.top + twoheight + 20) {
-                        console.log('stick to bottom TWO');
+//                        console.log('stick to bottom TWO');
                         ctwo.css('bottom','8px');
                     }else{
-                        console.log('stick to current TWO');
+//                        console.log('stick to current TWO');
                         ctwo.css('top', 8 + columnsoffset.top - scrolltop + 'px');
                     }
                 }
@@ -896,6 +921,7 @@ var rcseApplyTransform = function(element) {
     rcseUpdatePortalMessage(element);
     $(element).find("img.lazy")
         .removeClass("lazy").lazyload({skip_invisible: false});
+//    rcseUpdateFluidMedia(element);
     rcseUpdateOthers(element);
     return element;
 }
@@ -920,6 +946,7 @@ $(document).on("ready", function() {
     rcseInitEditBar();
     rcseInitChromeContentEditableWorkaround();
     rcseInitManagePortlets();
+    rcseInitFluidMedia();
 });
 $.webshims.setOptions("basePath", portal_url + "/++resource++webshims/");
 $.webshims.setOptions('forms', {

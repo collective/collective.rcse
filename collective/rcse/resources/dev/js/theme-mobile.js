@@ -13,9 +13,9 @@ var rcseInitTimeline = function() {
         $.ajax({
             url : $(this).attr('href') + '/@@group_tile_view'
         }).success(function(data) {
-            var element = rcseApplyTransform(data);
             parent.hide();
-            item.replaceWith(element);
+            item.replaceWith(data);
+            rcseApplyTransform(parent);
             parent.trigger("create");
             parent.addClass('animated pulse').show();
         });
@@ -250,7 +250,33 @@ var rcseInitAddButton = function(){
         window.location = portal_url + '/resolveuid/' + where + '/++add++' + what;
     })
 }
-
+var rcseUpdateFluidMedia = function(element){
+    if (element == undefined) {
+        element = document;
+    }
+    var transform = function(targetelement){
+        console.log('transform');
+        var target = $(targetelement)
+        var width = parseInt(target.attr("width"));
+        var height = parseInt(target.attr("height"));
+        var ratio = height / width;
+        target.wrap('<div class="fluid-media"></div>')
+          .parent().css('padding-top', (ratio * 100)+"%");
+        target.removeAttr('height').removeAttr('width');
+    }
+    $(element).once('fluid-media', function(){
+        $('iframe[width][height]').each(function(){
+            transform(this);
+        });
+    });
+}
+var rcseInitFluidMedia = function(){
+    console.log('init fluid');
+    $(document).on('oembed', function(event, data){
+        console.log('event oembed');
+        rcseUpdateFluidMedia($(event.target).parent());
+    });
+}
 var rcseApplyTransform = function(element) {
     if (element == undefined) {
         element = document;
@@ -263,14 +289,17 @@ var rcseApplyTransform = function(element) {
     picturefill();
     $(element).find(".readmore").readmore();
     $(element).find('video,audio').mediaelementplayer();
+    rcseUpdateFluidMedia(element);
     return element;
 }
 
 $(document).on("pagebeforeshow", function() {
+    console.log("pagebeforeshow");
     rcseApplyTransform();
 });
 
 $(document).on("pageshow", function() {
+    console.log("pageshow");
     rcseInitAjaxAction();
     rcseInitBindChangeEventStartDate();
     rcseInitOpenAuthorInDialog();
@@ -278,4 +307,5 @@ $(document).on("pageshow", function() {
     rcseInitVideo();
     rcseInitNotifications();
     rcseInitAddButton();
+    rcseInitFluidMedia();
 });
