@@ -36,11 +36,28 @@ var rcseInitOpenAuthorInDialog = function() {
 }
 
 var rcseInitAjaxAction = function() {
+    var ajax_blacklist = [
+	'add_request_access',
+	'add_invite_access',
+	'review_requests',
+	'ics_view'
+    ];
+
     $(document).on("click", "a.action", function(eventObject) {
+	if (ajax_blacklist.indexOf($(this).attr('id')) != -1)
+	    return ;
         eventObject.stopImmediatePropagation();
         eventObject.preventDefault();
         var link = $(this);
-        var container = $(eventObject.target).parents(".document-actions-wrapper");
+	var popup = $(eventObject.target).parents(".ui-popup");
+	var container;
+	if (popup.length){
+	    var id = popup.attr('id');
+            container = $('[href="#'+ id + '"]').parents(".document-actions-wrapper");
+	}
+	else {
+	    container = $(eventObject.target).parents(".document-actions-wrapper");
+	}
         var parent = container.parent();
         $.ajax({
             url : $(this).attr('href'),
@@ -51,9 +68,11 @@ var rcseInitAjaxAction = function() {
         })
         .success(function(data) {
             var element = data['document-actions-wrapper'];
+	    if (popup.length)
+		popup.remove();
             container.replaceWith(element);
-            rcseApplyTransform(parent);
             $(document).trigger("create");
+            rcseApplyTransform(parent);
         });
     });
     $(document).on("submit", ".commenting form", function(e) {
@@ -123,6 +142,7 @@ var rcseUpdateDisableAjax = function(element) {
     $(element).find('#popup-personalbar a').attr("data-ajax", "false");
     $(element).find(".document-actions-wrapper a.action").attr("data-ajax",
             "false");
+    $(element).find(".ics_view").attr('data-ajax', 'false');
     $(element).find('.commenting form').attr("action", portal_url);
 }
 
@@ -235,6 +255,8 @@ var rcseApplyTransform = function(element) {
     if (element == undefined) {
         element = document;
     }
+    if (typeof(element) == 'string')
+	element = $(element)[0];
     rcseUpdateDisableAjax(element);
     rcseUpdateComments(element);
     $(element).find("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
