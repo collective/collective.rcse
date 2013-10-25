@@ -24,14 +24,14 @@
         </tal:title>
       <nav class="navbar navbar-default">
   <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-events">
       <span class="sr-only">Toggle navigation</span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
   </div>
-  <div class="collapse navbar-collapse" i18n:domain="plone.app.event">
+  <div class="collapse navbar-collapse navbar-events" i18n:domain="plone.app.event">
         <ul class="mode_selector nav navbar-nav">
           <tal:cond condition="show_filter">
           <li class="" tal:attributes="class python:mode=='future' and 'active' or ''">
