@@ -77,6 +77,7 @@ class ToggleDisplayInMyNews(BrowserView):
 
     def toggle_watching(self):
         self.watchers.toggle_watching()
+        self.context.reindexObject()
         self.reindex_last_items()
 
     def reindex_last_items(self):
