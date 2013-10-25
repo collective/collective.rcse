@@ -20,30 +20,30 @@
 		settings = $.extend(true, $.fn.oembed.defaults, options);
 
 		initializeProviders();
-
+/*
 		var div = document.createElement('div'),
 		ref = document.getElementsByTagName('base')[0] || document.getElementsByTagName('script')[0];
 
 		div.className = 'fit-vids-style';
-		div.innerHTML = '&shy;<style>		\
-		.fluid-width-video-wrapper {		\
-			width: 100%;					\
-			position: relative;				\
-			padding: 0;						\
-		}									\
-		.fluid-width-video-wrapper iframe,	\
-		.fluid-width-video-wrapper object,	\
-		.fluid-width-video-wrapper embed {	\
+		div.innerHTML = '&shy;<style>	\
+		.fluid-width-video-wrapper {	\
+			width: 100%;				\
+			position: relative;			\
+			padding: 0;					\
+		}								\
+		.fluid-width-video-wrapper iframe,\
+		.fluid-width-video-wrapper object,\
+		.fluid-width-video-wrapper embed {\
 			position: absolute;			\
 			top: 0;						\
-			left: 0;						\
-			width: 100%;					\
-			height: 100%;					\
-		}									\
+			left: 0;					\
+			width: 100%;				\
+			height: 100%;				\
+		}								\
 		</style>';
 
 		ref.parentNode.insertBefore(div,ref);
-
+*/
 		return this.each(function () {
 			var container = $(this),
 			resourceURL = (url !== null) ? url : container.attr("href"), provider;
@@ -142,7 +142,6 @@
 				var oembedData = $.extend({}, data);
 				switch (oembedData.type) {
 				case "photo":
-					console.log("photo");
 					oembedData.code = $.fn.oembed.getPhotoCode(externalUrl, oembedData);
 					break;
 				case "video":
@@ -253,7 +252,14 @@
 
 	/* Public functions */
 	$.fn.oembed.insertCode = function (container, embedMethod, oembedData) {
-		var html = $(oembedData.code);
+	    var notify = function(){
+	        container.trigger("oembed", {
+                method: embedMethod,
+                html: oembedData.code
+            });
+	    };
+
+	    var html = $(oembedData.code);
 		if (oembedData === null)
 			return;
 		switch (embedMethod) {
@@ -269,7 +275,7 @@
 			if (html.is("a")){
 				break;
 			}
-			if (container.hasClass("oembed-responsive")){
+/*			if (container.hasClass("oembed-responsive")){
 				if (html.is("iframe") || html.is("object") || html.is("embed")){
 					var width = parseInt(html.attr("width"), null), height = parseInt(html.attr("height"), null);
 					var ratio = height / width;
@@ -282,10 +288,17 @@
 					oembedData.code = html[0].outerHTML;
 				}
 			}
-			container.replaceWith(oembedData.code);
+*/
+			console.log('oembed replace');
+			debugger;
+            container.hide().wrap('<div class="oembed-wrapper"></div>')
+               .after(oembedData.code);
+            console.log(container.parent()[0].outerHTML);
+            notify();
 			break;
 		case "fill":
 			container.html(oembedData.code);
+            notify();
 			break;
 		case "append":
 			var oembedContainer = container.next();
@@ -297,6 +310,7 @@
 					oembedContainer.toggleClass("oembed-container-" + oembedData.provider_name);
 			}
 			oembedContainer.html(oembedData.code);
+            notify();
 			break;
 		}
 	};
