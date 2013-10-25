@@ -25,6 +25,7 @@ logger = logging.getLogger('collective.rcse')
         'email_validation',
         'first_name',
         'last_name',
+        'advertiser',
         ])
 class IMember(model.Schema):
     """This is an interface to describe a member"""

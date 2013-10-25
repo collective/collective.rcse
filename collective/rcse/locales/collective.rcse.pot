@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-24 17:27+0000\n"
+"POT-Creation-Date: 2013-10-25 09:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -146,7 +146,7 @@ msgstr ""
 msgid "Address"
 msgstr ""
 
-#: ./content/member.py:107
+#: ./content/member.py:108
 msgid "Advertiser"
 msgstr ""
 
@@ -179,7 +179,7 @@ msgstr ""
 msgid "Are you sure you want to delete ${title} and all it's content ?"
 msgstr ""
 
-#: ./content/member.py:137
+#: ./content/member.py:138
 #: ./page/desktop/templates/member_tile_view.pt:50
 msgid "Areas of expertise"
 msgstr ""
@@ -201,7 +201,7 @@ msgstr ""
 msgid "Audio file"
 msgstr ""
 
-#: ./content/member.py:132
+#: ./content/member.py:133
 msgid "Avatar"
 msgstr ""
 
@@ -213,12 +213,12 @@ msgstr ""
 msgid "Banned"
 msgstr ""
 
-#: ./content/member.py:123
+#: ./content/member.py:124
 msgid "Birthdate"
 msgstr ""
 
 #: ./content/company.py:56
-#: ./content/member.py:181
+#: ./content/member.py:182
 #: ./page/desktop/templates/company_description.pt:23
 msgid "Blog"
 msgstr ""
@@ -252,7 +252,7 @@ msgid "Change the view used by default."
 msgstr ""
 
 #: ./content/company.py:49
-#: ./content/member.py:103
+#: ./content/member.py:104
 #: ./page/desktop/templates/companies_directory_view.pt:42
 msgid "City"
 msgstr ""
@@ -273,11 +273,11 @@ msgstr ""
 
 #: ./page/desktop/templates/companies_directory_view.pt:31
 #: ./page/mobile/templates/companies_directory_view.pt:39
-#: ./setuphandler.py:93
+#: ./setuphandler.py:92
 msgid "Companies directory"
 msgstr ""
 
-#: ./content/member.py:91
+#: ./content/member.py:92
 #: ./page/controller/timeline_view.py:171
 #: ./page/desktop/templates/users_directory_view.pt:61
 msgid "Company"
@@ -295,7 +295,7 @@ msgstr ""
 msgid "Confirm the password"
 msgstr ""
 
-#: ./content/member.py:48
+#: ./content/member.py:49
 #: ./page/desktop/templates/member_tile_view.pt:55
 msgid "Contact information"
 msgstr ""
@@ -374,11 +374,11 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
-#: ./content/member.py:71
+#: ./content/member.py:72
 msgid "E-mail"
 msgstr ""
 
-#: ./content/member.py:77
+#: ./content/member.py:78
 msgid "E-mail validation"
 msgstr ""
 
@@ -426,7 +426,7 @@ msgstr ""
 msgid "Event added"
 msgstr ""
 
-#: ./content/member.py:139
+#: ./content/member.py:140
 msgid "Expertise"
 msgstr ""
 
@@ -460,7 +460,7 @@ msgstr ""
 msgid "Filters"
 msgstr ""
 
-#: ./content/member.py:82
+#: ./content/member.py:83
 msgid "First Name"
 msgstr ""
 
@@ -473,13 +473,13 @@ msgstr ""
 msgid "Folder contents"
 msgstr ""
 
-#: ./content/member.py:99
+#: ./content/member.py:100
 #: ./page/desktop/templates/users_directory_view.pt:60
 #: ./page/desktop/templates/users_manage.pt:61
 msgid "Function"
 msgstr ""
 
-#: ./content/member.py:127
+#: ./content/member.py:128
 msgid "Gender"
 msgstr ""
 
@@ -497,7 +497,7 @@ msgstr ""
 msgid "Google Maps URL"
 msgstr ""
 
-#: ./content/member.py:184
+#: ./content/member.py:185
 #: ./page/desktop/templates/member_tile_view.pt:127
 msgid "Google+"
 msgstr ""
@@ -516,7 +516,7 @@ msgid "Hide: ${attr}"
 msgstr ""
 
 #: ./content/vocabularies.py:89
-#: ./setuphandler.py:106
+#: ./setuphandler.py:105
 #: ./viewlet/desktop/templates/portal_header.pt:11
 msgid "Home"
 msgstr ""
@@ -551,11 +551,11 @@ msgstr ""
 msgid "Images"
 msgstr ""
 
-#: ./content/member.py:146
+#: ./content/member.py:147
 msgid "Interest"
 msgstr ""
 
-#: ./content/member.py:144
+#: ./content/member.py:145
 #: ./page/desktop/templates/member_tile_view.pt:53
 msgid "Interests"
 msgstr ""
@@ -577,7 +577,7 @@ msgstr ""
 msgid "Join this group"
 msgstr ""
 
-#: ./content/member.py:86
+#: ./content/member.py:87
 msgid "Last Name"
 msgstr ""
 
@@ -585,8 +585,8 @@ msgstr ""
 msgid "Last name: ${lastname}"
 msgstr ""
 
+#: ./page/controller/templates/legal-notices.pt:16
 #: ./profiles/settings/actions.xml
-#: ./setuphandler.py:393
 msgid "Legal notices"
 msgstr ""
 
@@ -602,7 +602,7 @@ msgstr ""
 msgid "Link added"
 msgstr ""
 
-#: ./content/member.py:183
+#: ./content/member.py:184
 #: ./page/desktop/templates/member_tile_view.pt:122
 msgid "LinkedIn"
 msgstr ""
@@ -752,22 +752,22 @@ msgstr ""
 msgid "Passwords do not match."
 msgstr ""
 
-#: ./content/member.py:156
+#: ./content/member.py:157
 #: ./page/desktop/templates/member_tile_view.pt:77
 msgid "Personal e-mail"
 msgstr ""
 
-#: ./content/member.py:34
+#: ./content/member.py:35
 #: ./page/desktop/templates/member_tile_view.pt:36
 msgid "Personal information"
 msgstr ""
 
-#: ./content/member.py:172
+#: ./content/member.py:173
 #: ./page/desktop/templates/member_tile_view.pt:97
 msgid "Personal landline phone"
 msgstr ""
 
-#: ./content/member.py:164
+#: ./content/member.py:165
 #: ./page/desktop/templates/member_tile_view.pt:87
 msgid "Personal mobile phone"
 msgstr ""
@@ -803,7 +803,7 @@ msgstr ""
 msgid "Preference ${preference} is ${condition}."
 msgstr ""
 
-#: ./content/member.py:111
+#: ./content/member.py:112
 msgid "Presentation"
 msgstr ""
 
@@ -816,17 +816,17 @@ msgstr ""
 msgid "Private"
 msgstr ""
 
-#: ./content/member.py:152
+#: ./content/member.py:153
 #: ./page/desktop/templates/member_tile_view.pt:72
 msgid "Professional e-mail"
 msgstr ""
 
-#: ./content/member.py:168
+#: ./content/member.py:169
 #: ./page/desktop/templates/member_tile_view.pt:92
 msgid "Professional landline phone"
 msgstr ""
 
-#: ./content/member.py:160
+#: ./content/member.py:161
 #: ./page/desktop/templates/member_tile_view.pt:82
 msgid "Professional mobile phone"
 msgstr ""
@@ -963,7 +963,7 @@ msgstr ""
 msgid "Sites"
 msgstr ""
 
-#: ./content/member.py:176
+#: ./content/member.py:177
 #: ./page/desktop/templates/member_tile_view.pt:102
 msgid "Skype"
 msgstr ""
@@ -972,7 +972,7 @@ msgstr ""
 msgid "Sort on"
 msgstr ""
 
-#: ./content/member.py:116
+#: ./content/member.py:117
 #: ./page/desktop/templates/member_tile_view.pt:48
 msgid "Spoken languages"
 msgstr ""
@@ -996,8 +996,8 @@ msgstr ""
 msgid "Subscribe when favorited"
 msgstr ""
 
+#: ./page/controller/templates/terms-of-services.pt:17
 #: ./profiles/settings/actions.xml
-#: ./setuphandler.py:402
 msgid "Terms of services"
 msgstr ""
 
@@ -1018,7 +1018,7 @@ msgstr ""
 msgid "There were errors."
 msgstr ""
 
-#: ./content/member.py:72
+#: ./content/member.py:73
 msgid "This is the email you will receive information on. It will not be displayed to other users."
 msgstr ""
 
@@ -1041,7 +1041,7 @@ msgstr ""
 msgid "Turnover"
 msgstr ""
 
-#: ./content/member.py:185
+#: ./content/member.py:186
 #: ./page/desktop/templates/member_tile_view.pt:132
 msgid "Twitter"
 msgstr ""
@@ -1074,13 +1074,13 @@ msgstr ""
 msgid "User ${user} has been deleted"
 msgstr ""
 
-#: ./content/member.py:67
+#: ./content/member.py:68
 msgid "Username"
 msgstr ""
 
 #: ./page/desktop/templates/users_directory_view.pt:37
 #: ./page/mobile/templates/users_directory_view.pt:38
-#: ./setuphandler.py:80
+#: ./setuphandler.py:79
 msgid "Users directory"
 msgstr ""
 
@@ -1092,7 +1092,7 @@ msgstr ""
 msgid "Validate / Refuse access demands"
 msgstr ""
 
-#: ./content/member.py:182
+#: ./content/member.py:183
 #: ./page/desktop/templates/member_tile_view.pt:117
 msgid "Viadeo"
 msgstr ""
@@ -1144,7 +1144,7 @@ msgid "Watch when favorited"
 msgstr ""
 
 #: ./content/company.py:52
-#: ./content/member.py:180
+#: ./content/member.py:181
 #: ./page/desktop/templates/company_description.pt:19
 msgid "Website"
 msgstr ""
