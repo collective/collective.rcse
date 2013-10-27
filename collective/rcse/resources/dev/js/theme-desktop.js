@@ -421,7 +421,6 @@ var rcseInitManagePortlets = function(){
             data: data,
             type: 'POST',
             success: function(data){
-                debugger;
                 var container = form.parents('.portlets-manager');
                 var parent = container.parent();
                 container.replaceWith($(data));
@@ -519,6 +518,9 @@ var rcseInitAjaxAction = function() {
         eventObject.stopImmediatePropagation();
         eventObject.preventDefault();
         var link = $(this);
+        if (link.hasClass('btn')){
+            link.attr('disabled', 'disabled');
+        }
         var container = $(eventObject.target).parents(".document-actions-wrapper");
         var parent = container.parent();
         $.ajax({
@@ -531,6 +533,12 @@ var rcseInitAjaxAction = function() {
             var element = data['document-actions-wrapper'];
             container.replaceWith(element);
             rcseApplyTransform(parent);
+        }).error(function(){
+            link.removeAttr('disabled');
+        }).fail(function() {
+            link.removeAttr('disabled');
+        }).always(function() {
+            link.removeAttr('disabled');
         });
     });
     $(document).on("submit", '.commenting form', function(e) {

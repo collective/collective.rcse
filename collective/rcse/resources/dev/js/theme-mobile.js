@@ -37,43 +37,51 @@ var rcseInitOpenAuthorInDialog = function() {
 
 var rcseInitAjaxAction = function() {
     var ajax_blacklist = [
-	'add_request_access',
-	'add_invite_access',
-	'review_requests',
-	'ics_view'
+    'add_request_access',
+    'add_invite_access',
+    'review_requests',
+    'ics_view'
     ];
 
     $(document).on("click", "a.action", function(eventObject) {
-	if (ajax_blacklist.indexOf($(this).attr('id')) != -1)
-	    return ;
+        if (ajax_blacklist.indexOf($(this).attr('id')) != -1)
+            return ;
         eventObject.stopImmediatePropagation();
         eventObject.preventDefault();
         var link = $(this);
-	var popup = $(eventObject.target).parents(".ui-popup");
-	var container;
-	if (popup.length){
-	    var id = popup.attr('id');
-            container = $('[href="#'+ id + '"]').parents(".document-actions-wrapper");
-	}
-	else {
-	    container = $(eventObject.target).parents(".document-actions-wrapper");
-	}
-        var parent = container.parent();
-        $.ajax({
-            url : $(this).attr('href'),
-            context : eventObject,
-            data : {
-                'ajax_load' : true
-            }
-        })
-        .success(function(data) {
-            var element = data['document-actions-wrapper'];
-	    if (popup.length)
-		popup.remove();
-            container.replaceWith(element);
-            $(document).trigger("create");
-            rcseApplyTransform(parent);
-        });
+        if (link.attr('data-role') == 'button'){
+            link.addClass('ui-disabled');
+        }
+        var popup = $(eventObject.target).parents(".ui-popup");
+        var container;
+        if (popup.length){
+            var id = popup.attr('id');
+                container = $('[href="#'+ id + '"]').parents(".document-actions-wrapper");
+        }
+        else {
+            container = $(eventObject.target).parents(".document-actions-wrapper");
+        }
+            var parent = container.parent();
+            $.ajax({
+                url : $(this).attr('href'),
+                context : eventObject,
+                data : {
+                    'ajax_load' : true
+                }
+            }).success(function(data) {
+                var element = data['document-actions-wrapper'];
+                if (popup.length)
+                    popup.remove();
+                container.replaceWith(element);
+                $(document).trigger("create");
+                rcseApplyTransform(parent);
+            }).error(function(){
+                link.removeClass('ui-disabled');
+            }).fail(function() {
+                link.removeClass('ui-disabled');
+            }).always(function() {
+                link.removeClass('ui-disabled');
+            });
     });
     $(document).on("submit", ".commenting form", function(e) {
         e.preventDefault();
@@ -207,39 +215,39 @@ var rcseInitNotifications = function() {
 
 var rcseInitVideo = function(){
     function changeSrc(player, src){
-	var currentTime = player.getCurrentTime();
-	player.setSrc(src);
+    var currentTime = player.getCurrentTime();
+    player.setSrc(src);
 
-	setTimeout(function(){
-	    if (currentTime > 0){
-		player.setCurrentTime(currentTime);
-		player.play();
-	    }
-	}, 100);
+    setTimeout(function(){
+        if (currentTime > 0){
+        player.setCurrentTime(currentTime);
+        player.play();
+        }
+    }, 100);
     }
 
     $(document).on('click', '.player-low', function (event) {
-	var videoElement = $(this).parents('.videobar')
-	    .siblings('.mejs-container').find('video');
-	var player = new MediaElementPlayer(videoElement);
-	createCookie('videores', 'low');
-	$(this).parents('.hi-lo').find('.player-high').show();
-	$(this).parents('.hi-lo').find('.player-low').hide();
-	var newSrc = videoElement.attr('src').replace('high/', 'low/');
-	changeSrc(player, newSrc);
-	event.preventDefault();
+    var videoElement = $(this).parents('.videobar')
+        .siblings('.mejs-container').find('video');
+    var player = new MediaElementPlayer(videoElement);
+    createCookie('videores', 'low');
+    $(this).parents('.hi-lo').find('.player-high').show();
+    $(this).parents('.hi-lo').find('.player-low').hide();
+    var newSrc = videoElement.attr('src').replace('high/', 'low/');
+    changeSrc(player, newSrc);
+    event.preventDefault();
     });
 
     $(document).on('click', '.player-high', function (event) {
-	var videoElement = $(this).parents('.videobar')
-	    .siblings('.mejs-container').find('video');
-	var player = new MediaElementPlayer(videoElement);
-	createCookie('videores', 'high');
-	$(this).parents('.hi-lo').find('.player-high').hide();
-	$(this).parents('.hi-lo').find('.player-low').show();
-	var newSrc = videoElement.attr('src').replace('low/', 'high/');
-	changeSrc(player, newSrc);
-	event.preventDefault();
+    var videoElement = $(this).parents('.videobar')
+        .siblings('.mejs-container').find('video');
+    var player = new MediaElementPlayer(videoElement);
+    createCookie('videores', 'high');
+    $(this).parents('.hi-lo').find('.player-high').hide();
+    $(this).parents('.hi-lo').find('.player-low').show();
+    var newSrc = videoElement.attr('src').replace('low/', 'high/');
+    changeSrc(player, newSrc);
+    event.preventDefault();
     });
 }
 var rcseInitAddButton = function(){
@@ -282,7 +290,7 @@ var rcseApplyTransform = function(element) {
         element = document;
     }
     if (typeof(element) == 'string')
-	element = $(element)[0];
+    element = $(element)[0];
     rcseUpdateDisableAjax(element);
     rcseUpdateComments(element);
     $(element).find("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
