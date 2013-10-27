@@ -16,8 +16,8 @@
     <div class="row masonry" tal:define="images python: view.get_content(batch=False, full=False)">
         <div class="masonry-wrapper col-sm-6 col-md-4" tal:repeat="image images">
 	  <div class="thumbnail" tal:define="memberinfo image/@@creator_memberinfo">
-            <a class="load-content-tile-in-modal" data-toggle="modal" href="#content-modal"
-               tal:attributes="data-href image/getURL">
+            <a class="load-content-tile-in-modal"
+               tal:attributes="href image/getURL">
 	      <div class="thumbnail">
                 <img tal:attributes="src string:${image/getURL}/@@images/image/preview" />
                 <div class="caption">

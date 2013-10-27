@@ -90,7 +90,7 @@ var rcseUpdatePortlets = function(element) {
             $(newPortlet).find(".navbar").append('<div class="controlgroup pull-right"></div>')
                 .find('.controlgroup').append(prev).append(next);
             $(newPortlet).find(".navbar-brand").text(
-            	$(newPortlet).find(".navbar-brand").text().replace("«", "").replace("»", "")
+                $(newPortlet).find(".navbar-brand").text().replace("«", "").replace("»", "")
             );
             //do not add list-group-item
             $(newList).append(portlet.find(".portletItem").html());
@@ -133,8 +133,8 @@ var rcseUpdatePortlets = function(element) {
 
         }else if (portlet.hasClass('portletLocalUsers')){
             $(newList).append(portlet.find('.portletItem').html());
-	    $(newList).find('img').tooltip();
-	    newPortlet.appendChild(newList);
+        $(newList).find('img').tooltip();
+        newPortlet.appendChild(newList);
         }else if (portlet.hasClass('portletStaticText')){
             var content = portlet.find('.portletItem').wrapInner('<div class="portletStaticTextInner"></div>').html();
             $(newPortlet).append(content);
@@ -192,8 +192,8 @@ var rcseUpdatePortalMessage = function(element){
     $(document).find('.portalMessage:visible').each(function(){
         var wrapper = $(this);
         var title = wrapper.find('dt').html(); // -> str
-	if (!title)
-	    return
+    if (!title)
+        return
         var message = wrapper.find('dd').html();
         var cssclasses = wrapper.attr('class');
         var level = "info";
@@ -315,7 +315,7 @@ var rcseUpdateForms = function(element){
      * <span class="required icon-asterisk"></span>
      * */
     $(element).find('.required.horizontal').each(function(){
-    	$(this).addClass('icon-asterisk');
+        $(this).addClass('icon-asterisk');
     });
     /* ERROR DISPLAY in a field
      * <div class="fieldErrorBox">
@@ -360,44 +360,44 @@ var rcseUpdateOthers = function(element){
 }
 
 var rcseInitPortletCalendar = function(){
-	//paste from portlet_calendar.js
+    //paste from portlet_calendar.js
     function load_portlet_calendar(event, elem) {
         // depends on plone_javascript_variables.js for portal_url
         event.preventDefault();
         var pw = elem.closest('.portletWrapper');
         var elem_data = elem.data();
         var portlethash = pw.attr('id');
-	if (portlethash !== undefined) {
+    if (portlethash !== undefined) {
             portlethash = portlethash.substring(15, portlethash.length);
             url = portal_url +
-		'/@@render-portlet?portlethash=' + portlethash +
-		'&year=' + elem_data.year +
-		'&month=' + elem_data.month;
+        '/@@render-portlet?portlethash=' + portlethash +
+        '&year=' + elem_data.year +
+        '&month=' + elem_data.month;
             $.ajax({
-		url: url,
-		success: function(data) {
+        url: url,
+        success: function(data) {
                     pw.html(data);
                     rcseApplyTransform(pw);
-		}
+        }
             });
-	}
-	else {
-	    // On events_view
-	    var location = document.location.href;
-	    location = location.substr(0, location.lastIndexOf('/'));
-            url = location + '/@@calendar_events_view?' +
-		'year=' + elem_data.year +
-		'&month=' + elem_data.month;
-            $.ajax({
-		url: url,
-		success: function(data) {
-                    pw.html(data);
-                    rcseApplyTransform(pw);
-		}
-            });
-	}
     }
-	//forked from portlet_calendar.js to use on
+    else {
+        // On events_view
+        var location = document.location.href;
+        location = location.substr(0, location.lastIndexOf('/'));
+            url = location + '/@@calendar_events_view?' +
+        'year=' + elem_data.year +
+        '&month=' + elem_data.month;
+            $.ajax({
+        url: url,
+        success: function(data) {
+                    pw.html(data);
+                    rcseApplyTransform(pw);
+        }
+            });
+    }
+    }
+    //forked from portlet_calendar.js to use on
 
     $(document).on("click", '.portletCalendar a.calendarNext', function(event) {
         load_portlet_calendar(event, $(this));
@@ -506,15 +506,15 @@ var rcseInitFilter = function(){
 
 var rcseInitAjaxAction = function() {
     var ajax_blacklist = [
-	'add_request_access',
-	'add_invite_access',
-	'review_requests',
-	'ics_view'
+    'add_request_access',
+    'add_invite_access',
+    'review_requests',
+    'ics_view'
     ];
 
     $(document).on("click", ".document-actions-wrapper a.action", function(eventObject) {
-	if (ajax_blacklist.indexOf($(this).attr('id')) != -1)
-	    return ;
+    if (ajax_blacklist.indexOf($(this).attr('id')) != -1)
+        return ;
         eventObject.stopImmediatePropagation();
         eventObject.preventDefault();
         var link = $(this);
@@ -620,49 +620,49 @@ var rcseInitAddButton = function(){
 
 var rcseInitVideo = function(){
     $(document).on('mouseenter', 'div.download',
-	function(){
+    function(){
             $(this).find('.dl-links').show();
-	});
+    });
 
     $(document).on('mouseleave', 'div.videobar',
-	function(){
+    function(){
             $(this).find('.dl-links').fadeOut(500);
-	});
+    });
 
     function changeSrc(player, src){
-	var currentTime = player.getCurrentTime();
-	player.setSrc(src);
+    var currentTime = player.getCurrentTime();
+    player.setSrc(src);
 
-	setTimeout(function(){
-	    if (currentTime > 0){
-		player.setCurrentTime(currentTime);
-		player.play();
-	    }
-	}, 100);
+    setTimeout(function(){
+        if (currentTime > 0){
+        player.setCurrentTime(currentTime);
+        player.play();
+        }
+    }, 100);
     }
 
     $(document).on('click', '.player-low', function (event) {
-	var videoElement = $(this).parents('.videobar')
-	    .siblings('.mejs-container').find('video');
-	var player = new MediaElementPlayer(videoElement);
-	createCookie('videores', 'low');
-	$(this).parents('.hi-lo').find('.player-high').show();
-	$(this).parents('.hi-lo').find('.player-low').hide();
-	var newSrc = videoElement.attr('src').replace('high/', 'low/');
-	changeSrc(player, newSrc);
-	event.preventDefault();
+    var videoElement = $(this).parents('.videobar')
+        .siblings('.mejs-container').find('video');
+    var player = new MediaElementPlayer(videoElement);
+    createCookie('videores', 'low');
+    $(this).parents('.hi-lo').find('.player-high').show();
+    $(this).parents('.hi-lo').find('.player-low').hide();
+    var newSrc = videoElement.attr('src').replace('high/', 'low/');
+    changeSrc(player, newSrc);
+    event.preventDefault();
     });
 
     $(document).on('click', '.player-high', function (event) {
-	var videoElement = $(this).parents('.videobar')
-	    .siblings('.mejs-container').find('video');
-	var player = new MediaElementPlayer(videoElement);
-	createCookie('videores', 'high');
-	$(this).parents('.hi-lo').find('.player-high').hide();
-	$(this).parents('.hi-lo').find('.player-low').show();
-	var newSrc = videoElement.attr('src').replace('low/', 'high/');
-	changeSrc(player, newSrc);
-	event.preventDefault();
+    var videoElement = $(this).parents('.videobar')
+        .siblings('.mejs-container').find('video');
+    var player = new MediaElementPlayer(videoElement);
+    createCookie('videores', 'high');
+    $(this).parents('.hi-lo').find('.player-high').hide();
+    $(this).parents('.hi-lo').find('.player-low').show();
+    var newSrc = videoElement.attr('src').replace('low/', 'high/');
+    changeSrc(player, newSrc);
+    event.preventDefault();
     });
 
 }
@@ -720,83 +720,95 @@ var rcseInitSearchForm = function(){
 }
 
 var rcseInitLoadTileContentInModal = function(){
-	$(document).on("click", ".load-content-tile-in-modal", function(){
-	    var title = $(this).text();
-	    var href = $(this).attr('data-href');
-	    var modal = $("#content-modal");
-	    modal.find(".modal-title").text(title);
-	    modal.find(".modal-body").html('<a>Loading...</a>');
-	    modal.find(".modal-body a").attr("class", "rcse_tile").attr("href", href);
-	    rcseInitTimeline();
-	});
+    $(document).on("click", ".load-content-tile-in-modal", function(event){
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        var title = $(this).text();
+        var href = $(this).attr('href');
+        var url = href + '/@@group_tile_view?modal=1';
+        var modal = $("#content-modal");
+        var parent = modal.find('modal-body');
+        var item = modal.find('modal-body a');
+        modal.find(".modal-title").text(title);
+        $.ajax({
+            url: url
+        }).success(function(data) {
+            console.log('load content in modal');
+            console.log(item);
+            $("#content-modal .modal-body").html(data);
+            $("#content-modal").modal();
+            rcseApplyTransform($("#content-modal .modal-body"));
+        });
+    });
 }
 
 var rcseInitMasonry = function(){
-	var $container = $('.masonry');
-	$container.imagesLoaded(function() {
-		window.setTimeout($container.masonry(), 1000);
-	});
+    var $container = $('.masonry');
+    $container.imagesLoaded(function() {
+        window.setTimeout($container.masonry(), 1000);
+    });
 }
 
 var rcseInitDatatable = function(){
-	$("#members-datatable").dataTable({
-		"iDisplayLength" : -1,
-		"aaSorting" : [ [ 2, "asc" ] ],
-		"oLanguage": {
-			"sUrl": "@@collective.js.datatables.translation"
-		},
-		"bRetrieve": true,
+    $("#members-datatable").dataTable({
+        "iDisplayLength" : -1,
+        "aaSorting" : [ [ 2, "asc" ] ],
+        "oLanguage": {
+            "sUrl": "@@collective.js.datatables.translation"
+        },
+        "bRetrieve": true,
         "aLengthMenu" : [ [ 20, 30, 50, -1 ],
                         [ 20, 30, 50, "Tous" ] ]
-	});
+    });
     $("#favorites-datatable").dataTable({
-	"iDisplayLength" : -1,
-	"oLanguage": {
-	    "sUrl": "@@collective.js.datatables.translation"
-	},
+    "iDisplayLength" : -1,
+    "oLanguage": {
+        "sUrl": "@@collective.js.datatables.translation"
+    },
         "aLengthMenu" : [ [ 20, 30, 50, -1 ],
                         [ 20, 30, 50, "Tous" ] ]
     });
     $("#review-requests-datatable").dataTable({
-	"iDisplayLength" : -1,
-	"oLanguage": {
-	    "sUrl": "@@collective.js.datatables.translation"
-	},
+    "iDisplayLength" : -1,
+    "oLanguage": {
+        "sUrl": "@@collective.js.datatables.translation"
+    },
         "aLengthMenu" : [ [ 20, 30, 50, -1 ],
                         [ 20, 30, 50, "Tous" ] ]
     });
     $("#invitations-datatable").dataTable({
-	"iDisplayLength" : -1,
-	"oLanguage": {
-	    "sUrl": "@@collective.js.datatables.translation"
-	},
+    "iDisplayLength" : -1,
+    "oLanguage": {
+        "sUrl": "@@collective.js.datatables.translation"
+    },
         "aLengthMenu" : [ [ 20, 30, 50, -1 ],
                         [ 20, 30, 50, "Tous" ] ]
     });
     $("#requests-datatable").dataTable({
-	"iDisplayLength" : -1,
-	"oLanguage": {
-	    "sUrl": "@@collective.js.datatables.translation"
-	},
+    "iDisplayLength" : -1,
+    "oLanguage": {
+        "sUrl": "@@collective.js.datatables.translation"
+    },
         "aLengthMenu" : [ [ 20, 30, 50, -1 ],
                         [ 20, 30, 50, "Tous" ] ]
     });
 }
 
 var rcseInitScrollableColumns = function(){
-    var cone = $('#portal-column-one'),
-    ctwo = $('#portal-column-two'),
-    columns = $('#portal-columns'),
-    content = $('#portal-column-content'),
-    footer = $('footer'),
-    footeroff = footer.offset(),
-    hasone = cone.length == 1,
-    hastwo = ctwo.length == 1,
-    oneposition = cone.position(),
-    twoposition = ctwo.position(),
-    columnsoffset = columns.offset(),
-    viewport = getViewport(),
-    wwidth = viewport[0], wheight = viewport[1];
+    var cone = $('#portal-column-one');
+    var ctwo = $('#portal-column-two');
+    var columns = $('#portal-columns');
+    var content = $('#portal-column-content');
+    var footer = $('footer');
+    var footeroff = footer.offset();
+    var hasone = cone.length == 1;
+    var hastwo = ctwo.length == 1;
+    var oneposition = cone.position();
+    var twoposition = ctwo.position();
+    var columnsoffset = columns.offset();
+    var viewport = getViewport();
+    var wwidth = viewport[0];
+    var wheight = viewport[1];
     $(window).resize(function(eventObject){
         hasone = cone.length == 1;
         hastwo = ctwo.length == 1;

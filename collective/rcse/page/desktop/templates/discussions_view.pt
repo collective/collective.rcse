@@ -23,9 +23,8 @@
 	      <span class="badge pull-right"
 		    tal:content="discussion/total_comments">0</span>
               <h4 class="media-heading">
-		<a class="load-content-tile-in-modal content-title" data-toggle="modal"
-		   href="#content-modal"
-		   tal:attributes="data-href discussion/getURL"
+		<a class="load-content-tile-in-modal content-title"
+		   tal:attributes="href discussion/getURL"
 		   tal:content="discussion/Title">Discussion title</a>
 		<span> - </span>
 		<a tal:define="memberinfo discussion/@@creator_memberinfo"

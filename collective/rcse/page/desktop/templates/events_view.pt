@@ -94,15 +94,15 @@
             <div class="media">
                 <div class="pull-left">
         <tal:date tal:replace="structure python:view.formatted_date(data)"/>
-		</div>
+        </div>
                 <div class="media-body">
                     <h4 class="media-heading">
-                        <a class="load-content-tile-in-modal content-title" data-toggle="modal"
-                            href="#content-modal" tal:attributes="data-href data/getURL"
+                        <a class="load-content-tile-in-modal content-title"
+                            tal:attributes="href data/getURL"
                             tal:content="data/title">Title</a>
-			<span> - </span>
-			<a tal:define="memberinfo data/context/@@creator_memberinfo"
-			   tal:attributes="href memberinfo/url"
+            <span> - </span>
+            <a tal:define="memberinfo data/context/@@creator_memberinfo"
+               tal:attributes="href memberinfo/url"
                class="author fn url"
                tal:content="memberinfo/fullname">Author</a>
                     </h4>
@@ -122,9 +122,6 @@
                     <h4 class="modal-title">Modal title</h4>
                 </div>
                 <div class="modal-body">
-                     <div class="rcse_tile_wrapper">
-                       <a class="rcse_tile">test</a>
-                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default"

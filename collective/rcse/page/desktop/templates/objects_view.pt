@@ -17,17 +17,17 @@
          tal:condition="python: len(objects) > 0">
 
       <ul class="list-group">
-	<tal:block tal:repeat="object objects">
+    <tal:block tal:repeat="object objects">
           <li class="list-group-item">
             <div class="media">
               <div class="media-body">
                 <h4 class="media-heading">
-                  <a class="load-content-tile-in-modal content-title" data-toggle="modal"
-                     href="#content-modal" tal:attributes="data-href object/getURL"
+                  <a class="load-content-tile-in-modal content-title"
+                     tal:attributes="href object/getURL"
                      tal:content="object/Title">Title</a>
-		  <span> - </span>
-		  <a tal:define="memberinfo object/@@creator_memberinfo"
-		     tal:attributes="href memberinfo/url"
+          <span> - </span>
+          <a tal:define="memberinfo object/@@creator_memberinfo"
+             tal:attributes="href memberinfo/url"
              class="author fn url"
              tal:content="memberinfo/fullname">Author</a>
                 </h4>
@@ -35,28 +35,28 @@
               </div>
             </div>
           </li>
-	</tal:block>
+    </tal:block>
       </ul>
       <div metal:use-macro="context/batch_macros/macros/navigation" />
     </div>
 
     <div class="modal fade" id="content-modal" tabindex="-1" role="dialog"
-	 aria-labelledby="content modal" aria-hidden="true">
+     aria-labelledby="content modal" aria-hidden="true">
       <div class="modal-dialog">
-	<div class="modal-content">
+        <div class="modal-content">
           <div class="modal-header">
             <h4 class="modal-title">Modal title</h4>
           </div>
           <div class="modal-body">
             <div class="rcse_tile_wrapper">
-              <a class="rcse_tile" i18n:translate="">Loading...</a>
+              <a i18n:translate="">Loading...</a>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default"
                     data-dismiss="modal" i18n:translate="">Close</button>
           </div>
-	</div>
+        </div>
       </div>
     </div>
 
