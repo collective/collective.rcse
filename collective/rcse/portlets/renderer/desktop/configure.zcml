@@ -9,4 +9,10 @@
         template="localusers.pt"
         />
 
+    <plone:portletRenderer
+        portlet="collective.polls.portlet.voteportlet.IVotePortlet"
+        layer="collective.rcse.layer.DesktopLayer"
+        template="voteportlet.pt"
+        />
+
 </configure>
