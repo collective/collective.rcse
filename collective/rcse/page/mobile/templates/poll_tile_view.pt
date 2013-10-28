@@ -1,4 +1,4 @@
-<div class="tile-wrapper"
+<div class="tile-wrapper" i18n:domain="collective.polls"
      tal:define="results view/getResults;
         has_voted view/has_voted;
         can_vote view/can_vote;

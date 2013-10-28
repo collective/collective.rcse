@@ -2,14 +2,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       tal:omit-tag="">
-<style type="text/css">
-.poll-spinner {
-    display:none;
-    position:absolute;
-    top:40%;
-    text-align:center;
-    left:50%;
-}</style>
+
 <dl class="portlet votePortlet vote-container"
     tal:define="poll view/poll"
     tal:attributes="data-manager view/portlet_manager_name;
@@ -29,12 +22,12 @@
                     toLocalizedTime nocall:context/@@plone/toLocalizedTime"
         tal:condition="nocall:poll">
 
-        <h3 tal:condition="python: view.getHeader()" tal:content="poll/Title"/>
+        <h4 tal:condition="python: view.getHeader()" tal:content="poll/Title"/>
 
         <tal:results condition="python:(not can_vote) and results">
         <tal:poll_results condition="nocall:results">
-        <h4 tal:condition="not:closed" i18n:translate="">Partial results</h4>
-        <h4 tal:condition="closed" i18n:translate="">Results</h4>
+        <h5 tal:condition="not:closed" i18n:translate="">Partial results</h5>
+        <h5 tal:condition="closed" i18n:translate="">Results</h5>
         <div class="poll-data"
              tal:attributes="class python:'poll-data ' + ('bar-poll' if poll.results_graph == 'bar' else 'pie-poll')">
             <div class="portletpollresultholder"></div>
@@ -50,29 +43,45 @@
         </tal:poll_results>
         </tal:results>
 
+        <tal:comments replace="nothing">
+        <!-- XXX: Why is this necessary ? -->
+        </tal:comments>
         <tal:no_results condition="python:not(can_vote or results)">
-        <h4 i18n:translate="">Nothing to see here</h4>
+        <h5 i18n:translate="">Nothing to see here</h5>
         </tal:no_results>
 
         <tal:voting condition="view/can_vote">
-        <form method="post"
+        <form method="post" 
             tal:attributes="action poll/absolute_url">
 
-            <fieldset data-role="controlgroup">
+            <tal:comments replace="nothing">
+            <tal:one_choice repeat="answer current_poll/answers"
+                condition="not: current_poll/multivalue" />
+            </tal:comments>
             <tal:one_choice repeat="option poll/options">
-                <input type="radio"
+<div class="radio">
+  <label>                <input type="radio"
                     tal:attributes="name string:options;
-                                    value option/option_id;
-                                    id string:checkbox-${option/option_id};" />
-                <label tal:attributes="for string:checkbox-${option/option_id}" tal:content="option/description" />
+                                    value option/option_id" />
+                <span tal:replace="option/description" />
+</label>
+</div>
             </tal:one_choice>
-            </fieldset>
+
+            <tal:comments replace="nothing">
+            <tal:multi_choice repeat="answer current_poll/answers"
+                condition="current_poll/multivalue">
+                <input type="checkbox" name="answers:list"
+                    tal:attributes="value answer" />
+                <span tal:content="answer" /><br />
+            </tal:multi_choice>
+            </tal:comments>
 
             <input type="hidden" name="voting.from"
                 tal:attributes="value context/absolute_url" />
             <input type="hidden" name="poll.uuid"
                 tal:attributes="value view/poll_uid" />
-            <input type="submit" name="poll.submit" value="Submit" class="context"
+            <input type="submit" name="poll.submit" value="Submit" class="context btn btn-primary"
                 i18n:attributes="value" />
         </form>
         </tal:voting>
