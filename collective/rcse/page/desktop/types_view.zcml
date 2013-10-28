@@ -313,5 +313,13 @@
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
+  <browser:page
+      for="collective.polls.content.poll.IPoll"
+      name="timeline_view"
+      class="collective.rcse.page.controller.timeline_view.PollTimelineView"
+      template="templates/timeline_view.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
 
 </configure>

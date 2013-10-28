@@ -6,6 +6,7 @@ from collective.rcse.page.controller.group_base import BaseView
 from Products.Five.browser import BrowserView
 from collective.rcse.content.group import get_group
 from Products.CMFCore import permissions
+from collective.rcse.page.controller.poll_view import PollView
 
 
 _ = RCSEMessageFactory
@@ -176,3 +177,13 @@ class CompanyTimelineView(BrowserView):
 
     def get_content(self, **kwargs):
         return self.catalog(company_id=self.context.getId())
+
+
+class PollTimelineView(ContentAsTimelineView, PollView):
+    def __init__(self, context, request):
+        ContentAsTimelineView.__init__(self, context, request)
+        PollView.__init__(self, context, request)
+
+    def update(self):
+        ContentAsTimelineView.update(self)
+        PollView.update(self)

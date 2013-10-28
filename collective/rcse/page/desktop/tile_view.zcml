@@ -99,7 +99,7 @@
       />
 
   <browser:page
-      for=" collective.polls.content.poll.IPoll"
+      for="collective.polls.content.poll.IPoll"
       name="tile_view"
       class="collective.rcse.page.controller.poll_view.PollView"
       template="templates/poll_tile_view.pt"
