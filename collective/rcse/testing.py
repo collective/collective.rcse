@@ -191,7 +191,7 @@ class Layer(PloneSandboxLayer):
                                  username=SITE_OWNER_NAME)
 
     def create_user(self, portal, username,
-                    role="Member", company='Company',
+                    role="Member", company='Company', advertiser=False,
                     first_name="John", last_name="Doe",
                     email="no-reply@example.com", function="Function",
                     city="City", **kwargs):
@@ -202,6 +202,7 @@ class Layer(PloneSandboxLayer):
         item = self.mtool(getUserName=username)[0].getObject()
         item.company_id=company
         item.company=company
+        item.advertiser = advertiser
         item.first_name=first_name
         item.last_name=last_name
         item.email=email

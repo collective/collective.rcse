@@ -63,7 +63,6 @@ class ScenarioTestCase(unittest.TestCase):
         self.assertIn(notification, content, 'Notification not in all notifications')
         user1.get('%s/home/companys-public-group' % self.portal_url)
         self.assertRaises(NoSuchElementException, user1.find_element_by_id, 'notifications-count')
-        self.assertEqual(count, u'0', 'Notification was not validated')
 
     def test_register(self):
         user = self.getNewBrowser(self.portal_url)
@@ -89,9 +88,12 @@ class ScenarioTestCase(unittest.TestCase):
         self.edit_company(user, title="The company",
                          corporate_name="The company")
         user.get(self.portal_url)
-        headers = user.find_elements_by_class_name('documentFirstHeading')
-        self.assertIn('My profile', headers[0].text)
-        self.assertIn('News', headers[1].text)
+        if self.is_mobile:
+            user.find_element_by_id('addbutton-wrapper')
+        else:
+            headers = user.find_elements_by_class_name('documentFirstHeading')
+            self.assertIn('My profile', headers[0].text)
+            self.assertIn('News', headers[1].text)
 
     def test_disabled_member(self):
         user = self.getNewBrowser(self.portal_url)
@@ -118,7 +120,10 @@ class ScenarioTestCase(unittest.TestCase):
         browser = self.getNewBrowser(self.portal_url)
         self.login(browser, testing.TEST_USER_ADMIN, testing.PASSWORD)
         self.open_add_portlet(browser, "left", "Calendar portlet", submit=True)
-        browser.find_element_by_link_text("Return").click()
+        if self.is_mobile:
+            self.click_icon(browser, 'circle-arrow-left')
+        else:
+            browser.find_element_by_link_text("Return").click()
         self.open_panel(browser, "left")
         portlets = browser.find_elements_by_class_name("portletCalendar")
         self.assertEqual(len(portlets), 1)
@@ -140,7 +145,7 @@ class ScenarioTestCase(unittest.TestCase):
         tile.find_element_by_id("form-buttons-comment").click()
         comments = tile.find_elements_by_class_name("commentBody")
         comments = [comment.text for comment in comments]
-        self.assertIn("coucou", comments)
+        self.assertIn("coucou\nDelete", comments)
         browser.close()
 
 

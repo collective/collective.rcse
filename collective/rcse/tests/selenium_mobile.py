@@ -220,7 +220,7 @@ class MobileTheme(unittest.TestCase):
 
     def find_tile_by_title(self, browser, title):
         contents = self.find_tiles(browser)
-        css = '.tile-wrapper > h2'
+        css = '.vcard > h2'
         for content in contents:
             titles = content.find_elements_by_css_selector(css)
             for t in titles:

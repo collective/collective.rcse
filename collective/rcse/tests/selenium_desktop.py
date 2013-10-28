@@ -15,21 +15,36 @@ class DesktopTheme(unittest.TestCase):
         self.getNewBrowser = self.layer['getNewBrowser']
         transaction.commit()
 
-    def _select2(self, browser, byid, value):
+    def _select(self, browser, byid, value):
         """when you use select2, you have to use id.
         if select id was "form-widgets-function"
         it becomes "s2id_form-widgets-function"
         """
-        newid = "s2id_" + byid
-        select2 = browser.find_element_by_id(newid)
-        select2.find_element_by_tag_name("a").click()
-        options = browser.find_elements_by_class_name("select2-result")
+        newid = '%s_chosen' % byid.replace('-', '_')
+        select = browser.find_element_by_id(newid)
+        select.find_element_by_tag_name("a").click()
+        options = browser.find_elements_by_class_name("active-result")
         for option in options:
             if option.text == value:
                 option.click()
                 return value
-        select2.find_element_by_tag_name("a").click()
-        return select2.find_element_by_class_name('select2-chosen').text
+        select.find_element_by_tag_name("a").click()
+        return select.find_element_by_class_name('result-selected').text
+
+    def _select_by_element(self, browser, element, value):
+        """when you use select2, you have to use id.
+        if select id was "form-widgets-function"
+        it becomes "s2id_form-widgets-function"
+        """
+        select = element
+        select.find_element_by_tag_name("a").click()
+        options = browser.find_elements_by_class_name("active-result")
+        for option in options:
+            if option.text == value:
+                option.click()
+                return value
+        select.find_element_by_tag_name("a").click()
+        return select.find_element_by_class_name('result-selected').text
 
     # User
 
@@ -78,7 +93,7 @@ class DesktopTheme(unittest.TestCase):
         browser.find_element_by_name("form.widgets.last_name").send_keys(last_name)
         browser.find_element_by_name("form.widgets.function").send_keys(function)
         browser.find_element_by_name("form.widgets.city").send_keys(city)
-        rcompany = self._select2(browser, "form-widgets-company", company)
+        rcompany = self._select(browser, "form-widgets-company", company)
         if rcompany != company:
             browser.find_element_by_name("form.widgets.new_company").send_keys(company)
         if send:
@@ -151,8 +166,8 @@ class DesktopTheme(unittest.TestCase):
             raise ValueError("can manage group if current page is not on group")
         if not browser.current_url.endswith('/group_status'):
             self.open_group_manage(browser, action="Inviter un utilisateur")
-        self._select2(browser, 'form-widgets-userid', who)
-        self._select2(browser, 'form-widgets-role', role)
+        self._select(browser, 'form-widgets-userid', who)
+        self._select(browser, 'form-widgets-role', role)
         browser.find_element_by_link_text('Propose an access').click()
 
     # Utils
@@ -161,10 +176,10 @@ class DesktopTheme(unittest.TestCase):
         """Use the addbutton in RCSE header to get an add form"""
         browser.find_element_by_id('addbutton').find_element_by_tag_name('a').click()
         if what is not None:
-            rwhat = self._select2(browser, 'form-widgets-what', what)
+            rwhat = self._select(browser, 'form-widgets-what', what)
             self.assertEqual(rwhat, what)
         if where is not None:
-            rwhere = self._select2(browser, 'form-widgets-where', where)
+            rwhere = self._select(browser, 'form-widgets-where', where)
             self.assertEqual(rwhere, where)
         browser.find_element_by_id("rcseaddform").find_element_by_class_name('btn-primary').click()
 
@@ -178,10 +193,9 @@ class DesktopTheme(unittest.TestCase):
             self.open_manage_portlet(browser)
         name = "portletmanager-plone-%scolumn" % column
         manager = browser.find_element_by_id(name)
-        #find id of the select2
-        s2 = manager.find_element_by_class_name('select2-container')
-        id = s2.get_attribute('id').replace('s2id_', '')
-        self._select2(browser, id, portlet)
+        #find id of the select
+        chosen = manager.find_element_by_class_name('chosen-container')
+        self._select_by_element(browser, chosen, portlet)
         if submit:
             browser.find_element_by_id('form.actions.save').click()
 
