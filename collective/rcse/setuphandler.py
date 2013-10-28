@@ -43,6 +43,7 @@ def setupVarious(context):
     addTimelineViewToContentTypes(portal)
     renameDocumentToArticle(portal)
     setupDeletedStateInWorkflows(portal)
+    removeIconsFromTypes(portal)
 
 
 def setupRegistration(site):
@@ -379,3 +380,13 @@ def setupDeletedStateInWorkflows(portal):
             if 'delete' not in transitions:
                 transitions.append('delete')
                 state.transitions = tuple(transitions)
+
+
+def removeIconsFromTypes(portal):
+    portal_types = getToolByName(portal, 'portal_types')
+    for portal_type in portal_types.listContentTypes():
+        document_fti = getattr(portal_types, portal_type)
+        try:
+            document_fti._updateProperty("icon_expr", "")
+        except BadRequest:
+            continue
