@@ -312,7 +312,7 @@ msgstr "Contenu créé par ${name}"
 #: ./content/company.py:23
 #: ./page/desktop/templates/company_description.pt:9
 msgid "Corporate name"
-msgstr "Raison social"
+msgstr "Raison sociale"
 
 #: ./profiles/settings/actions.xml
 msgid "Credits"
