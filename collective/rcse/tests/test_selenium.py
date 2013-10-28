@@ -119,6 +119,7 @@ class ScenarioTestCase(unittest.TestCase):
     def test_portlet_calendar(self):
         browser = self.getNewBrowser(self.portal_url)
         self.login(browser, testing.TEST_USER_ADMIN, testing.PASSWORD)
+        browser.get(self.portal_url)
         self.open_add_portlet(browser, "left", "Calendar portlet", submit=True)
         if self.is_mobile:
             self.click_icon(browser, 'circle-arrow-left')
