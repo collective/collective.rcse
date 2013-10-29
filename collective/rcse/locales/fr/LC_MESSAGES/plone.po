@@ -35,18 +35,18 @@ msgid "Make private"
 msgstr "Rendre privé"
 
 msgid "Makes the folder visible internally."
-msgstr ""
+msgstr "Rendre le contenu du dossier visible aux utilisateurs connectés."
 
 #: ./profiles/worfklows/collective_rcse_group_workflow/definition.xml
 msgid "Member makes content private"
-msgstr ""
+msgstr "Le membre rend le contenu privé"
 
 msgid "Member makes content private but open to request access"
-msgstr ""
+msgstr "Le membre rend le contenu privé mais accessible au demande d'accès"
 
 #: ./profiles/worfklows/collective_rcse_group_workflow/definition.xml
 msgid "Member makes content visible to other internal users"
-msgstr ""
+msgstr "Le membre rend le contenu visible à tous les utilisateurs connectés."
 
 #: ./profiles/worfklows/collective_rcse_group_workflow/definition.xml
 msgid "Moderated"
