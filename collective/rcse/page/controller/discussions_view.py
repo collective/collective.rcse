@@ -26,7 +26,7 @@ CONTENT_TYPE = "collective.rcse.discussion"
 class AddFormSchema(group_base.BaseAddFormSchema):
     """Add form"""
     title = schema.TextLine(title=PloneMessageFactory(u"Title"))
-    body = schema.Text(title=_(u"Subject"))
+    description = schema.Text(title=_(u"Subject"))
     file = NamedBlobFile(title=_(u"Attachment"),
                          required=False)
 
