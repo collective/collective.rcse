@@ -7,9 +7,9 @@
       i18n:domain="collective.favoriting">
 <body>
   <metal:block fill-slot="top_slot"
-	       tal:define="dummy python:request.set('disable_border',1);
-			   disable_column_one python:request.set('disable_plone.leftcolumn',1);
-			   disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+           tal:define="dummy python:request.set('disable_border',1);
+               disable_column_one python:request.set('disable_plone.leftcolumn',1);
+               disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
 
 <div metal:fill-slot="main" tal:define="favoriting context/@@collective.favoriting">
 
@@ -18,39 +18,35 @@
   <table id="favorites-datatable">
     <thead>
       <tr>
-	<th i18n:translate="">Content</th>
-	<th i18n:translate="">Author</th>
-	<th i18n:translate="">Delete</th>
+    <th i18n:translate="">Content</th>
+    <th i18n:translate="">Author</th>
+    <th i18n:translate="">Delete</th>
       </tr>
     </thead>
     <tbody>
       <tal:fav tal:repeat="fav favoriting/get">
-	<tr tal:define="memberinfo fav/@@creator_memberinfo">
-	  <td>
-	    <a class="load-content-tile-in-modal"
-	       data-toggle="modal"
-	       href="#content-modal"
-	       tal:attributes="data-href fav/getURL"
-	       tal:content="fav/Title">
-	    </a>
-	  </td>
-	  <td>
-	    <a class="load-content-tile-in-modal"
-	       data-toggle="modal"
-	       href="#content-modal"
-	       tal:define="brain memberinfo/get_membrain;
-			   url brain/getURL | string:"
-	       tal:attributes="data-href url"
-	       tal:content="memberinfo/fullname">
-	    </a>
-	  </td>
-	  <td>
-	    <a tal:attributes="href string:${fav/getURL}/favoriting_rm"
-	       i18n:translate="">
-	      delete
-	    </a>
-	  </td>
-	</tr>
+    <tr tal:define="memberinfo fav/@@creator_memberinfo">
+      <td>
+        <a class="load-content-tile-in-modal"
+           tal:attributes="href fav/getURL"
+           tal:content="fav/Title">
+        </a>
+      </td>
+      <td>
+        <a class="load-content-tile-in-modal"
+           tal:define="brain memberinfo/get_membrain;
+               url brain/getURL | string:"
+           tal:attributes="href url"
+           tal:content="memberinfo/fullname">
+        </a>
+      </td>
+      <td>
+        <a tal:attributes="href string:${fav/getURL}/favoriting_rm"
+           i18n:translate="">
+          delete
+        </a>
+      </td>
+    </tr>
       </tal:fav>
     </tbody>
   </table>
