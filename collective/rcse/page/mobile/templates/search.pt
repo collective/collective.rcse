@@ -22,22 +22,19 @@
 <body>
 
   <div id="content-core" metal:fill-slot="main">
-            <div data-role="navbar">
+            <div data-role="navbar" i18n:domain="collective.rcse">
                 <ul>
                     <li>
                         <a tal:attributes="href string:${context/absolute_url}/@@search"
-                           class="ui-btn-active" i18n:translate="">Search for contents
-                        </a>
+                           class="ui-btn-active" i18n:translate="">Contents</a>
                     </li>
                     <li>
                         <a tal:attributes="href string:${context/absolute_url}/users_directory"
-                           i18n:translate="">Search for users
-                        </a>
+                           i18n:translate="">Users</a>
                     </li>
                     <li>
                         <a tal:attributes="href string:${context/absolute_url}/companies_directory"
-                           i18n:translate="">Search for companies
-                        </a>
+                           i18n:translate="">Companies</a>
                     </li>
                 </ul>
             </div>
