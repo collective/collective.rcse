@@ -852,7 +852,10 @@ var rcseInitScrollableColumns = function(){
 		else
 		    return ;
 	    }
-	    column.css('margin-top', (margin).toString() + 'px');
+	    column.animate({"margin-top": (margin).toString() + 'px'},
+			   {'queue': false,
+			    'duration': 100});
+	    //column.css('margin-top', (margin).toString() + 'px');
 	}
     }
 
