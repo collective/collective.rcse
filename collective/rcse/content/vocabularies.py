@@ -40,7 +40,7 @@ def groupTypes(context):
 
 
 def addableTypes(context):
-    blacklist = ['collective.rcse.proxygroup']
+    blacklist = ['collective.rcse.proxygroup', 'collective.rcse.audio']
     vocabulary = getUtility(IVocabularyFactory,
                             name="plone.app.vocabularies.UserFriendlyTypes")
     types = list(vocabulary(context))
