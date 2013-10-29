@@ -17,14 +17,41 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-#: ./profiles/worfklows/collective_rcse_member_workflow.xml
+#: ./profiles/worfklows/collective_rcse_member_workflow/definition.xml
 msgid "Disable this Member"
 msgstr ""
 
-#: ./profiles/worfklows/collective_rcse_member_workflow.xml
+#: ./profiles/worfklows/collective_rcse_member_workflow/definition.xml
 msgid "Approve this Member"
 msgstr ""
 
-#: ./profiles/worfklows/collective_rcse_member_workflow.xml
+#: ./profiles/worfklows/collective_rcse_member_workflow/definition.xml
 msgid "Decline this Member"
 msgstr ""
+
+#: ./profiles/worfklows/collective_rcse_group_workflow/definition.xml
+msgid "Open"
+msgstr ""
+
+#: ./profiles/worfklows/collective_rcse_group_workflow/definition.xml
+msgid "Moderated"
+msgstr ""
+
+#: ./profiles/worfklows/collective_rcse_group_workflow/definition.xml
+msgid "Member makes content private"
+msgstr ""
+
+#: ./profiles/worfklows/collective_rcse_group_workflow/definition.xml
+msgid "Make private"
+msgstr ""
+
+#: ./profiles/worfklows/collective_rcse_group_workflow/definition.xml
+msgid "Member makes content visible to other internal users"
+msgstr ""
+
+msgid "Makes the folder visible internally."
+msgstr ""
+
+msgid "Member makes content private but open to request access"
+msgstr ""
+

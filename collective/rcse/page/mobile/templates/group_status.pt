@@ -15,7 +15,7 @@
 </h1>
 
 <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
-    <thead>
+    <thead i18n:domain="plone">
         <tr>
             <th>
                 <span i18n:translate="">Private</span>
@@ -52,24 +52,21 @@
                 </ul>
             </td>
         </tr>
-        <tr>
+        <tr i18n:domain="plone">
             <td>
-                <a href="#" class="btn btn-default"
-                    tal:attributes="href string:${context/absolute_url}/content_status_modify?workflow_action=hide;
-           disabled view/is_private"> Make private
-                </a>
+                <a href="#" data-role="button" i18n:translate="" data-ajax="false"
+                   tal:attributes="href string:${context/absolute_url}/content_status_modify?workflow_action=hide;
+                       class python:view.is_private() and 'ui-disabled' or None">Make private</a>
             </td>
             <td>
-                <a href="#" class="btn btn-default"
-                    tal:attributes="href string:${context/absolute_url}/content_status_modify?workflow_action=make_moderated;
-           disabled view/is_moderated"> Make moderated
-                </a>
+                <a href="#" data-role="button" i18n:translate="" data-ajax="false"
+                   tal:attributes="href string:${context/absolute_url}/content_status_modify?workflow_action=make_moderated;
+                       class python:view.is_moderated() and 'ui-disabled' or None">Make moderated</a>
             </td>
             <td>
-                <a href="#" class="btn btn-default"
-                    tal:attributes="href string:${context/absolute_url}/content_status_modify?workflow_action=show_internally;
-           disabled view/is_open"> Make open
-                </a>
+                <a href="#" data-role="button" i18n:translate="" data-ajax="false"
+                   tal:attributes="href string:${context/absolute_url}/content_status_modify?workflow_action=show_internally;
+                       class python:view.is_open() and 'ui-disabled' or None">Open</a>
             </td>
         </tr>
     </tbody>

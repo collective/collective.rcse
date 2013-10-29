@@ -18,15 +18,43 @@ msgstr ""
 "Language: fr\n"
 "X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
 
-#: ./profiles/worfklows/collective_rcse_member_workflow.xml
+#: ./profiles/worfklows/collective_rcse_member_workflow/definition.xml
 msgid "Approve this Member"
 msgstr "Approuver ce membre"
 
-#: ./profiles/worfklows/collective_rcse_member_workflow.xml
+#: ./profiles/worfklows/collective_rcse_member_workflow/definition.xml
 msgid "Decline this Member"
 msgstr "Refuser ce membre"
 
-#: ./profiles/worfklows/collective_rcse_member_workflow.xml
+#: ./profiles/worfklows/collective_rcse_member_workflow/definition.xml
 msgid "Disable this Member"
 msgstr "Désactiver ce membre"
 
+#: ./profiles/worfklows/collective_rcse_group_workflow/definition.xml
+msgid "Make private"
+msgstr "Rendre privé"
+
+msgid "Makes the folder visible internally."
+msgstr ""
+
+#: ./profiles/worfklows/collective_rcse_group_workflow/definition.xml
+msgid "Member makes content private"
+msgstr ""
+
+msgid "Member makes content private but open to request access"
+msgstr ""
+
+#: ./profiles/worfklows/collective_rcse_group_workflow/definition.xml
+msgid "Member makes content visible to other internal users"
+msgstr ""
+
+#: ./profiles/worfklows/collective_rcse_group_workflow/definition.xml
+msgid "Moderated"
+msgstr "Modéré"
+
+#: ./profiles/worfklows/collective_rcse_group_workflow/definition.xml
+msgid "Open"
+msgstr "Ouvert"
+
+msgid "Make moderated"
+msgstr "Rendre modéré"
