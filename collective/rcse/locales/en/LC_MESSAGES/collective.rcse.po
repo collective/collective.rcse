@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-10-29 09:16+0000\n"
+"POT-Creation-Date: 2013-10-29 10:48+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -170,10 +170,6 @@ msgstr ""
 msgid "Approve"
 msgstr ""
 
-#: ./profiles/settings/workflows/collective_rcse_member_workflow/definition.xml
-msgid "Approve This Member"
-msgstr ""
-
 #: ./action/delete.py:42
 msgid "Are you sure you want to delete ${title} and all it's content ?"
 msgstr ""
@@ -270,12 +266,14 @@ msgstr ""
 msgid "Collaborate in real time"
 msgstr ""
 
-#: ./page/mobile/templates/search.pt:38
+#: ./page/mobile/templates/companies_directory_view.pt:31
+#: ./page/mobile/templates/search.pt:36
+#: ./page/mobile/templates/users_directory_view.pt:30
 msgid "Companies"
 msgstr ""
 
 #: ./page/desktop/templates/companies_directory_view.pt:31
-#: ./page/mobile/templates/companies_directory_view.pt:39
+#: ./page/mobile/templates/companies_directory_view.pt:36
 #: ./setuphandler.py:93
 msgid "Companies directory"
 msgstr ""
@@ -307,7 +305,9 @@ msgstr ""
 msgid "Content Added"
 msgstr ""
 
+#: ./page/mobile/templates/companies_directory_view.pt:23
 #: ./page/mobile/templates/search.pt:28
+#: ./page/mobile/templates/users_directory_view.pt:22
 msgid "Contents"
 msgstr ""
 
@@ -332,10 +332,6 @@ msgstr ""
 msgid "Decline"
 msgstr ""
 
-#: ./profiles/settings/workflows/collective_rcse_member_workflow/definition.xml
-msgid "Decline This Member"
-msgstr ""
-
 #: ./action/delete.py:13
 #: ./page/controller/users_manage.py:104
 msgid "Delete"
@@ -349,10 +345,6 @@ msgstr ""
 
 #: ./profiles/settings/types/collective.rcse.directory.xml
 msgid "Directory"
-msgstr ""
-
-#: ./profiles/settings/workflows/collective_rcse_member_workflow/definition.xml
-msgid "Disable This Member"
 msgstr ""
 
 #: ./profiles/settings/types/collective.rcse.discussion.xml
@@ -399,10 +391,6 @@ msgstr ""
 
 #: ./page/controller/users_manage.py:100
 msgid "Enable"
-msgstr ""
-
-#: ./profiles/settings/workflows/collective_rcse_member_workflow/definition.xml
-msgid "Enable This Member"
 msgstr ""
 
 #: ./content/video.py:19
@@ -646,13 +634,13 @@ msgstr ""
 
 #: ./page/desktop/templates/users_directory_view.pt:49
 #: ./page/desktop/templates/users_manage.pt:49
-#: ./page/mobile/templates/users_directory_view.pt:53
+#: ./page/mobile/templates/users_directory_view.pt:50
 msgid "Manage disabled users"
 msgstr ""
 
 #: ./page/desktop/templates/users_directory_view.pt:45
 #: ./page/desktop/templates/users_manage.pt:45
-#: ./page/mobile/templates/users_directory_view.pt:48
+#: ./page/mobile/templates/users_directory_view.pt:45
 msgid "Manage pending users"
 msgstr ""
 
@@ -670,7 +658,7 @@ msgid "Manage request access"
 msgstr ""
 
 #: ./page/desktop/templates/users_manage.pt:38
-#: ./page/mobile/templates/users_manage.pt:39
+#: ./page/mobile/templates/users_manage.pt:36
 msgid "Manage users"
 msgstr ""
 
@@ -899,7 +887,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: ./page/mobile/templates/companies_directory_view.pt:43
+#: ./page/mobile/templates/companies_directory_view.pt:40
 msgid "Search companies"
 msgstr ""
 
@@ -930,8 +918,8 @@ msgstr ""
 msgid "Search invitations"
 msgstr ""
 
-#: ./page/mobile/templates/users_directory_view.pt:60
-#: ./page/mobile/templates/users_manage.pt:61
+#: ./page/mobile/templates/users_directory_view.pt:57
+#: ./page/mobile/templates/users_manage.pt:58
 msgid "Search members"
 msgstr ""
 
@@ -1085,12 +1073,14 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: ./page/mobile/templates/search.pt:33
+#: ./page/mobile/templates/companies_directory_view.pt:27
+#: ./page/mobile/templates/search.pt:32
+#: ./page/mobile/templates/users_directory_view.pt:26
 msgid "Users"
 msgstr ""
 
 #: ./page/desktop/templates/users_directory_view.pt:37
-#: ./page/mobile/templates/users_directory_view.pt:38
+#: ./page/mobile/templates/users_directory_view.pt:35
 #: ./setuphandler.py:80
 msgid "Users directory"
 msgstr ""
@@ -1146,7 +1136,7 @@ msgstr ""
 
 #: ./page/desktop/templates/users_directory_view.pt:41
 #: ./page/desktop/templates/users_manage.pt:41
-#: ./page/mobile/templates/users_directory_view.pt:44
+#: ./page/mobile/templates/users_directory_view.pt:41
 msgid "Watch enabled users"
 msgstr ""
 

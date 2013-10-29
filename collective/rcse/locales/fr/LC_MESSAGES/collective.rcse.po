@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-10-29 09:16+0000\n"
+"POT-Creation-Date: 2013-10-29 10:48+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -172,10 +172,6 @@ msgstr ""
 msgid "Approve"
 msgstr "Approuver"
 
-#: ./profiles/settings/workflows/collective_rcse_member_workflow/definition.xml
-msgid "Approve This Member"
-msgstr "Approuver ce membre"
-
 #: ./action/delete.py:42
 msgid "Are you sure you want to delete ${title} and all it's content ?"
 msgstr "Etes vous sûr de vouloir supprimer ${title} ainsi que tout ce qu'il contient ?"
@@ -272,12 +268,14 @@ msgstr "Collaborer"
 msgid "Collaborate in real time"
 msgstr "Collaborer en temps réel"
 
-#: ./page/mobile/templates/search.pt:38
+#: ./page/mobile/templates/companies_directory_view.pt:31
+#: ./page/mobile/templates/search.pt:36
+#: ./page/mobile/templates/users_directory_view.pt:30
 msgid "Companies"
 msgstr "Entreprises"
 
 #: ./page/desktop/templates/companies_directory_view.pt:31
-#: ./page/mobile/templates/companies_directory_view.pt:39
+#: ./page/mobile/templates/companies_directory_view.pt:36
 #: ./setuphandler.py:93
 msgid "Companies directory"
 msgstr "Annuaire des entreprises"
@@ -309,7 +307,9 @@ msgstr "Informations de contacts"
 msgid "Content Added"
 msgstr "Contenu ajouté"
 
+#: ./page/mobile/templates/companies_directory_view.pt:23
 #: ./page/mobile/templates/search.pt:28
+#: ./page/mobile/templates/users_directory_view.pt:22
 msgid "Contents"
 msgstr "Contenus"
 
@@ -334,10 +334,6 @@ msgstr "Date"
 msgid "Decline"
 msgstr "Refuser"
 
-#: ./profiles/settings/workflows/collective_rcse_member_workflow/definition.xml
-msgid "Decline This Member"
-msgstr "Refuser ce membre"
-
 #: ./action/delete.py:13
 #: ./page/controller/users_manage.py:104
 msgid "Delete"
@@ -352,10 +348,6 @@ msgstr "Description"
 #: ./profiles/settings/types/collective.rcse.directory.xml
 msgid "Directory"
 msgstr "Annuaire"
-
-#: ./profiles/settings/workflows/collective_rcse_member_workflow/definition.xml
-msgid "Disable This Member"
-msgstr "Désactiver ce membre"
 
 #: ./profiles/settings/types/collective.rcse.discussion.xml
 msgid "Discussion"
@@ -402,10 +394,6 @@ msgstr "L'email a été envoyé."
 #: ./page/controller/users_manage.py:100
 msgid "Enable"
 msgstr "Activer"
-
-#: ./profiles/settings/workflows/collective_rcse_member_workflow/definition.xml
-msgid "Enable This Member"
-msgstr "Activer ce membre"
 
 #: ./content/video.py:19
 msgid "Error raise if no valid video has been provided"
@@ -648,13 +636,13 @@ msgstr "Gérer le tableau de bord"
 
 #: ./page/desktop/templates/users_directory_view.pt:49
 #: ./page/desktop/templates/users_manage.pt:49
-#: ./page/mobile/templates/users_directory_view.pt:53
+#: ./page/mobile/templates/users_directory_view.pt:50
 msgid "Manage disabled users"
 msgstr "Gérer les utilisateurs désactivés"
 
 #: ./page/desktop/templates/users_directory_view.pt:45
 #: ./page/desktop/templates/users_manage.pt:45
-#: ./page/mobile/templates/users_directory_view.pt:48
+#: ./page/mobile/templates/users_directory_view.pt:45
 msgid "Manage pending users"
 msgstr "Gérer les utilisateurs en attente de validation"
 
@@ -672,7 +660,7 @@ msgid "Manage request access"
 msgstr "Gérer les demandes d'accès"
 
 #: ./page/desktop/templates/users_manage.pt:38
-#: ./page/mobile/templates/users_manage.pt:39
+#: ./page/mobile/templates/users_manage.pt:36
 msgid "Manage users"
 msgstr "Gérer les utilisateurs"
 
@@ -901,7 +889,7 @@ msgstr "Sauvegarder"
 msgid "Search"
 msgstr "Rechercher"
 
-#: ./page/mobile/templates/companies_directory_view.pt:43
+#: ./page/mobile/templates/companies_directory_view.pt:40
 msgid "Search companies"
 msgstr "Rechercher des entreprises"
 
@@ -932,8 +920,8 @@ msgstr "Rechercher un groupe"
 msgid "Search invitations"
 msgstr "Rechercher une invitation"
 
-#: ./page/mobile/templates/users_directory_view.pt:60
-#: ./page/mobile/templates/users_manage.pt:61
+#: ./page/mobile/templates/users_directory_view.pt:57
+#: ./page/mobile/templates/users_manage.pt:58
 msgid "Search members"
 msgstr "Rechercher des membres"
 
@@ -1087,12 +1075,14 @@ msgstr "Le membre ${user} a été supprimé"
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
-#: ./page/mobile/templates/search.pt:33
+#: ./page/mobile/templates/companies_directory_view.pt:27
+#: ./page/mobile/templates/search.pt:32
+#: ./page/mobile/templates/users_directory_view.pt:26
 msgid "Users"
 msgstr "Utilisateurs"
 
 #: ./page/desktop/templates/users_directory_view.pt:37
-#: ./page/mobile/templates/users_directory_view.pt:38
+#: ./page/mobile/templates/users_directory_view.pt:35
 #: ./setuphandler.py:80
 msgid "Users directory"
 msgstr "Annuaire des utilisateurs"
@@ -1148,7 +1138,7 @@ msgstr "Attention, seuls les groupes peuvent être ajoutés dans Accueil."
 
 #: ./page/desktop/templates/users_directory_view.pt:41
 #: ./page/desktop/templates/users_manage.pt:41
-#: ./page/mobile/templates/users_directory_view.pt:44
+#: ./page/mobile/templates/users_directory_view.pt:41
 msgid "Watch enabled users"
 msgstr "Voir les membres actifs"
 

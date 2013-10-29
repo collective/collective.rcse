@@ -3,15 +3,15 @@
              title="Collective RCSE Member Workflow"
              state_variable="review_state"
              initial_state="pending"
-	     i18n:domain="collective.rcse" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+             i18n:domain="plone"
+             xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
   <permission>View</permission>
   <permission>Access contents information</permission>
   <permission>Modify portal content</permission>
   <permission>Change portal events</permission>
 
-
-  <state state_id="pending" title="Pending">
+  <state state_id="pending" title="Pending" i18n:attributes="title">
    <exit-transition transition_id="approve" />
    <exit-transition transition_id="decline" />
    <permission-map name="View" acquired="False">
@@ -43,7 +43,7 @@
    </permission-map>
   </state>
 
-  <state state_id="enabled" title="Enabled">
+  <state state_id="enabled" title="Enabled" i18n:attributes="title">
    <exit-transition transition_id="disable" />
    <permission-map name="View" acquired="False">
     <permission-role>Anonymous</permission-role>
@@ -64,7 +64,7 @@
    </permission-map>
   </state>
 
-  <state state_id="disabled" title="Disabled">
+  <state state_id="disabled" title="Disabled" i18n:attributes="title">
    <exit-transition transition_id="enable" />
    <permission-map name="View" acquired="False">
     <permission-role>Owner</permission-role>
@@ -97,9 +97,10 @@
   <transition transition_id="approve" new_state="enabled"
                title="Approve this member"
                trigger="USER"
-               before_script="" after_script="">
+               before_script="" after_script=""
+               i18n:attributes="title">
    <action url="%(content_url)s/content_status_modify?workflow_action=approve"
-           category="workflow" i18n:translate="">Approve This Member</action>
+           category="workflow" i18n:translate="">Approve this Member</action>
    <guard>
     <guard-permission>Review portal content</guard-permission>
    </guard>
@@ -108,9 +109,10 @@
   <transition transition_id="decline" new_state="disabled"
                title="Decline this member"
                trigger="USER"
-               before_script="" after_script="">
+               before_script="" after_script=""
+               i18n:attributes="title">
    <action url="%(content_url)s/content_status_modify?workflow_action=decline"
-           category="workflow" i18n:translate="">Decline This Member</action>
+           category="workflow" i18n:translate="">Decline this Member</action>
    <guard>
     <guard-permission>Review portal content</guard-permission>
    </guard>
@@ -119,9 +121,10 @@
   <transition transition_id="disable" new_state="disabled"
               title="Disable this member"
               trigger="USER"
-              before_script="" after_script="">
+              before_script="" after_script=""
+              i18n:attributes="title">
    <action url="%(content_url)s/content_status_modify?workflow_action=disable"
-           category="workflow" i18n:translate="">Disable This Member</action>
+           category="workflow" i18n:translate="">Disable this Member</action>
    <guard>
     <guard-permission>Review portal content</guard-permission>
    </guard>
@@ -130,9 +133,10 @@
   <transition transition_id="enable" new_state="enabled"
               title="Enable this member"
               trigger="USER"
-              before_script="" after_script="">
+              before_script="" after_script=""
+              i18n:attributes="title">
    <action url="%(content_url)s/content_status_modify?workflow_action=enable"
-           category="workflow" i18n:translate="">Enable This Member</action>
+           category="workflow" i18n:translate="">Enable this Member</action>
    <guard>
     <guard-permission>Review portal content</guard-permission>
    </guard>
