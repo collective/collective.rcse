@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-25 09:14+0000\n"
+"POT-Creation-Date: 2013-10-29 09:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,7 +101,7 @@ msgstr ""
 msgid "Add blog"
 msgstr ""
 
-#: ./page/desktop/templates/discussions_view.pt:70
+#: ./page/desktop/templates/discussions_view.pt:69
 msgid "Add discussion"
 msgstr ""
 
@@ -259,7 +259,7 @@ msgstr ""
 
 #: ./page/desktop/templates/addbutton.pt:18
 #: ./page/desktop/templates/blog_view.pt:60
-#: ./page/desktop/templates/discussions_view.pt:59
+#: ./page/desktop/templates/discussions_view.pt:58
 msgid "Close"
 msgstr ""
 
@@ -271,14 +271,18 @@ msgstr ""
 msgid "Collaborate in real time"
 msgstr ""
 
+#: ./page/mobile/templates/search.pt:38
+msgid "Companies"
+msgstr ""
+
 #: ./page/desktop/templates/companies_directory_view.pt:31
 #: ./page/mobile/templates/companies_directory_view.pt:39
-#: ./setuphandler.py:92
+#: ./setuphandler.py:93
 msgid "Companies directory"
 msgstr ""
 
 #: ./content/member.py:92
-#: ./page/controller/timeline_view.py:171
+#: ./page/controller/timeline_view.py:172
 #: ./page/desktop/templates/users_directory_view.pt:61
 msgid "Company"
 msgstr ""
@@ -304,7 +308,11 @@ msgstr ""
 msgid "Content Added"
 msgstr ""
 
-#: ./page/controller/timeline_view.py:141
+#: ./page/mobile/templates/search.pt:28
+msgid "Contents"
+msgstr ""
+
+#: ./page/controller/timeline_view.py:142
 msgid "Contents created by ${name}"
 msgstr ""
 
@@ -502,7 +510,7 @@ msgstr ""
 msgid "Google+"
 msgstr ""
 
-#: ./page/controller/timeline_view.py:19
+#: ./page/controller/timeline_view.py:20
 #: ./profiles/settings/types/collective.rcse.group.xml
 msgid "Group"
 msgstr ""
@@ -516,7 +524,7 @@ msgid "Hide: ${attr}"
 msgstr ""
 
 #: ./content/vocabularies.py:89
-#: ./setuphandler.py:105
+#: ./setuphandler.py:106
 #: ./viewlet/desktop/templates/portal_header.pt:11
 msgid "Home"
 msgstr ""
@@ -671,12 +679,12 @@ msgstr ""
 msgid "Media URL"
 msgstr ""
 
-#: ./page/controller/timeline_view.py:131
+#: ./page/controller/timeline_view.py:132
 #: ./profiles/settings/types/collective.rcse.member.xml
 msgid "Member"
 msgstr ""
 
-#: ./page/controller/timeline_view.py:159
+#: ./page/controller/timeline_view.py:160
 msgid "Members"
 msgstr ""
 
@@ -685,7 +693,7 @@ msgstr ""
 msgid "Moderated"
 msgstr ""
 
-#: ./page/controller/timeline_view.py:107
+#: ./page/controller/timeline_view.py:108
 msgid "Moderated group"
 msgstr ""
 
@@ -711,7 +719,7 @@ msgid "My groups"
 msgstr ""
 
 #: ./page/controller/templates/welcome_view.pt:16
-#: ./page/controller/timeline_view.py:55
+#: ./page/controller/timeline_view.py:56
 #: ./profiles/settings/actions.xml
 msgid "My profile"
 msgstr ""
@@ -722,7 +730,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: ./page/controller/timeline_view.py:18
+#: ./page/controller/timeline_view.py:19
 msgid "News"
 msgstr ""
 
@@ -1078,9 +1086,13 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
+#: ./page/mobile/templates/search.pt:33
+msgid "Users"
+msgstr ""
+
 #: ./page/desktop/templates/users_directory_view.pt:37
 #: ./page/mobile/templates/users_directory_view.pt:38
-#: ./setuphandler.py:79
+#: ./setuphandler.py:80
 msgid "Users directory"
 msgstr ""
 
@@ -1199,7 +1211,7 @@ msgstr ""
 msgid "You liked this. Thanks for the feedback!"
 msgstr ""
 
-#: ./page/controller/timeline_view.py:12
+#: ./page/controller/timeline_view.py:13
 msgid "You must be logged in to access to the RCSE"
 msgstr ""
 

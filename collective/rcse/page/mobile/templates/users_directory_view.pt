@@ -20,18 +20,15 @@
                 <ul>
                     <li>
                         <a tal:attributes="href string:${context/absolute_url}/@@search"
-                            i18n:translate="">Search for contents
-                        </a>
+                           i18n:translate="">Contents</a>
                     </li>
                     <li>
                         <a tal:attributes="href string:${context/absolute_url}/users_directory"
-                            class="ui-btn-active" i18n:translate="">Search for
-                            users</a>
+                           class="ui-btn-active" i18n:translate="">Users</a>
                     </li>
                     <li>
-                        <a
-                            tal:attributes="href string:${context/absolute_url}/companies_directory"
-                            i18n:translate="">Search for companies</a>
+                        <a tal:attributes="href string:${context/absolute_url}/companies_directory"
+                           i18n:translate="">Companies</a>
                     </li>
                 </ul>
             </div>
