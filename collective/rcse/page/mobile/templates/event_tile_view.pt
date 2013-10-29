@@ -1,4 +1,5 @@
-<div class="tile-wrapper" tal:define="data nocall:view/data">
+<div class="tile-wrapper" tal:define="data nocall:view/data"
+     i18n:domain="collective.rcse">
     <p class="documentDescription" tal:content="context/Description"></p>
     
     <div class="readmore" tal:content="structure data/text"></div>

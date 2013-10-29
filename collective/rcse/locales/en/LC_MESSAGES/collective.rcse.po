@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-10-29 15:00+0000\n"
+"POT-Creation-Date: 2013-10-29 17:59+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -53,6 +53,10 @@ msgstr ""
 
 #: ./workflow.py:21
 msgid "Account validation"
+msgstr ""
+
+#: ./viewlet/desktop/templates/document_actions.pt:27
+msgid "Action"
 msgstr ""
 
 #: ./page/desktop/templates/users_manage.pt:64
@@ -296,6 +300,11 @@ msgstr ""
 msgid "Confirm the password"
 msgstr ""
 
+#: ./page/desktop/templates/event_tile_view.pt:26
+#: ./page/mobile/templates/event_tile_view.pt:25
+msgid "Contact"
+msgstr ""
+
 #: ./content/member.py:49
 #: ./page/desktop/templates/member_tile_view.pt:55
 msgid "Contact information"
@@ -423,6 +432,11 @@ msgstr ""
 
 #: ./content/member.py:140
 msgid "Expertise"
+msgstr ""
+
+#: ./page/desktop/templates/event_tile_view.pt:49
+#: ./page/mobile/templates/event_tile_view.pt:54
+msgid "External media"
 msgstr ""
 
 #: ./viewlet/desktop/templates/portal_header.pt:38
@@ -568,7 +582,7 @@ msgstr ""
 msgid "Item and it's content has been deleted"
 msgstr ""
 
-#: ./viewlet/desktop/templates/edit_bar.pt:10
+#: ./viewlet/desktop/templates/edit_bar.pt:13
 msgid "Join this group"
 msgstr ""
 
@@ -623,7 +637,7 @@ msgstr ""
 msgid "Male"
 msgstr ""
 
-#: ./viewlet/desktop/templates/edit_bar.pt:23
+#: ./viewlet/desktop/templates/edit_bar.pt:28
 msgid "Manage"
 msgstr ""
 
@@ -660,6 +674,11 @@ msgstr ""
 #: ./page/desktop/templates/users_manage.pt:38
 #: ./page/mobile/templates/users_manage.pt:36
 msgid "Manage users"
+msgstr ""
+
+#: ./page/desktop/templates/event_tile_view.pt:48
+#: ./page/mobile/templates/event_tile_view.pt:53
+msgid "Media"
 msgstr ""
 
 #: ./content/event.py:22
@@ -722,6 +741,11 @@ msgstr ""
 
 #: ./page/controller/validate_email.py:27
 msgid "No key provided."
+msgstr ""
+
+#: ./viewlet/desktop/templates/document_actions.pt:16
+#: ./viewlet/mobile/templates/document_actions.pt:18
+msgid "Open / Close comment box to read and or post comments."
 msgstr ""
 
 #: ./page/controller/modify_company.py:28
@@ -815,7 +839,7 @@ msgstr ""
 msgid "Proxy Group"
 msgstr ""
 
-#: ./viewlet/desktop/templates/edit_bar.pt:16
+#: ./viewlet/desktop/templates/edit_bar.pt:20
 msgid "Quit this group"
 msgstr ""
 
@@ -824,7 +848,7 @@ msgstr ""
 msgid "RCSE Security settings"
 msgstr ""
 
-#: ./viewlet/controller/resourceregistries.py:22
+#: ./viewlet/controller/resourceregistries.py:26
 msgid "Read more"
 msgstr ""
 
@@ -1275,6 +1299,10 @@ msgstr ""
 #. Default: "Is this really where you want to add portlets above the content?"
 #: ./page/mobile/templates/manage_group_dashboard_view.pt:24
 msgid "message_warning_above_content_area_dt"
+msgstr ""
+
+#: ./viewlet/desktop/templates/edit_bar.pt:7
+msgid "rcse_join_this_group_help"
 msgstr ""
 
 #. Default: "Return"

@@ -1,14 +1,14 @@
-<div tal:omit-tag="" i18n:domain="plone" tal:condition="view/should_display">
+<div tal:omit-tag="" i18n:domain="collective.rcse" tal:condition="view/should_display">
   <div class="document-actions-wrapper">
     <div class="documentActions" data-role="controlgroup" data-type="horizontal" data-mini="true">
     <tal:docactions tal:condition="python:view.actions_icon or view.actions" tal:define="normalizeString nocall: context/@@plone/normalizeString">
-      <tal:action tal:repeat="daction view/actions_icon"
-                  tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
+      <tal:action tal:repeat="daction view/actions_icon">
         <a href=""
            data-role="button"
            tal:content="python:view.get_how_many(daction)"
+           i18n:attributes="title"
            tal:attributes="href daction/url;
-                           id daction/id;
+                           id python:'document-action-' + normalizeString(daction['id']);
                            class string:action ${daction/id};
                            target daction/link_target|nothing;
                            title daction/description;
@@ -16,14 +16,12 @@
         </a>
       </tal:action>
       <a data-role="button" data-icon="comments-alt"
+         title="Open / Close comment box to read and or post comments."
+         i18n:attributes="title"
          class="action action-comments"
          tal:content="view/get_how_many_comments"
          tal:attributes="href string:${context/absolute_url}/@@trigger_display_comments"
          ></a>
-      <a target="_blank"
-         data-role="button" data-icon="share-alt"
-         tal:attributes="href view/context_state/view_url"></a>
-
       <a data-role="button" data-rel="popup" data-icon="ellipsis-vertical" data-transition="pop"
          tal:attributes="href string:#popup-dactions-${context/uuid}"
          tal:condition="view/actions">

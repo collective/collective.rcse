@@ -1,32 +1,38 @@
-<tal:wrapper tal:define="menus view/menus; uid view/object_uid">
-<div class="btn-group" tal:attributes="id string:edit-bar-$uid" i18n:domain="plone">
+<tal:wrapper tal:define="menus view/menus; uid view/object_uid"
+    i18n:domain="collective.rcse">
+<div class="btn-group" tal:attributes="id string:edit-bar-$uid">
 
 <tal:isgroup tal:condition="view/isGroup">
       <tal:groupjoin tal:condition="view/isVisitor">
         <a class="ajax-action btn btn-sm btn-default"
-           tal:attributes="href string:${view/group_url}/@@join-this-group"
+           tal:attributes="href string:${view/group_url}/@@join-this-group;"
+           title="rcse_join_this_group_help"
+           i18n:attributes="title"
            tal:condition="view/can_join">
            <span class="icon-signin"></span>
-	   <tal:label i18n:domain="collective.rcse" i18n:translate="">Join this group</tal:label>
+           <tal:label i18n:domain="collective.rcse"
+               i18n:translate="">Join this group</tal:label>
         </a>
         <a class="ajax-action btn btn-sm btn-default"
            tal:attributes="href string:${view/group_url}/@@quit-this-group"
            tal:condition="view/can_quit">
            <span class="icon-signout"></span>
-	   <tal:label i18n:domain="collective.rcse" i18n:translate="">Quit this group</tal:label>
+       <tal:label i18n:domain="collective.rcse"
+            i18n:translate="">Quit this group</tal:label>
         </a>
       </tal:groupjoin>
       <tal:manage tal:condition="view/can_manage">
         <a class="ajax-action btn btn-sm btn-default"
            tal:attributes="href string:${view/group_url}/@@rcse_group_edit">
            <span class="icon-gear"></span>
-	   <tal:label i18n:domain="collective.rcse" i18n:translate="">Manage</tal:label>
+       <tal:label i18n:domain="collective.rcse" i18n:translate="">Manage</tal:label>
         </a>
       </tal:manage>
 </tal:isgroup>
-<tal:notgroup tal:condition="not:view/isGroup">
+<tal:notgroup tal:condition="not:view/isGroup" i18n:domain="plone">
     <tal:edit tal:repeat="action view/object_actions">
       <a tal:condition="python:action['id'] == 'edit'"
+         i18n:attributes="title"
          tal:attributes="href action/url; title action/title"
         class="btn btn-sm btn-default">
         <span class="icon-pencil"></span>
@@ -35,7 +41,10 @@
     </tal:edit>
     <tal:publish tal:condition="menus/plone_contentmenu_workflow">
             <tal:button tal:repeat="menu menus/plone_contentmenu_workflow">
-                <a  class="btn btn-sm btn-default" tal:attributes="href menu/action" tal:content="menu/title"
+                <a  class="btn btn-sm btn-default"
+                    i18n:attributes="title"
+                    tal:attributes="href menu/action; title menu/description"
+                    tal:content="menu/title"
                     i18n:translate="">menu</a>
             </tal:button>
     </tal:publish>

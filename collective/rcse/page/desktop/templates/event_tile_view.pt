@@ -1,4 +1,5 @@
-<div class="tile-wrapper" tal:define="data nocall:view/data">
+<div class="tile-wrapper" tal:define="data nocall:view/data"
+     i18n:domain="collective.rcse">
     <p class="documentDescription" tal:content="context/Description"></p>
     <div class="readmore" tal:content="structure data/text"></div>
     <p>
@@ -45,9 +46,10 @@
     <tal:media tal:define="picture nocall:context/image"
         tal:condition="python: picture or context.urlMedia">
         <h3 i18n:translate="">Media</h3>
+        <a i18n:translate=""
+           tal:condition="context/urlMedia"
+           tal:attributes="href context/urlMedia">External media</a>
         <a class="oembed oembed-responsive" tal:attributes="href context/urlMedia"></a>
-        <a i18n:translate="" tal:condition="context/urlMedia" tal:attributes="href context/urlMedia">External
-            media</a>
         <div class="picturefill-wrapper" tal:condition="nocall:picture"
             tal:content="structure context/@@picturefill"></div>
     </tal:media>
