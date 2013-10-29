@@ -295,7 +295,6 @@ var rcseApplyTransform = function(element) {
     rcseUpdateComments(element);
     $(element).find("a.oembed,.oembed a").oembed(null, jqueryOmebedSettings);
     picturefill();
-    $(element).find(".readmore").readmore();
     $(element).find('video,audio').mediaelementplayer();
     rcseUpdateFluidMedia(element);
     return element;

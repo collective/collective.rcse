@@ -446,11 +446,12 @@ var rcseInitTimeline = function() {
         $.ajax({
             url : url,
         }).success(function(data) {
-            parent.hide();
+//            parent.hide();
             item.replaceWith(data)
             rcseApplyTransform(parent);
             //parent.addClass('animated pulse').show();
-            parent.show();
+//            parent.show();
+//            rcseUpdateReadMore(parent);
         });
     }, {offset: '100%'});
 }
@@ -923,12 +924,15 @@ var rcseUpdateSelect = function(element){
         select.chosen({disable_search_threshold: 15, width: "95%"});
     });
 }
+var rcseUpdateReadMore = function(element){
+    $(element).find(".readmore").removeClass('readmore').readmore();
+}
+
 var rcseApplyTransform = function(element) {
     if (element == undefined) {
         element = document;
     }
     rcseUpdateSelect(element);
-    $(element).find(".readmore").readmore();
     rcseUpdatePortlets(element);
     $(element).find('video,audio').mediaelementplayer();
     $(element).find('a.oembed, .oembed a').oembed(null, jqueryOmebedSettings);
@@ -939,6 +943,7 @@ var rcseApplyTransform = function(element) {
         .removeClass("lazy").lazyload({skip_invisible: false});
 //    rcseUpdateFluidMedia(element);
     rcseUpdateOthers(element);
+    rcseUpdateReadMore(element);
     return element;
 }
 

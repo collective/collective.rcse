@@ -1,3 +1,4 @@
+<script type="text/javascript" tal:content="string: var rcse18n = ${view/json_locales}"></script>
 <tal:scripts repeat="script view/scripts"
   ><tal:block define="inline script/inline;
                      condcomment script/conditionalcomment"
