@@ -21,7 +21,7 @@ var rcseUpdateFluidMedia = function(element){
         element = document;
     }
     var transform = function(targetelement){
-        console.log('transform');
+        // console.log('transform');
         var target = $(targetelement)
         var width = parseInt(target.attr("width"));
         var height = parseInt(target.attr("height"));
@@ -37,9 +37,9 @@ var rcseUpdateFluidMedia = function(element){
     });
 }
 var rcseInitFluidMedia = function(){
-    console.log('init fluid');
+    // console.log('init fluid');
     $(document).on('oembed', function(event, data){
-        console.log('event oembed');
+        // console.log('event oembed');
         rcseUpdateFluidMedia($(event.target).parent());
     });
 }
@@ -733,8 +733,8 @@ var rcseInitLoadTileContentInModal = function(){
         $.ajax({
             url: url
         }).success(function(data) {
-            console.log('load content in modal');
-            console.log(item);
+            // console.log('load content in modal');
+            // console.log(item);
             $("#content-modal .modal-body").html(data);
             $("#content-modal").modal();
             rcseApplyTransform($("#content-modal .modal-body"));
@@ -795,94 +795,87 @@ var rcseInitDatatable = function(){
 }
 
 var rcseInitScrollableColumns = function(){
+    var ccontent = $('#portal-column-content');
     var cone = $('#portal-column-one');
     var ctwo = $('#portal-column-two');
     var columns = $('#portal-columns');
-    var content = $('#portal-column-content');
-    var footer = $('footer');
-    var footeroff = footer.offset();
     var hasone = cone.length == 1;
     var hastwo = ctwo.length == 1;
-    var oneposition = cone.position();
-    var twoposition = ctwo.position();
-    var columnsoffset = columns.offset();
     var viewport = getViewport();
     var wwidth = viewport[0];
     var wheight = viewport[1];
+    var columnsoffset = columns.offset();
+
+    // Configuration
+    var padding = 8;
+
+    // Init
+    moveColumns();
+
+    function moveColumn(column) {
+        if (wwidth < 992){
+            //do nothing because columns will be displayed later
+	    column.css('margin-top', '0px');
+            return ;
+        }
+        var scrolltop = $(this).scrollTop();
+
+	if (scrolltop < columnsoffset.top) {
+	    // Reset
+	    column.css('margin-top', '0px');
+	    return ;
+	}
+
+	var scrollbottom = scrolltop + wheight;
+	var columns_bottom = columnsoffset.top + columns.height();
+	var bottom = columnsoffset.top + column.height()
+	    + parseInt(column.css('padding-top')) + padding;
+
+	if (bottom > scrollbottom) {
+	    column.css('margin-top', '0px');
+	    // Still something to show, do nothing
+	}
+	else {
+	    // Let's move the column
+	    if (column.height() < wheight)
+		// Columns is smaller than window, stick to top
+		margin = scrolltop - columnsoffset.top;
+	    else
+		// Stick to bottom
+		margin = scrollbottom - bottom;
+	    // Check if adding margin will push out the columns
+	    if (bottom + margin > columns_bottom) {
+		// Set margin to max possible
+		if (column.height() < ccontent.height())
+		    // Column is smaller than content
+		    margin = columnsoffset.top + ccontent.height() - bottom;
+		else
+		    return ;
+	    }
+	    column.css('margin-top', (margin).toString() + 'px');
+	}
+    }
+
+    function moveColumns() {
+	if (hasone)
+	    moveColumn(cone);
+	if (hastwo)
+	    moveColumn(ctwo);
+    }
+
     $(window).resize(function(eventObject){
-        hasone = cone.length == 1;
-        hastwo = ctwo.length == 1;
-        oneposition = cone.position();
-        twoposition = ctwo.position();
-        columnsoffset = columns.offset();
         viewport = getViewport();
-        wwidth = viewport[0], wheight = viewport[1];
-        footeroff = footer.offset();
+        wwidth = viewport[0];
+	wheight = viewport[1];
+        columnsoffset = columns.offset();
+	moveColumns();
     });
 
     $(window).scroll(function(eventObject){
-        function fixColumns(){
-            var oneheight = cone.height() + parseInt(cone.css('padding-top')) + parseInt(cone.css('margin-top')),
-            twoheight = ctwo.height() + parseInt(ctwo.css('padding-top')) + parseInt(ctwo.css('margin-top')),
-            contentheight = content.height() + parseInt(content.css('padding-top')) + parseInt(content.css('margin-top')),
-            columnsheight = columns.height() + parseInt(columns.css('padding-top')) + parseInt(columns.css('margin-top')),
-            scrolltop = $(this).scrollTop();
-            footeroff = footer.offset();
-
-            if (wwidth < 992){
-                //do nothing because columns will be displayed later
-                return
-            }
-            if ( (hasone && (contentheight < oneheight)) || (hastwo && (contentheight < twoheight))){
-                return
-            }
-
-            if (scrolltop < columnsoffset.top){
-                //reset
-                if (hasone){
-                    cone.removeAttr('style');
-                }
-                if (hastwo){
-                    ctwo.removeAttr('style');
-                }
-            }
-            if (scrolltop + wheight > footeroff.top){
-                //FIXME: We hit the footer
-                if (hasone){}
-                if (hastwo){}
-            }
-            if (scrolltop >= columnsoffset.top){
-                if (hasone){
-                    cone.css('position','fixed').css('left', oneposition.left);
-                    if (wheight > oneheight) {
-//                        console.log('stick to top ONE');
-                        cone.css('top','8px');
-                    }else if(scrolltop + wheight >= columnsoffset.top + oneheight + 20) {
-//                        console.log('stick to bottom ONE');
-                        cone.css('bottom','8px');
-                    }else{
-//                        console.log('stick to current ONE');
-                        cone.css('top', 8 + columnsoffset.top - scrolltop + 'px');
-                    }
-                }
-                if (hastwo){
-                    ctwo.css('position','fixed').css('left', twoposition.left);
-                    if (wheight > twoheight) {
-//                        console.log('stick to top TWO');
-                        ctwo.css('top','8px');
-                    }else if(scrolltop + wheight >= columnsoffset.top + twoheight + 20) {
-//                        console.log('stick to bottom TWO');
-                        ctwo.css('bottom','8px');
-                    }else{
-//                        console.log('stick to current TWO');
-                        ctwo.css('top', 8 + columnsoffset.top - scrolltop + 'px');
-                    }
-                }
-            }
-        }
-        fixColumns();
+	moveColumns();
     });
 }
+
 var rcseInitMemberDatatables = function(){
     datatableconfig = {
             "iDisplayLength": -1,
