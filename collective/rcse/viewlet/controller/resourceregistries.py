@@ -1,9 +1,16 @@
 import os
+import Globals
+import json
+
+from copy import copy
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.memoize import view
-from copy import copy
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.publisher.interfaces.browser import IBrowserPublisher
+
+from collective.rcse.i18n import _
+from zope.i18n import translate
+
 
 class ResourcesViewlet(ViewletBase):
     """Display resources for RCSE"""
@@ -12,6 +19,17 @@ class ResourcesViewlet(ViewletBase):
         super(ResourcesViewlet, self).__init__(context, request, view, manager=None)
         self.styles_config = []
         self.scripts_config = []
+
+    def update(self):
+        super(ResourcesViewlet, self).update()
+        self.locales = {
+            "readmore_more": self._translate(_(u"Read more")),
+            "readmore_close": self._translate(_(u"Close")),
+        }
+        self.json_locales = json.dumps(self.locales)
+
+    def _translate(self, msg):
+        return translate(msg, context=self.request)
 
     @view.memoize_contextless
     def styles(self):
@@ -55,7 +73,6 @@ class ResourcesViewlet(ViewletBase):
 
     def getDevelMode(self):
         """Are we running in development mode?"""
-        import Globals
         return bool(Globals.DevelopmentMode)
 
 

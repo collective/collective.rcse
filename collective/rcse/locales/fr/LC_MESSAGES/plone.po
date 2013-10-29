@@ -56,5 +56,3 @@ msgstr "Modéré"
 msgid "Open"
 msgstr "Ouvert"
 
-msgid "Make moderated"
-msgstr "Rendre modéré"

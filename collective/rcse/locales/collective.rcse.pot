@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-29 11:19+0000\n"
+"POT-Creation-Date: 2013-10-29 15:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -676,11 +676,6 @@ msgstr ""
 msgid "Members"
 msgstr ""
 
-#: ./page/desktop/templates/group_status.pt:24
-#: ./page/mobile/templates/group_status.pt:24
-msgid "Moderated"
-msgstr ""
-
 #: ./page/controller/timeline_view.py:108
 msgid "Moderated group"
 msgstr ""
@@ -728,11 +723,6 @@ msgstr ""
 
 #: ./page/controller/validate_email.py:27
 msgid "No key provided."
-msgstr ""
-
-#: ./page/desktop/templates/group_status.pt:27
-#: ./page/mobile/templates/group_status.pt:27
-msgid "Open"
 msgstr ""
 
 #: ./page/controller/modify_company.py:28
@@ -807,11 +797,6 @@ msgstr ""
 msgid "Privacy"
 msgstr ""
 
-#: ./page/desktop/templates/group_status.pt:21
-#: ./page/mobile/templates/group_status.pt:21
-msgid "Private"
-msgstr ""
-
 #: ./content/member.py:153
 #: ./page/desktop/templates/member_tile_view.pt:72
 msgid "Professional e-mail"
@@ -838,6 +823,10 @@ msgstr ""
 #: ./profiles/settings/controlpanel.xml
 #: ./security.py:71
 msgid "RCSE Security settings"
+msgstr ""
+
+#: ./viewlet/controller/resourceregistries.py:22
+msgid "Read more"
 msgstr ""
 
 #: ./page/controller/register.py:52
