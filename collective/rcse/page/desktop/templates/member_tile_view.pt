@@ -1,6 +1,6 @@
 <div class="tile-wrapper" i18n:domain="collective.rcse">
 
-    <tal:block
+    <tal:block i18n:domain="plone"
          tal:condition="view/getWorkflowTransitions"
          tal:repeat="transition view/getWorkflowTransitions">
         <a class="btn btn-default"
