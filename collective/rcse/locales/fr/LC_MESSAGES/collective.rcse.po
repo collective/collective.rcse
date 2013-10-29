@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-10-29 17:59+0000\n"
+"POT-Creation-Date: 2013-10-29 18:07+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -1340,8 +1340,4 @@ msgstr "Membre non trouvé dans l'annuaire"
 #: ./page/desktop/templates/users_manage.pt:59
 msgid "userid"
 msgstr "ID Utilisateur"
-
-#: ./page/desktop/templates/group_edit.pt:30
-msgid "x"
-msgstr ""
 

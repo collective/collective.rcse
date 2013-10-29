@@ -26,7 +26,7 @@
   <a tal:attributes="href string:${context/absolute_url}/object_rename"
      data-toggle="tooltip" data-placement="right"
      title="Update group's title and id. The id is the URL representation of the group."
-     i18n:attributes="title" i18n:translate="">
+     i18n:attributes="title">
     <tal:translate i18n:domain="plone" i18n:translate="">Rename</tal:translate>
   </a>
 </li>
@@ -34,7 +34,7 @@
   <a tal:attributes="href string:${context/absolute_url}/@@rcse_delete"
      data-toggle="tooltip" data-placement="right"
      title="Update group's title and id. The id is the URL representation of the group."
-     i18n:attributes="title" i18n:translate="">
+     i18n:attributes="title">
     <tal:translate i18n:domain="plone" i18n:translate="">Delete</tal:translate>
   </a>
 </li>
