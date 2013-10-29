@@ -19,8 +19,8 @@
 	<div class="thumbnail"
 	     tal:define="memberinfo video/@@creator_memberinfo;
 			 uid video/UID;">
-          <a class="load-content-tile-in-modal" data-toggle="modal" href="#content-modal"
-             tal:attributes="data-href video/getURL">
+          <a class="load-content-tile-in-modal"
+             tal:attributes="href video/getURL">
 	    <div class="thumbnail">
 	      <tal:thumbnail tal:condition="python:view.tt.has_key(uid)">
                 <img alt="Thumbnail"
