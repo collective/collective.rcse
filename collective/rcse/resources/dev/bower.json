@@ -37,6 +37,7 @@
     "mediaelement": "2.13.1",
     "modernizr": "2.6.2",
     "picturefill": "~1.2.0",
+    "readmore": "https://github.com/jedfoster/Readmore.js/archive/master.zip",
     "webshim": "1.11.1"
   },
   "resolutions": {

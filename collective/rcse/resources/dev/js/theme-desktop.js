@@ -935,7 +935,10 @@ var rcseUpdateSelect = function(element){
     });
 }
 var rcseUpdateReadMore = function(element){
-    $(element).find(".readmore").removeClass('readmore').readmore();
+    $(element).find(".readmore").removeClass('readmore').readmore({
+        moreLink: '<a href="#">' + rcse18n['readmore_more'] + '</a>',
+        lessLink: '<a href="#">' + rcse18n['readmore_close'] + '</a>'
+    });
 }
 
 var rcseApplyTransform = function(element) {

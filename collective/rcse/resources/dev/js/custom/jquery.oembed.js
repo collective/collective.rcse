@@ -289,11 +289,8 @@
 				}
 			}
 */
-			console.log('oembed replace');
-			debugger;
             container.hide().wrap('<div class="oembed-wrapper"></div>')
                .after(oembedData.code);
-            console.log(container.parent()[0].outerHTML);
             notify();
 			break;
 		case "fill":
