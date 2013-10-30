@@ -11,10 +11,12 @@
     <h1>
       <tal:block tal:condition="python:view.user_actions and not view.anonymous">
         <a href="#popup-personalbar" id="personalbar"
+           title="Display a menu to access to my personal stuff"
+           i18n:attributes="title"
            data-rel="popup" data-inline="true"
            data-transition="fade">
-           <img tal:attributes="src string:${view/auth_user/photo}"/>
-           </a>
+             <img tal:attributes="src string:${view/auth_user/photo}"/>
+        </a>
       </tal:block>
     </h1>
     <div data-role="popup" id="popup-personalbar" i18n:domain="plone">
@@ -22,7 +24,10 @@
             <li tal:repeat="action view/user_actions"
                 tal:attributes="id string:personaltools-${action/id}">
               <a data-rel="popup"
-                 tal:attributes="href action/url"
+                 tal:attributes="href action/url;
+                       target action/link_target|nothing;
+                       title action/description;"
+                 i18n:attributes="title"
                  tal:content="action/title"
                  i18n:translate="">Add</a></li>
         </ul>

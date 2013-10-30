@@ -17,44 +17,52 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon-sitemap"></span> <tal:label  i18n:translate="">Groups</tal:label></a>
         <ul class="dropdown-menu">
           <li>
-            <a tal:attributes="href string:${view/portal_state/portal_url}/users_directory" i18n:translate="">Users directory</a>
+            <a title="Display the search for members form"
+               i18n:attributes="title"
+               tal:attributes="href string:${view/portal_state/portal_url}/users_directory" i18n:translate="">Users directory</a>
           </li>
-	      <li>
-	         <a tal:attributes="href string:${view/portal_state/portal_url}/companies_directory" i18n:translate="">Companies directory</a>
-	      </li>
+          <li>
+             <a title="Display the search for companies form"
+                tal:attributes="href string:${view/portal_state/portal_url}/companies_directory" i18n:translate="">Companies directory</a>
+          </li>
         <li>
-          <a data-toggle="modal" href="#rcseaddform">
+          <a data-toggle="modal" href="#rcseaddform" title="Open add form" i18n:attributes="title">
              <span class="icon-plus"></span>
              <tal:label i18n:translate="">Add a group</tal:label>
           </a>
         </li>
         <li>
-          <a tal:attributes="href string:${view/portal_state/navigation_root_url}/@@search?portal_type=collective.rcse.group&sort_on=sortable_title&b_size:int=100">
+          <a title="Display all groups in the search form"
+             i18n:attributes="title"
+             tal:attributes="href string:${view/portal_state/navigation_root_url}/@@search?portal_type=collective.rcse.group&sort_on=sortable_title&b_size:int=1000">
              <span class="icon-search"></span>
              <tal:label i18n:translate="">All groups</tal:label>
           </a>
         </li>
         <li class="divider" tal:condition="view/favorites"></li>
-	<li i18n:translate="" tal:condition="view/favorites"
-	    role="presentation" class="dropdown-header">Favorites</li>
+        <li i18n:translate="" tal:condition="view/favorites"
+            role="presentation" class="dropdown-header">Favorites</li>
         <li tal:repeat="tab view/favorites">
-          <a tal:attributes="href tab/getURL; id string:portaltab-favorites-${tab/getId};"
-             ><span class="icon-star"></span>
+          <a tal:attributes="href tab/getURL;
+                id string:portaltab-favorites-${tab/getId};
+                title tab/Description;"><span class="icon-star"></span>
              <tal:label tal:content="tab/Title"></tal:label></a></li>
         <li class="divider" tal:condition="view/my_groups"></li>
-	<li i18n:translate="" tal:condition="view/my_groups"
-	    role="presentation" class="dropdown-header">My groups</li>
+    <li i18n:translate="" tal:condition="view/my_groups"
+        role="presentation" class="dropdown-header">My groups</li>
         <li tal:repeat="tab view/my_groups">
           <a tal:attributes="href tab/getURL;
-                 id string:portaltab-registred-${tab/getId};"
+                 id string:portaltab-registred-${tab/getId};
+                 title tab/Description;"
              tal:content="tab/Title"></a>
-	</li>
+    </li>
         <li class="divider" tal:condition="view/registred"></li>
-	<li i18n:translate="" tal:condition="view/registred"
-	    role="presentation" class="dropdown-header">Registred</li>
+    <li i18n:translate="" tal:condition="view/registred"
+        role="presentation" class="dropdown-header">Registred</li>
         <li tal:repeat="tab view/registred">
           <a tal:attributes="href tab/getURL;
-                 id string:portaltab-registred-${tab/getId};"
+                 id string:portaltab-registred-${tab/getId};
+                 title tab/Description;"
              tal:content="tab/Title"></a></li>
         </ul>
       </li>
@@ -67,95 +75,116 @@
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
         <a href="#" class="dropdown-toggle user-menu" data-toggle="dropdown"
+           id="personalbar"
+           title="Display a menu to access to my personal stuff"
+           i18n:attributes="title"
            ><span class="icon-user"></span> <span class="hidden-sm" tal:content="view/user_name">John</span></a>
           <ul class="dropdown-menu">
             <li tal:repeat="action view/user_actions"
                 tal:attributes="id string:personaltools-${action/id}">
                 <a href=""
                    tal:attributes="href action/url;
-                               target action/link_target|nothing"
+                           target action/link_target|nothing;
+                           title action/description;"
+                   i18n:attributes="title"
                    tal:content="action/title"
                    i18n:translate="">action title</a>
         </li>
         </ul>
       </li>
       <li id="notifications" tal:condition="python:not view.anonymous">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+           title="Open the notification menu"
+           i18n:attributes="title">
           <span class="icon-bell"></span>
-	  <span id="notifications-count"
-		class="badge"
-		tal:content="string:${view/unseenCount}"
-		tal:condition="python:view.unseenCount > 0"></span>
+          <span id="notifications-count"
+            class="badge"
+            tal:content="string:${view/unseenCount}"
+            tal:condition="python:view.unseenCount > 0"></span>
         </a>
         <ul class="dropdown-menu">
-	  <li tal:repeat="notification view/notifications">
-	    <tal:block tal:condition="notification/seen">
-	      <a tal:attributes="href notification/url" tal:content="notification/title" i18n:translate=""></a>
-	    </tal:block>
-	    <tal:block tal:condition="python: not notification['seen']">
-	      <a class="notification-not-seen" tal:attributes="href notification/url" tal:content="notification/title" i18n:translate=""></a>
-	    </tal:block>
-	  </li>
-	  <li><a tal:attributes="href string:${view/site_url}/@@collective_whathappened_notifications_all" i18n:translate="">See all notifications</a></li>
+      <li tal:repeat="notification view/notifications">
+        <tal:block tal:condition="notification/seen">
+          <a tal:attributes="href notification/url"
+             tal:content="notification/title"
+             title="Open the corresponding content"
+             i18n:attributes="title"
+             i18n:translate=""></a>
+        </tal:block>
+        <tal:block tal:condition="python: not notification['seen']">
+          <a class="notification-not-seen"
+             tal:attributes="href notification/url"
+             tal:content="notification/title"
+             title="Open the corresponding content"
+             i18n:attributes="title"
+             i18n:translate=""></a>
+        </tal:block>
+      </li>
+      <li><a tal:attributes="href string:${view/site_url}/@@collective_whathappened_notifications_all" i18n:translate="">See all notifications</a></li>
         </ul>
       </li>
     </ul>
   </div><!-- /.navbar-collapse -->
 </header>
-<div class="container">
+<div class="container" i18n:domain="collective.rcse">
   <div class="row">
     <div class="col-xs-4 col-sm-3 col-md-2" id="portal-logo">
       <div class="portal-logo-inner">
         <h1><a tal:attributes="href view/portal_state/navigation_root_url"
-	       tal:content="view/portal_properties/site_properties/title">Logo</a></h1>
+               title="Home" i18n:attributes="title" i18n:domain="plone"
+               tal:content="view/portal_properties/site_properties/title">Logo</a></h1>
       </div>
     </div>
     <div class="col-xs-8 col-sm-2 col-md-2" id="addbutton">
         <div class="addbutton" tal:content="structure context/@@collective.rcse.addbutton"></div>
     </div>
     <div class="col-md-8 col-sm-7 col-xs-12 filters" id="portal-filters"
-         i18n:domain="plone"
          tal:define="base_url view/group_url;
             current_view view/view/__name__;
             default_view view/context_state/view_template_id;"
          tal:attributes="data-currentview current_view; data-defaultview default_view">
-      <a tal:attributes="href string:${base_url}/videos_view" i18n:domain="collective.rcse">
+      <a tal:attributes="href string:${base_url}/videos_view"
+         title="Filter: Display only videos in a dedicated screen" i18n:attributes="title">
         <div class="filter-wrapper filter-videos_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('video')"></span>
           <br />
           <span class="text" i18n:translate="">Videos</span>
         </div>
       </a>
-      <a tal:attributes="href string:${base_url}/images_view" i18n:domain="collective.rcse">
+      <a tal:attributes="href string:${base_url}/images_view"
+         title="Filter: Display only images in a dedicated screen" i18n:attributes="title">
         <div class="filter-wrapper filter-images_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('image')"></span>
           <br />
           <span class="text" i18n:translate="">Images</span>
         </div>
       </a>
-      <a tal:attributes="href string:${base_url}/files_view" i18n:domain="collective.rcse">
+      <a tal:attributes="href string:${base_url}/files_view"
+         title="Filter: Display only files in a dedicated screen" i18n:attributes="title">
         <div class="filter-wrapper filter-files_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('file')"></span>
           <br />
           <span class="text" i18n:translate="">Files</span>
         </div>
       </a>
-
-      <a tal:attributes="href string:${base_url}/event_listing">
+      <a tal:attributes="href string:${base_url}/event_listing"
+         title="Filter: Display only events in a dedicated screen" i18n:attributes="title">
         <div class="filter-wrapper filter-event_listing pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('event')"></span>
           <br />
           <span class="text" i18n:translate="">Events</span>
         </div>
       </a>
-      <a tal:attributes="href string:${base_url}/etherpads_view" i18n:domain="collective.rcse">
+      <a tal:attributes="href string:${base_url}/etherpads_view"
+         title="Filter: Display only etherpads in a dedicated screen" i18n:attributes="title">
         <div class="filter-wrapper filter-etherpads_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('etherpad')"></span>
           <br />
           <span class="text" i18n:translate="">Etherpads</span>
         </div>
       </a>
-      <a tal:attributes="href string:${base_url}/discussions_view" i18n:domain="collective.rcse">
+      <a tal:attributes="href string:${base_url}/discussions_view"
+         title="Filter: Display only discussions in a dedicated screen" i18n:attributes="title">
         <div class="filter-wrapper filter-discussion_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('discussion')"></span>
           <br />
@@ -163,21 +192,24 @@
         </div>
       </a>
 
-      <a tal:attributes="href string:${base_url}/links_view" i18n:domain="collective.rcse">
+      <a tal:attributes="href string:${base_url}/links_view"
+         title="Filter: Display only links in a dedicated screen" i18n:attributes="title">
         <div class="filter-wrapper filter-links_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('signet')"></span>
           <br />
           <span class="text" i18n:translate="">Links</span>
         </div>
       </a>
-      <a tal:attributes="href string:${base_url}/blog_view" i18n:domain="collective.rcse">
+      <a tal:attributes="href string:${base_url}/blog_view"
+         title="Filter: Display only news in a dedicated screen" i18n:attributes="title">
         <div class="filter-wrapper filter-blog_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('news')"></span>
           <br />
           <span class="text" i18n:translate="">News Items</span>
         </div>
       </a>
-      <a tal:attributes="href string:${base_url}/timeline_view" i18n:domain="collective.rcse">
+      <a tal:attributes="href string:${base_url}/timeline_view"
+         title="Display all items in a timeline" i18n:attributes="title">
         <div class="filter-wrapper filter-timeline_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('timeline')"></span>
           <br />

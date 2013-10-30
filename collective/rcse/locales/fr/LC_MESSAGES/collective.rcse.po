@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-10-29 18:07+0000\n"
+"POT-Creation-Date: 2013-10-30 09:43+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -65,7 +65,7 @@ msgstr "Action"
 msgid "Actions"
 msgstr "Actions"
 
-#: ./page/desktop/templates/addbutton.pt:7
+#: ./page/desktop/templates/addbutton.pt:8
 #: ./viewlet/mobile/templates/filters.pt:4
 msgid "Add"
 msgstr "Ajouter"
@@ -94,7 +94,7 @@ msgstr "Ajouter une Image"
 msgid "Add Preference Condition"
 msgstr ""
 
-#: ./viewlet/desktop/templates/portal_header.pt:28
+#: ./viewlet/desktop/templates/portal_header.pt:31
 msgid "Add a group"
 msgstr "Ajouter un groupe"
 
@@ -122,7 +122,7 @@ msgstr "Ajouter un événement"
 msgid "Add file"
 msgstr "Ajouter un fichier"
 
-#: ./page/desktop/templates/addbutton.pt:14
+#: ./page/desktop/templates/addbutton.pt:15
 msgid "Add form"
 msgstr "Formulaire d'ajout de contenu"
 
@@ -155,7 +155,7 @@ msgstr "Adresse"
 msgid "Advertiser"
 msgstr "Annonceur"
 
-#: ./viewlet/desktop/templates/portal_header.pt:34
+#: ./viewlet/desktop/templates/portal_header.pt:39
 #: ./viewlet/mobile/templates/sections.pt:33
 msgid "All groups"
 msgstr "Tous les groupes"
@@ -258,7 +258,7 @@ msgstr "Change la vue utilisé par défaut"
 msgid "City"
 msgstr "Ville"
 
-#: ./page/desktop/templates/addbutton.pt:18
+#: ./page/desktop/templates/addbutton.pt:19
 #: ./page/desktop/templates/blog_view.pt:60
 #: ./page/desktop/templates/discussions_view.pt:58
 msgid "Close"
@@ -366,13 +366,29 @@ msgstr "Discussion"
 msgid "Discussion added"
 msgstr "Discussion ajoutée"
 
-#: ./viewlet/desktop/templates/portal_header.pt:162
+#: ./viewlet/desktop/templates/portal_header.pt:189
 msgid "Discussions"
 msgstr "Discussions"
+
+#: ./viewlet/desktop/templates/portal_header.pt:77
+msgid "Display a menu to access to my personal stuff"
+msgstr "Affiche un menu permettant d'accéder à mes informations personnelles"
+
+#: ./viewlet/desktop/templates/portal_header.pt:35
+msgid "Display all groups in the search form"
+msgstr "Affiche tous les groupes dans le formulaire de recherche"
+
+#: ./viewlet/desktop/templates/portal_header.pt:209
+msgid "Display all items in a timeline"
+msgstr "Afficher tous les éléments dans une timeline"
 
 #: ./profiles/settings/actions.xml
 msgid "Display new content of this group in your news"
 msgstr "Afficher les nouveaux contenu de ce groupe dans votre fil d'actualité"
+
+#: ./viewlet/desktop/templates/portal_header.pt:20
+msgid "Display the search for members form"
+msgstr "Affiche le formulaire de recherche des membres du RSE"
 
 #: ./profiles/settings/actions.xml
 msgid "Do not display anymore new content from this group in your news"
@@ -420,7 +436,7 @@ msgstr "Etherpad"
 msgid "Etherpad added"
 msgstr "Etherpad ajouté"
 
-#: ./viewlet/desktop/templates/portal_header.pt:155
+#: ./viewlet/desktop/templates/portal_header.pt:181
 msgid "Etherpads"
 msgstr "Etherpads"
 
@@ -432,6 +448,10 @@ msgstr "Evénement"
 msgid "Event added"
 msgstr "Evénement ajouté"
 
+#: ./viewlet/desktop/templates/portal_header.pt:173
+msgid "Events"
+msgstr "Événements"
+
 #: ./content/member.py:140
 msgid "Expertise"
 msgstr "Expertise"
@@ -441,7 +461,7 @@ msgstr "Expertise"
 msgid "External media"
 msgstr "Site externe"
 
-#: ./viewlet/desktop/templates/portal_header.pt:38
+#: ./viewlet/desktop/templates/portal_header.pt:43
 #: ./viewlet/mobile/templates/sections.pt:36
 msgid "Favorites"
 msgstr "Favoris"
@@ -459,13 +479,45 @@ msgstr "Fichier"
 msgid "File added"
 msgstr "Fichier ajouté"
 
-#: ./viewlet/desktop/templates/portal_header.pt:140
+#: ./viewlet/desktop/templates/portal_header.pt:165
 msgid "Files"
 msgstr "Fichiers"
 
 #: ./viewlet/mobile/filters.py:77
 msgid "Filter"
 msgstr "Filtrer"
+
+#: ./viewlet/desktop/templates/portal_header.pt:184
+msgid "Filter: Display only discussions in a dedicated screen"
+msgstr "Filtre : affiche uniquement les discussions"
+
+#: ./viewlet/desktop/templates/portal_header.pt:176
+msgid "Filter: Display only etherpads in a dedicated screen"
+msgstr "Filtre : affiche uniquement les etherpads"
+
+#: ./viewlet/desktop/templates/portal_header.pt:168
+msgid "Filter: Display only events in a dedicated screen"
+msgstr "Filtre : affiche uniquement les événements"
+
+#: ./viewlet/desktop/templates/portal_header.pt:160
+msgid "Filter: Display only files in a dedicated screen"
+msgstr "Filtre : affiche uniquement les fichiers"
+
+#: ./viewlet/desktop/templates/portal_header.pt:152
+msgid "Filter: Display only images in a dedicated screen"
+msgstr "Filtre : affiche uniquement les images"
+
+#: ./viewlet/desktop/templates/portal_header.pt:193
+msgid "Filter: Display only links in a dedicated screen"
+msgstr "Filtre : affiche uniquement les liens"
+
+#: ./viewlet/desktop/templates/portal_header.pt:201
+msgid "Filter: Display only news in a dedicated screen"
+msgstr "Filtre : affiche uniquement les actualités"
+
+#: ./viewlet/desktop/templates/portal_header.pt:144
+msgid "Filter: Display only videos in a dedicated screen"
+msgstr "Filtre : affiche uniquement les vidéos"
 
 #: ./viewlet/mobile/templates/filters.pt:11
 msgid "Filters"
@@ -558,7 +610,7 @@ msgstr "Image"
 msgid "Image added"
 msgstr "Image ajoutée"
 
-#: ./viewlet/desktop/templates/portal_header.pt:133
+#: ./viewlet/desktop/templates/portal_header.pt:157
 msgid "Images"
 msgstr "Images"
 
@@ -584,7 +636,7 @@ msgstr "Inviter un utilisateur"
 msgid "Item and it's content has been deleted"
 msgstr "L'élément ainsi que tout son contenu ont été supprimés."
 
-#: ./viewlet/desktop/templates/edit_bar.pt:13
+#: ./viewlet/desktop/templates/edit_bar.pt:12
 msgid "Join this group"
 msgstr "Rejoindre ce groupe"
 
@@ -618,7 +670,7 @@ msgstr "Lien ajouté"
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: ./viewlet/desktop/templates/portal_header.pt:170
+#: ./viewlet/desktop/templates/portal_header.pt:198
 msgid "Links"
 msgstr "Liens"
 
@@ -639,7 +691,8 @@ msgstr "Logo"
 msgid "Male"
 msgstr "Homme"
 
-#: ./viewlet/desktop/templates/edit_bar.pt:28
+#: ./viewlet/desktop/templates/edit_bar.pt:31
+#: ./viewlet/mobile/templates/edit_bar.pt:22
 msgid "Manage"
 msgstr "Gérer"
 
@@ -716,7 +769,7 @@ msgstr "Modifier votre entreprise"
 msgid "My account"
 msgstr "Mon compte"
 
-#: ./viewlet/desktop/templates/portal_header.pt:45
+#: ./viewlet/desktop/templates/portal_header.pt:51
 #: ./viewlet/mobile/templates/sections.pt:43
 msgid "My groups"
 msgstr "Mes groupes"
@@ -737,7 +790,7 @@ msgstr "Nom"
 msgid "News"
 msgstr "Actualité"
 
-#: ./viewlet/desktop/templates/portal_header.pt:177
+#: ./viewlet/desktop/templates/portal_header.pt:206
 msgid "News Items"
 msgstr "Actualités"
 
@@ -749,6 +802,19 @@ msgstr "Aucune clé proposée."
 #: ./viewlet/mobile/templates/document_actions.pt:18
 msgid "Open / Close comment box to read and or post comments."
 msgstr "Ouvrir / Fermer la boite des commentaires pour lire et / ou écrire des commentaires"
+
+#: ./page/desktop/templates/addbutton.pt:2
+#: ./viewlet/desktop/templates/portal_header.pt:29
+msgid "Open add form"
+msgstr "Ouvrir le formulaire d'ajout"
+
+#: ./viewlet/desktop/templates/portal_header.pt:106
+msgid "Open the corresponding content"
+msgstr "Ouvrir le contenu correspondant"
+
+#: ./viewlet/desktop/templates/portal_header.pt:94
+msgid "Open the notification menu"
+msgstr "Ouvrir le menu des notifications"
 
 #: ./page/controller/modify_company.py:28
 #: ./page/controller/register_information.py:34
@@ -841,7 +907,7 @@ msgstr "Téléphone portable professionnel"
 msgid "Proxy Group"
 msgstr "Faux groupe (proxy)"
 
-#: ./viewlet/desktop/templates/edit_bar.pt:20
+#: ./viewlet/desktop/templates/edit_bar.pt:21
 msgid "Quit this group"
 msgstr "Quitter ce groupe"
 
@@ -862,7 +928,7 @@ msgstr "S'enregistrer"
 msgid "Register your information"
 msgstr "Enregistrer vos informations"
 
-#: ./viewlet/desktop/templates/portal_header.pt:53
+#: ./viewlet/desktop/templates/portal_header.pt:60
 #: ./viewlet/mobile/templates/sections.pt:50
 msgid "Registred"
 msgstr "Enregistré"
@@ -897,7 +963,7 @@ msgstr "Inverser"
 msgid "Save"
 msgstr "Sauvegarder"
 
-#: ./viewlet/desktop/templates/portal_header.pt:64
+#: ./viewlet/desktop/templates/portal_header.pt:72
 #: ./viewlet/mobile/filters.py:27
 msgid "Search"
 msgstr "Rechercher"
@@ -949,7 +1015,7 @@ msgstr "Rechercher une requête"
 msgid "Sector"
 msgstr "Secteur"
 
-#: ./viewlet/desktop/templates/portal_header.pt:99
+#: ./viewlet/desktop/templates/portal_header.pt:121
 msgid "See all notifications"
 msgstr "Voir toutes les notifications"
 
@@ -1032,7 +1098,7 @@ msgstr "Il y a eu des erreurs"
 msgid "This is the email you will receive information on. It will not be displayed to other users."
 msgstr "Email sur lequel vous recevrez les informations. Il ne sera pas montré aux autres utilisateurs."
 
-#: ./viewlet/desktop/templates/portal_header.pt:184
+#: ./viewlet/desktop/templates/portal_header.pt:214
 msgid "Timeline"
 msgstr "Timeline"
 
@@ -1129,7 +1195,7 @@ msgstr "Fichier video"
 msgid "Video is being transcoded. Please wait a moment."
 msgstr "La video est en cours d'encodage. Veuillez patienter."
 
-#: ./viewlet/desktop/templates/portal_header.pt:126
+#: ./viewlet/desktop/templates/portal_header.pt:149
 msgid "Videos"
 msgstr "Vidéos"
 
@@ -1303,9 +1369,20 @@ msgstr ""
 msgid "message_warning_above_content_area_dt"
 msgstr ""
 
-#: ./viewlet/desktop/templates/edit_bar.pt:7
+#: ./viewlet/desktop/templates/edit_bar.pt:6
+#: ./viewlet/mobile/templates/edit_bar.pt:6
 msgid "rcse_join_this_group_help"
 msgstr "Rejoindre le groupe vous permet d'y contribuer."
+
+#: ./viewlet/desktop/templates/edit_bar.pt:26
+#: ./viewlet/mobile/templates/edit_bar.pt:18
+msgid "rcse_manage_this_group_help"
+msgstr "Ouvrir l'écran de gestion du groupe pour le modifier, renommer, supprimer, y inviter des utilisateurs, …"
+
+#: ./viewlet/desktop/templates/edit_bar.pt:15
+#: ./viewlet/mobile/templates/edit_bar.pt:11
+msgid "rcse_quit_this_group_help"
+msgstr "Ne plus participer à ce groupe."
 
 #. Default: "Return"
 #: ./page/mobile/templates/manage_group_dashboard_view.pt:40

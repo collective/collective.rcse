@@ -37,6 +37,14 @@ msgstr "Rendre privé"
 msgid "Makes the folder visible internally."
 msgstr "Rendre le contenu du dossier visible aux utilisateurs connectés."
 
+#: ./setuphandler.py
+msgid "Making an item deleted means that it will not be visible to anyone but the manager."
+msgstr "Supprimer un élément signifie qu'il ne sera plus visible de personne sauf des administrateurs."
+
+#: ./profiles/worfklows/collective_rcse_content_workflow/definition.xml
+msgid "Making an item private means that it will not be visible to anyone but the owner and the site administrator."
+msgstr "Rendre un élément privé signifie qu'il ne sera plus visible de personne sauf du créateur et des administrateurs."
+
 #: ./profiles/worfklows/collective_rcse_group_workflow/definition.xml
 msgid "Member makes content private"
 msgstr "Le membre rend le contenu privé"
@@ -55,4 +63,8 @@ msgstr "Modéré"
 #: ./profiles/worfklows/collective_rcse_group_workflow/definition.xml
 msgid "Open"
 msgstr "Ouvert"
+
+#: ./setuphandler.py
+msgid "Publishing the item makes it visible to other users."
+msgstr "Publier l'élément le rend visible aux autres utilisateurs"
 

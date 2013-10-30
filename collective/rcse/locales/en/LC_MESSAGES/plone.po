@@ -36,6 +36,14 @@ msgstr ""
 msgid "Makes the folder visible internally."
 msgstr ""
 
+#: ./setuphandler.py
+msgid "Making an item deleted means that it will not be visible to anyone but the manager."
+msgstr ""
+
+#: ./profiles/worfklows/collective_rcse_content_workflow/definition.xml
+msgid "Making an item private means that it will not be visible to anyone but the owner and the site administrator."
+msgstr ""
+
 #: ./profiles/worfklows/collective_rcse_group_workflow/definition.xml
 msgid "Member makes content private"
 msgstr ""
@@ -53,5 +61,9 @@ msgstr ""
 
 #: ./profiles/worfklows/collective_rcse_group_workflow/definition.xml
 msgid "Open"
+msgstr ""
+
+#: ./setuphandler.py
+msgid "Publishing the item makes it visible to other users."
 msgstr ""
 

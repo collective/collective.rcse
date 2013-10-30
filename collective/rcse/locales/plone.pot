@@ -55,3 +55,14 @@ msgstr ""
 msgid "Member makes content private but open to request access"
 msgstr ""
 
+#: ./profiles/worfklows/collective_rcse_content_workflow/definition.xml
+msgid "Making an item private means that it will not be visible to anyone but the owner and the site administrator."
+msgstr ""
+
+#: ./setuphandler.py
+msgid "Publishing the item makes it visible to other users."
+msgstr ""
+
+#: ./setuphandler.py
+msgid "Making an item deleted means that it will not be visible to anyone but the manager."
+msgstr ""

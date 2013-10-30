@@ -1,34 +1,44 @@
 <tal:wrapper tal:define="menus view/menus; uid view/object_uid">
 <div data-role="controlgroup" data-type="horizontal" data-mini="true"
-     tal:attributes="id string:edit-bar-$uid"
-     i18n:domain="plone">
-    <tal:isgroup tal:condition="view/isGroup">
+     tal:attributes="id string:edit-bar-$uid">
+    <tal:isgroup tal:condition="view/isGroup" i18n:domain="collective.rcse">
       <tal:groupjoin tal:condition="view/isVisitor">
         <a class="ajax-action" data-role="button" data-icon="signin"
            tal:attributes="href string:${view/group_url}/@@join-this-group"
+           title="rcse_join_this_group_help"
+           i18n:attributes="title"
            tal:condition="view/can_join">Join this group</a>
         <a class="ajax-action" data-role="button" data-icon="signout"
+           title="rcse_quit_this_group_help"
+           i18n:attributes="title"
            tal:attributes="href string:${view/group_url}/@@quit-this-group"
            tal:condition="view/can_quit">Quit this group</a>
       </tal:groupjoin>
       <tal:manage tal:condition="view/can_manage">
         <a class="ajax-action" data-role="button" data-icon="gear"
+           title="rcse_manage_this_group_help"
+           i18n:attributes="title"
            tal:attributes="href string:${view/group_url}/@@rcse_group_edit">
            <tal:label i18n:translate="">Manage</tal:label>
         </a>
       </tal:manage>
     </tal:isgroup>
-    <tal:notgroup tal:condition="not:view/isGroup">
+    <tal:notgroup tal:condition="not:view/isGroup" i18n:domain="plone">
         <tal:edit tal:repeat="action view/object_actions">
              <a tal:condition="python:action['id'] == 'edit'"
-                tal:attributes="href action/url; title action/title"
+                tal:attributes="href action/url; title action/description"
                 data-role="button" data-icon="pencil"
-                tal:content="action/title" i18n:translate=""></a>
+                i18n:attributes="title" i18n:translate=""
+                tal:content="action/title"></a>
         </tal:edit>
         <tal:publish tal:condition="menus/plone_contentmenu_workflow">
             <tal:button tal:repeat="menu menus/plone_contentmenu_workflow">
                 <a data-role="button"
-                   tal:attributes="href menu/action; class menu/extra/id" tal:content="menu/title"
+                   i18n:attributes="title"
+                   tal:attributes="href menu/action;
+                        class menu/extra/id;
+                        title menu/description;"
+                   tal:content="menu/title"
                    i18n:translate="">menu</a>
             </tal:button>
         </tal:publish>
