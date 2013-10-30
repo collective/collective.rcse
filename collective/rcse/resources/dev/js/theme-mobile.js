@@ -13,11 +13,10 @@ var rcseInitTimeline = function() {
         $.ajax({
             url : $(this).attr('href') + '/@@group_tile_view'
         }).success(function(data) {
-            parent.hide();
             item.replaceWith(data);
             rcseApplyTransform(parent);
             parent.trigger("create");
-            parent.addClass('animated pulse').show();
+            parent.addClass('animated pulse');
         });
     },{offset: '150%'});
 }
@@ -285,6 +284,13 @@ var rcseInitFluidMedia = function(){
         rcseUpdateFluidMedia($(event.target).parent());
     });
 }
+var rcseUpdateReadMore = function(element){
+    $(element).find(".readmore").removeClass('readmore').readmore({
+        moreLink: '<a href="#">' + rcse18n['readmore_more'] + '</a>',
+        lessLink: '<a href="#">' + rcse18n['readmore_close'] + '</a>'
+    });
+}
+
 var rcseApplyTransform = function(element) {
     if (element == undefined) {
         element = document;
@@ -297,6 +303,7 @@ var rcseApplyTransform = function(element) {
     picturefill();
     $(element).find('video,audio').mediaelementplayer();
     rcseUpdateFluidMedia(element);
+    rcseUpdateReadMore(element);
     return element;
 }
 

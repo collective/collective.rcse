@@ -103,6 +103,7 @@ module.exports = function(grunt) {
                         'app/bower_components/outlayer/outlayer.js',
                         'app/bower_components/imagesloaded/imagesloaded.js',
                         'app/bower_components/masonry/masonry.js',
+                        'app/bower_components/readmore/readmore.js',
 
                         'app/bower_components/mediaelement/build/mediaelement-and-player.js',
                         'app/bower_components/webshim/demos/js-webshim/minified/polyfiller.js',
@@ -124,6 +125,7 @@ module.exports = function(grunt) {
                         'js/jquery.mobile.js',
                         'app/bower_components/picturefill/picturefill.js',
                         'app/bower_components/mediaelement/build/mediaelement-and-player.js',
+                        'app/bower_components/readmore/readmore.js',
                         'app/bower_components/jquery-waypoints/waypoints.js',
                         'js/custom/jquery.oembed.js',
                         'js/custom/cookie_functions.js',
