@@ -571,6 +571,13 @@ var rcseInitAjaxAction = function() {
 }
 
 var rcseInitNotifications = function() {
+    function hideIfNoNew() {
+	if ($('#notifications-count').text() == '0')
+	    $('#notifications-count').hide();
+	else
+	    $('#notifications-count').show();
+    }
+
     var rcseReloadNotifications = function(eventObject) {
         $.ajax({
             url : portal_url + '/@@notifications_ajax',
@@ -602,12 +609,15 @@ var rcseInitNotifications = function() {
                 + see_all_text + '</a></li>';
             $("#notifications ul").append(see_all);
             $("#notifications").trigger("create");
+	    hideIfNoNew();
         });
     }
 
     $("#notifications > a").click(function() {
         rcseReloadNotifications();
     });
+
+    hideIfNoNew();
 }
 
 var rcseInitAddButton = function(){

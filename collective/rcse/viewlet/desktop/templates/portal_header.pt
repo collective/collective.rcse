@@ -84,8 +84,7 @@
           <span class="icon-bell"></span>
 	  <span id="notifications-count"
 		class="badge"
-		tal:content="string:${view/unseenCount}"
-		tal:condition="python:view.unseenCount > 0"></span>
+		tal:content="string:${view/unseenCount}"></span>
         </a>
         <ul class="dropdown-menu">
 	  <li tal:repeat="notification view/notifications">
