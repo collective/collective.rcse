@@ -4,7 +4,7 @@
             <div class="media vcard byline">
                 <a class="pull-left" tal:attributes="href view/url">
                     <img class="media-object img-thumbnail avatar"
-                        tal:attributes="src view/photo" />
+                        tal:attributes="src string:${view/photo}/thumb" />
                 </a>
                 <div class="media-body">
                     <h4 class="media-heading">

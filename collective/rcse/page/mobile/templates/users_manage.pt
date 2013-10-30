@@ -59,7 +59,7 @@
                     i18n:attributes="data-filter-placeholder"
                     data-filter-placeholder="Search members">
                     <li tal:repeat="member members">
-                            <img tal:attributes="src member/photo" />
+                            <img tal:attributes="src string:${member/photo}/tile" />
                             <h2
                                 tal:content="string:${member/first_name} ${member/last_name}"></h2>
                             <p

@@ -1,6 +1,6 @@
 <div class="rcsetile" tal:attributes="id view/tileid" i18n:domain="collective.rcse">
   <div class="vcard" tal:define="creator_info context/creator_memberinfo">
-    <img class="photo" tal:attributes="src creator_info/photo"/>
+    <img class="photo" tal:attributes="src string:${creator_info/photo}/tile"/>
     <h2><a tal:attributes="href context/absolute_url" tal:content="context/Title"></a></h2>
 
     <span tal:attributes="class string:icon ui-${view/icon_status}"></span>

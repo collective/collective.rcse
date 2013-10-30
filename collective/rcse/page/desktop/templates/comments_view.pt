@@ -23,7 +23,7 @@
                              dummy python:author_info_view(author);
                              author_home_url python:view.get_commenter_home_url(username=reply.author_username);
                              has_author_link python:author_home_url and not isAnon;
-                             portrait_url string:${author_info_view/photo}/tile;
+                             portrait_url string:${author_info_view/photo}/thumb;
                              review_state python:wtool.getInfoFor(reply, 'review_state', 'none');"
                     tal:attributes="class python:'media comment replyTreeLevel'+str(depth)+' state-'+str(review_state);
                                  id string:${reply/getId}"

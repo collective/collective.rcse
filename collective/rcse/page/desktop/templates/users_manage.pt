@@ -68,7 +68,7 @@
         <tal:members tal:repeat="member members">
             <tr>
                 <td>
-                    <a tal:attributes="href member/url"><img tal:attributes="src member/photo" width="40" /></a>
+                    <a tal:attributes="href member/url"><img tal:attributes="src string:${member/photo}/tile" width="40" /></a>
                 </td>
                 <td tal:condition="view/canManageUsers" tal:content="member/userid"></td>
                 <td> <a tal:attributes="href member/url" tal:content="string:${member/first_name} ${member/last_name}"></a></td>

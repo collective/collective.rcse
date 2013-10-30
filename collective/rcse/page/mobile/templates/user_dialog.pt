@@ -12,7 +12,7 @@
         </div>
 
         <div data-role="content">
-        <div class="member-photo"><img tal:attributes="src view/photo" /></div>
+        <div class="member-photo"><img tal:attributes="src string:${view/photo}/tile" /></div>
         <ul data-role="listview">
           <li i18n:translate="">First name: <span i18n:name="firstname" tal:content="string:${view/first_name}"></span></li>
           <li i18n:translate="">Last name: <span i18n:name="lastname" tal:content="string:${view/last_name}"></span></li>
