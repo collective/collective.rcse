@@ -9,16 +9,16 @@
       title="collective.rcse: Add company"
       />
     <permission
+      id="collective.rcse.AddArticle"
+      title="collective.rcse: Add article"
+      />
+    <permission
       id="collective.rcse.AddAudio"
       title="collective.rcse: Add audio"
       />
     <permission
       id="collective.rcse.AddDiscussion"
       title="collective.rcse: Add discussion"
-      />
-    <permission
-      id="collective.rcse.AddDocument"
-      title="collective.rcse: Add document"
       />
     <permission
       id="collective.rcse.AddEtherpad"

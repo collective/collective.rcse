@@ -40,8 +40,6 @@ def setupVarious(context):
     uninstallDependencies(portal)
     deactivateSourceUsers(portal)
     activateComments(portal)
-    addTimelineViewToContentTypes(portal)
-    renameDocumentToArticle(portal)
     setupDeletedStateInWorkflows(portal)
     removeIconsFromTypes(portal)
 
@@ -277,33 +275,6 @@ def activateComments(portal):
             document_fti._updateProperty(property, True)
         except BadRequest:
             continue
-
-
-def addTimelineViewToContentTypes(context):
-    ptypes = getToolByName(context, "portal_types")
-    RCSE_CONTENT_TYPES = (
-        'Document',
-        'File',
-        'Image',
-        'News Item',
-        'collective.polls.poll',
-        'Link',
-    )
-    for t in RCSE_CONTENT_TYPES:
-        fti = ptypes.getTypeInfo(t)
-        if fti.default_view != "timeline_view":
-            fti._updateProperty('default_view', "timeline_view")
-        views = list(fti.view_methods)
-        if "timeline_view" not in views:
-            views.append("timeline_view")
-            fti._updateProperty('view_methods', views)
-
-
-def renameDocumentToArticle(context):
-    """plone.po doesn't work... so let's just rename the title of the type"""
-    ptypes = getToolByName(context, "portal_types")
-    fti = ptypes.getTypeInfo("Document")
-    fti._updateProperty('title', "Article")
 
 
 def installOnce(context):

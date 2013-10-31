@@ -17,9 +17,9 @@
     <!-- NAVIGATION ROOT -->
     <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
-      name="blog_view"
-      class="collective.rcse.page.controller.blog_view.NavigationRootBlogView"
-      template="templates/blog_view.pt"
+      name="articles_view"
+      class="collective.rcse.page.controller.articles_view.NavigationRootArticlesView"
+      template="templates/articles_view.pt"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
@@ -168,9 +168,9 @@
       />
     <browser:page
       for="collective.rcse.content.group.GroupSchema"
-      name="blog_view"
-      class="collective.rcse.page.controller.blog_view.BlogView"
-      template="templates/blog_view.pt"
+      name="articles_view"
+      class="collective.rcse.page.controller.articles_view.ArticlesView"
+      template="templates/articles_view.pt"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />

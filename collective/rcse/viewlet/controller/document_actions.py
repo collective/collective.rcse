@@ -12,7 +12,7 @@ from zope.component._api import getMultiAdapter
 from collective.rcse.page.controller.comments_view import should_display_comments
 
 CONTENT_VIEWS = (
-    'blog_view',
+    'articles_view',
     'discussions_view',
     'event_listing',
     'favorites_view',

@@ -199,12 +199,12 @@
           <span class="text" i18n:translate="">Links</span>
         </div>
       </a>
-      <a tal:attributes="href string:${base_url}/blog_view"
+      <a tal:attributes="href string:${base_url}/articles_view"
          title="Filter: Display only news in a dedicated screen" i18n:attributes="title">
-        <div class="filter-wrapper filter-blog_view pull-right">
+        <div class="filter-wrapper filter-articles_view pull-right">
           <span tal:attributes="class python:'%s icon-2x' % view.get_icon('news')"></span>
           <br />
-          <span class="text" i18n:translate="">News Items</span>
+          <span class="text" i18n:translate="">Articles</span>
         </div>
       </a>
       <a tal:attributes="href string:${base_url}/timeline_view"

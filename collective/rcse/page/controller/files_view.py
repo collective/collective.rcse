@@ -16,8 +16,11 @@ CONTENT_TYPE = 'File'
 
 class AddFormSchema(group_base.BaseAddFormSchema):
     """Add form"""
-    title = schema.TextLine(title=_(u"Title"))
     file = NamedBlobFile(title=_(u"File"))
+    title = schema.TextLine(
+        title=_(u"Title"),
+        required=False,
+    )
     description = schema.Text(
         title=_(u"Description"),
         required=False

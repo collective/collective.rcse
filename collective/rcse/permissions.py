@@ -6,9 +6,9 @@ TYPE_ROLES = ('Manager', 'Site Administrator', 'Owner')
 perms = []
 
 for typename in (
+    "article",
     "audio",
     "discussion",
-    "document",
     "etherpad",
     "event",
     "file",
@@ -22,9 +22,9 @@ for typename in (
     security.declarePublic(permid)
     setDefaultRoles(permname, TYPE_ROLES)
 
+AddArticle = "collective.rcse: Add article"
 AddAudio = "collective.rcse: Add audio"
 AddDiscussion = "collective.rcse: Add discussion"
-AddDocument = "collective.rcse: Add document"
 AddEtherpad = "collective.rcse: Add etherpad"
 AddEvent = "collective.rcse: Add event"
 AddFile = "collective.rcse: Add file"

@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <object name="plone.app.event.dx.event" meta_type="Dexterity FTI">
-
  <property name="global_allow">False</property>
-
 </object>

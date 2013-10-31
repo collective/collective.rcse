@@ -33,7 +33,7 @@
  <property name="view_methods">
   <element value="albums_view"/>
   <element value="audios_view"/>
-  <element value="blog_view"/>
+  <element value="articles_view"/>
   <element value="calendar_view"/>
   <element value="dashboard_view"/>
   <element value="favorites_view"/>

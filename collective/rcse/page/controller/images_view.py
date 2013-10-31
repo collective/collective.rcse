@@ -17,12 +17,13 @@ CONTENT_TYPE = "Image"
 
 class AddFormSchema(group_base.BaseAddFormSchema):
     """Add form"""
-    title = schema.TextLine(
-        title=_(u"Title")
-        )
     image = NamedBlobImage(
         title=_(u"Image"),
         description=_(u"Please put an image file here"))
+    title = schema.TextLine(
+        title=_(u"Title"),
+        required=False,
+        )
     description = schema.Text(
         title=_(u"Description"),
         required=False
@@ -36,6 +37,7 @@ class AddFormAdapter(object):
     def __init__(self, context):
         self.context = context
         self.image = None
+        self.title = None
         self.description = None
         self.where = None
         group = get_group(context)

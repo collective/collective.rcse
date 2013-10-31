@@ -82,6 +82,14 @@
       class="plonetheme.jquerymobile.browser.viewlets.hidden.HiddenViewlet"
       layer="collective.rcse.layer.DesktopLayer"
       />
+  <browser:viewlet
+      name="collective.rcse.desktop.modal"
+      for="*"
+      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      permission="zope2.View"
+      template="templates/modal.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      />
 
   <include file="hidden.zcml"/>
 </configure>

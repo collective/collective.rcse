@@ -31,9 +31,9 @@
       />
 
   <browser:page
-      for="plone.app.contenttypes.interfaces.IDocument"
+      for="collective.rcse.content.article.ArticleSchema"
       name="tile_view"
-      template="templates/document_tile_view.pt"
+      template="templates/article_tile_view.pt"
       permission="zope2.View"
       layer="collective.rcse.layer.DesktopLayer"
       />
