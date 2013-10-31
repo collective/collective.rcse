@@ -75,7 +75,7 @@
                           <tr>
                               <th>ID</th>
                               <th i18n:translate="listingheader_user_name">User name</th>
-                                <tal:header repeat="portal_role portal_roles">
+                                <tal:header repeat="portal_role portal_roles" i18n:domain="plone">
                                     <th tal:content="portal_role"
                                         i18n:translate="">
                                         Role
