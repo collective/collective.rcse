@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-31 11:23+0000\n"
+"POT-Creation-Date: 2013-10-31 13:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -105,7 +105,7 @@ msgstr ""
 msgid "Add audio"
 msgstr ""
 
-#: ./page/desktop/templates/discussions_view.pt:69
+#: ./page/desktop/templates/discussions_view.pt:49
 msgid "Add discussion"
 msgstr ""
 
@@ -235,7 +235,7 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-#: ./page/desktop/templates/objects_view.pt:72
+#: ./page/desktop/templates/objects_view.pt:52
 msgid "Bookmark this"
 msgstr ""
 
@@ -266,8 +266,8 @@ msgid "City"
 msgstr ""
 
 #: ./page/desktop/templates/addbutton.pt:19
-#: ./page/desktop/templates/articles_view.pt:60
-#: ./page/desktop/templates/discussions_view.pt:58
+#: ./viewlet/controller/resourceregistries.py:27
+#: ./viewlet/desktop/templates/modal.pt:16
 msgid "Close"
 msgstr ""
 
@@ -397,6 +397,10 @@ msgstr ""
 msgid "Display the search for members form"
 msgstr ""
 
+#: ./page/desktop/templates/article_tile_view.pt:5
+msgid "Display this image in full view"
+msgstr ""
+
 #: ./profiles/settings/actions.xml
 msgid "Do not display anymore new content from this group in your news"
 msgstr ""
@@ -494,6 +498,10 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
+#: ./viewlet/desktop/templates/portal_header.pt:202
+msgid "Filter: Display only articles in a dedicated screen"
+msgstr ""
+
 #: ./viewlet/desktop/templates/portal_header.pt:185
 msgid "Filter: Display only discussions in a dedicated screen"
 msgstr ""
@@ -516,10 +524,6 @@ msgstr ""
 
 #: ./viewlet/desktop/templates/portal_header.pt:194
 msgid "Filter: Display only links in a dedicated screen"
-msgstr ""
-
-#: ./viewlet/desktop/templates/portal_header.pt:202
-msgid "Filter: Display only news in a dedicated screen"
 msgstr ""
 
 #: ./viewlet/desktop/templates/portal_header.pt:145
@@ -679,10 +683,6 @@ msgstr ""
 
 #: ./viewlet/desktop/templates/portal_header.pt:199
 msgid "Links"
-msgstr ""
-
-#: ./page/desktop/templates/objects_view.pt:52
-msgid "Loading..."
 msgstr ""
 
 #: ./page/controller/register.py:26
@@ -1356,7 +1356,7 @@ msgstr ""
 msgid "image_description"
 msgstr ""
 
-#: ./page/desktop/templates/objects_view.pt:73
+#: ./page/desktop/templates/objects_view.pt:53
 msgid "link"
 msgstr ""
 
@@ -1404,7 +1404,7 @@ msgstr ""
 msgid "themeswitcher_mobile"
 msgstr ""
 
-#: ./page/desktop/templates/objects_view.pt:74
+#: ./page/desktop/templates/objects_view.pt:54
 msgid "to add contents faster."
 msgstr ""
 

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-10-31 11:23+0000\n"
+"POT-Creation-Date: 2013-10-31 13:25+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -106,7 +106,7 @@ msgstr "Ajouter un article"
 msgid "Add audio"
 msgstr "Ajouter un fichier audio"
 
-#: ./page/desktop/templates/discussions_view.pt:69
+#: ./page/desktop/templates/discussions_view.pt:49
 msgid "Add discussion"
 msgstr "Ajouter une discussion"
 
@@ -236,7 +236,7 @@ msgstr "Date de naissance"
 msgid "Blog"
 msgstr "Blog"
 
-#: ./page/desktop/templates/objects_view.pt:72
+#: ./page/desktop/templates/objects_view.pt:52
 msgid "Bookmark this"
 msgstr "Ajouter à vos favoris ce"
 
@@ -267,8 +267,8 @@ msgid "City"
 msgstr "Ville"
 
 #: ./page/desktop/templates/addbutton.pt:19
-#: ./page/desktop/templates/articles_view.pt:60
-#: ./page/desktop/templates/discussions_view.pt:58
+#: ./viewlet/controller/resourceregistries.py:27
+#: ./viewlet/desktop/templates/modal.pt:16
 msgid "Close"
 msgstr "Fermer"
 
@@ -398,6 +398,10 @@ msgstr "Afficher les nouveaux contenu de ce groupe dans votre fil d'actualité"
 msgid "Display the search for members form"
 msgstr "Affiche le formulaire de recherche des membres du RSE"
 
+#: ./page/desktop/templates/article_tile_view.pt:5
+msgid "Display this image in full view"
+msgstr "Afficher cette image dans sa taille originale"
+
 #: ./profiles/settings/actions.xml
 msgid "Do not display anymore new content from this group in your news"
 msgstr "Ne plus afficher les nouveaux contenu de ce groupe dans votre fil d'actualité"
@@ -495,6 +499,10 @@ msgstr "Fichiers"
 msgid "Filter"
 msgstr "Filtrer"
 
+#: ./viewlet/desktop/templates/portal_header.pt:202
+msgid "Filter: Display only articles in a dedicated screen"
+msgstr "Filtre : affiche uniquement les articles"
+
 #: ./viewlet/desktop/templates/portal_header.pt:185
 msgid "Filter: Display only discussions in a dedicated screen"
 msgstr "Filtre : affiche uniquement les discussions"
@@ -518,10 +526,6 @@ msgstr "Filtre : affiche uniquement les images"
 #: ./viewlet/desktop/templates/portal_header.pt:194
 msgid "Filter: Display only links in a dedicated screen"
 msgstr "Filtre : affiche uniquement les liens"
-
-#: ./viewlet/desktop/templates/portal_header.pt:202
-msgid "Filter: Display only news in a dedicated screen"
-msgstr "Filtre : affiche uniquement les actualités"
 
 #: ./viewlet/desktop/templates/portal_header.pt:145
 msgid "Filter: Display only videos in a dedicated screen"
@@ -681,10 +685,6 @@ msgstr "LinkedIn"
 #: ./viewlet/desktop/templates/portal_header.pt:199
 msgid "Links"
 msgstr "Liens"
-
-#: ./page/desktop/templates/objects_view.pt:52
-msgid "Loading..."
-msgstr "Chargement..."
 
 #: ./page/controller/register.py:26
 msgid "Login"
@@ -1251,7 +1251,7 @@ msgstr "Où"
 
 #: ./profiles/settings/types/collective.rcse.article.xml
 msgid "Write something interesting for the community"
-msgstr ""
+msgstr "Ecrivez quelque chose d'intéressant pour la communuauté"
 
 #: ./page/controller/poll_view.py:97
 msgid "You are not authorized to vote"
@@ -1357,7 +1357,7 @@ msgstr "Contrôle d'accès de ${group}"
 msgid "image_description"
 msgstr "Description de l'image"
 
-#: ./page/desktop/templates/objects_view.pt:73
+#: ./page/desktop/templates/objects_view.pt:53
 msgid "link"
 msgstr "lien"
 
@@ -1405,7 +1405,7 @@ msgstr "Version desktop"
 msgid "themeswitcher_mobile"
 msgstr "Version mobile"
 
-#: ./page/desktop/templates/objects_view.pt:74
+#: ./page/desktop/templates/objects_view.pt:54
 msgid "to add contents faster."
 msgstr "pour ajouter du contenu plus rapidement."
 
