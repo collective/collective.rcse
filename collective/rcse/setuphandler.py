@@ -300,8 +300,6 @@ def setupDeletedStateInWorkflows(portal):
     #add transitions delete and undo_delete
     #for all states add delete trnasiations
     for definition in wftool.objectValues():
-        if definition.id == "one_state_workflow":
-            continue
         states = definition.states
         if 'deleted' not in states:
             states.addState('deleted')
@@ -335,7 +333,10 @@ def setupDeletedStateInWorkflows(portal):
         transition = transitions.get('undo_delete')
         transition.title = "Member makes content private"
         transition.description = "Restore item to private state."
-        transition.new_state_id = "private"
+        if definition.id == 'one_state_workflow':
+            transition.new_state_id = "published"
+        else:
+            transition.new_state_id = "private"
         # transition's trigger is user by default
         guard = transition.getGuard()
         guard.permissions = (permissions.ManagePortal,)

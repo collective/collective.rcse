@@ -7,6 +7,8 @@ from plone.app.uuid.utils import uuidToURL, uuidToObject
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
 from plone.memoize.view import memoize
+from zope.component._api import getUtility
+from zope.browsermenu.interfaces import IBrowserMenu
 
 
 def should_display_comments(context, request):
@@ -99,6 +101,19 @@ class CommentsView(base.CommentsViewlet):
     def update(self):
         self.context = get_comments_context(self.context, self.request)
         base.CommentsViewlet.update(self)
+        self.getMenuForReplies()
+
+    def getMenuForReplies(self):
+        self.menu = {}
+        if self.get_replies() is None:
+            return
+        for reply in list(self.get_replies()):
+            self.menu[reply['id']] = getUtility(
+                IBrowserMenu,
+                name='plone_contentmenu_workflow'
+                ).getMenuItems(reply['comment'], self.request)
+            if len(self.menu[reply['id']]):
+                del self.menu[reply['id']][-1]
 
     @memoize
     def how_many(self):

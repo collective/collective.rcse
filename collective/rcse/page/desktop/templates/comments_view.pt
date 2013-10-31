@@ -67,6 +67,7 @@
                         <div class="commentBody">
                             <span tal:replace="structure reply/getText" />
                             <div class="commentActions pull-right">
+			      <!--
                                 <form name="delete" action="" method="post"
                                     class="commentactionsform" tal:condition="canReview"
                                     tal:attributes="action string:${reply/absolute_url}/@@moderate-delete-comment">
@@ -74,7 +75,9 @@
                                         class="destructive btn-xs" type="submit" value="Delete"
                                         i18n:attributes="value label_delete;" />
                                 </form>
+				-->
                                 <!-- Workflow actions (e.g. 'publish') -->
+				<!--
                                 <form name="" action="" method="get"
                                     class="commentactionsform" tal:condition="canReview"
                                     tal:repeat="action reply_dict/actions|nothing"
@@ -87,6 +90,20 @@
                                         tal:attributes="value action/title"
                                         i18n:attributes="value" />
                                 </form>
+				-->
+				<!-- Workflow actions -->
+				<tal:publish tal:define="id python:reply_dict['id']"
+					     tal:condition="python:view.menu[id]">
+				  <tal:button tal:repeat="action python:view.menu[id]">
+				    <a  class="btn btn-sm btn-default"
+					i18n:attributes="title"
+					tal:attributes="href action/action;
+							class string:btn btn-sm btn-default ${action/extra/id};
+							title action/description"
+					tal:content="action/title"
+					i18n:translate="">action</a>
+				  </tal:button>
+				</tal:publish>
                             </div>
                         </div>
                     </div>
