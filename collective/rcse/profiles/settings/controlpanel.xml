@@ -10,4 +10,10 @@
      i18n:attributes="title" i18n:domain="collective.rcse">
      <permission>Plone Site Setup: Security</permission>
   </configlet>
+  <configlet title="Users and Groups" action_id="UsersGroups"
+     appId="UsersGroups" category="Plone" condition_expr=""
+     url_expr="string:${portal_url}/users_directory" visible="True"
+     i18n:attributes="title">
+     <permission>Plone Site Setup: Users and Groups</permission>
+  </configlet>
 </object>
