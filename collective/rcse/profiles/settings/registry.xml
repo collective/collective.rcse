@@ -11,6 +11,25 @@
         <value key="folder_query">{"portal_type": {"query": "collective.rcse.group"},"path": {"query": "/"}}</value>
   </records>
 
+  <!-- collective.whathappened -->
+  <record name="collective.whathappened.settings.ISettings.useraction_gatherer_whitelist">
+    <field type="plone.registry.field.Set">
+      <value_type type="plone.registry.field.TextLine" />
+    </field>
+    <value>
+      <element>created</element>
+      <element>statechanged</element>
+      <element>liked</element>
+      <element>disliked</element>
+      <element>favorited</element>
+      <element>waiting_for_validation</element>
+      <element>request_access_request</element>
+      <element>request_access_invitation</element>
+      <element>request_access_validated</element>
+      <element>request_access_refused</element>
+    </value>
+  </record>
+
   <!-- collective.transcode.star -->
   <records interface="collective.transcode.star.interfaces.ITranscodeSettings">
     <value key="portal_types">

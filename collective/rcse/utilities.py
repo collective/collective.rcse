@@ -84,6 +84,34 @@ class BaseDisplay(object):
                               })
 
 
+class StateChangedDisplay(BaseDisplay):
+    def display(self, context, request, notification):
+        super(StateChangedDisplay, self).display(context, request, notification)
+        try:
+            transition = notification.info['transition']
+        except:
+            transition = None
+        if transition is None:
+            if self.plural:
+                return _w(u"${who} have changed ${where}'s state",
+                          mapping={'who': self.who,
+                                   'where': self.where})
+            else:
+                return _w(u"${who} has changed ${where}'s state",
+                          mapping={'who': self.who,
+                                   'where': self.where})
+        if self.plural:
+            return _w(u"${who} have ${transition} ${where}",
+                      mapping={'who': self.who,
+                               'transition': transition,
+                               'where': self.where})
+        else:
+            return _w(u"${who} has ${transition} ${where}",
+                      mapping={'who': self.who,
+                               'transition': transition,
+                               'where': self.where})
+
+
 class LikedDisplay(BaseDisplay):
     def display(self, context, request, notification):
         super(LikedDisplay, self).display(context, request, notification)

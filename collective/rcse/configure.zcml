@@ -106,6 +106,9 @@
   <utility factory=".utilities.BaseDisplay"
 	   provides="collective.whathappened.utility.IDisplay"
 	   name="default_display" />
+  <utility factory=".utilities.StateChangedDisplay"
+	   provides="collective.whathappened.utility.IDisplay"
+	   name="statechanged" />
   <utility factory=".utilities.LikedDisplay"
 	   provides="collective.whathappened.utility.IDisplay"
 	   name="liked" />
