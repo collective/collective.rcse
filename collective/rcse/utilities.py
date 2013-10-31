@@ -7,6 +7,7 @@ from zope.component.hooks import getSite
 from zope.i18n import translate
 from zope.globalrequest import getRequest
 
+from collective.history.i18n import _ as _h
 from collective.rcse.utils import sudo
 from collective.rcse.page.controller.person_view import GetMemberInfoView
 from collective.whathappened.utility import IDisplay
@@ -52,7 +53,7 @@ class BaseDisplay(object):
 
     def display(self, context, request, notification):
         where = notification.where.encode('utf-8')
-        self.what = notification.what
+        self.what = translate(_h(notification.what), context=request)
         if context is not None:
             try:
                 title = context.restrictedTraverse(where).Title()
