@@ -200,9 +200,9 @@
         </div>
       </a>
       <a tal:attributes="href string:${base_url}/articles_view"
-         title="Filter: Display only news in a dedicated screen" i18n:attributes="title">
+         title="Filter: Display only articles in a dedicated screen" i18n:attributes="title">
         <div class="filter-wrapper filter-articles_view pull-right">
-          <span tal:attributes="class python:'%s icon-2x' % view.get_icon('news')"></span>
+          <span tal:attributes="class python:'%s icon-2x' % view.get_icon('article')"></span>
           <br />
           <span class="text" i18n:translate="">Articles</span>
         </div>
