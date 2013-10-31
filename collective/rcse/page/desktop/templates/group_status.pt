@@ -59,7 +59,7 @@
                        disabled view/is_private"> Make private</a>
             </td>
             <td>
-                <a href="#" class="btn btn-default" i18n:translate=""
+                <a href="#" class="btn btn-default" i18n:translate="" i18n:domain="collective.rcse"
                     tal:attributes="href string:${context/absolute_url}/content_status_modify?workflow_action=make_moderated;
                        disabled view/is_moderated"> Make moderated</a>
             </td>

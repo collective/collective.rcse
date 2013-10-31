@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-10-31 17:55+0000\n"
+"POT-Creation-Date: 2013-10-31 18:39+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -366,8 +366,8 @@ msgstr "Description"
 msgid "Directory"
 msgstr "Annuaire"
 
-#: ./page/desktop/templates/usergroup_userroles.pt:46
 #: ./page/desktop/templates/users_directory_view.pt:49
+#: ./page/desktop/templates/users_localroles.pt:26
 #: ./page/desktop/templates/users_manage.pt:32
 msgid "Disabled"
 msgstr "Désactivés"
@@ -438,8 +438,8 @@ msgstr "L'email a été envoyé."
 msgid "Enable"
 msgstr "Activer"
 
-#: ./page/desktop/templates/usergroup_userroles.pt:38
 #: ./page/desktop/templates/users_directory_view.pt:41
+#: ./page/desktop/templates/users_localroles.pt:18
 #: ./page/desktop/templates/users_manage.pt:24
 msgid "Enabled"
 msgstr "Actifs"
@@ -580,8 +580,8 @@ msgstr "Retour au groupe"
 msgid "Get back to the user"
 msgstr "Retour à l'utilisateur"
 
-#: ./page/desktop/templates/usergroup_userroles.pt:33
 #: ./page/desktop/templates/users_directory_view.pt:57
+#: ./page/desktop/templates/users_localroles.pt:34
 #: ./page/desktop/templates/users_manage.pt:40
 msgid "Global roles"
 msgstr "Rôles globaux"
@@ -704,8 +704,8 @@ msgstr "LinkedIn"
 msgid "Links"
 msgstr "Liens"
 
-#: ./page/desktop/templates/usergroup_userroles.pt:50
 #: ./page/desktop/templates/users_directory_view.pt:53
+#: ./page/desktop/templates/users_localroles.pt:13
 #: ./page/desktop/templates/users_manage.pt:36
 msgid "Local roles"
 msgstr "Rôles locaux"
@@ -718,6 +718,10 @@ msgstr "Login"
 #: ./page/desktop/templates/companies_directory_view.pt:37
 msgid "Logo"
 msgstr "Logo"
+
+#: ./page/desktop/templates/group_status.pt:62
+msgid "Make moderated"
+msgstr "Rendre modéré"
 
 #: ./content/vocabularies.py:15
 msgid "Male"
@@ -855,8 +859,8 @@ msgstr "Mot de passe"
 msgid "Passwords do not match."
 msgstr "Les mot de passes ne sont pas pareil."
 
-#: ./page/desktop/templates/usergroup_userroles.pt:42
 #: ./page/desktop/templates/users_directory_view.pt:45
+#: ./page/desktop/templates/users_localroles.pt:22
 #: ./page/desktop/templates/users_manage.pt:28
 msgid "Pending"
 msgstr "En attente"
@@ -1296,11 +1300,11 @@ msgstr "Vous n'aimez pas cet élément. Merci de votre retour !"
 msgid "You have added the content of this group to your news"
 msgstr "Vous avez ajouté le contenu de ce group à votre fil d'actualité"
 
-#: ./action/join.py:38
+#: ./action/join.py:39
 msgid "You have joined this group"
 msgstr "Vous avez rejoint ce groupe"
 
-#: ./action/join.py:75
+#: ./action/join.py:76
 msgid "You have quit this group"
 msgstr "Vous avez quitté ce groupe"
 
@@ -1308,7 +1312,7 @@ msgstr "Vous avez quitté ce groupe"
 msgid "You have removed the content of this group from your news"
 msgstr "Vous avez retiré le contenu de ce groupe de votre fil d'actualité"
 
-#: ./action/join.py:45
+#: ./action/join.py:46
 msgid "You have request access to this group. Please wait for an administrator to validate it"
 msgstr "Vous avez demandé l'accés à ce groupe. Veuillez patienter qu'un administrateur valide votre demande."
 
@@ -1385,7 +1389,7 @@ msgid "image_description"
 msgstr "Description de l'image"
 
 #. Default: "Apply Changes"
-#: ./page/desktop/templates/usergroup_userroles.pt:140
+#: ./page/desktop/templates/users_roles.pt:140
 msgid "label_apply_changes"
 msgstr "Enregistrer"
 
@@ -1394,7 +1398,7 @@ msgid "link"
 msgstr "lien"
 
 #. Default: "User name"
-#: ./page/desktop/templates/usergroup_userroles.pt:77
+#: ./page/desktop/templates/users_roles.pt:77
 msgid "listingheader_user_name"
 msgstr "Nom d'utilisateur"
 

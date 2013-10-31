@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-31 17:55+0000\n"
+"POT-Creation-Date: 2013-10-31 18:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -365,8 +365,8 @@ msgstr ""
 msgid "Directory"
 msgstr ""
 
-#: ./page/desktop/templates/usergroup_userroles.pt:46
 #: ./page/desktop/templates/users_directory_view.pt:49
+#: ./page/desktop/templates/users_localroles.pt:26
 #: ./page/desktop/templates/users_manage.pt:32
 msgid "Disabled"
 msgstr ""
@@ -437,8 +437,8 @@ msgstr ""
 msgid "Enable"
 msgstr ""
 
-#: ./page/desktop/templates/usergroup_userroles.pt:38
 #: ./page/desktop/templates/users_directory_view.pt:41
+#: ./page/desktop/templates/users_localroles.pt:18
 #: ./page/desktop/templates/users_manage.pt:24
 msgid "Enabled"
 msgstr ""
@@ -579,8 +579,8 @@ msgstr ""
 msgid "Get back to the user"
 msgstr ""
 
-#: ./page/desktop/templates/usergroup_userroles.pt:33
 #: ./page/desktop/templates/users_directory_view.pt:57
+#: ./page/desktop/templates/users_localroles.pt:34
 #: ./page/desktop/templates/users_manage.pt:40
 msgid "Global roles"
 msgstr ""
@@ -703,8 +703,8 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
-#: ./page/desktop/templates/usergroup_userroles.pt:50
 #: ./page/desktop/templates/users_directory_view.pt:53
+#: ./page/desktop/templates/users_localroles.pt:13
 #: ./page/desktop/templates/users_manage.pt:36
 msgid "Local roles"
 msgstr ""
@@ -716,6 +716,10 @@ msgstr ""
 #: ./content/company.py:19
 #: ./page/desktop/templates/companies_directory_view.pt:37
 msgid "Logo"
+msgstr ""
+
+#: ./page/desktop/templates/group_status.pt:62
+msgid "Make moderated"
 msgstr ""
 
 #: ./content/vocabularies.py:15
@@ -854,8 +858,8 @@ msgstr ""
 msgid "Passwords do not match."
 msgstr ""
 
-#: ./page/desktop/templates/usergroup_userroles.pt:42
 #: ./page/desktop/templates/users_directory_view.pt:45
+#: ./page/desktop/templates/users_localroles.pt:22
 #: ./page/desktop/templates/users_manage.pt:28
 msgid "Pending"
 msgstr ""
@@ -1295,11 +1299,11 @@ msgstr ""
 msgid "You have added the content of this group to your news"
 msgstr ""
 
-#: ./action/join.py:38
+#: ./action/join.py:39
 msgid "You have joined this group"
 msgstr ""
 
-#: ./action/join.py:75
+#: ./action/join.py:76
 msgid "You have quit this group"
 msgstr ""
 
@@ -1307,7 +1311,7 @@ msgstr ""
 msgid "You have removed the content of this group from your news"
 msgstr ""
 
-#: ./action/join.py:45
+#: ./action/join.py:46
 msgid "You have request access to this group. Please wait for an administrator to validate it"
 msgstr ""
 
@@ -1384,7 +1388,7 @@ msgid "image_description"
 msgstr ""
 
 #. Default: "Apply Changes"
-#: ./page/desktop/templates/usergroup_userroles.pt:140
+#: ./page/desktop/templates/users_roles.pt:140
 msgid "label_apply_changes"
 msgstr ""
 
@@ -1393,7 +1397,7 @@ msgid "link"
 msgstr ""
 
 #. Default: "User name"
-#: ./page/desktop/templates/usergroup_userroles.pt:77
+#: ./page/desktop/templates/users_roles.pt:77
 msgid "listingheader_user_name"
 msgstr ""
 
