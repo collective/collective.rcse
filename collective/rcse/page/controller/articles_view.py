@@ -12,7 +12,7 @@ from collective.rcse.i18n import _
 from collective.rcse.page.controller import group_base
 from collective.rcse.page.controller.navigationroot import NavigationRootBaseView
 
-CONTENT_TYPE = "News Item"
+CONTENT_TYPE = "collective.rcse.article"
 
 
 class AddFormSchema(group_base.BaseAddFormSchema):
@@ -47,21 +47,21 @@ class AddFormAdapter(object):
 class AddForm(group_base.BaseAddForm):
     schema = AddFormSchema
     CONTENT_TYPE = CONTENT_TYPE
-    msg_added = _(u"Blog post added")
-    label = _(u"Add blog")
+    msg_added = _(u"Article added")
+    label = _(u"Add article")
 
-    @button.buttonAndHandler(_(u"Add Blog"))
+    @button.buttonAndHandler(_(u"Add Article"))
     def handleAdd(self, action):
         group_base.BaseAddForm.handleAdd(self, action)
 
 
-class BlogView(group_base.BaseAddFormView):
+class ArticlesView(group_base.BaseAddFormView):
     """A filterable blog view"""
     filter_type = [CONTENT_TYPE]
     form = AddForm
 
 
-class NavigationRootBlogView(BlogView, NavigationRootBaseView):
+class NavigationRootArticlesView(ArticlesView, NavigationRootBaseView):
     def update(self):
-        BlogView.update(self)
+        ArticlesView.update(self)
         NavigationRootBaseView.update(self)

@@ -164,7 +164,7 @@
   <adapter factory=".users_manage.ManageUserFormAdapter" />
   <adapter factory=".addbutton.AddFormAdapter"/>
   <adapter factory=".audios_view.AddFormAdapter"/>
-  <adapter factory=".blog_view.AddFormAdapter"/>
+  <adapter factory=".articles_view.AddFormAdapter"/>
   <adapter factory=".discussions_view.AddFormAdapter"/>
   <adapter factory=".etherpads_view.AddFormAdapter"/>
   <adapter factory=".events_view.AddFormAdapter"/>

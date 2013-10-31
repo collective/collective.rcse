@@ -34,7 +34,7 @@ def getType(t, prefix=None):
         return prefix + 'icon-bookmark-empty'
     elif 'link' in t:
         return prefix + 'icon-external-link'
-    elif 'blog' in t or 'document' in t or 'news' in t:
+    elif 'article' in t:
         return prefix + 'icon-edit'
     elif 'poll' in t:
         return prefix + 'icon-bar-chart'

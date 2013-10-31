@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-10-30 09:43+0000\n"
+"POT-Creation-Date: 2013-10-31 13:25+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -70,9 +70,9 @@ msgstr "Actions"
 msgid "Add"
 msgstr "Ajouter"
 
-#: ./page/controller/blog_view.py:53
-msgid "Add Blog"
-msgstr "Ajouter un Article"
+#: ./page/controller/articles_view.py:53
+msgid "Add Article"
+msgstr "Ajouter un article"
 
 #: ./page/controller/discussions_view.py:52
 msgid "Add Discussion"
@@ -82,11 +82,11 @@ msgstr "Ajouter une Discussion"
 msgid "Add Etherpad"
 msgstr "Ajouter un étherpad"
 
-#: ./page/controller/files_view.py:45
+#: ./page/controller/files_view.py:48
 msgid "Add File"
 msgstr "Ajouter un ficher"
 
-#: ./page/controller/images_view.py:52
+#: ./page/controller/images_view.py:54
 msgid "Add Image"
 msgstr "Ajouter une Image"
 
@@ -98,15 +98,15 @@ msgstr ""
 msgid "Add a group"
 msgstr "Ajouter un groupe"
 
+#: ./page/controller/articles_view.py:51
+msgid "Add article"
+msgstr "Ajouter un article"
+
 #: ./page/controller/audios_view.py:40
 msgid "Add audio"
 msgstr "Ajouter un fichier audio"
 
-#: ./page/controller/blog_view.py:51
-msgid "Add blog"
-msgstr "Ajouter un article"
-
-#: ./page/desktop/templates/discussions_view.pt:69
+#: ./page/desktop/templates/discussions_view.pt:49
 msgid "Add discussion"
 msgstr "Ajouter une discussion"
 
@@ -118,7 +118,7 @@ msgstr "Ajouter un etherpad"
 msgid "Add event"
 msgstr "Ajouter un événement"
 
-#: ./page/controller/files_view.py:48
+#: ./page/controller/files_view.py:51
 msgid "Add file"
 msgstr "Ajouter un fichier"
 
@@ -130,7 +130,7 @@ msgstr "Formulaire d'ajout de contenu"
 msgid "Add group"
 msgstr "Ajouter un groupe"
 
-#: ./page/controller/images_view.py:50
+#: ./page/controller/images_view.py:52
 msgid "Add image"
 msgstr "Ajouter une image"
 
@@ -185,6 +185,18 @@ msgstr "Etes vous sûr de vouloir supprimer ${title} ainsi que tout ce qu'il con
 msgid "Areas of expertise"
 msgstr "Domaine d'expertise"
 
+#: ./profiles/settings/types/collective.rcse.article.xml
+msgid "Article"
+msgstr "Article"
+
+#: ./page/controller/articles_view.py:50
+msgid "Article added"
+msgstr "Article ajouté"
+
+#: ./viewlet/desktop/templates/portal_header.pt:207
+msgid "Articles"
+msgstr "Articles"
+
 #: ./page/controller/discussions_view.py:30
 msgid "Attachment"
 msgstr "Piéce jointe"
@@ -197,7 +209,7 @@ msgstr "Audio"
 msgid "Audio added"
 msgstr "Fichier audio ajouté"
 
-#: ./content/audio.py:12
+#: ./content/audio.py:14
 #: ./page/controller/audios_view.py:20
 msgid "Audio file"
 msgstr "Fichier audio"
@@ -224,11 +236,7 @@ msgstr "Date de naissance"
 msgid "Blog"
 msgstr "Blog"
 
-#: ./page/controller/blog_view.py:50
-msgid "Blog post added"
-msgstr "Article ajouté"
-
-#: ./page/desktop/templates/objects_view.pt:72
+#: ./page/desktop/templates/objects_view.pt:52
 msgid "Bookmark this"
 msgstr "Ajouter à vos favoris ce"
 
@@ -259,8 +267,8 @@ msgid "City"
 msgstr "Ville"
 
 #: ./page/desktop/templates/addbutton.pt:19
-#: ./page/desktop/templates/blog_view.pt:60
-#: ./page/desktop/templates/discussions_view.pt:58
+#: ./viewlet/controller/resourceregistries.py:27
+#: ./viewlet/desktop/templates/modal.pt:16
 msgid "Close"
 msgstr "Fermer"
 
@@ -280,7 +288,7 @@ msgstr "Entreprises"
 
 #: ./page/desktop/templates/companies_directory_view.pt:31
 #: ./page/mobile/templates/companies_directory_view.pt:36
-#: ./setuphandler.py:93
+#: ./setuphandler.py:91
 msgid "Companies directory"
 msgstr "Annuaire des entreprises"
 
@@ -348,8 +356,8 @@ msgstr "Refuser"
 msgid "Delete"
 msgstr "Supprimer"
 
+#: ./page/controller/articles_view.py:22
 #: ./page/controller/audios_view.py:22
-#: ./page/controller/blog_view.py:22
 #: ./page/controller/etherpads_view.py:20
 msgid "Description"
 msgstr "Description"
@@ -366,7 +374,7 @@ msgstr "Discussion"
 msgid "Discussion added"
 msgstr "Discussion ajoutée"
 
-#: ./viewlet/desktop/templates/portal_header.pt:189
+#: ./viewlet/desktop/templates/portal_header.pt:190
 msgid "Discussions"
 msgstr "Discussions"
 
@@ -378,7 +386,7 @@ msgstr "Affiche un menu permettant d'accéder à mes informations personnelles"
 msgid "Display all groups in the search form"
 msgstr "Affiche tous les groupes dans le formulaire de recherche"
 
-#: ./viewlet/desktop/templates/portal_header.pt:209
+#: ./viewlet/desktop/templates/portal_header.pt:210
 msgid "Display all items in a timeline"
 msgstr "Afficher tous les éléments dans une timeline"
 
@@ -389,6 +397,10 @@ msgstr "Afficher les nouveaux contenu de ce groupe dans votre fil d'actualité"
 #: ./viewlet/desktop/templates/portal_header.pt:20
 msgid "Display the search for members form"
 msgstr "Affiche le formulaire de recherche des membres du RSE"
+
+#: ./page/desktop/templates/article_tile_view.pt:5
+msgid "Display this image in full view"
+msgstr "Afficher cette image dans sa taille originale"
 
 #: ./profiles/settings/actions.xml
 msgid "Do not display anymore new content from this group in your news"
@@ -436,7 +448,7 @@ msgstr "Etherpad"
 msgid "Etherpad added"
 msgstr "Etherpad ajouté"
 
-#: ./viewlet/desktop/templates/portal_header.pt:181
+#: ./viewlet/desktop/templates/portal_header.pt:182
 msgid "Etherpads"
 msgstr "Etherpads"
 
@@ -448,7 +460,7 @@ msgstr "Evénement"
 msgid "Event added"
 msgstr "Evénement ajouté"
 
-#: ./viewlet/desktop/templates/portal_header.pt:173
+#: ./viewlet/desktop/templates/portal_header.pt:174
 msgid "Events"
 msgstr "Événements"
 
@@ -471,15 +483,15 @@ msgid "Female"
 msgstr "Femme"
 
 #: ./content/discussion.py:15
-#: ./page/controller/files_view.py:20
+#: ./page/controller/files_view.py:19
 msgid "File"
 msgstr "Fichier"
 
-#: ./page/controller/files_view.py:44
+#: ./page/controller/files_view.py:47
 msgid "File added"
 msgstr "Fichier ajouté"
 
-#: ./viewlet/desktop/templates/portal_header.pt:165
+#: ./viewlet/desktop/templates/portal_header.pt:166
 msgid "Files"
 msgstr "Fichiers"
 
@@ -487,35 +499,35 @@ msgstr "Fichiers"
 msgid "Filter"
 msgstr "Filtrer"
 
-#: ./viewlet/desktop/templates/portal_header.pt:184
+#: ./viewlet/desktop/templates/portal_header.pt:202
+msgid "Filter: Display only articles in a dedicated screen"
+msgstr "Filtre : affiche uniquement les articles"
+
+#: ./viewlet/desktop/templates/portal_header.pt:185
 msgid "Filter: Display only discussions in a dedicated screen"
 msgstr "Filtre : affiche uniquement les discussions"
 
-#: ./viewlet/desktop/templates/portal_header.pt:176
+#: ./viewlet/desktop/templates/portal_header.pt:177
 msgid "Filter: Display only etherpads in a dedicated screen"
 msgstr "Filtre : affiche uniquement les etherpads"
 
-#: ./viewlet/desktop/templates/portal_header.pt:168
+#: ./viewlet/desktop/templates/portal_header.pt:169
 msgid "Filter: Display only events in a dedicated screen"
 msgstr "Filtre : affiche uniquement les événements"
 
-#: ./viewlet/desktop/templates/portal_header.pt:160
+#: ./viewlet/desktop/templates/portal_header.pt:161
 msgid "Filter: Display only files in a dedicated screen"
 msgstr "Filtre : affiche uniquement les fichiers"
 
-#: ./viewlet/desktop/templates/portal_header.pt:152
+#: ./viewlet/desktop/templates/portal_header.pt:153
 msgid "Filter: Display only images in a dedicated screen"
 msgstr "Filtre : affiche uniquement les images"
 
-#: ./viewlet/desktop/templates/portal_header.pt:193
+#: ./viewlet/desktop/templates/portal_header.pt:194
 msgid "Filter: Display only links in a dedicated screen"
 msgstr "Filtre : affiche uniquement les liens"
 
-#: ./viewlet/desktop/templates/portal_header.pt:201
-msgid "Filter: Display only news in a dedicated screen"
-msgstr "Filtre : affiche uniquement les actualités"
-
-#: ./viewlet/desktop/templates/portal_header.pt:144
+#: ./viewlet/desktop/templates/portal_header.pt:145
 msgid "Filter: Display only videos in a dedicated screen"
 msgstr "Filtre : affiche uniquement les vidéos"
 
@@ -579,7 +591,7 @@ msgid "Hide: ${attr}"
 msgstr "Masquer: ${attr}"
 
 #: ./content/vocabularies.py:89
-#: ./setuphandler.py:106
+#: ./setuphandler.py:104
 #: ./viewlet/desktop/templates/portal_header.pt:11
 msgid "Home"
 msgstr "Accueil"
@@ -600,17 +612,17 @@ msgstr "Je n'aime plus ça"
 msgid "I like this (click again to undo)"
 msgstr "J'aime ça"
 
+#: ./content/article.py:16
 #: ./content/event.py:19
-#: ./page/controller/blog_view.py:26
-#: ./page/controller/images_view.py:24
+#: ./page/controller/articles_view.py:26
 msgid "Image"
 msgstr "Image"
 
-#: ./page/controller/images_view.py:49
+#: ./page/controller/images_view.py:51
 msgid "Image added"
 msgstr "Image ajoutée"
 
-#: ./viewlet/desktop/templates/portal_header.pt:157
+#: ./viewlet/desktop/templates/portal_header.pt:158
 msgid "Images"
 msgstr "Images"
 
@@ -670,13 +682,9 @@ msgstr "Lien ajouté"
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: ./viewlet/desktop/templates/portal_header.pt:198
+#: ./viewlet/desktop/templates/portal_header.pt:199
 msgid "Links"
 msgstr "Liens"
-
-#: ./page/desktop/templates/objects_view.pt:52
-msgid "Loading..."
-msgstr "Chargement..."
 
 #: ./page/controller/register.py:26
 msgid "Login"
@@ -790,10 +798,6 @@ msgstr "Nom"
 msgid "News"
 msgstr "Actualité"
 
-#: ./viewlet/desktop/templates/portal_header.pt:206
-msgid "News Items"
-msgstr "Actualités"
-
 #: ./page/controller/validate_email.py:27
 msgid "No key provided."
 msgstr "Aucune clé proposée."
@@ -808,11 +812,11 @@ msgstr "Ouvrir / Fermer la boite des commentaires pour lire et / ou écrire des 
 msgid "Open add form"
 msgstr "Ouvrir le formulaire d'ajout"
 
-#: ./viewlet/desktop/templates/portal_header.pt:106
+#: ./viewlet/desktop/templates/portal_header.pt:107
 msgid "Open the corresponding content"
 msgstr "Ouvrir le contenu correspondant"
 
-#: ./viewlet/desktop/templates/portal_header.pt:94
+#: ./viewlet/desktop/templates/portal_header.pt:96
 msgid "Open the notification menu"
 msgstr "Ouvrir le menu des notifications"
 
@@ -857,8 +861,8 @@ msgstr "Préférences personnel"
 msgid "Please complete your company information"
 msgstr "Veuillez completer les informations de votre entreprise"
 
-#: ./page/controller/blog_view.py:27
-#: ./page/controller/images_view.py:25
+#: ./page/controller/articles_view.py:27
+#: ./page/controller/images_view.py:22
 msgid "Please put an image file here"
 msgstr "Veuillez mettre un fichier image ici"
 
@@ -1015,7 +1019,7 @@ msgstr "Rechercher une requête"
 msgid "Sector"
 msgstr "Secteur"
 
-#: ./viewlet/desktop/templates/portal_header.pt:121
+#: ./viewlet/desktop/templates/portal_header.pt:122
 msgid "See all notifications"
 msgstr "Voir toutes les notifications"
 
@@ -1098,13 +1102,13 @@ msgstr "Il y a eu des erreurs"
 msgid "This is the email you will receive information on. It will not be displayed to other users."
 msgstr "Email sur lequel vous recevrez les informations. Il ne sera pas montré aux autres utilisateurs."
 
-#: ./viewlet/desktop/templates/portal_header.pt:214
+#: ./viewlet/desktop/templates/portal_header.pt:215
 msgid "Timeline"
 msgstr "Timeline"
 
 #: ./content/vocabularies.py:54
+#: ./page/controller/articles_view.py:20
 #: ./page/controller/audios_view.py:19
-#: ./page/controller/blog_view.py:20
 msgid "Title"
 msgstr "Titre"
 
@@ -1162,7 +1166,7 @@ msgstr "Utilisateurs"
 
 #: ./page/desktop/templates/users_directory_view.pt:37
 #: ./page/mobile/templates/users_directory_view.pt:35
-#: ./setuphandler.py:80
+#: ./setuphandler.py:78
 msgid "Users directory"
 msgstr "Annuaire des utilisateurs"
 
@@ -1195,7 +1199,7 @@ msgstr "Fichier video"
 msgid "Video is being transcoded. Please wait a moment."
 msgstr "La video est en cours d'encodage. Veuillez patienter."
 
-#: ./viewlet/desktop/templates/portal_header.pt:149
+#: ./viewlet/desktop/templates/portal_header.pt:150
 msgid "Videos"
 msgstr "Vidéos"
 
@@ -1244,6 +1248,10 @@ msgstr "Quoi"
 #: ./page/controller/group_base.py:107
 msgid "Where"
 msgstr "Où"
+
+#: ./profiles/settings/types/collective.rcse.article.xml
+msgid "Write something interesting for the community"
+msgstr "Ecrivez quelque chose d'intéressant pour la communuauté"
 
 #: ./page/controller/poll_view.py:97
 msgid "You are not authorized to vote"
@@ -1349,7 +1357,7 @@ msgstr "Contrôle d'accès de ${group}"
 msgid "image_description"
 msgstr "Description de l'image"
 
-#: ./page/desktop/templates/objects_view.pt:73
+#: ./page/desktop/templates/objects_view.pt:53
 msgid "link"
 msgstr "lien"
 
@@ -1397,7 +1405,7 @@ msgstr "Version desktop"
 msgid "themeswitcher_mobile"
 msgstr "Version mobile"
 
-#: ./page/desktop/templates/objects_view.pt:74
+#: ./page/desktop/templates/objects_view.pt:54
 msgid "to add contents faster."
 msgstr "pour ajouter du contenu plus rapidement."
 

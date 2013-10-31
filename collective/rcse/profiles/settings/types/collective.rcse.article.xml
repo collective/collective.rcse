@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<object name="collective.rcse.discussion" meta_type="Dexterity FTI"
+<object name="collective.rcse.article" meta_type="Dexterity FTI"
    i18n:domain="collective.rcse" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
  <!-- Basic metadata -->
- <property name="title" i18n:translate="">Discussion</property>
- <property name="description" i18n:translate="">A question where people will answer it</property>
+ <property name="title" i18n:translate="">Article</property>
+ <property name="description" i18n:translate="">Write something interesting for the community</property>
  <property name="content_icon"></property>
  <property name="allow_discussion">True</property>
  <property name="global_allow">True</property>
@@ -12,26 +12,21 @@
  <property name="allowed_content_types" />
 
  <!-- schema interface -->
- <property name="schema">collective.rcse.content.discussion.DiscussionSchema</property>
- <property name="model_source"></property>
- <property name="model_file"></property>
+ <property name="schema">collective.rcse.content.article.ArticleSchema</property>
 
  <!-- class used for content items -->
  <property name="klass">plone.dexterity.content.Item</property>
 
-
  <!-- add permission -->
- <property name="add_permission">collective.rcse.AddDiscussion</property>
+ <property name="add_permission">collective.rcse.AddArticle</property>
 
  <!-- enabled behaviors -->
  <property name="behaviors">
-  <element value="plone.app.content.interfaces.INameFromTitle" />
-  <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
-  <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>
-  <element value="plone.app.dexterity.behaviors.metadata.IOwnership"/>
-  <element value="plone.app.dexterity.behaviors.discussion.IAllowDiscussion"/>
-  <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
-  <element value="cioppino.twothumbs.interfaces.ILoveThumbsDontYou" />
+   <element value="plone.app.content.interfaces.INameFromTitle" />
+   <element value="plone.app.dexterity.behaviors.discussion.IAllowDiscussion"/>
+   <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
+   <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
+   <element value="cioppino.twothumbs.interfaces.ILoveThumbsDontYou" />
  </property>
 
  <!-- View information -->

@@ -12,6 +12,8 @@
    <element value="Event"/>
    <element value="Topic"/>
    <element value="Folder"/>
+   <element value="Document"/>
+   <element value="News Item"/>
   </property>
  </object>
 </object>

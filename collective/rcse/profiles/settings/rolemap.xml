@@ -15,6 +15,12 @@
   </roles>
  -->
   <permissions>
+    <permission name="collective.rcse: Add article" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+    </permission>
     <permission name="collective.rcse: Add audio" acquire="True">
       <role name="Manager"/>
       <role name="Site Administrator"/>
@@ -22,12 +28,6 @@
       <role name="Contributor"/>
     </permission>
     <permission name="collective.rcse: Add discussion" acquire="True">
-      <role name="Manager"/>
-      <role name="Site Administrator"/>
-      <role name="Owner"/>
-      <role name="Contributor"/>
-    </permission>
-    <permission name="collective.rcse: Add document" acquire="True">
       <role name="Manager"/>
       <role name="Site Administrator"/>
       <role name="Owner"/>

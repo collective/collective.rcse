@@ -20,18 +20,18 @@
         <li class="list-group-item">
           <div class="media">
             <div class="media-body">
-	      <span class="badge pull-right"
-		    tal:content="discussion/total_comments">0</span>
+          <span class="badge pull-right"
+            tal:content="discussion/total_comments">0</span>
               <h4 class="media-heading">
-		<a class="load-content-tile-in-modal content-title"
-		   tal:attributes="href discussion/getURL"
-		   tal:content="discussion/Title">Discussion title</a>
-		<span> - </span>
-		<a tal:define="memberinfo discussion/@@creator_memberinfo"
-		   tal:attributes="href memberinfo/url"
+        <a class="load-content-tile-in-modal content-title"
+           tal:attributes="href discussion/getURL"
+           tal:content="discussion/Title">Discussion title</a>
+        <span> - </span>
+        <a tal:define="memberinfo discussion/@@creator_memberinfo"
+           tal:attributes="href memberinfo/url"
            class="author fn url"
-		   tal:content="memberinfo/fullname">Author</a>
-	      </h4>
+           tal:content="memberinfo/fullname">Author</a>
+          </h4>
               <div tal:content="discussion/Description"></div>
             </div>
           </div>
@@ -41,26 +41,6 @@
     </ul>
   </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="content-modal" tabindex="-1" role="dialog"
-       aria-labelledby="content modal" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Modal title</h4>
-        </div>
-        <div class="modal-body">
-          <div class="rcse_tile_wrapper">
-            <a class="rcse_tile">test</a>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default"
-                  data-dismiss="modal" i18n:translate="">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <div id="portal-column-one" class="col-md-3 col-mg-3"

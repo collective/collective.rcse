@@ -751,6 +751,26 @@ var rcseInitLoadTileContentInModal = function(){
             rcseApplyTransform($("#content-modal .modal-body"));
         });
     });
+    $(document).on("click", ".load-img-in-modal", function(event){
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        var title = $(this).find('img').attr('alt');
+        var href = $(this).attr('href');
+        var modal = $("#img-modal");
+        $("#img-modal .modal-body").html('<img src="'+href+'"/>');
+        $("#img-modal").modal();
+        modal.find(".modal-title").text(title);
+        /*update CSS things, by default modal has:
+         * .modal-dialog {
+                right: auto;
+                left: 50%;
+                width: 600px;
+                padding-top: 30px;
+                padding-bottom: 30px;
+            }
+         */
+        modal.find('.modal-dialog').attr('style', 'width: auto; text-align: center;');
+    });
 }
 
 var rcseInitMasonry = function(){

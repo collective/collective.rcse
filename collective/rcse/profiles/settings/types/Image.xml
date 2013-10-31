@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<object name="Image" meta_type="Dexterity FTI" i18n:domain="plone"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <property name="default_view">timeline_view</property>
+ <property name="view_methods">
+  <element value="timeline_view"/>
+ </property>
+ <property name="behaviors">
+  <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
+  <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>
+  <element value="plone.app.dexterity.behaviors.metadata.IOwnership"/>
+  <element value="plone.app.dexterity.behaviors.discussion.IAllowDiscussion"/>
+  <element value="plone.app.dexterity.behaviors.filename.INameFromFileName"/>
+  <element value="cioppino.twothumbs.interfaces.ILoveThumbsDontYou" />
+ </property>
+</object>
