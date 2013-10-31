@@ -58,3 +58,26 @@ msgstr "${who} ont supprimés ${where} de leur favoris"
 
 msgid "${who} has removed ${where} from his favorites"
 msgstr "${who} a supprimé ${where} de ses favoris"
+
+
+msgid "${who} have changed ${where}'s state"
+msgstr "${who} ont changé l'état de ${where}"
+
+msgid "${who} has changed ${where}'s state"
+msgstr "${who} a changé l'état de  ${where}"
+
+msgid "${who} have ${transition} ${where}"
+msgstr "${who} ont ${transition}s ${where}"
+
+msgid "${who} has ${transition} ${where}"
+msgstr "${who} a ${transition} ${where}"
+
+# Transition
+
+msgid "publish_internally"
+msgstr "publié"
+
+msgid "hide"
+msgstr "dépublié"
+
+# /Transition

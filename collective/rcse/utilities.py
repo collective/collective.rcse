@@ -4,6 +4,7 @@ from Products.CMFPlone.utils import getToolByName
 from Products.membrane.interfaces import IUserAdder
 from zope import interface
 from zope.component.hooks import getSite
+from zope.i18n import translate
 from zope.globalrequest import getRequest
 
 from collective.rcse.utils import sudo
@@ -100,6 +101,7 @@ class StateChangedDisplay(BaseDisplay):
                 return _w(u"${who} has changed ${where}'s state",
                           mapping={'who': self.who,
                                    'where': self.where})
+        transition = translate(_w(transition), context=request)
         if self.plural:
             return _w(u"${who} have ${transition} ${where}",
                       mapping={'who': self.who,
