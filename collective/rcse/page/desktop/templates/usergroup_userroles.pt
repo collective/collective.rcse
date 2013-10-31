@@ -1,0 +1,159 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="collective.rcse">
+<head>
+        <metal:block fill-slot="top_slot"
+            tal:define="dummy python:request.set('disable_border',1);
+                        disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                        disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+</head>
+<body>
+
+<metal:main fill-slot="main"
+    tal:define="template_id string:@@usergroup-userroles;
+                showAll python:request.get('showAll', '') and not view.newSearch and 'y';
+                Batch python:modules['Products.CMFPlone'].Batch;
+                b_start python:0 if showAll or view.newSearch else request.get('b_start',0);
+                b_size python:showAll and len(view.searchResults) or 20;
+                portal_roles view/portal_roles;
+                mtool context/portal_membership;
+                portal_url context/portal_url;">
+
+    <div class="documentEditable">
+
+        <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+          Portal status message
+        </div>
+
+        <div id="content">
+            <h1 class="documentFirstHeading"
+                i18n:translate="">Global roles</h1>
+
+    <div class="manage-users-link btn-group">
+      <a class="btn btn-default" tal:attributes="href string:${context/absolute_url}/users_directory">
+        <span i18n:translate="">Enabled</span>
+      </a>
+      <a class="btn btn-default" tal:attributes="href string:${context/absolute_url}/users_directory/@@users_manage_pending">
+        <span class="icon-time"></span>
+        <span i18n:translate="">Pending</span>
+      </a>
+      <a class="btn btn-default" tal:attributes="href string:${context/absolute_url}/users_directory/@@users_manage_disabled">
+        <span class="icon-power-off"></span>
+        <span i18n:translate="">Disabled</span>
+      </a>
+      <a class="btn btn-default" tal:attributes="href string:${context/absolute_url}/@@localrolesdatatables_catalog_view">
+        <span class="icon-search"></span>
+        <span i18n:translate="">Local roles</span>
+      </a>
+      <a class="btn btn-default" disabled="disabled" href="#">
+        <span class="icon-globe"></span>
+        <span i18n:translate="">Global roles</span>
+      </a>
+    </div>
+
+            <div id="content-core">
+
+                <form action=""
+                      class="enableAutoFocus"
+                      name="users_search"
+                      method="post"
+                      tal:attributes="action string:$portal_url/$template_id"
+                      tal:define="findAll python:'form.button.FindAll' in request.keys();
+                                  portal_users view/searchResults;
+                                  batch python:Batch(portal_users, b_size, int(b_start), orphan=1);
+                                  batchformkeys python:['searchstring','_authenticator'];
+                                  many_users view/many_users">
+                  <input type="hidden" name="form.submitted" value="1" />
+
+                  <table class="listing memberdatatables" summary="User Listing">
+                      <thead>
+                          <tal:block tal:condition="portal_users" >
+                          <tr>
+                              <th>ID</th>
+                              <th i18n:translate="listingheader_user_name">User name</th>
+                                <tal:header repeat="portal_role portal_roles">
+                                    <th tal:content="portal_role"
+                                        i18n:translate="">
+                                        Role
+                                    </th>
+                                </tal:header>
+
+                          </tr>
+                          </tal:block>
+                       </thead>
+                       <tbody>
+                          <tal:block repeat="user portal_users">
+                            <tr tal:define="oddrow repeat/user/odd;
+                                            userid user/userid;
+                                            userquery python:view.makeQuery(userid=userid);
+                                            member python:mtool.getMemberById(userid)"
+                                tal:attributes="class python:oddrow and 'odd' or 'even'">
+
+                                <td>
+                                    <a href="@@user-information"
+                                       tal:attributes="href string:$portal_url/@@user-information?${userquery}">
+                                        <span tal:replace="userid">username</span>
+                                    </a>
+                                    <input type="hidden" name="users.id:records" tal:attributes="value userid" />
+                                </td>
+                                <td>
+                                    <span tal:replace="python:member.getProperty('fullname')">Full Name</span>
+                                </td>
+                                <td class="listingCheckbox"
+                                    tal:repeat="portal_role portal_roles">
+                                  <tal:block tal:define="inherited python:user['roles'][portal_role]['inherited'];
+                                                         explicit python:user['roles'][portal_role]['explicit'];
+                                                         enabled python:user['roles'][portal_role]['canAssign']">
+                                    <input type="checkbox"
+                                       class="noborder"
+                                       name="users.roles:list:records"
+                                       value="Manager"
+                                       tal:condition="not:inherited"
+                                       tal:attributes="value portal_role;
+                                           checked python:'checked' if explicit else nothing;
+                                           disabled python:default if enabled else 'disabled'" />
+                                    <input type="hidden"
+                                        name="users.roles:list:records"
+                                        value="Manager"
+                                        tal:condition="python:explicit and not enabled and not inherited"
+                                        tal:attributes="value portal_role" />
+                                    <img tal:condition="inherited" tal:replace="structure context/site_icon.png" />
+                                  </tal:block>
+
+                                </td>
+
+                            </tr>
+                          </tal:block>
+                      </tbody>
+                  </table>
+
+                  <input type="hidden" value="b_start" name="b_start"
+                         tal:attributes="value b_start"/>
+
+                  <input type="hidden" value="" name="showAll"
+                         tal:attributes="value showAll"/>
+
+                  <input class="context"
+                     type="submit"
+                     name="form.button.Modify"
+                     value="Apply Changes"
+                     i18n:attributes="value label_apply_changes;"
+                     tal:condition="batch"
+                     />
+
+                  <input tal:replace="structure context/@@authenticator/authenticator" />
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</metal:main>
+
+</body>
+</html>
+

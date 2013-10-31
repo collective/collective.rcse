@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-10-31 13:25+0000\n"
+"POT-Creation-Date: 2013-10-31 17:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,7 +60,7 @@ msgstr ""
 msgid "Action"
 msgstr ""
 
-#: ./page/desktop/templates/users_manage.pt:64
+#: ./page/desktop/templates/users_manage.pt:55
 msgid "Actions"
 msgstr ""
 
@@ -293,7 +293,7 @@ msgstr ""
 
 #: ./content/member.py:92
 #: ./page/controller/timeline_view.py:172
-#: ./page/desktop/templates/users_directory_view.pt:61
+#: ./page/desktop/templates/users_directory_view.pt:69
 msgid "Company"
 msgstr ""
 
@@ -365,6 +365,12 @@ msgstr ""
 msgid "Directory"
 msgstr ""
 
+#: ./page/desktop/templates/usergroup_userroles.pt:46
+#: ./page/desktop/templates/users_directory_view.pt:49
+#: ./page/desktop/templates/users_manage.pt:32
+msgid "Disabled"
+msgstr ""
+
 #: ./profiles/settings/types/collective.rcse.discussion.xml
 msgid "Discussion"
 msgstr ""
@@ -429,6 +435,12 @@ msgstr ""
 
 #: ./page/controller/users_manage.py:100
 msgid "Enable"
+msgstr ""
+
+#: ./page/desktop/templates/usergroup_userroles.pt:38
+#: ./page/desktop/templates/users_directory_view.pt:41
+#: ./page/desktop/templates/users_manage.pt:24
+msgid "Enabled"
 msgstr ""
 
 #: ./content/video.py:19
@@ -548,8 +560,8 @@ msgid "Folder contents"
 msgstr ""
 
 #: ./content/member.py:100
-#: ./page/desktop/templates/users_directory_view.pt:60
-#: ./page/desktop/templates/users_manage.pt:61
+#: ./page/desktop/templates/users_directory_view.pt:68
+#: ./page/desktop/templates/users_manage.pt:52
 msgid "Function"
 msgstr ""
 
@@ -565,6 +577,12 @@ msgstr ""
 #: ./page/desktop/templates/user_groups_view.pt:11
 #: ./page/mobile/templates/user_groups_view.pt:11
 msgid "Get back to the user"
+msgstr ""
+
+#: ./page/desktop/templates/usergroup_userroles.pt:33
+#: ./page/desktop/templates/users_directory_view.pt:57
+#: ./page/desktop/templates/users_manage.pt:40
+msgid "Global roles"
 msgstr ""
 
 #: ./content/event.py:25
@@ -685,6 +703,12 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
+#: ./page/desktop/templates/usergroup_userroles.pt:50
+#: ./page/desktop/templates/users_directory_view.pt:53
+#: ./page/desktop/templates/users_manage.pt:36
+msgid "Local roles"
+msgstr ""
+
 #: ./page/controller/register.py:26
 msgid "Login"
 msgstr ""
@@ -708,15 +732,13 @@ msgstr ""
 msgid "Manage dashboard"
 msgstr ""
 
-#: ./page/desktop/templates/users_directory_view.pt:49
-#: ./page/desktop/templates/users_manage.pt:49
 #: ./page/mobile/templates/users_directory_view.pt:50
+#: ./page/mobile/templates/users_manage.pt:50
 msgid "Manage disabled users"
 msgstr ""
 
-#: ./page/desktop/templates/users_directory_view.pt:45
-#: ./page/desktop/templates/users_manage.pt:45
 #: ./page/mobile/templates/users_directory_view.pt:45
+#: ./page/mobile/templates/users_manage.pt:46
 msgid "Manage pending users"
 msgstr ""
 
@@ -733,7 +755,7 @@ msgstr ""
 msgid "Manage request access"
 msgstr ""
 
-#: ./page/desktop/templates/users_manage.pt:38
+#: ./page/desktop/templates/users_manage.pt:21
 #: ./page/mobile/templates/users_manage.pt:36
 msgid "Manage users"
 msgstr ""
@@ -788,8 +810,8 @@ msgid "My profile"
 msgstr ""
 
 #: ./page/desktop/templates/companies_directory_view.pt:38
-#: ./page/desktop/templates/users_directory_view.pt:59
-#: ./page/desktop/templates/users_manage.pt:60
+#: ./page/desktop/templates/users_directory_view.pt:67
+#: ./page/desktop/templates/users_manage.pt:51
 msgid "Name"
 msgstr ""
 
@@ -832,6 +854,12 @@ msgstr ""
 msgid "Passwords do not match."
 msgstr ""
 
+#: ./page/desktop/templates/usergroup_userroles.pt:42
+#: ./page/desktop/templates/users_directory_view.pt:45
+#: ./page/desktop/templates/users_manage.pt:28
+msgid "Pending"
+msgstr ""
+
 #: ./content/member.py:157
 #: ./page/desktop/templates/member_tile_view.pt:77
 msgid "Personal e-mail"
@@ -865,8 +893,8 @@ msgstr ""
 msgid "Please put an image file here"
 msgstr ""
 
-#: ./page/desktop/templates/users_directory_view.pt:57
-#: ./page/desktop/templates/users_manage.pt:58
+#: ./page/desktop/templates/users_directory_view.pt:65
+#: ./page/desktop/templates/users_manage.pt:49
 msgid "Portrait"
 msgstr ""
 
@@ -1218,9 +1246,8 @@ msgstr ""
 msgid "Warning, only groups can be added into Home"
 msgstr ""
 
-#: ./page/desktop/templates/users_directory_view.pt:41
-#: ./page/desktop/templates/users_manage.pt:41
 #: ./page/mobile/templates/users_directory_view.pt:41
+#: ./page/mobile/templates/users_manage.pt:42
 msgid "Watch enabled users"
 msgstr ""
 
@@ -1356,8 +1383,18 @@ msgstr ""
 msgid "image_description"
 msgstr ""
 
+#. Default: "Apply Changes"
+#: ./page/desktop/templates/usergroup_userroles.pt:140
+msgid "label_apply_changes"
+msgstr ""
+
 #: ./page/desktop/templates/objects_view.pt:53
 msgid "link"
+msgstr ""
+
+#. Default: "User name"
+#: ./page/desktop/templates/usergroup_userroles.pt:77
+msgid "listingheader_user_name"
 msgstr ""
 
 #. Default: "Manage group ${group}"
@@ -1420,8 +1457,8 @@ msgstr ""
 msgid "user not found in directory"
 msgstr ""
 
-#: ./page/desktop/templates/users_directory_view.pt:58
-#: ./page/desktop/templates/users_manage.pt:59
+#: ./page/desktop/templates/users_directory_view.pt:66
+#: ./page/desktop/templates/users_manage.pt:50
 msgid "userid"
 msgstr ""
 

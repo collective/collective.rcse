@@ -164,5 +164,13 @@
         template="templates/manage-contextual.pt"
         layer="collective.rcse.layer.DesktopLayer"
         />
+  <browser:page
+        name="usergroup-userroles"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class="plone.app.controlpanel.usergroups.UsersOverviewControlPanel"
+        permission="plone.app.controlpanel.UsersAndGroups"
+        template="templates/usergroup_userroles.pt"
+        layer="collective.rcse.layer.DesktopLayer"
+      />
 
 </configure>

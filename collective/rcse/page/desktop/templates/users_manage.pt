@@ -18,35 +18,26 @@
          tal:content="structure provider:plone.abovecontent"
          tal:condition="not:ajax_load" />
 
-<ul class="nav nav-pills" i18n:domain="collective.rcse">
-    <li>
-        <a tal:attributes="href string:${context/absolute_url}/@@search"
-            i18n:translate="">Search for contents
-        </a>
-    </li>
-    <li class="active">
-        <a tal:attributes="href string:${context/absolute_url}/users_directory"
-           i18n:translate="">Search for users</a>
-    </li>
-    <li>
-        <a tal:attributes="href string:${context/absolute_url}/companies_directory"
-           i18n:translate="">Search for companies</a>
-    </li>
-</ul>
-
-
   <h1 i18n:translate="">Manage users</h1>
     <div class="manage-users-link btn-group">
       <a class="btn btn-default" tal:attributes="href context/absolute_url">
-        <span i18n:translate="">Watch enabled users</span>
+        <span i18n:translate="">Enabled</span>
       </a>
       <a class="btn btn-default" tal:attributes="disabled python:view.__name__ == 'users_manage_pending' and 'disabled' or None" href="@@users_manage_pending">
         <span class="icon-time"></span>
-        <span i18n:translate="">Manage pending users</span>
+        <span i18n:translate="">Pending</span>
       </a>
       <a class="btn btn-default" tal:attributes="disabled python:view.__name__ == 'users_manage_disabled' and 'disabled' or None" href="@@users_manage_disabled">
         <span class="icon-thumb-down"></span>
-        <span i18n:translate="">Manage disabled users</span>
+        <span i18n:translate="">Disabled</span>
+      </a>
+      <a class="btn btn-default" href="../@@localrolesdatatables_catalog_view">
+        <span class="icon-search"></span>
+        <span i18n:translate="">Local roles</span>
+      </a>
+      <a class="btn btn-default" href="../@@usergroup-userroles">
+        <span class="icon-globe"></span>
+        <span i18n:translate="">Global roles</span>
       </a>
     </div>
 

@@ -922,7 +922,7 @@ var rcseInitMemberDatatables = function(){
         $('body.template-prefs_group_members .listing').dataTable(datatableconfig);
         $('body.template-usergroup-groupprefs .listing').dataTable(datatableconfig);
         $('body.template-usergroup-userprefs .listing').dataTable(datatableconfig);
-        $('body.template-prefs_users_roles .listing').dataTable(datatableconfig);
+        $('body.template-usergroup-userroles .listing').dataTable(datatableconfig);
         $('body.template-sharing #user-group-sharing').dataTable(datatableconfig);
         $('body.template-usergroup-groupmembership .listing').dataTable(datatableconfig);
 
