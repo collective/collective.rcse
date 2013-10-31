@@ -1,5 +1,14 @@
 <div class="tile-wrapper">
     <p class="documentDescription" tal:content="context/Description"></p>
-    <img tal:attributes="src string:${context/absolute_url}/@@images/image/preview"
-         alt="image"/>
+
+    <div class="image-wrapper">
+        <a tal:attributes="href string:${context/absolute_url}/@@images/image;"
+           title="Display this image in full view"
+           i18n:attributes="title"
+           class="load-img-in-modal">
+            <img tal:attributes="src string:${context/absolute_url}/@@images/image/preview;
+                    alt context/Title;"/>
+        </a>
+    </div>
+
 </div>
