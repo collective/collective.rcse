@@ -756,9 +756,9 @@ var rcseInitLoadTileContentInModal = function(){
         event.preventDefault();
         var title = $(this).find('img').attr('alt');
         var href = $(this).attr('href');
-        var modal = $("#content-modal");
-        $("#content-modal .modal-body").html('<img src="'+href+'"/>');
-        $("#content-modal").modal();
+        var modal = $("#img-modal");
+        $("#img-modal .modal-body").html('<img src="'+href+'"/>');
+        $("#img-modal").modal();
         modal.find(".modal-title").text(title);
         /*update CSS things, by default modal has:
          * .modal-dialog {
