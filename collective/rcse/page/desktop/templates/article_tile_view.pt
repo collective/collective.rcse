@@ -1,13 +1,12 @@
 <div class="tile-wrapper" i18n:domain="collective.rcse">
     <p class="documentDescription" tal:content="context/Description"></p>
     <div class="readmore">
-        <div class="pull-right article-image-wrapper">
+        <div class="pull-right article-image-wrapper" tal:condition="context/image">
           <a tal:attributes="href string:${context/absolute_url}/@@images/image;"
              title="Display this image in full view"
              i18n:attributes="title"
              class="load-img-in-modal">
-            <img tal:condition="context/image"
-                 tal:attributes="src string:${context/absolute_url}/@@images/image/preview;
+            <img tal:attributes="src string:${context/absolute_url}/@@images/image/preview;
                     alt context/Title;"
                  class="img-thumbnail"/>
            </a>
