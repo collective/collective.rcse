@@ -169,7 +169,15 @@
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         class="plone.app.controlpanel.usergroups.UsersOverviewControlPanel"
         permission="plone.app.controlpanel.UsersAndGroups"
-        template="templates/usergroup_userroles.pt"
+        template="templates/users_roles.pt"
+        layer="collective.rcse.layer.DesktopLayer"
+      />
+  <browser:page
+        for="*"
+        name="localrolesdatatables_catalog_view"
+        class="collective.localrolesdatatables.localroles_view.CatalogLocalRolesView"
+        template="templates/users_localroles.pt"
+        permission="plone.app.controlpanel.UsersAndGroups"
         layer="collective.rcse.layer.DesktopLayer"
       />
 

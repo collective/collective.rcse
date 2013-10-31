@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="here/main_template/macros/master"
+    i18n:domain="collective.localrolesdatatables">
+<body>
+
+<div metal:fill-slot="main">
+<style type="text/css">.clear{clear:both;}</style>
+
+            <h1 class="documentFirstHeading" i18n:domain="collective.rcse"
+                i18n:translate="">Local roles</h1>
+
+    <div class="manage-users-link btn-group" i18n:domain="collective.rcse">
+      <a class="btn btn-default" tal:attributes="href string:${context/absolute_url}/users_directory">
+        <span i18n:translate="">Enabled</span>
+      </a>
+      <a class="btn btn-default" tal:attributes="href string:${context/absolute_url}/users_directory/@@users_manage_pending">
+        <span class="icon-time"></span>
+        <span i18n:translate="">Pending</span>
+      </a>
+      <a class="btn btn-default" tal:attributes="href string:${context/absolute_url}/users_directory/@@users_manage_disabled">
+        <span class="icon-power-off"></span>
+        <span i18n:translate="">Disabled</span>
+      </a>
+      <a class="btn btn-default" disabled="disabled" tal:attributes="href string:${context/absolute_url}/@@localrolesdatatables_catalog_view">
+        <span class="icon-search"></span>
+        <span i18n:translate="">Local roles</span>
+      </a>
+      <a class="btn btn-default" tal:attributes="href string:${context/absolute_url}/@@usergroup-userroles">
+        <span class="icon-globe"></span>
+        <span i18n:translate="">Global roles</span>
+      </a>
+    </div>
+
+<table id="localroles-datatables"
+       data-label-copy="Copy"
+       data-label-csv="CSV"
+       data-label-excel="Excel"
+       data-label-pdf="PDF"
+       data-label-print="Print"
+       i18n:attributes="data-label-copy; data-label-csv; data-label-excel; data-label-pdf; data-label-print"
+       tal:define="item_role_settings view/role_settings;
+                   available_roles view/roles;">
+    <thead>
+        <tr>
+           <th><span tal:omit-tag="" i18n:translate="">Title</span> <input type="text" id="title-filtering" name="title-filtering"/></th>
+           <th><span tal:omit-tag="" i18n:translate="">Type</span> <input type="text" id="type-filtering" name="type-filtering"/></th>
+           <th><span tal:omit-tag="" i18n:translate="">Name</span> <input type="text" id="name-filtering" name="name-filtering"/></th>
+           <th tal:repeat="role available_roles"><span tal:content="role/title">role</span></th>
+        </tr>
+    </thead>
+    <tbody>
+      <tal:items tal:repeat="item_url item_role_settings">
+        <tal:roles tal:repeat="entry python:item_role_settings[item_url]['localroles']">
+          <tal:def tal:define="is_group python:entry['type'] == 'group';
+                               disabled entry/disabled | python:False;
+                               oddrow repeat/entry/odd;
+                               sticky python:entry['id'] in view.STICKY">
+           <tr>
+            <td><a tal:attributes="href item_url" tal:content="python:item_role_settings[item_url]['title']">link</a></td>
+            <td><span tal:content="python:item_role_settings[item_url]['type']">type</span></td>
+            <td><span tal:condition="is_group">group - </span><span tal:condition="not:is_group">user - </span><tal:sticky condition="sticky"><span tal:replace="entry/title" /></tal:sticky><tal:nonsticky condition="not:sticky"><span tal:replace="entry/id" /></tal:nonsticky></td>
+            <td tal:repeat="role available_roles"><tal:block define="entry_role python:entry['roles'][role['id']]"><span
+                tal:condition="python:entry_role == True">1</span><span tal:condition="python:entry_role == False">0</span><span
+                tal:condition="python:entry_role == 'global'" i18n:translate="">global</span><span
+                tal:condition="python:entry_role == 'acquired'" i18n:translate="">acquired</span><span
+                tal:condition="disabled" i18n:translate="">disabled</span></tal:block></td>
+           </tr>
+          </tal:def>
+        </tal:roles>
+      </tal:items>
+    </tbody>
+</table>
+<script type="text/javascript" tal:attributes="src string:${view/portal_url}/++resource++localroles_view.js"></script>
+</div>
+</body>
+</html>
