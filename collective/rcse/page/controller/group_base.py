@@ -126,6 +126,9 @@ class BaseAddForm(AutoExtensibleForm, form.Form):
             self.doAdd(data, referer)
 
     def doAdd(self, data, referer):
+        for k, v in data.items():
+            if v is None:
+                del data[k]
         container = uuidToObject(data['where'])
         item = utils.createContentInContainer(
             container,

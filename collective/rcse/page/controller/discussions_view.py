@@ -38,8 +38,9 @@ class AddFormAdapter(object):
     def __init__(self, context):
         self.context = context
         self.image = None
-        self.description = None
+        self.description = ''
         self.where = None
+        self.file = None
         group = get_group(context)
         if group:
             self.where = IUUID(group)

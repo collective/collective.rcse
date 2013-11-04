@@ -29,7 +29,7 @@ class AddFormAdapter(object):
     def __init__(self, context):
         self.context = context
         self.title = None
-        self.description = None
+        self.description = ''
         self.where = None
         group = get_group(context)
         if group:

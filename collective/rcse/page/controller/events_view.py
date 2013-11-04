@@ -103,7 +103,7 @@ class AddFormAdapter(object):
     def __init__(self, context):
         self.context = context
         self.title = None
-        self.description = None
+        self.description = ''
         self.start = None
         self.end = None
         self.whole_day = None

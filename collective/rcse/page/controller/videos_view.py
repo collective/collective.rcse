@@ -40,6 +40,7 @@ class AddFormAdapter(object):
     def __init__(self, context):
         self.context = context
         self.title = None
+        self.description = ''
         self.file = None
         self.remoteUrl = None
         self.where = None

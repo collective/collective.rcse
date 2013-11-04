@@ -19,7 +19,7 @@ class AddFormSchema(group_base.BaseAddFormSchema):
     title = schema.TextLine(title=_(u"Title"))
     description = schema.Text(
         title=_(u"Description"),
-        required=False
+        required=False,
     )
     remoteUrl = schema.TextLine(title=_(u"URL"))
 
@@ -32,8 +32,9 @@ class AddFormAdapter(object):
         self.context = context
         self.title = None
         self.url = None
-        self.description = None
+        self.description = ''
         self.where = None
+        self.remoteUrl = None
         group = get_group(context)
         if group:
             self.where = IUUID(group)

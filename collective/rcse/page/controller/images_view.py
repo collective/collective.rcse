@@ -38,7 +38,7 @@ class AddFormAdapter(object):
         self.context = context
         self.image = None
         self.title = None
-        self.description = None
+        self.description = ''
         self.where = None
         group = get_group(context)
         if group:
