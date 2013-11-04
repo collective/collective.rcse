@@ -1,4 +1,5 @@
 from plone.i18n.normalizer.base import baseNormalize
+from plone.memoize import ram
 from plone.uuid.interfaces import IUUID
 from Products.CMFCore.utils import getToolByName
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
@@ -65,35 +66,45 @@ def companies(context):
     return SimpleVocabulary(terms)
 
 
-def groups(context):
+def _setCacheKey(fun, context):
+    portal_membership = getToolByName(context, 'portal_membership')
+    username = portal_membership.getAuthenticatedMember().getUserName()
+    return username
+
+
+@ram.cache(_setCacheKey)
+def _getGroupsWithAddPermission(context):
+    portal_membership = getToolByName(context, 'portal_membership')
+    username = portal_membership.getAuthenticatedMember().getUserName()
     catalog = getToolByName(context, 'portal_catalog')
     query = {"portal_type": "collective.rcse.group",
-             "sort_on": "sortable_title"}
+             "sort_on": "sortable_title",
+             'user_with_local_roles': username}
     terms = []
     brains = catalog(**query)
     for brain in brains:
-        terms.append(SimpleVocabulary.createTerm(
-            unicode(brain.UID),
-            str(brain.UID),
-            brain.Title
-        ))
+        if portal_membership.checkPermission('Modify portal content',
+                                             brain.getObject()):
+            terms.append(SimpleVocabulary.createTerm(
+                    unicode(brain.UID),
+                    str(brain.UID),
+                    brain.Title
+                    ))
+    return terms
+
+
+def groups(context):
+    """Group where the user can add contents."""
+    terms = _getGroupsWithAddPermission(context)
     return SimpleVocabulary(terms)
 
 
 def groups_with_home(context):
-    catalog = getToolByName(context, 'portal_catalog')
-    query = {"portal_type": "collective.rcse.group",
-             "sort_on": "sortable_title"}
+    """Group where the user can add contents + home."""
     site = getToolByName(context, 'portal_url').getPortalObject()
     home = site['home']
     terms = [SimpleTerm(value=IUUID(home), title=_(u"Home"))]
-    brains = catalog(**query)
-    for brain in brains:
-        terms.append(SimpleVocabulary.createTerm(
-            unicode(brain.UID),
-            str(brain.UID),
-            brain.Title
-        ))
+    terms += _getGroupsWithAddPermission(context)
     return SimpleVocabulary(terms)
 
 

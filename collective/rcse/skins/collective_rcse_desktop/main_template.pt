@@ -54,7 +54,9 @@
 
     <div id="visual-portal-wrapper">
 
+      <tal:notajax tal:condition="python:not ajax_load or ajax_include_head">
         <div tal:condition="not:ajax_load" tal:replace="structure provider:plone.portaltop" />
+      </tal:notajax>
 
         <div id="portal-columns" class="container">
             <div class="row">

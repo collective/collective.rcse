@@ -12,15 +12,15 @@ from plone.autoform.form import AutoExtensibleForm
 
 
 class AddFormSchema(interface.Interface):
-    what = schema.Choice(
-        title=_(u"What"),
-        vocabulary="collective.rcse.vocabulary.addableTypes",
-        default="collective.rcse.group"
-    )
     where = schema.Choice(
         title=_(u"Where"),
         description=_(u"Warning, only groups can be added into Home"),
         vocabulary="collective.rcse.vocabulary.groups_with_home"
+    )
+    what = schema.Choice(
+        title=_(u"What"),
+        vocabulary="collective.rcse.vocabulary.addableTypes",
+        default="collective.rcse.group"
     )
 
 

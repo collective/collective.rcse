@@ -96,7 +96,8 @@
   <adapter factory=".adapter.CioppinoUndislike" />
   <adapter factory=".adapter.FavoritingAddedToFavorites" />
   <adapter factory=".adapter.FavoritingRemovedFromFavorites" />
-  <adapter factory=".adapter.user_with_local_roles" name="user_with_local_roles" />
+  <adapter factory=".adapter.user_with_local_roles"
+	   name="user_with_local_roles" />
 
   <utility factory=".utilities.RcseUserAdder"
 	   provides="Products.membrane.interfaces.IUserAdder"
