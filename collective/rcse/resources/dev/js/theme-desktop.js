@@ -462,6 +462,7 @@ var rcseUpdateComments = function(element) {
     }
     $(element).find('.commenting form').attr("action", portal_url);
     // make the delete an ajax action to not render the page
+/*
     var form = $(element).find("input[name='form.button.DeleteComment']")
             .parents('form');
     if (form.length != 0) {
@@ -471,7 +472,9 @@ var rcseUpdateComments = function(element) {
         ajaxDeleteComment.value = "1";
         form.append(ajaxDeleteComment);
     }
+*/
 }
+
 /**
  * rcseInitEditBar
  * <div id="edit-bar">
