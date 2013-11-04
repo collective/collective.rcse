@@ -1,13 +1,18 @@
 import datetime
+import logging
 from plone.app.uuid.utils import uuidToObject
 from collective.rcse.utils import createNotification
 from zope.component.hooks import getSite
 
 
+logger = logging.getLogger(__name__)
+
+
 def handle_request_added(context, event):
     target = uuidToObject(context.target)
     if target is None:
-        import pdb;pdb.set_trace()
+        logger.error("target is None")
+        raise ValueError("target can't be none")
     if context.rtype == 'request':
         where = '/'.join(target.getPhysicalPath())
         what = 'request_access_request'
@@ -30,7 +35,7 @@ def handle_request_added(context, event):
 
 def _handle_request(context, event, what):
     target = uuidToObject(context.target)
-    if target is None or context.rtype == 'invitation':
+    if target is None or what != "request_access_validated":
         portal = getSite().portal_url.getPortalObject()
         root = '/'.join(portal.getPhysicalPath())
         where = '%s/@@my_requests_view' % root

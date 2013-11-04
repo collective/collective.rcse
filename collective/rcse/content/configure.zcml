@@ -25,6 +25,10 @@
        name="collective.rcse.vocabulary.companies"
        provides="zope.schema.interfaces.IVocabularyFactory"/>
 
+  <utility component=".vocabularies.users"
+       name="collective.rcse.vocabulary.members"
+       provides="zope.schema.interfaces.IVocabularyFactory"/>
+
   <subscriber handler=".member.handle_member_added"
           for="collective.rcse.content.member.IMember
            zope.lifecycleevent.interfaces.IObjectAddedEvent" />
