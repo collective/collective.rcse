@@ -625,11 +625,31 @@ var rcseInitNotifications = function() {
 
 var rcseInitAddButton = function(){
     $(document).on("click", "#rcseaddform .btn-primary", function(){
-        var where = $("#form-widgets-where").val(),
-            what = $("#form-widgets-what").val();
+        var where = $("#form-widgets-where").val();
+        var what = $("#form-widgets-what").val();
         //TODO: add precondition
         window.location = portal_url + '/resolveuid/' + where + '/++add++' + what;
     })
+    function checkWhere() {
+	var where = $("#form-widgets-where");
+	if (where.val() == where.find('option:eq(0)').attr('value')) {
+	    $('#form-widgets-what option[value="collective.rcse.group"]')
+		.prop('selected', true);
+	    $('#form-widgets-what option').each(function(){
+		if ($(this).attr('value') != "collective.rcse.group")
+		    $(this).prop('disabled', 'disabled');
+	    })
+	    $('#form-widgets-what').trigger('chosen:updated');
+	}
+	else {
+	    $('#form-widgets-what option').each(function(){
+		$(this).prop('disabled', false);
+	    })
+	    $('#form-widgets-what').trigger('chosen:updated');
+	}
+    }
+    checkWhere();
+    $(document).on("change", "#rcseaddform #form-widgets-where", checkWhere);
 }
 
 var rcseInitVideo = function(){
