@@ -67,11 +67,6 @@
         </ul>
       </li>
     </ul>
-    <form class="navbar-form navbar-right" role="search" tal:attributes="action string:${view/site_url}/@@search">
-      <div class="form-group">
-        <input type="text" class="form-control" name="SearchableText" placeholder="Search" i18n:attributes="placeholder" tal:attributes="value request/SearchableText|nothing">
-      </div>
-    </form>
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
         <a href="#" class="dropdown-toggle user-menu" data-toggle="dropdown"
@@ -97,30 +92,35 @@
            title="Open the notification menu"
            i18n:attributes="title">
           <span class="icon-bell"></span>
-	  <span id="notifications-count"
-		class="badge"
-		tal:content="string:${view/unseenCount}"></span>
+          <span id="notifications-count"
+                class="badge"
+                tal:content="string:${view/unseenCount}"></span>
         </a>
         <ul class="dropdown-menu">
-      <li tal:repeat="notification view/notifications">
-        <tal:block tal:condition="notification/seen">
-          <a tal:attributes="href notification/url"
-             tal:content="notification/title"
-             title="Open the corresponding content"
-             i18n:attributes="title"
-             i18n:translate=""></a>
-        </tal:block>
-        <tal:block tal:condition="python: not notification['seen']">
-          <a class="notification-not-seen"
-             tal:attributes="href notification/url"
-             tal:content="notification/title"
-             title="Open the corresponding content"
-             i18n:attributes="title"
-             i18n:translate=""></a>
-        </tal:block>
-      </li>
-      <li><a tal:attributes="href string:${view/site_url}/@@collective_whathappened_notifications_all" i18n:translate="">See all notifications</a></li>
+          <li tal:repeat="notification view/notifications">
+            <tal:block tal:condition="notification/seen">
+              <a tal:attributes="href notification/url"
+                 tal:content="notification/title"
+                 title="Open the corresponding content"
+                 i18n:attributes="title"
+                 i18n:translate=""></a>
+            </tal:block>
+            <tal:block tal:condition="python: not notification['seen']">
+              <a class="notification-not-seen"
+                 tal:attributes="href notification/url"
+                 tal:content="notification/title"
+                 title="Open the corresponding content"
+                 i18n:attributes="title"
+                 i18n:translate=""></a>
+            </tal:block>
+          </li>
+          <li><a tal:attributes="href string:${view/site_url}/@@collective_whathappened_notifications_all" i18n:translate="">See all notifications</a></li>
         </ul>
+      </li>
+      <li id="search" tal:condition="not:view/anonymous">
+        <a tal:attributes="href string:${view/site_url}/@@search">
+          <span class="icon-search"></span>
+        </a>
       </li>
     </ul>
   </div><!-- /.navbar-collapse -->

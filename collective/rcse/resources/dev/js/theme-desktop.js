@@ -690,45 +690,48 @@ var rcseInitBreadCrumb = function(){
 }
 
 var rcseInitSearchForm = function(){
-    $(document).on("click", '#search-results-bar button.btn-primary', function(){
-        //serialize our values to build a new search URL and redirect to it
-        var searchURL = location.href.split('?')[0],
-            query = location.search.split('?')[1],
-            queryObj = {}
-            created = $('input[name="created.query:record:list:date"]').val();
-        queryObj['SearchableText'] = $('input[name="SearchableText"]').val();
-        queryObj['portal_type:list'] = "";
-        queryObj['created.query:record:list:date'] = "1970-01-02";
+    $(document).on("click", '#search-results-bar button.btn-primary, .searchButton', function(event){
+        event.stopImmediatePropagation();
+        event.preventDefault();
+//        console.log("serialize our values to build a new search URL and redirect to it");
+        var searchURL = location.href.split('?')[0];
+        var query = location.search.split('?')[1];
+        var created = $('input[name="created.query:record:list:date"][checked="checked"]').val();
+        var SearchableText = $('input[name="SearchableText"]').val();
+        var portal_type = ""
+
+        searchURL+= '?'
         $('[name="portal_type:list"]:checked').each(function(){
-            queryObj['portal_type:list'] +=
-                "&portal_type:list=" + encodeURIComponent($(this).val());
+            portal_type += "&portal_type:list=" + encodeURIComponent($(this).val());
         });
-        if (created != undefined){
-            queryObj['created.query:record:list:date'] = encodeURIComponent(created);
+        if (SearchableText != undefined){
+            searchURL += 'SearchableText=' + SearchableText;
         }
-        window.location = searchURL
-            + '?SearchableText=' + queryObj['SearchableText']
-            + queryObj["portal_type:list"]
-            + '&created.query:record:list:date=' + queryObj['created.query:record:list:date'];
+        if (portal_type != ""){
+            searchURL += portal_type;
+        }
+        debugger;
+        if (created != undefined){
+            searchURL += '&created.query:record:list:date=' + encodeURIComponent(created);
+            searchURL += '&created.range:record=min';
+        }
+        window.location = searchURL;
     });
     $(document).on("click", "#search-results-bar a.btn-primary", function(){
-        //serialize our search URL to update our inputs
-        var qs = (function(a) {
-            if (a == "") return {};
-            var b = {};
-            for (var i = 0; i < a.length; ++i)
-            {
-                var p=a[i].split('=');
-                if (p.length != 2) continue;
-                b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+//        console.log("serialize our search URL to update our inputs");
+        var qp = window.location.search.substr(1).split('&');
+        for (var i=0,len=qp.length; i<len; i++){
+            var p=qp[i].split('=');
+            if (p.length != 2) continue;
+            var value = decodeURIComponent(p[1].replace(/\+/g, " "));
+            var name = p[0];
+            if (name == 'SearchableText'){
+                $('input[name="SearchableText"]').val(value);
+            }else if (name == 'portal_type:list'){
+                $('input[name="portal_type:list"][value="' + value + '"]').attr('checked', 'checked');
+            }else if (name == 'created.query:record:list:date'){
+                $('input[name="created.query:record:list:date"][value="' + value + '"]').attr('checked', 'checked');
             }
-            return b;
-        })(window.location.search.substr(1).split('&'));
-        if (qs["SearchableText"] != undefined){
-            $('input[name="SearchableText"]').val(qs["SearchableText"]);
-        }
-        if (qs["created.query:record:list:date"] != undefined){
-            $('input[name="created.query:record:list:date"]').val(qs["created.query:record:list:date"]);
         }
     })
 }
