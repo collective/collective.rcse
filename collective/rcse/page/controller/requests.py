@@ -6,6 +6,8 @@ from plone.uuid.interfaces import IUUID
 from collective.requestaccess.interfaces import RequestSchema
 from zope import interface
 from plone.app.uuid.utils import uuidToObject
+from collective.requestaccess.browser.invite import InvitationFormWrapper,\
+    InvitationFormSchema
 
 
 class RCSERequestManager(RequestManager):
@@ -31,3 +33,10 @@ class RCSERequestManager(RequestManager):
             brains = self.catalog(**proxy_query)
             results.extend(self._get_proxy_from_brain(brains))
         return results
+
+
+class RCSEInvitationFormWrapper(InvitationFormWrapper):
+    def update(self):
+        vocab = "collective.rcse.vocabulary.members"
+        self.form_instance.schema['userid'].vocabularyName = vocab
+        return super(RCSEInvitationFormWrapper, self).update()

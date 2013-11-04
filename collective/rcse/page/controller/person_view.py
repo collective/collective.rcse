@@ -40,6 +40,7 @@ class AuthenticatedMemberInfoView(BrowserView):
     def __init__(self, context, request):
         BrowserView.__init__(self, context, request)
         #dependencies
+        self.plone_tools_loaded = False
         self.portal_url = None
         self.membrane_tool = None
         self.membership = None
@@ -72,11 +73,10 @@ class AuthenticatedMemberInfoView(BrowserView):
         self.update_memberinfo()
 
     def update_dependencies(self):
-        if self.portal_url is None:
+        if not self.plone_tools_loaded:
+            self.plone_tools = True
             self.portal_url = getToolByName(self.context, "portal_url")
-        if self.membership is None:
             self.membership = getToolByName(self.context, "portal_membership")
-        if self.membrane_tool is None:
             self.membrane_tool = getToolByName(self.context, 'membrane_tool')
 
     def update_member(self):

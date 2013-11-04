@@ -6,11 +6,12 @@ from plone.app.event.interfaces import IBrowserLayer as EventLayer
 from plone.app.contenttypes.interfaces import IPloneAppContenttypesLayer
 from plone.app.z3cform.interfaces import IPloneFormLayer
 from collective.whathappened.layer import Layer as WhathappenedLayer
-
+from collective.requestaccess.layer import Layer as RequestAccessLayer
 
 class CommonLayer(
     FavLayer, IDiscussionLayer, EventLayer,
-    IPloneAppContenttypesLayer, WhathappenedLayer
+    IPloneAppContenttypesLayer, WhathappenedLayer,
+    RequestAccessLayer
 ):
     """Marker interface which is used in both theme"""
 
