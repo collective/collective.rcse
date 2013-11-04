@@ -32,7 +32,7 @@ class FiltersFormSchema(model.Schema):
     portal_type = schema.Choice(
         title=_(u'Type'),
         required=False,
-        vocabulary='collective.rcse.vocabulary.groupTypes'
+        vocabulary='collective.rcse.vocabulary.addableTypes'
     )
 
     sort_on = schema.Choice(
