@@ -1,6 +1,6 @@
 from Products.Five.browser import BrowserView
 from plone.app.z3cform import layout
-from plone.autoform import directives as form
+from plone.autoform import directives
 from plone.supermodel import model
 from zope import interface
 from zope import schema
@@ -14,7 +14,7 @@ from plone.autoform.form import AutoExtensibleForm
 
 
 class AddFormSchema(model.Schema):
-    form.order_before(where='what')
+    directives.order_before(where='what')
     where = schema.Choice(
         title=_(u"Where"),
         description=_(u"Warning, only groups can be added into Home"),
