@@ -267,7 +267,7 @@ var rcseUpdateForms = function(element){
         }
     });
     $(element).find(".commentActions").each(function(){
-        $(".destructive").addClass("btn btn-danger");
+        $(this).find(".workflow-transition-delete").addClass("btn btn-danger");
     })
     //move the input into the label, this is for checkbox and radio
     var transformlabel = function(input){
