@@ -42,13 +42,14 @@ class Join(ajax.AjaxAction):
                                                    [role],
                                                    group))
             msg = _(u"You have joined this group")
-        elif state == "moderated":
+        elif state == "moderated" or state == "private":
             #You are supposed to already have view context to be here
             manager = group.restrictedTraverse("@@request_manager")
             request = manager.create()
             request.role = role
             manager.add(request)
-            msg = _(u"You have request access to this group. Please wait for an administrator to validate it")
+            msg = _(u"You have request access to this group. "
+                    u"Please wait for an administrator to validate it")
 
         self.request.response.redirect(self.context.absolute_url())
         status = IStatusMessage(self.request)

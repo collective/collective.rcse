@@ -68,7 +68,7 @@ def companies(context):
     return SimpleVocabulary(terms)
 
 
-@ram.cache(getCacheKeyGroupAddPermission)
+#@ram.cache(getCacheKeyGroupAddPermission)
 def _getGroupsWithAddPermission(username):
     site = getSite()
     portal_membership = getToolByName(site, 'portal_membership')
