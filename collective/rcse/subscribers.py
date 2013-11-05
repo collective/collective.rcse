@@ -1,9 +1,11 @@
 import datetime
 import logging
 from plone.app.uuid.utils import uuidToObject
-from collective.rcse.utils import createNotification
 from zope.component.hooks import getSite
+from zope import event
 
+from collective.rcse.event import UserAddRolesOnObjectEvent
+from collective.rcse.utils import createNotification
 
 logger = logging.getLogger(__name__)
 
@@ -55,6 +57,7 @@ def handle_request_validated(context, event):
     _handle_request(context, event, 'request_access_validated')
     request = context
     target = uuidToObject(request.target)
+    group = target
     if target.portal_type == 'collective.rcse.proxygroup':
         name = "@@proxy_group_manager"
         manager = target.restrictedTraverse(name)
@@ -66,6 +69,9 @@ def handle_request_validated(context, event):
             roles
         )
         group.reindexObject()
+    event.notify(UserAddRolesOnObjectEvent(request.userid,
+                                           [request.role],
+                                           group))
 
 
 def handle_request_refused(context, event):

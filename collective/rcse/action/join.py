@@ -1,9 +1,12 @@
+from Products.statusmessages.interfaces import IStatusMessage
 from zope import component
+from zope import event
+
 from collective.rcse.action import ajax
 from collective.rcse.content.group import GroupSchema
 from collective.rcse.content.proxygroup import ProxyGroupSchema
+from collective.rcse.event import UserAddRolesOnObjectEvent
 from collective.rcse.i18n import _
-from Products.statusmessages.interfaces import IStatusMessage
 
 
 class Join(ajax.AjaxAction):
@@ -35,6 +38,9 @@ class Join(ajax.AjaxAction):
         if state == "open":
             #just add the localrole
             group.manage_setLocalRoles(member.getId(), [role])
+            event.notify(UserAddRolesOnObjectEvent(member.getUserName(),
+                                                   [role],
+                                                   group))
             msg = _(u"You have joined this group")
         elif state == "moderated":
             #You are supposed to already have view context to be here

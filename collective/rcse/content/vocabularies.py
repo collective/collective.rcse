@@ -5,9 +5,11 @@ from Products.CMFCore.utils import getToolByName
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 from zope.schema.interfaces import IVocabularyFactory
 from zope.component import getUtility
+from zope.component.hooks import getSite
 from zope.globalrequest import getRequest
 
 from collective.rcse.i18n import _, _t
+from collective.rcse.cache import getCacheKeyGroupAddPermission
 from collective.rcse.settings import IPersonalPreferences
 
 
@@ -66,17 +68,11 @@ def companies(context):
     return SimpleVocabulary(terms)
 
 
-def _setCacheKey(fun, context):
-    portal_membership = getToolByName(context, 'portal_membership')
-    username = portal_membership.getAuthenticatedMember().getUserName()
-    return username
-
-
-@ram.cache(_setCacheKey)
-def _getGroupsWithAddPermission(context):
-    portal_membership = getToolByName(context, 'portal_membership')
-    username = portal_membership.getAuthenticatedMember().getUserName()
-    catalog = getToolByName(context, 'portal_catalog')
+@ram.cache(getCacheKeyGroupAddPermission)
+def _getGroupsWithAddPermission(username):
+    site = getSite()
+    portal_membership = getToolByName(site, 'portal_membership')
+    catalog = getToolByName(site, 'portal_catalog')
     query = {"portal_type": "collective.rcse.group",
              "sort_on": "sortable_title",
              'user_with_local_roles': username}
@@ -95,16 +91,20 @@ def _getGroupsWithAddPermission(context):
 
 def groups(context):
     """Group where the user can add contents."""
-    terms = _getGroupsWithAddPermission(context)
+    portal_membership = getToolByName(context, 'portal_membership')
+    username = portal_membership.getAuthenticatedMember().getUserName()
+    terms = _getGroupsWithAddPermission(username)
     return SimpleVocabulary(terms)
 
 
 def groups_with_home(context):
     """Group where the user can add contents + home."""
+    portal_membership = getToolByName(context, 'portal_membership')
+    username = portal_membership.getAuthenticatedMember().getUserName()
     site = getToolByName(context, 'portal_url').getPortalObject()
     home = site['home']
     terms = [SimpleTerm(value=IUUID(home), title=_(u"Home"))]
-    terms += _getGroupsWithAddPermission(context)
+    terms += _getGroupsWithAddPermission(username)
     return SimpleVocabulary(terms)
 
 
