@@ -17,6 +17,10 @@ class DeleteForm(form.Form):
     def handleDelete(self, action):
         self._doDelete()
 
+    @button.buttonAndHandler(_("Cancel"))
+    def handleCancel(self, action):
+        return "cancel"
+
     @sudo()
     def _doDelete(self):
         wf = self.context.restrictedTraverse('folder_publish')
