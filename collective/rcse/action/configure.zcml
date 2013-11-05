@@ -228,5 +228,11 @@
       class=".delete.Delete"
       permission="zope2.DeleteObjects"
       />
+  <browser:page
+      for="plone.app.discussion.interfaces.IComment"
+      name="rcse_delete"
+      class=".delete.DeleteComment"
+      permission="zope2.DeleteObjects"
+      />
 
 </configure>

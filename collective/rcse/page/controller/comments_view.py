@@ -101,6 +101,8 @@ class CommentsView(base.CommentsViewlet):
     def update(self):
         self.context = get_comments_context(self.context, self.request)
         base.CommentsViewlet.update(self)
+        self.form.widgets['text'].id = None
+        self.form.widgets['text'].update()
         self.getMenuForReplies()
 
     def getMenuForReplies(self):
