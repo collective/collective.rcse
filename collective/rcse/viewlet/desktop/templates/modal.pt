@@ -1,5 +1,4 @@
 <div id="modal-viewlet" i18n:domain="collective.rcse">
-    <!-- Modal -->
     <div class="modal fade" id="content-modal" tabindex="-1" role="dialog"
         aria-labelledby="content modal" aria-hidden="true">
         <div class="modal-dialog">
@@ -31,6 +30,14 @@
                     <button type="button" class="btn btn-default"
                         data-dismiss="modal" i18n:translate="">Close</button>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="form-modal" tabindex="-1" role="dialog"
+        aria-labelledby="form modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body"></div>
             </div>
         </div>
     </div>

@@ -5,9 +5,10 @@ from z3c.form import form, button
 from plone.z3cform.layout import FormWrapper
 from Products.statusmessages import STATUSMESSAGEKEY
 from zope.annotation.interfaces import IAnnotations
+from Products.CMFCore.utils import getToolByName
 from collective.rcse.utils import sudo
 from collective.rcse.content.group import get_group
-from Products.CMFCore.utils import getToolByName
+
 
 class DeleteForm(form.Form):
     enableCSRFProtection = True
@@ -34,7 +35,6 @@ class DeleteForm(form.Form):
         annotations[STATUSMESSAGEKEY] = None
         status.add(_(u"Item and it's content has been deleted"))
 
-        import pdb;pdb.set_trace()
         group = get_group(self.context)
         if group is None:
             url = getToolByName(self.context, 'portal_url')()
@@ -46,5 +46,13 @@ class DeleteForm(form.Form):
 class Delete(FormWrapper):
     form = DeleteForm
     def label(self):
+        title = self.context.Title()
+        if type(title) == str:
+            title = title.decode('utf-8')
         return _(u"Are you sure you want to delete ${title} and all it's content ?",
-                 mapping={"title": self.context.Title()})
+                 mapping={"title": title})
+
+
+class DeleteComment(Delete):
+    def label(self):
+        return _(u"Are you sure you want to delete this comment ?")

@@ -266,9 +266,7 @@ var rcseUpdateForms = function(element){
             });
         }
     });
-    $(element).find(".commentActions").each(function(){
-        $(this).find(".workflow-transition-delete").addClass("btn btn-danger");
-    })
+    $(element).find(".workflow-transition-delete").addClass("btn-danger");
     //move the input into the label, this is for checkbox and radio
     var transformlabel = function(input){
         var label = input.siblings("label").first();
@@ -798,7 +796,58 @@ var rcseInitLoadTileContentInModal = function(){
         modal.find('.modal-dialog').attr('style', 'width: auto; text-align: center;');
     });
 }
-
+var rcseInitDeleteConfirmationInModal = function(){
+    //first: display the form in the modal form.
+    $(document).on("click", ".workflow-transition-delete", function(event){
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        //is comment or content in tile ?
+        var deleteaction = $(this);
+        var url = deleteaction.attr("href");
+        var isComment = deleteaction.parents(".editbar").length == 0;
+        var modal = $("#form-modal");
+        var data = {};
+        var comment = deleteaction.parents('.comment');
+        var tile = deleteaction.parents('.rcse_tile_wrapper');
+        var tileurl = tile.find("h2.content-title a").attr('href');
+        data.ajax = 1;
+        $.ajax({
+            url: url,
+            data: data
+        }).success(function(data) {
+            $("#form-modal .modal-body").html($("#content", data).html());
+            rcseApplyTransform($("#form-modal .modal-body")[0]);
+            modal.modal();
+            $("#form-modal form").ajaxForm(function(){
+                modal.modal('hide');
+                //delete the dom elements corresponding to the form
+                if (isComment){
+                    comment.remove();
+                }else{
+                    debugger;
+                    //detect if the current page is the one we are deleting
+                    if (window.location == tileurl){
+                        window.location = portal_url;
+                    }else{
+                        tile.remove();
+                    }
+                }
+            });
+        });
+    });
+    //first: handle form action
+/*    $(document).on("submit", "#form-modal form", function(event){
+//        event.stopImmediatePropagation();
+//        event.preventDefault();
+        var showResponse = function(responseText, statusText, xhr, $form){
+            $("#form-modal .modal-body").html(responseText);
+        }
+        $(this).ajaxSubmit({
+            success: showResponse  // post-submit callback 
+        });
+        return false;
+    });*/
+}
 var rcseInitMasonry = function(){
     var $container = $('.masonry');
     $container.imagesLoaded(function() {
@@ -1027,6 +1076,7 @@ $(document).on("ready", function() {
     rcseInitChromeContentEditableWorkaround();
     rcseInitManagePortlets();
     rcseInitFluidMedia();
+    rcseInitDeleteConfirmationInModal();
 });
 $.webshims.setOptions("basePath", portal_url + "/++resource++webshims/");
 $.webshims.setOptions('forms', {
