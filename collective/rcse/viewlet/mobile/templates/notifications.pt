@@ -4,21 +4,26 @@
    data-transition="fade" data-icon="bell"
    data-iconpos="left" class="ui-li-has-arrow ui-li-has-count">
   <span tal:condition="python:view.unseenCount > 0"
-	id="notifications-count" class="ui-btn-up-c ui-btn-corner-all"
-	tal:content="view/unseenCount">0</span>
+        id="notifications-count" class="ui-btn-up-c ui-btn-corner-all"
+        tal:content="view/unseenCount">0</span>
 </a>
 
-<div data-role="popup" id="popup-notifications" i18n:domain="plone">
+<div data-role="popup" id="popup-notifications" i18n:domain="collective.whathappened">
     <ul data-role="listview" data-inset="true" data-icon="false">
     <li tal:repeat="notification view/notifications">
       <tal:block tal:condition="notification/seen">
-            <a tal:attributes="href notification/url" tal:content="notification/title" i18n:translate=""></a>
+            <a tal:attributes="href notification/url"
+               tal:content="notification/title"
+               i18n:translate=""></a>
       </tal:block>
       <tal:block tal:condition="python: not notification['seen']">
-            <a class="notification-not-seen" tal:attributes="href notification/url" tal:content="notification/title" i18n:translate=""></a>
+          <a class="notification-not-seen"
+             tal:attributes="href notification/url"
+             tal:content="notification/title" i18n:translate=""></a>
       </tal:block>
     </li>
-    <li><a tal:attributes="href string:${view/site_url}/@@collective_whathappened_notifications_all" i18n:translate="">See all notifications</a></li>
+    <li><a tal:attributes="href string:${view/site_url}/@@collective_whathappened_notifications_all"
+           i18n:translate="">See all notifications</a></li>
     </ul>
 </div>
 </tal:block>

@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.whathappened">
+
+  <body>
+
+    <div metal:fill-slot="main"
+         tal:define="context_url string:${context/absolute_url};">
+        <h1 i18n:translate="">Notifications</h1>
+
+        <div class="manage-notifications btn-group">
+            <a class="btn btn-default" href="@@collective_whathappened_manage" i18n:translate="">Manage my subscriptions</a>
+            <a class="btn btn-default" href="@@collective_whathappened_set_all_seen" i18n:translate="">Set all notifications to seen</a>
+        </div>
+
+        <table class="listing datatable">
+        <thead i18n:domain="collective.history">
+            <tr>
+                <th i18n:translate="">When</th>
+                <th i18n:translate="">What</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tal:block tal:repeat="date view/notifications/keys">
+          <tr tal:repeat="notification python:view.notifications[date]">
+            <td tal:content="notification/when"></td>
+            <td>
+              <strong tal:omit-tag="notification/seen">
+                <a tal:attributes="href string:${notification/where}" i18n:translate="" tal:content="python:view.show(notification)"></a>
+              </strong>
+            </td>
+          </tr>
+        </tal:block>
+        </tbody>
+        </table>
+    </div>
+  </body>
+</html>
