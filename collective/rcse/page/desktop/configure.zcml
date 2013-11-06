@@ -139,6 +139,15 @@
       permission="zope2.View"
       />
   <browser:page
+      name="collective_whathappened_notifications_all"
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      template="templates/notifications_all_view.pt"
+      permission="zope2.View"
+      class="collective.whathappened.browser.notifications.AllView"
+      layer="collective.rcse.layer.DesktopLayer"
+      />
+
+  <browser:page
       for="*"
       name="review_requests_view"
       class="collective.requestaccess.browser.requests.ReviewRequestsView"
