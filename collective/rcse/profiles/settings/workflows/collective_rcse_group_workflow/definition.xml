@@ -13,9 +13,11 @@
              initial_state="private"
              i18n:attributes="title; description">
 
+ <permission>Add portal content</permission>
  <permission>Access contents information</permission>
  <permission>Modify portal content</permission>
  <permission>View</permission>
+
 
  <state state_id="open" title="Open" i18n:attributes="title">
   <description i18n:translate="">
@@ -23,6 +25,13 @@
   </description>
   <exit-transition transition_id="hide"/>
   <exit-transition transition_id="make_moderated"/>
+  <permission-map name="Add portal content"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Contributor</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
   <permission-map name="Access contents information"
                   acquired="False">
    <permission-role>Manager</permission-role>
@@ -56,6 +65,13 @@
   </description>
   <exit-transition transition_id="show_internally"/>
   <exit-transition transition_id="make_moderated"/>
+  <permission-map name="Add portal content"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Contributor</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
   <permission-map name="Access contents information"
                   acquired="False">
    <permission-role>Manager</permission-role>
@@ -87,6 +103,13 @@
   </description>
   <exit-transition transition_id="show_internally"/>
   <exit-transition transition_id="hide"/>
+  <permission-map name="Add portal content"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Contributor</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
   <permission-map name="Access contents information"
                   acquired="False">
    <permission-role>Manager</permission-role>
