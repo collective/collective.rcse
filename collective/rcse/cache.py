@@ -53,5 +53,5 @@ def getCacheKeyGroupAddPermission(fun, username):
     return username
 
 
-def handleUserAddRolesOnObject(event):
+def handleUserRolesModifiedOnObject(event):
     clearCacheKeyGroupAddPermission(event.username)

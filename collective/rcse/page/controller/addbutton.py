@@ -37,7 +37,7 @@ class AddFormAdapter(object):
         group = get_group(context)
         if group:
             portal_membership = getToolByName(context, 'portal_membership')
-            if portal_membership.checkPermission('Modify portal content',
+            if portal_membership.checkPermission('Add portal content',
                                                  group):
                 self.where = IUUID(group)
 

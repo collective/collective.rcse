@@ -79,9 +79,8 @@ def _getGroupsWithAddPermission(username):
     terms = []
     brains = catalog(**query)
     for brain in brains:
-        # TODO Remove True when https://github.com/zopefoundation/AccessControl/issues/4 is fixed
-        if True or portal_membership.checkPermission('Modify portal content',
-                                                     brain.getObject()):
+        if portal_membership.checkPermission('Add portal content',
+                                             brain.getObject()):
             terms.append(SimpleVocabulary.createTerm(
                     unicode(brain.UID),
                     str(brain.UID),

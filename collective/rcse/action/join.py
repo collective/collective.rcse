@@ -5,7 +5,7 @@ from zope import event
 from collective.rcse.action import ajax
 from collective.rcse.content.group import GroupSchema
 from collective.rcse.content.proxygroup import ProxyGroupSchema
-from collective.rcse.event import UserAddRolesOnObjectEvent
+from collective.rcse.event import UserRolesModifiedOnObjectEvent
 from collective.rcse.i18n import _
 
 
@@ -38,9 +38,9 @@ class Join(ajax.AjaxAction):
         if state == "open":
             #just add the localrole
             group.manage_setLocalRoles(member.getId(), [role])
-            event.notify(UserAddRolesOnObjectEvent(member.getUserName(),
-                                                   [role],
-                                                   group))
+            group.reindexObject()
+            event.notify(UserRolesModifiedOnObjectEvent(member.getUserName(),
+                                                        group))
             msg = _(u"You have joined this group")
         elif state == "moderated" or state == "private":
             #You are supposed to already have view context to be here
@@ -79,6 +79,9 @@ class Quit(ajax.AjaxAction):
             name=u'plone_context_state'
         )
         group.manage_delLocalRoles([member.getId()])
+        group.reindexObject()
+        event.notify(UserRolesModifiedOnObjectEvent(member.getUserName(),
+                                                    group))
         msg = _(u"You have quit this group")
         url = group.aq_parent.absolute_url()
         self.request.response.redirect(url)

@@ -90,8 +90,8 @@
            collective.requestaccess.event.IRequestRefusedEvent"
           />
 
-  <subscriber handler=".cache.handleUserAddRolesOnObject"
-	      for="collective.rcse.event.IUserAddRolesOnObjectEvent"
+  <subscriber handler=".cache.handleUserRolesModifiedOnObject"
+	      for="collective.rcse.event.IUserRolesModifiedOnObjectEvent"
 	      />
 
   <adapter factory=".adapter.CioppinoLike" />

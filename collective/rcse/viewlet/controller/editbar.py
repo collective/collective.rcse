@@ -1,4 +1,6 @@
 from Acquisition import aq_inner, aq_parent
+from AccessControl.SecurityManagement import setSecurityManager,\
+    getSecurityManager
 from plone.app.layout.viewlets.common import ViewletBase, ContentViewsViewlet,\
     ContentActionsViewlet
 from Products.CMFCore.utils import getToolByName
@@ -65,7 +67,12 @@ class EditBar(ViewletBase):
         if self.member is not None and self.group is not None:
             self.memberid = self.member.getId()
             getroles = self.group.manage_getUserRolesAndPermissions
+            # TODO Remove security manage save and reset when
+            #   https://github.com/zopefoundation/AccessControl/issues/4
+            #   is fixed
+            sm = getSecurityManager()
             self.roles = getroles(self.memberid)
+            setSecurityManager(sm)
             self.isOwner = self.hasRole("Owner")
 #            owner = self.group.getOwner()
 #            if owner:
