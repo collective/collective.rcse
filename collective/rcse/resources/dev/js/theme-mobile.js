@@ -91,6 +91,8 @@ var rcseInitAjaxAction = function() {
             ajax_load : true,
             uid : $(eventObject.target).parents(".rcsetile").attr("id")
         }
+	var btn = $(eventObject.target);
+	btn.attr('disabled', 'disabled');
         data[$(eventObject.target).attr("name")] = 1;
         form.ajaxSubmit({
             context : form,
@@ -104,7 +106,10 @@ var rcseInitAjaxAction = function() {
                 rcseApplyTransform(parent);
                 $(document).trigger("create");
                 parent.find("textarea").val("");
-            }
+            },
+	    always : function() {
+		btn.removeAttr('disabled');
+	    }
         });
     });
 
