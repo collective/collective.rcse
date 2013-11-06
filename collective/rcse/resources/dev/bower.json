@@ -22,6 +22,7 @@
     "excanvas": "e6f8a58dbce5858586564a1ba4543f122ef63225",
     "datatables": "1.9.4",
     "datatables-plugins": "*",
+    "fastclick": "0.6.10",
     "flot": "0.8.1",
     "font-awesome": "3.2.1",
     "imagesloaded": "3.0.4",

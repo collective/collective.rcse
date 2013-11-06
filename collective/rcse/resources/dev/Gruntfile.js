@@ -123,6 +123,7 @@ module.exports = function(grunt) {
                         //'app/bower_components/jquery-mobile-bower/js/jquery.mobile-1.3.2.js',
                         'app/bower_components/jquery-once/jquery.once.js',
                         'js/jquery.mobile.js',
+                        'app/bower_components/fastclick/lib/fastclick.js',
                         'app/bower_components/picturefill/picturefill.js',
                         'app/bower_components/mediaelement/build/mediaelement-and-player.js',
                         'app/bower_components/readmore/readmore.js',

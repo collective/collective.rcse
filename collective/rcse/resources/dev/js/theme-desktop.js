@@ -866,7 +866,7 @@ var rcseInitMasonry = function(){
 }
 
 var rcseInitDatatable = function(){
-    $("#members-datatable").dataTable({
+    var settings = {
         "iDisplayLength" : -1,
         "aaSorting" : [ [ 2, "asc" ] ],
         "oLanguage": {
@@ -875,39 +875,13 @@ var rcseInitDatatable = function(){
         "bRetrieve": true,
         "aLengthMenu" : [ [ 20, 30, 50, -1 ],
                         [ 20, 30, 50, "Tous" ] ]
-    });
-    $("#favorites-datatable").dataTable({
-    "iDisplayLength" : -1,
-    "oLanguage": {
-        "sUrl": "@@collective.js.datatables.translation"
-    },
-        "aLengthMenu" : [ [ 20, 30, 50, -1 ],
-                        [ 20, 30, 50, "Tous" ] ]
-    });
-    $("#review-requests-datatable").dataTable({
-    "iDisplayLength" : -1,
-    "oLanguage": {
-        "sUrl": "@@collective.js.datatables.translation"
-    },
-        "aLengthMenu" : [ [ 20, 30, 50, -1 ],
-                        [ 20, 30, 50, "Tous" ] ]
-    });
-    $("#invitations-datatable").dataTable({
-    "iDisplayLength" : -1,
-    "oLanguage": {
-        "sUrl": "@@collective.js.datatables.translation"
-    },
-        "aLengthMenu" : [ [ 20, 30, 50, -1 ],
-                        [ 20, 30, 50, "Tous" ] ]
-    });
-    $("#requests-datatable").dataTable({
-    "iDisplayLength" : -1,
-    "oLanguage": {
-        "sUrl": "@@collective.js.datatables.translation"
-    },
-        "aLengthMenu" : [ [ 20, 30, 50, -1 ],
-                        [ 20, 30, 50, "Tous" ] ]
-    });
+    }
+    $(".datatable").dataTable(settings);
+    $("#members-datatable").dataTable(settings);
+    $("#favorites-datatable").dataTable(settings);
+    $("#review-requests-datatable").dataTable(settings);
+    $("#invitations-datatable").dataTable(settings);
+    $("#requests-datatable").dataTable(settings);
 }
 
 var rcseInitScrollableColumns = function(){

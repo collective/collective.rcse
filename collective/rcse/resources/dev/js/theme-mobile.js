@@ -328,3 +328,6 @@ $(document).on("pageshow", function() {
     rcseInitAddButton();
     rcseInitFluidMedia();
 });
+$(function() {
+    FastClick.attach(document.body);
+});
