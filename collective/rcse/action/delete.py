@@ -1,10 +1,12 @@
+from zope import component
+from zope.annotation.interfaces import IAnnotations
+from z3c.form import form, button
+
 from Products.Five.browser import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
 from collective.rcse.i18n import _
-from z3c.form import form, button
 from plone.z3cform.layout import FormWrapper
 from Products.statusmessages import STATUSMESSAGEKEY
-from zope.annotation.interfaces import IAnnotations
 from Products.CMFCore.utils import getToolByName
 from collective.rcse.utils import sudo
 from collective.rcse.content.group import get_group
@@ -16,6 +18,14 @@ class DeleteForm(form.Form):
     @button.buttonAndHandler(_("Delete"))
     def handleDelete(self, action):
         self._doDelete()
+
+    @button.buttonAndHandler(_("Cancel"))
+    def handleCancel(self, action):
+        context_state = component.getMultiAdapter(
+            (self.context, self.request),
+            name=u'plone_context_state'
+        )
+        self.request.response.redirect(context_state.view_url())
 
     @sudo()
     def _doDelete(self):

@@ -728,7 +728,6 @@ var rcseInitSearchForm = function(){
         if (portal_type != ""){
             searchURL += portal_type;
         }
-        debugger;
         if (created != undefined){
             searchURL += '&created.query:record:list:date=' + encodeURIComponent(created);
             searchURL += '&created.range:record=min';
@@ -797,6 +796,11 @@ var rcseInitLoadTileContentInModal = function(){
     });
 }
 var rcseInitDeleteConfirmationInModal = function(){
+    $(document).on("click", "#form-modal form #form-buttons-cancel", function(event){
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        $("#form-modal").modal('hide');
+    });
     //first: display the form in the modal form.
     $(document).on("click", ".workflow-transition-delete", function(event){
         event.stopImmediatePropagation();
@@ -818,13 +822,12 @@ var rcseInitDeleteConfirmationInModal = function(){
             $("#form-modal .modal-body").html($("#content", data).html());
             rcseApplyTransform($("#form-modal .modal-body")[0]);
             modal.modal();
-            $("#form-modal form").ajaxForm(function(){
+            var options = {success: function showResponse(responseText, statusText, xhr, $form){
                 modal.modal('hide');
                 //delete the dom elements corresponding to the form
                 if (isComment){
                     comment.remove();
                 }else{
-                    debugger;
                     //detect if the current page is the one we are deleting
                     if (window.location == tileurl){
                         window.location = portal_url;
@@ -832,7 +835,8 @@ var rcseInitDeleteConfirmationInModal = function(){
                         tile.remove();
                     }
                 }
-            });
+            }}
+            $("#form-modal form").ajaxForm(options);
         });
     });
     //first: handle form action
