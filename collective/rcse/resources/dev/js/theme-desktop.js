@@ -459,6 +459,7 @@ var rcseUpdateComments = function(element) {
         element = document;
     }
     $(element).find('.commenting form').attr("action", portal_url);
+
     // make the delete an ajax action to not render the page
 /*
     var form = $(element).find("input[name='form.button.DeleteComment']")
@@ -555,6 +556,8 @@ var rcseInitAjaxAction = function() {
                 ajax_load : true,
                 uid : uid
             };
+	var btn = $(eventObject.target);
+	btn.attr('disabled', 'disabled');
         data[$(eventObject.target).attr("name")] = 1;
         form.ajaxSubmit({
             context : form,
@@ -566,7 +569,10 @@ var rcseInitAjaxAction = function() {
                 parent.replaceWith(response['document-actions-wrapper']);
                 $("textarea").val('');
                 rcseApplyTransform(content);
-            }
+            },
+	    always : function() {
+		btn.removeAttr('disabled');
+	    }
         });
     });
 }
