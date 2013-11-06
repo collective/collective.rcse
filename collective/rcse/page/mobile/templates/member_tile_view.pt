@@ -1,4 +1,4 @@
-<div class="tile-wrapper">
+<div class="tile-wrapper" i18n:domain="collective.rcse">
     <div class="ui-grid-a ui-responsive">
     <tal:block
          tal:condition="view/getWorkflowTransitions"
@@ -9,7 +9,7 @@
            tal:content="transition/name">
         </a>
     </tal:block>
-    
+
     <tal:block
          tal:condition="view/canModify">
         <a data-role="button"
@@ -35,8 +35,10 @@
            tal:replace="structure scale/tag"/>
       <h1 tal:content="string:${context/first_name} ${context/last_name}"></h1>
       <h2 tal:content="string:${context/function} in ${context/company}"></h2>
+      <!--
   <a i18n:translate=""
      tal:attributes="href string:${context/absolute_url}/groups_view">See groups</a>
+  -->
       <h3 tal:condition="python: context.birthdate
                          or context.bio
                          or context.lang
