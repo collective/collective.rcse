@@ -17,6 +17,7 @@
   <utility component=".vocabularies.groups"
        name="collective.rcse.vocabulary.groups"
        provides="zope.schema.interfaces.IVocabularyFactory"/>
+
   <utility component=".vocabularies.groups_with_home"
        name="collective.rcse.vocabulary.groups_with_home"
        provides="zope.schema.interfaces.IVocabularyFactory"/>

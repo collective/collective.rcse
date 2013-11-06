@@ -1,3 +1,4 @@
+from Products.CMFPlone.utils import getToolByName
 from Products.Five.browser import BrowserView
 from plone.app.z3cform import layout
 from plone.autoform import directives
@@ -35,7 +36,10 @@ class AddFormAdapter(object):
         self.where = None
         group = get_group(context)
         if group:
-            self.where = IUUID(group)
+            portal_membership = getToolByName(context, 'portal_membership')
+            if portal_membership.checkPermission('Modify portal content',
+                                                 group):
+                self.where = IUUID(group)
 
 
 class AddForm(AutoExtensibleForm, form.Form):

@@ -68,7 +68,7 @@ def companies(context):
     return SimpleVocabulary(terms)
 
 
-#@ram.cache(getCacheKeyGroupAddPermission)
+@ram.cache(getCacheKeyGroupAddPermission)
 def _getGroupsWithAddPermission(username):
     site = getSite()
     portal_membership = getToolByName(site, 'portal_membership')
@@ -79,8 +79,9 @@ def _getGroupsWithAddPermission(username):
     terms = []
     brains = catalog(**query)
     for brain in brains:
-        if portal_membership.checkPermission('Modify portal content',
-                                             brain.getObject()):
+        # TODO Remove True when https://github.com/zopefoundation/AccessControl/issues/4 is fixed
+        if True or portal_membership.checkPermission('Modify portal content',
+                                                     brain.getObject()):
             terms.append(SimpleVocabulary.createTerm(
                     unicode(brain.UID),
                     str(brain.UID),
