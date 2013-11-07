@@ -1,4 +1,5 @@
 from zope import interface
+from zope import event
 from zope import schema
 from z3c.form import form
 
@@ -135,7 +136,6 @@ class BaseAddForm(AutoExtensibleForm, form.Form):
             self.CONTENT_TYPE,
             checkConstraints=True,
             **data)
-
         IStatusMessage(self.request).add(self.msg_added)
         referer_url = self.request.get("HTTP_REFERER")
         if not referer_url:
@@ -144,6 +144,15 @@ class BaseAddForm(AutoExtensibleForm, form.Form):
             self.request.response.redirect(referer_url)
         else:
             self.request.response.redirect(item.absolute_url())
+        return item
+
+    def applyBehaviors(self, item, data):
+        schemas = utils.iterSchemata(item)
+        for schema in schemas:
+            i = schema(item)
+            for name in schema.names():
+                if name in data.keys():
+                    setattr(i, name, data[name])
 
 
 class BaseAddFormView(BaseView, FormWrapper):

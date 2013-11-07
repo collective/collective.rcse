@@ -1,3 +1,5 @@
+import datetime
+
 from zope import interface
 from zope import schema
 from zope import component
@@ -104,8 +106,8 @@ class AddFormAdapter(object):
         self.context = context
         self.title = None
         self.description = ''
-        self.start = None
-        self.end = None
+        self.start = datetime.datetime.now()
+        self.end = datetime.datetime.now() + datetime.timedelta(hours=1)
         self.whole_day = None
         self.open_end = None
         self.timezone = None
