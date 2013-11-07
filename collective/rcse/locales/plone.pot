@@ -66,3 +66,15 @@ msgstr ""
 #: ./setuphandler.py
 msgid "Making an item deleted means that it will not be visible to anyone but the manager."
 msgstr ""
+
+#: plone.app.event default=u'Search base'
+msgid "portlet_label_search_base"
+msgstr ""
+
+#: plone.app.event, default
+#: Select search base folder to search for events. This
+#: folder will also be used to link to in calendar
+#: searches. If empty, the whole site will be searched and
+#: the event listing view will be called on the site root.
+msgid "portlet_help_search_base"
+msgstr ""

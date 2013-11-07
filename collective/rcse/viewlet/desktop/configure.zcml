@@ -85,7 +85,7 @@
   <browser:viewlet
       name="collective.rcse.desktop.modal"
       for="*"
-      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContent"
       permission="zope2.View"
       template="templates/modal.pt"
       layer="collective.rcse.layer.DesktopLayer"

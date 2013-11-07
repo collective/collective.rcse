@@ -68,3 +68,13 @@ msgstr "Ouvert"
 msgid "Publishing the item makes it visible to other users."
 msgstr "Publier l'élément le rend visible aux autres utilisateurs"
 
+#: Select search base folder to search for events. This
+#: folder will also be used to link to in calendar
+#: plone.app.event, default
+msgid "portlet_help_search_base"
+msgstr "Sélectionner le dossier qui servira de base de recherche. Ce dossier sera aussi utilisé comme lien dans les recherches du calendrier. Si vous laissez vide, la recherche aura lieu dans tout le site."
+
+#: plone.app.event default=u'Search base'
+msgid "portlet_label_search_base"
+msgstr "Base de recherche"
+

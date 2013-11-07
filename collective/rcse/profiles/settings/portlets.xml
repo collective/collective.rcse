@@ -5,7 +5,6 @@
 
  <!-- Remove some portlets -->
  <portlet addview="portlets.Classic" remove="true" />
- <portlet addview="collective.castle.Portlet" remove="true" />
  <portlet addview="plone.portlet.collection.Collection" remove="true" />
  <portlet addview="portlets.Login" remove="true" />
  <portlet addview="portlets.Navigation" remove="true" />
