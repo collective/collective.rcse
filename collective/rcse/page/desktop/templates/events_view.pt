@@ -98,8 +98,8 @@
                 <div class="media-body">
                     <h4 class="media-heading">
                         <a class="load-content-tile-in-modal content-title"
-                            tal:attributes="href data/getURL"
-                            tal:content="data/title">Title</a>
+                           tal:attributes="href data/url;"
+                           tal:content="data/title">Title</a>
             <span> - </span>
             <a tal:define="memberinfo data/context/@@creator_memberinfo"
                tal:attributes="href memberinfo/url"
