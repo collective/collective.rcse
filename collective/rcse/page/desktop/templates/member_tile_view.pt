@@ -31,7 +31,12 @@
     </div>
 
     <h2 tal:content="string:${view/first_name} ${view/last_name}"></h2>
-    <h3 tal:content="string:${view/function} in ${view/company}"></h3>
+    <h3>
+      <tal:function tal:content="view/function"></tal:function>
+      <tal:block i18n:translate="">in</tal:block>
+      <a tal:attributes="href string:${view/portal_url}/companies_directory/${view/company_id}"
+	 tal:content="view/company"></a>
+    </h3>
     <!-- a i18n:translate="" tal:attributes="href string:${context/absolute_url}/groups_view">See groups</a -->
     <h3 tal:condition="python: view.birthdate
                              or view.bio
@@ -40,7 +45,7 @@
                              or view.interests"
         i18n:translate="">Personal information</h3>
     <div class="birthdate" tal:condition="view/birthdate" i18n:translate="">
-        Born the
+        Birthdate:
         <span i18n:name="birthdate" tal:content="view/birthdate"></span>
     </div>
     <h3 tal:condition="view/bio">Presentation</h3>
