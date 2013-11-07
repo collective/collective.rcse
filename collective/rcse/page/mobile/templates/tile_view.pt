@@ -10,8 +10,8 @@
        class="ui-link group"
        tal:attributes="href view/group_url"
        tal:content="view/group_title">group</a><br/>
-    <span class="date"
-	  tal:condition="view/effective_date"
+    <span class="date vcard-date"
+	        tal:condition="view/effective_date"
           tal:content="view/effective_date"></span>
     <a rel="author" data-rel="dialog" class="fn url"
        tal:attributes="href creator_info/url"
