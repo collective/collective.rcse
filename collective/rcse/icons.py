@@ -10,6 +10,8 @@ def getStatus(t):
         return 'icon-unlock'
     if t in ['moderated']:
         return 'icon-unlock-alt'
+    if t in ['deleted']:
+        return 'icon-trash'
     logger.info('No icon for status: %s' % t)
     return ''
 
