@@ -91,6 +91,14 @@
       />
 
   <browser:page
+      for="collective.rcse.content.company.ICompany"
+      name="tile_view"
+      template="templates/company_tile_view.pt"
+      permission="zope2.View"
+      layer="collective.rcse.layer.DesktopLayer"
+      />
+
+  <browser:page
       for="plone.app.contenttypes.interfaces.INewsItem"
       name="tile_view"
       template="templates/news_tile_view.pt"
