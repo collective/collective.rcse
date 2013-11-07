@@ -68,7 +68,7 @@
                             <span tal:replace="structure reply/getText" />
                             <div class="commentActions pull-right">
                             <tal:publish tal:define="id python:reply_dict['id']"
-                                     tal:condition="python:view.menu[id]">
+                                     tal:condition="python:view.menu.get(id, None)">
                               <tal:button tal:repeat="action python:view.menu[id]">
                                 <a i18n:attributes="title"
                                    tal:attributes="href action/action;
