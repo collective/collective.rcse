@@ -73,6 +73,12 @@
     for="collective.rcse.content.group.GroupSchema
          zope.lifecycleevent.interfaces.IObjectAddedEvent"
     />
+
+  <subscriber handler=".workflow.handle_content_creation"
+	      for="Products.CMFCore.interfaces.IContentish
+		   zope.lifecycleevent.interfaces.IObjectAddedEvent"
+	      />
+
   <subscriber handler=".workflow.handle_user_validation"
 	      for="collective.rcse.content.member.IMember
 		   Products.DCWorkflow.interfaces.IAfterTransitionEvent"
@@ -93,6 +99,7 @@
   <subscriber handler=".cache.handleUserRolesModifiedOnObject"
 	      for="collective.rcse.event.IUserRolesModifiedOnObjectEvent"
 	      />
+
 
   <adapter factory=".adapter.CioppinoLike" />
   <adapter factory=".adapter.CioppinoUnlike" />
