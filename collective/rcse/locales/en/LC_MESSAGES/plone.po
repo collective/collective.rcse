@@ -67,3 +67,13 @@ msgstr ""
 msgid "Publishing the item makes it visible to other users."
 msgstr ""
 
+#: Select search base folder to search for events. This
+#: folder will also be used to link to in calendar
+#: plone.app.event, default
+msgid "portlet_help_search_base"
+msgstr ""
+
+#: plone.app.event default=u'Search base'
+msgid "portlet_label_search_base"
+msgstr ""
+
