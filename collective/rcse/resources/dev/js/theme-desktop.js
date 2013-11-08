@@ -71,10 +71,10 @@ var rcseUpdatePortlets = function(element) {
         var newTitle = document.createElement("nav");
         var newList = document.createElement("div");
         var titleWrapper = document.createElement("div");
-        var title = $(this).find("dt").remove(".portletTopLeft")
+        var title = portlet.find("dt").remove(".portletTopLeft")
                 .remove(".portletTopRight").text();
-        $(newPortlet).addClass($(this).attr("class"));
-        $(newPortlet).attr('id', $(this).attr("id"));
+        $(newPortlet).addClass(portlet.attr("class"));
+        $(newPortlet).attr('id', portlet.attr("id"));
         $(titleWrapper).addClass("navbar-brand");
         $(newTitle).attr("role", "navigation").addClass("navbar navbar-inverse");
 //                        .addClass($(this).attr("class"));
@@ -85,6 +85,7 @@ var rcseUpdatePortlets = function(element) {
 
         if (portlet.hasClass('portletCalendar')) {
             //add btn and pull-left/right to button;
+            portlet.remove('.portletBottomLeft').remove('.portletBottomRight');
             var next = portlet.find(".calendarNext").addClass("navbar-btn btn btn-default").get();
             var prev = portlet.find(".calendarPrevious").addClass("navbar-btn btn btn-default").get();
             $(newPortlet).find(".navbar").append('<div class="controlgroup pull-right"></div>')
@@ -133,8 +134,8 @@ var rcseUpdatePortlets = function(element) {
 
         }else if (portlet.hasClass('portletLocalUsers')){
             $(newList).append(portlet.find('.portletItem').html());
-        $(newList).find('img').tooltip();
-        newPortlet.appendChild(newList);
+            $(newList).find('img').tooltip();
+            newPortlet.appendChild(newList);
         }else if (portlet.hasClass('portletStaticText')){
             var content = portlet.find('.portletItem').wrapInner('<div class="portletStaticTextInner"></div>').html();
             $(newPortlet).append(content);
@@ -167,6 +168,31 @@ var rcseUpdatePortlets = function(element) {
             });
             newPortlet.appendChild(newList);
 
+        }else if (portlet.hasClass('portletNews')){
+            /*  <dd class="portletItem odd">
+                    <a href="#" class="tile" title="">AA</a>
+                    <span class="portletItemDetails">DD</span>
+                </dd>
+                -> 
+                <a>
+                  <h4 class="list-group-item-heading">AA</h4>
+                  <p class="list-group-item-text">DD</p>
+                </a>
+             */
+            portlet.find('dd').each(function(){
+                var link = $(this).find('a');
+                var details = $(this).find('.portletItemDetails');
+                if (details.length == 0){
+                    link.addClass('list-group-item');
+                }else{
+                    link.wrapInner('<h4 class="list-group-item-heading"></h4>');
+                    link.addClass('list-group-item');
+                    details.wrap('<p class="list-group-item-text"></p>');
+                    $(this).find('.list-group-item-text').detach().appendTo(link);
+                }
+                $(newList).append($(this).html());
+            });
+            newPortlet.appendChild(newList);
         }else if (portlet.attr('id') == 'portlet-prefs'){
             portlet.find('li').addClass('list-group-item');
             $(newList).append(portlet.html());
@@ -176,8 +202,9 @@ var rcseUpdatePortlets = function(element) {
         }
         if (portletSupported){
             portlet.replaceWith(newPortlet);
+        }else{
+            newPortlet.remove();
         }
-
     });
     $(element).find('.portletCalendar').each(function(){
     });
