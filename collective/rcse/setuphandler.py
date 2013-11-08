@@ -2,6 +2,7 @@
 import logging
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.WorkflowCore import WorkflowException
+from Products.CMFCore.permissions import View
 from Products.CMFPlone.utils import _createObjectByType
 from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
 from plone.app.contentrules.rule import Rule, get_assignments
@@ -137,6 +138,9 @@ def _updateFolder(obj, types=None, view=None, authenticated_roles=None):
             setattr(obj, 'immediately_addable_types', types)
     if authenticated_roles is not None:
         obj.manage_setLocalRoles('AuthenticatedUsers', authenticated_roles)
+    # Move view permission from Anonymous to Member
+    obj.manage_permission(View, acquire=False,
+                          roles=('Authenticated', 'Member'))
 
 
 def updateWelcomePage(site):
