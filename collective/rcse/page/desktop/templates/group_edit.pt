@@ -77,6 +77,12 @@
      i18n:attributes="title" i18n:translate="">Manage request access</a>
      <span class="badge" tal:content="view/how_many_requests"></span>
 </li>
+<li class="list-group-item" tal:condition="view/can_manage_request_access">
+  <a tal:attributes="href string:${context/absolute_url}/@@sharing"
+     data-toggle="tooltip" data-placement="right"
+     title="Share content"
+     i18n:attributes="title" i18n:translate="">Manage access rights</a>
+</li>
 
 </ul>
 </div>

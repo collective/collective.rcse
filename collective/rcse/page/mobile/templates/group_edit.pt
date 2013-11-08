@@ -22,45 +22,50 @@
 <li tal:condition="view/can_rename">
   <a tal:attributes="href string:${context/absolute_url}/object_rename"
      title="Update group's title and id. The id is the URL representation of the group."
-     i18n:domain="plone" i18n:translate="">Rename</a>
+     i18n:domain="plone" i18n:attributes="title" i18n:translate="">Rename</a>
 </li>
 <li tal:condition="view/can_delete">
   <a tal:attributes="href string:${context/absolute_url}/@@rcse_delete"
      title="Update group's title and id. The id is the URL representation of the group."
-     i18n:domain="plone" i18n:translate="">Delete</a>
+     i18n:domain="plone" i18n:attributes="title" i18n:translate="">Delete</a>
 </li>
 <li tal:condition="view/can_change_status">
   <a tal:attributes="href string:${context/absolute_url}/group_status"
      title="Change state of the current group"
-     i18n:translate="">State</a>
+     i18n:attributes="title" i18n:translate="">State</a>
      <span class="ui-li-count" i18n:domain="plone" tal:content="view/review_state"></span>
 </li>
 <li tal:condition="view/can_manage_portlets">
   <a tal:attributes="href string:${context/absolute_url}/@@manage-portlets"
      title="Manage portlets displayed in dashboard colums"
-     i18n:translate="">Manage dashboard</a>
+     i18n:attributes="title" i18n:translate="">Manage dashboard</a>
 </li>
 <li tal:condition="view/can_select_default_view">
   <a tal:attributes="href string:${context/absolute_url}/select_default_view"
      title="Change the view used by default."
-     i18n:translate="">Select default view</a>
+     i18n:attributes="title" i18n:translate="">Select default view</a>
 </li>
 <li tal:condition="view/can_list_folder_contents">
   <a tal:attributes="href string:${context/absolute_url}/@@folder_contents"
      title="View group's content and do batch actions like copy/delete/..."
-     i18n:translate="">Folder contents</a>
+     i18n:attributes="title" i18n:translate="">Folder contents</a>
      <span class="ui-li-count" tal:content="view/how_many_contents"></span>
 </li>
 <li tal:condition="view/can_invite_person">
   <a tal:attributes="href string:${context/absolute_url}/add_invite_form_view"
      title="Let people contribute to the space"
-     i18n:translate="">Invite a person</a>
+     i18n:attributes="title" i18n:translate="">Invite a person</a>
 </li>
 <li tal:condition="view/can_manage_request_access">
   <a tal:attributes="href string:${context/absolute_url}/review_requests_view"
      title="Validate / Refuse access demands"
-     i18n:translate="">Manage request access</a>
+     i18n:attributes="title" i18n:translate="">Manage request access</a>
      <span class="ui-li-count" tal:content="view/how_many_requests"></span>
+</li>
+<li tal:condition="view/can_manage_request_access">
+  <a tal:attributes="href string:${context/absolute_url}/@@sharing"
+     title="Share content"
+     i18n:attributes="title" i18n:translate="">Manage access rights</a>
 </li>
 
 </ul>
