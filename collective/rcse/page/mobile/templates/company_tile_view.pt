@@ -3,14 +3,13 @@
      <div class="ui-block-a">
       <img class="logo"
            tal:condition="context/logo"
-           tal:define="scales context/@@images;
-                       scale python: scales.scale('logo', width=128, height=128);"
-           tal:replace="structure scale/tag"/>
+	   tal:attributes="src string:${context/absolute_url}/@@images/logo/thumb"
+	   />
       <h3>Company information</h3>
       <p tal:condition="context/description" tal:content="context/description"></p>
       <h4 i18n:translate="">Corporate name</h4>
       <div tal:content="context/corporate_name"></div>
-      <h4 i18n:translate="">Sector</h4><div tal:content="python: ', '.join(context.sector)"></div>
+      <h4 i18n:translate="">Sector</h4><div tal:content="context/sector"></div>
       <div tal:condition="context/service"><h4 i18n:translate="">Service</h4>
       <div tal:content="context/service"></div></div>
       <div tal:condition="context/turnover"><h4 i18n:translate="">Turnover</h4>
