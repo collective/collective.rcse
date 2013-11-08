@@ -34,15 +34,15 @@ Technologies
 * HTML5 + CSS3 web based user interface
 * jQuery_
 * `jQuery Mobile`_
-* Foundation_
+* `Bootstrap 3`_
+* `CKEditor 4`_
 * Plone_
-* CKEditor_
 
 .. _jQuery: http://jquery.com
 .. _`jQuery Mobile`: http://jquerymobile.com
-.. _Foundation: http://foundation.zurb.com
 .. _Plone: http://plone.org
-.. _CKEditor: http://ckeditor.com
+.. _`CKEditor 4`: http://ckeditor.com
+.. _`Bootstrap 3`_ http://getbootstrap.com
 
 How to install
 ==============
@@ -86,3 +86,4 @@ People
 ------
 
 - JeanMichel FRANCOIS aka toutpt <toutpt@gmail.com>
+
