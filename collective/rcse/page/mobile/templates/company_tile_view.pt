@@ -10,7 +10,7 @@
       <p tal:condition="context/description" tal:content="context/description"></p>
       <h4 i18n:translate="">Corporate name</h4>
       <div tal:content="context/corporate_name"></div>
-      <h4 i18n:translate="">Sector</h4><div tal:content="context/sector"></div>
+      <h4 i18n:translate="">Sector</h4><div tal:content="python: ', '.join(context.sector)"></div>
       <div tal:condition="context/service"><h4 i18n:translate="">Service</h4>
       <div tal:content="context/service"></div></div>
       <div tal:condition="context/turnover"><h4 i18n:translate="">Turnover</h4>
@@ -18,18 +18,29 @@
      </div>
      <div class="ui-block-b">
       <h3>Location</h3>
-      <div><i class="icon-envelope-alt"></i>&nbsp;<span i18n:translate="">Address</span></div>
-      <div tal:condition="context/address"
-           tal:content="string:${context/address} - ${context/postal_code}, ${context/city}"></div>
-      <div tal:condition="python: not context.address"
-           tal:content="string:${context/postal_code}, ${context/city}"></div>
-      <div tal:condition="context/website">
-        <div><i class="icon-globe"></i>&nbsp;<span i18n:translate="">Website</span></div>
-        <div tal:content="context/website"></div>
+      <div>
+	<i class="icon-no-margin ui-icon-envelope-alt"></i>
+	<span i18n:translate="">Address</span> :
+	<tal:address tal:condition="context/address"
+		     tal:content="string:${context/address} - ${context/postal_code}, ${context/city}"></tal:address>
+	<tal:address tal:condition="python: not context.address"
+		     tal:content="string:${context/postal_code}, ${context/city}"></tal:address>
       </div>
       <div tal:condition="context/website">
-        <div><i class="icon-hand-right"></i>&nbsp;<span i18n:translate="">Blog</span></div>
-        <div tal:content="context/blog"></div>
+        <a data-role="button"
+	   data-icon="globe"
+	   tal:attributes="href context/website"
+	   i18n:translate="">
+	  Website
+	</a>
+      </div>
+      <div tal:condition="context/website">
+        <a data-role="button"
+	   data-icon="hand-right"
+	   tal:attributes="href context/blog"
+	   i18n:translate="">
+	  Blog
+	</a>
       </div>
      </div>
     </div>
