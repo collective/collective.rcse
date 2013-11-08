@@ -3,6 +3,8 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.rcse">
 
+  <include file="unauthorized.zcml" />
+
   <browser:page
       for="*"
       name="creator_memberinfo"

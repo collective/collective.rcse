@@ -1,0 +1,86 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="collective.rcse">
+
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="articles_view"
+      class=".unauthorized.Unauthorized"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="discussions_view"
+      class=".unauthorized.Unauthorized"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="event_listing"
+      class=".unauthorized.Unauthorized"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="files_view"
+      class=".unauthorized.Unauthorized"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="images_view"
+      class=".unauthorized.Unauthorized"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="audios_view"
+      class=".unauthorized.Unauthorized"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="links_view"
+      class=".unauthorized.Unauthorized"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="etherpads_view"
+      class=".unauthorized.Unauthorized"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="timeline_view"
+      class=".unauthorized.Unauthorized"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="videos_view"
+      class=".unauthorized.Unauthorized"
+      permission="zope2.View"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+
+</configure>
