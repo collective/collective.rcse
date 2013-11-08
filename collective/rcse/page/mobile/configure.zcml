@@ -168,5 +168,13 @@
       class="collective.whathappened.browser.notifications.AllView"
       layer="collective.rcse.layer.MobileLayer"
       />
+  <browser:page
+     name="sharing"
+     for="*"
+     class="collective.memberdatatables.sharing.SharingView"
+     template="templates/sharing.pt"
+      layer="collective.rcse.layer.MobileLayer"
+     permission="plone.DelegateRoles"
+     />
 
 </configure>

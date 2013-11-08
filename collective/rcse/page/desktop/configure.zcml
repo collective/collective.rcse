@@ -197,4 +197,12 @@
         permission="collective.requestaccess.reviewrequest"
         />
 
+  <browser:page
+     name="sharing"
+     for="*"
+     class="collective.memberdatatables.sharing.SharingView"
+     template="templates/sharing.pt"
+     layer="collective.rcse.layer.DesktopLayer"
+     permission="plone.DelegateRoles"
+     />
 </configure>
