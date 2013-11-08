@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-11-07 10:18+0000\n"
+"POT-Creation-Date: 2013-11-08 18:08+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -53,7 +53,7 @@ msgstr "Accès: Propriétaire, Lecteurs et Administrateurs"
 msgid "Access: Owners, Readers and Administrators"
 msgstr "Accès: Propriétaires, Lecteurs et Administrateurs"
 
-#: ./workflow.py:21
+#: ./workflow.py:40
 msgid "Account validation"
 msgstr "Validation du compte"
 
@@ -148,6 +148,7 @@ msgstr "Ajouter une vidéo"
 
 #: ./content/company.py:37
 #: ./page/desktop/templates/company_description.pt:15
+#: ./page/desktop/templates/company_tile_view.pt:16
 msgid "Address"
 msgstr "Adresse"
 
@@ -185,7 +186,7 @@ msgid "Are you sure you want to delete this comment ?"
 msgstr "Êtes vous certain de vouloir supprimer ce commentaire ?"
 
 #: ./content/member.py:138
-#: ./page/desktop/templates/member_tile_view.pt:50
+#: ./page/desktop/templates/member_tile_view.pt:55
 #: ./page/mobile/templates/member_tile_view.pt:56
 msgid "Areas of expertise"
 msgstr "Domaine d'expertise"
@@ -235,6 +236,10 @@ msgstr "Bannis"
 msgid "Birthdate"
 msgstr "Date de naissance"
 
+#: ./page/desktop/templates/member_tile_view.pt:49
+msgid "Birthdate: ${birthdate}"
+msgstr "Date d'anniversaire : ${birthdate}"
+
 #: ./content/company.py:56
 #: ./content/member.py:182
 #: ./page/desktop/templates/company_description.pt:23
@@ -245,7 +250,6 @@ msgstr "Blog"
 msgid "Bookmark this"
 msgstr "Ajouter à vos favoris ce"
 
-#: ./page/desktop/templates/member_tile_view.pt:44
 #: ./page/mobile/templates/member_tile_view.pt:50
 msgid "Born the ${birthdate}"
 msgstr "Né le ${birthdate}"
@@ -260,10 +264,12 @@ msgid "Cancel"
 msgstr "Annuler"
 
 #: ./page/desktop/templates/group_edit.pt:42
+#: ./page/mobile/templates/group_edit.pt:33
 msgid "Change state of the current group"
 msgstr "Change l'état du groupe courrent"
 
 #: ./page/desktop/templates/group_edit.pt:55
+#: ./page/mobile/templates/group_edit.pt:44
 msgid "Change the view used by default."
 msgstr "Change la vue utilisé par défaut"
 
@@ -275,7 +281,7 @@ msgstr "Ville"
 
 #: ./page/desktop/templates/addbutton.pt:19
 #: ./viewlet/controller/resourceregistries.py:27
-#: ./viewlet/desktop/templates/modal.pt:15
+#: ./viewlet/desktop/templates/modal.pt:16
 msgid "Close"
 msgstr "Fermer"
 
@@ -295,7 +301,7 @@ msgstr "Entreprises"
 
 #: ./page/desktop/templates/companies_directory_view.pt:31
 #: ./page/mobile/templates/companies_directory_view.pt:36
-#: ./setuphandler.py:91
+#: ./setuphandler.py:92
 msgid "Companies directory"
 msgstr "Annuaire des entreprises"
 
@@ -317,13 +323,13 @@ msgstr ""
 msgid "Confirm the password"
 msgstr "Confirmez le mot de passe"
 
-#: ./page/desktop/templates/event_tile_view.pt:26
+#: ./page/desktop/templates/event_tile_view.pt:27
 #: ./page/mobile/templates/event_tile_view.pt:25
 msgid "Contact"
 msgstr "Contact"
 
 #: ./content/member.py:49
-#: ./page/desktop/templates/member_tile_view.pt:55
+#: ./page/desktop/templates/member_tile_view.pt:60
 #: ./page/mobile/templates/member_tile_view.pt:62
 msgid "Contact information"
 msgstr "Informations de contacts"
@@ -344,6 +350,7 @@ msgstr "Contenu créé par ${name}"
 
 #: ./content/company.py:23
 #: ./page/desktop/templates/company_description.pt:9
+#: ./page/desktop/templates/company_tile_view.pt:10
 msgid "Corporate name"
 msgstr "Raison sociale"
 
@@ -413,6 +420,7 @@ msgid "Display the search for members form"
 msgstr "Affiche le formulaire de recherche des membres du RSE"
 
 #: ./page/desktop/templates/article_tile_view.pt:5
+#: ./page/desktop/templates/event_tile_view.pt:55
 msgid "Display this image in full view"
 msgstr "Afficher cette image dans sa taille originale"
 
@@ -488,7 +496,6 @@ msgstr "Événements"
 msgid "Expertise"
 msgstr "Expertise"
 
-#: ./page/desktop/templates/event_tile_view.pt:49
 #: ./page/mobile/templates/event_tile_view.pt:54
 msgid "External media"
 msgstr "Site externe"
@@ -599,7 +606,7 @@ msgid "Google Maps URL"
 msgstr "URL Google Maps"
 
 #: ./content/member.py:185
-#: ./page/desktop/templates/member_tile_view.pt:127
+#: ./page/desktop/templates/member_tile_view.pt:132
 #: ./page/mobile/templates/member_tile_view.pt:98
 msgid "Google+"
 msgstr "Google+"
@@ -618,7 +625,7 @@ msgid "Hide: ${attr}"
 msgstr "Masquer: ${attr}"
 
 #: ./content/vocabularies.py:106
-#: ./setuphandler.py:104
+#: ./setuphandler.py:105
 #: ./viewlet/desktop/templates/portal_header.pt:11
 msgid "Home"
 msgstr "Accueil"
@@ -658,7 +665,7 @@ msgid "Interest"
 msgstr "Intérêt"
 
 #: ./content/member.py:145
-#: ./page/desktop/templates/member_tile_view.pt:53
+#: ./page/desktop/templates/member_tile_view.pt:58
 #: ./page/mobile/templates/member_tile_view.pt:58
 msgid "Interests"
 msgstr "Intérêts"
@@ -694,6 +701,7 @@ msgid "Legal notices"
 msgstr "Mentions légales"
 
 #: ./page/desktop/templates/group_edit.pt:68
+#: ./page/mobile/templates/group_edit.pt:55
 msgid "Let people contribute to the space"
 msgstr "Permettre aux gens de contribuer à l'espace"
 
@@ -706,7 +714,7 @@ msgid "Link added"
 msgstr "Lien ajouté"
 
 #: ./content/member.py:184
-#: ./page/desktop/templates/member_tile_view.pt:122
+#: ./page/desktop/templates/member_tile_view.pt:127
 #: ./page/mobile/templates/member_tile_view.pt:96
 msgid "LinkedIn"
 msgstr "LinkedIn"
@@ -720,6 +728,10 @@ msgstr "Liens"
 #: ./page/desktop/templates/users_manage.pt:36
 msgid "Local roles"
 msgstr "Rôles locaux"
+
+#: ./page/desktop/templates/company_tile_view.pt:15
+msgid "Location"
+msgstr "Adresse"
 
 #: ./page/controller/register.py:26
 msgid "Login"
@@ -743,6 +755,11 @@ msgstr "Homme"
 msgid "Manage"
 msgstr "Gérer"
 
+#: ./page/desktop/templates/group_edit.pt:81
+#: ./page/mobile/templates/group_edit.pt:66
+msgid "Manage access rights"
+msgstr "Gérer les droits d'accès"
+
 #: ./page/desktop/templates/group_edit.pt:49
 #: ./page/mobile/templates/group_edit.pt:39
 msgid "Manage dashboard"
@@ -759,6 +776,7 @@ msgid "Manage pending users"
 msgstr "Gérer les utilisateurs en attente de validation"
 
 #: ./page/desktop/templates/group_edit.pt:49
+#: ./page/mobile/templates/group_edit.pt:39
 msgid "Manage portlets displayed in dashboard colums"
 msgstr "Gérer les portlets affichées dans les colonnes."
 
@@ -776,7 +794,7 @@ msgstr "Gérer les demandes d'accès"
 msgid "Manage users"
 msgstr "Gérer les utilisateurs"
 
-#: ./page/desktop/templates/event_tile_view.pt:48
+#: ./page/desktop/templates/event_tile_view.pt:49
 #: ./page/mobile/templates/event_tile_view.pt:53
 msgid "Media"
 msgstr "Média"
@@ -878,25 +896,25 @@ msgid "Pending"
 msgstr "En attente"
 
 #: ./content/member.py:157
-#: ./page/desktop/templates/member_tile_view.pt:77
+#: ./page/desktop/templates/member_tile_view.pt:82
 #: ./page/mobile/templates/member_tile_view.pt:78
 msgid "Personal e-mail"
 msgstr "E-mail personnel"
 
 #: ./content/member.py:35
-#: ./page/desktop/templates/member_tile_view.pt:36
+#: ./page/desktop/templates/member_tile_view.pt:41
 #: ./page/mobile/templates/member_tile_view.pt:42
 msgid "Personal information"
 msgstr "Informations personnelles"
 
 #: ./content/member.py:173
-#: ./page/desktop/templates/member_tile_view.pt:97
+#: ./page/desktop/templates/member_tile_view.pt:102
 #: ./page/mobile/templates/member_tile_view.pt:86
 msgid "Personal landline phone"
 msgstr "Téléphone fixe personnel"
 
 #: ./content/member.py:165
-#: ./page/desktop/templates/member_tile_view.pt:87
+#: ./page/desktop/templates/member_tile_view.pt:92
 #: ./page/mobile/templates/member_tile_view.pt:82
 msgid "Personal mobile phone"
 msgstr "Téléphone portable personnel"
@@ -941,19 +959,19 @@ msgid "Privacy"
 msgstr "Vie privée"
 
 #: ./content/member.py:153
-#: ./page/desktop/templates/member_tile_view.pt:72
+#: ./page/desktop/templates/member_tile_view.pt:77
 #: ./page/mobile/templates/member_tile_view.pt:76
 msgid "Professional e-mail"
 msgstr "E-mail professionnel"
 
 #: ./content/member.py:169
-#: ./page/desktop/templates/member_tile_view.pt:92
+#: ./page/desktop/templates/member_tile_view.pt:97
 #: ./page/mobile/templates/member_tile_view.pt:84
 msgid "Professional landline phone"
 msgstr "Téléphone fixe professionnel"
 
 #: ./content/member.py:161
-#: ./page/desktop/templates/member_tile_view.pt:82
+#: ./page/desktop/templates/member_tile_view.pt:87
 #: ./page/mobile/templates/member_tile_view.pt:80
 msgid "Professional mobile phone"
 msgstr "Téléphone portable professionnel"
@@ -1090,12 +1108,17 @@ msgstr "Selectionnez votre entreprise"
 msgid "Service"
 msgstr "Service"
 
+#: ./page/desktop/templates/group_edit.pt:81
+#: ./page/mobile/templates/group_edit.pt:66
+msgid "Share content"
+msgstr "Voir et paramétré qui peut faire quoi dans le groupe"
+
 #: ./content/company.py:44
 msgid "Sites"
 msgstr "Sites"
 
 #: ./content/member.py:177
-#: ./page/desktop/templates/member_tile_view.pt:102
+#: ./page/desktop/templates/member_tile_view.pt:107
 #: ./page/mobile/templates/member_tile_view.pt:88
 msgid "Skype"
 msgstr "Skype"
@@ -1105,7 +1128,7 @@ msgid "Sort on"
 msgstr "Trier par"
 
 #: ./content/member.py:117
-#: ./page/desktop/templates/member_tile_view.pt:48
+#: ./page/desktop/templates/member_tile_view.pt:53
 #: ./page/mobile/templates/member_tile_view.pt:54
 msgid "Spoken languages"
 msgstr "Langues parlées"
@@ -1172,11 +1195,12 @@ msgstr "Navigation"
 
 #: ./content/company.py:33
 #: ./page/desktop/templates/company_description.pt:12
+#: ./page/desktop/templates/company_tile_view.pt:13
 msgid "Turnover"
 msgstr "Chiffre d'affaire"
 
 #: ./content/member.py:186
-#: ./page/desktop/templates/member_tile_view.pt:132
+#: ./page/desktop/templates/member_tile_view.pt:137
 #: ./page/mobile/templates/member_tile_view.pt:100
 msgid "Twitter"
 msgstr "Twitter"
@@ -1221,7 +1245,7 @@ msgstr "Utilisateurs"
 
 #: ./page/desktop/templates/users_directory_view.pt:37
 #: ./page/mobile/templates/users_directory_view.pt:35
-#: ./setuphandler.py:78
+#: ./setuphandler.py:79
 msgid "Users directory"
 msgstr "Annuaire des utilisateurs"
 
@@ -1230,11 +1254,12 @@ msgid "Users uuid"
 msgstr "UUID Utilisateurs"
 
 #: ./page/desktop/templates/group_edit.pt:74
+#: ./page/mobile/templates/group_edit.pt:60
 msgid "Validate / Refuse access demands"
 msgstr "Valider/Refuser les demandes d'accées."
 
 #: ./content/member.py:183
-#: ./page/desktop/templates/member_tile_view.pt:117
+#: ./page/desktop/templates/member_tile_view.pt:122
 #: ./page/mobile/templates/member_tile_view.pt:94
 msgid "Viadeo"
 msgstr "Viadeo"
@@ -1264,6 +1289,7 @@ msgid "View complete profile"
 msgstr "Voir le profil complet"
 
 #: ./page/desktop/templates/group_edit.pt:61
+#: ./page/mobile/templates/group_edit.pt:49
 msgid "View group's content and do batch actions like copy/delete/..."
 msgstr "Voir le contenus du groupe et faire des actions de groupes tel que copier/supprimer/..."
 
@@ -1279,6 +1305,10 @@ msgstr "Attention, seuls les groupes peuvent être ajoutés dans Accueil."
 #: ./page/mobile/templates/users_manage.pt:42
 msgid "Watch enabled users"
 msgstr "Voir les membres actifs"
+
+#: ./page/desktop/templates/event_tile_view.pt:50
+msgid "Watch the media"
+msgstr "Voir le média"
 
 #: ./settings.py:28
 msgid "Watch when favorited"
@@ -1412,6 +1442,15 @@ msgstr "Contrôle d'accès de ${group}"
 msgid "image_description"
 msgstr "Description de l'image"
 
+#: ./page/desktop/templates/member_tile_view.pt:36
+msgid "in"
+msgstr "dans"
+
+#. Default: "iCal"
+#: ./page/desktop/templates/events_view.pt:79
+msgid "label_add_to_ical"
+msgstr "iCal"
+
 #. Default: "Apply Changes"
 #: ./page/desktop/templates/users_roles.pt:140
 msgid "label_apply_changes"
@@ -1469,6 +1508,11 @@ msgstr "Version desktop"
 #: ./profiles/settings/actions.xml
 msgid "themeswitcher_mobile"
 msgstr "Version mobile"
+
+#. Default: "Download this event in iCal format"
+#: ./page/desktop/templates/events_view.pt:73
+msgid "title_add_to_ical"
+msgstr "Télécharger cet événement au format iCal"
 
 #: ./page/desktop/templates/objects_view.pt:54
 msgid "to add contents faster."
