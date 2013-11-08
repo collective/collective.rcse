@@ -86,3 +86,4 @@ People
 ------
 
 - JeanMichel FRANCOIS aka toutpt <toutpt@gmail.com>
+- Gagaro <gagaro42@gmail.com>
