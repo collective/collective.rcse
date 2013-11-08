@@ -10,11 +10,12 @@
     <dependency>profile-collective.localrolesdatatables:default</dependency>
     <dependency>profile-collective.mediaelementjs:default</dependency>
     <dependency>profile-collective.memberdatatables:default</dependency>
-    <dependency>profile-collective.oembed:default</dependency>
     <dependency>profile-collective.picturefill:default</dependency>
     <dependency>profile-collective.polls:default</dependency>
+    <dependency>profile-collective.portlet.embed:default</dependency>
     <dependency>profile-collective.portlet.favoriting:default</dependency>
     <dependency>profile-collective.portlet.localusers:default</dependency>
+    <dependency>profile-collective.portlet.oembed:default</dependency>
     <dependency>profile-collective.requestaccess:default</dependency>
     <dependency>profile-collective.readitlater:default</dependency>
     <dependency>profile-collective.themeswitcher:default</dependency>
