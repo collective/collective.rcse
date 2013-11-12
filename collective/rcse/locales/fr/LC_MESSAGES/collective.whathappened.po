@@ -72,6 +72,39 @@ msgstr "${who} ont ${transition}s ${where}"
 msgid "${who} has ${transition} ${where}"
 msgstr "${who} a ${transition} ${where}"
 
+msgid "${who} have refused your invitations"
+msgstr "${who} ont refusé vos invitations"
+
+msgid "${who} has refused your invitation"
+msgstr "${who} a refusé votre invitation"
+
+msgid "Your request for ${where} has been refused"
+msgstr "Votre demande d'accès pour ${where} a été refusé"
+
+msgid "${who} have accepted your invitations"
+msgstr "${who} ont accepté vos invitations"
+
+msgid "${who} has accepted your invitation"
+msgstr "${who} a accepté votre invitation"
+
+msgid "Your request for ${where} has been validated"
+msgstr "Votre demande d'accès pour ${where} a été validé"
+
+msgid "${who} have sent you invitations"
+msgstr "${who} vous ont envoyés des invitations"
+
+msgid "${who} has sent you an invitation"
+msgstr "${who} vous a envoyé une invitation"
+
+msgid "${who} have requested access to ${where}"
+msgstr "${who} ont demandés accès à ${where}"
+
+msgid "${who} has requested access to ${where}"
+msgstr "${who} a demandé accès à ${where}"
+
+msgid "${who} is waiting for validation"
+msgstr "${who} est en attente de validation"
+
 # Transition
 
 msgid "publish_internally"
