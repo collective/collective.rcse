@@ -184,6 +184,17 @@
       />
 
   <browser:page
+      for="*"
+      name="maintenance"
+      class=".maintenance.MaintenanceView"
+      template="templates/maintenance.pt"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="cmf.ManagePortal"
+      />
+
+  <adapter factory=".maintenance.RebuildMembraneCatalogFormAdapter" />
+
+  <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="legal-notices"
       template="templates/legal-notices.pt"
