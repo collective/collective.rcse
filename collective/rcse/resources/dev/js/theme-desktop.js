@@ -464,7 +464,7 @@ var rcseInitTimeline = function() {
     $("a.rcse_tile").waypoint(function(direction) {
         var item = $(this);
         var parent = item.parent();
-        if (item.attr('href') == "undefined"){
+        if (typeof(item.attr('href')) == "undefined"){
             return
         }
         var url = item.attr('href') + '/@@group_tile_view';
