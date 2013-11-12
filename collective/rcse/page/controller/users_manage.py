@@ -102,7 +102,7 @@ class ManageDisabledUserForm(ManageUserForm):
         self._handleUser('enable')
 
     @button.buttonAndHandler(_(u"Delete"), name="delete")
-    def handleApprove(self, action):
+    def handleDelete(self, action):
         data, errors = self.extractData()
         userid = data['user_id']
         self.context.manage_delObjects([userid])

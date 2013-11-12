@@ -46,9 +46,11 @@
   <state state_id="enabled" title="Enabled" i18n:attributes="title">
    <exit-transition transition_id="disable" />
    <permission-map name="View" acquired="False">
+    <permission-role>Authenticated</permission-role>
     <permission-role>Member</permission-role>
    </permission-map>
    <permission-map name="Access contents information" acquired="False">
+    <permission-role>Authenticated</permission-role>
     <permission-role>Member</permission-role>
    </permission-map>
    <permission-map name="Modify portal content" acquired="False">

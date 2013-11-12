@@ -140,7 +140,8 @@ def _updateFolder(obj, types=None, view=None, authenticated_roles=None):
         obj.manage_setLocalRoles('AuthenticatedUsers', authenticated_roles)
     # Move view permission from Anonymous to Member
     obj.manage_permission(View, acquire=False,
-                          roles=('Authenticated', 'Member'))
+                          roles=('Authenticated', 'Member', 'Manager',
+                                 'Site Administrator'))
 
 
 def updateWelcomePage(site):
