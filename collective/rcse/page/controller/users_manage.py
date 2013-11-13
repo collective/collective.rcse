@@ -41,6 +41,8 @@ class ManageUserForm(AutoExtensibleForm, form.Form):
     enableCSRFProtection = True
 
     def _handleUser(self, action):
+        if self.request.response.status in (301, 302):
+            return
         data, errors = self.extractData()
         message = IStatusMessage(self.request)
         if errors:
