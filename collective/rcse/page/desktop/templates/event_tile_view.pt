@@ -8,9 +8,6 @@
                     contact_phone data/contact_phone">
         <h3 tal:condition="python:contact_email or contact_name or contact_phone"
             data-role="list-divider" i18n:translate="" class="event">Informations</h3>
-        <tal:contactname tal:condition="python:contact_name and not contact_email">
-            <span class="icon-user" tal:content="contact_name"></span>
-        </tal:contactname>
         <span class="icon icon-calendar"></span>
         <tal:date tal:replace="structure python:view.formatted_date(data)"/>
         <p>
@@ -23,6 +20,10 @@
             </a>
         </p>
         <p>
+          <tal:contactname tal:condition="python:contact_name and not contact_email">
+            <span class="icon-user"></span>
+	    <span tal:content="contact_name"></span>
+          </tal:contactname>
             <tal:contactemail tal:condition="python:contact_email and not contact_name">
                 <a tal:condition="contact_email"
                     tal:replace="structure python: context.spamProtect(mailaddress=contact_email, mailname=contact_email, cssclass='icon-envelope')"> email
@@ -33,7 +34,7 @@
                     tal:replace="structure python: context.spamProtect(mailaddress=contact_email, mailname=contact_name, cssclass='icon-envelope')"> email
                 </a>
             </tal:contactemail>
-            <tal:block tal:condition="python:contact_email and
+            <tal:block tal:condition="python:(contact_email or contact_name) and
                 contact_phone">/</tal:block>
             <tal:contactphone tal:condition="contact_phone">
                 <a class="icon-phone" tal:attributes="href string:tel:${contact_phone}"
