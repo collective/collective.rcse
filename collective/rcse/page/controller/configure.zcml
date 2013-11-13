@@ -35,6 +35,22 @@
       allowed_interface="collective.rcse.page.controller.person_view.IMemberInfoView"
       />
 
+  <!-- Request access -->
+  <browser:page
+      for="*"
+      name="request_manager"
+      class=".requests.RCSERequestManager"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      allowed_interface="collective.requestaccess.interfaces.IRequestManager"
+      />
+  <browser:page
+      for="*"
+      name="add_invite_form_view"
+      class=".requests.RCSEInvitationFormWrapper"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
 
   <!-- MAIL VALIDATION -->
 

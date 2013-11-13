@@ -157,15 +157,6 @@
       />
 
   <browser:page
-      for="*"
-      name="request_manager"
-      class="collective.rcse.page.controller.requests.RCSERequestManager"
-      layer="collective.rcse.layer.DesktopLayer"
-      permission="zope2.View"
-      allowed_interface="collective.requestaccess.interfaces.IRequestManager"
-      />
-
-  <browser:page
         name="manage-portlets"
         for="plone.portlets.interfaces.ILocalPortletAssignable"
         class="collective.rcse.page.controller.manage_portlets.ManageContextualPortlets"
@@ -188,13 +179,6 @@
         template="templates/users_localroles.pt"
         permission="plone.app.controlpanel.UsersAndGroups"
         layer="collective.rcse.layer.DesktopLayer"
-        />
-  <browser:page
-        for="*"
-        name="add_invite_form_view"
-        class="collective.rcse.page.controller.requests.RCSEInvitationFormWrapper"
-        layer="collective.rcse.layer.DesktopLayer"
-        permission="collective.requestaccess.reviewrequest"
         />
 
   <browser:page
