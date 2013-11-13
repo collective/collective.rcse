@@ -41,6 +41,7 @@
                     tal:content="contact_phone"></a>
             </tal:contactphone>
         </p>
+	<p>
         <tal:where tal:condition="python: context.urlGMaps or data.location">
             <a tal:condition="context/urlGMaps" data-icon="map-marker"
                 tal:attributes="href context/urlGMaps">
@@ -49,6 +50,7 @@
             </a>
             <p tal:content="data/location"></p>
         </tal:where>
+	</p>
     </tal:contact>
     <tal:media tal:define="picture nocall:context/image"
         tal:condition="python: picture or context.urlMedia">
