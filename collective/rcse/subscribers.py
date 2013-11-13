@@ -2,7 +2,7 @@ import datetime
 import logging
 from plone.app.uuid.utils import uuidToObject
 from zope.component.hooks import getSite
-from zope import event
+from zope.event import notify
 
 from collective.rcse.event import UserRolesModifiedOnObjectEvent
 from collective.rcse.utils import createNotification
@@ -69,8 +69,8 @@ def handle_request_validated(context, event):
             roles
         )
         group.reindexObject()
-    event.notify(UserRolesModifiedOnObjectEvent(request.userid,
-                                                group))
+    notify(UserRolesModifiedOnObjectEvent(request.userid,
+                                          group))
 
 
 def handle_request_refused(context, event):
