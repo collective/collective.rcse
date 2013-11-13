@@ -17,7 +17,7 @@
     <browser:page
         name="search"
         for="*"
-        class="plone.app.search.browser.Search"
+        class="collective.rcse.page.controller.search.Search"
         permission="zope2.View"
         template="templates/search.pt"
         layer="collective.rcse.layer.MobileLayer"
