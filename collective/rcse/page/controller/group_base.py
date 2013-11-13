@@ -46,6 +46,7 @@ class BaseView(BrowserView):
 
         self.catalog = None
         self.portal_state = None
+        self.portal_types = None
         self.context_path = None
         self.context_state = None
         self.authenticated_member = None
@@ -59,6 +60,8 @@ class BaseView(BrowserView):
             self.catalog = getToolByName(self.context, "portal_catalog")
         if self.context_path is None:
             self.context_path = '/'.join(self.context.getPhysicalPath())
+        if self.portal_types is None:
+            self.portal_types = getToolByName(self.context, "portal_types")
         self._update_query()
 
     def _update_query(self):
@@ -83,7 +86,13 @@ class BaseView(BrowserView):
     def _update_query_portal_type(self):
         types = self.request.get('portal_type', None)
         if types is not None and len(types) > 0:
-            self.query["portal_type"] = set(types.split(','))
+            types = set(types.split(','))
+            self.query["portal_type"] = []
+            for t in types:
+                if t in list(self.portal_types):
+                    self.query["portal_type"].append(t)
+            if not self.query["portal_type"]:
+                del self.query["portal_type"]
         if self.filter_type is not None and len(self.filter_type) > 0:
             if self.query.get('portal_type'):
                 portal_type = self.query["portal_type"] & set(self.filter_type)
