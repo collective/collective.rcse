@@ -1,3 +1,4 @@
+from Acquisition import aq_inner
 from zope import component
 from zope.annotation.interfaces import IAnnotations
 from z3c.form import form, button
@@ -44,8 +45,8 @@ class DeleteForm(form.Form):
         annotations = IAnnotations(self.request)
         annotations[STATUSMESSAGEKEY] = None
         status.add(_(u"Item and it's content has been deleted"))
-
-        group = get_group(self.context)
+        # avoid getting the context itself if it's a group
+        group = get_group(aq_inner(self.context).__parent__)
         if group is None:
             url = getToolByName(self.context, 'portal_url')()
         else:
