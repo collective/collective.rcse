@@ -59,7 +59,7 @@
                        class python:view.is_private() and 'ui-disabled' or None">Make private</a>
             </td>
             <td>
-                <a href="#" data-role="button" i18n:translate="" data-ajax="false"
+                <a href="#" data-role="button" i18n:translate="" data-ajax="false" i18n:domain="collective.rcse"
                    tal:attributes="href string:${context/absolute_url}/content_status_modify?workflow_action=make_moderated;
                        class python:view.is_moderated() and 'ui-disabled' or None">Make moderated</a>
             </td>
