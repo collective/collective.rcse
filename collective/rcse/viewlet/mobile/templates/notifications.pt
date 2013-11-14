@@ -3,8 +3,7 @@
    data-rel="popup" data-role="button" data-inline="true"
    data-transition="fade" data-icon="bell"
    data-iconpos="left" class="ui-li-has-arrow ui-li-has-count">
-  <span tal:condition="python:view.unseenCount > 0"
-        id="notifications-count" class="ui-btn-up-c ui-btn-corner-all"
+  <span id="notifications-count" class="ui-btn-up-c ui-btn-corner-all"
         tal:content="view/unseenCount">0</span>
 </a>
 
