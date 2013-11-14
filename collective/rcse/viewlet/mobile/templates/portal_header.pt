@@ -2,9 +2,9 @@
     <div class="ui-btn-left" data-role="controlgroup" data-type="horizontal">
       <a tal:replace="structure view/action_open_left_panel_html"/>
       <a tal:replace="structure view/action_open_globalsections_html"/>
-      <a tal:replace="structure view/action_open_notifications_html"/>
     </div>
     <div class="ui-btn-right" data-role="controlgroup" data-type="horizontal">
+      <a tal:replace="structure view/action_open_notifications_html"/>
       <a tal:replace="structure view/action_open_search_html"/>
       <a tal:replace="structure view/action_open_right_panel_html"/>
     </div>

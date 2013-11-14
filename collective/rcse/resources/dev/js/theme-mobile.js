@@ -174,6 +174,13 @@ var rcseUpdateComments = function(element) {
 
 
 var rcseInitNotifications = function() {
+    function hideIfNoNew() {
+	if ($('#notifications-count').text() == '0')
+	    $('#notifications-count').hide();
+	else
+	    $('#notifications-count').show();
+    }
+
     var rcseReloadNotifications = function(eventObject) {
         $.ajax({
             url : portal_url + '/@@notifications_ajax',
@@ -184,7 +191,7 @@ var rcseInitNotifications = function() {
             var see_all_href = see_all.attr('href');
             var see_all_text = see_all.text();
 
-            $("#notifications .ui-btn-text").text(
+            $("#notifications-count").text(
                 data['unseenCount']);
 
             $("#popup-notifications ul").remove();
@@ -209,12 +216,15 @@ var rcseInitNotifications = function() {
                 + see_all_text + '</a></li>';
             $("#popup-notifications ul").append(see_all);
             $("#popup-notifications").trigger("create");
+	    hideIfNoNew();
         });
     }
 
     $("#notifications").click(function() {
         rcseReloadNotifications();
     });
+
+    hideIfNoNew();
 }
 
 var rcseInitVideo = function(){
@@ -309,6 +319,7 @@ var rcseApplyTransform = function(element) {
     $(element).find('video,audio').mediaelementplayer();
     rcseUpdateFluidMedia(element);
     rcseUpdateReadMore(element);
+    $('.poll-data, .votePortlet form').drawpoll();
     return element;
 }
 

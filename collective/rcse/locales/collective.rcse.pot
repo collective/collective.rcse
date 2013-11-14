@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-11-08 18:08+0000\n"
+"POT-Creation-Date: 2013-11-14 09:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -172,15 +172,15 @@ msgstr ""
 msgid "Apply only if the user's preference match."
 msgstr ""
 
-#: ./page/controller/users_manage.py:85
+#: ./page/controller/users_manage.py:87
 msgid "Approve"
 msgstr ""
 
-#: ./action/delete.py:62
+#: ./action/delete.py:63
 msgid "Are you sure you want to delete ${title} and all it's content ?"
 msgstr ""
 
-#: ./action/delete.py:68
+#: ./action/delete.py:69
 msgid "Are you sure you want to delete this comment ?"
 msgstr ""
 
@@ -253,11 +253,11 @@ msgstr ""
 msgid "Born the ${birthdate}"
 msgstr ""
 
-#: ./page/controller/users_manage.py:59
+#: ./page/controller/users_manage.py:61
 msgid "Can't enable the member ${user}"
 msgstr ""
 
-#: ./action/delete.py:22
+#: ./action/delete.py:23
 #: ./page/controller/modify_company.py:74
 msgid "Cancel"
 msgstr ""
@@ -322,18 +322,13 @@ msgstr ""
 msgid "Confirm the password"
 msgstr ""
 
-#: ./page/desktop/templates/event_tile_view.pt:27
-#: ./page/mobile/templates/event_tile_view.pt:25
-msgid "Contact"
-msgstr ""
-
 #: ./content/member.py:49
 #: ./page/desktop/templates/member_tile_view.pt:60
 #: ./page/mobile/templates/member_tile_view.pt:62
 msgid "Contact information"
 msgstr ""
 
-#: ./page/controller/group_base.py:116
+#: ./page/controller/group_base.py:127
 msgid "Content Added"
 msgstr ""
 
@@ -361,12 +356,12 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: ./page/controller/users_manage.py:89
+#: ./page/controller/users_manage.py:91
 msgid "Decline"
 msgstr ""
 
-#: ./action/delete.py:18
-#: ./page/controller/users_manage.py:104
+#: ./action/delete.py:19
+#: ./page/controller/users_manage.py:106
 msgid "Delete"
 msgstr ""
 
@@ -419,7 +414,7 @@ msgid "Display the search for members form"
 msgstr ""
 
 #: ./page/desktop/templates/article_tile_view.pt:5
-#: ./page/desktop/templates/event_tile_view.pt:55
+#: ./page/desktop/templates/event_tile_view.pt:59
 msgid "Display this image in full view"
 msgstr ""
 
@@ -449,7 +444,7 @@ msgstr ""
 msgid "Email has been sent."
 msgstr ""
 
-#: ./page/controller/users_manage.py:100
+#: ./page/controller/users_manage.py:102
 msgid "Enable"
 msgstr ""
 
@@ -495,7 +490,7 @@ msgstr ""
 msgid "Expertise"
 msgstr ""
 
-#: ./page/mobile/templates/event_tile_view.pt:54
+#: ./page/mobile/templates/event_tile_view.pt:65
 msgid "External media"
 msgstr ""
 
@@ -659,6 +654,11 @@ msgstr ""
 msgid "Images"
 msgstr ""
 
+#: ./page/desktop/templates/event_tile_view.pt:9
+#: ./page/mobile/templates/event_tile_view.pt:14
+msgid "Informations"
+msgstr ""
+
 #: ./content/member.py:147
 msgid "Interest"
 msgstr ""
@@ -678,7 +678,7 @@ msgstr ""
 msgid "Invite a person"
 msgstr ""
 
-#: ./action/delete.py:46
+#: ./action/delete.py:47
 msgid "Item and it's content has been deleted"
 msgstr ""
 
@@ -741,7 +741,13 @@ msgstr ""
 msgid "Logo"
 msgstr ""
 
+#: ./page/desktop/templates/event_tile_view.pt:44
+#: ./page/mobile/templates/event_tile_view.pt:52
+msgid "Look at the map"
+msgstr ""
+
 #: ./page/desktop/templates/group_status.pt:62
+#: ./page/mobile/templates/group_status.pt:62
 msgid "Make moderated"
 msgstr ""
 
@@ -793,8 +799,8 @@ msgstr ""
 msgid "Manage users"
 msgstr ""
 
-#: ./page/desktop/templates/event_tile_view.pt:49
-#: ./page/mobile/templates/event_tile_view.pt:53
+#: ./page/desktop/templates/event_tile_view.pt:53
+#: ./page/mobile/templates/event_tile_view.pt:64
 msgid "Media"
 msgstr ""
 
@@ -990,6 +996,10 @@ msgstr ""
 
 #: ./viewlet/controller/resourceregistries.py:26
 msgid "Read more"
+msgstr ""
+
+#: ./page/controller/maintenance.py:29
+msgid "Rebuild membrane catalog"
 msgstr ""
 
 #: ./page/controller/register.py:52
@@ -1228,7 +1238,7 @@ msgstr ""
 msgid "Update group's title and id. The id is the URL representation of the group."
 msgstr ""
 
-#: ./page/controller/users_manage.py:109
+#: ./page/controller/users_manage.py:111
 msgid "User ${user} has been deleted"
 msgstr ""
 
@@ -1305,7 +1315,7 @@ msgstr ""
 msgid "Watch enabled users"
 msgstr ""
 
-#: ./page/desktop/templates/event_tile_view.pt:50
+#: ./page/desktop/templates/event_tile_view.pt:54
 msgid "Watch the media"
 msgstr ""
 
@@ -1329,7 +1339,7 @@ msgid "What"
 msgstr ""
 
 #: ./page/controller/addbutton.py:20
-#: ./page/controller/group_base.py:108
+#: ./page/controller/group_base.py:119
 msgid "Where"
 msgstr ""
 
@@ -1525,7 +1535,7 @@ msgstr ""
 msgid "urlMedia_description"
 msgstr ""
 
-#: ./page/controller/users_manage.py:53
+#: ./page/controller/users_manage.py:55
 msgid "user not found in directory"
 msgstr ""
 

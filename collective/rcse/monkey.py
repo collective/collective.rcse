@@ -51,6 +51,27 @@ def patch_event():
 patch_event()
 
 
+logger.info("monkeypatch: Get group for url for plone.app.event portlets")
+def patch_get_calendar_url():
+    from plone.app.event import portlets
+    from collective.rcse.content.group import get_group
+    original_get_calendar_url = portlets.get_calendar_url
+    def get_calendar_url(context, search_base):
+        portal_state = context.restrictedTraverse('plone_portal_state')
+        navigation_root = portal_state.navigation_root()
+        if search_base:
+            base = navigation_root.restrictedTraverse(search_base.lstrip('/'))
+            return base.absolute_url()
+        else:
+            group = get_group(context)
+            if group is None:
+                group = navigation_root
+            return '%s/event_listing' % group.absolute_url()
+    portlets.get_calendar_url = get_calendar_url
+
+patch_get_calendar_url()
+
+
 logger.info("monkey: z3c.form.util.changedField handle naive date exception")
 def patch_z3cform():
     """TypeError: can't compare offset-naive and offset-aware datetimes

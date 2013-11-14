@@ -11,7 +11,7 @@ from cioppino.twothumbs.event import IDislikeEvent
 from cioppino.twothumbs.event import IUndislikeEvent
 from collective.favoriting.event import IAddedToFavoritesEvent
 from collective.favoriting.event import IRemovedFromFavoritesEvent
-from collective.history.adapter import IExtractWhat
+from collective.history.extract import IExtractWhat
 from collective.requestaccess.event import IRequestAddedEvent
 from collective.requestaccess.event import IRequestValidatedEvent
 from collective.requestaccess.event import IRequestRefusedEvent

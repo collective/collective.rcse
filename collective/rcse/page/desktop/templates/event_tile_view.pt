@@ -4,51 +4,50 @@
   <div class="readmore" tal:content="structure data/text"></div>
   <div class="col-lg-6 nopdl">
     <tal:contact
-      tal:define="contact_email data/contact_email;
-                  contact_name data/contact_name;
-                  contact_phone data/contact_phone">
-      <h3 tal:condition="python:contact_email or contact_name or contact_phone"
-          data-role="list-divider" i18n:translate="" class="event">Informations</h3>
-      <tal:contactname tal:condition="python:contact_name and not contact_email">
-        <span class="icon-user" tal:content="contact_name"></span>
-      </tal:contactname>
-      <span class="icon icon-calendar"></span>
-      <tal:date tal:replace="structure python:view.formatted_date(data)"/>
-      <p>
-        <a tal:condition="data/event_url|nothing" tal:attributes="href data/event_url"
-           target="_blank">
-            <span class="icon-external-link" />
-            <span i18n:translate="external_website" i18n:domain="plone.app.event">
-                Visit external website
-            </span>
-        </a>
-      </p>
-      <p>
-        <tal:contactemail tal:condition="python:contact_email and not contact_name">
-          <a tal:condition="contact_email"
-             tal:replace="structure python: context.spamProtect(mailaddress=contact_email, mailname=contact_email, cssclass='icon-envelope')"> email
-          </a>
-        </tal:contactemail>
-        <tal:contactemail tal:condition="python:contact_email and contact_name">
-          <a tal:condition="contact_email"
-             tal:replace="structure python: context.spamProtect(mailaddress=contact_email, mailname=contact_name, cssclass='icon-envelope')"> email
-          </a>
-        </tal:contactemail>
-        <tal:block tal:condition="python:contact_email and
-            contact_phone">/</tal:block>
-        <tal:contactphone tal:condition="contact_phone">
-          <a class="icon-phone" tal:attributes="href string:tel:${contact_phone}"
-             tal:content="contact_phone"></a>
-        </tal:contactphone>
-      </p>
-      <tal:where tal:condition="python: context.urlGMaps or data.location">
-        <div tal:content="data/location"></div>
-        <a tal:condition="context/urlGMaps" data-icon="map-marker"
-           tal:attributes="href context/urlGMaps">
-          <span class="icon-map-marker" i18n:translate=""></span>
+        tal:define="contact_email data/contact_email;
+                    contact_name data/contact_name;
+                    contact_phone data/contact_phone">
+        <h3 tal:condition="python:contact_email or contact_name or contact_phone"
+            data-role="list-divider" i18n:translate="" class="event">Informations</h3>
+        <span class="icon icon-calendar"></span>
+        <tal:date tal:replace="structure python:view.formatted_date(data)"/>
+        <p>
+            <a tal:condition="data/event_url|nothing" tal:attributes="href data/event_url"
+                target="_blank">
+                <span class="icon-external-link" />
+                <span i18n:translate="external_website" i18n:domain="plone.app.event">
+                    Visit external website
+                </span>
+            </a>
+        </p>
+        <p>
+          <tal:contactname tal:condition="python:contact_name and not contact_email">
+            <span class="icon-user"></span>
+	    <span tal:content="contact_name"></span>
+          </tal:contactname>
+            <tal:contactemail tal:condition="python:contact_email and not contact_name">
+                <a tal:condition="contact_email"
+                    tal:replace="structure python: context.spamProtect(mailaddress=contact_email, mailname=contact_email, cssclass='icon-envelope')"> email
+                </a>
+            </tal:contactemail>
+            <tal:contactemail tal:condition="python:contact_email and contact_name">
+                <a tal:condition="contact_email"
+                    tal:replace="structure python: context.spamProtect(mailaddress=contact_email, mailname=contact_name, cssclass='icon-envelope')"> email
+                </a>
+            </tal:contactemail>
+            <tal:block tal:condition="python:(contact_email or contact_name) and
+                contact_phone">/</tal:block>
+            <tal:contactphone tal:condition="contact_phone">
+                <a class="icon-phone" tal:attributes="href string:tel:${contact_phone}"
+                    tal:content="contact_phone"></a>
+            </tal:contactphone>
+        </p>
+        <a tal:condition="context/urlGMaps" class="icon-map-marker"
+           tal:attributes="href context/urlGMaps" i18n:translate="">
           Look at the map
         </a>
-      </tal:where>
+        <p tal:condition="data/location"
+	   tal:content="data/location"></p>
     </tal:contact>
   </div>
   <div class="col-lg-6 nopdr">
