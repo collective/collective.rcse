@@ -41,7 +41,7 @@
                     tal:content="contact_phone"></a>
             </tal:contactphone>
         </p>
-        <a tal:condition="context/urlGMaps" data-icon="map-marker"
+        <a tal:condition="context/urlGMaps" class="icon-map-marker"
            tal:attributes="href context/urlGMaps" i18n:translate="">
           Look at the map
         </a>
