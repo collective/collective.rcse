@@ -25,10 +25,6 @@ class ICompany(interface.Interface):
     sector = schema.TextLine(
         title=_(u"Sector"),
     )
-    service = schema.TextLine(
-        title=_(u"Service"),
-        required=False
-    )
     turnover = schema.TextLine(
         title=_(u"Turnover"),
         required=False
