@@ -309,6 +309,7 @@ var rcseApplyTransform = function(element) {
     $(element).find('video,audio').mediaelementplayer();
     rcseUpdateFluidMedia(element);
     rcseUpdateReadMore(element);
+    $('.poll-data, .votePortlet form').drawpoll();
     return element;
 }
 

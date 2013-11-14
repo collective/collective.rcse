@@ -1063,6 +1063,7 @@ var rcseApplyTransform = function(element) {
 //    rcseUpdateFluidMedia(element);
     rcseUpdateOthers(element);
     rcseUpdateReadMore(element);
+    $('.poll-data, .votePortlet form').drawpoll();
     return element;
 }
 
