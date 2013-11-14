@@ -43,6 +43,7 @@ var rcseInitFluidMedia = function(){
         rcseUpdateFluidMedia($(event.target).parent());
     });
 }
+
 var rcseUpdatePortlets = function(element) {
     if (element == undefined) {
         element = document;
@@ -95,9 +96,16 @@ var rcseUpdatePortlets = function(element) {
             );
             //do not add list-group-item
             $(newList).append(portlet.find(".portletItem").html());
-            portlet.find('.event a').tooltip({html:true, delay: {show: 0, hide: 2000}});
             newPortlet.appendChild(newList);
-
+            $(newPortlet).find('.event a').tooltip(
+		{
+		    html:true,
+		    delay: {
+			show: 0,
+			hide: 2000
+		    }
+		}
+	    );
         }else if (portlet.hasClass('portletNavigationTree')) {
             portlet.find('a').addClass('list-group-item');
             portlet.find('div > a').unwrap();
