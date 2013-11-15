@@ -1,31 +1,29 @@
 <div class="tile-wrapper" i18n:domain="collective.rcse">
-
-    <tal:block i18n:domain="plone"
-         tal:condition="view/getWorkflowTransitions"
-         tal:repeat="transition view/getWorkflowTransitions">
-        <a class="btn btn-default"
-           i18n:translate=""
-           tal:attributes="href transition/url"
-           tal:content="transition/name">
+  <tal:block i18n:domain="plone"
+       tal:condition="view/getWorkflowTransitions"
+       tal:repeat="transition view/getWorkflowTransitions">
+      <a class="btn btn-default"
+         i18n:translate=""
+         tal:attributes="href transition/url"
+         tal:content="transition/name">
+      </a>
+  </tal:block>
+  <tal:block
+       tal:condition="view/canModify">
+      <a class="btn btn-default"
+         i18n:translate=""
+         tal:attributes="href string:${context/absolute_url}/modify_company">
+        Modify company
+      </a>
+      <p tal:condition="not:view/emailIsValidated">
+        <span i18n:translate="">The e-mail has not been validated yet.</span>
+        <a tal:attributes="href string:${view/portal_url}/@@send_email_validation"
+           i18n:translate="">
+          Resend the validation e-mail.
         </a>
-    </tal:block>
-
-    <tal:block
-         tal:condition="view/canModify">
-        <a class="btn btn-default"
-           i18n:translate=""
-           tal:attributes="href string:${context/absolute_url}/modify_company">
-          Modify company
-        </a>
-        <p tal:condition="not:view/emailIsValidated">
-          <span i18n:translate="">The e-mail has not been validated yet.</span>
-          <a tal:attributes="href string:${view/portal_url}/@@send_email_validation"
-             i18n:translate="">
-            Resend the validation e-mail.
-          </a>
-        </p>
-    </tal:block>
-
+      </p>
+  </tal:block>
+  <div class="col-sm-6 col-md-6 col-lg-6 nopdl">
     <div tal:condition="view/advertiser" class="bullhorn pull-right">
       <span class="icon icon-bullhorn icon-5x"></span>
     </div>
@@ -57,6 +55,8 @@
     <div tal:condition="view/areas_of_expertise" tal:content="python: ', '.join(view.areas_of_expertise)"></div>
     <h4 tal:condition="view/interests" i18n:translate="">Interests</h4>
     <div tal:condition="view/interests" tal:content="python: ', '.join(view.interests)"></div>
+  </div>
+  <div class="col-sm-6 col-md-6 col-lg-6 nopdr">
     <h3
         tal:condition="python: view.professional_email
                              or view.personal_email
@@ -137,4 +137,5 @@
         <span i18n:translate="">Twitter</span>
     </div>
     <div tal:content="view/twitter"></div>
+  </div>
 </div>

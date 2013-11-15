@@ -4,14 +4,14 @@
        tal:condition="context/logo"
 	     tal:attributes="src string:${context/absolute_url}/@@images/logo/thumb"
 	/>
-  <div class="col-lg-6 nopdl">
+  <div class="col-sm-6 col-md-6 col-lg-6 nopdl">
     <h3 i18n:translate="">Company information</h3>
     <p tal:condition="context/description" tal:content="context/description"></p>
     <h4 i18n:translate="">Corporate name</h4><div tal:content="context/corporate_name"></div>
     <h4 i18n:translate="">Sector</h4><div tal:content="context/sector"></div>
     <div tal:condition="context/turnover"><h4 i18n:translate="">Turnover</h4><div tal:content="context/turnover"></div></div>
   </div>
-  <div class="col-lg-6 nopdr">
+  <div class="col-sm-6 col-md-6 col-lg-6 nopdr">
     <h3 i18n:translate="">Location</h3>
     <div><i class="icon-envelope-alt"></i>&nbsp;<span i18n:translate="">Address</span> :
       <tal:address tal:condition="context/address" tal:content="string:${context/address} - ${context/postal_code}, ${context/city}"></tal:address>
