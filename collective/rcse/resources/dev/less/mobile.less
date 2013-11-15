@@ -1,6 +1,11 @@
 /*https://github.com/ftlabs/fastclick*/
-a, input, button {
-    -ms-touch-action: none !important;
+a, input, button{
+  -ms-touch-action: none !important;
+}
+@media (max-width:544px){
+  .ui-grid-a > *:nth-child(n){
+    width:100% !important;
+  }
 }
 .hiddenStructure{display:none;}
 dd.portletItem{margin-left:0}
@@ -18,38 +23,56 @@ dd.portletItem{margin-left:0}
     text-align:right;
   }
   .vcard{
+    background:#fff;
+    font-family:Arial;
+    position:relative;
+    min-height:70px;
+    border-bottom:1px solid #f2f2f2;
     content:" à ";
     color:#5c5c5c;
     > h2{
-        margin-top:0;
-        margin-bottom:0;
+      margin-top:0px;
+      margin-bottom:1px;
+      padding:0px 5px;
     }
     .icon{
-	font-size: 200%;
+      font-size:200%;
+      margin:0px 3px 0px 3px;
+      float:left;
     }
-    .icon:before{
-	margin-left: 0;
-    }
+    .icon:before{margin-left:0;}
     .date:before{
-        content:"le ";
-    }
-    .date:after{
-        content:" - ";
+      content:"> ";
     }
     a.group{
       color:#4a4a4a;
+      line-height:15px;
+    }
+    a{
+      text-decoration:none;
+    }
+    .photo{
+      float:left;
+      height:60px;
+      width:auto;
+      padding:5px;
+      background:#f2f2f2;
+      margin-right:5px;
     }
   }
   .tilecontent{
-      padding:0px 5px;
+    padding:0px 5px;
+    h4{
+      margin:10px 0px 5px 0px;
+    }  
   }
   .ui-controlgroup-controls{
-      padding-right:10px;
+    padding-right:10px;
   }
   img{max-width:100%}
 }
 .rcse_tile_wrapper{
-  background-color:White;
+  background-color:#fff;
 }
 .rcse_tile_wrapper > .rcse_tile > div > .ui-icon-spinner{
   position:relative;
@@ -133,17 +156,11 @@ dd.portletItem{margin-left:0}
 .ui-header .ui-controlgroup-horizontal .ui-btn{
   border-right-width:1px;
 }
-
 .ui-header .ui-controlgroup .ui-btn-corner-all{
   -webkit-border-radius:0.3em;
   border-radius:0.3em;
   margin-top:3px;
 }
-/*.ui-header .ui-btn-left a[href="#panel-left"],
-.ui-header .ui-btn-right a[href="#panel-right"]{
-  background:none !important;
-  border:none !important;
-}*/
 .ui-btn-left .ui-btn-up-a,
 .ui-btn-left .ui-btn-hover-a,
 .ui-btn-left .ui-btn-down-a,
@@ -261,29 +278,25 @@ dd.portletItem{margin-left:0}
 }
 
 /* Edit */
-div[contenteditable] {
-   min-height: 200px;
-   border-radius: 10px;
-   overflow: auto;
+div[contenteditable]{
+  min-height: 200px;
+  border-radius: 10px;
+  overflow: auto;
 }
-
-.formfieldset-Settings {
-    display: none !important;
+.formfieldset-Settings{
+  display:none !important;
 }
-
 .formfieldset-label_schema_ownership{
   display:none;
 }
-
-#formfield-form-widgets-IRelatedItems-relatedItems {
-    display: none !important;
+#formfield-form-widgets-IRelatedItems-relatedItems{
+  display:none !important;
 }
 
 /* CONTENT */
-.icon-no-margin:before {
-    margin-left: 0 !important;
+.icon-no-margin:before{
+  margin-left: 0 !important;
 }
-
 [class*=" ui-icon-"]:before{
   font-size:100% !important;
 }
@@ -293,24 +306,7 @@ div[contenteditable] {
 .ui-btn-icon-left .ui-btn-inner{
   padding-left:38px;
 }
-.vcard{
-  background:#fff;
-  font-family:Arial;
-  position:relative;
-  min-height:70px;
-  border-bottom:1px solid #f2f2f2;
-}
-.vcard a{
-  text-decoration:none;
-}
-.vcard .photo{
-  float:left;
-  height:60px;
-  width:auto;
-  padding:5px;
-  background:#f2f2f2;
-  margin-right:10px;
-}
+
 /* a fix *//*.ui-content .ui-listview, .ui-panel-inner>.ui-listview {
   margin:0px;
 }*/
@@ -366,7 +362,7 @@ div.download, div.hi-lo{
 }
 
 /* @group media_view images_view pinterest like */
-.pinboard {
+.pinboard{
   width:90%;
   max-width:1100px;
   /* min-width:800px;*/
@@ -460,32 +456,31 @@ form:after{
 }
 
 /* portlets */
-
-.portletLocalUsers {
-    a, a:hover, a:focus {
-	text-decoration: none;
-    }
-    img {
-	margin: 4px;
-    }
+.portletLocalUsers{
+  a,a:hover,a:focus {
+	 text-decoration: none;
+  }
+  img{
+	  margin: 4px;
+  }
 }
 /*responsive iframe*/
-.fluid-media {
-    width: 100%;
-    position: relative;
-    padding: 0;
+.fluid-media{
+  width:100%;
+  position:relative;
+  padding:0;
 }
 .fluid-media iframe,
 .fluid-media object,
-.fluid-media embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.fluid-media embed{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
 }
 .formHelp{
-    display: block;
-    font-size: 80%;
-    color: #666;
+  display:block;
+  font-size:80%;
+  color:#666;
 }
