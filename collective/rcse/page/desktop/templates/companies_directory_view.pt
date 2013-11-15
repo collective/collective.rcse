@@ -37,7 +37,6 @@
             <th i18n:translate="">Logo</th>
             <th i18n:translate="">Name</th>
             <th i18n:translate="">Sector</th>
-            <th i18n:translate="">Service</th>
             <th i18n:translate="">Postal code</th>
             <th i18n:translate="">City</th>
         </tr>
@@ -50,7 +49,6 @@
                 </td>
                 <td><a tal:attributes="href company/absolute_url" tal:content="string:${company/Title}"></a></td>
                 <td tal:content="company/sector"></td>
-                <td tal:content="company/service"></td>
                 <td tal:content="company/postal_code"></td>
                 <td tal:content="company/city"></td>
             </tr>

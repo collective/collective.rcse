@@ -44,7 +44,7 @@
                         <a tal:attributes="href company/absolute_url">
                             <img tal:condition="company/logo" tal:attributes="src string:${company/absolute_url}/@@images/logo/thumb" />
                             <h2 tal:content="string:${company/Title}"></h2>
-                            <p tal:content="string:${company/sector} ${company/service} ${company/city}"></p>
+                            <p tal:content="string:${company/sector} ${company/city}"></p>
                         </a>
                     </li>
                 </ul>
