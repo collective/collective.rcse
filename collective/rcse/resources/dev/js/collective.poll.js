@@ -176,8 +176,10 @@
 
     $.fn.drawpoll.Constructor = DrawPoll;
 
+    /* collective.rcse: Already done during apply transform
     $(function () {
         $('.poll-data, .votePortlet form').drawpoll();
     });
+    */
 
 }(window.jQuery);
