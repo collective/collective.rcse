@@ -10,8 +10,6 @@
       <h4 i18n:translate="">Corporate name</h4>
       <div tal:content="context/corporate_name"></div>
       <h4 i18n:translate="">Sector</h4><div tal:content="context/sector"></div>
-      <div tal:condition="context/service"><h4 i18n:translate="">Service</h4>
-      <div tal:content="context/service"></div></div>
       <div tal:condition="context/turnover"><h4 i18n:translate="">Turnover</h4>
       <div tal:content="context/turnover"></div></div>
     </div>

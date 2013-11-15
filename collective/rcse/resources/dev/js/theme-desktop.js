@@ -1055,6 +1055,10 @@ var rcseUpdateReadMore = function(element){
     });
 }
 
+var rcseUpdatePoll = function(element) {
+    $('.poll-data, .votePortlet form').drawpoll();
+}
+
 var rcseApplyTransform = function(element) {
     if (element == undefined) {
         element = document;
@@ -1071,7 +1075,7 @@ var rcseApplyTransform = function(element) {
 //    rcseUpdateFluidMedia(element);
     rcseUpdateOthers(element);
     rcseUpdateReadMore(element);
-    $('.poll-data, .votePortlet form').drawpoll();
+    rcseUpdatePoll(element);
     return element;
 }
 

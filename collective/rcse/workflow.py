@@ -14,6 +14,9 @@ logger = logging.getLogger(__name__)
 
 def handle_content_creation(context, event):
     context_path = '/'.join(context.getPhysicalPath())
+    if context.getPhysicalPath()[1] != 'home' and \
+            context.getPhysicalPath()[2] != 'home':
+        return
     user = context.Creator()
     if not user:
         logger.warning('context %s has no creator.' % context)
