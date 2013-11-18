@@ -5,7 +5,6 @@
     <dependency>profile-collective.etherpad:default</dependency>
     <dependency>profile-collective.whathappened:default</dependency>
     <dependency>profile-collective.history:default</dependency>
-    <dependency>profile-collective.js.ckeditor:default</dependency>
     <dependency>profile-collective.js.datatables:default</dependency>
     <dependency>profile-collective.localrolesdatatables:default</dependency>
     <dependency>profile-collective.mediaelementjs:default</dependency>
