@@ -75,6 +75,8 @@ class PortalHeaderViewlet(RCSESections, HotViewlet):
         group = get_group(self.context)
         if group is None:
             group_url = self.portal_state.navigation_root_url()
+            if not group_url.endswith('/home'):
+                group_url += '/home'
         else:
             group_url = group.absolute_url()
         return group_url

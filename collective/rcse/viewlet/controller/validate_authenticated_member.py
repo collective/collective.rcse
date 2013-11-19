@@ -28,7 +28,7 @@ class ValidateAuthenticatedMember(ViewletBase):
 
     def update(self):
         super(ValidateAuthenticatedMember, self).update()
-        self.context_state =  component.getMultiAdapter(
+        self.context_state = component.getMultiAdapter(
             (self.context, self.request), name=u'plone_context_state'
         )
         self.member = self.portal_state.member()
@@ -48,19 +48,26 @@ class ValidateAuthenticatedMember(ViewletBase):
         self.status = IStatusMessage(self.request)
 
     def index(self):
-        if self.portal_state.anonymous():
-            return ''
-        elif self.username == 'admin':
-            return ''
-        elif self.view_in_blacklist():
+        if (
+            self.portal_state.anonymous() or
+            self.username == 'admin' or
+            self.view_in_blacklist() or
+            (
+                IMembraneUser.providedBy(self.context) and
+                self.context.username == self.member.getUserName()
+            ) or
+            (
+                ICompany.providedBy(self.context) and
+                self.context.id == self.member_data.company_id
+            )
+        ):
             return ''
         elif not self.is_registred():
             msg = _(u"You are not registred, please proceed")
             self.status.add(msg)
-            url = '%s/@@register_information' % (self.portal_state.portal_url())
+            portal_url = self.portal_state.portal_url()
+            url = '%s/@@register_information' % portal_url
             self.lock_rendering_and_redirect(url=url)
-            return ''
-        elif IMembraneUser.providedBy(self.context) and self.context.username == self.member.getUserName():
             return ''
         elif not self.has_required_info():
             msg = _(u"Your profile is missing some required information")
@@ -79,8 +86,6 @@ class ValidateAuthenticatedMember(ViewletBase):
             self.status.add(msg)
             url = self.member_data.absolute_url()
             self.lock_rendering_and_redirect(url=url)
-            return ''
-        elif ICompany.providedBy(self.context) and self.context.id == self.member_data.company_id:
             return ''
         elif not self.has_company_info() and self.is_company_owner():
             msg = _(u"Please complete your company information")
