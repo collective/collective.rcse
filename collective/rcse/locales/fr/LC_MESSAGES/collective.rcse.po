@@ -1121,7 +1121,7 @@ msgstr "Service"
 #: ./page/desktop/templates/group_edit.pt:81
 #: ./page/mobile/templates/group_edit.pt:66
 msgid "Share content"
-msgstr "Voir et paramétré qui peut faire quoi dans le groupe"
+msgstr "Voir et paramétrer qui peut faire quoi dans le groupe"
 
 #: ./content/company.py:44
 msgid "Sites"

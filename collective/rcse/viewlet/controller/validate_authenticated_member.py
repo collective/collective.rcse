@@ -104,7 +104,6 @@ class ValidateAuthenticatedMember(ViewletBase):
             return True
         return False
 
-
     def has_company_info(self):
         fields = schema.getFields(self.company_schema)
         for field_name, field in fields.iteritems():
