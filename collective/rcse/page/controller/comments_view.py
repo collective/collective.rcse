@@ -1,12 +1,12 @@
-from zope import interface
-from plone.app.discussion.browser import comments as base
-from plone.uuid.interfaces import IUUID
 import sys
+
+from plone.app.discussion.browser import comments as base
 from plone.app.layout.navigation.interfaces import INavigationRoot
-from plone.app.uuid.utils import uuidToURL, uuidToObject
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
+from plone.app.uuid.utils import uuidToObject
 from plone.memoize.view import memoize
+from plone.uuid.interfaces import IUUID
+from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
+from zope import interface
 from zope.component._api import getUtility
 from zope.browsermenu.interfaces import IBrowserMenu
 
@@ -21,7 +21,6 @@ def should_display_comments(context, request):
     session = sdm.getSessionData(create=True)
     displayed = session.get("DISPLAY_COMMENTS", "")
     if displayed:
-        paths = displayed.split(';')
         context_path = "/".join(context.getPhysicalPath())
         should_display_comments = context_path in displayed
     return should_display_comments
@@ -43,7 +42,7 @@ def must_display_comments(context, request):
         remove = 1
         while sys.getsizeof(displayed) > 3999:
             displayed = ";".join(paths[remove:])
-            remove +=1
+            remove += 1
         #request.response.setCookie("DISPLAY_COMMENTS", displayed)
         session.set("DISPLAY_COMMENTS", displayed)
 

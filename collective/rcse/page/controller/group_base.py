@@ -1,20 +1,17 @@
-from zope import interface
-from zope import event
-from zope import schema
-from z3c.form import form
-
+from plone.autoform.form import AutoExtensibleForm
+from plone.app.search.browser import quote_chars
+from plone.app.uuid.utils import uuidToObject
+from plone.dexterity import utils
+from plone.supermodel import model
+from plone.z3cform.layout import FormWrapper
 from Products.CMFCore.interfaces._tools import ICatalogTool
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.PloneBatch import Batch
 from Products.Five.browser import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
-from plone.supermodel import model
-
-from plone.autoform.form import AutoExtensibleForm
-from plone.app.search.browser import quote_chars
-from plone.app.uuid.utils import uuidToObject
-from plone.dexterity import utils
-from plone.z3cform.layout import FormWrapper
+from z3c.form import form
+from zope import interface
+from zope import schema
 
 from collective.rcse.i18n import _
 
@@ -67,11 +64,9 @@ class BaseView(BrowserView):
     def _update_query(self):
         """build query from request"""
         self.query = {
-            #"path": {'query': self.context_path, 'depth': 1},
             "path": self.context_path,
             "sort_on": "modified",
             "sort_order": "reverse",
-#            "sort_limit": 20,
             }
         self._update_query_portal_type()
         text = self.request.get('SearchableText', None)

@@ -1,15 +1,12 @@
-from AccessControl import getSecurityManager
-from zope import component
-from zope import interface
-from zope import schema
+from plone.memoize.instance import memoize
 from Products.Five.browser import BrowserView
 from Products.CMFCore.permissions import ReviewPortalContent
 from Products.CMFCore.permissions import ModifyPortalContent
 from Products.CMFCore.utils import getToolByName
-from plone.memoize.instance import memoize
+from zope import interface
+from zope import schema
 
 from collective.rcse.content import member
-from collective.rcse.i18n import _
 from collective.rcse.content.visibility import NAMESPACE
 
 

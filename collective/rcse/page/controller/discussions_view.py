@@ -1,23 +1,18 @@
+from plone.namedfile.field import NamedBlobFile
+from plone.uuid.interfaces import IUUID
+
+from Products.CMFPlone import PloneMessageFactory
+
 from zope import component
 from zope import interface
 from zope import schema
-from z3c.form import form, field, button
-
-from Products.CMFPlone import PloneMessageFactory
-from Products.CMFPlone.utils import getToolByName
-from Products.statusmessages.interfaces import IStatusMessage
-
-from plone.autoform.form import AutoExtensibleForm
-from plone.dexterity import utils
-from plone.namedfile.field import NamedBlobFile
-from plone.supermodel import model
-from plone.z3cform.layout import FormWrapper
-from plone.uuid.interfaces import IUUID
+from z3c.form import button
 
 from collective.rcse.content.group import get_group
 from collective.rcse.i18n import _
 from collective.rcse.page.controller import group_base
-from collective.rcse.page.controller.navigationroot import NavigationRootBaseView
+from collective.rcse.page.controller.navigationroot import \
+    NavigationRootBaseView
 
 
 CONTENT_TYPE = "collective.rcse.discussion"

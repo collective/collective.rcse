@@ -1,5 +1,6 @@
 from plone.app.search import browser
 
+
 #THIS IS A PATCH BECAUSE IT JUST DOESN'T WORK ...
 # => I AGREE
 class Search(browser.Search):

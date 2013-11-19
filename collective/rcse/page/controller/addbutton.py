@@ -1,5 +1,4 @@
 from Products.CMFPlone.utils import getToolByName
-from Products.Five.browser import BrowserView
 from plone.app.z3cform import layout
 from plone.autoform import directives
 from plone.supermodel import model
@@ -31,6 +30,7 @@ class AddFormSchema(model.Schema):
 class AddFormAdapter(object):
     interface.implements(AddFormSchema)
     component.adapts(interface.Interface)
+
     def __init__(self, context):
         self.what = "collective.rcse.group"
         self.where = None

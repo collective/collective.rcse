@@ -1,16 +1,15 @@
 from Acquisition import aq_inner
-from zope import component
-from zope.annotation.interfaces import IAnnotations
-from z3c.form import form, button
-
-from Products.Five.browser import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
-from collective.rcse.i18n import _
-from plone.z3cform.layout import FormWrapper
 from Products.statusmessages import STATUSMESSAGEKEY
 from Products.CMFCore.utils import getToolByName
-from collective.rcse.utils import sudo
+from plone.z3cform.layout import FormWrapper
+from z3c.form import form, button
+from zope import component
+from zope.annotation.interfaces import IAnnotations
+
 from collective.rcse.content.group import get_group
+from collective.rcse.i18n import _
+from collective.rcse.utils import sudo
 
 
 class DeleteForm(form.Form):
@@ -56,11 +55,13 @@ class DeleteForm(form.Form):
 
 class Delete(FormWrapper):
     form = DeleteForm
+
     def label(self):
         title = self.context.Title()
         if type(title) == str:
             title = title.decode('utf-8')
-        return _(u"Are you sure you want to delete ${title} and all it's content ?",
+        return _(u"Are you sure you want to delete "
+                 u"${title} and all it's content ?",
                  mapping={"title": title})
 
 

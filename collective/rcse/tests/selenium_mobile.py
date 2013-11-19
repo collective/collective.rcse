@@ -1,9 +1,7 @@
-import time
+import transaction
 import unittest
 
 from collective.rcse import testing
-import transaction
-from selenium.common.exceptions import NoSuchElementException
 
 
 class MobileTheme(unittest.TestCase):
@@ -47,7 +45,6 @@ class MobileTheme(unittest.TestCase):
             browser.find_element_by_id("content-core")\
                 .find_element_by_tag_name("a").click()
 
-
     def logout(self, browser):
         browser.get('%s/logout' % self.portal_url)
 
@@ -58,8 +55,10 @@ class MobileTheme(unittest.TestCase):
         self.logout(browser)
         browser.get('%s/@@register' % self.portal_url)
         browser.find_element_by_name("form.widgets.login").send_keys(username)
-        browser.find_element_by_name("form.widgets.password").send_keys(password)
-        browser.find_element_by_name("form.widgets.password_confirm").send_keys(password)
+        browser.find_element_by_name("form.widgets.password").\
+            send_keys(password)
+        browser.find_element_by_name("form.widgets.password_confirm").\
+            send_keys(password)
         self.register_info(browser, False, email, first_name, last_name,
                            function, company, city)
         if send:
@@ -67,7 +66,6 @@ class MobileTheme(unittest.TestCase):
 
     def verify_user(self, browser, **kwargs):
         browser.get('%s/@@personal-information' % self.portal_url)
-        #rcse redirect the user depends on what is the state of the current user
         if browser.current_url.endswith("@@register_information"):
             self.register_info(browser, **kwargs)
         if browser.current_url.endswith("edit"):
@@ -77,13 +75,17 @@ class MobileTheme(unittest.TestCase):
                       first_name="John", last_name="Doe", function="Function",
                       company="Company", city="City"):
         browser.find_element_by_name("form.widgets.email").send_keys(email)
-        browser.find_element_by_name("form.widgets.first_name").send_keys(first_name)
-        browser.find_element_by_name("form.widgets.last_name").send_keys(last_name)
-        browser.find_element_by_name("form.widgets.function").send_keys(function)
+        browser.find_element_by_name("form.widgets.first_name").\
+            send_keys(first_name)
+        browser.find_element_by_name("form.widgets.last_name").\
+            send_keys(last_name)
+        browser.find_element_by_name("form.widgets.function").\
+            send_keys(function)
         browser.find_element_by_name("form.widgets.city").send_keys(city)
         rcompany = self._select(browser, "form-widgets-company", company)
         if rcompany != company:
-            browser.find_element_by_name("form.widgets.new_company").send_keys(company)
+            browser.find_element_by_name("form.widgets.new_company").\
+                send_keys(company)
         if send:
             browser.find_element_by_name("form.buttons.submit").click()
 
@@ -91,9 +93,12 @@ class MobileTheme(unittest.TestCase):
                     first_name="John", last_name="Doe", function="Function",
                     company="Company", city="City"):
         browser.find_element_by_name("form.widgets.email").send_keys(email)
-        browser.find_element_by_name("form.widgets.first_name").send_keys(first_name)
-        browser.find_element_by_name("form.widgets.last_name").send_keys(last_name)
-        browser.find_element_by_name("form.widgets.function").send_keys(function)
+        browser.find_element_by_name("form.widgets.first_name").\
+            send_keys(first_name)
+        browser.find_element_by_name("form.widgets.last_name").\
+            send_keys(last_name)
+        browser.find_element_by_name("form.widgets.function").\
+            send_keys(function)
         browser.find_element_by_name("form.widgets.city").send_keys(city)
         browser.find_element_by_name("form.buttons.save").click()
 
@@ -103,10 +108,13 @@ class MobileTheme(unittest.TestCase):
                      corporate_name="Corporate name", sector="Sector",
                      postal_code="Postal code", city="City"):
         browser.find_element_by_name("form.widgets.IBasic.title").clear()
-        browser.find_element_by_name("form.widgets.IBasic.title").send_keys(title)
-        browser.find_element_by_name("form.widgets.corporate_name").send_keys(corporate_name)
+        browser.find_element_by_name("form.widgets.IBasic.title").\
+            send_keys(title)
+        browser.find_element_by_name("form.widgets.corporate_name").\
+            send_keys(corporate_name)
         browser.find_element_by_name("form.widgets.sector").send_keys(sector)
-        browser.find_element_by_name("form.widgets.postal_code").send_keys(postal_code)
+        browser.find_element_by_name("form.widgets.postal_code").\
+            send_keys(postal_code)
         browser.find_element_by_name("form.widgets.city").send_keys(city)
         browser.find_element_by_name("form.buttons.save").click()
 
@@ -122,21 +130,25 @@ class MobileTheme(unittest.TestCase):
         browser.find_element_by_id('form-buttons-save').click()
 
     def is_group(self, browser):
-        css_class = browser.find_element_by_tag_name('body').get_attribute('class')
+        css_class = browser.find_element_by_tag_name('body').\
+            get_attribute('class')
         return 'portaltype-collective-rcse-group' in css_class
 
     def open_group_manage(self, browser, action=None):
         if not self.is_group(browser):
-            raise ValueError("can manage group if current page is not on group")
+            raise ValueError("can manage group if current page "
+                             "is not on group")
 #        browser.find_element_by_link_text("Manage").click()
-        browser.find_element_by_class_name("editbar").find_element_by_tag_name("a").click()
+        browser.find_element_by_class_name("editbar").\
+            find_element_by_tag_name("a").click()
         if action is not None:
             browser.find_element_by_link_text(action).click()
 
     def assertGroupState(self, browser, state):
         """verify state of the current group"""
         if not self.is_group(browser):
-            raise ValueError("can manage group if current page is not on group")
+            raise ValueError("can manage group if current page "
+                             "is not on group")
         if not browser.current_url.endswith('/group_status'):
             self.open_group_manage(browser, action="Etat")
         button = browser.find_element_by_link_text("Make %s" % state)
@@ -145,14 +157,16 @@ class MobileTheme(unittest.TestCase):
     def set_group_state(self, browser, action):
         """Make private, Make moderated, Make open"""
         if not self.is_group(browser):
-            raise ValueError("can manage group if current page is not on group")
+            raise ValueError("can manage group if current page "
+                             "is not on group")
         if not browser.current_url.endswith('/group_status'):
             self.open_group_manage(browser, action="Etat")
         browser.find_element_by_link_text(action).click()
 
     def add_group_invite(self, browser, who, role):
         if not self.is_group(browser):
-            raise ValueError("can manage group if current page is not on group")
+            raise ValueError("can manage group if current page "
+                             "is not on group")
         if not browser.current_url.endswith('/group_status'):
             self.open_group_manage(browser, action="Inviter un utilisateur")
 #        self.select2(browser, 'form-widgets-userid', who)

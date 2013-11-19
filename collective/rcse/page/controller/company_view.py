@@ -1,6 +1,5 @@
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
-from collective.rcse.i18n import _
 
 
 class CompanyInfoView(BrowserView):

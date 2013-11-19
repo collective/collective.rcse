@@ -1,10 +1,8 @@
 from AccessControl import Unauthorized
 from AccessControl.SecurityManagement import getSecurityManager
 from plone.autoform.form import AutoExtensibleForm
-from plone.dexterity.utils import createContentInContainer
 from plone.z3cform.layout import FormWrapper
 from Products.CMFCore.permissions import ModifyPortalContent
-from Products.CMFCore.utils import getToolByName
 from z3c.form import form
 from z3c.form import button
 from z3c.form import interfaces
@@ -12,7 +10,6 @@ from zope import component
 from zope import interface
 from zope import schema
 
-from collective.rcse.content.member import IMember
 from collective.rcse.content.member import vocabularies
 from collective.rcse.content.utils import createCompany
 from collective.rcse.i18n import _
@@ -74,6 +71,7 @@ class ModifyCompanyForm(AutoExtensibleForm, form.Form):
     @button.buttonAndHandler(_(u"Cancel"), name="cancel")
     def handleCancel(self, action):
         self.request.response.redirect(self.context.absolute_url())
+
 
 class ModifyCompanyFormWrapper(FormWrapper):
     form = ModifyCompanyForm

@@ -1,9 +1,8 @@
-import icalendar
-from Products.Five.browser import BrowserView
-from plone.uuid.interfaces import IUUID
-from plone.app.event.dx.behaviors import IEventAccessor
-from plone.app.event.browser.event_view import EventView as BaseView
 import calendar
+import icalendar
+
+from plone.uuid.interfaces import IUUID
+from plone.app.event.browser.event_view import EventView as BaseView
 
 
 class EventView(BaseView):
@@ -14,7 +13,7 @@ class EventView(BaseView):
         return self.index()
 
     def update(self):
-        self.calendar = {k: v for k,v in enumerate(calendar.month_abbr)}
+        self.calendar = {k: v for k, v in enumerate(calendar.month_abbr)}
 
     def sameday(self):
         if hasattr(self.context, 'whole_day'):
@@ -52,10 +51,10 @@ class EventView(BaseView):
 
     def contact_name(self):
         return self.data.contact_name
-    
+
     def contact_email(self):
         return self.data.contact_email
-    
+
     def contact_phone(self):
         return self.data.contact_phone
 

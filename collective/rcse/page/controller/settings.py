@@ -18,9 +18,8 @@ class GetSettings(BrowserView):
         if key in self.settings.keys():
             return self.settings[key]
         if key in self.default_settings.keys():
-            return self.default_settings[keys]
+            return self.default_settings[key]
         raise KeyError
 
     def set(self, key, value):
         self.settings[key] = value
-

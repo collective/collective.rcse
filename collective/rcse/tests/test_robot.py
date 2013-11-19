@@ -1,8 +1,8 @@
 import unittest
 
-import robotsuite
-from collective.rcse.testing import ROBOT
-from plone.testing import layered
+#import robotsuite
+#from collective.rcse.testing import ROBOT
+#from plone.testing import layered
 
 
 def test_suite():

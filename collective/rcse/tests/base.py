@@ -1,12 +1,7 @@
 import transaction
 import unittest2 as unittest
 from collective.rcse import testing
-from plone.app.testing import (
-    setRoles,
-    TEST_USER_ID,
-    TEST_USER_PASSWORD,
-    logout
-)
+from plone.app.testing import logout
 
 
 class UnitTestCase(unittest.TestCase):

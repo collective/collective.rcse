@@ -48,7 +48,7 @@ class ValidateAuthenticatedMember(ViewletBase):
         self.status = IStatusMessage(self.request)
 
     def index(self):
-        if testUser() or testMember() or testCompany():
+        if self.testUser() or self.testMember() or self.testCompany():
             return ''
         return ''
 
@@ -93,7 +93,7 @@ class ValidateAuthenticatedMember(ViewletBase):
         return False
 
     def testCompany(self):
-        elif ICompany.providedBy(self.context) and \
+        if ICompany.providedBy(self.context) and \
                 self.context.id == self.member_data.company_id:
             return True
         elif not self.has_company_info() and self.is_company_owner():

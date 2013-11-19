@@ -1,7 +1,5 @@
 from zope import component
-from Acquisition import aq_parent
-from Products.CMFCore import permissions
-from Products.CMFCore.utils import getToolByName, _checkPermission
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 
 from collective.rcse.content.group import get_group
@@ -50,11 +48,11 @@ class BreadCrumb(BrowserView):
 
         #level2.
         #FIXME: il faut voir au niveau du parents_ids.
-        if len(parents_ids) > 0:  #context is in a group
+        if len(parents_ids) > 0:  # context is in a group
             self.parent_url = self.context.aq_inner.aq_parent.absolute_url()
-            #We add Back to current group in the list
+            # We add Back to current group in the list
             path = '/'.join(self.navroot_path + parents_ids[:1])
-            query2 = {"path": {"query": path, "depth": 1}, 
+            query2 = {"path": {"query": path, "depth": 1},
                       "portal_type": "collective.rcse.group"}
             brains = self.catalog(**query2)
             if brains:

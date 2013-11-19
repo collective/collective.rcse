@@ -1,13 +1,6 @@
-from collective.requestaccess.browser.requests import ReviewRequestsView
 from collective.rcse.content.group import get_group
-from z3c.form.interfaces import HIDDEN_MODE
-from collective.requestaccess.manager import RequestManager, ProxyRequest
-from plone.uuid.interfaces import IUUID
-from collective.requestaccess.interfaces import RequestSchema
-from zope import interface
-from plone.app.uuid.utils import uuidToObject
-from collective.requestaccess.browser.invite import InvitationFormWrapper,\
-    InvitationFormSchema
+from collective.requestaccess.manager import RequestManager
+from collective.requestaccess.browser.invite import InvitationFormWrapper
 
 
 class RCSERequestManager(RequestManager):
@@ -27,9 +20,11 @@ class RCSERequestManager(RequestManager):
 
     def get(self, query=None):
         results = RequestManager.get(self, query=query)
-        group = get_group(self.context)
-        if 'target_path' in query and self.proxy_group is not None and self.proxy_group != self.context:
-            proxy_query = {"target_path": '/'.join(self.proxy_group.getPhysicalPath())}
+        if 'target_path' in query and self.proxy_group is not None and \
+                self.proxy_group != self.context:
+            proxy_query = {
+                "target_path": '/'.join(self.proxy_group.getPhysicalPath())
+                }
             brains = self.catalog(**proxy_query)
             results.extend(self._get_proxy_from_brain(brains))
         return results

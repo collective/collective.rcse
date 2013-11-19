@@ -1,4 +1,3 @@
-from Acquisition import aq_inner
 from OFS.SimpleItem import SimpleItem
 from plone.app.contentrules.browser.formhelper import AddForm, EditForm
 from plone.contentrules.rule.interfaces import IExecutable, IRuleElementData
@@ -46,7 +45,6 @@ class PreferenceConditionExecutor(object):
         self.event = event
 
     def __call__(self):
-        context = aq_inner(self.event.object)
         user = self.context.restrictedTraverse('auth_memberinfo')
         user.update()
         preferences = user.get_settings()

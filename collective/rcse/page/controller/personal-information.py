@@ -2,6 +2,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from zope import component
 
+
 class PersonalInformation(BrowserView):
     """Redirect to @@register_information if the user has not created his
     content yet. Redirect to his content otherwise."""

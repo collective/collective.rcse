@@ -13,6 +13,7 @@ class Join(ajax.AjaxAction):
     """Request Writer local role access using collective.request.access
     or if the current group is open, just give him the role"""
     kind = GroupSchema
+
     def get_group(self):
         return self.context
 
@@ -59,6 +60,7 @@ class Join(ajax.AjaxAction):
 class Quit(ajax.AjaxAction):
     """Quit this group"""
     kind = GroupSchema
+
     def get_group(self):
         return self.context
 
@@ -73,11 +75,6 @@ class Quit(ajax.AjaxAction):
         member = portal_state.member()
         if member is None:
             raise ValueError("you must be authenticated")
-
-        group_state = component.getMultiAdapter(
-            (group, self.request),
-            name=u'plone_context_state'
-        )
         group.manage_delLocalRoles([member.getId()])
         group.reindexObject()
         event.notify(UserRolesModifiedOnObjectEvent(member.getUserName(),
@@ -91,11 +88,13 @@ class Quit(ajax.AjaxAction):
 
 class ProxyJoin(Join):
     kind = ProxyGroupSchema
+
     def get_group(self):
         return self.context
 
 
 class ProxyQuit(Quit):
     kind = ProxyGroupSchema
+
     def get_group(self):
         return self.context

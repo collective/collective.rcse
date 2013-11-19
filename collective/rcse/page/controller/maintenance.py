@@ -1,4 +1,3 @@
-from plone.app.z3cform import layout
 from plone.autoform.form import AutoExtensibleForm
 from plone.supermodel import model
 from Products.CMFPlone.utils import getToolByName
@@ -18,6 +17,7 @@ class RebuildMembraneCatalogFormSchema(model.Schema):
 class RebuildMembraneCatalogFormAdapter(object):
     interface.implements(RebuildMembraneCatalogFormSchema)
     component.adapts(interface.Interface)
+
     def __init__(self, context):
         self.context = context
 

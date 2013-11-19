@@ -1,16 +1,11 @@
 import logging
 
-from plone.autoform import directives
 from plone.autoform.form import AutoExtensibleForm
-from plone.z3cform.layout import FormWrapper
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.WorkflowCore import WorkflowException
-from Products.Five.browser import BrowserView
 from z3c.form import form
 from z3c.form import button
-from z3c.form import interfaces
 from z3c.form.interfaces import HIDDEN_MODE
-from z3c.form.browser.password import PasswordFieldWidget
 from zope import component
 from zope import interface
 from zope import schema
@@ -119,6 +114,7 @@ class ManageDisabledUserForm(ManageUserForm):
 
 class ManagePendingUsersView(UsersDirectoryView):
     state = "pending"
+
     def getUsersForms(self):
         users = self.getMembers(review_state=self.state)
         forms = []
@@ -134,6 +130,7 @@ class ManagePendingUsersView(UsersDirectoryView):
 
 class ManageDisabledUsersView(UsersDirectoryView):
     state = "disabled"
+
     def getUsersForms(self):
         users = self.getMembers(review_state=self.state)
         forms = []

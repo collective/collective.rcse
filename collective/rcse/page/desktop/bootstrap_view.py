@@ -1,9 +1,6 @@
 from zope.component import getMultiAdapter
-from zope.interface import implements
 from zope.interface import Interface
 from Products.Five import BrowserView
-from plone.app.layout.navigation.navtree import buildFolderTree
-from Products.CMFPlone.browser.navtree import NavtreeQueryBuilder
 from Products.CMFPlone.browser.ploneview import Plone as basePlone
 
 
@@ -21,6 +18,7 @@ class IBootstrapView(Interface):
         """Return the viewport
         """
 
+
 class BootstrapView(BrowserView):
 
     def getColumnsClasses(self, view=None):
@@ -31,8 +29,6 @@ class BootstrapView(BrowserView):
 
         plone_view = getMultiAdapter(
             (self.context, self.request), name=u'plone')
-        portal_state = getMultiAdapter(
-            (self.context, self.request), name=u'plone_portal_state')
 
         sl = plone_view.have_portlets('plone.leftcolumn', view=view)
         sr = plone_view.have_portlets('plone.rightcolumn', view=view)
@@ -43,7 +39,7 @@ class BootstrapView(BrowserView):
             if getattr(view, 'portlet_sr', None) is not None:
                 sr = view.portlet_sr
 
-        isRTL = portal_state.is_rtl()
+        # isRTL = portal_state.is_rtl()
 
         # pre-fill dictionary
         columns = dict(one="", content="", two="")

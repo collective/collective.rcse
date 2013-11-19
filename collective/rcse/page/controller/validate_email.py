@@ -5,8 +5,8 @@ from Products.CMFPlone.utils import getToolByName
 from Products.Five.browser import BrowserView
 
 from collective.rcse.i18n import _
-from collective.rcse.page.controller.person_view import AuthenticatedMemberInfoView
-from collective.rcse.page.controller.person_view import GetMemberInfoView
+from collective.rcse.page.controller.person_view import \
+    AuthenticatedMemberInfoView
 
 
 class ValidateEmailView(BrowserView):

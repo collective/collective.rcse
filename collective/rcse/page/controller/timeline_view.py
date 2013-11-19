@@ -130,11 +130,13 @@ class ProxyGroupTimelineView(BrowserView):
 
 class MemberTimelineView(GroupTimelineView):
     label_timeline = _(u"Member")
+
     def update(self):
         if self.group is None:
             self.group = self.context
             self.group_title = _(u"Member")
-            description = self.context.restrictedTraverse('@@timeline_header_member_view')()
+            description = self.context.restrictedTraverse(
+                '@@timeline_header_member_view')()
             self.group_description = description
         super(MemberTimelineView, self).update()
         self.query["Creator"] = self.context.username
@@ -155,6 +157,7 @@ class MemberTimelineView(GroupTimelineView):
             return []
         return super(MemberTimelineView, self).get_content()
 
+
 class CompanyTimelineView(BrowserView):
     is_content_timeline = False
     label_content = _(u"Members")
@@ -173,7 +176,6 @@ class CompanyTimelineView(BrowserView):
         self.group_url = self.group.absolute_url()
         name = "@@timeline_header_company"
         self.group_description = self.context.restrictedTraverse(name)()
-
 
     def get_content(self, **kwargs):
         return self.catalog(company_id=self.context.getId())

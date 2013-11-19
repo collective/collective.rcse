@@ -1,11 +1,9 @@
 import json
+
 from Acquisition import aq_inner, aq_parent
 from plone.app.discussion.browser.moderation import DeleteComment
 from Products.Five.browser import BrowserView
-from Products.statusmessages import STATUSMESSAGEKEY
 from Products.statusmessages.interfaces import IStatusMessage
-from Products.statusmessages.adapter import _decodeCookieValue
-from zope.annotation.interfaces import IAnnotations
 from zope.i18n import translate
 from zope import component
 

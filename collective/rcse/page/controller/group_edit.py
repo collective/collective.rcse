@@ -52,6 +52,3 @@ class GroupEditView(BrowserView):
 
     def can_change_status(self):
         return True
-
-
-#class GroupStatusForm

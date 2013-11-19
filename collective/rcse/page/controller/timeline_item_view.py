@@ -1,10 +1,7 @@
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
-from plone.uuid.interfaces import IUUID
 from Products.ZCatalog.interfaces import ICatalogBrain
-from zope.component import getMultiAdapter
-from zope.component import getUtility
-from plone.registry.interfaces import IRegistry
+from plone.uuid.interfaces import IUUID
 
 from cioppino.twothumbs import rate
 from collective.favoriting.browser.favoriting_view import VIEW_NAME
@@ -43,23 +40,8 @@ class TimelineItemView(BrowserView):
         self.icon_status = None
 
     def update(self):
-        if self.membership is None:
-            self.membership = getToolByName(self.context, "portal_membership")
-        if self.wtool is None:
-            self.wtool = getToolByName(self.context, "portal_workflow")
-        if self.portal_url is None:
-            self.portal_url = getToolByName(self.context, 'portal_url')()
-        if self.tileid is None:
-            self.tileid = IUUID(self.context)
-        if self.group is None:
-            self.group = get_group(self.context)
-        if self.group is not None:
-            if self.group_url is None:
-                self.group_url = self.group.absolute_url()
-            if self.group_title is None:
-                self.group_title = self.group.Title()
-        if self.effective_date is None:
-            self.effective_date = self.get_effective_date()
+        self.updateInit()
+        self.updateGroup()
         if self.creator_info is None:
             name = "@@creator_memberinfo"
             self.creator_info = self.context.restrictedTraverse(name)
@@ -75,6 +57,27 @@ class TimelineItemView(BrowserView):
         self.icon_type = icons.getType(self.context.portal_type)
         status = self.wtool.getInfoFor(self.context, 'review_state', None)
         self.icon_status = icons.getStatus(status)
+
+    def updateInit(self):
+        if self.membership is None:
+            self.membership = getToolByName(self.context, "portal_membership")
+        if self.wtool is None:
+            self.wtool = getToolByName(self.context, "portal_workflow")
+        if self.portal_url is None:
+            self.portal_url = getToolByName(self.context, 'portal_url')()
+        if self.tileid is None:
+            self.tileid = IUUID(self.context)
+        if self.effective_date is None:
+            self.effective_date = self.get_effective_date()
+
+    def updateGroup(self):
+        if self.group is None:
+            self.group = get_group(self.context)
+        if self.group is not None:
+            if self.group_url is None:
+                self.group_url = self.group.absolute_url()
+            if self.group_title is None:
+                self.group_title = self.group.Title()
 
     def get_content(self):
         return self.context.restrictedTraverse('tile_view')()

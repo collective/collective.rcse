@@ -1,9 +1,7 @@
 import datetime
-import re
 import logging
 
 from plone.autoform.form import AutoExtensibleForm
-from plone.dexterity import utils
 from plone.z3cform.layout import FormWrapper
 from Products.CMFCore.utils import getToolByName
 from z3c.form import form
@@ -17,7 +15,8 @@ from zope import schema
 from collective.rcse.content.member import IMember
 from collective.rcse.content.member import vocabularies
 from collective.rcse.content.utils import createCompany
-from collective.rcse.page.controller.validate_email import generateKeyAndSendEmail
+from collective.rcse.page.controller.validate_email import \
+    generateKeyAndSendEmail
 from collective.rcse.i18n import _
 from collective.rcse.utils import sudo, createNotification
 

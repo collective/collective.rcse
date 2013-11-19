@@ -1,7 +1,6 @@
 from AccessControl import getSecurityManager
 from Products.CMFCore.permissions import ReviewPortalContent
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.PloneBatch import Batch
 from Products.Five.browser import BrowserView
 
 
@@ -32,12 +31,8 @@ class UsersDirectoryView(BrowserView):
 
     def makeQuery(self):
         self.query = {
-#            'path': {'query': self.directory_url, 'depth': 1},
-            'sort_on': 'getId',  #because in mobile we need sorted results
-            #'sort_order': 'ascending',
-            #'sort_limit': 20,
+            'sort_on': 'getId',  # because in mobile we need sorted results
             'portal_type': 'collective.rcse.member',
-            #'review_state': 'enabled',
             }
 
     def getMembers(self, review_state="enabled"):

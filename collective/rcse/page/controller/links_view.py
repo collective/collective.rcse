@@ -1,4 +1,3 @@
-from plone.supermodel import model
 from plone.uuid.interfaces import IUUID
 from zope import interface
 from zope import schema
@@ -9,7 +8,8 @@ from collective.rcse.content.group import get_group
 from collective.readitlater.browser.external import ShowAll
 from collective.rcse.i18n import _
 from collective.rcse.page.controller import group_base
-from collective.rcse.page.controller.navigationroot import NavigationRootBaseView
+from collective.rcse.page.controller.navigationroot import \
+    NavigationRootBaseView
 
 CONTENT_TYPE = 'Link'
 
@@ -44,7 +44,7 @@ class AddForm(group_base.BaseAddForm):
     schema = AddFormSchema
     msg_added = _(u"Link added")
     label = _(u"Add link")
-    CONTENT_TYPE=CONTENT_TYPE
+    CONTENT_TYPE = CONTENT_TYPE
 
     @button.buttonAndHandler(_(u"Add link"))
     def handleAdd(self, action):

@@ -103,6 +103,15 @@ class ToggleDisplayInMyNews(BrowserView):
 
 def get_followers(context):
     """Return people who follow the first creator"""
+    creator, watcherlist = _getWatcherList(context)
+    if watcherlist:
+        msg = "watchers of %s: %s" % (creator, watcherlist.watchers)
+        logger.debug(msg)
+        return watcherlist.watchers
+    return []
+
+
+def _getWatcherList(context):
     creator = None
     membrane = None
     if context.portal_type == "collective.rcse.member":
@@ -132,11 +141,7 @@ def get_followers(context):
     watcherlist = component.queryAdapter(
         membrane, interface=IWatcherList, name="group_watchers", default=None
     )
-    if watcherlist:
-        msg = "watchers of %s: %s" % (creator, watcherlist.watchers)
-        logger.debug(msg)
-        return watcherlist.watchers
-    return []
+    return (creator, watcherlist)
 
 
 @indexer(interface.Interface)

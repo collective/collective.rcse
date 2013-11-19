@@ -4,23 +4,18 @@ from zope import interface
 from zope import schema
 from zope import component
 from z3c.form import button
-from collective.z3cform.html5widgets.widget_datetime import DateTimeWidget
 
 from plone.app.event.portlets import portlet_calendar
-from plone.autoform import directives
-from plone.namedfile.field import NamedBlobImage
-from plone.supermodel import model
 from plone.app.event import messageFactory as _pae
+from plone.app.event.browser.event_listing import EventListing
 from plone.uuid.interfaces import IUUID
+from plone.z3cform.layout import FormWrapper
 from Products.Five.browser import BrowserView
 from Products.CMFPlone.utils import getToolByName
 
 from collective.rcse.content.group import get_group
 from collective.rcse.i18n import _
 from collective.rcse.page.controller import group_base
-from collective.rcse.page.controller.navigationroot import NavigationRootBaseView
-from plone.app.event.browser.event_listing import EventListing
-from plone.z3cform.layout import FormWrapper
 
 CONTENT_TYPE = "collective.rcse.event"
 

@@ -1,10 +1,13 @@
 import time
+import unittest2 as unittest
+
+from selenium.common.exceptions import StaleElementReferenceException
+from selenium.common.exceptions import NoSuchElementException
+
 from collective.rcse.tests.selenium_desktop import DesktopTheme
 from collective.rcse.tests.selenium_mobile import MobileTheme
 from collective.rcse import testing
-import unittest2 as unittest
-from selenium.common.exceptions import StaleElementReferenceException
-from selenium.common.exceptions import NoSuchElementException
+
 
 class ScenarioTestCase(unittest.TestCase):
     def setUp(self):
@@ -29,14 +32,19 @@ class ScenarioTestCase(unittest.TestCase):
         self.login(user2, testing.TEST_USER_2, testing.PASSWORD)
         user2.get('%s/home/companys-public-group' % self.portal_url)
         if self.is_mobile:
-            group_header2 = user2.find_element_by_class_name('description-wrapper')
+            group_header2 = user2.find_element_by_class_name(
+                'description-wrapper'
+                )
         else:
             group_header2 = user2.find_element_by_id('group-header')
         group_header2.find_element_by_id('cioppino_twothumbs_like').click()
         user1.get('%s/home/companys-public-group' % self.portal_url)
         if self.is_mobile:
-            group_header = user1.find_element_by_class_name('description-wrapper')
-            button = group_header.find_element_by_xpath('self::*//*[@data-rel="popup"]')
+            group_header = user1.\
+                find_element_by_class_name('description-wrapper')
+            button = group_header.find_element_by_xpath(
+                'self::*//*[@data-rel="popup"]'
+                )
             button.click()
             href = button.get_attribute('href')
             href = href[(href.rfind('/') + 2):]
@@ -44,7 +52,9 @@ class ScenarioTestCase(unittest.TestCase):
         else:
             group_header = user1.find_element_by_id('group-header')
             group_header.find_element_by_class_name('dropdown-toggle').click()
-        group_header.find_element_by_id('collective_whathappened_subscribe').click()
+        group_header.find_element_by_id(
+            'collective_whathappened_subscribe'
+            ).click()
         group_header2.find_element_by_id('favoriting_add').click()
         user1.get(self.portal_url)
         count = user1.find_element_by_id('notifications-count').text
@@ -52,17 +62,25 @@ class ScenarioTestCase(unittest.TestCase):
         if self.is_mobile:
             user1.find_element_by_id('notifications').click()
             time.sleep(1)
-            notification = user1.find_element_by_xpath('//*[@id="popup-notifications"]/ul/li[1]//a').text
+            notification = user1.find_element_by_xpath(
+                '//*[@id="popup-notifications"]/ul/li[1]//a').text
         else:
             user1.find_element_by_xpath('//*[@id="notifications"]/a').click()
             time.sleep(1)
-            notification = user1.find_element_by_xpath('//*[@id="notifications"]/ul/li[1]/a').text
-        self.assertEqual(notification, u'User 2 has added Company\'s public group to his favorites')
-        user1.get('%s/@@collective_whathappened_notifications_all' % self.portal_url)
+            notification = user1.find_element_by_xpath(
+                '//*[@id="notifications"]/ul/li[1]/a'
+                ).text
+        self.assertEqual(notification,
+                         u'User 2 has added Company\'s '
+                         u'public group to his favorites')
+        user1.get('%s/@@collective_whathappened_notifications_all'
+                  % self.portal_url)
         content = user1.find_element_by_id('content').text
-        self.assertIn(notification, content, 'Notification not in all notifications')
+        self.assertIn(notification, content,
+                      'Notification not in all notifications')
         user1.get('%s/home/companys-public-group' % self.portal_url)
-        self.assertRaises(NoSuchElementException, user1.find_element_by_id, 'notifications-count')
+        self.assertRaises(NoSuchElementException, user1.find_element_by_id,
+                          'notifications-count')
 
     def test_register(self):
         user = self.getNewBrowser(self.portal_url)
@@ -86,7 +104,7 @@ class ScenarioTestCase(unittest.TestCase):
         user.get(self.portal_url)
         self._assertStatus(user, 'Please complete your company information')
         self.edit_company(user, title="The company",
-                         corporate_name="The company")
+                          corporate_name="The company")
         user.get(self.portal_url)
         if self.is_mobile:
             user.find_element_by_id('addbutton-wrapper')
@@ -105,9 +123,11 @@ class ScenarioTestCase(unittest.TestCase):
                   % self.portal_url)
         user.get(self.portal_url)
         self._assertStatus(user, 'Your profile has been disabled.')
-        admin.get('%s/users_directory/@@users_manage_disabled' % self.portal_url)
+        admin.get('%s/users_directory/@@users_manage_disabled'
+                  % self.portal_url)
         if not self.is_mobile:
-            xpath = ('//table[@id="members-datatable"]//td[text()="simplemember1"]/'
+            xpath = ('//table[@id="members-datatable"]//'
+                     'td[text()="simplemember1"]/'
                      'parent::tr/td/form//input[@id="form-buttons-enable"]')
         else:
             xpath = ('//div[@class="directory"]/ul/li/h2[text()="User 1"]/'

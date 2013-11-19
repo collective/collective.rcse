@@ -1,14 +1,10 @@
 from AccessControl import Unauthorized
-from plone.autoform import directives
 from plone.autoform.form import AutoExtensibleForm
 from plone.z3cform.layout import FormWrapper
 from z3c.form import form
 from z3c.form import button
-from z3c.form.browser.password import PasswordFieldWidget
-from z3c.form.interfaces import WidgetActionExecutionError
 from zope import component
 from zope import interface
-from zope import schema
 
 from collective.rcse.settings import IPersonalPreferences
 from collective.rcse.i18n import _

@@ -1,16 +1,15 @@
+from plone.namedfile.field import NamedBlobImage
+from plone.uuid.interfaces import IUUID
 from zope import interface
 from zope import schema
 from zope import component
 from z3c.form import button
 
-from plone.namedfile.field import NamedBlobImage
-from plone.supermodel import model
-from plone.uuid.interfaces import IUUID
-
 from collective.rcse.content.group import get_group
 from collective.rcse.i18n import _
 from collective.rcse.page.controller import group_base
-from collective.rcse.page.controller.navigationroot import NavigationRootBaseView
+from collective.rcse.page.controller.navigationroot import \
+    NavigationRootBaseView
 
 CONTENT_TYPE = "Image"
 

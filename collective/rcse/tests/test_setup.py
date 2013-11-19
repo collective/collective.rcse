@@ -25,7 +25,6 @@ class TestSetup(base.IntegrationTestCase):
             "collective.readitlater",
             "collective.transcode.star",
             "collective.themeswitcher",
-#            "plone.app.event",
             "plone.app.event.dx",
             "plone.app.contenttypes",
             "plone.app.versioningbehavior",
@@ -34,7 +33,8 @@ class TestSetup(base.IntegrationTestCase):
             "plonetheme.jquerymobile",
         ]
         for name in dependencies:
-            self.assertTrue(qi.isProductInstalled(name), '%s is not installed' % name)
+            self.assertTrue(qi.isProductInstalled(name),
+                            '%s is not installed' % name)
 
     def test_type_group(self):
         ptypes = self.portal.portal_types
@@ -48,7 +48,6 @@ class TestSetup(base.IntegrationTestCase):
         ptypes = self.portal.portal_types
         gtype = ptypes.getTypeInfo("collective.rcse.group")
         for content in (
-#            "audio",
             "discussion",
             "etherpad",
             "event",
@@ -58,7 +57,8 @@ class TestSetup(base.IntegrationTestCase):
             self.assertTrue(gtype.allowType(ctype))
             info = ptypes.getTypeInfo(ctype)
             self.assertTrue(info.allowDiscussion())
-            self.assertTrue(info.globalAllow(), '%s is globally allowed' % content)
+            self.assertTrue(info.globalAllow(),
+                            '%s is globally allowed' % content)
             addperm = "collective.rcse.Add" + content.capitalize()
             self.assertEqual(info.add_permission, addperm)
 
