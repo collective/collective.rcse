@@ -13,8 +13,6 @@ _ = RCSEMessageFactory
 _p = PloneMessageFactory
 
 
-
-
 class InvalidVideo(Invalid):
     __doc__ = _(u"Error raise if no valid video has been provided")
 
@@ -38,5 +36,7 @@ class VideoSchema(form.Schema):
             mime_types = registry[SETTING_MIME_TYPES]
             mime_type = data.file.contentType
             if mime_type not in mime_types:
-                msg = _(u"The file must be a video. You are trying to use a '${mime_type}'", mapping={"mime_type": mime_type})
+                msg = _(u"The file must be a video. You are trying to use a "
+                        u"'${mime_type}'",
+                        mapping={"mime_type": mime_type})
                 raise InvalidVideo(msg)

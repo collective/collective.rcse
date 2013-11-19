@@ -28,7 +28,7 @@ class ValidateAuthenticatedMember(ViewletBase):
 
     def update(self):
         super(ValidateAuthenticatedMember, self).update()
-        self.context_state =  component.getMultiAdapter(
+        self.context_state = component.getMultiAdapter(
             (self.context, self.request), name=u'plone_context_state'
         )
         self.member = self.portal_state.member()
@@ -48,48 +48,62 @@ class ValidateAuthenticatedMember(ViewletBase):
         self.status = IStatusMessage(self.request)
 
     def index(self):
+        if testUser() or testMember() or testCompany():
+            return ''
+        return ''
+
+    def testUser(self):
         if self.portal_state.anonymous():
-            return ''
+            return True
         elif self.username == 'admin':
-            return ''
+            return True
         elif self.view_in_blacklist():
-            return ''
+            return True
         elif not self.is_registred():
             msg = _(u"You are not registred, please proceed")
             self.status.add(msg)
-            url = '%s/@@register_information' % (self.portal_state.portal_url())
+            url = '%s/@@register_information' % \
+                (self.portal_state.portal_url())
             self.lock_rendering_and_redirect(url=url)
-            return ''
-        elif IMembraneUser.providedBy(self.context) and self.context.username == self.member.getUserName():
-            return ''
+            return True
+        return False
+
+    def testMember(self):
+        if IMembraneUser.providedBy(self.context) and \
+                self.context.username == self.member.getUserName():
+            return True
         elif not self.has_required_info():
             msg = _(u"Your profile is missing some required information")
             self.status.add(msg)
             url = '%s/edit' % (self.member_data.absolute_url())
             self.lock_rendering_and_redirect(url=url)
-            return ''
+            return True
         elif self.is_disabled_user():
             msg = _(u"Your profile has been disabled.")
             self.status.add(msg)
             url = self.member_data.absolute_url()
             self.lock_rendering_and_redirect(url=url)
-            return ''
+            return True
         elif not self.is_validated_user():
             msg = _(u"Your profile is waiting for approval")
             self.status.add(msg)
             url = self.member_data.absolute_url()
             self.lock_rendering_and_redirect(url=url)
-            return ''
-        elif ICompany.providedBy(self.context) and self.context.id == self.member_data.company_id:
-            return ''
+            return True
+        return False
+
+    def testCompany(self):
+        elif ICompany.providedBy(self.context) and \
+                self.context.id == self.member_data.company_id:
+            return True
         elif not self.has_company_info() and self.is_company_owner():
             msg = _(u"Please complete your company information")
             self.status.add(msg)
             url = '%s/edit' % self.company.absolute_url()
             self.lock_rendering_and_redirect(url=url)
-            return ''
+            return True
+        return False
 
-        return ''
 
     def has_company_info(self):
         fields = schema.getFields(self.company_schema)

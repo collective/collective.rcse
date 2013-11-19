@@ -1,14 +1,9 @@
-from Acquisition import aq_inner, aq_parent
 from AccessControl.SecurityManagement import setSecurityManager,\
     getSecurityManager
-from plone.app.layout.viewlets.common import ViewletBase, ContentViewsViewlet,\
-    ContentActionsViewlet
+from plone.app.layout.viewlets.common import ViewletBase
 from Products.CMFCore.utils import getToolByName
-from Products.CMFCore import permissions
 from zope.component import getMultiAdapter
-from plone.app.layout.globals.interfaces import IViewView
-from zope.interface.declarations import alsoProvides
-from zope.component._api import getUtility, getAdapter, queryAdapter
+from zope.component._api import getUtility, queryAdapter
 from zope.browsermenu.interfaces import IBrowserMenu
 from plone.stringinterp.interfaces import IStringSubstitution
 from Products.CMFCore.WorkflowCore import WorkflowException
@@ -103,7 +98,8 @@ class EditBar(ViewletBase):
         """
         if not self.group or not self.member:
             return False
-        if self.isContributor or self.isOwner or self.isManager or self.isSiteAdmin:
+        if self.isContributor or self.isOwner or self.isManager \
+                or self.isSiteAdmin:
             return False
         return True
 
@@ -128,8 +124,6 @@ class EditBar(ViewletBase):
             if hasRole:
                 break
         return hasRole
-
-
 
 
 class EditBarView(EditBar):

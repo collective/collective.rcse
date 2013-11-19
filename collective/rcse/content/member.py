@@ -3,8 +3,6 @@ from plone.app.textfield import RichText
 from plone.namedfile import field
 from plone.supermodel import model
 from z3c.form.browser.select import SelectFieldWidget
-from zope.annotation import IAttributeAnnotatable
-from zope import interface
 from zope import schema
 
 from collective.rcse.i18n import _
@@ -18,15 +16,15 @@ logger = logging.getLogger('collective.rcse')
 
 
 @addVisibilityCheckbox([
-        'username',
-        'company_id',
-        'company',
-        'email',
-        'email_validation',
-        'first_name',
-        'last_name',
-        'advertiser',
-        ])
+    'username',
+    'company_id',
+    'company',
+    'email',
+    'email_validation',
+    'first_name',
+    'last_name',
+    'advertiser',
+    ])
 class IMember(model.Schema):
     """This is an interface to describe a member"""
 

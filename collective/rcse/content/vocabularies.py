@@ -6,7 +6,6 @@ from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 from zope.schema.interfaces import IVocabularyFactory
 from zope.component import getUtility
 from zope.component.hooks import getSite
-from zope.globalrequest import getRequest
 
 from collective.rcse.i18n import _, _t
 from collective.rcse.cache import getCacheKeyGroupAddPermission
@@ -82,10 +81,10 @@ def _getGroupsWithAddPermission(username):
         if portal_membership.checkPermission('Add portal content',
                                              brain.getObject()):
             terms.append(SimpleVocabulary.createTerm(
-                    unicode(brain.UID),
-                    str(brain.UID),
-                    brain.Title
-                    ))
+                unicode(brain.UID),
+                str(brain.UID),
+                brain.Title
+                ))
     return terms
 
 
@@ -109,9 +108,9 @@ def groups_with_home(context):
 
 
 settings = SimpleVocabulary([
-        SimpleTerm(value=field[0], title=field[1].title)
-        for field in IPersonalPreferences.namesAndDescriptions()
-        ])
+    SimpleTerm(value=field[0], title=field[1].title)
+    for field in IPersonalPreferences.namesAndDescriptions()
+    ])
 
 
 def users(context):

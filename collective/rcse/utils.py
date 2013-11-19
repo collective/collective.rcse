@@ -8,8 +8,6 @@ from Products.CMFCore.utils import getToolByName
 from collective.whathappened.storage_manager import StorageManager
 from collective.whathappened.notification import Notification
 from Products.Five.browser import BrowserView
-from Products.PluggableAuthService.interfaces.plugins import IAuthenticationPlugin,\
-    IUserAdderPlugin, IUserEnumerationPlugin
 
 
 def sudo(role='Manager'):
@@ -68,7 +66,6 @@ class DevSyncUsers(BrowserView):
             except:
                 continue
             username = member.username
-            find = False
             if self.source_users.enumerateUsers(id=username):
                 #FIXME: update password
                 continue

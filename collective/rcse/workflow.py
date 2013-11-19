@@ -1,13 +1,11 @@
 import logging
 
 from Products.CMFPlone.utils import getToolByName
-from zope.component import getMultiAdapter
 from zope.globalrequest import getRequest
 
 from collective.whathappened.storage_manager import StorageManager
 from collective.whathappened.subscription import Subscription
 from collective.rcse.i18n import _
-from collective.rcse.content.utils import createCompany
 
 logger = logging.getLogger(__name__)
 

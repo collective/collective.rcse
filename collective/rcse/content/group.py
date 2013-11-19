@@ -1,13 +1,9 @@
 import logging
 
 from Acquisition import aq_parent
-from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
-from Products.Five.browser import BrowserView
-from plone.dexterity.utils import createContentInContainer
 from plone.directives import form
 from collective.rcse.content.proxygroup import ProxyGroupSchema
-from zope import interface
 
 logger = logging.getLogger("collective.rcse")
 

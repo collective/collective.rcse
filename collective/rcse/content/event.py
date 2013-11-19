@@ -17,7 +17,7 @@ IEventBasic.setTaggedValue(
 class EventSchema(model.Schema):
     """event extra fields"""
     image = NamedBlobImage(title=_(u"Image"),
-                          description=_(u"image_description"),
+                           description=_(u"image_description"),
                            required=False)
     urlMedia = schema.URI(title=_(u"Media URL"),
                           description=_(u"urlMedia_description"),

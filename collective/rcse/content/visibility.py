@@ -1,8 +1,6 @@
 from collections import OrderedDict
 from plone.supermodel.interfaces import FIELDSETS_KEY
 from plone.supermodel import model
-from zope.i18n import translate
-from zope.interface.interface import InterfaceClass
 from zope import schema
 from zope.schema._schema import getFieldsInOrder
 
@@ -15,7 +13,7 @@ class addVisibilityCheckbox(object):
     """This decorator add visbility bool to a SchemaClass
     (plone.supermodel.model.Schema) for every argument not in the blacklist."""
 
-    def __init__(self, privacy_blacklist = []):
+    def __init__(self, privacy_blacklist=[]):
         self.privacy_blacklist = privacy_blacklist
 
     def __call__(self, iface):

@@ -1,7 +1,7 @@
 import logging
 
-
 logger = logging.getLogger('collective.rcse')
+
 
 def getStatus(t):
     if t in ['private', 'closed']:
@@ -15,42 +15,35 @@ def getStatus(t):
     logger.info('No icon for status: %s' % t)
     return ''
 
+
 def getType(t, prefix=None):
     """Return the icon to use. it use font-awesome syntax: icon-XX
     if you use this is jquerymobile you must add prefix="ui-"
     """
+    type2icon = {
+        'video': 'icon-film',
+        'image': 'icon-picture',
+        'file': 'icon-file-alt',
+        'event': 'icon-calendar',
+        'discussion': 'icon-comments',
+        'comment': 'icon-comments',
+        'signet': 'icon-bookmark-empty',
+        'favori': 'icon-bookmark-empty',
+        'link': 'icon-external-link',
+        'article': 'icon-edit',
+        'poll': 'icon-bar-chart',
+        'etherpad': 'icon-cloud',
+        'audio': 'icon-volume-up',
+        'sound': 'icon-volume-up',
+        'folder': 'icon-folder-open',
+        'group': 'icon-group',
+        'timeline': 'icon-reorder'
+        }
     t = t.lower()
     if prefix is None:
         prefix = ""
-    if 'video' in t:
-        return prefix + 'icon-film'
-    elif 'image' in t:
-        return prefix + 'icon-picture'
-    elif 'file' in t:
-        return prefix + 'icon-file-alt'
-    elif 'event' in t:
-        return prefix + 'icon-calendar'
-    elif 'discussion' in t or 'comment' in t:
-        return prefix + 'icon-comments'
-    elif 'signet' in t or 'favori' in t:
-        return prefix + 'icon-bookmark-empty'
-    elif 'link' in t:
-        return prefix + 'icon-external-link'
-    elif 'article' in t:
-        return prefix + 'icon-edit'
-    elif 'poll' in t:
-        return prefix + 'icon-bar-chart'
-    elif 'etherpad' in t:
-        return prefix + 'icon-cloud'
-    elif 'audio' in t or 'sound' in t:
-        return prefix + 'icon-volume-up'
-    elif 'folder' in t:
-        return prefix + 'icon-folder-open'
-    elif 'group' in t:
-        return prefix + 'icon-group'
-    elif 'timeline' in t:
-        return prefix + 'icon-reorder'
-#    elif '' in t:
-#        return 'icon-'
+    for type, icon in type2icon.items():
+        if type in t:
+            return icon
     logger.info('No icon for type: %s' % t)
     return ""

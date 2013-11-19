@@ -187,17 +187,6 @@ class MemberInfoView(AuthenticatedMemberInfoView):
         )
         self.state = status.get('review_state', None)
 
-
-# 
-#         self.url = self.context.absolute_url()
-#         self.fullname = '%s %s' % (self.member.getProperty('first_name'),
-#                                    self.member.getProperty('last_name'))
-#         self.company = self.member.getProperty('company')
-#         self.function = self.member.getProperty('function')
-#         self.professional_email = self.member.getProperty('professional_email')
-#         self.professional_mobile_phone =\
-#             self.member.getProperty('professional_mobile_phone')
-
     def getWorkflowTransitions(self):
         checkPermission = self.membership.checkPermission
         if not checkPermission(ReviewPortalContent, self.context):

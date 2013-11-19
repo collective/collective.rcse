@@ -3,4 +3,3 @@ import permissions
 permissions  # flake8
 import content.event
 content.event  # flake 8
-import monkey

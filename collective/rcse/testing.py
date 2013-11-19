@@ -1,24 +1,18 @@
 import os
 from plone.app.testing import (
-    PLONE_FIXTURE,
     IntegrationTesting,
     FunctionalTesting,
     login, logout, setRoles,
-    TEST_USER_NAME, TEST_USER_ID, TEST_USER_PASSWORD,
+    TEST_USER_NAME,
     SITE_OWNER_NAME,
 )
 from plone.testing import Layer as BaseLayer
-from plone.app.testing import selenium_layers
 
 from plone.app.robotframework.testing import AUTOLOGIN_LIBRARY_FIXTURE
 from plone.testing import z2
 from Products.CMFCore.utils import getToolByName
-from plone.dexterity import utils
 
 import transaction
-from zope.event import notify
-from zope.lifecycleevent import ObjectCreatedEvent, ObjectAddedEvent
-from plone.app.testing.selenium_layers import SeleniumLayer
 from zope.container.interfaces import INameChooser
 
 #import layers from addons
@@ -42,12 +36,10 @@ from collective.polls import testing as polls_testing
 from collective.portlet.favoriting import testing as portlet_fav_testing
 from collective.portlet.localusers import testing as portlet_users_testing
 from collective.readitlater import testing as readitlayer_testing
-from collective.requestaccess import testing as requestacces_testing
 from collective.themeswitcher import testing as themeswither_testing
 #from collective.transcode.star import testing as star_testing
 #from collective.watcherlist import testing as watcherlist_testing
 from collective.whathappened import testing as whathappened_testing
-from plone.app.testing.layers import PloneFixture
 from plone.app.testing.helpers import PloneSandboxLayer
 from Testing.ZopeTestCase.utils import setupCoreSessions
 
@@ -73,7 +65,6 @@ TEST_USER_4 = "simplemember4"
 PASSWORD = "secret"
 
 PROFILES = (
-#    'Products.membrane:default',  # installed by the setuphandler
     'plone.app.versioningbehavior:default',
     'collective.mediaelementjs:default',
     'collective.memberdatatables:default',
@@ -87,16 +78,13 @@ PROFILES = (
     'collective.rcse:settings',
 )
 
-class Layer(PloneSandboxLayer):
 
+class Layer(PloneSandboxLayer):
     defaultBases = (
         mobile_testing.FIXTURE,
         event_testing.PAEventDX_FIXTURE,
         ptypes_testing.PLONE_APP_CONTENTTYPES_FIXTURE,
-#        PLONE_APP_CONTENTTYPES_FIXTURE,
-
         twothumbs_testing.TWOTHUMBS_FIXTURE,
-
         etherpad_testing.FIXTURE,
         fav_testing.FIXTURE,
         font_testing.FIXTURE,
@@ -176,7 +164,7 @@ class Layer(PloneSandboxLayer):
                          first_name="admin", last_name="rcse")
         setRoles(portal, TEST_USER_ADMIN, ["Member", "Site Administrator"])
         simplemember1 = self.create_user(portal, TEST_USER_1,
-                         first_name="User", last_name="1")
+                                         first_name="User", last_name="1")
         self.create_user(portal, TEST_USER_2,
                          first_name="User", last_name="2")
         self.create_company(portal, simplemember1)
@@ -200,14 +188,14 @@ class Layer(PloneSandboxLayer):
         self.regtool.addMember(username, PASSWORD)
         # Update user content
         item = self.mtool(getUserName=username)[0].getObject()
-        item.company_id=company
-        item.company=company
+        item.company_id = company
+        item.company = company
         item.advertiser = advertiser
-        item.first_name=first_name
-        item.last_name=last_name
-        item.email=email
-        item.function=function
-        item.city=city
+        item.first_name = first_name
+        item.last_name = last_name
+        item.email = email
+        item.function = function
+        item.city = city
         for key, value in kwargs.items():
             setattr(item, key, value)
         self._renameUserContent(item)
@@ -226,9 +214,9 @@ class Layer(PloneSandboxLayer):
         directory.manage_renameObject(item.id, new_id)
         self.mtool.indexObject(item)
 
-    def create_company(self, portal, user_item, corporate_name="Corporate name",
-                       sector="Sector", postal_code="Postal code",
-                       city="City", **kwargs):
+    def create_company(self, portal, user_item,
+                       corporate_name="Corporate name", sector="Sector",
+                       postal_code="Postal code", city="City", **kwargs):
         company_id = createCompany(user_item, getRequest())
         company = portal.companies_directory[company_id]
         company.corporate_name = corporate_name
@@ -265,7 +253,10 @@ class SeleniumLayer(BaseLayer):
         return browser
 
     def testTearDown(self):
-        sqlite_directory = os.environ.get('collective_whathappened_sqlite_directory', None)
+        sqlite_directory = os.environ.get(
+            'collective_whathappened_sqlite_directory',
+            None
+            )
         for f in os.listdir(sqlite_directory):
             if '.sqlite' in f:
                 os.unlink('%s/%s' % (sqlite_directory, f))

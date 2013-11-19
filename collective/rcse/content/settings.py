@@ -1,4 +1,4 @@
-from zope.annotation.interfaces import IAttributeAnnotatable, IAnnotations
+from zope.annotation.interfaces import IAttributeAnnotatable
 from zope.annotation import factory
 from zope import component
 from zope import interface

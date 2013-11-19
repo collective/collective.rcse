@@ -45,7 +45,7 @@ def _handle_request(context, event, what):
         where = '/'.join(target.getPhysicalPath())
     when = datetime.datetime.now()
     if context.rtype == 'request':
-        who = [] # We can't know who validated it
+        who = []  # We can't know who validated it
         user = context.userid
     elif context.rtype == 'invitation':
         who = [context.userid]

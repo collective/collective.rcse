@@ -15,8 +15,10 @@ from zope.i18n import translate
 class ResourcesViewlet(ViewletBase):
     """Display resources for RCSE"""
     index = ViewPageTemplateFile("resourceregistries.pt")
+
     def __init__(self, context, request, view, manager=None):
-        super(ResourcesViewlet, self).__init__(context, request, view, manager=None)
+        super(ResourcesViewlet, self).__init__(context, request, view,
+                                               manager=None)
         self.styles_config = []
         self.scripts_config = []
 
@@ -67,7 +69,7 @@ class ResourcesViewlet(ViewletBase):
                                                     time)
                     results.append(info)
                 elif content:
-                    info["src"] = "%s/%s" % (self.site_url,info["id"])
+                    info["src"] = "%s/%s" % (self.site_url, info["id"])
                     results.append(info)
         return results
 
@@ -80,43 +82,43 @@ class DesktopResourceRegistries(ResourcesViewlet):
     def update(self):
         super(DesktopResourceRegistries, self).update()
         self.styles_config.append({
-                'rendering': 'link',
-                'media': 'screen',
-                'rel': 'stylesheet',
-                'title': '',
-                'conditionalcomment' : "",
-                'id': "++resource++collective.rcse/css/desktop.min.css"
-        })
+            'rendering': 'link',
+            'media': 'screen',
+            'rel': 'stylesheet',
+            'title': '',
+            'conditionalcomment': "",
+            'id': "++resource++collective.rcse/css/desktop.min.css"
+            })
         self.scripts_config.append({
             'inline': False,
-            'conditionalcomment' : "",
+            'conditionalcomment': "",
             'id': "plone_javascript_variables.js"
-         })
+            })
         self.scripts_config.append({
             'inline': False,
-            'conditionalcomment' : "",
+            'conditionalcomment': "",
             'id': "++resource++collective.rcse/js/desktop.min.js"
-         })
+            })
 
 
 class MobileResourceRegistries(ResourcesViewlet):
     def update(self):
         super(MobileResourceRegistries, self).update()
         self.styles_config.append({
-                'rendering': 'link',
-                'media': 'screen',
-                'rel': 'stylesheet',
-                'title': '',
-                'conditionalcomment' : "",
-                'id': "++resource++collective.rcse/css/mobile.min.css"
-        })
+            'rendering': 'link',
+            'media': 'screen',
+            'rel': 'stylesheet',
+            'title': '',
+            'conditionalcomment': "",
+            'id': "++resource++collective.rcse/css/mobile.min.css"
+            })
         self.scripts_config.append({
             'inline': False,
-            'conditionalcomment' : "",
+            'conditionalcomment': "",
             'id': "plone_javascript_variables.js"
-         })
+            })
         self.scripts_config.append({
             'inline': False,
-            'conditionalcomment' : "",
+            'conditionalcomment': "",
             'id': "++resource++collective.rcse/js/mobile.min.js"
-         })
+            })

@@ -1,12 +1,12 @@
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 # from Products.CMFCore.utils import getToolByName
 # from plonetheme.jquerymobile.browser.viewlets import panel as base
-# 
-# 
+#
+#
 # class UserToolBar(base.UserToolBar):
-# 
+#
 #     index = ViewPageTemplateFile('templates/usertoolbar.pt')
-# 
+#
 #     def update(self):
 #         base.UserToolBar.update(self)
 #         self.portal_types = getToolByName(self.context, 'portal_types')
@@ -18,7 +18,7 @@
 #         self.current_filter = None
 #         if self.request.get('filter', False):
 #             self.current_filter = self.request.get('portal_type', None)
-# 
+#
 #     def get_filters(self):
 #         if not self.context.portal_type == "collective.rcse.group":
 #             return []

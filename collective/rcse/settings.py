@@ -1,5 +1,4 @@
 import os
-from Products.CMFCore.utils import getToolByName
 from zope import component
 from zope import interface
 from zope import schema
@@ -47,6 +46,7 @@ def getDefaultSettings():
 FEATURES = (
     "breadcrumb",
 )
+
 
 class Features(object):
     def __init__(self):

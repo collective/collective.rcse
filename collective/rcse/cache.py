@@ -4,9 +4,7 @@ import threading
 import memcache
 
 from plone.memoize import ram
-from plone.memoize.volatile import _marker
 from plone.memoize.interfaces import ICacheChooser
-from zope import component
 from zope.interface import directlyProvides
 
 

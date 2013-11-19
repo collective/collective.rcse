@@ -1,6 +1,5 @@
 import logging
 from collective.z3cform.widgets import enhancedtextlines
-from Products.CMFPlone.PloneBatch import Batch
 from zope.schema.interfaces import IObject
 from zope.component._api import getMultiAdapter
 from z3c.form.interfaces import IDataManager
@@ -25,12 +24,11 @@ enhancedtextlines.EnhancedTextLinesWidget.js_template = """\
 """
 
 
-logger.info("monkeypatch: Remove contenttree for mobile")
 def patch_contenttree():
     from plone.formwidget.contenttree.widget import ContentTreeBase
-    from plone.browserlayer import utils
     from collective.rcse import layer
     original_render = ContentTreeBase.render
+
     def render(self):
         if layer.MobileLayer.providedBy(self.request):
             return u"This feature is not supported"
@@ -40,22 +38,24 @@ def patch_contenttree():
             return original_render(self)
     ContentTreeBase.render = render
 
+
+logger.info("monkeypatch: Remove contenttree for mobile")
 patch_contenttree()
 
 
-logger.info("monkey: change content_type for plone.app.event")
 def patch_event():
     from plone.app.event.dx.behaviors import EventAccessor
     EventAccessor.event_type = 'collective.rcse.event'
 
+
+logger.info("monkey: change content_type for plone.app.event")
 patch_event()
 
 
-logger.info("monkeypatch: Get group for url for plone.app.event portlets")
 def patch_get_calendar_url():
     from plone.app.event import portlets
     from collective.rcse.content.group import get_group
-    original_get_calendar_url = portlets.get_calendar_url
+
     def get_calendar_url(context, search_base):
         portal_state = context.restrictedTraverse('plone_portal_state')
         navigation_root = portal_state.navigation_root()
@@ -69,16 +69,16 @@ def patch_get_calendar_url():
             return '%s/event_listing' % group.absolute_url()
     portlets.get_calendar_url = get_calendar_url
 
+
+logger.info("monkeypatch: Get group for url for plone.app.event portlets")
 patch_get_calendar_url()
 
 
-logger.info("monkey: z3c.form.util.changedField handle naive date exception")
 def patch_z3cform():
     """TypeError: can't compare offset-naive and offset-aware datetimes
     """
     def changedField(field, value, context=None):
         """Figure if a field's value changed
-
         Comparing the value of the context attribute and the given value"""
         if context is None:
             context = field.context
@@ -87,7 +87,6 @@ def patch_z3cform():
             return True
         if IObject.providedBy(field):
             return True
-
         # Get the datamanager and get the original value
         dm = getMultiAdapter(
             (context, field), IDataManager)
@@ -98,7 +97,7 @@ def patch_z3cform():
             test = dm.query() != value
             if test:
                 return True
-        except TypeError as e:
+        except TypeError:
             return True
         if not dm.canAccess():
             return True
@@ -107,4 +106,6 @@ def patch_z3cform():
     from z3c.form import util
     util.changedField = changedField
 
+
+logger.info("monkey: z3c.form.util.changedField handle naive date exception")
 patch_z3cform()

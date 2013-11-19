@@ -1,31 +1,14 @@
-from plone.app.layout.viewlets.common import ViewletBase, PersonalBarViewlet
-from collective.rcse.viewlet.controller import sections
-from collective.rcse.viewlet.controller.sections import RCSESections
-from collective.whathappened.browser.notifications import HotViewlet
 from copy import copy
-import urllib
-
-from Acquisition import aq_inner
-from plone.app.layout.viewlets import ViewletBase
-from plone.autoform.form import AutoExtensibleForm
-from plone.autoform import directives
-from plone.supermodel import model
-from plone.z3cform.interfaces import IWrappedForm
-from plone.z3cform import z2
-from Products.CMFCore.utils import getToolByName
-from z3c.form import form
-from z3c.form import button
-from z3c.form.interfaces import IFormLayer
-from z3c.form.browser.select import SelectFieldWidget
-from zope import component
-from zope import schema
-from zope import interface
-from urlparse import parse_qs
 from urllib import urlencode
+from urlparse import parse_qs
+
+from Products.CMFCore.utils import getToolByName
+from zope import component
+
 from collective.rcse.content.group import get_group
 from collective.rcse.icons import getType
-from plonetheme.jquerymobile.browser.viewlets.header import PanelLeftAction,\
-    PanelRightAction, GlobalSections, SearchRightAction
+from collective.rcse.viewlet.controller.sections import RCSESections
+from collective.whathappened.browser.notifications import HotViewlet
 
 
 class PortalHeaderViewlet(RCSESections, HotViewlet):

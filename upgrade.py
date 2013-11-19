@@ -1,14 +1,13 @@
 #python
-import sys, logging
+import sys
+import logging
 
 #zope
 import transaction
-from zope.component import getSiteManager
 from AccessControl.SecurityManagement import newSecurityManager
 from AccessControl.SecurityManager import setSecurityPolicy
 from Testing.makerequest import makerequest
 from Products.CMFCore.tests.base.security import PermissiveSecurityPolicy
-from Products.CMFCore.tests.base.security import OmnipotentUser
 from Products.CMFCore.utils import getToolByName
 from zope.component.hooks import setSite
 
@@ -39,18 +38,22 @@ def quickinstall_addons(context, install=None, uninstall=None, upgrades=None):
         qi.uninstallProducts(uninstall)
 
     if upgrades is not None:
-        if upgrades in ("all", True):
-            #TODO: find which addons should be upgrades
-            installedProducts = qi.listInstalledProducts(showHidden=True)
-            upgrades = [p['id'] for p in installedProducts]
-        for upgrade in upgrades:
-            # do not try to upgrade myself -> recursion
-            if upgrade == POLICY:
-                continue
-            try:
-                qi.upgradeProduct(upgrade)
-            except KeyError:
-                logger.error('can t upgrade %s' % upgrade)
+        _upgradeAddOns(upgrades, qi)
+
+
+def _upgradeAddOns(upgrades, qi):
+    if upgrades in ("all", True):
+        #TODO: find which addons should be upgrades
+        installedProducts = qi.listInstalledProducts(showHidden=True)
+        upgrades = [p['id'] for p in installedProducts]
+    for upgrade in upgrades:
+        # do not try to upgrade myself -> recursion
+        if upgrade == POLICY:
+            continue
+        try:
+            qi.upgradeProduct(upgrade)
+        except KeyError:
+            logger.error('can t upgrade %s' % upgrade)
 
 
 def common(context):

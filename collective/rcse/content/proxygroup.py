@@ -1,13 +1,9 @@
 import logging
 
-from Acquisition import aq_parent
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
 from Products.Five.browser import BrowserView
-from plone.dexterity.utils import createContentInContainer, createContent
+from plone.dexterity.utils import createContent
 from plone.directives import form
-
-from zope import interface
 
 logger = logging.getLogger("collective.rcse")
 
@@ -17,7 +13,7 @@ class ProxyGroupSchema(form.Schema):
 
 
 class ProxyGroupManager(BrowserView):
-    """the default view will display the image title / description of the 
+    """the default view will display the image title / description of the
     original group with a button to request access to it.
     """
 

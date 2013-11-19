@@ -17,4 +17,3 @@ def make_group_owner_siteadmin(context):
         creators = group.creators
         for creator in creators:
             group.manage_setLocalRoles(creator, roles)
-

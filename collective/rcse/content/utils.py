@@ -3,7 +3,6 @@ from Products.CMFPlone.utils import getToolByName
 from zope.component import getMultiAdapter
 from zope.i18n import translate
 
-from collective.rcse.i18n import _
 from collective.rcse.utils import sudo
 
 

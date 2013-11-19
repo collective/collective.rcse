@@ -74,6 +74,8 @@ setup(
         'plonetheme.jquerymobile',
         'icalendar',
         'z3c.unconfigure',
+        'python-memcached',
+        'Products.MemcachedManager',
         # -*- Extra requirements: -*-
     ],
     extras_require=dict(

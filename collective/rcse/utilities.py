@@ -1,11 +1,9 @@
-from OFS.SimpleItem import SimpleItem
 from plone.dexterity import utils
 from Products.CMFPlone.utils import getToolByName
 from Products.membrane.interfaces import IUserAdder
 from zope import interface
 from zope.component.hooks import getSite
 from zope.i18n import translate
-from zope.globalrequest import getRequest
 
 from collective.history.i18n import _ as _h
 from collective.rcse.utils import sudo
@@ -74,21 +72,23 @@ class BaseDisplay(object):
         self.plural = True if len(notification.who) > 1 else False
         if self.plural:
             return _w(u"${who} have ${what} ${where}",
-                     mapping={'who': self.who,
-                              'what': self.what,
-                              'where': self.where
-                              })
+                      mapping={'who': self.who,
+                               'what': self.what,
+                               'where': self.where
+                               })
         else:
             return _w(u"${who} has ${what} ${where}",
-                     mapping={'who': self.who,
-                              'what': self.what,
-                              'where': self.where
-                              })
+                      mapping={'who': self.who,
+                               'what': self.what,
+                               'where': self.where
+                               })
 
 
 class StateChangedDisplay(BaseDisplay):
     def display(self, context, request, notification):
-        super(StateChangedDisplay, self).display(context, request, notification)
+        super(StateChangedDisplay, self).display(context,
+                                                 request,
+                                                 notification)
         try:
             transition = notification.info['transition']
         except:
@@ -195,14 +195,18 @@ class UnfavoritedDisplay(BaseDisplay):
 
 class WaitingForValidationDisplay(BaseDisplay):
     def display(self, context, request, notification):
-        super(WaitingForValidationDisplay, self).display(context, request, notification)
+        super(WaitingForValidationDisplay, self).display(context,
+                                                         request,
+                                                         notification)
         return _w(u"${who} is waiting for validation",
                   mapping={'who': self.who})
 
 
 class RequestAccessRequest(BaseDisplay):
     def display(self, context, request, notification):
-        super(RequestAccessRequest, self).display(context, request, notification)
+        super(RequestAccessRequest, self).display(context,
+                                                  request,
+                                                  notification)
         mapping = {
             'who': self.who,
             'where': self.where
@@ -217,7 +221,9 @@ class RequestAccessRequest(BaseDisplay):
 
 class RequestAccessInvitation(BaseDisplay):
     def display(self, context, request, notification):
-        super(RequestAccessInvitation, self).display(context, request, notification)
+        super(RequestAccessInvitation, self).display(context,
+                                                     request,
+                                                     notification)
         mapping = {
             'who': self.who
             }
@@ -231,7 +237,9 @@ class RequestAccessInvitation(BaseDisplay):
 
 class RequestAccessValidated(BaseDisplay):
     def display(self, context, request, notification):
-        super(RequestAccessValidated, self).display(context, request, notification)
+        super(RequestAccessValidated, self).display(context,
+                                                    request,
+                                                    notification)
         mapping = {
             'who': self.who,
             'where': self.where
@@ -250,7 +258,9 @@ class RequestAccessValidated(BaseDisplay):
 
 class RequestAccessRefused(BaseDisplay):
     def display(self, context, request, notification):
-        super(RequestAccessRefused, self).display(context, request, notification)
+        super(RequestAccessRefused, self).display(context,
+                                                  request,
+                                                  notification)
         mapping = {
             'who': self.who,
             'where': self.where
