@@ -130,6 +130,10 @@ Dependencies
      - |collective.portlet.favoriting.v|
      - |collective.portlet.favoriting.t|
      - |collective.portlet.favoriting.c|
+   * - collective.portlet.localusers
+     - |collective.portlet.localusers.v|
+     - |collective.portlet.localusers.t|
+     - |collective.portlet.localusers.c|
    * - collective.portlet.oembed
      - |collective.portlet.oembed.v|
      - |collective.portlet.oembed.t|
@@ -234,6 +238,10 @@ People
 .. |collective.portlet.favoriting.v| image:: https://pypip.in/v/collective.portlet.favoriting/badge.png
 .. |collective.portlet.favoriting.t| image:: https://secure.travis-ci.org/collective/collective.portlet.favoriting.png
 .. |collective.portlet.favoriting.c| image:: https://coveralls.io/repos/collective/collective.portlet.favoriting/badge.png?branch=master
+
+.. |collective.portlet.localusers.v| image:: https://pypip.in/v/collective.portlet.localusers/badge.png
+.. |collective.portlet.localusers.t| image:: https://secure.travis-ci.org/collective/collective.portlet.localusers.png
+.. |collective.portlet.localusers.c| image:: https://coveralls.io/repos/collective/collective.portlet.localusers/badge.png?branch=master
 
 .. |collective.portlet.oembed.v| image:: https://pypip.in/v/collective.portlet.oembed/badge.png
 .. |collective.portlet.oembed.t| image:: https://secure.travis-ci.org/collective/collective.portlet.oembed.png
