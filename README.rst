@@ -90,6 +90,10 @@ Dependencies
      - |collective.etherpad.v|
      - |collective.etherpad.t|
      - |collective.etherpad.c|
+   * - collective.favoriting
+     - |collective.favoriting.v|
+     - |collective.favoriting.t|
+     - |collective.favoriting.c|
    * - collective.history
      - |collective.history.v|
      - |collective.history.t|
