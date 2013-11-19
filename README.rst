@@ -144,8 +144,8 @@ Dependencies
      - |collective.themeswitcher.c|
    * - collective.transcode.star
      - |collective.transcode.star.v|
-     - |collective.transcode.star.t|
-     - |collective.transcode.star.c|
+     - X
+     - X
    * - collective.watcherlist
      - |collective.watcherlist.v|
      - |collective.watcherlist.t|
