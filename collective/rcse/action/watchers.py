@@ -132,7 +132,7 @@ def _getWatcherList(context):
             except IndexError:
                 logger.debug("%s has no creator" % context.absolute_url())
         if not creator:
-            return []
+            return (None, [])
         membrane = get_membrane_user(
             context, creator,
             member_type='collective.rcse.member',

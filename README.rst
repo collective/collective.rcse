@@ -3,7 +3,7 @@ Introduction
 
 This is project which aim to be a complete rewrite of cyn.in.
 
-RCSE is french acronyme for "Réseau Collaboritif et Social d'Entreprises"
+RCSE is french acronyme for "Réseau Collaboratif et Social d'Entreprises"
 which means Social and Collaborative Network of Companies.
 
 Features
@@ -22,7 +22,7 @@ Features
 * Video libraries
 
 * Favoriting content
-* Note content
+* Like/dislike content
 * Tag content
 
 * Customizable dashboards on group level

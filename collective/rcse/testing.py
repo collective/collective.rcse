@@ -26,7 +26,6 @@ from collective.etherpad import testing as etherpad_testing
 from collective.favoriting import testing as fav_testing
 from collective.fontawesome import testing as font_testing
 from collective.history import testing as history_testing
-from collective.js.ckeditor import testing as ckeditor_testing
 from collective.js.datatables import testing as datatables_testing
 #from collective.js.jquerymobile import testings as jqm_testing
 #from collective.mediaelementjs import testing as medialement_testing
@@ -89,7 +88,6 @@ class Layer(PloneSandboxLayer):
         fav_testing.FIXTURE,
         font_testing.FIXTURE,
         history_testing.FIXTURE,
-        ckeditor_testing.FIXTURE,
         datatables_testing.FIXTURE,
         polls_testing.FIXTURE,
         portlet_fav_testing.FIXTURE,
@@ -179,7 +177,7 @@ class Layer(PloneSandboxLayer):
                                  username=SITE_OWNER_NAME)
 
     def create_user(self, portal, username,
-                    role="Member", company='Company', advertiser=False,
+                    role="Member", company=u'Company', advertiser=False,
                     first_name="John", last_name="Doe",
                     email="no-reply@example.com", function="Function",
                     city="City", **kwargs):
