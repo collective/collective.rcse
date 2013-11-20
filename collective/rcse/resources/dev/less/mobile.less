@@ -315,7 +315,7 @@ div#content > div{
 }
 
 /* User directory */
-span.ui-btn-inner{
+.ui-header span.ui-btn-inner{
   height:22px;
   min-width:0px;
 }
@@ -325,7 +325,13 @@ span.ui-btn-inner{
 .ui-listview-filter-inset{
   margin:0px;
 }
-
+form.rowlike{
+  background:#fff;
+  padding:5px;
+}
+.commenting.reply form.rowlike{
+  background:transparent;
+}
 /* transcode.* */
 div.videobar{
   position:relative;
@@ -478,4 +484,22 @@ form:after{
   display:block;
   font-size:80%;
   color:#666;
+}
+form[name="default_view_form"],
+form[name="folderContentsForm"]{
+  background:#fff;
+  padding:10px;
+  div.radio{
+    margin-bottom:0px;
+  }
+  table{
+    width:100%;
+    tbody tr{
+      border-top:1px solid #ddd;
+    }
+  }
+}
+#viewlet-below-content-body{
+  background:#fff;
+  margin-top:0px;
 }
