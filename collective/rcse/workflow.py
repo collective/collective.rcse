@@ -2,9 +2,11 @@ import logging
 
 from Products.CMFPlone.utils import getToolByName
 from zope.globalrequest import getRequest
+from zope.event import notify
 
 from collective.whathappened.storage_manager import StorageManager
 from collective.whathappened.subscription import Subscription
+from collective.rcse.event import UserRolesModifiedOnObjectEvent
 from collective.rcse.i18n import _
 
 logger = logging.getLogger(__name__)
@@ -24,6 +26,7 @@ def handle_content_creation(context, event):
     storage.setUser(user)
     storage.saveSubscription(Subscription(context_path, True))
     storage.terminate()
+    notify(UserRolesModifiedOnObjectEvent(user, context))
 
 
 def handle_user_validation(context, event):
