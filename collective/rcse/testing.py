@@ -7,6 +7,7 @@ from plone.app.testing import (
     SITE_OWNER_NAME,
 )
 from plone.testing import Layer as BaseLayer
+from zope.configuration import xmlconfig
 
 from plone.app.robotframework.testing import AUTOLOGIN_LIBRARY_FIXTURE
 from plone.testing import z2
@@ -126,6 +127,10 @@ class Layer(PloneSandboxLayer):
         self.loadZCML(package=collective.indexing)
         self.loadZCML(package=Products.membrane)
         self.loadZCML(package=plone.app.contentrules)
+
+        xmlconfig.includeOverrides(configurationContext, 'overrides.zcml',
+                                   package=collective.rcse)
+
         z2.installProduct(app, 'Products.membrane')  # initialize
         self.loadZCML(package=collective.rcse)
         setupCoreSessions(app)

@@ -154,7 +154,7 @@ class ScenarioTestCase(unittest.TestCase):
         browser = self.getNewBrowser(self.portal_url)
         self.login(browser, testing.TEST_USER_ADMIN, testing.PASSWORD)
         self.do_create_group(browser, 'group for comments')
-        self.open_add(browser, what="Article")
+        self.open_add(browser, what="Article", where="group for comments")
         title_id = 'form-widgets-IDublinCore-title'
         title = "Please commenting me"
         browser.find_element_by_id(title_id).send_keys(title)
