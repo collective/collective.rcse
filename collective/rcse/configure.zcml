@@ -16,6 +16,7 @@
   <include package=".content" />
   <include package=".page" />
   <include package=".portlets" />
+  <include package=".requestaccess" />
   <include package=".viewlet" />
   <include package="z3c.jbot" file="meta.zcml" />
   <browser:resourceDirectory directory="resources/webshims" name="webshims" layer=".layer.CommonLayer"/>

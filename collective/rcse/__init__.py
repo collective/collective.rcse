@@ -1,11 +1,11 @@
 __import__('pkg_resources').declare_namespace(__name__)
-import permissions
-permissions  # flake8
 import content.event
+import permissions
+import sys
+permissions  # flake8
 content.event  # flake 8
-
 try:
-    import collective.request.access
+    import collective.requestaccess
 except ImportError:
-    import collective.rcse.requestaccess as requestaccess
+    import requestaccess
     sys.modules['collective.requestaccess'] = requestaccess

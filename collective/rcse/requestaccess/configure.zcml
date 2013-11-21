@@ -8,13 +8,10 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="collective.requestaccess">
 
-  <includeDependencies package="." />
   <include package="five.globalrequest" />
-  <include file="permissions.zcml" />
   <include package=".browser" />
 
   <i18n:registerTranslations directory="locales" />
-
 
   <interface
       interface=".layer.Layer"
