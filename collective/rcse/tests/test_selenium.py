@@ -37,7 +37,9 @@ class ScenarioTestCase(unittest.TestCase):
                 )
         else:
             group_header2 = user2.find_element_by_id('group-header')
-        group_header2.find_element_by_id('cioppino_twothumbs_like').click()
+        group_header2.find_element_by_id(
+            'document-action-cioppino_twothumbs_like'
+            ).click()
         user1.get('%s/home/companys-public-group' % self.portal_url)
         if self.is_mobile:
             group_header = user1.\
@@ -55,7 +57,9 @@ class ScenarioTestCase(unittest.TestCase):
         group_header.find_element_by_id(
             'collective_whathappened_subscribe'
             ).click()
-        group_header2.find_element_by_id('favoriting_add').click()
+        group_header2.find_element_by_id(
+            'document-action-favoriting_add'
+            ).click()
         user1.get(self.portal_url)
         count = user1.find_element_by_id('notifications-count').text
         self.assertEqual(count, u'1', 'Notifications count is not right')
@@ -63,24 +67,26 @@ class ScenarioTestCase(unittest.TestCase):
             user1.find_element_by_id('notifications').click()
             time.sleep(1)
             notification = user1.find_element_by_xpath(
-                '//*[@id="popup-notifications"]/ul/li[1]//a').text
+                '//*[@id="popup-notifications"]/ul/li[1]//a')
         else:
             user1.find_element_by_xpath('//*[@id="notifications"]/a').click()
             time.sleep(1)
             notification = user1.find_element_by_xpath(
                 '//*[@id="notifications"]/ul/li[1]/a'
-                ).text
-        self.assertEqual(notification,
+                )
+        text = notification.text
+        self.assertEqual(text,
                          u'User 2 has added Company\'s '
                          u'public group to his favorites')
+        notification.click()
         user1.get('%s/@@collective_whathappened_notifications_all'
                   % self.portal_url)
         content = user1.find_element_by_id('content').text
-        self.assertIn(notification, content,
+        self.assertIn(text, content,
                       'Notification not in all notifications')
         user1.get('%s/home/companys-public-group' % self.portal_url)
-        self.assertRaises(NoSuchElementException, user1.find_element_by_id,
-                          'notifications-count')
+        count = user1.find_element_by_id('notifications-count').text
+        self.assertEqual(count, u'', 'Notifications count is not right')
 
     def test_register(self):
         user = self.getNewBrowser(self.portal_url)

@@ -24,7 +24,8 @@ class TestSetup(base.IntegrationTestCase):
             "collective.readitlater",
             "collective.transcode.star",
             "collective.themeswitcher",
-            "plone.app.contenttypes",
+            #"plone.app.contenttypes",
+            # have a "content" profile which break the test
             "plone.app.versioningbehavior",
             "dexterity.membrane",
             "plone.app.dexterity",
