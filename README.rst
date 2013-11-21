@@ -142,10 +142,6 @@ Dependencies
      - |collective.readitlater.v|
      - |collective.readitlater.t|
      - |collective.readitlater.c|
-   * - collective.requestaccess
-     - |collective.requestaccess.v|
-     - |collective.requestaccess.t|
-     - |collective.requestaccess.c|
    * - collective.themeswitcher
      - |collective.themeswitcher.v|
      - |collective.themeswitcher.t|
@@ -295,13 +291,6 @@ People
    :target: http://travis-ci.org/collective/collective.readitlater
 .. |collective.readitlater.c| image:: https://coveralls.io/repos/collective/collective.readitlater/badge.png?branch=master
    :target: https://coveralls.io/r/collective/collective.readitlater
-
-.. |collective.requestaccess.v| image:: https://pypip.in/v/collective.requestaccess/badge.png
-   :target: https://crate.io/packages/collective.requestaccess
-.. |collective.requestaccess.t| image:: https://secure.travis-ci.org/collective/collective.requestaccess.png
-   :target: http://travis-ci.org/collective/collective.requestaccess
-.. |collective.requestaccess.c| image:: https://coveralls.io/repos/collective/collective.requestaccess/badge.png?branch=master
-   :target: https://coveralls.io/r/collective/collective.requestaccess
 
 .. |collective.themeswitcher.v| image:: https://pypip.in/v/collective.themeswitcher/badge.png
    :target: https://crate.io/packages/collective.themeswitcher
