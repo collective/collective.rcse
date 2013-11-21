@@ -1,0 +1,194 @@
+# Translation of collective.requestaccess.pot to French
+# French Translation Team "plone-fr" <plone-fr@lists.plone.org>, 2003-2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: collective.requestaccess\n"
+"POT-Creation-Date: 2013-06-24 14:46+0000\n"
+"PO-Revision-Date: 2010-11-13 11:07+0100\n"
+"Last-Translator: YOURNAME <name@email.com>\n"
+"Language-Team: French <plone-fr@lists.plone.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language-Code: fr\n"
+"Language-Name: French\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.requestaccess\n"
+"X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
+
+#: ./browser/request.py:131
+msgid "Accept access"
+msgstr "Accépter l'accès"
+
+#: ./browser/templates/my_requests_view.pt:20
+#: ./browser/templates/review_requests_view.pt:21
+msgid "Actions"
+msgstr "Actions"
+
+#: ./profiles/default/types/collective.requestaccess.xml
+msgid "Ask a reviewer to grant you a new role"
+msgstr "Demander à un administrateur de vous donner un rôle"
+
+#: ./browser/request.py:177
+msgid "Cancel"
+msgstr "Annuler"
+
+#: ./interfaces.py:14
+msgid "Creator ID"
+msgstr "ID du créateur"
+
+#: ./browser/request.py:145
+msgid "Decline access"
+msgstr "Décliner l'accès"
+
+#: ./interfaces.py:9
+msgid "ID"
+msgstr "ID"
+
+#: ./vocabulary.py:46
+msgid "Invitation"
+msgstr "Invitation"
+
+#: ./browser/invite.py:50
+msgid "Invitation sent"
+msgstr "Invitation envoyée"
+
+#: ./profiles/default/actions.xml
+msgid "My Requests"
+msgstr "Mes demandes d'accès"
+
+#: ./browser/templates/my_requests_view.pt:14
+#: ./browser/templates/review_requests_view.pt:14
+msgid "My requests"
+msgstr "Mes demandes d'accès"
+
+#: ./browser/invite.py:39
+#: ./profiles/default/actions.xml
+msgid "Propose access"
+msgstr "Proposer un accès"
+
+#: ./browser/invite.py:55
+msgid "Propose access on ${title}"
+msgstr "Proposer un accès à '${title}'"
+
+#: ./browser/request.py:109
+msgid "Refuse access"
+msgstr "Refuser l'accès"
+
+#: ./profiles/default/types/collective.requestaccess.xml
+#: ./vocabulary.py:45
+msgid "Request"
+msgstr "Demande d'accès"
+
+#: ./browser/request.py:77
+msgid "Request ID"
+msgstr "ID de la reqûete"
+
+#: ./browser/request.py:53
+#: ./profiles/default/actions.xml
+msgid "Request access"
+msgstr "Demander un accès"
+
+#: ./browser/request.py:67
+msgid "Request access on ${title}"
+msgstr "Demande d'accès à '${title}'"
+
+#: ./profiles/default/actions.xml
+msgid "Review Requests"
+msgstr "Mes demandes d'accès en attente"
+
+#: ./browser/invite.py:20
+#: ./browser/request.py:35
+#: ./browser/templates/my_requests_view.pt:18
+msgid "Role"
+msgstr "Rôle"
+
+#: ./interfaces.py:67
+msgid "Roles"
+msgstr "Rôles"
+
+#: ./browser/templates/request_view.pt:17
+msgid "Target"
+msgstr "Cible"
+
+#: ./interfaces.py:18
+msgid "Target Path"
+msgstr "Chemin (path) de la cible"
+
+#: ./interfaces.py:16
+msgid "Target UUID"
+msgstr "UUID de la cible"
+
+#: ./interfaces.py:19
+msgid "Target path part"
+msgstr "Partie du chemin (path) de la cible"
+
+#: ./interfaces.py:21
+msgid "Target title"
+msgstr "Titre de la cible"
+
+#: ./browser/request.py:120
+msgid "The request has been refused"
+msgstr "La demande a été refusée"
+
+#: ./browser/request.py:104
+msgid "The request has been validated"
+msgstr "La demande a été acceptée"
+
+#: ./interfaces.py:11
+msgid "Type of request"
+msgstr "Type de demande"
+
+#: ./browser/templates/review_requests_view.pt:19
+msgid "User"
+msgstr "Utilisateur"
+
+#: ./browser/invite.py:16
+#: ./interfaces.py:15
+msgid "User ID"
+msgstr "ID de l'utilisateur"
+
+#: ./browser/request.py:93
+msgid "Validate access"
+msgstr "Valider l'accès"
+
+#: ./browser/templates/my_requests_view.pt:19
+#: ./browser/templates/review_requests_view.pt:20
+msgid "Where"
+msgstr "Ou"
+
+#: ./manager.py:167
+msgid "You can 't validate your own request"
+msgstr "Vous ne pouvez pas valider votre propre demande"
+
+#: ./browser/request.py:142
+msgid "You have accepted the invitation"
+msgstr "Vous avez accepté l'invitation"
+
+#: ./browser/request.py:156
+msgid "You have declined access"
+msgstr "Vous avez décliné l'invitation"
+
+#: ./browser/request.py:100
+msgid "You must provide a request ID"
+msgstr "Vous devez préciser l'identifiant de la demande"
+
+#: ./browser/request.py:184
+msgid "Your request has been canceled"
+msgstr "Votre demande a été annulée"
+
+#: ./browser/request.py:62
+msgid "Your request has been saved. It's now under review"
+msgstr "Votre demande a été enregistrée. Elle est maintenant en attente d'une validation"
+
+#. Default: "You are proposing access on the default view of a container. If you wanted to propose access on the container itself, ${go_here}."
+#: ./browser/templates/add_invite_form_view.pt:21
+msgid "label_invite_default_view_container"
+msgstr "Vous proposez un accès sur la vue par défaut d'un dossier. Si vous souhaitez proposer cet accès au dossier lui-même, ${go_here}."
+
+#. Default: "You are requesting access on the default view of a container. If you wanted to request access on the container itself, ${go_here}."
+#: ./browser/templates/add_request_form_view.pt:21
+msgid "label_request_default_view_container"
+msgstr "Vous demandez un accès sur la vue par défaut d'un dossier. Si vous souhaitez demander cet accès sur le dossier lui même, ${go_here}."
+

@@ -2,6 +2,40 @@
 <object name="portal_actions" meta_type="Plone Actions Tool"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <object name="document_actions" meta_type="CMF Action Category">
+  <object name="add_request_access" meta_type="CMF Action" i18n:domain="collective.requestaccess">
+   <property name="title" i18n:translate="">Request access</property>
+   <property name="description" i18n:translate=""></property>
+   <property name="url_expr">string:$object_url/add_request_form_view</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr">object/@@request_manager/can_request</property>
+   <property name="permissions">
+    <element value="collective.requestaccess: Add request"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+  <object name="add_invite_access" meta_type="CMF Action" i18n:domain="collective.requestaccess">
+   <property name="title" i18n:translate="">Propose access</property>
+   <property name="description" i18n:translate=""></property>
+   <property name="url_expr">string:$object_url/add_invite_form_view</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr">object/@@request_manager/can_invite</property>
+   <property name="permissions">
+    <element value="collective.requestaccess: Review request"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+  <object name="review_requests" meta_type="CMF Action" i18n:domain="collective.requestaccess">
+   <property name="title" i18n:translate="">Review Requests</property>
+   <property name="description" i18n:translate=""></property>
+   <property
+      name="url_expr">string:${object_url}/@@review_requests_view</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr">object/@@request_manager/can_review</property>
+   <property name="permissions">
+    <element value="collective.requestaccess: Review request"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
   <object name="collective_rcse_add_to_mynews" meta_type="CMF Action" i18n:domain="collective.rcse">
    <property name="title" i18n:translate="">Add to my news</property>
    <property name="description" i18n:translate="">Display new content of this group in your news</property>
@@ -89,6 +123,18 @@
  </object>
 
  <object name="user" meta_type="CMF Action Category">
+  <object name="my_requests" meta_type="CMF Action" i18n:domain="collective.requestaccess">
+   <property name="title" i18n:translate="">My Requests</property>
+   <property name="description" i18n:translate=""></property>
+   <property
+      name="url_expr">string:${globals_view/navigationRootUrl}/@@my_requests_view</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr">python:member is not None</property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
  <!-- desactivate some plone base user action -->
   <object name="dashboard"><property name="visible">False</property></object>
   <object name="preferences"><property name="visible">False</property></object>

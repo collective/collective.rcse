@@ -1,0 +1,192 @@
+# Gettext Message File for collective.requestaccess
+msgid ""
+msgstr ""
+"Project-Id-Version: collective.requestaccess\n"
+"POT-Creation-Date: 2013-06-24 14:46+0000\n"
+"PO-Revision-Date: 2008-02-04 18:00+0000\n"
+"Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.requestaccess\n"
+
+#: ./browser/request.py:131
+msgid "Accept access"
+msgstr ""
+
+#: ./browser/templates/my_requests_view.pt:20
+#: ./browser/templates/review_requests_view.pt:21
+msgid "Actions"
+msgstr ""
+
+#: ./profiles/default/types/collective.requestaccess.xml
+msgid "Ask a reviewer to grant you a new role"
+msgstr ""
+
+#: ./browser/request.py:177
+msgid "Cancel"
+msgstr ""
+
+#: ./interfaces.py:14
+msgid "Creator ID"
+msgstr ""
+
+#: ./browser/request.py:145
+msgid "Decline access"
+msgstr ""
+
+#: ./interfaces.py:9
+msgid "ID"
+msgstr ""
+
+#: ./vocabulary.py:46
+msgid "Invitation"
+msgstr ""
+
+#: ./browser/invite.py:50
+msgid "Invitation sent"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "My Requests"
+msgstr ""
+
+#: ./browser/templates/my_requests_view.pt:14
+#: ./browser/templates/review_requests_view.pt:14
+msgid "My requests"
+msgstr ""
+
+#: ./browser/invite.py:39
+#: ./profiles/default/actions.xml
+msgid "Propose access"
+msgstr ""
+
+#: ./browser/invite.py:55
+msgid "Propose access on ${title}"
+msgstr ""
+
+#: ./browser/request.py:109
+msgid "Refuse access"
+msgstr ""
+
+#: ./profiles/default/types/collective.requestaccess.xml
+#: ./vocabulary.py:45
+msgid "Request"
+msgstr ""
+
+#: ./browser/request.py:77
+msgid "Request ID"
+msgstr ""
+
+#: ./browser/request.py:53
+#: ./profiles/default/actions.xml
+msgid "Request access"
+msgstr ""
+
+#: ./browser/request.py:67
+msgid "Request access on ${title}"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Review Requests"
+msgstr ""
+
+#: ./browser/invite.py:20
+#: ./browser/request.py:35
+#: ./browser/templates/my_requests_view.pt:18
+msgid "Role"
+msgstr ""
+
+#: ./interfaces.py:67
+msgid "Roles"
+msgstr ""
+
+#: ./browser/templates/request_view.pt:17
+msgid "Target"
+msgstr ""
+
+#: ./interfaces.py:18
+msgid "Target Path"
+msgstr ""
+
+#: ./interfaces.py:16
+msgid "Target UUID"
+msgstr ""
+
+#: ./interfaces.py:19
+msgid "Target path part"
+msgstr ""
+
+#: ./interfaces.py:21
+msgid "Target title"
+msgstr ""
+
+#: ./browser/request.py:120
+msgid "The request has been refused"
+msgstr ""
+
+#: ./browser/request.py:104
+msgid "The request has been validated"
+msgstr ""
+
+#: ./interfaces.py:11
+msgid "Type of request"
+msgstr ""
+
+#: ./browser/templates/review_requests_view.pt:19
+msgid "User"
+msgstr ""
+
+#: ./browser/invite.py:16
+#: ./interfaces.py:15
+msgid "User ID"
+msgstr ""
+
+#: ./browser/request.py:93
+msgid "Validate access"
+msgstr ""
+
+#: ./browser/templates/my_requests_view.pt:19
+#: ./browser/templates/review_requests_view.pt:20
+msgid "Where"
+msgstr ""
+
+#: ./manager.py:167
+msgid "You can 't validate your own request"
+msgstr ""
+
+#: ./browser/request.py:142
+msgid "You have accepted the invitation"
+msgstr ""
+
+#: ./browser/request.py:156
+msgid "You have declined access"
+msgstr ""
+
+#: ./browser/request.py:100
+msgid "You must provide a request ID"
+msgstr ""
+
+#: ./browser/request.py:184
+msgid "Your request has been canceled"
+msgstr ""
+
+#: ./browser/request.py:62
+msgid "Your request has been saved. It's now under review"
+msgstr ""
+
+#. Default: "You are proposing access on the default view of a container. If you wanted to propose access on the container itself, ${go_here}."
+#: ./browser/templates/add_invite_form_view.pt:21
+msgid "label_invite_default_view_container"
+msgstr ""
+
+#. Default: "You are requesting access on the default view of a container. If you wanted to request access on the container itself, ${go_here}."
+#: ./browser/templates/add_request_form_view.pt:21
+msgid "label_request_default_view_container"
+msgstr ""
+

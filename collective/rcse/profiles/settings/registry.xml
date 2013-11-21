@@ -86,10 +86,32 @@
    </records>
 
   <!-- collective.requestaccess -->
+  <records interface="collective.requestaccess.interfaces.Settings">
+    <value key="roles" purge="False">
+      <element>Reader</element>
+      <element>Editor</element>
+      <element>Reviewer</element>
+      <element>Contributor</element>
+      <element>Site Administrator</element>
+    </value>
+  </records>
   <record name="collective.request.access.filter.types_whitelist">
+    <field type="plone.registry.field.Tuple">
+        <title>Request access white list</title>
+        <value_type type="plone.registry.field.ASCIILine" />
+        <required>False</required>
+    </field>
     <value purge="False">
       <element>collective.rcse.group</element>
     </value>
+  </record>
+  <record name="collective.request.access.filter.types_blacklist">
+    <field type="plone.registry.field.Tuple">
+        <title>Request access white list</title>
+        <value_type type="plone.registry.field.ASCIILine" />
+        <required>False</required>
+    </field>
+    <value />
   </record>
 
 

@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 <object name="portal_properties" meta_type="Plone Properties Tool">
+ <object name="navtree_properties" meta_type="Plone Property Sheet">
+  <property name="metaTypesNotToList" type="lines" purge="false">
+   <element value="collective.requestaccess"/>
+  </property>
+ </object>
  <object name="site_properties" meta_type="Plone Property Sheet">
   <property name="external_links_open_new_window" type="string">true</property>
   <property name="mark_special_links" type="string">true</property>
@@ -8,6 +13,7 @@
    <element value="collective.rcse.directory"/>
    <element value="collective.rcse.member"/>
    <element value="collective.rcse.company"/>
+   <element value="collective.requestaccess"/>
    <element value="Collection"/>
    <element value="Event"/>
    <element value="Topic"/>

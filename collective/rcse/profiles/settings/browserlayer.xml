@@ -1,4 +1,7 @@
 <layers>
     <layer name="collective.rcse"
            interface="collective.rcse.layer.CommonLayer" />
+
+    <layer name="collective.requestaccess" remove="True"
+           interface="collective.requestaccess.layer.Layer" />
 </layers>

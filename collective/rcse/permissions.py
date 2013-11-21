@@ -47,3 +47,13 @@ setDefaultRoles(MakePrivate, TYPE_ROLES)
 security.declarePublic('MakePublishedInternally')
 MakePublishedInternally = "collective.rcse: Make published internally"
 setDefaultRoles(MakePublishedInternally, TYPE_ROLES)
+
+security = ModuleSecurityInfo('collective.requestaccess')
+
+security.declarePublic('AddRequest')
+AddRequest = 'collective.requestaccess: Add request'
+setDefaultRoles(AddRequest, ('Member', 'Manager'))
+
+security.declarePublic('ReviewRequest')
+ReviewRequest = 'collective.requestaccess: Review request'
+setDefaultRoles(ReviewRequest, ('Manager', 'Site Administrator', 'Owner'))

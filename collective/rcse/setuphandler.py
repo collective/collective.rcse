@@ -5,21 +5,26 @@ from Products.CMFCore.WorkflowCore import WorkflowException
 from Products.CMFCore.permissions import View
 from Products.CMFPlone.utils import _createObjectByType
 from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
+from Products.membrane.config import TOOLNAME
 from plone.app.contentrules.rule import Rule, get_assignments
 from plone.app.controlpanel.security import ISecuritySchema
+from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
+from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.contentrules.engine.assignments import RuleAssignment
-from plone.contentrules.engine.interfaces import IRuleStorage,\
+from plone.contentrules.engine.interfaces import (
+    IRuleStorage,
     IRuleAssignmentManager
+)
 from plone.contentrules.rule.interfaces import IRuleAction, IRuleCondition
-from zope.globalrequest import getRequest
+from plone.dexterity.interfaces import IDexterityContainer
 from zope import component
+from zope.globalrequest import getRequest
+from zope.interface.declarations import alsoProvides
+from zExceptions import BadRequest
 
 from cioppino.twothumbs.event import ILikeEvent
 from collective.rcse.i18n import _
-from plone.app.layout.navigation.interfaces import INavigationRoot
-from zope.interface.declarations import alsoProvides
-from Products.membrane.config import TOOLNAME
-from zExceptions import BadRequest
+
 
 LOG = logging.getLogger("collective.history")
 
@@ -43,6 +48,79 @@ def setupVarious(context):
     activateComments(portal)
     setupDeletedStateInWorkflows(portal)
     removeIconsFromTypes(portal)
+    installRequestAccess(portal)
+
+
+def installRequestAccess(portal):
+    if "portal_requestaccess" not in portal.objectIds():
+        LOG.info("create portal_requestaccess")
+        createContainer(
+            portal,
+            "portal_requestaccess",
+            "Request/Invite of the site"
+        )
+    container = portal.portal_requestaccess
+    updateContainer(container,
+                    "folder_full_view",
+                    ["collective.requestaccess"])
+    updatePermissions(container)
+    updateCatalog(portal)
+
+
+def updatePermissions(portal_requestaccess):
+    portal_requestaccess.manage_permission(
+        'View',
+        roles=['Manager'],
+        acquire=False
+    )
+
+
+def updateCatalog(obj):
+    catalog = getToolByName(obj, 'portal_requestaccess_catalog')
+    indexes = catalog.indexes()
+    if 'rtype' not in indexes:
+        catalog.addIndex('rtype', 'FieldIndex')
+    if 'userid' not in indexes:
+        catalog.addIndex('userid', 'FieldIndex')
+    if 'target' not in indexes:
+        catalog.addIndex('target', 'FieldIndex')
+    if 'target_path' not in indexes:
+        catalog.addIndex('target_path', 'ExtendedPathIndex',
+                         extra={'indexed_attrs': 'target_path'})
+    if 'path' not in indexes:
+        catalog.addIndex('path', 'ExtendedPathIndex',
+                         extra={'indexed_attrs': 'getPhysicalPath'})
+
+
+def updateContainer(container, layout, ptypes):
+    container.unindexObject()
+    container.setLayout(layout)
+    if IExcludeFromNavigation.providedBy(container):
+        container.exclude_from_nav = True
+    else:
+        container.setExcludeFromNav(True)
+
+    aspect = ISelectableConstrainTypes(container)
+    addable = aspect.getImmediatelyAddableTypes()
+    for ptype in ptypes:
+        if ptype not in addable:
+            aspect.setConstrainTypesMode(1)  # select manually
+        if IDexterityContainer.providedBy(container):
+            #bypass check for available types
+            container.immediately_addable_types = ptypes
+        else:
+            aspect.setImmediatelyAddableTypes(ptypes)
+
+
+def createContainer(parent, objid, title):
+    existing = parent.objectIds()
+    if objid not in existing:
+        _createObjectByType(
+            "Folder",
+            parent,
+            id=objid,
+            title=title
+        )
 
 
 def setupRegistration(site):

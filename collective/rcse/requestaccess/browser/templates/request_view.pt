@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.requestaccess">
+
+<body>
+
+<metal:content-core metal:fill-slot="content-core">
+  <tal:main-macro metal:define-macro="content-core">
+  <div tal:define="navigation_root_url context/@@plone_portal_state/navigation_root_url;">
+    <ul>
+      <li><span tal:content="context/userid"></span></li>
+      <li><span tal:content="context/role"></span></li>
+      <li><a tal:attributes="href string:${navigation_root_url}/resolveuid/${context/target}" i18n:translate="">Target</a></li>
+    </ul>
+  </div>
+  </tal:main-macro>
+</metal:content-core>
+
+</body>
+</html>

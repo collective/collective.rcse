@@ -1,0 +1,58 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="collective.requestaccess">
+
+  <browser:page
+      for="*"
+      name="request_manager"
+      class="collective.requestaccess.manager.RequestManager"
+      layer="collective.requestaccess.layer.Layer"
+      permission="zope2.View"
+      allowed_interface="collective.requestaccess.interfaces.IRequestManager"
+      />
+  <browser:page
+      for="*"
+      name="add_request_form_view"
+      class=".request.AddRequestFormView"
+      layer="collective.requestaccess.layer.Layer"
+      permission="collective.requestaccess.addrequest"
+      />
+  <browser:page
+      for="*"
+      name="add_invite_form_view"
+      class=".invite.InvitationFormWrapper"
+      layer="collective.requestaccess.layer.Layer"
+      permission="collective.requestaccess.reviewrequest"
+      />
+  <browser:page
+      for="collective.requestaccess.interfaces.RequestSchema"
+      name="request_view"
+      class=".request.RequestView"
+      template="templates/request_view.pt"
+      layer="collective.requestaccess.layer.Layer"
+      permission="zope2.View"
+      />
+  <browser:page
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      name="my_requests_view"
+      class=".requests.MyRequestsView"
+      template="templates/my_requests_view.pt"
+      layer="collective.requestaccess.layer.Layer"
+      permission="zope2.View"
+      />
+  <browser:page
+      for="*"
+      name="review_requests_view"
+      class=".requests.ReviewRequestsView"
+      template="templates/review_requests_view.pt"
+      layer="collective.requestaccess.layer.Layer"
+      permission="collective.requestaccess.reviewrequest"
+      />
+
+  <adapter factory=".invite.InvitationFormAdapter"/>
+  <adapter factory=".request.AddRequestFormAdapter"/>
+  <adapter factory=".request.ValidationRequestFormAdapter"/>
+  <adapter factory=".request.CancelRequestFormAdapter"/>
+
+</configure>

@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master">
+<body>
+
+<metal:slot metal:fill-slot="header" i18n:domain="cmf_default">
+  <h1 tal:content="view/label">View Title</h1>
+</metal:slot>
+
+<metal:slot metal:fill-slot="main" i18n:domain="cmf_default">
+
+<dl class="portalMessage info" i18n:domain="plone"
+    tal:condition="context/@@plone/isDefaultPageInFolder|nothing">
+    <dt i18n:translate="">
+        Info
+    </dt>
+    <dd i18n:translate="label_request_default_view_container" i18n:domain="collective.requestaccess">
+        You are requesting access on the default view of a container. If you wanted to request access on the container itself,
+       <a href=""
+          i18n:name="go_here"
+          i18n:domain="plone"
+          i18n:translate="label_edit_default_view_container_go_here"
+          tal:attributes="href string:${context/aq_inner/aq_parent/absolute_url}/add_request_form_view">go here</a>.
+    </dd>
+</dl>
+
+
+  <div id="layout-contents">
+    <span tal:replace="structure view/contents" />
+  </div>
+</metal:slot>
+</body>
+</html>

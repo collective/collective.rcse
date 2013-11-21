@@ -52,8 +52,6 @@ setup(
         'collective.portlet.localusers',
         'collective.portlet.oembed',
         'collective.readitlater',
-        'collective.requestaccess',
-#        'collective.subscribe',
         'collective.themeswitcher',
         'collective.transcode.star',
         'collective.watcherlist',

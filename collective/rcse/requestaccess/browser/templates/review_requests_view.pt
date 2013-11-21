@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.requestaccess">
+
+<body>
+
+<div metal:fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+
+    <h1 i18n:translate="">My requests</h1>
+    <table class="listing">
+    <thead>
+      <tr>
+        <th i18n:translate="">Role</th>
+        <th i18n:translate="">User</th>
+        <th i18n:translate="">Where</th>
+        <th i18n:translate="">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr tal:repeat="req view/requests">
+        <td i18n:domain="plone" i18n:translate="" tal:content="req/role"></td>
+        <td><a tal:attributes="href string:${view/portal_state/portal_url}/author/req/userid" tal:content="req/userid">userid</a></td>
+        <td>
+            <a tal:attributes="href req/target" i18:translate="">
+                <span tal:replace="req/target_path">target path</span>
+                (<span tal:replace="req/target_title"></span>)
+            </a>
+        </td>
+        <td>
+          <tal:with-form-as-view define="view nocall:req/form">
+              <metal:block use-macro="req/form/@@ploneform-macros/titlelessform" />
+          </tal:with-form-as-view>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+
+    </tal:main-macro>
+</div>
+
+</body>
+</html>

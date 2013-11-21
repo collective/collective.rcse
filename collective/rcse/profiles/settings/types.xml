@@ -13,6 +13,7 @@
     <object meta_type="Dexterity FTI" name="collective.rcse.member" />
     <object meta_type="Dexterity FTI" name="collective.rcse.company" />
     <object meta_type="Dexterity FTI" name="collective.rcse.directory" />
+    <object meta_type="Dexterity FTI" name="collective.requestaccess" />
 
     <object meta_type="Dexterity FTI" name="collective.rcse.document" remove="True"/>
     <object meta_type="Dexterity FTI" name="collective.rcse.file" remove="True"/>

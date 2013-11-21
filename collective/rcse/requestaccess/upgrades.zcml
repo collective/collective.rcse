@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/genericsetup"
+    i18n_domain="collective.requestaccess">
+
+    <upgradeStep
+        source="*"
+        destination="1006"
+        title="Upgrade"
+        description=""
+        profile="collective.requestaccess:default"
+        handler=".upgrades.common"
+        />
+
+</configure>

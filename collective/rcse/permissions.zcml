@@ -56,7 +56,14 @@
       id="collective.rcse.MakePublishedInternally"
       title="collective.rcse: Make published internally"
       />
-
+    <permission
+      id="collective.requestaccess.addrequest"
+      title="collective.requestaccess: Add request"
+      />
+    <permission
+      id="collective.requestaccess.reviewrequest"
+      title="collective.requestaccess: Review request"
+      />
   </configure>
 
 </configure>
