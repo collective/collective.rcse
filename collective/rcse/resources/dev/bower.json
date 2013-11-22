@@ -19,7 +19,7 @@
     "bootstrap": "3.0.0",
     "chosen": "https://github.com/harvesthq/chosen/releases/download/1.0.0/chosen_v1.0.0.zip",
     "eo-ckeditor": "master",
-    "excanvas": "e6f8a58dbce5858586564a1ba4543f122ef63225",
+    "excanvas": "master",
     "datatables": "1.9.4",
     "datatables-plugins": "*",
     "fastclick": "0.6.10",
