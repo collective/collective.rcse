@@ -12,7 +12,7 @@
  <property name="allowed_content_types" />
 
  <!-- schema interface -->
- <property name="schema">collective.requestaccess.interfaces.RequestSchema</property>
+ <property name="schema">collective.rcse.requestaccess.interfaces.RequestSchema</property>
 
  <!-- class used for content items -->
  <property name="klass">plone.dexterity.content.Item</property>

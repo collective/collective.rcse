@@ -86,7 +86,7 @@
    </records>
 
   <!-- collective.requestaccess -->
-  <records interface="collective.requestaccess.interfaces.Settings">
+  <records interface="collective.rcse.requestaccess.interfaces.Settings">
     <value key="roles" purge="False">
       <element>Reader</element>
       <element>Editor</element>
