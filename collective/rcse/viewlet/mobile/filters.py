@@ -26,7 +26,7 @@ class FiltersFormSchema(model.Schema):
     SearchableText = schema.TextLine(
         title=_(u'Search'),
         required=False
-        )
+    )
 
     directives.widget('portal_type', SelectFieldWidget)
     portal_type = schema.Choice(
@@ -39,11 +39,11 @@ class FiltersFormSchema(model.Schema):
         title=_(u'Sort on'),
         vocabulary=sortBy,
         default="relevance"
-        )
+    )
 
     sort_order = schema.Bool(
         title=_(u'Reversed')
-        )
+    )
 
 
 class FiltersFormAdapter(object):

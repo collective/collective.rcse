@@ -12,7 +12,7 @@ class ISettings(interface.Interface):
         title=u"Settings",
         key_type=schema.ASCIILine(),
         value_type=schema.ASCIILine()
-        )
+    )
 
 
 class Settings(object):

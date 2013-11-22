@@ -15,10 +15,10 @@ class IPreferenceCondition(interface.Interface):
     preference = schema.Choice(
         title=_(u"Preference"),
         vocabulary=settings
-        )
+    )
     condition = schema.Bool(
         title=_(u"Condition")
-        )
+    )
 
 
 class PreferenceCondition(SimpleItem):

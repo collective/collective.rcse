@@ -67,7 +67,7 @@ class BaseView(BrowserView):
             "path": self.context_path,
             "sort_on": "modified",
             "sort_order": "reverse",
-            }
+        }
         self._update_query_portal_type()
         text = self.request.get('SearchableText', None)
         if text is not None:
@@ -166,7 +166,7 @@ class BaseAddFormView(BaseView, FormWrapper):
     portlets_show = {
         'plone.leftcolumn': True,
         'plone.rightcolumn': False,
-        }
+    }
 #    filter_type = [CONTENT_TYPE]
 #    form = AddForm
 

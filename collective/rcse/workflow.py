@@ -55,7 +55,7 @@ def _sendMail(context, event):
         portal_url=portal_url(),
         validated=validated,
         request=getRequest()
-        )
+    )
     try:
         host.send(mail_text.encode('utf8'))
     except:

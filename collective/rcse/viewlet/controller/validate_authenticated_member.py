@@ -24,7 +24,7 @@ class ValidateAuthenticatedMember(ViewletBase):
         'login', 'login_form', 'logout', 'logged_out',
         #registration
         '@@register', '@@personal-information', '@@register_information'
-        ]
+    ]
 
     def update(self):
         super(ValidateAuthenticatedMember, self).update()

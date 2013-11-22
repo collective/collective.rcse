@@ -70,14 +70,14 @@ class SendValidationEmailView(BrowserView):
         validation_url = '%s/@@validate_email?key=%s' % (
             portal.absolute_url(),
             self.memberinfo.email_validation
-            )
+        )
         mail_template = portal.email_validate_email
         mail_text = mail_template(
             subject=subject,
             email=self.memberinfo.email,
             validation_url=validation_url,
             request=self.request
-            )
+        )
         host.send(mail_text.encode('utf8'))
 
 
@@ -90,12 +90,12 @@ def generateKeyAndSendEmail(context, request, memberinfo):
     validation_url = '%s/@@validate_email?key=%s' % (
         portal.absolute_url(),
         memberinfo.email_validation
-        )
+    )
     mail_template = portal.email_validate_email
     mail_text = mail_template(
         subject=subject,
         email=memberinfo.email,
         validation_url=validation_url,
         request=request
-        )
+    )
     host.send(mail_text.encode('utf8'))

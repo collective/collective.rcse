@@ -20,11 +20,11 @@ class ModifyCompanyFormSchema(interface.Interface):
         title=_(u"Select your company"),
         vocabulary='collective.rcse.vocabulary.companies',
         required=False
-        )
+    )
     new_company = schema.TextLine(
         title=_(u"Or create it"),
         required=False
-        )
+    )
 
 
 class ModifyCompanyFormAdapter(object):
@@ -51,8 +51,8 @@ class ModifyCompanyForm(AutoExtensibleForm, form.Form):
                 'new_company',
                 interface.Invalid(
                     _(u"You need to specify your company name.")
-                    )
                 )
+            )
         if errors:
             self.status = _(u"There were errors.")
             return

@@ -160,7 +160,7 @@ def createDirectories(parent):
         parent.users_directory,
         ['collective.rcse.member'],
         "users_directory_view"
-        )
+    )
     _publishContent(parent.users_directory)
     if "companies_directory" not in existing:
         _createObjectByType(
@@ -173,7 +173,7 @@ def createDirectories(parent):
         parent.companies_directory,
         ['collective.rcse.company'],
         "companies_directory_view",
-        )
+    )
     _publishContent(parent.companies_directory)
     if "home" not in existing:
         _createObjectByType(
@@ -186,7 +186,7 @@ def createDirectories(parent):
         parent.home,
         ['collective.rcse.group'],
         "timeline_view",
-        )
+    )
     alsoProvides(parent.home, INavigationRoot)
     _publishContent(parent.home)
     parent.home.reindexObject()
@@ -250,14 +250,14 @@ def _subscribe_on_like_rule(portal, request):
         rule,
         'plone.conditions.PortalType',
         data
-        )
+    )
     data = {'preference': 'subscribe_when_favorited', 'condition': True}
     _add_rule_condition(
         request,
         rule,
         'collective.rcse.conditions.Preference',
         data
-        )
+    )
 
     data = {'subscription': 'subscribe'}
     action = 'collective.whathappened.actions.Subscription'
@@ -279,7 +279,7 @@ def _watch_on_like_rule(portal, request):
         rule,
         'collective.rcse.conditions.Preference',
         data
-        )
+    )
 
     data = {'watching': 'watch'}
     action = 'collective.watcherlist.actions.Watching'
@@ -398,7 +398,7 @@ def _addDeletedState(definition):
         "Access contents information": MANAGER,
         "Modify portal content": MANAGER,
         "View": MANAGER,
-        }
+    }
 
 
 def _addDeleteTransition(definition):

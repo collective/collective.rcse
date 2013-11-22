@@ -197,7 +197,7 @@ class MemberInfoView(AuthenticatedMemberInfoView):
         brains = catalog(
             portal_type='collective.rcse.group',
             user_with_local_roles=self.memberid
-            )
+        )
         return brains
 
     def canModify(self):

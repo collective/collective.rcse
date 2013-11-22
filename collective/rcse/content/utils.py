@@ -22,7 +22,7 @@ def createCompany(context, request, username=None, company_name=None):
         directory,
         'collective.rcse.company',
         title=company_name
-        )
+    )
     company.manage_delLocalRoles([auth_user])
     company.changeOwnership(mtool.getMemberById(username))
     company.manage_setLocalRoles(username, ['Owner'])
@@ -43,7 +43,7 @@ def _createCompaniesGroups(home, company, username,
                         mapping={'company': company.title},
                         context=request
                         )
-        )
+    )
     private_group.manage_delLocalRoles([auth_user])
     private_group.changeOwnership(mtool.getMemberById(username))
     private_group.manage_setLocalRoles(username, ['Owner'])
@@ -58,7 +58,7 @@ def _createCompaniesGroups(home, company, username,
                         mapping={'company': company.title},
                         context=request
                         )
-        )
+    )
     public_group.manage_delLocalRoles([auth_user])
     public_group.changeOwnership(mtool.getMemberById(username))
     public_group.manage_setLocalRoles(username, ['Owner'])

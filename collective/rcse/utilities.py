@@ -210,7 +210,7 @@ class RequestAccessRequest(BaseDisplay):
         mapping = {
             'who': self.who,
             'where': self.where
-            }
+        }
         if self.plural:
             return _w(u"${who} have requested access to ${where}",
                       mapping=mapping)
@@ -226,7 +226,7 @@ class RequestAccessInvitation(BaseDisplay):
                                                      notification)
         mapping = {
             'who': self.who
-            }
+        }
         if self.plural:
             return _w(u"${who} have sent you invitations",
                       mapping=mapping)
@@ -243,7 +243,7 @@ class RequestAccessValidated(BaseDisplay):
         mapping = {
             'who': self.who,
             'where': self.where
-            }
+        }
         if notification.where.endswith('@@my_requests_view'):
             if self.plural:
                 return _w(u"${who} have accepted your invitations",
@@ -264,7 +264,7 @@ class RequestAccessRefused(BaseDisplay):
         mapping = {
             'who': self.who,
             'where': self.where
-            }
+        }
         if notification.where.endswith('@@my_requests_view'):
             if self.plural:
                 return _w(u"${who} have refused your invitations",

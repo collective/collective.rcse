@@ -6,7 +6,7 @@ class IUserRolesModifiedOnObjectEvent(interface.Interface):
     """An event related to user having new roles on an object."""
     username = schema.ASCIILine(
         title=u"Username"
-        )
+    )
     object = interface.Attribute(u"The object on which the user has new roles")
 
 

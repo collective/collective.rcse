@@ -107,7 +107,7 @@
   <browser:page
       for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="personal-information"
-      class=".personal-information.PersonalInformation"
+      class=".personal_information.PersonalInformation"
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
       />

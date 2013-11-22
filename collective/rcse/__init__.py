@@ -6,6 +6,7 @@ permissions  # flake8
 content.event  # flake 8
 try:
     import collective.requestaccess
+    collective.requestaccess
 except ImportError:
     import requestaccess
     sys.modules['collective.requestaccess'] = requestaccess

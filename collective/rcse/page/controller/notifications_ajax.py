@@ -21,7 +21,7 @@ class NotificationAjax(BrowserView):
             notification['title'] = translate(
                 notification['title'],
                 context=self.request
-                )
+            )
         unseenCount = getUnseenCount(self.context, self.request)
         return json.dumps({'unseenCount': unseenCount,
                            'notifications': notifications})

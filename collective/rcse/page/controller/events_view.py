@@ -82,11 +82,11 @@ class AddFormSchema(group_base.BaseAddFormSchema):
         title=_pae(
             u'label_event_timezone',
             default=u'Timezone'
-            ),
+        ),
         description=_pae(
             u'help_event_timezone',
             default=u'Select the Timezone, where this event happens.'
-            ),
+        ),
         required=True,
         vocabulary="plone.app.event.AvailableTimezones",
         default="Europe/Paris"
@@ -148,7 +148,7 @@ class EventsView(FormWrapper, EventListing):
     portlets_show = {
         'plone.leftcolumn': True,
         'plone.rightcolumn': False,
-        }
+    }
 
     def __init__(self, context, request):
         FormWrapper.__init__(self, context, request)

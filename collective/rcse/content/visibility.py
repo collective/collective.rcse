@@ -28,13 +28,13 @@ class addVisibilityCheckbox(object):
                     title=_(u'Hide: ${attr}',
                             mapping={'attr': attr.title}),
                     required=False
-                    )
+                )
                 fields['%s%s' % (NAMESPACE, name)] = field
         fieldset = model.Fieldset(
             'privacy',
             label=_(u'Privacy'),
             fields=[f for f in fields.keys()]
-            )
+        )
         new_iface = model.SchemaClass(iface.__name__, (iface,), fields)
         new_iface.setTaggedValue(FIELDSETS_KEY, [fieldset])
         return new_iface

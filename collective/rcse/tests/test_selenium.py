@@ -2,7 +2,6 @@ import time
 import unittest2 as unittest
 
 from selenium.common.exceptions import StaleElementReferenceException
-from selenium.common.exceptions import NoSuchElementException
 
 from collective.rcse.tests.selenium_desktop import DesktopTheme
 from collective.rcse.tests.selenium_mobile import MobileTheme
@@ -34,19 +33,19 @@ class ScenarioTestCase(unittest.TestCase):
         if self.is_mobile:
             group_header2 = user2.find_element_by_class_name(
                 'description-wrapper'
-                )
+            )
         else:
             group_header2 = user2.find_element_by_id('group-header')
         group_header2.find_element_by_id(
             'document-action-cioppino_twothumbs_like'
-            ).click()
+        ).click()
         user1.get('%s/home/companys-public-group' % self.portal_url)
         if self.is_mobile:
             group_header = user1.\
                 find_element_by_class_name('description-wrapper')
             button = group_header.find_element_by_xpath(
                 'self::*//*[@data-rel="popup"]'
-                )
+            )
             button.click()
             href = button.get_attribute('href')
             href = href[(href.rfind('/') + 2):]
@@ -56,10 +55,10 @@ class ScenarioTestCase(unittest.TestCase):
             group_header.find_element_by_class_name('dropdown-toggle').click()
         group_header.find_element_by_id(
             'collective_whathappened_subscribe'
-            ).click()
+        ).click()
         group_header2.find_element_by_id(
             'document-action-favoriting_add'
-            ).click()
+        ).click()
         user1.get(self.portal_url)
         count = user1.find_element_by_id('notifications-count').text
         self.assertEqual(count, u'1', 'Notifications count is not right')
@@ -73,7 +72,7 @@ class ScenarioTestCase(unittest.TestCase):
             time.sleep(1)
             notification = user1.find_element_by_xpath(
                 '//*[@id="notifications"]/ul/li[1]/a'
-                )
+            )
         text = notification.text
         self.assertEqual(text,
                          u'User 2 has added Company\'s '

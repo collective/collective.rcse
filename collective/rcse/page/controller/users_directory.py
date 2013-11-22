@@ -33,7 +33,7 @@ class UsersDirectoryView(BrowserView):
         self.query = {
             'sort_on': 'getId',  # because in mobile we need sorted results
             'portal_type': 'collective.rcse.member',
-            }
+        }
 
     def getMembers(self, review_state="enabled"):
         self.query.update({'review_state': review_state})

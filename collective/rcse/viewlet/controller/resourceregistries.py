@@ -88,17 +88,17 @@ class DesktopResourceRegistries(ResourcesViewlet):
             'title': '',
             'conditionalcomment': "",
             'id': "++resource++collective.rcse/css/desktop.min.css"
-            })
+        })
         self.scripts_config.append({
             'inline': False,
             'conditionalcomment': "",
             'id': "plone_javascript_variables.js"
-            })
+        })
         self.scripts_config.append({
             'inline': False,
             'conditionalcomment': "",
             'id': "++resource++collective.rcse/js/desktop.min.js"
-            })
+        })
 
 
 class MobileResourceRegistries(ResourcesViewlet):
@@ -111,14 +111,14 @@ class MobileResourceRegistries(ResourcesViewlet):
             'title': '',
             'conditionalcomment': "",
             'id': "++resource++collective.rcse/css/mobile.min.css"
-            })
+        })
         self.scripts_config.append({
             'inline': False,
             'conditionalcomment': "",
             'id': "plone_javascript_variables.js"
-            })
+        })
         self.scripts_config.append({
             'inline': False,
             'conditionalcomment': "",
             'id': "++resource++collective.rcse/js/mobile.min.js"
-            })
+        })

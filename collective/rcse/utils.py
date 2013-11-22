@@ -19,7 +19,7 @@ def sudo(role='Manager'):
             acl_users = getSite().acl_users
             tmp_user = UnrestrictedUser(
                 sm.getUser().getId(), '', [role], ''
-                )
+            )
             tmp_user = tmp_user.__of__(acl_users)
             newSecurityManager(None, tmp_user)
             ret = fct(*args, **kwargs)

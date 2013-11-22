@@ -31,11 +31,11 @@ class CompaniesDirectoryView(BrowserView):
         self.query = {
             'sort_on': 'sortable_title',
             'portal_type': 'collective.rcse.company'
-            }
+        }
 
     def getCompanies(self, batch=True, b_size=10, b_start=0):
 #        brains = self.catalog(**self.query)
         results = []
-        for id, item in self.context.contentItems():
-                results.append(item)
+        for item in self.context.contentItems():
+                results.append(item[1])
         return results

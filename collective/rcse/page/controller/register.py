@@ -18,18 +18,18 @@ class RegisterFormSchema(register_information.RegisterInformationFormSchema):
         login='email',
         password='login',
         password_confirm='password',
-        )
+    )
     login = schema.ASCIILine(
         title=_(u'Login')
-        )
+    )
     directives.widget('password', PasswordFieldWidget)
     password = schema.TextLine(
         title=_(u'Password')
-        )
+    )
     directives.widget('password_confirm', PasswordFieldWidget)
     password_confirm = schema.TextLine(
         title=_(u'Confirm the password')
-        )
+    )
 
 
 class RegisterFormAdapter(object):
@@ -56,9 +56,8 @@ class RegisterForm(register_information.RegisterInformationForm):
             return
         if data['password'] != data['password_confirm']:
             raise interfaces.WidgetActionExecutionError(
-                'password',
-                interface.Invalid(_(u'Passwords do not match.'))
-                )
+                'password', interface.Invalid(_(u'Passwords do not match.'))
+            )
         self._registerUser(data)
         self._updateDataCompany(data, data['login'])
         self._updateUser(data['login'], data)
@@ -66,9 +65,7 @@ class RegisterForm(register_information.RegisterInformationForm):
         self._sendMailToUser()
         self._sendNotificationToAdmin()
         portal_url = getToolByName(self.context, "portal_url")
-        self.request.response.redirect(
-            '%s/login' % portal_url()
-            )
+        self.request.response.redirect('%s/login' % portal_url())
 
     def _registerUser(self, data):
         regtool = getToolByName(self.context, 'portal_registration')
@@ -80,7 +77,7 @@ class RegisterForm(register_information.RegisterInformationForm):
         except ValueError, e:
             raise interfaces.ActionExecutionError(
                 interface.Invalid(unicode(e))
-                )
+            )
 
 
 class RegisterFormWrapper(FormWrapper):
@@ -94,4 +91,4 @@ class RegisterFormWrapper(FormWrapper):
             portal_url = getToolByName(self.context, "portal_url")
             self.request.response.redirect(
                 '%s/@@personal-information' % portal_url()
-                )
+            )

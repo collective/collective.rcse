@@ -10,11 +10,11 @@ class ICompany(interface.Interface):
     private_group = schema.ASCIILine(
         required=False,
         readonly=True
-        )
+    )
     public_group = schema.ASCIILine(
         required=False,
         readonly=True
-        )
+    )
     logo = field.NamedBlobImage(
         title=_(u"Logo"),
         required=False
@@ -40,7 +40,7 @@ class ICompany(interface.Interface):
         title=_(u"Sites"),
         value_type=schema.TextLine(),
         required=False
-        )
+    )
     city = schema.TextLine(
         title=_(u"City")
     )

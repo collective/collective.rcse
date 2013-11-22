@@ -38,7 +38,7 @@ def getType(t, prefix=None):
         'folder': 'icon-folder-open',
         'group': 'icon-group',
         'timeline': 'icon-reorder'
-        }
+    }
     t = t.lower()
     if prefix is None:
         prefix = ""

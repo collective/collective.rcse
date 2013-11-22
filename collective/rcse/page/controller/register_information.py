@@ -28,11 +28,11 @@ class RegisterInformationFormSchema(IMember):
         title=_(u"Select your company"),
         vocabulary='collective.rcse.vocabulary.companies',
         required=False
-        )
+    )
     new_company = schema.TextLine(
         title=_(u"Or create it"),
         required=False
-        )
+    )
 
 
 class RegisterInformationFormAdapter(object):
@@ -75,7 +75,7 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
         portal_url = getToolByName(self.context, "portal_url")
         self.request.response.redirect(
             '%s/@@personal-information' % portal_url()
-            )
+        )
 
     def _updateDataCompany(self, data, username):
         if data['new_company'] is not None:
@@ -95,8 +95,8 @@ class RegisterInformationForm(AutoExtensibleForm, form.Form):
                 'new_company',
                 interface.Invalid(
                     _(u"You need to specify your company name.")
-                    )
                 )
+            )
 
     @sudo()
     def _updateUser(self, username, data, member_data=None):
@@ -150,7 +150,7 @@ class RegisterInformationFormWrapper(FormWrapper):
         self.portal_state = component.getMultiAdapter(
             (self.context, self.request),
             name=u'plone_portal_state'
-            )
+        )
         self.member = self.portal_state.member()
         #get member data
         catalog = getToolByName(self.context, 'membrane_tool')
@@ -170,4 +170,4 @@ class RegisterInformationFormWrapper(FormWrapper):
         if self.member_data and self.member_data.company_id is not None:
             self.request.response.redirect(
                 '%s/@@personal-information' % portal_url
-                )
+            )

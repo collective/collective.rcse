@@ -24,7 +24,7 @@ logger = logging.getLogger('collective.rcse')
     'first_name',
     'last_name',
     'advertiser',
-    ])
+])
 class IMember(model.Schema):
     """This is an interface to describe a member"""
 
@@ -39,8 +39,8 @@ class IMember(model.Schema):
             'avatar',
             'areas_of_expertise',
             'interests',
-            ]
-        )
+        ]
+    )
 
     model.fieldset(
         'contact',
@@ -59,8 +59,8 @@ class IMember(model.Schema):
             'linkedin',
             'google',
             'twitter',
-            ]
-        )
+        ]
+    )
 
     username = schema.ASCIILine(
         title=_(u"Username"),
@@ -100,11 +100,11 @@ class IMember(model.Schema):
 
     city = schema.TextLine(
         title=_(u"City"),
-        )
+    )
 
     advertiser = schema.Bool(
         title=_(u"Advertiser")
-        )
+    )
 
     bio = RichText(
         title=_(u"Presentation"),

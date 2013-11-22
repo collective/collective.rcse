@@ -24,7 +24,7 @@ class RCSERequestManager(RequestManager):
                 self.proxy_group != self.context:
             proxy_query = {
                 "target_path": '/'.join(self.proxy_group.getPhysicalPath())
-                }
+            }
             brains = self.catalog(**proxy_query)
             results.extend(self._get_proxy_from_brain(brains))
         return results

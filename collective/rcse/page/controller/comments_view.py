@@ -112,7 +112,7 @@ class CommentsView(base.CommentsViewlet):
             self.menu[reply['id']] = getUtility(
                 IBrowserMenu,
                 name='plone_contentmenu_workflow'
-                ).getMenuItems(reply['comment'], self.request)
+            ).getMenuItems(reply['comment'], self.request)
             if len(self.menu[reply['id']]):
                 del self.menu[reply['id']][-1]
 

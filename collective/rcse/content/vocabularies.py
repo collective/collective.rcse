@@ -36,8 +36,8 @@ def groupTypes(context):
             baseNormalize(t),
             baseNormalize(t),
             _(portal_types[t].title)
-            ) for t in sorted(types)
-        ]
+        ) for t in sorted(types)
+    ]
     return SimpleVocabulary(terms)
 
 
@@ -54,7 +54,7 @@ sortBy = SimpleVocabulary([
     SimpleTerm('relevance', 'relevance', _(u'Relevance')),
     SimpleTerm('Date', 'Date', _(u'Date')),
     SimpleTerm('sortable_title', 'sortable_title', _(u'Title')),
-    ])
+])
 
 
 def companies(context):
@@ -84,7 +84,7 @@ def _getGroupsWithAddPermission(username):
                 unicode(brain.UID),
                 str(brain.UID),
                 brain.Title
-                ))
+            ))
     return terms
 
 
@@ -110,7 +110,7 @@ def groups_with_home(context):
 settings = SimpleVocabulary([
     SimpleTerm(value=field[0], title=field[1].title)
     for field in IPersonalPreferences.namesAndDescriptions()
-    ])
+])
 
 
 def users(context):

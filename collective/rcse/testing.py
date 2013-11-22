@@ -259,7 +259,7 @@ class SeleniumLayer(BaseLayer):
         sqlite_directory = os.environ.get(
             'collective_whathappened_sqlite_directory',
             None
-            )
+        )
         for f in os.listdir(sqlite_directory):
             if '.sqlite' in f:
                 os.unlink('%s/%s' % (sqlite_directory, f))

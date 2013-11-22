@@ -71,10 +71,10 @@ class DesktopTheme(unittest.TestCase):
         browser.find_element_by_name("form.widgets.login").send_keys(username)
         browser.find_element_by_name(
             "form.widgets.password"
-            ).send_keys(password)
+        ).send_keys(password)
         browser.find_element_by_name(
             "form.widgets.password_confirm"
-            ).send_keys(password)
+        ).send_keys(password)
         self.register_info(browser, False, email, first_name, last_name,
                            function, company, city)
         if send:

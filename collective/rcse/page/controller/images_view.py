@@ -18,11 +18,12 @@ class AddFormSchema(group_base.BaseAddFormSchema):
     """Add form"""
     image = NamedBlobImage(
         title=_(u"Image"),
-        description=_(u"Please put an image file here"))
+        description=_(u"Please put an image file here")
+    )
     title = schema.TextLine(
         title=_(u"Title"),
         required=False,
-        )
+    )
     description = schema.Text(
         title=_(u"Description"),
         required=False
