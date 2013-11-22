@@ -85,16 +85,16 @@
 		   Products.DCWorkflow.interfaces.IAfterTransitionEvent"
 	      />
   <subscriber handler=".subscribers.handle_request_added"
-	      for="collective.requestaccess.interfaces.RequestSchema
-		   collective.requestaccess.event.IRequestAddedEvent"
+	      for="collective.rcse.requestaccess.interfaces.RequestSchema
+		   collective.rcse.requestaccess.event.IRequestAddedEvent"
 	      />
   <subscriber handler=".subscribers.handle_request_validated"
-	      for="collective.requestaccess.interfaces.RequestSchema
-		   collective.requestaccess.event.IRequestValidatedEvent"
+	      for="collective.rcse.requestaccess.interfaces.RequestSchema
+		   collective.rcse.requestaccess.event.IRequestValidatedEvent"
 	      />
   <subscriber handler=".subscribers.handle_request_refused"
-          for="collective.requestaccess.interfaces.RequestSchema
-           collective.requestaccess.event.IRequestRefusedEvent"
+          for="collective.rcse.requestaccess.interfaces.RequestSchema
+           collective.rcse.requestaccess.event.IRequestRefusedEvent"
           />
 
   <subscriber handler=".cache.handleUserRolesModifiedOnObject"

@@ -70,7 +70,6 @@ PROFILES = (
     'collective.memberdatatables:default',
     'collective.oembed:default',
     'collective.picturefill:default',
-    'collective.requestaccess:default',
     'collective.transcode.star:default',
     'plone.app.dexterity:default',
     'plone.app.contenttypes:default',
