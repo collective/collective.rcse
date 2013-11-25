@@ -11,4 +11,14 @@
         handler=".upgrades.common"
         />
 
+    <upgradeStep
+        source="1071"
+        destination="1072"
+        title="Update content rule"
+        description="Add the name of the watcher adapter in the watch on like
+		     content rules"
+        profile="collective.rcse:default"
+        handler=".upgrades.add_watcher_adapter_name_to_content_rule"
+        />
+
 </configure>

@@ -281,7 +281,7 @@ def _watch_on_like_rule(portal, request):
         data
     )
 
-    data = {'watching': 'watch'}
+    data = {'watching': 'watch', 'name': 'group_watchers'}
     action = 'collective.watcherlist.actions.Watching'
     _add_rule_action(request, rule, action, data)
     #activate it on context
