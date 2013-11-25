@@ -20,7 +20,6 @@ class TestSetup(base.IntegrationTestCase):
             "collective.polls",
             "collective.portlet.favoriting",
             "collective.portlet.localusers",
-            "collective.requestaccess",
             "collective.readitlater",
             "collective.transcode.star",
             "collective.themeswitcher",
