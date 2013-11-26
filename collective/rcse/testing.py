@@ -190,7 +190,7 @@ class Layer(PloneSandboxLayer):
         self.regtool.addMember(username, PASSWORD)
         # Update user content
         item = self.mtool(getUserName=username)[0].getObject()
-        item.company_id = company
+        item.company_id = company.lower()  # fake normalize
         item.company = company
         item.advertiser = advertiser
         item.first_name = first_name
@@ -220,6 +220,8 @@ class Layer(PloneSandboxLayer):
                        corporate_name="Corporate name", sector="Sector",
                        postal_code="Postal code", city="City", **kwargs):
         company_id = createCompany(user_item, getRequest())
+        user_item.company_id = company_id
+        user_item.reindexObject(idxs=['company_id'])
         company = portal.companies_directory[company_id]
         company.corporate_name = corporate_name
         company.sector = sector
