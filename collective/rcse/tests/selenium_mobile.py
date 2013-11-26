@@ -191,12 +191,12 @@ class MobileTheme(unittest.TestCase):
         """Use the addbutton in RCSE header to get an add form"""
         browser.find_element_by_id("addbutton-wrapper")\
             .find_element_by_tag_name("a").click()
-        if what is not None:
-            rwhat = self._select(browser, 'form-widgets-what', what)
-            self.assertEqual(rwhat, what)
         if where is not None:
             rwhere = self._select(browser, 'form-widgets-where', where)
             self.assertEqual(rwhere, where)
+        if what is not None:
+            rwhat = self._select(browser, 'form-widgets-what', what)
+            self.assertEqual(rwhat, what)
         browser.find_element_by_id("addbutton").click()
 
     def open_panel(self, browser, side):

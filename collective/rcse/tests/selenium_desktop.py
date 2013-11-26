@@ -193,12 +193,12 @@ class DesktopTheme(unittest.TestCase):
         """Use the addbutton in RCSE header to get an add form"""
         browser.find_element_by_id('addbutton').find_element_by_tag_name('a')\
             .click()
-        if what is not None:
-            rwhat = self._select(browser, 'form-widgets-what', what)
-            self.assertEqual(rwhat, what)
         if where is not None:
             rwhere = self._select(browser, 'form-widgets-where', where)
             self.assertEqual(rwhere, where)
+        if what is not None:
+            rwhat = self._select(browser, 'form-widgets-what', what)
+            self.assertEqual(rwhat, what)
         browser.find_element_by_id("rcseaddform").\
             find_element_by_class_name('btn-primary').click()
 
