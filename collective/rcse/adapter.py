@@ -1,19 +1,25 @@
+import re
+
 from Acquisition import aq_inner
 
 from zope import component
 from zope import interface
+from zope.globalrequest import getRequest
 
+from plone.app.contenttypes import indexers
 from plone.indexer.decorator import indexer
+from Products.CMFPlone.utils import getToolByName
 
 from cioppino.twothumbs.event import ILikeEvent
 from cioppino.twothumbs.event import IUnlikeEvent
 from cioppino.twothumbs.event import IDislikeEvent
 from cioppino.twothumbs.event import IUndislikeEvent
+from collective.etherpad import etherpad_view
 from collective.favoriting.event import IAddedToFavoritesEvent
 from collective.favoriting.event import IRemovedFromFavoritesEvent
 from collective.history.extract import IExtractWhat
-
 from collective.history.i18n import _ as _h
+from collective.rcse.content import etherpad
 
 
 class BaseHistoryAdapter(object):
@@ -70,3 +76,16 @@ def user_with_local_roles(context):
         users.add(user)
 
     return list(users)
+
+
+@indexer(etherpad.EtherpadSchema)
+def SearchableText_etherpad(context):
+    view = etherpad_view.EtherpadView(context, getRequest())
+    view.update()
+    if view.etherpad is None:
+        return indexers.SearchableText(context)
+    text = indexers.SearchableText(context)
+    transforms = getToolByName(context, 'portal_transforms')
+    value = str(view.content())
+    content = transforms.convertTo('text/plain', value, mimetype='text/html')
+    return indexers._unicode_save_string_concat(text, content.getData())

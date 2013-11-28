@@ -1,4 +1,4 @@
-<div class="breadcrumb-wrapper" tal:condition="view/features/breadcrumb">
+<div class="breadcrumb-wrapper" tal:condition="view/features/breadcrumb" i18n:domain="collective.rcse">
     <ol class="breadcrumb">
         <tal:crumb tal:repeat="parent view/parents_info">
             <li class="select-group">
