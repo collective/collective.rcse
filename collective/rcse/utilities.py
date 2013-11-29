@@ -67,8 +67,8 @@ class BaseDisplay(object):
             user = GetMemberInfoView(getSite(), request)
             user(who)
             if user is not None and user.fullname is not None:
-                notification.who[index] = user.fullname
-        self.who = ', '.join(notification.who)
+                notification.who[index] = user.fullname.decode('utf-8')
+        self.who = u', '.join(notification.who)
         self.plural = True if len(notification.who) > 1 else False
         if self.plural:
             return _w(u"${who} have ${what} ${where}",
