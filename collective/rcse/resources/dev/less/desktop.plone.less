@@ -1,10 +1,11 @@
+@import "variables.less";
 @import "plone.forms.less";
 @import "plone.portlets.less";
 
 div.documentByLine {
     font-size: 85%;
     display: block;
-    color: #666;
+    color: @gray;
 }
 
 /* @group Comments */
@@ -23,7 +24,7 @@ div.documentByLine {
 }
 
 .commentTime {
-    color: #666;
+    color: @gray;
 }
 
 .commentBody {
@@ -32,9 +33,9 @@ div.documentByLine {
     border-radius: 0.5em;
     -webkit-border-radius: 0.5em;
     -moz-border-radius: 0.5em;
-    box-shadow: 0 0 1em 0 #888;
-    -moz-box-shadow: 0 0 0.5em 0 #888;
-    -webkit-box-shadow: 0 0 0.5em #888;
+    box-shadow: 0 0 1em 0 @gray-light;
+    -moz-box-shadow: 0 0 0.5em 0 @gray-light;
+    -webkit-box-shadow: 0 0 0.5em @gray-light;
 }
 
 .comment h1,
