@@ -211,7 +211,6 @@ module.exports = function(grunt) {
                         'app/bower_components/datatables/media/css/jquery.dataTables.css',
                         'app/bower_components/bootstrap/dist/css/bootstrap.css',
                         'app/bower_components/bootstrap/dist/css/bootstrap-theme.css',
-                        'less/desktop.plone.less',
                         'less/desktop.less',
                         'less/collective.polls.css'],
                 dest : '../desktop/css/app.css'
@@ -229,17 +228,15 @@ module.exports = function(grunt) {
                     compile : true,
                     compress : false
                 },
-                src : [ 'less/font-awesome-mobile.less',
-                        'less/mobile.plone.less', 'less/mobile.less'],
-                dest : '../mobile/css/mobile.css'
+                src : [ 'less/mobile.less'],
+                dest : '../mobile/css/app.css'
             },
             mobilemin : {
                 options : {
-                    compile : false,
+                    compile : true,
                     compress : true
                 },
-                src : [ 'less/font-awesome-mobile.less',
-                        'less/mobile.plone.less', 'less/mobile.less'],
+                src : [ 'less/mobile.less'],
                 dest : '../mobile/app.min.css'
             },
         },
@@ -254,9 +251,9 @@ module.exports = function(grunt) {
                 tasks : [ 'desktop-dist-css' ]
             },
             mobilerecess : {
-                files : [
-                         'less/font-awesome-mobile.less',
-                         'less/mobile.plone.less', 'less/mobile.less'
+                files : ['less/mobile-theme.less',
+                         'less/mobile-font-awesome.less',
+                         'less/mobile.less'
                          ],
                 tasks : [ 'mobile-dist-css' ]
             },
