@@ -86,7 +86,6 @@
       layer="collective.rcse.layer.MobileLayer"
       permission="zope2.View"
       />
-  <adapter factory=".filters.FiltersFormAdapter" />
 
   <browser:viewlet
       name="collective.rcse.notifications"

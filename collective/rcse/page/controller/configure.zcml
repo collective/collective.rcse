@@ -187,6 +187,7 @@
   <adapter factory=".etherpads_view.AddFormAdapter"/>
   <adapter factory=".events_view.AddFormAdapter"/>
   <adapter factory=".files_view.AddFormAdapter"/>
+  <adapter factory=".filterbutton.FiltersFormAdapter" />
   <adapter factory=".images_view.AddFormAdapter"/>
   <adapter factory=".links_view.AddFormAdapter"/>
   <adapter factory=".videos_view.AddFormAdapter"/>

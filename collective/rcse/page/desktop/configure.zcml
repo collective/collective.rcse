@@ -78,6 +78,14 @@
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"
       />
+  <browser:page
+      for="*"
+      name="collective.rcse.filterbutton"
+      class="collective.rcse.page.controller.filterbutton.FilterButton"
+      template="templates/filterbutton.pt"
+      layer="collective.rcse.layer.DesktopLayer"
+      permission="zope2.View"
+      />
 
   <browser:page
       for="*"
