@@ -3,9 +3,11 @@ from plone.app.testing import (
     IntegrationTesting,
     FunctionalTesting,
     login, logout, setRoles,
+    PLONE_FIXTURE,
     TEST_USER_NAME,
     SITE_OWNER_NAME,
 )
+
 from plone.testing import Layer as BaseLayer
 from zope.configuration import xmlconfig
 
@@ -65,79 +67,131 @@ TEST_USER_4 = "simplemember4"
 PASSWORD = "secret"
 
 PROFILES = (
-    'plone.app.versioningbehavior:default',
-    'collective.mediaelementjs:default',
-    'collective.memberdatatables:default',
-    'collective.oembed:default',
-    'collective.picturefill:default',
-    'collective.transcode.star:default',
-    'plone.app.dexterity:default',
-    'plone.app.contenttypes:default',
-    'dexterity.membrane:default',
-    'collective.rcse:settings',
+    'plonetheme.classic:default',
+    'cioppino.twothumbs:default',
+    'collective.favoriting:default',
+    'Products.membrane:default',
+    'collective.rcse:default',
 )
 
 
 class Layer(PloneSandboxLayer):
-    defaultBases = (
-        mobile_testing.FIXTURE,
-        event_testing.PAEventDX_FIXTURE,
-        ptypes_testing.PLONE_APP_CONTENTTYPES_FIXTURE,
-        twothumbs_testing.TWOTHUMBS_FIXTURE,
-        etherpad_testing.FIXTURE,
-        fav_testing.FIXTURE,
-        font_testing.FIXTURE,
-        history_testing.FIXTURE,
-        datatables_testing.FIXTURE,
-        polls_testing.FIXTURE,
-        portlet_fav_testing.FIXTURE,
-        portlet_users_testing.FIXTURE,
-        readitlayer_testing.FIXTURE,
-        themeswither_testing.FIXTURE,
-        whathappened_testing.FIXTURE,
-    )
+    defaultBases = (PLONE_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
-        import collective.rcse
         import dexterity.membrane
-        import plone.app.dexterity
-        import plone.app.versioningbehavior
-        import plone.app.collection
-        import plone.namedfile
-        import collective.z3cform.html5widgets
-
-        import collective.js.jqueryui
-        import plone.app.versioningbehavior
-        import five.localsitemanager
-        import collective.indexing
-        import Products.membrane
-        import plone.app.contentrules
-
         self.loadZCML(package=dexterity.membrane)
+
+        import plone.app.dexterity
         self.loadZCML(package=plone.app.dexterity)
+
+        import plone.app.versioningbehavior
         self.loadZCML(package=plone.app.versioningbehavior)
+
+        import plone.app.collection
         self.loadZCML(package=plone.app.collection)
+
+        import plone.namedfile
         self.loadZCML(package=plone.namedfile)
+
+        import collective.z3cform.html5widgets
         self.loadZCML(package=collective.z3cform.html5widgets)
 
+        import collective.js.jqueryui
         self.loadZCML(package=collective.js.jqueryui)
+
+        import plone.app.versioningbehavior
         self.loadZCML(package=plone.app.versioningbehavior)
+
+        import five.localsitemanager
         self.loadZCML(package=five.localsitemanager)
+
+        import collective.indexing
         self.loadZCML(package=collective.indexing)
+
+        import Products.membrane
         self.loadZCML(package=Products.membrane)
+        z2.installProduct(app, 'Products.membrane')  # initialize
+
+        import plone.app.contentrules
         self.loadZCML(package=plone.app.contentrules)
 
+        import plonetheme.classic
+        import plonetheme.jquerymobile
+        self.loadZCML(package=plonetheme.classic)
+        self.loadZCML(package=plonetheme.jquerymobile)
+
+        import Products.DateRecurringIndex
+        z2.installProduct(app, 'Products.DateRecurringIndex')
+
+        import plone.app.event
+        self.loadZCML(package=plone.app.event)
+
+        import plone.app.contenttypes
+        self.loadZCML(package=plone.app.contenttypes)
+
+        import cioppino.twothumbs
+        self.loadZCML(package=cioppino.twothumbs)
+        z2.installProduct(app, 'cioppino.twothumbs')  # initialize
+
+        import collective.etherpad
+        self.loadZCML(package=collective.etherpad)
+
+        import collective.favoriting
+        self.loadZCML(package=collective.favoriting)
+
+        import collective.fontawesome
+        self.loadZCML(package=collective.fontawesome)
+
+        import collective.history
+        self.loadZCML(package=collective.history)
+
+        import collective.js.datatables
+        self.loadZCML(package=collective.js.datatables)
+
+        import collective.localrolesdatatables
+        self.loadZCML(package=collective.localrolesdatatables)
+
+        import collective.mediaelementjs
+        self.loadZCML(package=collective.mediaelementjs)
+
+        import collective.memberdatatables
+        self.loadZCML(package=collective.memberdatatables)
+
+        import collective.polls
+        self.loadZCML(package=collective.polls)
+
+        import collective.portlet.favoriting
+        self.loadZCML(package=collective.portlet.favoriting)
+        z2.installProduct(app, 'collective.portlet.favoriting')
+
+        import collective.portlet.localusers
+        self.loadZCML(package=collective.portlet.localusers)
+        z2.installProduct(app, 'collective.portlet.localusers')
+
+        import collective.readitlater
+        self.loadZCML(package=collective.readitlater)
+
+        import collective.themeswitcher
+        self.loadZCML(package=collective.themeswitcher)
+
+        import collective.whathappened
+        self.loadZCML(package=collective.whathappened)
+
+        import collective.rcse
+        self.loadZCML(package=collective.rcse)
         xmlconfig.includeOverrides(configurationContext, 'overrides.zcml',
                                    package=collective.rcse)
 
-        z2.installProduct(app, 'Products.membrane')  # initialize
-        self.loadZCML(package=collective.rcse)
         setupCoreSessions(app)
 
     def setUpPloneSite(self, portal):
         #make global request work
         from zope.globalrequest import setRequest
         setRequest(portal.REQUEST)
+
+        # login doesn't work so we need to call z2.login directly
+        z2.login(portal.__parent__.acl_users, SITE_OWNER_NAME)
 
         #We apply profile of addon which has no testing layer here
         for profile in PROFILES:
@@ -155,13 +209,15 @@ class Layer(PloneSandboxLayer):
         #    "IUserManagement",
         #])
 
+        # login(portal, SITE_OWNER_NAME)
+
         self.regtool = getToolByName(portal, 'portal_registration')
         self.mtool = getToolByName(portal, 'membrane_tool')
+
         self.create_test_user(portal)
         key = 'collective.rcse.security.ISecuritySettings.addGroupPermission'
         portal.portal_registry[key] = "Member"
 
-        login(portal, SITE_OWNER_NAME)
         self.create_user(portal, TEST_USER_ADMIN, function="Admin",
                          first_name="admin", last_name="rcse")
         setRoles(portal, TEST_USER_ADMIN, ["Member", "Site Administrator"])
