@@ -24,6 +24,7 @@ from zExceptions import BadRequest
 
 from cioppino.twothumbs.event import ILikeEvent
 from collective.rcse.i18n import _
+from plone.dexterity.utils import createContentInContainer
 
 
 LOG = logging.getLogger("collective.history")
@@ -37,7 +38,7 @@ def setupVarious(context):
 
     portal = context.getSite()
     installOnce(portal)
-    updateWelcomePage(portal)
+    setRedirectOn(portal)
     createDirectories(portal)
     setupRegistration(portal)
     initialize_rules(portal)
@@ -49,6 +50,7 @@ def setupVarious(context):
     setupDeletedStateInWorkflows(portal)
     removeIconsFromTypes(portal)
     installRequestAccess(portal)
+    createLegalPages(portal)
 
 
 def installRequestAccess(portal):
@@ -222,10 +224,10 @@ def _updateFolder(obj, types=None, view=None, authenticated_roles=None):
                                  'Site Administrator'))
 
 
-def updateWelcomePage(site):
-    layout = site.getLayout()
+def setRedirectOn(portal):
+    layout = portal.getLayout()
     if layout != "rcse_redirect_view":
-        site.setLayout("rcse_redirect_view")
+        portal.setLayout("rcse_redirect_view")
 
 
 def initialize_rules(portal):
@@ -455,3 +457,16 @@ def removeIconsFromTypes(portal):
             document_fti._updateProperty("icon_expr", "")
         except BadRequest:
             continue
+
+
+def createLegalPages(portal):
+    createContentInContainer(portal,
+                             'collective.rcse.article',
+                             id="legal-notices",
+                             title="Legal notices",
+                             checkConstraints=False)
+    createContentInContainer(portal,
+                             'collective.rcse.article',
+                             id="terms-of-services",
+                             title="Terms of services",
+                             checkConstraints=False)
