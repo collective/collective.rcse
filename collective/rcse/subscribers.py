@@ -69,8 +69,7 @@ def handle_request_validated(context, event):
             roles
         )
         group.reindexObject()
-    notify(UserRolesModifiedOnObjectEvent(request.userid,
-                                          group))
+    notify(UserRolesModifiedOnObjectEvent(request.userid, group))
 
 
 def handle_request_refused(context, event):

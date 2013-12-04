@@ -27,4 +27,3 @@ def add_watcher_adapter_name_to_content_rule(context):
     action = storage['watch_on_like'].actions[0]
     if not hasattr(action, 'name') or not action.name:
         setattr(action, 'name', 'group_watchers')
-

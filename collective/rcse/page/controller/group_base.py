@@ -10,10 +10,14 @@ from Products.CMFPlone.PloneBatch import Batch
 from Products.Five.browser import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.form import form
+from zope import component
 from zope import interface
 from zope import schema
 
 from collective.rcse.i18n import _
+from zope.schema.interfaces import IVocabularyFactory
+from collective.rcse.content.group import get_group
+from plone.uuid.interfaces import IUUID
 
 
 class IBaseView(interface.Interface):
@@ -116,11 +120,34 @@ class BaseAddFormSchema(model.Schema):
     )
 
 
+class BaseAddFormAdapter(object):
+    def __init__(self, context):
+        self.context = context
+        self.where = None
+
+
 class BaseAddForm(AutoExtensibleForm, form.Form):
 #    schema = AddFormSchema
     enableCSRFProtection = True
     msg_added = _(u"Content Added")
     CONTENT_TYPE = ""
+
+    def update(self):
+        AutoExtensibleForm.update(self)
+        form.Form.update(self)
+        #if I can use the current group to add content set the value of where
+        factory = component.queryUtility(IVocabularyFactory,
+                                         "collective.rcse.vocabulary.groups")
+        vocab = factory(self.context)
+        group = get_group(self.context)
+        if group:
+            uid = IUUID(group)
+            try:
+                if vocab.getTerm(uid):
+                    self.widgets['where'].value = uid
+            except LookupError:
+                pass
+            self.widgets['where'].value = uid
 
 #    @button.buttonAndHandler(_(u"Add Image"))
     def handleAdd(self, action, referer=True):

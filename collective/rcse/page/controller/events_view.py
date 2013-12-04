@@ -8,12 +8,10 @@ from z3c.form import button
 from plone.app.event.portlets import portlet_calendar
 from plone.app.event import messageFactory as _pae
 from plone.app.event.browser.event_listing import EventListing
-from plone.uuid.interfaces import IUUID
 from plone.z3cform.layout import FormWrapper
 from Products.Five.browser import BrowserView
 from Products.CMFPlone.utils import getToolByName
 
-from collective.rcse.content.group import get_group
 from collective.rcse.i18n import _
 from collective.rcse.page.controller import group_base
 
@@ -93,12 +91,12 @@ class AddFormSchema(group_base.BaseAddFormSchema):
     )
 
 
-class AddFormAdapter(object):
+class AddFormAdapter(group_base.BaseAddFormAdapter):
     interface.implements(AddFormSchema)
     component.adapts(interface.Interface)
 
     def __init__(self, context):
-        self.context = context
+        group_base.BaseAddFormAdapter.__init__(self, context)
         self.title = None
         self.description = ''
         self.start = datetime.datetime.now()
@@ -106,10 +104,6 @@ class AddFormAdapter(object):
         self.whole_day = None
         self.open_end = None
         self.timezone = None
-        self.where = None
-        group = get_group(context)
-        if group:
-            self.where = IUUID(group)
 
 
 class AddForm(group_base.BaseAddForm):

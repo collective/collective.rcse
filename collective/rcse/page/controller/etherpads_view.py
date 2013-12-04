@@ -1,10 +1,8 @@
-from plone.uuid.interfaces import IUUID
 from z3c.form import button
 from zope import interface
 from zope import schema
 from zope import component
 
-from collective.rcse.content.group import get_group
 from collective.rcse.i18n import _
 from collective.rcse.page.controller import group_base
 from collective.rcse.page.controller.navigationroot import \
@@ -22,18 +20,14 @@ class AddFormSchema(group_base.BaseAddFormSchema):
     )
 
 
-class AddFormAdapter(object):
+class AddFormAdapter(group_base.BaseAddFormAdapter):
     interface.implements(AddFormSchema)
     component.adapts(interface.Interface)
 
     def __init__(self, context):
-        self.context = context
+        group_base.BaseAddFormAdapter.__init__(self, context)
         self.title = None
         self.description = ''
-        self.where = None
-        group = get_group(context)
-        if group:
-            self.where = IUUID(group)
 
 
 class AddForm(group_base.BaseAddForm):

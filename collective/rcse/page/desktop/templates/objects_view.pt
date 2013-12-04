@@ -49,9 +49,8 @@
     </nav>
     <div tal:content="structure view/form_instance"></div>
     <p tal:condition="python:getattr(view, 'bookmark_url', None)">
-      <span tal:omit-tag="" i18n:translate="">Bookmark this</span>
-      <a tal:attributes="href view/bookmark_url" i18n:translate="">link</a>
-      <span tal:omit-tag="" i18n:translate="">to add contents faster.</span>
+      <span tal:omit-tag="" i18n:translate="">Bookmark the following link in your browser and use it on external pages:</span>
+      <a tal:attributes="href view/bookmark_url" i18n:translate="">Read it later</a>
     </p>
   </div>
 </body>
