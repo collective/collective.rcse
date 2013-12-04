@@ -16,7 +16,6 @@ var rcseInitTimeline = function() {
             item.replaceWith(data);
             rcseApplyTransform(parent);
             parent.trigger("create");
-            parent.addClass('animated pulse');
         });
     },{offset: '150%'});
 }

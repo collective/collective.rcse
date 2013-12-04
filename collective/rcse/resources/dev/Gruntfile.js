@@ -147,7 +147,6 @@ module.exports = function(grunt) {
                 src : [
                         'app/bower_components/mediaelement/build/mediaelementplayer.css',
                         'app/bower_components/font-awesome/css/font-awesome.css',
-                        'app/bower_components/animate.css/animate.css',
                         '../desktop/css/app.css' ],
                 dest : '../desktop/css/desktop.css'
             },
@@ -155,7 +154,6 @@ module.exports = function(grunt) {
                 src : [
                         'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
                         'app/bower_components/font-awesome/css/font-awesome.min.css',
-                        'app/bower_components/animate.css/animate.min.css',
                         '../desktop/css/app.min.css' ],
                 dest : '../desktop/css/desktop.min.css'
             },
@@ -169,7 +167,6 @@ module.exports = function(grunt) {
                         'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.css',
                         'app/bower_components/jquery-mobile-bower/css/jquery.mobile.theme-1.3.2.css',
                         'app/bower_components/mediaelement/build/mediaelementplayer.css',
-                        'app/bower_components/animate.css/animate.css',
                         '../mobile/css/app.css' ],
                 dest : '../mobile/css/mobile.css'
             },
@@ -179,7 +176,6 @@ module.exports = function(grunt) {
                        'app/bower_components/jquery-mobile-bower/css/jquery.mobile.theme-1.3.2.min.css',
                         'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
                         'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
-                        'app/bower_components/animate.css/animate.min.css',
                         '../mobile/app.min.css' ],
                 dest : '../mobile/css/mobile.min.css'
             }
