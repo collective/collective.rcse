@@ -73,8 +73,7 @@ def _getGroupsWithAddPermission(username):
     portal_membership = getToolByName(site, 'portal_membership')
     catalog = getToolByName(site, 'portal_catalog')
     query = {"portal_type": "collective.rcse.group",
-             "sort_on": "sortable_title",
-             'user_with_local_roles': username}
+             "sort_on": "sortable_title"}
     terms = []
     brains = catalog(**query)
     for brain in brains:
