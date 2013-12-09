@@ -282,6 +282,7 @@ var rcseUpdateForms = function(element){
 		    classButton: 'btn btn-default',
 		    buttonText: 'Choisissez un fichier',
 		});
+		input.siblings('.bootstrap-filestyle').find('input').addClass('form-control');
                 return true; // continue
             }
             input.addClass('form-control');
