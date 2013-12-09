@@ -205,7 +205,7 @@ msgstr "Article ajouté"
 
 #: ./page/controller/discussions_view.py:23
 msgid "Attachment"
-msgstr "Piéce jointe"
+msgstr "Pièce jointe"
 
 #: ./profiles/settings/types/collective.rcse.audio.xml
 msgid "Audio"
@@ -1315,7 +1315,7 @@ msgstr "UUID Utilisateurs"
 #: ./page/desktop/templates/group_edit.pt:74
 #: ./page/mobile/templates/group_edit.pt:60
 msgid "Validate / Refuse access demands"
-msgstr "Valider/Refuser les demandes d'accés."
+msgstr "Valider/Refuser les demandes d'accès."
 
 #: ./requestaccess/browser/request.py:97
 msgid "Validate access"
