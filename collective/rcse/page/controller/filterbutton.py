@@ -2,7 +2,6 @@ import urllib
 from plone.autoform.form import AutoExtensibleForm
 from plone.autoform import directives
 from plone.supermodel import model
-from plone.z3cform import z2
 from z3c.form import form
 from z3c.form import button
 from z3c.form.browser.select import SelectFieldWidget

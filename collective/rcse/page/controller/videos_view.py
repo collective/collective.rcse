@@ -1,5 +1,4 @@
 from plone.autoform import directives as form
-from plone.uuid.interfaces import IUUID
 from z3c.form import button
 from zope import interface
 from zope import schema
@@ -7,7 +6,6 @@ from zope import component
 
 from collective.transcode.star.interfaces import ITranscodeTool
 from collective.rcse.i18n import _
-from collective.rcse.content.group import get_group
 from collective.rcse.page.controller import group_base
 from collective.rcse.page.controller.navigationroot import \
     NavigationRootBaseView
@@ -26,24 +24,20 @@ class AddFormSchema(group_base.BaseAddFormSchema, VideoSchema):
         title=_(u"Description"),
         required=False
     )
-    form.order_before(title='*')
+    form.order_before(title='description')
     form.order_before(description='file')
 
 
-class AddFormAdapter(object):
+class AddFormAdapter(group_base.BaseAddFormAdapter):
     interface.implements(AddFormSchema)
     component.adapts(interface.Interface)
 
     def __init__(self, context):
-        self.context = context
+        group_base.BaseAddFormAdapter.__init__(self, context)
         self.title = None
         self.description = ''
         self.file = None
         self.remoteUrl = None
-        self.where = None
-        group = get_group(context)
-        if group:
-            self.where = IUUID(group)
 
 
 class AddForm(group_base.BaseAddForm):

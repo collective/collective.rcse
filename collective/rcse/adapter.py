@@ -1,5 +1,3 @@
-import re
-
 from Acquisition import aq_inner
 
 from zope import component
