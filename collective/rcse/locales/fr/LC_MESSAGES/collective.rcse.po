@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-11-28 13:46+0000\n"
+"POT-Creation-Date: 2013-12-09 08:59+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -74,23 +74,23 @@ msgstr "Actions"
 msgid "Add"
 msgstr "Ajouter"
 
-#: ./page/controller/articles_view.py:53
+#: ./page/controller/articles_view.py:47
 msgid "Add Article"
 msgstr "Ajouter un article"
 
-#: ./page/controller/discussions_view.py:48
+#: ./page/controller/discussions_view.py:42
 msgid "Add Discussion"
 msgstr "Ajouter une Discussion"
 
-#: ./page/controller/etherpads_view.py:42
+#: ./page/controller/etherpads_view.py:36
 msgid "Add Etherpad"
 msgstr "Ajouter un étherpad"
 
-#: ./page/controller/files_view.py:48
+#: ./page/controller/files_view.py:42
 msgid "Add File"
 msgstr "Ajouter un ficher"
 
-#: ./page/controller/images_view.py:54
+#: ./page/controller/images_view.py:48
 msgid "Add Image"
 msgstr "Ajouter une Image"
 
@@ -102,7 +102,7 @@ msgstr ""
 msgid "Add a group"
 msgstr "Ajouter un groupe"
 
-#: ./page/controller/articles_view.py:51
+#: ./page/controller/articles_view.py:45
 msgid "Add article"
 msgstr "Ajouter un article"
 
@@ -114,15 +114,15 @@ msgstr "Ajouter un fichier audio"
 msgid "Add discussion"
 msgstr "Ajouter une discussion"
 
-#: ./page/controller/etherpads_view.py:45
+#: ./page/controller/etherpads_view.py:39
 msgid "Add etherpad"
 msgstr "Ajouter un etherpad"
 
-#: ./page/controller/events_view.py:119
+#: ./page/controller/events_view.py:113
 msgid "Add event"
 msgstr "Ajouter un événement"
 
-#: ./page/controller/files_view.py:51
+#: ./page/controller/files_view.py:45
 msgid "Add file"
 msgstr "Ajouter un fichier"
 
@@ -134,11 +134,11 @@ msgstr "Formulaire d'ajout de contenu"
 msgid "Add group"
 msgstr "Ajouter un groupe"
 
-#: ./page/controller/images_view.py:52
+#: ./page/controller/images_view.py:46
 msgid "Add image"
 msgstr "Ajouter une image"
 
-#: ./page/controller/links_view.py:46
+#: ./page/controller/links_view.py:40
 msgid "Add link"
 msgstr "Ajouter un lien"
 
@@ -146,7 +146,7 @@ msgstr "Ajouter un lien"
 msgid "Add to my news"
 msgstr "Ajouter à mon fil d'actualité"
 
-#: ./page/controller/videos_view.py:53
+#: ./page/controller/videos_view.py:47
 msgid "Add video"
 msgstr "Ajouter une vidéo"
 
@@ -199,15 +199,11 @@ msgstr "Domaine d'expertise"
 msgid "Article"
 msgstr "Article"
 
-#: ./page/controller/articles_view.py:50
+#: ./page/controller/articles_view.py:44
 msgid "Article added"
 msgstr "Article ajouté"
 
-#: ./viewlet/desktop/templates/portal_header.pt:207
-msgid "Articles"
-msgstr "Articles"
-
-#: ./page/controller/discussions_view.py:25
+#: ./page/controller/discussions_view.py:23
 msgid "Attachment"
 msgstr "Piéce jointe"
 
@@ -251,8 +247,8 @@ msgid "Blog"
 msgstr "Blog"
 
 #: ./page/desktop/templates/objects_view.pt:52
-msgid "Bookmark this"
-msgstr "Ajouter à vos favoris ce"
+msgid "Bookmark the following link in your browser and use it on external pages:"
+msgstr "Ajouter le lien suivant à vos favoris et utilisez le sur des pages externes :"
 
 #: ./page/mobile/templates/member_tile_view.pt:50
 msgid "Born the ${birthdate}"
@@ -306,7 +302,7 @@ msgstr "Entreprises"
 
 #: ./page/desktop/templates/companies_directory_view.pt:31
 #: ./page/mobile/templates/companies_directory_view.pt:36
-#: ./setuphandler.py:170
+#: ./setuphandler.py:172
 msgid "Companies directory"
 msgstr "Annuaire des entreprises"
 
@@ -338,7 +334,7 @@ msgstr "Confirmez le mot de passe"
 msgid "Contact information"
 msgstr "Informations de contacts"
 
-#: ./page/controller/group_base.py:122
+#: ./page/controller/group_base.py:132
 msgid "Content Added"
 msgstr "Contenu ajouté"
 
@@ -383,9 +379,9 @@ msgstr ""
 msgid "Delete"
 msgstr "Supprimer"
 
-#: ./page/controller/articles_view.py:22
+#: ./page/controller/articles_view.py:20
 #: ./page/controller/audios_view.py:21
-#: ./page/controller/etherpads_view.py:20
+#: ./page/controller/etherpads_view.py:18
 msgid "Description"
 msgstr "Description"
 
@@ -403,13 +399,9 @@ msgstr "Désactivés"
 msgid "Discussion"
 msgstr "Discussion"
 
-#: ./page/controller/discussions_view.py:47
+#: ./page/controller/discussions_view.py:41
 msgid "Discussion added"
 msgstr "Discussion ajoutée"
-
-#: ./viewlet/desktop/templates/portal_header.pt:190
-msgid "Discussions"
-msgstr "Discussions"
 
 #: ./viewlet/desktop/templates/portal_header.pt:72
 msgid "Display a menu to access to my personal stuff"
@@ -418,10 +410,6 @@ msgstr "Affiche un menu permettant d'accéder à mes informations personnelles"
 #: ./viewlet/desktop/templates/portal_header.pt:35
 msgid "Display all groups in the search form"
 msgstr "Affiche tous les groupes dans le formulaire de recherche"
-
-#: ./viewlet/desktop/templates/portal_header.pt:210
-msgid "Display all items in a timeline"
-msgstr "Afficher tous les éléments dans une timeline"
 
 #: ./profiles/settings/actions.xml
 msgid "Display new content of this group in your news"
@@ -484,25 +472,17 @@ msgstr "Erreur durant l'envoit de l'email."
 msgid "Etherpad"
 msgstr "Etherpad"
 
-#: ./page/controller/etherpads_view.py:41
+#: ./page/controller/etherpads_view.py:35
 msgid "Etherpad added"
 msgstr "Etherpad ajouté"
-
-#: ./viewlet/desktop/templates/portal_header.pt:182
-msgid "Etherpads"
-msgstr "Etherpads"
 
 #: ./profiles/settings/types/collective.rcse.event.xml
 msgid "Event"
 msgstr "Evénement"
 
-#: ./page/controller/events_view.py:118
+#: ./page/controller/events_view.py:112
 msgid "Event added"
 msgstr "Evénement ajouté"
-
-#: ./viewlet/desktop/templates/portal_header.pt:174
-msgid "Events"
-msgstr "Événements"
 
 #: ./content/member.py:138
 msgid "Expertise"
@@ -522,53 +502,22 @@ msgid "Female"
 msgstr "Femme"
 
 #: ./content/discussion.py:15
-#: ./page/controller/files_view.py:19
+#: ./page/controller/files_view.py:17
 msgid "File"
 msgstr "Fichier"
 
-#: ./page/controller/files_view.py:47
+#: ./page/controller/files_view.py:41
 msgid "File added"
 msgstr "Fichier ajouté"
 
-#: ./viewlet/desktop/templates/portal_header.pt:166
-msgid "Files"
-msgstr "Fichiers"
-
-#: ./viewlet/mobile/filters.py:77
+#: ./page/controller/filterbutton.py:72
+#: ./page/desktop/templates/filterbutton.pt:8
 msgid "Filter"
 msgstr "Filtrer"
 
-#: ./viewlet/desktop/templates/portal_header.pt:202
-msgid "Filter: Display only articles in a dedicated screen"
-msgstr "Filtre : affiche uniquement les articles"
-
-#: ./viewlet/desktop/templates/portal_header.pt:185
-msgid "Filter: Display only discussions in a dedicated screen"
-msgstr "Filtre : affiche uniquement les discussions"
-
-#: ./viewlet/desktop/templates/portal_header.pt:177
-msgid "Filter: Display only etherpads in a dedicated screen"
-msgstr "Filtre : affiche uniquement les etherpads"
-
-#: ./viewlet/desktop/templates/portal_header.pt:169
-msgid "Filter: Display only events in a dedicated screen"
-msgstr "Filtre : affiche uniquement les événements"
-
-#: ./viewlet/desktop/templates/portal_header.pt:161
-msgid "Filter: Display only files in a dedicated screen"
-msgstr "Filtre : affiche uniquement les fichiers"
-
-#: ./viewlet/desktop/templates/portal_header.pt:153
-msgid "Filter: Display only images in a dedicated screen"
-msgstr "Filtre : affiche uniquement les images"
-
-#: ./viewlet/desktop/templates/portal_header.pt:194
-msgid "Filter: Display only links in a dedicated screen"
-msgstr "Filtre : affiche uniquement les liens"
-
-#: ./viewlet/desktop/templates/portal_header.pt:145
-msgid "Filter: Display only videos in a dedicated screen"
-msgstr "Filtre : affiche uniquement les vidéos"
+#: ./page/desktop/templates/filterbutton.pt:15
+msgid "Filter form"
+msgstr ""
 
 #: ./viewlet/mobile/templates/filters.pt:11
 msgid "Filters"
@@ -636,8 +585,8 @@ msgstr "Groupes"
 msgid "Hide: ${attr}"
 msgstr "Masquer: ${attr}"
 
-#: ./content/vocabularies.py:105
-#: ./setuphandler.py:183
+#: ./content/vocabularies.py:104
+#: ./setuphandler.py:185
 #: ./viewlet/desktop/templates/portal_header.pt:11
 msgid "Home"
 msgstr "Accueil"
@@ -664,17 +613,13 @@ msgstr ""
 
 #: ./content/article.py:16
 #: ./content/event.py:19
-#: ./page/controller/articles_view.py:26
+#: ./page/controller/articles_view.py:24
 msgid "Image"
 msgstr "Image"
 
-#: ./page/controller/images_view.py:51
+#: ./page/controller/images_view.py:45
 msgid "Image added"
 msgstr "Image ajoutée"
-
-#: ./viewlet/desktop/templates/portal_header.pt:158
-msgid "Images"
-msgstr "Images"
 
 #: ./page/desktop/templates/event_tile_view.pt:10
 #: ./page/mobile/templates/event_tile_view.pt:14
@@ -729,7 +674,6 @@ msgstr "Nom"
 msgid "Last name: ${lastname}"
 msgstr "Nom : ${lastname}"
 
-#: ./page/controller/templates/legal-notices.pt:16
 #: ./profiles/settings/actions.xml
 msgid "Legal notices"
 msgstr "Mentions légales"
@@ -743,7 +687,7 @@ msgstr "Permettre aux gens de contribuer à l'espace"
 msgid "Like"
 msgstr "Aimer"
 
-#: ./page/controller/links_view.py:45
+#: ./page/controller/links_view.py:39
 msgid "Link added"
 msgstr "Lien ajouté"
 
@@ -752,10 +696,6 @@ msgstr "Lien ajouté"
 #: ./page/mobile/templates/member_tile_view.pt:96
 msgid "LinkedIn"
 msgstr "LinkedIn"
-
-#: ./viewlet/desktop/templates/portal_header.pt:199
-msgid "Links"
-msgstr "Liens"
 
 #: ./page/desktop/templates/users_directory_view.pt:53
 #: ./page/desktop/templates/users_localroles.pt:13
@@ -878,7 +818,6 @@ msgstr "Mon compte"
 msgid "My groups"
 msgstr "Mes groupes"
 
-#: ./page/controller/templates/welcome_view.pt:16
 #: ./page/controller/timeline_view.py:56
 #: ./profiles/settings/actions.xml
 msgid "My profile"
@@ -907,6 +846,10 @@ msgstr "Ouvrir / Fermer la boite des commentaires pour lire et / ou écrire des 
 #: ./viewlet/desktop/templates/portal_header.pt:29
 msgid "Open add form"
 msgstr "Ouvrir le formulaire d'ajout"
+
+#: ./page/desktop/templates/filterbutton.pt:2
+msgid "Open filter form"
+msgstr ""
 
 #: ./viewlet/desktop/templates/portal_header.pt:102
 msgid "Open the corresponding content"
@@ -967,8 +910,8 @@ msgstr "Préférences personnel"
 msgid "Please complete your company information"
 msgstr "Veuillez completer les informations de votre entreprise"
 
-#: ./page/controller/articles_view.py:27
-#: ./page/controller/images_view.py:21
+#: ./page/controller/articles_view.py:25
+#: ./page/controller/images_view.py:19
 msgid "Please put an image file here"
 msgstr "Veuillez mettre un fichier image ici"
 
@@ -1037,6 +980,10 @@ msgstr "Quitter ce groupe"
 msgid "RCSE Security settings"
 msgstr "RCSE configuration"
 
+#: ./page/desktop/templates/objects_view.pt:53
+msgid "Read it later"
+msgstr "Le lire plus tard"
+
 #: ./viewlet/controller/resourceregistries.py:28
 msgid "Read more"
 msgstr "Lire la suite"
@@ -1101,7 +1048,7 @@ msgstr ""
 msgid "Resend the validation e-mail."
 msgstr "Renvoyer l'email de validation."
 
-#: ./viewlet/mobile/filters.py:45
+#: ./page/controller/filterbutton.py:40
 msgid "Reversed"
 msgstr "Inverser"
 
@@ -1119,7 +1066,7 @@ msgstr ""
 msgid "Save"
 msgstr "Sauvegarder"
 
-#: ./viewlet/mobile/filters.py:27
+#: ./page/controller/filterbutton.py:22
 msgid "Search"
 msgstr "Rechercher"
 
@@ -1207,7 +1154,7 @@ msgstr "Sites"
 msgid "Skype"
 msgstr "Skype"
 
-#: ./viewlet/mobile/filters.py:39
+#: ./page/controller/filterbutton.py:34
 msgid "Sort on"
 msgstr "Trier par"
 
@@ -1223,7 +1170,7 @@ msgid "State"
 msgstr "État"
 
 #: ./content/discussion.py:14
-#: ./page/controller/discussions_view.py:24
+#: ./page/controller/discussions_view.py:22
 msgid "Subject"
 msgstr "Sujet"
 
@@ -1252,7 +1199,6 @@ msgstr ""
 msgid "Target title"
 msgstr ""
 
-#: ./page/controller/templates/terms-of-services.pt:17
 #: ./profiles/settings/actions.xml
 msgid "Terms of services"
 msgstr "Conditions générales d'utilisation"
@@ -1287,12 +1233,8 @@ msgstr "Il y a eu des erreurs"
 msgid "This is the email you will receive information on. It will not be displayed to other users."
 msgstr "Email sur lequel vous recevrez les informations. Il ne sera pas montré aux autres utilisateurs."
 
-#: ./viewlet/desktop/templates/portal_header.pt:215
-msgid "Timeline"
-msgstr "Timeline"
-
 #: ./content/vocabularies.py:56
-#: ./page/controller/articles_view.py:20
+#: ./page/controller/articles_view.py:18
 #: ./page/controller/audios_view.py:18
 msgid "Title"
 msgstr "Titre"
@@ -1313,7 +1255,7 @@ msgstr "Chiffre d'affaire"
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ./viewlet/mobile/filters.py:33
+#: ./page/controller/filterbutton.py:28
 msgid "Type"
 msgstr "Type"
 
@@ -1321,7 +1263,7 @@ msgstr "Type"
 msgid "Type of request"
 msgstr ""
 
-#: ./page/controller/links_view.py:24
+#: ./page/controller/links_view.py:22
 msgid "URL"
 msgstr "URL"
 
@@ -1362,7 +1304,7 @@ msgstr "Utilisateurs"
 
 #: ./page/desktop/templates/users_directory_view.pt:37
 #: ./page/mobile/templates/users_directory_view.pt:35
-#: ./setuphandler.py:157
+#: ./setuphandler.py:159
 msgid "Users directory"
 msgstr "Annuaire des utilisateurs"
 
@@ -1389,7 +1331,7 @@ msgstr "Viadeo"
 msgid "Video"
 msgstr "Vidéo"
 
-#: ./page/controller/videos_view.py:52
+#: ./page/controller/videos_view.py:46
 msgid "Video added"
 msgstr "Vidéo ajoutée"
 
@@ -1400,10 +1342,6 @@ msgstr "Fichier video"
 #: ./page/mobile/templates/video_tile_view.pt:20
 msgid "Video is being transcoded. Please wait a moment."
 msgstr "La video est en cours d'encodage. Veuillez patienter."
-
-#: ./viewlet/desktop/templates/portal_header.pt:150
-msgid "Videos"
-msgstr "Vidéos"
 
 #: ./page/mobile/templates/user_dialog.pt:22
 msgid "View complete profile"
@@ -1441,17 +1379,12 @@ msgstr "Suivis quand ajouté aux favoris"
 msgid "Website"
 msgstr "Site web"
 
-#. Default: "My space"
-#: ./page/controller/templates/welcome_view.pt:13
-msgid "Welcome"
-msgstr "Bienvenue"
-
 #: ./page/controller/addbutton.py:24
 msgid "What"
 msgstr "Quoi"
 
 #: ./page/controller/addbutton.py:19
-#: ./page/controller/group_base.py:114
+#: ./page/controller/group_base.py:118
 msgid "Where"
 msgstr "Où"
 
@@ -1601,10 +1534,6 @@ msgstr "iCal"
 msgid "label_apply_changes"
 msgstr "Enregistrer"
 
-#: ./page/desktop/templates/objects_view.pt:53
-msgid "link"
-msgstr "lien"
-
 #. Default: "User name"
 #: ./page/desktop/templates/users_roles.pt:77
 msgid "listingheader_user_name"
@@ -1658,10 +1587,6 @@ msgstr "Version mobile"
 #: ./page/desktop/templates/events_view.pt:73
 msgid "title_add_to_ical"
 msgstr "Télécharger cet événement au format iCal"
-
-#: ./page/desktop/templates/objects_view.pt:54
-msgid "to add contents faster."
-msgstr "pour ajouter du contenu plus rapidement."
 
 #: ./content/event.py:26
 msgid "urlGMaps_description"

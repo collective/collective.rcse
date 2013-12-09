@@ -113,4 +113,7 @@ msgstr "publié"
 msgid "hide"
 msgstr "dépublié"
 
+msgid "open"
+msgstr "ouvert"
+
 # /Transition
