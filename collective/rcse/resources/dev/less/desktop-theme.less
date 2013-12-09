@@ -64,6 +64,12 @@ header{
     font-size:14px;
   }
 }
+@media (max-width: 751px){
+  header .nav span.icon-user:before{
+    float:left;
+    margin:2px 5px 0px 0px;
+  }
+}
 #edit-bar{
   height:80px;
 }
@@ -469,6 +475,7 @@ nav.navbar{
 }
 .formControls{
   float:right;
+  margin-top:5px;
 }
 form:after,.dataTables_wrapper:after{
   content:".";
@@ -557,7 +564,6 @@ div > form.rowlike{
   margin-top:-26px;
 }
 .portletVoteInner{
-  
   input.context{
     float:right;
   }
@@ -565,6 +571,16 @@ div > form.rowlike{
 .portletCalendar .navbar .colgroup a{
   margin-top:4px;
   margin-bottom:0px;
+}
+label[for="form-widgets-image-input"]{
+  float:right;
+  margin-top:-44px;
+  border-radius:15px;
+  padding:6px;
+}
+input.input-large.form-control{
+  float:left;
+  margin-bottom:10px;
 }
 
 /* Modal */
