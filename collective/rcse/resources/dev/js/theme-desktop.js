@@ -277,6 +277,13 @@ var rcseUpdateForms = function(element){
             if (input.attr('type')=="radio"){
                 return true; // continue
             }
+            if (input.attr('type')=="file"){
+		input.filestyle({
+		    classButton: 'btn btn-default',
+		    buttonText: 'Choisissez un fichier',
+		});
+                return true; // continue
+            }
             input.addClass('form-control');
         });
     });

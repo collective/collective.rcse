@@ -91,6 +91,7 @@ module.exports = function(grunt) {
                         'app/bower_components/excanvas/excanvas.js',
                         'app/bower_components/datatables/media/js/jquery.dataTables.js',
 
+		        'app/bower_components/bootstrap-filestyle/src/bootstrap-filestyle.js',
                         'app/bower_components/eventEmitter/EventEmitter.js',
                         'app/bower_components/eventie/eventie.js',
                         'app/bower_components/doc-ready/doc-ready.js',

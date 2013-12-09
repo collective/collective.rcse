@@ -17,6 +17,7 @@
   "dependencies": {
     "animate.css": "master",
     "bootstrap": "3.0.0",
+    "bootstrap-filestyle": "1.0.3",
     "chosen": "https://github.com/harvesthq/chosen/releases/download/1.0.0/chosen_v1.0.0.zip",
     "eo-ckeditor": "master",
     "excanvas": "master",
