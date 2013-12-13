@@ -99,6 +99,11 @@ class DesktopResourceRegistries(ResourcesViewlet):
             'conditionalcomment': "",
             'id': "++resource++collective.rcse/js/desktop.min.js"
         })
+        self.scripts_config.append({
+            'inline': False,
+            'conditionalcomment': "",
+            'id': "++resource++ckeditor/ckeditor.js"
+        })
 
 
 class MobileResourceRegistries(ResourcesViewlet):

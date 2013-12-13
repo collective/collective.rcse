@@ -23,7 +23,7 @@ module.exports = function(grunt) {
             ckeditor: {
                 expand : true,
                 cwd : 'app/bower_components/eo-ckeditor/',
-                src : [ '*.js', 'lang/**', 'plugins/**', 'skins/**'],
+                src : [ '*.js', '*.css', 'lang/**', 'plugins/**', 'skins/**', 'core/**'],
                 dest : '../ckeditor'
             },
             desktopfont : {

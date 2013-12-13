@@ -387,13 +387,6 @@ var rcseUpdateForms = function(element){
      */
     $(element).find('div[contenteditable="true"]').each(function(){
         $(this).addClass('form-control');
-        if ($("#ckeditor-script").length == 0){
-            var script = document.createElement( 'script' );
-            script.type = 'text/javascript';
-            script.id = 'ckeditor-script'
-            script.src = portal_url + '/++resource++ckeditor/ckeditor.js';
-            document.body.appendChild(script);
-        }
     });
 }
 var rcseUpdateOthers = function(element){
