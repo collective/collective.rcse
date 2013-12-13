@@ -93,9 +93,9 @@
 		   collective.rcse.requestaccess.event.IRequestValidatedEvent"
 	      />
   <subscriber handler=".subscribers.handle_request_refused"
-          for="collective.rcse.requestaccess.interfaces.RequestSchema
-           collective.rcse.requestaccess.event.IRequestRefusedEvent"
-          />
+	      for="collective.rcse.requestaccess.interfaces.RequestSchema
+		   collective.rcse.requestaccess.event.IRequestRefusedEvent"
+	      />
 
   <subscriber handler=".cache.handleUserRolesModifiedOnObject"
 	      for="collective.rcse.event.IUserRolesModifiedOnObjectEvent"

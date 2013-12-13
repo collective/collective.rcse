@@ -17,10 +17,10 @@ from plone.registry.interfaces import IRegistry
 
 from collective.requestaccess import interfaces
 from collective.requestaccess.i18n import _
-from collective.requestaccess.interfaces import RequestSchema
-from .event import RequestAddedEvent
-from .event import RequestValidatedEvent
-from .event import RequestRefusedEvent
+from collective.rcse.requestaccess.interfaces import RequestSchema
+from collective.rcse.requestaccess.event import RequestAddedEvent
+from collective.rcse.requestaccess.event import RequestValidatedEvent
+from collective.rcse.requestaccess.event import RequestRefusedEvent
 
 import logging
 from plone.app.uuid.utils import uuidToObject
