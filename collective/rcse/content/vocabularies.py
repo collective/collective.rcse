@@ -115,7 +115,8 @@ settings = SimpleVocabulary([
 def users(context):
     terms = []
     membrane_tool = getToolByName(context, 'membrane_tool')
-    users = membrane_tool(review_state="enabled")
+    users = sorted(membrane_tool(review_state="enabled"),
+                   cmp=lambda x, y: cmp(x.Title.lower(), y.Title.lower()))
     for user in users:
         terms.append(SimpleVocabulary.createTerm(
             unicode(user.getUserId),
