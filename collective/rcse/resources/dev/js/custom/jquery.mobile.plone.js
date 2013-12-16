@@ -116,6 +116,9 @@ var PloneThemeJQMConvertFormsToJQM = function(){
 			$(this).find("input[type='submit']").first().attr("data-theme", "b");
 		})
 	}
+	$(document).find('.required.horizontal').each(function(){
+	    $(this).addClass('ui-icon ui-icon-asterisk ui-icon-shadow');
+	});
 }
 /**
 @function convertTableToJQM
