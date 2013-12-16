@@ -15,7 +15,7 @@
            i18n:attributes="title"
            data-rel="popup" data-inline="true"
            data-transition="fade">
-             <img tal:attributes="src string:${view/auth_user/photo}"/>
+             <img tal:attributes="src string:${view/auth_user/photo}/tile"/>
         </a>
       </tal:block>
     </h1>
