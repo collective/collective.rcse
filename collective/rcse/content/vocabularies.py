@@ -61,7 +61,7 @@ def companies(context):
     catalog = getToolByName(context, 'portal_catalog')
     query = {'portal_type': 'collective.rcse.company',
              'sort_on': 'sortable_title'}
-    companies = catalog(**query)
+    companies = catalog.unrestrictedSearchResults(**query)
     terms = [SimpleTerm(value=company.id, title=company.Title)
              for company in companies]
     return SimpleVocabulary(terms)
