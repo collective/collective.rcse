@@ -143,7 +143,7 @@ class MemberTimelineView(GroupTimelineView):
         del self.query['path']
         self.label_content = _(
             u"Contents created by ${name}",
-            mapping={'name': self.group.Title()}
+            mapping={'name': self.group.Title().decode('utf8')}
         )
         wftool = getToolByName(self.context, 'portal_workflow')
         self.group_review_state = wftool.getInfoFor(
