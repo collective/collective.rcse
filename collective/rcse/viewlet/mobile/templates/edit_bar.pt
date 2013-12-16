@@ -7,19 +7,26 @@
            tal:attributes="href string:${view/group_url}/@@join-this-group"
            title="rcse_join_this_group_help"
            i18n:attributes="title"
-           tal:condition="view/can_join">Join this group</a>
+           tal:condition="view/can_join">
+	  <tal:label i18n:domain="collective.rcse"
+		     i18n:translate="">Join this group</tal:label>
+	</a>
         <a class="ajax-action" data-role="button" data-icon="signout"
            title="rcse_quit_this_group_help"
            i18n:attributes="title"
            tal:attributes="href string:${view/group_url}/@@quit-this-group"
-           tal:condition="view/can_quit">Quit this group</a>
+           tal:condition="view/can_quit">
+	  <tal:label i18n:domain="collective.rcse"
+		     i18n:translate="">Quit this group</tal:label>
+	</a>
       </tal:groupjoin>
       <tal:manage tal:condition="view/can_manage">
         <a class="ajax-action" data-role="button" data-icon="gear"
            title="rcse_manage_this_group_help"
            i18n:attributes="title"
            tal:attributes="href string:${view/group_url}/@@rcse_group_edit">
-           <tal:label i18n:translate="">Manage</tal:label>
+           <tal:label i18n:domain="collective.rcse"
+		      i18n:translate="">Manage</tal:label>
         </a>
       </tal:manage>
     </tal:isgroup>

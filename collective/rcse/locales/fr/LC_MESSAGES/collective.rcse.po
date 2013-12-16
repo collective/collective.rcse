@@ -1434,7 +1434,7 @@ msgstr "Vous avez retiré le contenu de ce groupe de votre fil d'actualité"
 
 #: ./action/join.py:52
 msgid "You have request access to this group. Please wait for an administrator to validate it"
-msgstr "Vous avez demandé l'accés à ce groupe. Veuillez patienter qu'un administrateur valide votre demande."
+msgstr "Vous avez demandé l'accès à ce groupe. Veuillez patienter qu'un administrateur valide votre demande."
 
 #: ./action/cioppino_twothumbs.py:37
 msgid "You liked this. Thanks for the feedback!"
