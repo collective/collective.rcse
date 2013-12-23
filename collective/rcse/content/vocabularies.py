@@ -1,3 +1,4 @@
+from plone.app.uuid.utils import uuidToObject
 from plone.i18n.normalizer.base import baseNormalize
 from plone.memoize import ram
 from plone.uuid.interfaces import IUUID
@@ -8,7 +9,7 @@ from zope.component import getUtility
 from zope.component.hooks import getSite
 
 from collective.rcse.i18n import _, _t
-from collective.rcse.cache import getCacheKeyGroupAddPermission
+from collective.rcse import cache
 from collective.rcse.settings import IPersonalPreferences
 
 
@@ -67,7 +68,13 @@ def companies(context):
     return SimpleVocabulary(terms)
 
 
-@ram.cache(getCacheKeyGroupAddPermission)
+@ram.cache(cache.getCacheKeyGroupTitle)
+def _getGroupTitleFromUUID(uuid):
+    group = uuidToObject(uuid)
+    return group.title
+
+
+@ram.cache(cache.getCacheKeyGroupAddPermission)
 def _getGroupsWithAddPermission(username):
     site = getSite()
     portal_membership = getToolByName(site, 'portal_membership')
@@ -79,11 +86,7 @@ def _getGroupsWithAddPermission(username):
     for brain in brains:
         if portal_membership.checkPermission('Add portal content',
                                              brain.getObject()):
-            terms.append(SimpleVocabulary.createTerm(
-                unicode(brain.UID),
-                str(brain.UID),
-                brain.Title
-            ))
+            terms.append(brain.UID)
     return terms
 
 
@@ -91,7 +94,14 @@ def groups(context):
     """Group where the user can add contents."""
     portal_membership = getToolByName(context, 'portal_membership')
     username = portal_membership.getAuthenticatedMember().getUserName()
-    terms = _getGroupsWithAddPermission(username)
+    uids = _getGroupsWithAddPermission(username)
+    terms = []
+    for uid in uids:
+        terms.append(SimpleVocabulary.createTerm(
+                unicode(uid),
+                str(uid),
+                _getGroupTitleFromUUID(uid)
+                ))
     return SimpleVocabulary(terms)
 
 
@@ -102,7 +112,13 @@ def groups_with_home(context):
     site = getToolByName(context, 'portal_url').getPortalObject()
     home = site['home']
     terms = [SimpleTerm(value=IUUID(home), title=_(u"Home"))]
-    terms += _getGroupsWithAddPermission(username)
+    uids = _getGroupsWithAddPermission(username)
+    for uid in uids:
+        terms.append(SimpleVocabulary.createTerm(
+                unicode(uid),
+                str(uid),
+                _getGroupTitleFromUUID(uid)
+                ))
     return SimpleVocabulary(terms)
 
 

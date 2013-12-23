@@ -79,6 +79,10 @@
 	      for="Products.CMFCore.interfaces.IContentish
 		   zope.lifecycleevent.interfaces.IObjectAddedEvent"
 	      />
+  <subscriber handler=".workflow.handle_group_modification"
+	      for="collective.rcse.content.group.GroupSchema
+		   zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+	      />
 
   <subscriber handler=".workflow.handle_user_validation"
 	      for="collective.rcse.content.member.IMember

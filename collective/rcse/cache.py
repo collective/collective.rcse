@@ -5,6 +5,7 @@ import memcache
 
 from plone.memoize import ram
 from plone.memoize.interfaces import ICacheChooser
+from plone.uuid.interfaces import IUUID
 from zope.interface import directlyProvides
 
 
@@ -47,9 +48,24 @@ def clearCacheKeyGroupAddPermission(username):
     cache.set(hashlib.md5(key).hexdigest(), None)
 
 
+def clearCacheKeyGroupTitle(group):
+    module = 'collective.rcse.content.vocabularies'
+    fun = '_getGroupTitleFromUUID'
+    key = '%s.%s:%s' % (module, fun, IUUID(group))
+    cache = get_cache(module, fun)
+    # We need to set it to None to update the value
+    # (Only for memcache! See plone.memoize)
+    cache.set(hashlib.md5(key).hexdigest(), None)
+
+
 def getCacheKeyGroupAddPermission(fun, username):
     return username
 
 
+def getCacheKeyGroupTitle(fun, uuid):
+    return uuid
+
+
 def handleUserRolesModifiedOnObject(event):
     clearCacheKeyGroupAddPermission(event.username)
+    clearCacheKeyGroupTitle(event.context)
