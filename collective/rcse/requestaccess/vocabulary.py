@@ -17,7 +17,6 @@ class RegistryVocabulary(object):
         self.key = key
 
     def __call__(self, context):
-
         registry = component.queryUtility(IRegistry)
         if registry is None:
             return []
@@ -36,7 +35,7 @@ class RegistryVocabulary(object):
         return translate(msgid, domain="plone", context=request)
 
 
-role_vocab_key = 'collective.requestaccess.interfaces.Settings.roles'
+role_vocab_key = 'collective.rcse.requestaccess.interfaces.Settings.roles'
 RolesVocabulary = RegistryVocabulary(role_vocab_key)
 
 
