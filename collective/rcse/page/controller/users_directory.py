@@ -37,7 +37,7 @@ class UsersDirectoryView(BrowserView):
         }
 
     def getMembers(self, review_state="enabled"):
-        get_members_info(self.context, review_state=review_state)
+        return get_members_info(self.context, review_state=review_state)
 
     def canManageUsers(self):
         usersDirectory = self.context.restrictedTraverse('users_directory')
