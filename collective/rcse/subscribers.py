@@ -5,7 +5,7 @@ from zope.component.hooks import getSite
 from zope.event import notify
 
 from collective.rcse.event import UserRolesModifiedOnObjectEvent
-from collective.rcse.utils import createNotification
+from collective.rcse.utils import createNotification, sudo
 
 logger = logging.getLogger(__name__)
 
@@ -53,6 +53,7 @@ def _handle_request(context, event, what):
     createNotification(what, where, when, who, user)
 
 
+@sudo()
 def handle_request_validated(context, event):
     _handle_request(context, event, 'request_access_validated')
     request = context
