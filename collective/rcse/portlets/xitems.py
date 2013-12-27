@@ -35,7 +35,7 @@ class IPortlet(IPortletDataProvider):
     ptype = schema.Choice(
         title=_(u"Portal Type"),
         description=_(u"Choose type to filter."),
-        vocabulary="plone.app.vocabularies.ReallyUserFriendlyTypes",
+        vocabulary="collective.rcse.vocabulary.addableTypes",
         required=False
     )
 
