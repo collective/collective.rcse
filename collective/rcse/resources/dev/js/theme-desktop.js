@@ -156,6 +156,14 @@ var rcseUpdatePortlets = function(element) {
             });
             newPortlet.appendChild(newList);
 
+        }else if (portlet.hasClass('portletXItems')){
+            portlet.find("dd").each(function() {
+                var link = $(this).find('a');
+                link.addClass('list-group-item');
+                $(newList).append($(this).html());
+            });
+            newPortlet.appendChild(newList);
+
         }else if (portlet.hasClass('portletRecent')){
             portlet.find("dd").each(function() {
                 var link = $(this).find('a');

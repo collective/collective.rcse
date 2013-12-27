@@ -57,3 +57,8 @@ setDefaultRoles(AddRequest, ('Member', 'Manager'))
 security.declarePublic('ReviewRequest')
 ReviewRequest = 'collective.requestaccess: Review request'
 setDefaultRoles(ReviewRequest, ('Manager', 'Site Administrator', 'Owner'))
+
+security.declarePublic('AddXItemsPortlet')
+AddXItemsPortlet = 'collective.rcse: Add xitems portlet'
+setDefaultRoles(AddXItemsPortlet,
+                ('Manager', 'Site Administrator', 'Owner',))

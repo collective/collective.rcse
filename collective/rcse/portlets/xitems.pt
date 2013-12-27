@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      tal:omit-tag=""
+      tal:define="items view/get_items">
+<dl class="portlet portletXItems"
+    i18n:domain="plone"
+    tal:condition="items">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <span tal:content="view/title">
+            Title
+        </span>
+        <span class="portletTopRight"></span>
+    </dt>
+    <tal:items
+                tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime"
+                tal:repeat="item items">
+        <dd class="portletItem oddrow"
+            tal:define="oddrow repeat/item/odd"
+            tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
+
+            <a href="#"
+                tal:attributes="href string:${item/getURL}; title item/Description"
+                class="tile"
+                tal:content="item/Title">
+                    Title
+            </a>
+        </dd>
+    </tal:items>
+    <dd class="portletFooter">
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+</dl>
+</html>

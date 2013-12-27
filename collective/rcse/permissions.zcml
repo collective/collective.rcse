@@ -64,6 +64,10 @@
       id="collective.requestaccess.reviewrequest"
       title="collective.requestaccess: Review request"
       />
+    <permission
+      id="collective.rcse.portlet.xitems"
+      title="collective.rcse: Add xitems portlet"
+      />
   </configure>
 
 </configure>

@@ -10,6 +10,7 @@
  <portlet addview="portlets.Navigation" remove="true" />
  <portlet addview="portlets.Review" remove="true" />
  <portlet addview="portlets.Search" remove="true" />
+ <portlet addview="portlets.News" remove="true" />
 
  <portletmanager
      name="dashboard.group.left"
@@ -22,5 +23,13 @@
      type="collective.rcse.page.controller.group_dashboard_view.IDashboardPortletManager"
      remove="true"
      />
+
+ <portlet
+   addview="collective.rcse.portlet.xitems"
+   title="X Items portlet"
+   description="A portlet which list content"
+   i18n:attributes="title;
+                    description"
+   />
 
 </portlets>
