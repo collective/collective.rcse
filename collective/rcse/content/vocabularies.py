@@ -126,17 +126,3 @@ settings = SimpleVocabulary([
     SimpleTerm(value=field[0], title=field[1].title)
     for field in IPersonalPreferences.namesAndDescriptions()
 ])
-
-
-def users(context):
-    terms = []
-    membrane_tool = getToolByName(context, 'membrane_tool')
-    users = sorted(membrane_tool(review_state="enabled"),
-                   cmp=lambda x, y: cmp(x.Title.lower(), y.Title.lower()))
-    for user in users:
-        terms.append(SimpleVocabulary.createTerm(
-            unicode(user.getUserId),
-            unicode(user.getUserName),
-            user.Title,
-        ))
-    return SimpleVocabulary(terms)

@@ -8,17 +8,18 @@ from Products.statusmessages.interfaces import IStatusMessage
 from plone.z3cform.layout import FormWrapper
 from collective.requestaccess.i18n import _
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from z3c.form.browser.checkbox import CheckBoxFieldWidget
+from plone.directives import form
 
 
 class InvitationFormSchema(model.Schema):
 #    userid = schema.ASCIILine(title=_(u"User ID"))
-    userid = schema.Choice(
-        title=_(u"User ID"),
-        vocabulary="plone.app.vocabularies.Users"
-    )
-    role = schema.Choice(
-        title=_(u"Role"),
-        vocabulary="collective.requestaccess.vocabulary.roles"
+    form.widget(userids=CheckBoxFieldWidget)
+    userids = schema.List(
+        title=_(u"Users"),
+        value_type=schema.Choice(
+            vocabulary="collective.rcse.vocabulary.members"
+        )
     )
 
 
@@ -28,8 +29,7 @@ class InvitationFormAdapter(object):
 
     def __init__(self, context):
         self.context = context
-        self.role = None
-        self.userid = None
+        self.userids = None
 
 
 class InvitationForm(AutoExtensibleForm, form.Form):
@@ -41,15 +41,18 @@ class InvitationForm(AutoExtensibleForm, form.Form):
         data, errors = self.extractData()
         status = IStatusMessage(self.request)
         self.manager = self.context.restrictedTraverse("request_manager")
-        request = self.manager.create()
-        request.userid = data["userid"]
-        request.role = data["role"]
-        request.rtype = "invitation"
-        if self.manager.add(request):
-            status.add(_(u"Invitation sent"))
+        validated = []
+        for userid in data['userids']:
+            request = self.manager.create()
+            request.userid = userid
+            request.role = "Contributor"
+            request.rtype = "invitation"
+            res = self.manager.add(request)
+            validated.append(res)
+        if False in validated:
+            status.add(_(u"Invitation or request already exists."))
         else:
-            status.add(_(u"Invitation or request already exists."),
-                       type='error')
+            status.add(_(u"Invitation sent"))
         self.request.response.redirect(self.context.absolute_url())
 
     @property

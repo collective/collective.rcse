@@ -7,7 +7,8 @@
       for="*"
       name="request_manager"
       class="collective.requestaccess.manager.RequestManager"
-      layer="collective.requestaccess.layer.Layer"
+      layer="collective.rcse.layer.CommonLayer"
+
       permission="zope2.View"
       allowed_interface="collective.requestaccess.interfaces.IRequestManager"
       />
@@ -15,14 +16,16 @@
       for="*"
       name="add_request_form_view"
       class=".request.AddRequestFormView"
-      layer="collective.requestaccess.layer.Layer"
+      layer="collective.rcse.layer.CommonLayer"
+
       permission="collective.requestaccess.addrequest"
       />
   <browser:page
       for="*"
       name="add_invite_form_view"
       class=".invite.InvitationFormWrapper"
-      layer="collective.requestaccess.layer.Layer"
+      layer="collective.rcse.layer.CommonLayer"
+
       permission="collective.requestaccess.reviewrequest"
       />
   <browser:page
@@ -30,7 +33,8 @@
       name="request_view"
       class=".request.RequestView"
       template="templates/request_view.pt"
-      layer="collective.requestaccess.layer.Layer"
+      layer="collective.rcse.layer.CommonLayer"
+
       permission="zope2.View"
       />
   <browser:page
@@ -38,7 +42,8 @@
       name="my_requests_view"
       class=".requests.MyRequestsView"
       template="templates/my_requests_view.pt"
-      layer="collective.requestaccess.layer.Layer"
+      layer="collective.rcse.layer.CommonLayer"
+
       permission="zope2.View"
       />
   <browser:page
@@ -46,7 +51,8 @@
       name="review_requests_view"
       class=".requests.ReviewRequestsView"
       template="templates/review_requests_view.pt"
-      layer="collective.requestaccess.layer.Layer"
+      layer="collective.rcse.layer.CommonLayer"
+
       permission="collective.requestaccess.reviewrequest"
       />
 

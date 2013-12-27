@@ -13,10 +13,6 @@
 
   <i18n:registerTranslations directory="locales" />
 
-  <interface
-      interface=".layer.Layer"
-      name="collective.requestaccess"
-      />
   <utility
     component=".vocabulary.RolesVocabulary"
     name="collective.requestaccess.vocabulary.roles"

@@ -26,7 +26,7 @@
        name="collective.rcse.vocabulary.companies"
        provides="zope.schema.interfaces.IVocabularyFactory"/>
 
-  <utility component=".vocabularies.users"
+  <utility component=".member.members_vocabulary"
        name="collective.rcse.vocabulary.members"
        provides="zope.schema.interfaces.IVocabularyFactory"/>
 
