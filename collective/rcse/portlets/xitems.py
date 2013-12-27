@@ -112,4 +112,4 @@ class EditForm(z3cformhelper.EditForm):
     label = _(u"title_edit_portlet",
               default=u"Edit x items portlet")
     description = _(u"description_portlet",
-                    default=u"A portlet which renders x content")
+                    default=u"A portlet which renders x last items")

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-12-09 08:59+0000\n"
+"POT-Creation-Date: 2013-12-27 14:46+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -40,7 +40,7 @@ msgstr "Un fichier vidéo"
 
 #: ./requestaccess/browser/request.py:135
 msgid "Accept access"
-msgstr ""
+msgstr "Accepter l'accès"
 
 #: ./page/desktop/templates/group_status.pt:50
 #: ./page/mobile/templates/group_status.pt:50
@@ -57,7 +57,7 @@ msgstr "Accès: Propriétaire, Lecteurs et Administrateurs"
 msgid "Access: Owners, Readers and Administrators"
 msgstr "Accès: Propriétaires, Lecteurs et Administrateurs"
 
-#: ./workflow.py:44
+#: ./workflow.py:49
 msgid "Account validation"
 msgstr "Validation du compte"
 
@@ -274,6 +274,10 @@ msgstr "Change l'état du groupe courant"
 msgid "Change the view used by default."
 msgstr "Change la vue utilisée par défaut"
 
+#: ./portlets/xitems.py:39
+msgid "Choose type to filter."
+msgstr "Choisissez le type de contenu à afficher"
+
 #: ./content/company.py:45
 #: ./content/member.py:102
 #: ./page/desktop/templates/companies_directory_view.pt:41
@@ -362,7 +366,7 @@ msgstr ""
 msgid "Credits"
 msgstr "Crédits"
 
-#: ./content/vocabularies.py:55
+#: ./content/vocabularies.py:56
 msgid "Date"
 msgstr "Date"
 
@@ -372,7 +376,7 @@ msgstr "Refuser"
 
 #: ./requestaccess/browser/request.py:149
 msgid "Decline access"
-msgstr ""
+msgstr "Refuser l'accès"
 
 #: ./action/delete.py:18
 #: ./page/controller/users_manage.py:101
@@ -414,6 +418,10 @@ msgstr "Affiche tous les groupes dans le formulaire de recherche"
 #: ./profiles/settings/actions.xml
 msgid "Display new content of this group in your news"
 msgstr "Afficher les nouveaux contenu de ce groupe dans votre fil d'actualité"
+
+#: ./portlets/xitems.py:46
+msgid "Display only content from the current group"
+msgstr "Afficher uniquement le contenu du groupe actuel"
 
 #: ./viewlet/desktop/templates/portal_header.pt:20
 msgid "Display the search for members form"
@@ -497,7 +505,7 @@ msgstr "Site externe"
 msgid "Favorites"
 msgstr "Favoris"
 
-#: ./content/vocabularies.py:16
+#: ./content/vocabularies.py:17
 msgid "Female"
 msgstr "Femme"
 
@@ -510,14 +518,18 @@ msgstr "Fichier"
 msgid "File added"
 msgstr "Fichier ajouté"
 
-#: ./page/controller/filterbutton.py:72
+#: ./page/controller/filterbutton.py:73
 #: ./page/desktop/templates/filterbutton.pt:8
 msgid "Filter"
 msgstr "Filtrer"
 
 #: ./page/desktop/templates/filterbutton.pt:15
 msgid "Filter form"
-msgstr ""
+msgstr "Formulaire de filtre"
+
+#: ./portlets/xitems.py:45
+msgid "Filter on group"
+msgstr "Filtrer sur le groupe"
 
 #: ./viewlet/mobile/templates/filters.pt:11
 msgid "Filters"
@@ -585,7 +597,7 @@ msgstr "Groupes"
 msgid "Hide: ${attr}"
 msgstr "Masquer: ${attr}"
 
-#: ./content/vocabularies.py:104
+#: ./content/vocabularies.py:114
 #: ./setuphandler.py:185
 #: ./viewlet/desktop/templates/portal_header.pt:11
 msgid "Home"
@@ -640,18 +652,18 @@ msgstr "Intérêts"
 msgid "Invalid option"
 msgstr "Option invalide"
 
-#: ./requestaccess/vocabulary.py:46
+#: ./requestaccess/vocabulary.py:45
 msgid "Invitation"
-msgstr ""
+msgstr "Invitation"
 
 #: ./requestaccess/browser/invite.py:51
 #: ./requestaccess/browser/request.py:65
 msgid "Invitation or request already exists."
-msgstr ""
+msgstr "L'invitation ou la demande existe déjà"
 
 #: ./requestaccess/browser/invite.py:49
 msgid "Invitation sent"
-msgstr ""
+msgstr "Invitation envoyée"
 
 #: ./page/desktop/templates/group_edit.pt:68
 #: ./page/mobile/templates/group_edit.pt:55
@@ -663,6 +675,7 @@ msgid "Item and it's content has been deleted"
 msgstr "L'élément ainsi que tout son contenu ont été supprimés."
 
 #: ./viewlet/desktop/templates/edit_bar.pt:12
+#: ./viewlet/mobile/templates/edit_bar.pt:11
 msgid "Join this group"
 msgstr "Rejoindre ce groupe"
 
@@ -686,6 +699,10 @@ msgstr "Permettre aux gens de contribuer à l'espace"
 #: ./profiles/settings/actions.xml
 msgid "Like"
 msgstr "Aimer"
+
+#: ./portlets/xitems.py:32
+msgid "Limit"
+msgstr "Limite"
 
 #: ./page/controller/links_view.py:39
 msgid "Link added"
@@ -726,12 +743,12 @@ msgstr "Voir le plan"
 msgid "Make moderated"
 msgstr "Rendre modéré"
 
-#: ./content/vocabularies.py:17
+#: ./content/vocabularies.py:18
 msgid "Male"
 msgstr "Homme"
 
 #: ./viewlet/desktop/templates/edit_bar.pt:31
-#: ./viewlet/mobile/templates/edit_bar.pt:22
+#: ./viewlet/mobile/templates/edit_bar.pt:28
 msgid "Manage"
 msgstr "Gérer"
 
@@ -849,7 +866,7 @@ msgstr "Ouvrir le formulaire d'ajout"
 
 #: ./page/desktop/templates/filterbutton.pt:2
 msgid "Open filter form"
-msgstr ""
+msgstr "Ouvrir le formulaire de filtrage"
 
 #: ./viewlet/desktop/templates/portal_header.pt:102
 msgid "Open the corresponding content"
@@ -915,6 +932,10 @@ msgstr "Veuillez completer les informations de votre entreprise"
 msgid "Please put an image file here"
 msgstr "Veuillez mettre un fichier image ici"
 
+#: ./portlets/xitems.py:38
+msgid "Portal Type"
+msgstr "Type de contenu"
+
 #: ./page/desktop/templates/users_directory_view.pt:65
 #: ./page/desktop/templates/users_manage.pt:49
 msgid "Portrait"
@@ -961,17 +982,18 @@ msgstr "Téléphone portable professionnel"
 
 #: ./requestaccess/browser/invite.py:39
 msgid "Propose access"
-msgstr ""
+msgstr "Proposer un accès"
 
 #: ./requestaccess/browser/invite.py:57
 msgid "Propose access on ${title}"
-msgstr ""
+msgstr "Proposer un accès à ${title}"
 
 #: ./profiles/settings/types/collective.rcse.proxygroup.xml
 msgid "Proxy Group"
 msgstr "Faux groupe (proxy)"
 
 #: ./viewlet/desktop/templates/edit_bar.pt:21
+#: ./viewlet/mobile/templates/edit_bar.pt:19
 msgid "Quit this group"
 msgstr "Quitter ce groupe"
 
@@ -994,7 +1016,7 @@ msgstr ""
 
 #: ./requestaccess/browser/request.py:113
 msgid "Refuse access"
-msgstr ""
+msgstr "Refuser l'accès"
 
 #: ./page/controller/register.py:49
 msgid "Register"
@@ -1009,7 +1031,7 @@ msgstr "Enregistrer vos informations"
 msgid "Registred"
 msgstr "Enregistré"
 
-#: ./content/vocabularies.py:54
+#: ./content/vocabularies.py:55
 msgid "Relevance"
 msgstr "Pertinence"
 
@@ -1017,9 +1039,9 @@ msgstr "Pertinence"
 msgid "Remove from my news"
 msgstr "Retirer de mon fil d'actualité"
 
-#: ./requestaccess/vocabulary.py:45
+#: ./requestaccess/vocabulary.py:44
 msgid "Request"
-msgstr ""
+msgstr "Demande"
 
 #: ./page/desktop/templates/group_status.pt:37
 #: ./page/mobile/templates/group_status.pt:37
@@ -1033,15 +1055,15 @@ msgstr "Demande d'accès: Demande et Invitation"
 
 #: ./requestaccess/browser/request.py:81
 msgid "Request ID"
-msgstr ""
+msgstr "ID de la demande"
 
 #: ./requestaccess/browser/request.py:53
 msgid "Request access"
-msgstr ""
+msgstr "Demande d'accès"
 
 #: ./requestaccess/browser/request.py:71
 msgid "Request access on ${title}"
-msgstr ""
+msgstr "Demande d'accès à ${title}"
 
 #: ./page/desktop/templates/member_tile_view.pt:20
 #: ./page/mobile/templates/member_tile_view.pt:22
@@ -1056,11 +1078,11 @@ msgstr "Inverser"
 #: ./requestaccess/browser/request.py:35
 #: ./requestaccess/interfaces.py:23
 msgid "Role"
-msgstr ""
+msgstr "Rôle"
 
 #: ./requestaccess/interfaces.py:75
 msgid "Roles"
-msgstr ""
+msgstr "Rôles"
 
 #: ./page/controller/personal_preferences.py:49
 msgid "Save"
@@ -1092,7 +1114,7 @@ msgstr "Chercher du contenu"
 msgid "Search for users"
 msgstr "Chercher des utilisateurs"
 
-#: ./i18n.py:13
+#: ./i18n.py:14
 #: ./viewlet/mobile/templates/sections.pt:21
 msgid "Search groups"
 msgstr "Rechercher un groupe"
@@ -1185,11 +1207,11 @@ msgstr "S'abonner quand ajouté aux favoris"
 
 #: ./requestaccess/interfaces.py:18
 msgid "Target Path"
-msgstr ""
+msgstr "Chemin de la cible"
 
 #: ./requestaccess/interfaces.py:16
 msgid "Target UUID"
-msgstr ""
+msgstr "UUID de la cible"
 
 #: ./requestaccess/interfaces.py:19
 msgid "Target path part"
@@ -1197,7 +1219,7 @@ msgstr ""
 
 #: ./requestaccess/interfaces.py:21
 msgid "Target title"
-msgstr ""
+msgstr "Titre de la cible"
 
 #: ./profiles/settings/actions.xml
 msgid "Terms of services"
@@ -1218,11 +1240,11 @@ msgstr "Le fichier doit être du type vidéo. Vous avez utiliser le type '${mime
 
 #: ./requestaccess/browser/request.py:124
 msgid "The request has been refused"
-msgstr ""
+msgstr "La demande a été refusée"
 
 #: ./requestaccess/browser/request.py:108
 msgid "The request has been validated"
-msgstr ""
+msgstr "La demande a été validée"
 
 #: ./page/controller/modify_company.py:57
 #: ./page/controller/register_information.py:67
@@ -1233,7 +1255,7 @@ msgstr "Il y a eu des erreurs"
 msgid "This is the email you will receive information on. It will not be displayed to other users."
 msgstr "Email sur lequel vous recevrez les informations. Il ne sera pas montré aux autres utilisateurs."
 
-#: ./content/vocabularies.py:56
+#: ./content/vocabularies.py:57
 #: ./page/controller/articles_view.py:18
 #: ./page/controller/audios_view.py:18
 msgid "Title"
@@ -1261,7 +1283,7 @@ msgstr "Type"
 
 #: ./requestaccess/interfaces.py:11
 msgid "Type of request"
-msgstr ""
+msgstr "Type de demande"
 
 #: ./page/controller/links_view.py:22
 msgid "URL"
@@ -1290,7 +1312,7 @@ msgstr "Le membre ${user} a été supprimé"
 #: ./requestaccess/browser/invite.py:16
 #: ./requestaccess/interfaces.py:15
 msgid "User ID"
-msgstr ""
+msgstr "ID utilisateur"
 
 #: ./content/member.py:66
 msgid "Username"
@@ -1319,7 +1341,7 @@ msgstr "Valider/Refuser les demandes d'accès."
 
 #: ./requestaccess/browser/request.py:97
 msgid "Validate access"
-msgstr ""
+msgstr "Valider l'accès"
 
 #: ./content/member.py:181
 #: ./page/desktop/templates/member_tile_view.pt:122
@@ -1402,7 +1424,7 @@ msgstr "Vous n'êtes pas encore enregistré. Veuillez poursuivre."
 
 #: ./requestaccess/manager.py:236
 msgid "You can 't validate your own request"
-msgstr ""
+msgstr "Vous ne pouvez valider votre propre demande"
 
 #: ./action/cioppino_twothumbs.py:47
 msgid "You dislike this. Thanks for the feedback!"
@@ -1410,15 +1432,15 @@ msgstr "Vous n'aimez pas cet élément. Merci de votre retour !"
 
 #: ./requestaccess/browser/request.py:146
 msgid "You have accepted the invitation"
-msgstr ""
+msgstr "Vous avez accepté l'invitation"
 
-#: ./i18n.py:7
+#: ./i18n.py:8
 msgid "You have added the content of this group to your news"
 msgstr "Vous avez ajouté le contenu de ce group à votre fil d'actualité"
 
 #: ./requestaccess/browser/request.py:160
 msgid "You have declined access"
-msgstr ""
+msgstr "Vous avez refusé l'accès"
 
 #: ./action/join.py:45
 msgid "You have joined this group"
@@ -1428,7 +1450,7 @@ msgstr "Vous avez rejoint ce groupe"
 msgid "You have quit this group"
 msgstr "Vous avez quitté ce groupe"
 
-#: ./i18n.py:10
+#: ./i18n.py:11
 msgid "You have removed the content of this group from your news"
 msgstr "Vous avez retiré le contenu de ce groupe de votre fil d'actualité"
 
@@ -1446,7 +1468,7 @@ msgstr "Vous devez être connecté pour accéder au RCSE"
 
 #: ./requestaccess/browser/request.py:104
 msgid "You must provide a request ID"
-msgstr ""
+msgstr "Vous devez donner un ID de demande"
 
 #: ./content/video.py:32
 msgid "You must provide at least a file or a link"
@@ -1495,11 +1517,11 @@ msgstr "Votre profil est en attente de validation."
 
 #: ./requestaccess/browser/request.py:190
 msgid "Your request has been canceled"
-msgstr ""
+msgstr "Votre demande a été annulée"
 
 #: ./requestaccess/browser/request.py:62
 msgid "Your request has been saved. It's now under review"
-msgstr ""
+msgstr "Votre demande a été sauvegardée. Elle est maintenant en attente de validation"
 
 #: ./action/cioppino_twothumbs.py:39
 msgid "Your vote has been removed."
@@ -1509,6 +1531,11 @@ msgstr "Votre avis a été supprimé"
 #: ./page/mobile/templates/manage_group_dashboard_view.pt:29
 msgid "add_them_to_the_folder_itself"
 msgstr ""
+
+#. Default: "A portlet which renders x last items"
+#: ./portlets/xitems.py:101
+msgid "description_portlet"
+msgstr "Une portlet qui affiche les x derniers éléments"
 
 #. Default: "Workflow for ${group}"
 #: ./page/desktop/templates/group_status.pt:14
@@ -1561,12 +1588,12 @@ msgid "rcse_join_this_group_help"
 msgstr "Rejoindre le groupe vous permet d'y contribuer."
 
 #: ./viewlet/desktop/templates/edit_bar.pt:26
-#: ./viewlet/mobile/templates/edit_bar.pt:18
+#: ./viewlet/mobile/templates/edit_bar.pt:24
 msgid "rcse_manage_this_group_help"
 msgstr "Ouvrir l'écran de gestion du groupe pour le modifier, renommer, supprimer, y inviter des utilisateurs, …"
 
 #: ./viewlet/desktop/templates/edit_bar.pt:15
-#: ./viewlet/mobile/templates/edit_bar.pt:11
+#: ./viewlet/mobile/templates/edit_bar.pt:14
 msgid "rcse_quit_this_group_help"
 msgstr "Ne plus participer à ce groupe."
 
@@ -1583,10 +1610,25 @@ msgstr "Version desktop"
 msgid "themeswitcher_mobile"
 msgstr "Version mobile"
 
+#. Default: "Add x items portlet"
+#: ./portlets/xitems.py:100
+msgid "title_add_portlet"
+msgstr "Ajouter la portlet xitems"
+
 #. Default: "Download this event in iCal format"
 #: ./page/desktop/templates/events_view.pt:73
 msgid "title_add_to_ical"
 msgstr "Télécharger cet événement au format iCal"
+
+#. Default: "Edit x items portlet"
+#: ./portlets/xitems.py:112
+msgid "title_edit_portlet"
+msgstr "Modifier la portlet xitems"
+
+#. Default: "XItems portlet"
+#: ./portlets/xitems.py:53
+msgid "title_portlet"
+msgstr "XItems portlet"
 
 #: ./content/event.py:26
 msgid "urlGMaps_description"
