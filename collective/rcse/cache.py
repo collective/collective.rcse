@@ -68,4 +68,4 @@ def getCacheKeyGroupTitle(fun, uuid):
 
 def handleUserRolesModifiedOnObject(event):
     clearCacheKeyGroupAddPermission(event.username)
-    clearCacheKeyGroupTitle(event.context)
+    clearCacheKeyGroupTitle(event.object)
