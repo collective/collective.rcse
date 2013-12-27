@@ -2,11 +2,13 @@ from zope import component
 from zope import schema
 from zope import interface
 from zope.formlib import form
+from z3c.form import field
 
 from plone.i18n.normalizer.interfaces import IIDNormalizer
 from plone.portlets.interfaces import IPortletDataProvider
 
 from plone.app.portlets.portlets import base
+from plone.app.portlets.browser import z3cformhelper
 
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
@@ -23,7 +25,7 @@ class IPortlet(IPortletDataProvider):
     header = schema.TextLine(
         title=_p(u"Portlet header"),
         description=_p(u"Title of the rendered portlet"),
-        required=False
+        required=True
     )
 
     count = schema.Int(
@@ -92,9 +94,9 @@ class Renderer(base.Renderer):
         return query
 
 
-class AddForm(base.AddForm):
+class AddForm(z3cformhelper.AddForm):
     """add form"""
-    form_fields = form.Fields(IPortlet)
+    fields = field.Fields(IPortlet)
     label = _(u"title_add_portlet", default=u"Add x items portlet")
     description = _(u"description_portlet",
                     default=u"A portlet which renders x last items")
@@ -103,10 +105,10 @@ class AddForm(base.AddForm):
         return Assignment(**data)
 
 
-class EditForm(base.EditForm):
+class EditForm(z3cformhelper.EditForm):
     """Portlet edit form.
     """
-    form_fields = form.Fields(IPortlet)
+    fields = field.Fields(IPortlet)
     label = _(u"title_edit_portlet",
               default=u"Edit x items portlet")
     description = _(u"description_portlet",

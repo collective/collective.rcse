@@ -2,7 +2,10 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       tal:omit-tag=""
-      tal:define="items view/get_items">
+      tal:define="items view/get_items;
+        plone_view context/@@plone;
+        toLocalizedTime nocall:plone_view/toLocalizedTime;
+        viewActions here/portal_properties/site_properties/typesUseViewActionInListings|python:();">
 <dl class="portlet portletXItems"
     i18n:domain="plone"
     tal:condition="items">
@@ -14,15 +17,16 @@
         </span>
         <span class="portletTopRight"></span>
     </dt>
-    <tal:items
-                tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime"
-                tal:repeat="item items">
+    <tal:items tal:repeat="item items">
         <dd class="portletItem oddrow"
-            tal:define="oddrow repeat/item/odd"
+            tal:define="oddrow repeat/item/odd;
+              useView python:item.portal_type in viewActions;
+              itemUrl python:useView and item.getURL() + '/view' or item.getURL();
+              normalizeString nocall:plone_view/normalizeString;"
             tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
 
             <a href="#"
-                tal:attributes="href string:${item/getURL}; title item/Description"
+                tal:attributes="href string:${itemUrl}; title item/Description"
                 class="tile"
                 tal:content="item/Title">
                     Title
