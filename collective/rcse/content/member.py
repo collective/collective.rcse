@@ -4,6 +4,7 @@ from plone.memoize import ram
 from plone.namedfile import field
 from plone.supermodel import model
 from z3c.form.browser.select import SelectFieldWidget
+from zope import interface
 from zope import schema
 
 from collective.rcse.i18n import _
@@ -178,12 +179,45 @@ class IMember(model.Schema):
         required=False
     )
 
-    website = schema.URI(title=_(u"Website"), required=False)
+    form.widget('website', placeholder=u"http://www.monsiteinternet.com")
+    website = schema.URI(
+        title=_(u"Website"), required=False,
+        description=_(u"Don't forget http:// or https://"),
+    )
+
+    form.widget('blog', placeholder=u"http://www.monblog.com")
     blog = schema.URI(title=_(u"Blog"), required=False)
+
+    form.widget('viadeo', placeholder=u"http://www.viadeo.com/profile/")
     viadeo = schema.URI(title=_(u"Viadeo"), required=False)
+
+    form.widget('linkedin', placeholder=u"http://www.linkedin.com/profile/")
     linkedin = schema.URI(title=_(u"LinkedIn"), required=False)
+
+    form.widget('google', placeholder=u"https://plus.google.com/")
     google = schema.URI(title=_(u"Google+"), required=False)
+
+    form.widget('twitter', placeholder=u"https://twitter.com/")
     twitter = schema.URI(title=_(u"Twitter"), required=False)
+
+    @interface.invariant
+    def validate_urls(obj):
+        viadeo = "http://www.viadeo.com/profile/"
+        linkedin = "http://www.linkedin.com/profile/"
+        google = "https://plus.google.com/"
+        twitter = "https://twitter.com/"
+        msg = "%s is not a valid %s url"
+        if obj.viadeo and not obj.viadeo.startswith(viadeo):
+            raise interface.Invalid(msg % (obj.viadeo, "viadeo"))
+
+        if obj.linkedin and not obj.linkedin.startswith(linkedin):
+            raise interface.Invalid(msg % (obj.linkedin, "linkedin"))
+
+        if obj.google and not obj.google.startswith(google):
+            raise interface.Invalid(msg % (obj.google, "google plus"))
+
+        if obj.twitter and not obj.twitter.startswith(twitter):
+            raise interface.Invalid(msg % (obj.twitter, "twitter"))
 
 
 def handle_member_added(context, event):
