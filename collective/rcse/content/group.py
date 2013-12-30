@@ -31,3 +31,8 @@ def get_group(context):
         return
 
     return parent
+
+
+def handle_group_added(context, event):
+    sharing_view = context.restrictedTraverse('@@sharing')
+    sharing_view.update_inherit(status=False, reindex=True)

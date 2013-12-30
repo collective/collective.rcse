@@ -72,4 +72,9 @@
     permission="zope2.View"
     />
 
+  <subscriber handler=".group.handle_group_added"
+      for="collective.rcse.content.group.GroupSchema
+      zope.lifecycleevent.interfaces.IObjectAddedEvent"
+      />
+
 </configure>
