@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-12-27 14:46+0000\n"
+"POT-Creation-Date: 2013-12-30 16:39+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Domain: collective.rcse\n"
 "Language: fr\n"
 "X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
+
+#: ./content/member.py:212
+msgid "${url} is not a valid ${service} url"
+msgstr "${url} n'est pas une url valide pour ${service}"
 
 #: ./profiles/settings/types/collective.rcse.directory.xml
 msgid "A directory"
@@ -156,7 +160,7 @@ msgstr "Ajouter une vidéo"
 msgid "Address"
 msgstr "Adresse"
 
-#: ./content/member.py:106
+#: ./content/member.py:109
 msgid "Advertiser"
 msgstr "Annonceur"
 
@@ -189,7 +193,7 @@ msgstr "Etes vous sûr de vouloir supprimer ${title} ainsi que tout ce qu'il con
 msgid "Are you sure you want to delete this comment ?"
 msgstr "Êtes vous certain de vouloir supprimer ce commentaire ?"
 
-#: ./content/member.py:136
+#: ./content/member.py:139
 #: ./page/desktop/templates/member_tile_view.pt:53
 #: ./page/mobile/templates/member_tile_view.pt:56
 msgid "Areas of expertise"
@@ -220,7 +224,7 @@ msgstr "Fichier audio ajouté"
 msgid "Audio file"
 msgstr "Fichier audio"
 
-#: ./content/member.py:131
+#: ./content/member.py:134
 msgid "Avatar"
 msgstr "Avatar"
 
@@ -232,7 +236,7 @@ msgstr "Mauvaise clé."
 msgid "Banned"
 msgstr "Bannis"
 
-#: ./content/member.py:122
+#: ./content/member.py:125
 msgid "Birthdate"
 msgstr "Date de naissance"
 
@@ -241,7 +245,7 @@ msgid "Birthdate: ${birthdate}"
 msgstr "Date d'anniversaire : ${birthdate}"
 
 #: ./content/company.py:52
-#: ./content/member.py:180
+#: ./content/member.py:189
 #: ./page/desktop/templates/company_description.pt:23
 msgid "Blog"
 msgstr "Blog"
@@ -279,7 +283,7 @@ msgid "Choose type to filter."
 msgstr "Choisissez le type de contenu à afficher"
 
 #: ./content/company.py:45
-#: ./content/member.py:102
+#: ./content/member.py:105
 #: ./page/desktop/templates/companies_directory_view.pt:41
 msgid "City"
 msgstr "Ville"
@@ -310,7 +314,7 @@ msgstr "Entreprises"
 msgid "Companies directory"
 msgstr "Annuaire des entreprises"
 
-#: ./content/member.py:90
+#: ./content/member.py:93
 #: ./page/controller/timeline_view.py:175
 #: ./page/desktop/templates/users_directory_view.pt:69
 msgid "Company"
@@ -332,7 +336,7 @@ msgstr ""
 msgid "Confirm the password"
 msgstr "Confirmez le mot de passe"
 
-#: ./content/member.py:47
+#: ./content/member.py:50
 #: ./page/desktop/templates/member_tile_view.pt:60
 #: ./page/mobile/templates/member_tile_view.pt:62
 msgid "Contact information"
@@ -436,17 +440,21 @@ msgstr "Afficher cette image dans sa taille originale"
 msgid "Do not display anymore new content from this group in your news"
 msgstr "Ne plus afficher les nouveaux contenu de ce groupe dans votre fil d'actualité"
 
+#: ./content/member.py:185
+msgid "Don't forget http:// or https://"
+msgstr "N'oubliez pas http:// ou https://"
+
 #: ./page/desktop/templates/file_tile_view.pt:3
 #: ./page/mobile/templates/file_tile_view.pt:3
 #: ./page/mobile/templates/file_view.pt:11
 msgid "Download"
 msgstr "Télécharger"
 
-#: ./content/member.py:70
+#: ./content/member.py:73
 msgid "E-mail"
 msgstr "EMail"
 
-#: ./content/member.py:76
+#: ./content/member.py:79
 msgid "E-mail validation"
 msgstr "Validation de l'email"
 
@@ -492,7 +500,7 @@ msgstr "Evénement"
 msgid "Event added"
 msgstr "Evénement ajouté"
 
-#: ./content/member.py:138
+#: ./content/member.py:141
 msgid "Expertise"
 msgstr "Expertise"
 
@@ -535,7 +543,7 @@ msgstr "Filtrer sur le groupe"
 msgid "Filters"
 msgstr "Filtres"
 
-#: ./content/member.py:81
+#: ./content/member.py:84
 msgid "First Name"
 msgstr "Prénom"
 
@@ -548,13 +556,13 @@ msgstr "Prénom : ${firstname}"
 msgid "Folder contents"
 msgstr "Contenu du dossier"
 
-#: ./content/member.py:98
+#: ./content/member.py:101
 #: ./page/desktop/templates/users_directory_view.pt:68
 #: ./page/desktop/templates/users_manage.pt:52
 msgid "Function"
 msgstr "Fonction"
 
-#: ./content/member.py:126
+#: ./content/member.py:129
 msgid "Gender"
 msgstr "Sexe"
 
@@ -578,7 +586,7 @@ msgstr "Rôles globaux"
 msgid "Google Maps URL"
 msgstr "URL Google Maps"
 
-#: ./content/member.py:183
+#: ./content/member.py:198
 #: ./page/desktop/templates/member_tile_view.pt:132
 #: ./page/mobile/templates/member_tile_view.pt:98
 msgid "Google+"
@@ -638,11 +646,11 @@ msgstr "Image ajoutée"
 msgid "Informations"
 msgstr ""
 
-#: ./content/member.py:145
+#: ./content/member.py:148
 msgid "Interest"
 msgstr "Intérêt"
 
-#: ./content/member.py:143
+#: ./content/member.py:146
 #: ./page/desktop/templates/member_tile_view.pt:56
 #: ./page/mobile/templates/member_tile_view.pt:58
 msgid "Interests"
@@ -656,12 +664,12 @@ msgstr "Option invalide"
 msgid "Invitation"
 msgstr "Invitation"
 
-#: ./requestaccess/browser/invite.py:51
+#: ./requestaccess/browser/invite.py:53
 #: ./requestaccess/browser/request.py:65
 msgid "Invitation or request already exists."
 msgstr "L'invitation ou la demande existe déjà"
 
-#: ./requestaccess/browser/invite.py:49
+#: ./requestaccess/browser/invite.py:55
 msgid "Invitation sent"
 msgstr "Invitation envoyée"
 
@@ -679,7 +687,7 @@ msgstr "L'élément ainsi que tout son contenu ont été supprimés."
 msgid "Join this group"
 msgstr "Rejoindre ce groupe"
 
-#: ./content/member.py:85
+#: ./content/member.py:88
 msgid "Last Name"
 msgstr "Nom"
 
@@ -708,7 +716,7 @@ msgstr "Limite"
 msgid "Link added"
 msgstr "Lien ajouté"
 
-#: ./content/member.py:182
+#: ./content/member.py:195
 #: ./page/desktop/templates/member_tile_view.pt:127
 #: ./page/mobile/templates/member_tile_view.pt:96
 msgid "LinkedIn"
@@ -895,25 +903,25 @@ msgstr "Les mot de passes ne sont pas pareil."
 msgid "Pending"
 msgstr "En attente"
 
-#: ./content/member.py:155
+#: ./content/member.py:158
 #: ./page/desktop/templates/member_tile_view.pt:82
 #: ./page/mobile/templates/member_tile_view.pt:78
 msgid "Personal e-mail"
 msgstr "E-mail personnel"
 
-#: ./content/member.py:33
+#: ./content/member.py:36
 #: ./page/desktop/templates/member_tile_view.pt:39
 #: ./page/mobile/templates/member_tile_view.pt:42
 msgid "Personal information"
 msgstr "Informations personnelles"
 
-#: ./content/member.py:171
+#: ./content/member.py:174
 #: ./page/desktop/templates/member_tile_view.pt:102
 #: ./page/mobile/templates/member_tile_view.pt:86
 msgid "Personal landline phone"
 msgstr "Téléphone fixe personnel"
 
-#: ./content/member.py:163
+#: ./content/member.py:166
 #: ./page/desktop/templates/member_tile_view.pt:92
 #: ./page/mobile/templates/member_tile_view.pt:82
 msgid "Personal mobile phone"
@@ -954,7 +962,7 @@ msgstr "Préférence"
 msgid "Preference ${preference} is ${condition}."
 msgstr ""
 
-#: ./content/member.py:110
+#: ./content/member.py:113
 msgid "Presentation"
 msgstr "Présentation"
 
@@ -962,19 +970,19 @@ msgstr "Présentation"
 msgid "Privacy"
 msgstr "Vie privée"
 
-#: ./content/member.py:151
+#: ./content/member.py:154
 #: ./page/desktop/templates/member_tile_view.pt:77
 #: ./page/mobile/templates/member_tile_view.pt:76
 msgid "Professional e-mail"
 msgstr "E-mail professionnel"
 
-#: ./content/member.py:167
+#: ./content/member.py:170
 #: ./page/desktop/templates/member_tile_view.pt:97
 #: ./page/mobile/templates/member_tile_view.pt:84
 msgid "Professional landline phone"
 msgstr "Téléphone fixe professionnel"
 
-#: ./content/member.py:159
+#: ./content/member.py:162
 #: ./page/desktop/templates/member_tile_view.pt:87
 #: ./page/mobile/templates/member_tile_view.pt:80
 msgid "Professional mobile phone"
@@ -984,7 +992,7 @@ msgstr "Téléphone portable professionnel"
 msgid "Propose access"
 msgstr "Proposer un accès"
 
-#: ./requestaccess/browser/invite.py:57
+#: ./requestaccess/browser/invite.py:60
 msgid "Propose access on ${title}"
 msgstr "Proposer un accès à ${title}"
 
@@ -1022,7 +1030,7 @@ msgstr "Refuser l'accès"
 msgid "Register"
 msgstr "S'enregistrer"
 
-#: ./page/controller/register_information.py:49
+#: ./page/controller/register_information.py:55
 msgid "Register your information"
 msgstr "Enregistrer vos informations"
 
@@ -1074,7 +1082,6 @@ msgstr "Renvoyer l'email de validation."
 msgid "Reversed"
 msgstr "Inverser"
 
-#: ./requestaccess/browser/invite.py:20
 #: ./requestaccess/browser/request.py:35
 #: ./requestaccess/interfaces.py:23
 msgid "Role"
@@ -1170,7 +1177,7 @@ msgstr "Voir et paramétrer qui peut faire quoi dans le groupe"
 msgid "Sites"
 msgstr "Sites"
 
-#: ./content/member.py:175
+#: ./content/member.py:178
 #: ./page/desktop/templates/member_tile_view.pt:107
 #: ./page/mobile/templates/member_tile_view.pt:88
 msgid "Skype"
@@ -1180,7 +1187,7 @@ msgstr "Skype"
 msgid "Sort on"
 msgstr "Trier par"
 
-#: ./content/member.py:115
+#: ./content/member.py:118
 #: ./page/desktop/templates/member_tile_view.pt:51
 #: ./page/mobile/templates/member_tile_view.pt:54
 msgid "Spoken languages"
@@ -1197,7 +1204,7 @@ msgid "Subject"
 msgstr "Sujet"
 
 #: ./page/controller/modify_company.py:43
-#: ./page/controller/register_information.py:61
+#: ./page/controller/register_information.py:67
 msgid "Submit"
 msgstr "Envoyer"
 
@@ -1247,11 +1254,11 @@ msgid "The request has been validated"
 msgstr "La demande a été validée"
 
 #: ./page/controller/modify_company.py:57
-#: ./page/controller/register_information.py:67
+#: ./page/controller/register_information.py:73
 msgid "There were errors."
 msgstr "Il y a eu des erreurs"
 
-#: ./content/member.py:71
+#: ./content/member.py:74
 msgid "This is the email you will receive information on. It will not be displayed to other users."
 msgstr "Email sur lequel vous recevrez les informations. Il ne sera pas montré aux autres utilisateurs."
 
@@ -1271,7 +1278,7 @@ msgstr "Navigation"
 msgid "Turnover"
 msgstr "Chiffre d'affaire"
 
-#: ./content/member.py:184
+#: ./content/member.py:201
 #: ./page/desktop/templates/member_tile_view.pt:137
 #: ./page/mobile/templates/member_tile_view.pt:100
 msgid "Twitter"
@@ -1309,12 +1316,11 @@ msgstr "Changer le titre et l'id du groupe. L'id est la representation du groupe
 msgid "User ${user} has been deleted"
 msgstr "Le membre ${user} a été supprimé"
 
-#: ./requestaccess/browser/invite.py:16
 #: ./requestaccess/interfaces.py:15
 msgid "User ID"
 msgstr "ID utilisateur"
 
-#: ./content/member.py:66
+#: ./content/member.py:69
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
@@ -1343,7 +1349,7 @@ msgstr "Valider/Refuser les demandes d'accès."
 msgid "Validate access"
 msgstr "Valider l'accès"
 
-#: ./content/member.py:181
+#: ./content/member.py:192
 #: ./page/desktop/templates/member_tile_view.pt:122
 #: ./page/mobile/templates/member_tile_view.pt:94
 msgid "Viadeo"
@@ -1396,7 +1402,7 @@ msgid "Watch when favorited"
 msgstr "Suivis quand ajouté aux favoris"
 
 #: ./content/company.py:48
-#: ./content/member.py:179
+#: ./content/member.py:184
 #: ./page/desktop/templates/company_description.pt:19
 msgid "Website"
 msgstr "Site web"
@@ -1422,7 +1428,7 @@ msgstr "Vous n'êtes pas autorisé à voter"
 msgid "You are not registred, please proceed"
 msgstr "Vous n'êtes pas encore enregistré. Veuillez poursuivre."
 
-#: ./requestaccess/manager.py:236
+#: ./requestaccess/manager.py:255
 msgid "You can 't validate your own request"
 msgstr "Vous ne pouvez valider votre propre demande"
 
@@ -1475,7 +1481,7 @@ msgid "You must provide at least a file or a link"
 msgstr "Vous devez au moins ajouter un fichier ou un lien d'une vidéo"
 
 #: ./page/controller/modify_company.py:53
-#: ./page/controller/register_information.py:97
+#: ./page/controller/register_information.py:103
 msgid "You need to specify your company name."
 msgstr "Vous devez spécifier le nom de votre entreprise."
 

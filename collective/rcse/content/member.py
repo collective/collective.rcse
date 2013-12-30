@@ -206,18 +206,30 @@ class IMember(model.Schema):
         linkedin = "http://www.linkedin.com/profile/"
         google = "https://plus.google.com/"
         twitter = "https://twitter.com/"
-        msg = "%s is not a valid %s url"
+
         if obj.viadeo and not obj.viadeo.startswith(viadeo):
-            raise interface.Invalid(msg % (obj.viadeo, "viadeo"))
+            raise interface.Invalid(
+                _(u"${url} is not a valid ${service} url",
+                  mapping={"url": obj.viadeo, "service": "viadeo"})
+            )
 
         if obj.linkedin and not obj.linkedin.startswith(linkedin):
-            raise interface.Invalid(msg % (obj.linkedin, "linkedin"))
+            raise interface.Invalid(
+                _(u"${url} is not a valid ${service} url",
+                  mapping={"url": obj.linkedin, "service": "linkedin"})
+            )
 
         if obj.google and not obj.google.startswith(google):
-            raise interface.Invalid(msg % (obj.google, "google plus"))
+            raise interface.Invalid(
+                _(u"${url} is not a valid ${service} url",
+                  mapping={"url": obj.google, "service": "google"})
+            )
 
         if obj.twitter and not obj.twitter.startswith(twitter):
-            raise interface.Invalid(msg % (obj.twitter, "twitter"))
+            raise interface.Invalid(
+                _(u"${url} is not a valid ${service} url",
+                  mapping={"url": obj.twitter, "service": "twitter"})
+            )
 
 
 def handle_member_added(context, event):
