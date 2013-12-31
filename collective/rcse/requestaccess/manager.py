@@ -24,6 +24,7 @@ from collective.rcse.requestaccess.event import RequestRefusedEvent
 
 import logging
 from plone.app.uuid.utils import uuidToObject
+from collective.rcse.content.group import get_group
 logger = logging.getLogger("collective.requestaccess")
 
 
@@ -81,6 +82,15 @@ class RequestManager(BrowserView):
             portal = self.pstate.portal()
             self.container = portal.portal_requestaccess
 
+        self.group = get_group(self.context)
+        self.proxy_manager = None
+        if self.group is not None:
+            name = "@@proxy_group_manager"
+            self.proxy_manager = self.group.unrestrictedTraverse(name)
+            self.proxy_manager.update()
+            self.proxy_group = self.proxy_manager.proxy
+            self.group = self.proxy_manager.group
+
     def create(self):
         self.update()
         proxy = ProxyRequest()
@@ -133,6 +143,15 @@ class RequestManager(BrowserView):
             query = {}
         brains = self.catalog(**query)
         requests = self._get_proxy_from_brain(brains)
+
+        if 'target_path' in query and self.proxy_group is not None and \
+                self.proxy_group != self.context:
+            proxy_query = {
+                "target_path": '/'.join(self.proxy_group.getPhysicalPath())
+            }
+            brains = self.catalog(**proxy_query)
+            results.extend(self._get_proxy_from_brain(brains))
+
         return requests
 
     def _get_proxy_from_brain(self, brains):

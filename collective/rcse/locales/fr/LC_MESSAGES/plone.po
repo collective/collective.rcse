@@ -78,3 +78,5 @@ msgstr "Sélectionner le dossier qui servira de base de recherche. Ce dossier se
 msgid "portlet_label_search_base"
 msgstr "Base de recherche"
 
+msgid "CAS Log out"
+msgstr "Se déconnecter"

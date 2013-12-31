@@ -1,3 +1,4 @@
+from AccessControl import Unauthorized
 from collective.requestaccess.browser.request import CancelRequestForm,\
     ValidationRequestForm
 from Products.Five.browser import BrowserView
@@ -79,6 +80,11 @@ class MyRequestsView(BrowserView):
         ppath = self.portal_state.portal().getPhysicalPath()
         rpath = request.target_path
         target_path = rpath[len(ppath):]
+        try:
+            self.context.restrictedTraverse(target_path)
+            can_view_target = True
+        except Unauthorized:
+            can_view_target = False
         return {
             "id": request.id,
             "role": request.role,
@@ -87,6 +93,7 @@ class MyRequestsView(BrowserView):
             "target": url + request.target,
             "target_path": '/'.join(target_path),
             "target_title": request.target_title,
+            "can_view_target": can_view_target,
         }
 
     def get_next_url(self):

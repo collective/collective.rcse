@@ -26,7 +26,7 @@
        name="collective.rcse.vocabulary.companies"
        provides="zope.schema.interfaces.IVocabularyFactory"/>
 
-  <utility component=".vocabularies.users"
+  <utility component=".member.members_vocabulary"
        name="collective.rcse.vocabulary.members"
        provides="zope.schema.interfaces.IVocabularyFactory"/>
 
@@ -71,5 +71,10 @@
     class="collective.rcse.content.proxygroup.ProxyGroupManager"
     permission="zope2.View"
     />
+
+  <subscriber handler=".group.handle_group_added"
+      for="collective.rcse.content.group.GroupSchema
+      zope.lifecycleevent.interfaces.IObjectAddedEvent"
+      />
 
 </configure>

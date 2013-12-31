@@ -54,6 +54,7 @@ class FiltersFormAdapter(object):
 
 class FiltersForm(AutoExtensibleForm, form.Form):
     schema = FiltersFormSchema
+    form_name = 'filter_content'
 
     enableUnloadProtection = False
 

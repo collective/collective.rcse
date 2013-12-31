@@ -58,6 +58,9 @@ msgstr "Invitation envoyée"
 msgid "My Requests"
 msgstr "Mes demandes d'accès"
 
+msgid "My invitations"
+msgstr "Mes invitations"
+
 #: ./browser/templates/my_requests_view.pt:14
 #: ./browser/templates/review_requests_view.pt:14
 msgid "My requests"

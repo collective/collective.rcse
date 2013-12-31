@@ -2,6 +2,7 @@ from AccessControl import getSecurityManager
 from Products.CMFCore.permissions import ReviewPortalContent
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
+from collective.rcse.content.member import get_members_info
 
 
 class UsersDirectoryView(BrowserView):
@@ -36,30 +37,7 @@ class UsersDirectoryView(BrowserView):
         }
 
     def getMembers(self, review_state="enabled"):
-        self.query.update({'review_state': review_state})
-        results = self.catalog(**self.query)
-        return self._results2info(results)
-
-    def _results2info(self, brains):
-        userids = [brain.getUserId for brain in brains]
-
-        def getInfo(userid):
-            person_view = self.context.restrictedTraverse('get_memberinfo')
-            person_view(userid)
-            return {
-                "userid": userid,
-                "dataid": person_view.get_membrane().getId(),
-                "url": person_view.url,
-                "photo": person_view.photo(),
-                "email": person_view.email,
-                "first_name": person_view.first_name,
-                "last_name": person_view.last_name,
-                "company": person_view.company,
-                "function": person_view.function,
-                "city": person_view.city,
-            }
-        info = map(getInfo, userids)
-        return info
+        return get_members_info(self.context, review_state=review_state)
 
     def canManageUsers(self):
         usersDirectory = self.context.restrictedTraverse('users_directory')

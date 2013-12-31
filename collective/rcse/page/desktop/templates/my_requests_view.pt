@@ -36,7 +36,8 @@
         <td>
           <a class="load-content-tile-in-modal"
 	     tal:attributes="href req/target_path"
-	     tal:content="req/target_title">
+	     tal:content="req/target_title"
+	     tal:omit-tag="not:req/can_view_target">
 	    Title
           </a>
         </td>
@@ -67,7 +68,8 @@
         <td>
           <a class="load-content-tile-in-modal"
              tal:attributes="href req/target_path"
-             tal:content="req/target_title">Title</a>
+             tal:content="req/target_title"
+	     tal:omit-tag="not:req/can_view_target">Title</a>
         </td>
         <td>
           <tal:with-form-as-view define="view nocall:req/form">

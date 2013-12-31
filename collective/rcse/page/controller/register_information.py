@@ -41,6 +41,12 @@ class RegisterInformationFormAdapter(object):
 
     def __init__(self, context):
         self.context = context
+        self.website = ""
+        self.blog = ""
+        self.viadeo = ""
+        self.linkedin = ""
+        self.twitter = ""
+        self.google = ""
 
 
 class RegisterInformationForm(AutoExtensibleForm, form.Form):

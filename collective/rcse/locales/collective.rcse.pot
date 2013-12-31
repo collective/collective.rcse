@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-12-09 08:59+0000\n"
+"POT-Creation-Date: 2013-12-30 16:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,10 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.rcse\n"
+
+#: ./content/member.py:212
+msgid "${url} is not a valid ${service} url"
+msgstr ""
 
 #: ./profiles/settings/types/collective.rcse.directory.xml
 msgid "A directory"
@@ -56,7 +60,7 @@ msgstr ""
 msgid "Access: Owners, Readers and Administrators"
 msgstr ""
 
-#: ./workflow.py:44
+#: ./workflow.py:49
 msgid "Account validation"
 msgstr ""
 
@@ -155,7 +159,7 @@ msgstr ""
 msgid "Address"
 msgstr ""
 
-#: ./content/member.py:106
+#: ./content/member.py:109
 msgid "Advertiser"
 msgstr ""
 
@@ -188,7 +192,7 @@ msgstr ""
 msgid "Are you sure you want to delete this comment ?"
 msgstr ""
 
-#: ./content/member.py:136
+#: ./content/member.py:139
 #: ./page/desktop/templates/member_tile_view.pt:53
 #: ./page/mobile/templates/member_tile_view.pt:56
 msgid "Areas of expertise"
@@ -219,7 +223,7 @@ msgstr ""
 msgid "Audio file"
 msgstr ""
 
-#: ./content/member.py:131
+#: ./content/member.py:134
 msgid "Avatar"
 msgstr ""
 
@@ -231,7 +235,7 @@ msgstr ""
 msgid "Banned"
 msgstr ""
 
-#: ./content/member.py:122
+#: ./content/member.py:125
 msgid "Birthdate"
 msgstr ""
 
@@ -240,7 +244,7 @@ msgid "Birthdate: ${birthdate}"
 msgstr ""
 
 #: ./content/company.py:52
-#: ./content/member.py:180
+#: ./content/member.py:189
 #: ./page/desktop/templates/company_description.pt:23
 msgid "Blog"
 msgstr ""
@@ -273,8 +277,12 @@ msgstr ""
 msgid "Change the view used by default."
 msgstr ""
 
+#: ./portlets/xitems.py:39
+msgid "Choose type to filter."
+msgstr ""
+
 #: ./content/company.py:45
-#: ./content/member.py:102
+#: ./content/member.py:105
 #: ./page/desktop/templates/companies_directory_view.pt:41
 msgid "City"
 msgstr ""
@@ -305,7 +313,7 @@ msgstr ""
 msgid "Companies directory"
 msgstr ""
 
-#: ./content/member.py:90
+#: ./content/member.py:93
 #: ./page/controller/timeline_view.py:175
 #: ./page/desktop/templates/users_directory_view.pt:69
 msgid "Company"
@@ -327,7 +335,7 @@ msgstr ""
 msgid "Confirm the password"
 msgstr ""
 
-#: ./content/member.py:47
+#: ./content/member.py:50
 #: ./page/desktop/templates/member_tile_view.pt:60
 #: ./page/mobile/templates/member_tile_view.pt:62
 msgid "Contact information"
@@ -361,7 +369,7 @@ msgstr ""
 msgid "Credits"
 msgstr ""
 
-#: ./content/vocabularies.py:55
+#: ./content/vocabularies.py:56
 msgid "Date"
 msgstr ""
 
@@ -414,6 +422,10 @@ msgstr ""
 msgid "Display new content of this group in your news"
 msgstr ""
 
+#: ./portlets/xitems.py:46
+msgid "Display only content from the current group"
+msgstr ""
+
 #: ./viewlet/desktop/templates/portal_header.pt:20
 msgid "Display the search for members form"
 msgstr ""
@@ -427,17 +439,21 @@ msgstr ""
 msgid "Do not display anymore new content from this group in your news"
 msgstr ""
 
+#: ./content/member.py:185
+msgid "Don't forget http:// or https://"
+msgstr ""
+
 #: ./page/desktop/templates/file_tile_view.pt:3
 #: ./page/mobile/templates/file_tile_view.pt:3
 #: ./page/mobile/templates/file_view.pt:11
 msgid "Download"
 msgstr ""
 
-#: ./content/member.py:70
+#: ./content/member.py:73
 msgid "E-mail"
 msgstr ""
 
-#: ./content/member.py:76
+#: ./content/member.py:79
 msgid "E-mail validation"
 msgstr ""
 
@@ -483,7 +499,7 @@ msgstr ""
 msgid "Event added"
 msgstr ""
 
-#: ./content/member.py:138
+#: ./content/member.py:141
 msgid "Expertise"
 msgstr ""
 
@@ -496,7 +512,7 @@ msgstr ""
 msgid "Favorites"
 msgstr ""
 
-#: ./content/vocabularies.py:16
+#: ./content/vocabularies.py:17
 msgid "Female"
 msgstr ""
 
@@ -509,7 +525,7 @@ msgstr ""
 msgid "File added"
 msgstr ""
 
-#: ./page/controller/filterbutton.py:72
+#: ./page/controller/filterbutton.py:73
 #: ./page/desktop/templates/filterbutton.pt:8
 msgid "Filter"
 msgstr ""
@@ -518,11 +534,15 @@ msgstr ""
 msgid "Filter form"
 msgstr ""
 
+#: ./portlets/xitems.py:45
+msgid "Filter on group"
+msgstr ""
+
 #: ./viewlet/mobile/templates/filters.pt:11
 msgid "Filters"
 msgstr ""
 
-#: ./content/member.py:81
+#: ./content/member.py:84
 msgid "First Name"
 msgstr ""
 
@@ -535,13 +555,13 @@ msgstr ""
 msgid "Folder contents"
 msgstr ""
 
-#: ./content/member.py:98
+#: ./content/member.py:101
 #: ./page/desktop/templates/users_directory_view.pt:68
 #: ./page/desktop/templates/users_manage.pt:52
 msgid "Function"
 msgstr ""
 
-#: ./content/member.py:126
+#: ./content/member.py:129
 msgid "Gender"
 msgstr ""
 
@@ -565,7 +585,7 @@ msgstr ""
 msgid "Google Maps URL"
 msgstr ""
 
-#: ./content/member.py:183
+#: ./content/member.py:198
 #: ./page/desktop/templates/member_tile_view.pt:132
 #: ./page/mobile/templates/member_tile_view.pt:98
 msgid "Google+"
@@ -584,7 +604,7 @@ msgstr ""
 msgid "Hide: ${attr}"
 msgstr ""
 
-#: ./content/vocabularies.py:104
+#: ./content/vocabularies.py:114
 #: ./setuphandler.py:185
 #: ./viewlet/desktop/templates/portal_header.pt:11
 msgid "Home"
@@ -625,11 +645,11 @@ msgstr ""
 msgid "Informations"
 msgstr ""
 
-#: ./content/member.py:145
+#: ./content/member.py:148
 msgid "Interest"
 msgstr ""
 
-#: ./content/member.py:143
+#: ./content/member.py:146
 #: ./page/desktop/templates/member_tile_view.pt:56
 #: ./page/mobile/templates/member_tile_view.pt:58
 msgid "Interests"
@@ -639,16 +659,16 @@ msgstr ""
 msgid "Invalid option"
 msgstr ""
 
-#: ./requestaccess/vocabulary.py:46
+#: ./requestaccess/vocabulary.py:45
 msgid "Invitation"
 msgstr ""
 
-#: ./requestaccess/browser/invite.py:51
+#: ./requestaccess/browser/invite.py:53
 #: ./requestaccess/browser/request.py:65
 msgid "Invitation or request already exists."
 msgstr ""
 
-#: ./requestaccess/browser/invite.py:49
+#: ./requestaccess/browser/invite.py:55
 msgid "Invitation sent"
 msgstr ""
 
@@ -662,10 +682,11 @@ msgid "Item and it's content has been deleted"
 msgstr ""
 
 #: ./viewlet/desktop/templates/edit_bar.pt:12
+#: ./viewlet/mobile/templates/edit_bar.pt:11
 msgid "Join this group"
 msgstr ""
 
-#: ./content/member.py:85
+#: ./content/member.py:88
 msgid "Last Name"
 msgstr ""
 
@@ -686,11 +707,15 @@ msgstr ""
 msgid "Like"
 msgstr ""
 
+#: ./portlets/xitems.py:32
+msgid "Limit"
+msgstr ""
+
 #: ./page/controller/links_view.py:39
 msgid "Link added"
 msgstr ""
 
-#: ./content/member.py:182
+#: ./content/member.py:195
 #: ./page/desktop/templates/member_tile_view.pt:127
 #: ./page/mobile/templates/member_tile_view.pt:96
 msgid "LinkedIn"
@@ -725,12 +750,12 @@ msgstr ""
 msgid "Make moderated"
 msgstr ""
 
-#: ./content/vocabularies.py:17
+#: ./content/vocabularies.py:18
 msgid "Male"
 msgstr ""
 
 #: ./viewlet/desktop/templates/edit_bar.pt:31
-#: ./viewlet/mobile/templates/edit_bar.pt:22
+#: ./viewlet/mobile/templates/edit_bar.pt:28
 msgid "Manage"
 msgstr ""
 
@@ -877,25 +902,25 @@ msgstr ""
 msgid "Pending"
 msgstr ""
 
-#: ./content/member.py:155
+#: ./content/member.py:158
 #: ./page/desktop/templates/member_tile_view.pt:82
 #: ./page/mobile/templates/member_tile_view.pt:78
 msgid "Personal e-mail"
 msgstr ""
 
-#: ./content/member.py:33
+#: ./content/member.py:36
 #: ./page/desktop/templates/member_tile_view.pt:39
 #: ./page/mobile/templates/member_tile_view.pt:42
 msgid "Personal information"
 msgstr ""
 
-#: ./content/member.py:171
+#: ./content/member.py:174
 #: ./page/desktop/templates/member_tile_view.pt:102
 #: ./page/mobile/templates/member_tile_view.pt:86
 msgid "Personal landline phone"
 msgstr ""
 
-#: ./content/member.py:163
+#: ./content/member.py:166
 #: ./page/desktop/templates/member_tile_view.pt:92
 #: ./page/mobile/templates/member_tile_view.pt:82
 msgid "Personal mobile phone"
@@ -912,6 +937,10 @@ msgstr ""
 #: ./page/controller/articles_view.py:25
 #: ./page/controller/images_view.py:19
 msgid "Please put an image file here"
+msgstr ""
+
+#: ./portlets/xitems.py:38
+msgid "Portal Type"
 msgstr ""
 
 #: ./page/desktop/templates/users_directory_view.pt:65
@@ -932,7 +961,7 @@ msgstr ""
 msgid "Preference ${preference} is ${condition}."
 msgstr ""
 
-#: ./content/member.py:110
+#: ./content/member.py:113
 msgid "Presentation"
 msgstr ""
 
@@ -940,19 +969,19 @@ msgstr ""
 msgid "Privacy"
 msgstr ""
 
-#: ./content/member.py:151
+#: ./content/member.py:154
 #: ./page/desktop/templates/member_tile_view.pt:77
 #: ./page/mobile/templates/member_tile_view.pt:76
 msgid "Professional e-mail"
 msgstr ""
 
-#: ./content/member.py:167
+#: ./content/member.py:170
 #: ./page/desktop/templates/member_tile_view.pt:97
 #: ./page/mobile/templates/member_tile_view.pt:84
 msgid "Professional landline phone"
 msgstr ""
 
-#: ./content/member.py:159
+#: ./content/member.py:162
 #: ./page/desktop/templates/member_tile_view.pt:87
 #: ./page/mobile/templates/member_tile_view.pt:80
 msgid "Professional mobile phone"
@@ -962,7 +991,7 @@ msgstr ""
 msgid "Propose access"
 msgstr ""
 
-#: ./requestaccess/browser/invite.py:57
+#: ./requestaccess/browser/invite.py:60
 msgid "Propose access on ${title}"
 msgstr ""
 
@@ -971,6 +1000,7 @@ msgid "Proxy Group"
 msgstr ""
 
 #: ./viewlet/desktop/templates/edit_bar.pt:21
+#: ./viewlet/mobile/templates/edit_bar.pt:19
 msgid "Quit this group"
 msgstr ""
 
@@ -999,7 +1029,7 @@ msgstr ""
 msgid "Register"
 msgstr ""
 
-#: ./page/controller/register_information.py:49
+#: ./page/controller/register_information.py:55
 msgid "Register your information"
 msgstr ""
 
@@ -1008,7 +1038,7 @@ msgstr ""
 msgid "Registred"
 msgstr ""
 
-#: ./content/vocabularies.py:54
+#: ./content/vocabularies.py:55
 msgid "Relevance"
 msgstr ""
 
@@ -1016,7 +1046,7 @@ msgstr ""
 msgid "Remove from my news"
 msgstr ""
 
-#: ./requestaccess/vocabulary.py:45
+#: ./requestaccess/vocabulary.py:44
 msgid "Request"
 msgstr ""
 
@@ -1051,7 +1081,6 @@ msgstr ""
 msgid "Reversed"
 msgstr ""
 
-#: ./requestaccess/browser/invite.py:20
 #: ./requestaccess/browser/request.py:35
 #: ./requestaccess/interfaces.py:23
 msgid "Role"
@@ -1091,7 +1120,7 @@ msgstr ""
 msgid "Search for users"
 msgstr ""
 
-#: ./i18n.py:13
+#: ./i18n.py:14
 #: ./viewlet/mobile/templates/sections.pt:21
 msgid "Search groups"
 msgstr ""
@@ -1147,7 +1176,7 @@ msgstr ""
 msgid "Sites"
 msgstr ""
 
-#: ./content/member.py:175
+#: ./content/member.py:178
 #: ./page/desktop/templates/member_tile_view.pt:107
 #: ./page/mobile/templates/member_tile_view.pt:88
 msgid "Skype"
@@ -1157,7 +1186,7 @@ msgstr ""
 msgid "Sort on"
 msgstr ""
 
-#: ./content/member.py:115
+#: ./content/member.py:118
 #: ./page/desktop/templates/member_tile_view.pt:51
 #: ./page/mobile/templates/member_tile_view.pt:54
 msgid "Spoken languages"
@@ -1174,7 +1203,7 @@ msgid "Subject"
 msgstr ""
 
 #: ./page/controller/modify_company.py:43
-#: ./page/controller/register_information.py:61
+#: ./page/controller/register_information.py:67
 msgid "Submit"
 msgstr ""
 
@@ -1224,15 +1253,15 @@ msgid "The request has been validated"
 msgstr ""
 
 #: ./page/controller/modify_company.py:57
-#: ./page/controller/register_information.py:67
+#: ./page/controller/register_information.py:73
 msgid "There were errors."
 msgstr ""
 
-#: ./content/member.py:71
+#: ./content/member.py:74
 msgid "This is the email you will receive information on. It will not be displayed to other users."
 msgstr ""
 
-#: ./content/vocabularies.py:56
+#: ./content/vocabularies.py:57
 #: ./page/controller/articles_view.py:18
 #: ./page/controller/audios_view.py:18
 msgid "Title"
@@ -1248,7 +1277,7 @@ msgstr ""
 msgid "Turnover"
 msgstr ""
 
-#: ./content/member.py:184
+#: ./content/member.py:201
 #: ./page/desktop/templates/member_tile_view.pt:137
 #: ./page/mobile/templates/member_tile_view.pt:100
 msgid "Twitter"
@@ -1286,12 +1315,11 @@ msgstr ""
 msgid "User ${user} has been deleted"
 msgstr ""
 
-#: ./requestaccess/browser/invite.py:16
 #: ./requestaccess/interfaces.py:15
 msgid "User ID"
 msgstr ""
 
-#: ./content/member.py:66
+#: ./content/member.py:69
 msgid "Username"
 msgstr ""
 
@@ -1320,7 +1348,7 @@ msgstr ""
 msgid "Validate access"
 msgstr ""
 
-#: ./content/member.py:181
+#: ./content/member.py:192
 #: ./page/desktop/templates/member_tile_view.pt:122
 #: ./page/mobile/templates/member_tile_view.pt:94
 msgid "Viadeo"
@@ -1373,7 +1401,7 @@ msgid "Watch when favorited"
 msgstr ""
 
 #: ./content/company.py:48
-#: ./content/member.py:179
+#: ./content/member.py:184
 #: ./page/desktop/templates/company_description.pt:19
 msgid "Website"
 msgstr ""
@@ -1399,7 +1427,7 @@ msgstr ""
 msgid "You are not registred, please proceed"
 msgstr ""
 
-#: ./requestaccess/manager.py:236
+#: ./requestaccess/manager.py:255
 msgid "You can 't validate your own request"
 msgstr ""
 
@@ -1411,7 +1439,7 @@ msgstr ""
 msgid "You have accepted the invitation"
 msgstr ""
 
-#: ./i18n.py:7
+#: ./i18n.py:8
 msgid "You have added the content of this group to your news"
 msgstr ""
 
@@ -1427,7 +1455,7 @@ msgstr ""
 msgid "You have quit this group"
 msgstr ""
 
-#: ./i18n.py:10
+#: ./i18n.py:11
 msgid "You have removed the content of this group from your news"
 msgstr ""
 
@@ -1452,7 +1480,7 @@ msgid "You must provide at least a file or a link"
 msgstr ""
 
 #: ./page/controller/modify_company.py:53
-#: ./page/controller/register_information.py:97
+#: ./page/controller/register_information.py:103
 msgid "You need to specify your company name."
 msgstr ""
 
@@ -1509,6 +1537,11 @@ msgstr ""
 msgid "add_them_to_the_folder_itself"
 msgstr ""
 
+#. Default: "A portlet which renders x last items"
+#: ./portlets/xitems.py:101
+msgid "description_portlet"
+msgstr ""
+
 #. Default: "Workflow for ${group}"
 #: ./page/desktop/templates/group_status.pt:14
 #: ./page/mobile/templates/group_status.pt:14
@@ -1560,12 +1593,12 @@ msgid "rcse_join_this_group_help"
 msgstr ""
 
 #: ./viewlet/desktop/templates/edit_bar.pt:26
-#: ./viewlet/mobile/templates/edit_bar.pt:18
+#: ./viewlet/mobile/templates/edit_bar.pt:24
 msgid "rcse_manage_this_group_help"
 msgstr ""
 
 #: ./viewlet/desktop/templates/edit_bar.pt:15
-#: ./viewlet/mobile/templates/edit_bar.pt:11
+#: ./viewlet/mobile/templates/edit_bar.pt:14
 msgid "rcse_quit_this_group_help"
 msgstr ""
 
@@ -1582,9 +1615,24 @@ msgstr ""
 msgid "themeswitcher_mobile"
 msgstr ""
 
+#. Default: "Add x items portlet"
+#: ./portlets/xitems.py:100
+msgid "title_add_portlet"
+msgstr ""
+
 #. Default: "Download this event in iCal format"
 #: ./page/desktop/templates/events_view.pt:73
 msgid "title_add_to_ical"
+msgstr ""
+
+#. Default: "Edit x items portlet"
+#: ./portlets/xitems.py:112
+msgid "title_edit_portlet"
+msgstr ""
+
+#. Default: "XItems portlet"
+#: ./portlets/xitems.py:53
+msgid "title_portlet"
 msgstr ""
 
 #: ./content/event.py:26

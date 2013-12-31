@@ -156,6 +156,14 @@ var rcseUpdatePortlets = function(element) {
             });
             newPortlet.appendChild(newList);
 
+        }else if (portlet.hasClass('portletXItems')){
+            portlet.find("dd").each(function() {
+                var link = $(this).find('a');
+                link.addClass('list-group-item');
+                $(newList).append($(this).html());
+            });
+            newPortlet.appendChild(newList);
+
         }else if (portlet.hasClass('portletRecent')){
             portlet.find("dd").each(function() {
                 var link = $(this).find('a');
@@ -1045,7 +1053,13 @@ var rcseUpdateSelect = function(element){
     }
     var select = $(element).find("select").each(function(){
         var select = $(this);
-        select.chosen({disable_search_threshold: 15, width: "95%"});
+        select.chosen({
+	    disable_search_threshold: 15,
+	    width: "95%",
+	    no_results_text: "Pas de résultat",
+	    placeholder_text_single: "Sélectionnez une option",
+	    placeholder_text_multiple: "Sélectionnez des options"
+	});
     });
 }
 var rcseUpdateReadMore = function(element){
