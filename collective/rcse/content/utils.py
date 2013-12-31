@@ -4,7 +4,7 @@ from zope.component import getMultiAdapter
 from zope.i18n import translate
 
 from collective.rcse.utils import sudo
-
+from collective.rcse.i18n import _
 
 @sudo()
 def createCompany(context, request, username=None, company_name=None):
@@ -38,9 +38,8 @@ def _createCompaniesGroups(home, company, username,
     private_group = createContentInContainer(
         home,
         'collective.rcse.group',
-        title=translate(u"${company}'s private group",
-                        domain='collective.rcse',
-                        mapping={'company': company.title},
+        title=translate(_(u"${company}'s private group",
+                          mapping={'company': company.title}),
                         context=request
                         )
     )
@@ -53,9 +52,8 @@ def _createCompaniesGroups(home, company, username,
     public_group = createContentInContainer(
         home,
         'collective.rcse.group',
-        title=translate(u"${company}'s public group",
-                        domain='collective.rcse',
-                        mapping={'company': company.title},
+        title=translate(_(u"${company}'s public group",
+                          mapping={'company': company.title}),
                         context=request
                         )
     )

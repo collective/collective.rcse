@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-12-30 16:39+0000\n"
+"POT-Creation-Date: 2013-12-31 12:45+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -15,6 +15,14 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.rcse\n"
 "Language: \n"
+
+#: ./content/utils.py:44
+msgid "${company}'s private group"
+msgstr ""
+
+#: ./content/utils.py:59
+msgid "${company}'s public group"
+msgstr ""
 
 #: ./content/member.py:212
 msgid "${url} is not a valid ${service} url"

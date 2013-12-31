@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-12-30 16:39+0000\n"
+"POT-Creation-Date: 2013-12-31 12:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,14 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.rcse\n"
+
+#: ./content/utils.py:44
+msgid "${company}'s private group"
+msgstr ""
+
+#: ./content/utils.py:59
+msgid "${company}'s public group"
+msgstr ""
 
 #: ./content/member.py:212
 msgid "${url} is not a valid ${service} url"
