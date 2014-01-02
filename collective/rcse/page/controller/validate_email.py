@@ -25,7 +25,10 @@ class ValidateEmailView(BrowserView):
         self.memberinfo = memberview.get_membrane()
         key = self.request.get('key', None)
         status = IStatusMessage(self.request)
-        if key is None:
+        if self.memberinfo.email_validation == 'ok':
+            status.add(_(u'Your account email has already been validated.'),
+                       type=u"error")
+        elif key is None:
             status.add(_(u'No key provided.'), type=u"error")
         elif key != self.memberinfo.email_validation:
             status.add(_(u'The key provided is incorrect. '

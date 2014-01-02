@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-01-02 13:37+0000\n"
+"POT-Creation-Date: 2014-01-02 13:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -465,7 +465,7 @@ msgstr ""
 msgid "Edit Preference Condition"
 msgstr ""
 
-#: ./page/controller/validate_email.py:61
+#: ./page/controller/validate_email.py:64
 msgid "Email has been sent."
 msgstr ""
 
@@ -487,7 +487,7 @@ msgstr ""
 msgid "Error raise if no valid video has been provided"
 msgstr ""
 
-#: ./page/controller/validate_email.py:63
+#: ./page/controller/validate_email.py:66
 msgid "Error while sending the email."
 msgstr ""
 
@@ -873,7 +873,7 @@ msgstr ""
 msgid "News"
 msgstr ""
 
-#: ./page/controller/validate_email.py:29
+#: ./page/controller/validate_email.py:32
 msgid "No key provided."
 msgstr ""
 
@@ -1264,7 +1264,7 @@ msgstr ""
 msgid "The file must be a video. You are trying to use a '${mime_type}'"
 msgstr ""
 
-#: ./page/controller/validate_email.py:31
+#: ./page/controller/validate_email.py:34
 msgid "The key provided is incorrect. Try resending the validation email."
 msgstr ""
 
@@ -1516,11 +1516,15 @@ msgstr ""
 msgid "You will automatically watch groups you add to your favorites."
 msgstr ""
 
+#: ./page/controller/validate_email.py:29
+msgid "Your account email has already been validated."
+msgstr ""
+
 #: ./page/controller/register.py:75
 msgid "Your can now log in."
 msgstr ""
 
-#: ./page/controller/validate_email.py:55
+#: ./page/controller/validate_email.py:58
 msgid "Your email has already been validated."
 msgstr ""
 
