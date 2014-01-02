@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2014-01-02 13:05+0000\n"
+"POT-Creation-Date: 2014-01-02 13:37+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -236,10 +236,6 @@ msgstr "Fichier audio"
 msgid "Avatar"
 msgstr "Avatar"
 
-#: ./page/controller/validate_email.py:29
-msgid "Bad key."
-msgstr "Mauvaise clé."
-
 #: ./page/mobile/templates/vcard_view.pt:17
 msgid "Banned"
 msgstr "Bannis"
@@ -470,7 +466,7 @@ msgstr "Validation de l'email"
 msgid "Edit Preference Condition"
 msgstr ""
 
-#: ./page/controller/validate_email.py:40
+#: ./page/controller/validate_email.py:61
 msgid "Email has been sent."
 msgstr "L'email a été envoyé."
 
@@ -492,7 +488,7 @@ msgstr "Anglais"
 msgid "Error raise if no valid video has been provided"
 msgstr "Erreur soulevée si le fichier n'est pas du type vidéo valide."
 
-#: ./page/controller/templates/send_email_validation.pt:12
+#: ./page/controller/validate_email.py:63
 msgid "Error while sending the email."
 msgstr "Erreur durant l'envoit de l'email."
 
@@ -878,7 +874,7 @@ msgstr "Nom"
 msgid "News"
 msgstr "Actualité"
 
-#: ./page/controller/validate_email.py:27
+#: ./page/controller/validate_email.py:29
 msgid "No key provided."
 msgstr "Aucune clé proposée."
 
@@ -1269,6 +1265,10 @@ msgstr "Votre adresse email n'a pas encore été validée."
 msgid "The file must be a video. You are trying to use a '${mime_type}'"
 msgstr "Le fichier doit être du type vidéo. Vous avez utiliser le type '${mime_type}'."
 
+#: ./page/controller/validate_email.py:31
+msgid "The key provided is incorrect. Try resending the validation email."
+msgstr "La clé est incorrect. Verifier l'url et/ou réessayer de renvoyer le mail de validation."
+
 #: ./requestaccess/browser/request.py:124
 msgid "The request has been refused"
 msgstr "La demande a été refusée"
@@ -1521,11 +1521,11 @@ msgstr "Vous suivrez automatiquement les groupes que vous ajouterez à vos favor
 msgid "Your can now log in."
 msgstr "Vous pouvez maintenant vous connectez."
 
-#: ./page/controller/validate_email.py:50
+#: ./page/controller/validate_email.py:55
 msgid "Your email has already been validated."
 msgstr "Votre email a déjà été validé."
 
-#: ./page/controller/validate_email.py:16
+#: ./page/controller/validate_email.py:17
 msgid "Your email has been validated."
 msgstr "Votre email a été validé."
 

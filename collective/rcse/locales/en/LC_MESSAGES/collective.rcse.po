@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2014-01-02 13:05+0000\n"
+"POT-Creation-Date: 2014-01-02 13:37+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -232,10 +232,6 @@ msgstr ""
 
 #: ./content/member.py:134
 msgid "Avatar"
-msgstr ""
-
-#: ./page/controller/validate_email.py:29
-msgid "Bad key."
 msgstr ""
 
 #: ./page/mobile/templates/vcard_view.pt:17
@@ -468,7 +464,7 @@ msgstr ""
 msgid "Edit Preference Condition"
 msgstr ""
 
-#: ./page/controller/validate_email.py:40
+#: ./page/controller/validate_email.py:61
 msgid "Email has been sent."
 msgstr ""
 
@@ -490,7 +486,7 @@ msgstr ""
 msgid "Error raise if no valid video has been provided"
 msgstr ""
 
-#: ./page/controller/templates/send_email_validation.pt:12
+#: ./page/controller/validate_email.py:63
 msgid "Error while sending the email."
 msgstr ""
 
@@ -876,7 +872,7 @@ msgstr ""
 msgid "News"
 msgstr ""
 
-#: ./page/controller/validate_email.py:27
+#: ./page/controller/validate_email.py:29
 msgid "No key provided."
 msgstr ""
 
@@ -1267,6 +1263,10 @@ msgstr ""
 msgid "The file must be a video. You are trying to use a '${mime_type}'"
 msgstr ""
 
+#: ./page/controller/validate_email.py:31
+msgid "The key provided is incorrect. Try resending the validation email."
+msgstr ""
+
 #: ./requestaccess/browser/request.py:124
 msgid "The request has been refused"
 msgstr ""
@@ -1519,11 +1519,11 @@ msgstr ""
 msgid "Your can now log in."
 msgstr ""
 
-#: ./page/controller/validate_email.py:50
+#: ./page/controller/validate_email.py:55
 msgid "Your email has already been validated."
 msgstr ""
 
-#: ./page/controller/validate_email.py:16
+#: ./page/controller/validate_email.py:17
 msgid "Your email has been validated."
 msgstr ""
 

@@ -41,7 +41,6 @@
       for="*"
       name="validate_email"
       class=".validate_email.ValidateEmailView"
-      template="templates/validate_email.pt"
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
       />
@@ -50,7 +49,6 @@
       for="*"
       name="send_email_validation"
       class=".validate_email.SendValidationEmailView"
-      template="templates/send_email_validation.pt"
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
       />

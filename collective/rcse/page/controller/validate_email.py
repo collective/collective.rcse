@@ -3,6 +3,7 @@ from smtplib import SMTPException
 from AccessControl import Unauthorized
 from Products.CMFPlone.utils import getToolByName
 from Products.Five.browser import BrowserView
+from Products.statusmessages.interfaces import IStatusMessage
 
 from collective.rcse.i18n import _
 from collective.rcse.page.controller.person_view import \
@@ -23,13 +24,17 @@ class ValidateEmailView(BrowserView):
             raise Unauthorized
         self.memberinfo = memberview.get_membrane()
         key = self.request.get('key', None)
+        status = IStatusMessage(self.request)
         if key is None:
-            self.message = _(u'No key provided.')
+            status.add(_(u'No key provided.'), type=u"error")
         elif key != self.memberinfo.email_validation:
-            self.message = _(u'Bad key.')
+            status.add(_(u'The key provided is incorrect. '
+                         u'Try resending the validation email.'),
+                       type=u"error")
         else:
+            status.add(_(u'Your email has been validated.'))
             self.memberinfo.email_validation = 'ok'
-        return self.index()
+        return self.request.response.redirect(memberview.url)
 
 
 class SendValidationEmailView(BrowserView):
@@ -37,9 +42,9 @@ class SendValidationEmailView(BrowserView):
         self.context = context
         self.request = request
         self.error = False
-        self.message = _(u'Email has been sent.')
 
     def __call__(self):
+        status = IStatusMessage(self.request)
         memberview = AuthenticatedMemberInfoView(self.context, self.request)
         try:
             memberview.update()
@@ -47,14 +52,17 @@ class SendValidationEmailView(BrowserView):
             raise Unauthorized
         self.memberinfo = memberview.get_membrane()
         if self.memberinfo.email_validation == 'ok':
-            self.message = _(u'Your email has already been validated.')
-            return self.index()
-        self.generateNewKey()
-        try:
-            self.sendValidationEmail()
-        except SMTPException:
-            self.error = True
-        return self.index()
+            status.add(_(u'Your email has already been validated.'),
+                       type=u"error")
+        else:
+            self.generateNewKey()
+            try:
+                self.sendValidationEmail()
+                status.add(_(u'Email has been sent.'))
+            except SMTPException:
+                status.add(_(u'Error while sending the email.'),
+                           type=u"error")
+        return self.request.response.redirect(memberview.url)
 
     def generateNewKey(self):
         if self.memberinfo.email_validation == 'ok':
