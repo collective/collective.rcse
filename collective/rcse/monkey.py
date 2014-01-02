@@ -1,4 +1,5 @@
 import logging
+from AccessControl.unauthorized import Unauthorized
 from collective.z3cform.widgets import enhancedtextlines
 from zope.schema.interfaces import IObject
 from zope.component._api import getMultiAdapter
@@ -109,3 +110,29 @@ def patch_z3cform():
 
 logger.info("monkey: z3c.form.util.changedField handle naive date exception")
 patch_z3cform()
+
+
+def patch_whathappened():
+    def _getSubscriptionInTree(self, path):
+        while '/' in path and path != '/':
+            subscription = self.storage.getSubscription(path)
+            try:
+                context = self.context.restrictedTraverse(path)
+                if context.portal_type == 'collective.rcse.group':
+                    break
+            except KeyError:
+                pass
+            except Unauthorized:
+                pass
+            if subscription is not None:
+                break
+            path = path.rpartition('/')[0]
+        return subscription
+
+    from collective.whathappened.gatherer_backend \
+        import UserActionGathererBackend
+    UserActionGathererBackend._getSubscriptionInTree = _getSubscriptionInTree
+
+
+logger.info("monkey: change whathappened gatherer to stop at group")
+patch_whathappened()
