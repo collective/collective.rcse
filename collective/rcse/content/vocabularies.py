@@ -20,10 +20,10 @@ gender = SimpleVocabulary([
 
 
 languages = SimpleVocabulary([
-    SimpleTerm(value=u"English", title=_t(u"English")),
-    SimpleTerm(value=u"French", title=_t(u"French")),
-    SimpleTerm(value=u"Italian", title=_t(u"Italian")),
-    SimpleTerm(value=u"Spanish", title=_t(u"Spanish")),
+    SimpleTerm(value=u"English", title=_(u"English")),
+    SimpleTerm(value=u"French", title=_(u"French")),
+    SimpleTerm(value=u"Italian", title=_(u"Italian")),
+    SimpleTerm(value=u"Spanish", title=_(u"Spanish")),
 ])
 
 

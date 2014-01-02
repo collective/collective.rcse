@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-12-31 12:45+0000\n"
+"POT-Creation-Date: 2014-01-02 13:05+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -16,11 +16,11 @@ msgstr ""
 "Domain: collective.rcse\n"
 "Language: \n"
 
-#: ./content/utils.py:44
+#: ./content/utils.py:41
 msgid "${company}'s private group"
 msgstr ""
 
-#: ./content/utils.py:59
+#: ./content/utils.py:55
 msgid "${company}'s public group"
 msgstr ""
 
@@ -482,6 +482,10 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
+#: ./content/vocabularies.py:23
+msgid "English"
+msgstr ""
+
 #: ./content/video.py:17
 msgid "Error raise if no valid video has been provided"
 msgstr ""
@@ -560,6 +564,10 @@ msgstr ""
 #: ./page/desktop/templates/group_edit.pt:61
 #: ./page/mobile/templates/group_edit.pt:49
 msgid "Folder contents"
+msgstr ""
+
+#: ./content/vocabularies.py:24
+msgid "French"
 msgstr ""
 
 #: ./content/member.py:101
@@ -670,18 +678,22 @@ msgstr ""
 msgid "Invitation"
 msgstr ""
 
-#: ./requestaccess/browser/invite.py:53
+#: ./requestaccess/browser/invite.py:55
 #: ./requestaccess/browser/request.py:65
 msgid "Invitation or request already exists."
 msgstr ""
 
-#: ./requestaccess/browser/invite.py:55
+#: ./requestaccess/browser/invite.py:57
 msgid "Invitation sent"
 msgstr ""
 
 #: ./page/desktop/templates/group_edit.pt:68
 #: ./page/mobile/templates/group_edit.pt:55
 msgid "Invite a person"
+msgstr ""
+
+#: ./content/vocabularies.py:25
+msgid "Italian"
 msgstr ""
 
 #: ./action/delete.py:46
@@ -994,11 +1006,11 @@ msgstr ""
 msgid "Professional mobile phone"
 msgstr ""
 
-#: ./requestaccess/browser/invite.py:39
+#: ./requestaccess/browser/invite.py:41
 msgid "Propose access"
 msgstr ""
 
-#: ./requestaccess/browser/invite.py:60
+#: ./requestaccess/browser/invite.py:62
 msgid "Propose access on ${title}"
 msgstr ""
 
@@ -1191,6 +1203,10 @@ msgstr ""
 
 #: ./page/controller/filterbutton.py:34
 msgid "Sort on"
+msgstr ""
+
+#: ./content/vocabularies.py:26
+msgid "Spanish"
 msgstr ""
 
 #: ./content/member.py:118

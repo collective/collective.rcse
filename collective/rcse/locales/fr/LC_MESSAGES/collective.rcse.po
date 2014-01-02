@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2013-12-31 12:45+0000\n"
+"POT-Creation-Date: 2014-01-02 13:05+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Language: fr\n"
 "X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
 
-#: ./content/utils.py:44
+#: ./content/utils.py:41
 msgid "${company}'s private group"
 msgstr "${company} : groupe privé"
 
-#: ./content/utils.py:59
+#: ./content/utils.py:55
 msgid "${company}'s public group"
 msgstr "${company} : groupe public"
 
@@ -484,6 +484,10 @@ msgstr "Activer"
 msgid "Enabled"
 msgstr "Actifs"
 
+#: ./content/vocabularies.py:23
+msgid "English"
+msgstr "Anglais"
+
 #: ./content/video.py:17
 msgid "Error raise if no valid video has been provided"
 msgstr "Erreur soulevée si le fichier n'est pas du type vidéo valide."
@@ -563,6 +567,10 @@ msgstr "Prénom : ${firstname}"
 #: ./page/mobile/templates/group_edit.pt:49
 msgid "Folder contents"
 msgstr "Contenu du dossier"
+
+#: ./content/vocabularies.py:24
+msgid "French"
+msgstr "Français"
 
 #: ./content/member.py:101
 #: ./page/desktop/templates/users_directory_view.pt:68
@@ -672,12 +680,12 @@ msgstr "Option invalide"
 msgid "Invitation"
 msgstr "Invitation"
 
-#: ./requestaccess/browser/invite.py:53
+#: ./requestaccess/browser/invite.py:55
 #: ./requestaccess/browser/request.py:65
 msgid "Invitation or request already exists."
 msgstr "L'invitation ou la demande existe déjà"
 
-#: ./requestaccess/browser/invite.py:55
+#: ./requestaccess/browser/invite.py:57
 msgid "Invitation sent"
 msgstr "Invitation envoyée"
 
@@ -685,6 +693,10 @@ msgstr "Invitation envoyée"
 #: ./page/mobile/templates/group_edit.pt:55
 msgid "Invite a person"
 msgstr "Inviter un utilisateur"
+
+#: ./content/vocabularies.py:25
+msgid "Italian"
+msgstr "Italien"
 
 #: ./action/delete.py:46
 msgid "Item and it's content has been deleted"
@@ -996,11 +1008,11 @@ msgstr "Téléphone fixe professionnel"
 msgid "Professional mobile phone"
 msgstr "Téléphone portable professionnel"
 
-#: ./requestaccess/browser/invite.py:39
+#: ./requestaccess/browser/invite.py:41
 msgid "Propose access"
 msgstr "Proposer un accès"
 
-#: ./requestaccess/browser/invite.py:60
+#: ./requestaccess/browser/invite.py:62
 msgid "Propose access on ${title}"
 msgstr "Proposer un accès à ${title}"
 
@@ -1194,6 +1206,10 @@ msgstr "Skype"
 #: ./page/controller/filterbutton.py:34
 msgid "Sort on"
 msgstr "Trier par"
+
+#: ./content/vocabularies.py:26
+msgid "Spanish"
+msgstr "Espagnol"
 
 #: ./content/member.py:118
 #: ./page/desktop/templates/member_tile_view.pt:51
