@@ -1,20 +1,22 @@
+from plone.autoform import directives
 from plone.autoform.form import AutoExtensibleForm
+from plone.supermodel import model
+from plone.z3cform.layout import FormWrapper
+from plone.directives import form
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.statusmessages.interfaces import IStatusMessage
 from z3c.form import form, button
+from z3c.form.browser.select import SelectFieldWidget
 from zope import component
 from zope import schema
 from zope import interface
-from plone.supermodel import model
-from Products.statusmessages.interfaces import IStatusMessage
-from plone.z3cform.layout import FormWrapper
+
 from collective.requestaccess.i18n import _
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from z3c.form.browser.checkbox import CheckBoxFieldWidget
-from plone.directives import form
 
 
 class InvitationFormSchema(model.Schema):
 #    userid = schema.ASCIILine(title=_(u"User ID"))
-    form.widget(userids=CheckBoxFieldWidget)
+    directives.widget('userids', SelectFieldWidget, multiple="multiple")
     userids = schema.List(
         title=_(u"Users"),
         value_type=schema.Choice(
