@@ -79,6 +79,7 @@ module.exports = function(grunt) {
                         //'app/bower_components/modernizr/modernizr.js',
                         'app/bower_components/webshim/demos/js-webshim/minified/extras/modernizr-custom.js',
                         'app/bower_components/jquery/jquery.js',
+ 		        'app/bower_components/jquery-ui/ui/jquery.ui.position.js',
                         'app/bower_components/jqueryform/jquery.form.js',
                         'app/bower_components/matchmedia/matchMedia.js',
                         'app/bower_components/bootstrap/dist/js/bootstrap.js',

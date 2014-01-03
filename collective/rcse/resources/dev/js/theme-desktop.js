@@ -1122,6 +1122,14 @@ $.webshims.setOptions('forms', {
 });
 $.webshims.setOptions('forms-ext', {
     replaceUI: false,
-    types: 'datetime-local month date time number'
+    types: 'datetime-local month date time number',
+
+    widgets: {
+	popover: {
+	    position: {
+                collision: 'fit'
+            }
+        }
+    }
 });
 $.webshims.polyfill();
