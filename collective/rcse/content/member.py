@@ -284,15 +284,23 @@ def get_members_info(context, review_state="enabled"):
     return members_info
 
 
+def _getUtf8(string):
+    try:
+        return string.decode('utf8')
+    except UnicodeEncodeError:
+        return string
+
+
 def members_vocabulary(context):
     terms = []
     users = get_members_info(context, review_state="enabled")
     for user in users:
         try:
-            display_name = u"%s %s - %s" % (user['first_name'],
-                                            user['last_name'],
-                                            user['company'])
-            display_name = display_name.decode('utf-8')
+            first_name = _getUtf8(user['first_name'])
+            last_name = _getUtf8(user['last_name'])
+            company = _getUtf8(user['company'])
+
+            display_name = u"%s %s - %s" % (first_name, last_name, company)
         except UnicodeDecodeError as e:
             logger.error("%s %s" % (user['userid'], e))
             continue
