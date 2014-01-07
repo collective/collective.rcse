@@ -1,3 +1,5 @@
+from HTMLParser import HTMLParser
+
 from Acquisition import aq_inner
 
 from zope import component
@@ -84,6 +86,7 @@ def SearchableText_etherpad(context):
         return indexers.SearchableText(context)
     text = indexers.SearchableText(context)
     transforms = getToolByName(context, 'portal_transforms')
-    value = str(view.content())
+    h = HTMLParser()
+    value = h.unescape(str(view.content()))
     content = transforms.convertTo('text/plain', value, mimetype='text/html')
     return indexers._unicode_save_string_concat(text, content.getData())
