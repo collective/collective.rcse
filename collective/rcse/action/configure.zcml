@@ -235,4 +235,15 @@
       permission="zope2.DeleteObjects"
       />
 
+  <!-- Whathappened -->
+
+  <browser:page
+      for="*"
+      name="collective.whathappened.gatherer.useraction"
+      class=".gatherer.RcseUserActionGathererBackend"
+      permission="zope.Public"
+      layer="collective.rcse.layer.CommonLayer"
+      />
+
+
 </configure>
