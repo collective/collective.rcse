@@ -107,6 +107,23 @@ class Subscribe(AjaxAction, subscribe.Subscribe):
         self.update()
         return AjaxAction.__call__(self)
 
+    def _hasParentSubscription(self, path):
+        if self.context.portal_type == 'collective.rcse.group':
+            return False
+        path = path.rpartition('/')[0]
+        context = aq_parent(self.context)
+        while len(path) > 0 and path != '/':
+            if '/' not in path:
+                break
+            subscription = self.storage.getSubscription(path)
+            if subscription is not None and subscription.wants:
+                return True
+            if context.portal_type == 'collective.rcse.group':
+                break
+            path = path.rpartition('/')[0]
+            context = aq_parent(context)
+        return False
+
 
 class Unsubscribe(Subscribe):
     action_class = subscribe.Unsubscribe
