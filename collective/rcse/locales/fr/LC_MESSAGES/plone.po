@@ -80,3 +80,8 @@ msgstr "Base de recherche"
 
 msgid "CAS Log out"
 msgstr "Se déconnecter"
+
+#. Default: "Tags are commonly used for ad-hoc organization of content."
+#: Archetypes/ExtensibleMetadata.py:83
+msgid "help_tags"
+msgstr "Les mots-clés sont utilisés couramment pour organiser le contenu de façon ad hoc. Un mot-clé par ligne."
