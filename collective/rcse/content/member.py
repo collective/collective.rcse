@@ -8,6 +8,7 @@ from zope import interface
 from zope import schema
 
 from collective.rcse.i18n import _
+from collective.rcse.cache import clearCache
 from collective.rcse.content import vocabularies
 from collective.rcse.content.visibility import addVisibilityCheckbox
 from Products.CMFCore.utils import getToolByName
@@ -236,18 +237,39 @@ def handle_member_added(context, event):
     logger.info('Member object added.')
     mtool = getToolByName(context, 'membrane_tool')
     mtool.indexObject(context)
+    clearMemberCache('pending')
 
 
 def handle_member_modified(context, event):
     logger.info('Member object modified.')
     mtool = getToolByName(context, 'membrane_tool')
     mtool.reindexObject(context)
+    clearMemberCache()
 
 
 def handle_member_removed(context, event):
     logger.info('Member object removed.')
     mtool = getToolByName(context, 'membrane_tool')
     mtool.unindexObject(context)
+    clearMemberCache()
+
+
+def handle_member_workflow(context, event):
+    logger.info('Member object workflow action.')
+    mtool = getToolByName(context, 'membrane_tool')
+    mtool.unindexObject(context)
+    clearMemberCache()
+
+
+def clearMemberCache(review_state=None):
+    module = 'collective.rcse.content.member'
+    fun = 'get_members_info'
+    if review_state is None:
+        clearCache(module, fun, 'enabled')
+        clearCache(module, fun, 'pending')
+        clearCache(module, fun, 'disabled')
+    else:
+        clearCache(module, fun, review_state)
 
 
 def _members_cachekey(method, context, review_state):
