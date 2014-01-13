@@ -38,24 +38,24 @@ def get_cache(module, fun):
     return client
 
 
-def clearCacheKeyGroupAddPermission(username):
-    module = 'collective.rcse.content.vocabularies'
-    fun = '_getGroupsWithAddPermission'
-    key = '%s.%s:%s' % (module, fun, username)
+def clearCache(module, fun, id):
+    key = '%s.%s:%s' % (module, fun, id)
     cache = get_cache(module, fun)
     # We need to set it to None to update the value
     # (Only for memcache! See plone.memoize)
     cache.set(hashlib.md5(key).hexdigest(), None)
+
+
+def clearCacheKeyGroupAddPermission(username):
+    module = 'collective.rcse.content.vocabularies'
+    fun = '_getGroupsWithAddPermission'
+    clearCache(module, fun, username)
 
 
 def clearCacheKeyGroupTitle(group):
     module = 'collective.rcse.content.vocabularies'
     fun = '_getGroupTitleFromUUID'
-    key = '%s.%s:%s' % (module, fun, IUUID(group))
-    cache = get_cache(module, fun)
-    # We need to set it to None to update the value
-    # (Only for memcache! See plone.memoize)
-    cache.set(hashlib.md5(key).hexdigest(), None)
+    clearCache(module, fun, IUUID(group))
 
 
 def getCacheKeyGroupAddPermission(fun, username):

@@ -42,6 +42,9 @@
   <subscriber handler=".member.handle_member_removed"
           for="collective.rcse.content.member.IMember
            zope.lifecycleevent.interfaces.IObjectRemovedEvent" />
+  <subscriber handler=".member.handle_member_workflow"
+          for="collective.rcse.content.member.IMember
+           Products.CMFCore.WorkflowCore.ActionSucceededEvent" />
 
   <subscriber handler=".proxygroup.handle_group_edit"
           for="collective.rcse.content.group.GroupSchema
