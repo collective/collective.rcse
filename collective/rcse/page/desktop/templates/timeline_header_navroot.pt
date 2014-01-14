@@ -1,4 +1,4 @@
-<div class="rcse_tile_wrapper">
+<div class="rcse_tile_wrapper" i18n:domain="collective.rcse">
     <div class="rcsetile panel panel-default">
         <div class="panel-heading">
             <div class="media vcard byline">
@@ -10,8 +10,8 @@
                     <h4 class="media-heading">
                         <a class="fn url" tal:attributes="href view/url" tal:content="view/fullname"></a>
                     </h4>
-                    <p tal:content="string:${view/function} in ${view/company}"></p>
-                    <div tal:condition="view/areas_of_expertise" tal:content="python: ', '.join(view.areas_of_expertise)"></div>
+                    <p i18n:translate=""><span i18n:name="function" tal:replace="view/function">Function</span> in <span i18n:name="company" tal:replace="view/company">Company</span></p>
+                    <div tal:condition="view/areas_of_expertise"><span i18n:translate="">Areas of expertise</span> : <span tal:content="python: ', '.join(view.areas_of_expertise)"></span></div>
                     <div class="bio" tal:condition="view/bio" tal:content="structure view/bio/output"></div>
                 </div>
             </div>
