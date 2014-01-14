@@ -49,7 +49,9 @@
     <h3 tal:condition="view/bio">Presentation</h3>
     <div class="bio" tal:condition="view/bio" tal:content="structure view/bio/output"></div>
     <h4 tal:condition="view/lang" i18n:translate="">Spoken languages</h4>
-    <div tal:condition="view/lang" tal:content="python: ', '.join(view.lang)"></div>
+    <span tal:condition="view/lang" tal:repeat="lang view/lang">
+      <tal:lang i18n:translate="" tal:replace="lang"></tal:lang><tal:block tal:condition="not:repeat/lang/end">, </tal:block>
+    </span>
     <h4 tal:condition="view/areas_of_expertise" i18n:translate="">Areas of
         expertise</h4>
     <div tal:condition="view/areas_of_expertise" tal:content="python: ', '.join(view.areas_of_expertise)"></div>
