@@ -257,7 +257,7 @@ def handle_member_removed(context, event):
 def handle_member_workflow(context, event):
     logger.info('Member object workflow action.')
     mtool = getToolByName(context, 'membrane_tool')
-    mtool.unindexObject(context)
+    mtool.reindexObject(context)
     clearMemberCache()
 
 
