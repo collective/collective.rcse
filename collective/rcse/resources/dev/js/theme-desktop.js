@@ -294,6 +294,7 @@ var rcseUpdateForms = function(element){
                 return true; // continue
             }
             input.addClass('form-control');
+	    $(element).find(".chosen-choices input").attr('style', '');
         });
     });
     //transform form actions for bootstrap
