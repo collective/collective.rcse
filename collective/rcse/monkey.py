@@ -61,7 +61,7 @@ def patch_get_calendar_url():
         navigation_root = portal_state.navigation_root()
         if search_base:
             base = navigation_root.restrictedTraverse(search_base.lstrip('/'))
-            return base.absolute_url()
+            return '%s/event_listing' % base.absolute_url()
         else:
             group = get_group(context)
             if group is None:
