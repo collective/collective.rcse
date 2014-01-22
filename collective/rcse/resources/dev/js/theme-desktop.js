@@ -412,7 +412,8 @@ var rcseInitPortletCalendar = function(){
         var portlethash = pw.attr('id');
     if (portlethash !== undefined) {
             portlethash = portlethash.substring(15, portlethash.length);
-            url = portal_url +
+        var location = document.location.href;
+            url = location +
         '/@@render-portlet?portlethash=' + portlethash +
         '&year=' + elem_data.year +
         '&month=' + elem_data.month;
