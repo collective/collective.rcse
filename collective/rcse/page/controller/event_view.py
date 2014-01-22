@@ -8,6 +8,14 @@ from plone.app.event.browser.event_view import EventView as BaseView
 class EventView(BaseView):
     """default view"""
 
+    # Temporary fix while waiting for https://github.com/plone/plone.app.event/pull/127
+    def formatted_date(self, occ):
+        provider = getMultiAdapter(
+            (self.context, self.request, self),
+            IContentProvider, name='formatted_date'
+            )
+        return provider(occ.context)
+
     def __call__(self):
         self.update()
         return self.index()
