@@ -3,6 +3,8 @@ import icalendar
 
 from plone.uuid.interfaces import IUUID
 from plone.app.event.browser.event_view import EventView as BaseView
+from zope.component import getMultiAdapter
+from zope.contentprovider.interfaces import IContentProvider
 
 
 class EventView(BaseView):
