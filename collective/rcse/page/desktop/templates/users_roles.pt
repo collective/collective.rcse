@@ -87,13 +87,17 @@
                        </thead>
                        <tbody>
                           <tal:block repeat="user portal_users">
-                            <tr tal:define="oddrow repeat/user/odd;
+			    <tal:block tal:define="member nocall:context/@@get_memberinfo;
+						   dummy python:member(user['userid']);
+						   brain python:member.get_membrain()">
+                            <tr tal:condition="python:brain and brain.review_state == 'enabled'"
+				tal:define="oddrow repeat/user/odd;
                                             userid user/userid;
                                             userquery python:view.makeQuery(userid=userid);
                                             member python:mtool.getMemberById(userid)"
-                                tal:attributes="class python:oddrow and 'odd' or 'even'">
+				tal:attributes="class python:oddrow and 'odd' or 'even'">
 
-                                <td>
+                              <td>
                                     <a href="@@user-information"
                                        tal:attributes="href string:$portal_url/@@user-information?${userquery}">
                                         <span tal:replace="userid">username</span>
@@ -127,6 +131,7 @@
                                 </td>
 
                             </tr>
+                            </tal:block>
                           </tal:block>
                       </tbody>
                   </table>

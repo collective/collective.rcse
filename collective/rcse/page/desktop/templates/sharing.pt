@@ -55,7 +55,11 @@
 
     <tbody metal:define-macro="user-group-sharing-settings" id="user-group-sharing-settings">
         <tal:entries repeat="entry role_settings">
-            <tr tal:define="is_group python:entry['type'] == 'group';
+	  <tal:block tal:define="member nocall:context/@@get_memberinfo;
+				 dummy python:member(entry['id']);
+				 brain python:member.get_membrain()">
+            <tr tal:condition="python:entry['type'] == 'group' or (brain and brain.review_state == 'enabled')"
+		tal:define="is_group python:entry['type'] == 'group';
                             disabled entry/disabled | python:False;
                             oddrow repeat/entry/odd;"
                 tal:attributes="class python:oddrow and 'odd' or 'even'">
@@ -97,6 +101,7 @@
                     </tal:block>
                 </td>
             </tr>
+	  </tal:block>
         </tal:entries>
     </tbody>
 
