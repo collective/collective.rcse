@@ -16,7 +16,9 @@ class RcseUserActionGathererBackend(UserActionGathererBackend):
                     context = self.context.restrictedTraverse(path)
                 else:
                     context = aq_parent(context)
-                if context.portal_type == 'collective.rcse.group':
+                # Conversation does not have a portal_type attribute !
+                if getattr(context, 'portal_type', '') \
+                        == 'collective.rcse.group':
                     break
             except KeyError:
                 pass
