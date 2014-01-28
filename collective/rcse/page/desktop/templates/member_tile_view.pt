@@ -78,66 +78,96 @@
         <i class="icon-envelope"></i>&nbsp;
         <span i18n:translate="">Professional e-mail</span>
     </div>
-    <div tal:content="view/professional_email"></div>
+    <a tal:attributes="href string:mailto:${view/professional_email}">
+      <div tal:content="view/professional_email"></div>
+    </a>
     <div tal:condition="view/personal_email">
         <i class="icon-envelope"></i>&nbsp;
         <span i18n:translate="">Personal e-mail</span>
     </div>
-    <div tal:content="view/personal_email"></div>
+    <a tal:attributes="href string:mailto:${view/personal_email}">
+      <div tal:content="view/personal_email"></div>
+    </a>
     <div tal:condition="view/professional_mobile_phone">
         <i class="icon-mobile-phone"></i>&nbsp;
         <span i18n:translate="">Professional mobile phone</span>
     </div>
-    <div tal:content="view/professional_mobile_phone"></div>
+    <a tal:attributes="href string:callto:${view/professional_mobile_phone}">
+      <div tal:content="view/professional_mobile_phone"></div>
+    </a>
     <div tal:condition="view/personal_mobile_phone">
         <i class="icon-mobile-phone"></i>&nbsp;
         <span i18n:translate="">Personal mobile phone</span>
     </div>
-    <div tal:content="view/personal_mobile_phone"></div>
+    <a tal:attributes="href string:callto:${view/personal_mobile_phone}">
+      <div tal:content="view/personal_mobile_phone"></div>
+    </a>
     <div tal:condition="view/professional_landline_phone">
         <i class="icon-phone"></i>&nbsp;
         <span i18n:translate="">Professional landline phone</span>
     </div>
-    <div tal:content="view/professional_landline_phone"></div>
+    <a tal:attributes="href string:callto:${view/professional_landline_phone}">
+      <div tal:content="view/professional_landline_phone"></div>
+    </a>
     <div tal:condition="view/personal_landline_phone">
         <i class="icon-phone"></i>&nbsp;
         <span i18n:translate="">Personal landline phone</span>
     </div>
-    <div tal:content="view/personal_landline_phone"></div>
+    <a tal:attributes="href string:callto:${view/professional_landline_phone}">
+      <div tal:content="view/professional_landline_phone"></div>
+    </a>
     <div tal:condition="view/skype">
         <i class="icon-skype"></i>&nbsp;
         <span i18n:translate="">Skype</span>
     </div>
     <div tal:content="view/skype"></div>
+
     <div tal:condition="view/website">
-        <i class="icon-globe"></i>&nbsp;
-        <span i18n:translate="">Website</span>
+	  <i class="icon-globe"></i>&nbsp;
+          <span i18n:translate="">Website</span>
     </div>
-    <div tal:content="view/website"></div>
+    <a tal:attributes="href view/website">
+      <div tal:content="view/website"></div>
+    </a>
+
     <div tal:condition="view/blog">
-        <i class="icon-hand-right"></i>&nbsp;
-        <span i18n:translate="">Blog</span>
+      <i class="icon-hand-right"></i>&nbsp;
+      <span i18n:translate="">Blog</span>
     </div>
-    <div tal:content="view/blog"></div>
+    <a tal:attributes="href view/blog">
+      <div tal:content="view/blog"></div>
+    </a>
+
     <div tal:condition="view/viadeo">
-        <i class="icon-arrow-right"></i>&nbsp;
-        <span i18n:translate="">Viadeo</span>
+      <i class="icon-arrow-right"></i>&nbsp;
+      <span i18n:translate="">Viadeo</span>
     </div>
-    <div tal:content="view/viadeo"></div>
+    <a tal:attributes="href view/viadeo">
+      <div tal:content="view/viadeo"></div>
+    </a>
+
     <div tal:condition="view/linkedin">
-        <i class="icon-linkedin"></i>&nbsp;
-        <span i18n:translate="">LinkedIn</span>
+      <i class="icon-linkedin"></i>&nbsp;
+      <span i18n:translate="">LinkedIn</span>
     </div>
-    <div tal:content="view/linkedin"></div>
+    <a tal:attributes="href view/linkedin">
+      <div tal:content="view/linkedin"></div>
+    </a>
+
     <div tal:condition="view/google">
-        <i class="icon-google-plus"></i>&nbsp;
-        <span i18n:translate="">Google+</span>
+      <i class="icon-google-plus"></i>&nbsp;
+      <span i18n:translate="">Google+</span>
     </div>
-    <div tal:content="view/google"></div>
+    <a tal:attributes="href view/google">
+      <div tal:content="view/google"></div>
+    </a>
+
     <div tal:condition="view/twitter">
-        <i class="icon-twitter"></i>&nbsp;
-        <span i18n:translate="">Twitter</span>
+      <i class="icon-twitter"></i>&nbsp;
+      <span i18n:translate="">Twitter</span>
     </div>
-    <div tal:content="view/twitter"></div>
+    <a tal:attributes="href view/twitter">
+      <div tal:content="view/twitter"></div>
+    </a>
   </div>
 </div>

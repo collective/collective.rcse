@@ -76,31 +76,69 @@
                          or context.twitter"
           i18n:translate="">Contact information</h3>
       <div tal:condition="context/professional_email"><i class="icon icon-no-margin ui-icon-envelope"></i>&nbsp;<span i18n:translate="">Professional e-mail</span></div>
-      <div tal:content="context/professional_email"></div>
+      <a tal:attributes="href string:mailto:${context/professional_email}">
+	<div tal:content="context/professional_email"></div>
+      </a>
+
       <div tal:condition="context/personal_email"><i class="icon icon-no-margin ui-icon-envelope"></i>&nbsp;<span i18n:translate="">Personal e-mail</span></div>
-      <div tal:content="context/personal_email"></div>
+      <a tal:attributes="href string:mailto:${context/personal_email}">
+	<div tal:content="context/personal_email"></div>
+      </a>
+
       <div tal:condition="context/professional_mobile_phone"><i class="icon icon-no-margin ui-icon-mobile-phone"></i>&nbsp;<span i18n:translate="">Professional mobile phone</span></div>
-      <div tal:content="context/professional_mobile_phone"></div>
+      <a tal:attributes="href string:mailto:${context/professional_mobile_phone}">
+	<div tal:content="context/professional_mobile_phone"></div>
+      </a>
+
       <div tal:condition="context/personal_mobile_phone"><i class="icon icon-no-margin ui-icon-mobile-phone"></i>&nbsp;<span i18n:translate="">Personal mobile phone</span></div>
-      <div tal:content="context/personal_mobile_phone"></div>
+      <a tal:attributes="href string:mailto:${context/personal_mobile_phone}">
+	<div tal:content="context/personal_mobile_phone"></div>
+      </a>
+
       <div tal:condition="context/professional_landline_phone"><i class="icon icon-no-margin ui-icon-phone"></i>&nbsp;<span i18n:translate="">Professional landline phone</span></div>
-      <div tal:content="context/professional_landline_phone"></div>
+      <a tal:attributes="href string:mailto:${context/professional_landline_phone}">
+	<div tal:content="context/professional_landline_phone"></div>
+      </a>
+
       <div tal:condition="context/personal_landline_phone"><i class="icon icon-no-margin ui-icon-phone"></i>&nbsp;<span i18n:translate="">Personal landline phone</span></div>
-      <div tal:content="context/personal_landline_phone"></div>
+      <a tal:attributes="href string:mailto:${context/personal_landline_phone}">
+	<div tal:content="context/personal_landline_phone"></div>
+      </a>
+
       <div tal:condition="context/skype"><i class="icon icon-no-margin ui-icon-skype"></i>&nbsp;<span i18n:translate="">Skype</span></div>
-      <div tal:content="context/skype"></div>
+      <a tal:attributes="href string:mailto:${context/skype}">
+	<div tal:content="context/skype"></div>
+      </a>
+
       <div tal:condition="context/website"><i class="icon icon-no-margin ui-icon-globe"></i>&nbsp;<span i18n:translate="">Website</span></div>
-      <div tal:content="context/website"></div>
+      <a tal:attributes="href string:mailto:${context/website}">
+	<div tal:content="context/website"></div>
+      </a>
+
       <div tal:condition="context/blog"><i class="icon icon-no-margin ui-icon-hand-right"></i>&nbsp;<span i18n:translate="">Blog</span></div>
-      <div tal:content="context/blog"></div>
+      <a tal:attributes="href string:mailto:${context/blog}">
+	<div tal:content="context/blog"></div>
+      </a>
+
       <div tal:condition="context/viadeo"><i class="icon icon-no-margin ui-icon-arrow-right"></i>&nbsp;<span i18n:translate="">Viadeo</span></div>
-      <div tal:content="context/viadeo"></div>
+      <a tal:attributes="href string:mailto:${context/viadeo}">
+	<div tal:content="context/viadeo"></div>
+      </a>
+
       <div tal:condition="context/linkedin"><i class="icon icon-no-margin ui-icon-linkedin"></i>&nbsp;<span i18n:translate="">LinkedIn</span></div>
-      <div tal:content="context/linkedin"></div>
+      <a tal:attributes="href string:mailto:${context/linkedin}">
+	<div tal:content="context/linkedin"></div>
+      </a>
+
       <div tal:condition="context/google"><i class="icon icon-no-margin ui-icon-google-plus"></i>&nbsp;<span i18n:translate="">Google+</span></div>
-      <div tal:content="context/google"></div>
+      <a tal:attributes="href string:mailto:${context/google}">
+	<div tal:content="context/google"></div>
+      </a>
+
       <div tal:condition="context/twitter"><i class="icon icon-no-margin ui-icon-twitter"></i>&nbsp;<span i18n:translate="">Twitter</span></div>
-      <div  tal:content="context/twitter"></div>
+      <a tal:attributes="href string:mailto:${context/twitter}">
+	<div  tal:content="context/twitter"></div>
+      </a>
     </div>
   </div>
 </div>
