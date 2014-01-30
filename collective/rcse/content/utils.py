@@ -28,8 +28,8 @@ def createCompany(context, request, username=None, company_name=None):
     company.manage_setLocalRoles(username, ['Owner'])
     company.setCreators([username])
     company.reindexObjectSecurity()
-    _createCompaniesGroups(home, company, username,
-                           mtool, auth_user, request)
+#    _createCompaniesGroups(home, company, username,
+#                           mtool, auth_user, request)
     return company.id
 
 
