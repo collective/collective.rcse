@@ -70,7 +70,13 @@ def handle_request_validated(context, event):
             roles
         )
         group.reindexObject()
+    _handle_group_items_security(group)
     notify(UserRolesModifiedOnObjectEvent(request.userid, group))
+
+
+def _handle_group_items_security(group):
+    for item in group:
+        group[item].reindexObjectSecurity()
 
 
 def handle_request_refused(context, event):
