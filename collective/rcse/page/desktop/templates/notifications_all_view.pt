@@ -17,7 +17,7 @@
             <a class="btn btn-default" href="@@collective_whathappened_set_all_seen" i18n:translate="">Set all notifications to seen</a>
         </div>
 
-        <table class="listing datatable">
+        <table id="notifications-all-table" class="listing">
         <thead i18n:domain="collective.history">
             <tr>
                 <th i18n:translate="">When</th>

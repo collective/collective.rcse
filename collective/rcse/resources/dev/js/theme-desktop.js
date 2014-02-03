@@ -922,8 +922,15 @@ var rcseInitDatatable = function(){
                         [ 20, 30, 50, "Tous" ] ]
     }
     $(".datatable").dataTable(settings);
-    $("#members-datatable").dataTable(settings);
+
+    settings['aaSorting'] = [ [ 0, "desc" ] ];
+    $('#notifications-all-table').dataTable(settings);
+
+    settings['aaSorting'] = [ [ 0, "asc" ] ];
     $("#favorites-datatable").dataTable(settings);
+
+    settings['aaSorting'] = [ [ 1, "asc" ] ];
+    $("#members-datatable").dataTable(settings);
     $("#review-requests-datatable").dataTable(settings);
     $("#invitations-datatable").dataTable(settings);
     $("#requests-datatable").dataTable(settings);
