@@ -243,6 +243,7 @@ module.exports = function(grunt) {
             desktoprecess : {
                 files : [
                          'less/desktop.plone.less',
+                         'less/desktop-theme.less',
                          'less/desktop.less',
                          'less/collective.polls.css'
                          ],

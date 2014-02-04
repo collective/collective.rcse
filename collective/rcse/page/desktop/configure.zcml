@@ -81,7 +81,7 @@
   <browser:page
       for="*"
       name="collective.rcse.filterbutton"
-      class="collective.rcse.page.controller.filterbutton.FilterButton"
+      class="collective.rcse.page.controller.filterbutton.FilterButtonView"
       template="templates/filterbutton.pt"
       layer="collective.rcse.layer.DesktopLayer"
       permission="zope2.View"

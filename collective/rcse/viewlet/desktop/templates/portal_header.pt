@@ -138,9 +138,8 @@
         <div class="addbutton" tal:content="structure context/@@collective.rcse.addbutton"></div>
     </div>
     <div class="col-md-8 col-sm-7 col-xs-12 filters" id="portal-filters"
-         tal:define="base_url view/group_url;
-            current_view view/view/__name__;
-            default_view view/context_state/view_template_id;"
+         tal:define="current_view view/view/__name__;
+		     default_view view/context_state/view_template_id;"
          tal:attributes="data-currentview current_view; data-defaultview default_view">
         <div class="filterbutton" tal:content="structure context/@@collective.rcse.filterbutton"></div>
     </div>

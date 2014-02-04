@@ -74,6 +74,33 @@ header{
   height:80px;
 }
 
+#filtersbuttons {
+    min-height: 200px;
+    padding-left: 70px;
+
+    .filter-wrapper.filter-current {
+	background-color: @brand-primary;
+	a {
+	    color: @body-bg;
+	}
+    }
+    .filter-wrapper {
+	float: left;
+
+	width: 80px;
+	margin: 5px;
+	padding: 5px;
+	text-align: center;
+	border: 1px solid @rcse-content-bg;
+	a {
+	    width: 80px;
+	    height: 80px;
+	    color: @navbar-inverse-bg;
+	    text-decoration: none;
+	}
+    }
+}
+
 /*TRY TO FIX A BUG FROM BOOTSTRAP 3.0.0
 https://github.com/twbs/bootstrap/issues/10390
 */
