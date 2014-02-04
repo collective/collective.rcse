@@ -49,6 +49,8 @@ class AuthenticatedMemberInfoView(BrowserView):
     @memoize
     def get_membrain(self):
         """return the member as a brain (Products.Membrane)"""
+        if self.memberid is None:
+            raise ValueError("memberid can't be none")
         brains = self.membrane_tool(exact_getUserId=self.memberid)
         if len(brains) == 1:
             return brains[0]
@@ -84,7 +86,7 @@ class AuthenticatedMemberInfoView(BrowserView):
 
     def update_memberinfo(self):
         if self.memberid is None:
-            raise ValueError("memberid can't be none")
+            return
         if self.url is None:
             self.url = self.portal_url() + '/author/' + self.memberid
         if self.fullname is None and self.member:
@@ -94,6 +96,8 @@ class AuthenticatedMemberInfoView(BrowserView):
         if name == "member_fields":
             return BrowserView.__getattribute__(self, name)
         if name in self.member_fields:
+            if self.memberid is None:
+                raise ValueError("memberid can't be none")
             membrane = self.get_membrane()
             if membrane is None:
                 return None

@@ -8,7 +8,8 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" tal:attributes="href view/site_url" i18n:translate="">Home</a>
+    <a class="navbar-brand" tal:attributes="href view/site_url"
+       tal:content="view/portal/title">Home</a>
   </div>
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-top">
@@ -125,23 +126,49 @@
     </ul>
   </div><!-- /.navbar-collapse -->
 </header>
-<div class="container" i18n:domain="collective.rcse">
+<div class="container" i18n:domain="collective.rcse"
+     tal:define="member context/@@auth_memberinfo"
+     tal:condition="member/memberid">
+
   <div class="row">
-    <div class="col-xs-4 col-sm-3 col-md-2" id="portal-logo">
-      <div class="portal-logo-inner">
-        <h1><a tal:attributes="href view/portal_state/navigation_root_url"
-               title="Home" i18n:attributes="title" i18n:domain="plone"
-               tal:content="view/portal_properties/site_properties/title">Logo</a></h1>
-      </div>
-    </div>
-    <div class="col-xs-8 col-sm-2 col-md-2" id="addbutton">
+    <div class="col-xs-3 col-sm-3 col-md-2" id="addbutton">
         <div class="addbutton" tal:content="structure context/@@collective.rcse.addbutton"></div>
     </div>
-    <div class="col-md-8 col-sm-7 col-xs-12 filters" id="portal-filters"
+    <div class="col-xs-3 col-sm-3 col-md-2 filters" id="portal-filters"
          tal:define="current_view view/view/__name__;
 		     default_view view/context_state/view_template_id;"
          tal:attributes="data-currentview current_view; data-defaultview default_view">
         <div class="filterbutton" tal:content="structure context/@@collective.rcse.filterbutton"></div>
     </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-8" id="header-member"
+	 i18n:domain="collective.rcse">
+      <div class="avatar pull-left">
+	<a tal:attributes="href member/url">
+          <img class="media-object img-thumbnail"
+               tal:attributes="src string:${member/photo}/tile" />
+	</a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">
+          <a class="fn url"
+	     tal:attributes="href member/url"
+	     tal:content="member/fullname">
+	  </a>
+        </h4>
+        <p i18n:translate="">
+	  <span i18n:name="function"
+		tal:replace="member/function">
+	    Function
+	  </span>
+	  in
+	  <span i18n:name="company"
+		tal:replace="member/company">
+	    Company
+	  </span>
+	</p>
+      </div>
+    </div>
+
   </div>
 </div>

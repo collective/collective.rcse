@@ -4,6 +4,7 @@ from urlparse import parse_qs
 
 from Products.CMFCore.utils import getToolByName
 from zope import component
+from zope.site.hooks import getSite
 
 from collective.rcse.content.group import get_group
 from collective.rcse.icons import getType
@@ -23,6 +24,7 @@ class PortalHeaderViewlet(RCSESections, HotViewlet):
         )
         self.portal_properties = getToolByName(self.context,
                                                'portal_properties')
+        self.portal = getSite()
         self.query_str = self.request.get('QUERY_STRING', None)
         self.filter_query = parse_qs(self.query_str)
         self.updateUserName()
