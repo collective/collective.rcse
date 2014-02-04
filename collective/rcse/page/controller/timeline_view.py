@@ -74,14 +74,9 @@ class NavigationRootTimelineView(GroupTimelineView):
             self.member = self.membership.getAuthenticatedMember()
             if self.member.getId() is None:
                 self.isAnon = True
-        if self.isAnon:
-            self.group = self.member
-        if self.group is None:
-            self.group = True
-            name = "@@timeline_header_navroot_view"
-            self.group_description = self.context.restrictedTraverse(name)()
+        self.group = True
         super(NavigationRootTimelineView, self).update()
-
+        self.group = None
         self.query["path"] = self.context_path
         self.query["group_watchers"] = self.member.getId()
 
