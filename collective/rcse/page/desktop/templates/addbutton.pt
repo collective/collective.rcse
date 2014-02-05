@@ -1,11 +1,8 @@
 <html tal:omit-tag="" i18n:domain="collective.rcse">
 <a data-toggle="modal" href="#rcseaddform" class="btn btn-warning btn-lg"
    title="Open add form" i18n:attributes="title">
-    <span class="icon-stack">
-        <i class="icon-check-empty icon-stack-base"></i>
-        <i class="icon-plus"></i>
-    </span>
-    <span i18n:translate="">Add</span>
+  <i class="icon-plus"></i>
+  <span i18n:translate="">Add</span>
 </a>
 <div class="modal fade" id="rcseaddform" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">

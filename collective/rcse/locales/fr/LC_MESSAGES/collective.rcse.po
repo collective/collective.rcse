@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2014-01-14 16:33+0000\n"
+"POT-Creation-Date: 2014-02-05 13:29+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -27,6 +27,7 @@ msgid "${company}'s public group"
 msgstr "${company} : groupe public"
 
 #: ./page/desktop/templates/timeline_header_navroot.pt:13
+#: ./viewlet/desktop/templates/portal_header.pt:165
 msgid "${function} in ${company}"
 msgstr "${function} dans ${company}"
 
@@ -85,7 +86,7 @@ msgstr "Action"
 msgid "Actions"
 msgstr "Actions"
 
-#: ./page/desktop/templates/addbutton.pt:8
+#: ./page/desktop/templates/addbutton.pt:5
 #: ./viewlet/mobile/templates/filters.pt:4
 msgid "Add"
 msgstr "Ajouter"
@@ -114,7 +115,7 @@ msgstr "Ajouter une Image"
 msgid "Add Preference Condition"
 msgstr ""
 
-#: ./viewlet/desktop/templates/portal_header.pt:31
+#: ./viewlet/desktop/templates/portal_header.pt:32
 msgid "Add a group"
 msgstr "Ajouter un groupe"
 
@@ -142,7 +143,7 @@ msgstr "Ajouter un événement"
 msgid "Add file"
 msgstr "Ajouter un fichier"
 
-#: ./page/desktop/templates/addbutton.pt:15
+#: ./page/desktop/templates/addbutton.pt:12
 msgid "Add form"
 msgstr "Formulaire d'ajout de contenu"
 
@@ -176,7 +177,7 @@ msgstr "Adresse"
 msgid "Advertiser"
 msgstr "Annonceur"
 
-#: ./viewlet/desktop/templates/portal_header.pt:39
+#: ./viewlet/desktop/templates/portal_header.pt:40
 #: ./viewlet/mobile/templates/sections.pt:33
 msgid "All groups"
 msgstr "Tous les groupes"
@@ -206,8 +207,8 @@ msgid "Are you sure you want to delete this comment ?"
 msgstr "Êtes vous certain de vouloir supprimer ce commentaire ?"
 
 #: ./content/member.py:140
-#: ./page/desktop/templates/member_tile_view.pt:53
-#: ./page/desktop/templates/timeline_header_navroot.pt:14
+#: ./page/desktop/templates/member_tile_view.pt:55
+#: ./page/mobile/templates/member_tile_view.pt:58
 msgid "Areas of expertise"
 msgstr "Domaine d'expertise"
 
@@ -296,7 +297,7 @@ msgstr "Choisissez le type de contenu à afficher"
 msgid "City"
 msgstr "Ville"
 
-#: ./page/desktop/templates/addbutton.pt:19
+#: ./page/desktop/templates/addbutton.pt:16
 #: ./viewlet/controller/resourceregistries.py:29
 #: ./viewlet/desktop/templates/modal.pt:16
 msgid "Close"
@@ -323,7 +324,7 @@ msgid "Companies directory"
 msgstr "Annuaire des entreprises"
 
 #: ./content/member.py:94
-#: ./page/controller/timeline_view.py:175
+#: ./page/controller/timeline_view.py:170
 #: ./page/desktop/templates/users_directory_view.pt:69
 msgid "Company"
 msgstr "Société"
@@ -345,8 +346,8 @@ msgid "Confirm the password"
 msgstr "Confirmez le mot de passe"
 
 #: ./content/member.py:51
-#: ./page/desktop/templates/member_tile_view.pt:60
-#: ./page/mobile/templates/member_tile_view.pt:62
+#: ./page/desktop/templates/member_tile_view.pt:62
+#: ./page/mobile/templates/member_tile_view.pt:64
 msgid "Contact information"
 msgstr "Informations de contacts"
 
@@ -360,7 +361,7 @@ msgstr "Contenu ajouté"
 msgid "Contents"
 msgstr "Contenus"
 
-#: ./page/controller/timeline_view.py:144
+#: ./page/controller/timeline_view.py:139
 msgid "Contents created by ${name}"
 msgstr "Contenu créé par ${name}"
 
@@ -419,11 +420,11 @@ msgstr "Discussion"
 msgid "Discussion added"
 msgstr "Discussion ajoutée"
 
-#: ./viewlet/desktop/templates/portal_header.pt:72
+#: ./viewlet/desktop/templates/portal_header.pt:73
 msgid "Display a menu to access to my personal stuff"
 msgstr "Affiche un menu permettant d'accéder à mes informations personnelles"
 
-#: ./viewlet/desktop/templates/portal_header.pt:35
+#: ./viewlet/desktop/templates/portal_header.pt:36
 msgid "Display all groups in the search form"
 msgstr "Affiche tous les groupes dans le formulaire de recherche"
 
@@ -435,7 +436,7 @@ msgstr "Afficher les nouveaux contenu de ce groupe dans votre fil d'actualité"
 msgid "Display only content from the current group"
 msgstr "Afficher uniquement le contenu du groupe actuel"
 
-#: ./viewlet/desktop/templates/portal_header.pt:20
+#: ./viewlet/desktop/templates/portal_header.pt:21
 msgid "Display the search for members form"
 msgstr "Affiche le formulaire de recherche des membres du RSE"
 
@@ -520,7 +521,7 @@ msgstr "Expertise"
 msgid "External media"
 msgstr "Site externe"
 
-#: ./viewlet/desktop/templates/portal_header.pt:43
+#: ./viewlet/desktop/templates/portal_header.pt:44
 #: ./viewlet/mobile/templates/sections.pt:36
 msgid "Favorites"
 msgstr "Favoris"
@@ -538,14 +539,9 @@ msgstr "Fichier"
 msgid "File added"
 msgstr "Fichier ajouté"
 
-#: ./page/controller/filterbutton.py:73
-#: ./page/desktop/templates/filterbutton.pt:8
+#: ./page/controller/filterbutton.py:76
 msgid "Filter"
 msgstr "Filtrer"
-
-#: ./page/desktop/templates/filterbutton.pt:15
-msgid "Filter form"
-msgstr "Formulaire de filtre"
 
 #: ./portlets/xitems.py:45
 msgid "Filter on group"
@@ -598,13 +594,17 @@ msgstr "Retour à l'utilisateur"
 msgid "Global roles"
 msgstr "Rôles globaux"
 
+#: ./page/desktop/templates/filterbutton.pt:5
+msgid "Go to"
+msgstr "Aller à"
+
 #: ./content/event.py:25
 msgid "Google Maps URL"
 msgstr "URL Google Maps"
 
 #: ./content/member.py:199
-#: ./page/desktop/templates/member_tile_view.pt:132
-#: ./page/mobile/templates/member_tile_view.pt:98
+#: ./page/desktop/templates/member_tile_view.pt:159
+#: ./page/mobile/templates/member_tile_view.pt:133
 msgid "Google+"
 msgstr "Google+"
 
@@ -613,7 +613,7 @@ msgstr "Google+"
 msgid "Group"
 msgstr "Groupe"
 
-#: ./viewlet/desktop/templates/portal_header.pt:17
+#: ./viewlet/desktop/templates/portal_header.pt:18
 msgid "Groups"
 msgstr "Groupes"
 
@@ -623,7 +623,6 @@ msgstr "Masquer: ${attr}"
 
 #: ./content/vocabularies.py:114
 #: ./setuphandler.py:185
-#: ./viewlet/desktop/templates/portal_header.pt:11
 msgid "Home"
 msgstr "Accueil"
 
@@ -667,8 +666,8 @@ msgid "Interest"
 msgstr "Intérêt"
 
 #: ./content/member.py:147
-#: ./page/desktop/templates/member_tile_view.pt:56
-#: ./page/mobile/templates/member_tile_view.pt:58
+#: ./page/desktop/templates/member_tile_view.pt:58
+#: ./page/mobile/templates/member_tile_view.pt:60
 msgid "Interests"
 msgstr "Intérêts"
 
@@ -737,8 +736,8 @@ msgid "Link added"
 msgstr "Lien ajouté"
 
 #: ./content/member.py:196
-#: ./page/desktop/templates/member_tile_view.pt:127
-#: ./page/mobile/templates/member_tile_view.pt:96
+#: ./page/desktop/templates/member_tile_view.pt:151
+#: ./page/mobile/templates/member_tile_view.pt:128
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
@@ -828,16 +827,16 @@ msgstr "Média"
 msgid "Media URL"
 msgstr "URL du média"
 
-#: ./page/controller/timeline_view.py:132
+#: ./page/controller/timeline_view.py:127
 #: ./profiles/settings/types/collective.rcse.member.xml
 msgid "Member"
 msgstr "Membre"
 
-#: ./page/controller/timeline_view.py:163
+#: ./page/controller/timeline_view.py:158
 msgid "Members"
 msgstr "Membres"
 
-#: ./page/controller/timeline_view.py:108
+#: ./page/controller/timeline_view.py:103
 msgid "Moderated group"
 msgstr "Groupe modéré"
 
@@ -858,7 +857,7 @@ msgstr "Modifier votre entreprise"
 msgid "My account"
 msgstr "Mon compte"
 
-#: ./viewlet/desktop/templates/portal_header.pt:51
+#: ./viewlet/desktop/templates/portal_header.pt:52
 #: ./viewlet/mobile/templates/sections.pt:43
 msgid "My groups"
 msgstr "Mes groupes"
@@ -888,7 +887,7 @@ msgid "Open / Close comment box to read and or post comments."
 msgstr "Ouvrir / Fermer la boite des commentaires pour lire et / ou écrire des commentaires"
 
 #: ./page/desktop/templates/addbutton.pt:2
-#: ./viewlet/desktop/templates/portal_header.pt:29
+#: ./viewlet/desktop/templates/portal_header.pt:30
 msgid "Open add form"
 msgstr "Ouvrir le formulaire d'ajout"
 
@@ -896,11 +895,11 @@ msgstr "Ouvrir le formulaire d'ajout"
 msgid "Open filter form"
 msgstr "Ouvrir le formulaire de filtrage"
 
-#: ./viewlet/desktop/templates/portal_header.pt:102
+#: ./viewlet/desktop/templates/portal_header.pt:103
 msgid "Open the corresponding content"
 msgstr "Ouvrir le contenu correspondant"
 
-#: ./viewlet/desktop/templates/portal_header.pt:91
+#: ./viewlet/desktop/templates/portal_header.pt:92
 msgid "Open the notification menu"
 msgstr "Ouvrir le menu des notifications"
 
@@ -924,8 +923,8 @@ msgid "Pending"
 msgstr "En attente"
 
 #: ./content/member.py:159
-#: ./page/desktop/templates/member_tile_view.pt:82
-#: ./page/mobile/templates/member_tile_view.pt:78
+#: ./page/desktop/templates/member_tile_view.pt:86
+#: ./page/mobile/templates/member_tile_view.pt:83
 msgid "Personal e-mail"
 msgstr "E-mail personnel"
 
@@ -936,14 +935,14 @@ msgid "Personal information"
 msgstr "Informations personnelles"
 
 #: ./content/member.py:175
-#: ./page/desktop/templates/member_tile_view.pt:102
-#: ./page/mobile/templates/member_tile_view.pt:86
+#: ./page/desktop/templates/member_tile_view.pt:114
+#: ./page/mobile/templates/member_tile_view.pt:103
 msgid "Personal landline phone"
 msgstr "Téléphone fixe personnel"
 
 #: ./content/member.py:167
-#: ./page/desktop/templates/member_tile_view.pt:92
-#: ./page/mobile/templates/member_tile_view.pt:82
+#: ./page/desktop/templates/member_tile_view.pt:100
+#: ./page/mobile/templates/member_tile_view.pt:93
 msgid "Personal mobile phone"
 msgstr "Téléphone portable personnel"
 
@@ -991,20 +990,20 @@ msgid "Privacy"
 msgstr "Vie privée"
 
 #: ./content/member.py:155
-#: ./page/desktop/templates/member_tile_view.pt:77
-#: ./page/mobile/templates/member_tile_view.pt:76
+#: ./page/desktop/templates/member_tile_view.pt:79
+#: ./page/mobile/templates/member_tile_view.pt:78
 msgid "Professional e-mail"
 msgstr "E-mail professionnel"
 
 #: ./content/member.py:171
-#: ./page/desktop/templates/member_tile_view.pt:97
-#: ./page/mobile/templates/member_tile_view.pt:84
+#: ./page/desktop/templates/member_tile_view.pt:107
+#: ./page/mobile/templates/member_tile_view.pt:98
 msgid "Professional landline phone"
 msgstr "Téléphone fixe professionnel"
 
 #: ./content/member.py:163
-#: ./page/desktop/templates/member_tile_view.pt:87
-#: ./page/mobile/templates/member_tile_view.pt:80
+#: ./page/desktop/templates/member_tile_view.pt:93
+#: ./page/mobile/templates/member_tile_view.pt:88
 msgid "Professional mobile phone"
 msgstr "Téléphone portable professionnel"
 
@@ -1054,7 +1053,7 @@ msgstr "S'enregistrer"
 msgid "Register your information"
 msgstr "Enregistrer vos informations"
 
-#: ./viewlet/desktop/templates/portal_header.pt:60
+#: ./viewlet/desktop/templates/portal_header.pt:61
 #: ./viewlet/mobile/templates/sections.pt:50
 msgid "Registred"
 msgstr "Enregistré"
@@ -1098,7 +1097,7 @@ msgstr "Demande d'accès à ${title}"
 msgid "Resend the validation e-mail."
 msgstr "Renvoyer l'email de validation."
 
-#: ./page/controller/filterbutton.py:40
+#: ./page/controller/filterbutton.py:43
 msgid "Reversed"
 msgstr "Inverser"
 
@@ -1115,7 +1114,7 @@ msgstr "Rôles"
 msgid "Save"
 msgstr "Sauvegarder"
 
-#: ./page/controller/filterbutton.py:22
+#: ./page/controller/filterbutton.py:25
 msgid "Search"
 msgstr "Rechercher"
 
@@ -1166,7 +1165,7 @@ msgstr "Rechercher une requête"
 msgid "Sector"
 msgstr "Secteur"
 
-#: ./viewlet/desktop/templates/portal_header.pt:117
+#: ./viewlet/desktop/templates/portal_header.pt:118
 msgid "See all notifications"
 msgstr "Voir toutes les notifications"
 
@@ -1198,12 +1197,12 @@ msgid "Sites"
 msgstr "Sites"
 
 #: ./content/member.py:179
-#: ./page/desktop/templates/member_tile_view.pt:107
-#: ./page/mobile/templates/member_tile_view.pt:88
+#: ./page/desktop/templates/member_tile_view.pt:121
+#: ./page/mobile/templates/member_tile_view.pt:108
 msgid "Skype"
 msgstr "Skype"
 
-#: ./page/controller/filterbutton.py:34
+#: ./page/controller/filterbutton.py:37
 msgid "Sort on"
 msgstr "Trier par"
 
@@ -1307,12 +1306,12 @@ msgid "Turnover"
 msgstr "Chiffre d'affaire"
 
 #: ./content/member.py:202
-#: ./page/desktop/templates/member_tile_view.pt:137
-#: ./page/mobile/templates/member_tile_view.pt:100
+#: ./page/desktop/templates/member_tile_view.pt:167
+#: ./page/mobile/templates/member_tile_view.pt:138
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ./page/controller/filterbutton.py:28
+#: ./page/controller/filterbutton.py:31
 msgid "Type"
 msgstr "Type"
 
@@ -1378,8 +1377,8 @@ msgid "Validate access"
 msgstr "Valider l'accès"
 
 #: ./content/member.py:193
-#: ./page/desktop/templates/member_tile_view.pt:122
-#: ./page/mobile/templates/member_tile_view.pt:94
+#: ./page/desktop/templates/member_tile_view.pt:143
+#: ./page/mobile/templates/member_tile_view.pt:123
 msgid "Viadeo"
 msgstr "Viadeo"
 
@@ -1595,7 +1594,7 @@ msgid "label_add_to_ical"
 msgstr "iCal"
 
 #. Default: "Apply Changes"
-#: ./page/desktop/templates/users_roles.pt:140
+#: ./page/desktop/templates/users_roles.pt:145
 msgid "label_apply_changes"
 msgstr "Enregistrer"
 
