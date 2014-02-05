@@ -12,6 +12,15 @@
         />
 
     <upgradeStep
+        source="1072"
+        destination="1073"
+        title="Upgrade"
+        description=""
+        profile="collective.rcse:default"
+        handler=".upgrades.common"
+        />
+
+    <upgradeStep
         source="1071"
         destination="1072"
         title="Update content rule"

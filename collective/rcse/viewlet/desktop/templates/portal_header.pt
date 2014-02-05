@@ -11,21 +11,21 @@
     <a class="navbar-brand" tal:attributes="href view/site_url"
        tal:content="view/portal/title">Home</a>
   </div>
+
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-top">
     <ul class="nav navbar-nav">
+      <li>
+        <a title="Display the search for members form"
+           i18n:attributes="title"
+           tal:attributes="href string:${view/portal_state/portal_url}/users_directory"
+	   i18n:translate="">
+	  Users directory
+	</a>
+      </li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon-sitemap"></span> <tal:label  i18n:translate="">Groups</tal:label></a>
         <ul class="dropdown-menu">
-          <li>
-            <a title="Display the search for members form"
-               i18n:attributes="title"
-               tal:attributes="href string:${view/portal_state/portal_url}/users_directory" i18n:translate="">Users directory</a>
-          </li>
-          <li>
-             <a title="Display the search for companies form"
-                tal:attributes="href string:${view/portal_state/portal_url}/companies_directory" i18n:translate="">Companies directory</a>
-          </li>
         <li>
           <a data-toggle="modal" href="#rcseaddform" title="Open add form" i18n:attributes="title">
              <span class="icon-plus"></span>
@@ -68,13 +68,16 @@
         </ul>
       </li>
     </ul>
+
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
         <a href="#" class="dropdown-toggle user-menu" data-toggle="dropdown"
            id="personalbar"
            title="Display a menu to access to my personal stuff"
-           i18n:attributes="title"
-           ><span class="icon-user"></span> <span class="hidden-sm" tal:content="view/user_name">John</span></a>
+           i18n:attributes="title">
+	  <span class="icon-user"></span>
+	  <span class="hidden-sm" i18n:translate="">Account</span>
+	</a>
           <ul class="dropdown-menu">
             <li tal:repeat="action view/user_actions"
                 tal:attributes="id string:personaltools-${action/id}">
@@ -126,6 +129,7 @@
     </ul>
   </div><!-- /.navbar-collapse -->
 </header>
+
 <div class="container" i18n:domain="collective.rcse"
      tal:define="member context/@@auth_memberinfo"
      tal:condition="member/memberid">

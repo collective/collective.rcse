@@ -198,6 +198,22 @@
    </property>
    <property name="visible">False</property>
   </object>
+
+  <object name="accessibility">
+   <property name="visible">False</property>
+  </object>
+  <object name="credits" meta_type="CMF Action" i18n:domain="collective.rcse">
+   <property name="title" i18n:translate="">App created by Makina Corpus</property>
+   <property name="description" i18n:translate=""></property>
+   <property name="url_expr">string:http://www.makina-corpus.com</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr"></property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+
   <object name="themeswitcher_desktop" meta_type="CMF Action" i18n:domain="collective.rcse">
    <property name="title" i18n:translate="">themeswitcher_desktop</property>
    <property name="description" i18n:translate=""></property>

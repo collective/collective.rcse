@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
@@ -150,5 +151,22 @@
 	class="plonetheme.jquerymobile.browser.viewlets.hidden.HiddenViewlet"
 	layer="collective.rcse.layer.MobileLayer"
 	/>
+
+  <browser:viewlet
+      name="plone.footer"
+      for="*"
+      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      class="collective.rcse.viewlet.common.HiddenViewlet"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope.Public"
+      />
+  <browser:viewlet
+      name="plone.colophon"
+      for="*"
+      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      class="collective.rcse.viewlet.common.HiddenViewlet"
+      layer="collective.rcse.layer.MobileLayer"
+      permission="zope.Public"
+      />
 
 </configure>
