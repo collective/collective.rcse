@@ -144,20 +144,152 @@ module.exports = function(grunt) {
                         'js/theme-common.js', 'js/theme-mobile.js'],
                 dest : '../mobile/js/mobile.js'
             },
+
             desktopcss : {
                 src : [
                         'app/bower_components/mediaelement/build/mediaelementplayer.css',
                         'app/bower_components/font-awesome/css/font-awesome.css',
-                        '../desktop/css/app.css' ],
+                    '../desktop/css/app.css',
+		    '../desktop/css/theme_default.css',
+		    'less/collective.polls.css' ],
                 dest : '../desktop/css/desktop.css'
             },
             desktopmincss : {
                 src : [
                         'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
                         'app/bower_components/font-awesome/css/font-awesome.min.css',
-                        '../desktop/css/app.min.css' ],
+                    '../desktop/css/app.min.css',
+		'../desktop/css/theme_default.min.css',
+		'less/collective.polls.css'],
                 dest : '../desktop/css/desktop.min.css'
             },
+	    desktopAmelia : {
+                src : [
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/font-awesome/css/font-awesome.min.css',
+                    '../desktop/css/app.min.css',
+		'../desktop/css/theme_amelia.min.css',
+		'less/collective.polls.css'],
+                dest : '../desktop/css/amelia.min.css'
+	    },
+	    desktopCosmo : {
+                src : [
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/font-awesome/css/font-awesome.min.css',
+                    '../desktop/css/app.min.css',
+		'../desktop/css/theme_cosmo.min.css',
+		'less/collective.polls.css'],
+                dest : '../desktop/css/cosmo.min.css'
+	    },
+	    desktopFlatly : {
+                src : [
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/font-awesome/css/font-awesome.min.css',
+                    '../desktop/css/app.min.css',
+		'../desktop/css/theme_flatly.min.css',
+		'less/collective.polls.css'],
+                dest : '../desktop/css/flatly.min.css'
+	    },
+	    desktopJournal : {
+                src : [
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/font-awesome/css/font-awesome.min.css',
+                    '../desktop/css/app.min.css',
+		'../desktop/css/theme_journal.min.css',
+		'less/collective.polls.css'],
+                dest : '../desktop/css/journal.min.css'
+	    },
+	    desktopReadable : {
+                src : [
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/font-awesome/css/font-awesome.min.css',
+                    '../desktop/css/app.min.css',
+		'../desktop/css/theme_readable.min.css',
+		'less/collective.polls.css'],
+                dest : '../desktop/css/readable.min.css'
+	    },
+	    desktopSlate : {
+                src : [
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/font-awesome/css/font-awesome.min.css',
+                    '../desktop/css/app.min.css',
+		'../desktop/css/theme_slate.min.css',
+		'less/collective.polls.css'],
+                dest : '../desktop/css/slate.min.css'
+	    },
+	    desktopSuperhero : {
+                src : [
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/font-awesome/css/font-awesome.min.css',
+                    '../desktop/css/app.min.css',
+		'../desktop/css/theme_superhero.min.css',
+		'less/collective.polls.css'],
+                dest : '../desktop/css/superhero.min.css'
+	    },
+	    desktopYeti : {
+                src : [
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/font-awesome/css/font-awesome.min.css',
+                    '../desktop/css/app.min.css',
+		'../desktop/css/theme_yeti.min.css',
+		'less/collective.polls.css'],
+                dest : '../desktop/css/yeti.min.css'
+	    },
+	    desktopCerulean : {
+                src : [
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/font-awesome/css/font-awesome.min.css',
+                    '../desktop/css/app.min.css',
+		'../desktop/css/theme_cerulean.min.css',
+		'less/collective.polls.css'],
+                dest : '../desktop/css/cerulean.min.css'
+	    },
+	    desktopCyborg : {
+                src : [
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/font-awesome/css/font-awesome.min.css',
+                    '../desktop/css/app.min.css',
+		'../desktop/css/theme_cyborg.min.css',
+		'less/collective.polls.css'],
+                dest : '../desktop/css/cyborg.min.css'
+	    },
+	    desktopLumen : {
+                src : [
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/font-awesome/css/font-awesome.min.css',
+                    '../desktop/css/app.min.css',
+		'../desktop/css/theme_lumen.min.css',
+		'less/collective.polls.css'],
+                dest : '../desktop/css/lumen.min.css'
+	    },
+	    desktopSimplex : {
+                src : [
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/font-awesome/css/font-awesome.min.css',
+                    '../desktop/css/app.min.css',
+		'../desktop/css/theme_simplex.min.css',
+		'less/collective.polls.css'],
+                dest : '../desktop/css/simplex.min.css'
+	    },
+	    desktopSpacelab : {
+                src : [
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/font-awesome/css/font-awesome.min.css',
+                    '../desktop/css/app.min.css',
+		'../desktop/css/theme_spacelab.min.css',
+		'less/collective.polls.css'],
+                dest : '../desktop/css/spacelab.min.css'
+	    },
+	    desktopUnited : {
+                src : [
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/font-awesome/css/font-awesome.min.css',
+                    '../desktop/css/app.min.css',
+		'../desktop/css/theme_united.min.css',
+		'less/collective.polls.css'],
+                dest : '../desktop/css/united.min.css'
+	    },
+
             mobilecss : {
                 options : {
                     banner : '<%= banner %>',
@@ -202,15 +334,14 @@ module.exports = function(grunt) {
         recess : {
             desktopless : {
                 options : {
-                    compile : true,
-                    compress : false
+                    compile : false,
+                    compress : true
                 },
                 src : [ 'app/bower_components/chosen/chosen.css',
                         'app/bower_components/datatables/media/css/jquery.dataTables.css',
                         'app/bower_components/bootstrap/dist/css/bootstrap.css',
                         'app/bower_components/bootstrap/dist/css/bootstrap-theme.css',
-                        'less/desktop.less',
-                        'less/collective.polls.css'],
+                        ],
                 dest : '../desktop/css/app.css'
             },
             desktopmin : {
@@ -221,6 +352,137 @@ module.exports = function(grunt) {
                 src : '../desktop/css/app.css',
                 dest : '../desktop/css/app.min.css'
             },
+
+	    desktopThemeDefaultLess : {
+		options : {
+                    compile : true,
+                    compress : false
+                },
+		src : [ 'less/desktop.less' ],
+		dest : '../desktop/css/theme_default.css'
+	    },
+	    desktopThemeDefaultMin : {
+		options : {
+                    compile : false,
+                    compress : true
+                },
+		src : '../desktop/css/theme_default.css',
+		dest : '../desktop/css/theme_default.min.css'
+	    },
+
+	    desktopThemeAmelia : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/amelia/desktop.less' ],
+		dest : '../desktop/css/theme_amelia.min.css'
+	    },
+	    desktopThemeCosmo : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/cosmo/desktop.less' ],
+		dest : '../desktop/css/theme_cosmo.min.css'
+	    },
+	    desktopThemeFlatly : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/flatly/desktop.less' ],
+		dest : '../desktop/css/theme_flatly.min.css'
+	    },
+	    desktopThemeJournal : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/journal/desktop.less' ],
+		dest : '../desktop/css/theme_journal.min.css'
+	    },
+	    desktopThemeReadable : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/readable/desktop.less' ],
+		dest : '../desktop/css/theme_readable.min.css'
+	    },
+	    desktopThemeSlate : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/slate/desktop.less' ],
+		dest : '../desktop/css/theme_slate.min.css'
+	    },
+	    desktopThemeSuperhero : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/superhero/desktop.less' ],
+		dest : '../desktop/css/theme_superhero.min.css'
+	    },
+	    desktopThemeYeti : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/yeti/desktop.less' ],
+		dest : '../desktop/css/theme_yeti.min.css'
+	    },
+	    desktopThemeCerulean : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/cerulean/desktop.less' ],
+		dest : '../desktop/css/theme_cerulean.min.css'
+	    },
+	    desktopThemeCyborg : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/cyborg/desktop.less' ],
+		dest : '../desktop/css/theme_cyborg.min.css'
+	    },
+	    desktopThemeLumen : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/lumen/desktop.less' ],
+		dest : '../desktop/css/theme_lumen.min.css'
+	    },
+	    desktopThemeSimplex : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/simplex/desktop.less' ],
+		dest : '../desktop/css/theme_simplex.min.css'
+	    },
+	    desktopThemeSpacelab : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/spacelab/desktop.less' ],
+		dest : '../desktop/css/theme_spacelab.min.css'
+	    },
+	    desktopThemeUnited : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/united/desktop.less' ],
+		dest : '../desktop/css/theme_united.min.css'
+	    },
+
             mobileless : {
                 options : {
                     compile : true,
@@ -237,6 +499,7 @@ module.exports = function(grunt) {
                 src : [ 'less/mobile.less'],
                 dest : '../mobile/app.min.css'
             },
+	    // Theme
         },
 
         watch : {
@@ -290,7 +553,24 @@ module.exports = function(grunt) {
                                     'mobile-dist-js', 'uglify:mobilejs' ]);
 
     // CSS distribution task.
-    grunt.registerTask('desktop-dist-css', [ 'recess:desktopless', 'concat:desktopcss' ]);
+    grunt.registerTask('desktop-dist-css', [ 'recess:desktopless',
+					     'recess:desktopThemeDefaultLess', 'recess:desktopThemeDefaultMin',
+					     'concat:desktopcss',
+					     'recess:desktopThemeAmelia', 'concat:desktopAmelia',
+					     'recess:desktopThemeCosmo', 'concat:desktopCosmo',
+					     'recess:desktopThemeCerulean', 'concat:desktopCerulean',
+					     'recess:desktopThemeCyborg', 'concat:desktopCyborg',
+					     'recess:desktopThemeFlatly', 'concat:desktopFlatly',
+					     'recess:desktopThemeJournal', 'concat:desktopJournal',
+					     'recess:desktopThemeLumen', 'concat:desktopLumen',
+					     //'recess:desktopThemeReadable', 'concat:desktopReadable',
+					     'recess:desktopThemeSimplex', 'concat:desktopSimplex',
+					     'recess:desktopThemeSlate', 'concat:desktopSlate',
+					     'recess:desktopThemeSpacelab', 'concat:desktopSpacelab',
+					     'recess:desktopThemeSuperhero', 'concat:desktopSuperhero',
+					     'recess:desktopThemeUnited', 'concat:desktopUnited',
+					     'recess:desktopThemeYeti', 'concat:desktopYeti',
+					   ]);
     grunt.registerTask('mobile-dist-css', [ 'recess:mobileless', 'concat:mobilecss' ]);
     grunt.registerTask('dist-css', [  'desktop-dist-css', 'recess:desktopmin',
                                       'mobile-dist-css' , 'recess:mobilemin',
