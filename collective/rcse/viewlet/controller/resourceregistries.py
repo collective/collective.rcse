@@ -7,9 +7,9 @@ from plone.app.layout.viewlets.common import ViewletBase
 from plone.memoize import view
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.publisher.interfaces.browser import IBrowserPublisher
+from zope.i18n import translate
 
 from collective.rcse.i18n import _
-from zope.i18n import translate
 
 
 class ResourcesViewlet(ViewletBase):
@@ -21,6 +21,7 @@ class ResourcesViewlet(ViewletBase):
                                                manager=None)
         self.styles_config = []
         self.scripts_config = []
+        self.theme = ""
 
     def update(self):
         super(ResourcesViewlet, self).update()
@@ -29,6 +30,11 @@ class ResourcesViewlet(ViewletBase):
             "readmore_close": self._translate(_(u"Close")),
         }
         self.json_locales = json.dumps(self.locales)
+        user = self.context.restrictedTraverse('auth_memberinfo')
+        user.update()
+        if user.memberid:
+            preferences = user.get_settings()
+            self.theme = preferences.get('theme')
 
     def _translate(self, msg):
         return translate(msg, context=self.request)
@@ -81,13 +87,16 @@ class ResourcesViewlet(ViewletBase):
 class DesktopResourceRegistries(ResourcesViewlet):
     def update(self):
         super(DesktopResourceRegistries, self).update()
+        theme = "desktop"
+        if self.theme:
+            theme += '-%s' % self.theme
         self.styles_config.append({
             'rendering': 'link',
             'media': 'screen',
             'rel': 'stylesheet',
             'title': '',
             'conditionalcomment': "",
-            'id': "++resource++collective.rcse/css/desktop.min.css"
+            'id': "++resource++collective.rcse/css/%s.min.css" % theme
         })
         self.scripts_config.append({
             'inline': False,

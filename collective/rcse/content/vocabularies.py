@@ -10,8 +10,10 @@ from zope.component.hooks import getSite
 
 from collective.rcse.i18n import _, _t
 from collective.rcse import cache
-from collective.rcse.settings import IPersonalPreferences
+from collective.rcse.settings import IPersonalPreferences, themes as s_themes
 
+
+themes = s_themes
 
 gender = SimpleVocabulary([
     SimpleTerm(value=u"female", title=_(u"Female")),
