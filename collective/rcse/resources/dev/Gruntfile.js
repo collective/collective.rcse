@@ -50,6 +50,12 @@ module.exports = function(grunt) {
                 src : [ '*.png', '*.svg', '*.gif' ],
                 dest : '../desktop/css/'
             },
+	    desktopimages : {
+		expand : true,
+                cwd : 'less/images/desktop/',
+                src : [ '*.png', '*.svg', '*.gif' ],
+                dest : '../desktop/images/'
+	    },
             mobilefont : {
                 expand : true,
                 cwd : 'app/bower_components/font-awesome/',
@@ -62,6 +68,12 @@ module.exports = function(grunt) {
                 src : [ '*.png', '*.svg', '*.gif' ],
                 dest : '../mobile/css/'
             },
+	    mobileimages : {
+		expand : true,
+                cwd : 'less/images/mobile/',
+                src : [ '*.png', '*.svg', '*.gif' ],
+                dest : '../mobile/images/'
+	    },
             webshims: {
                 expand : true,
                 cwd : 'app/bower_components/webshim/demos/js-webshim/minified/shims/',
