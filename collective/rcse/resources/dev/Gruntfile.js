@@ -170,7 +170,7 @@ module.exports = function(grunt) {
                     '../desktop/css/app.min.css',
 		'../desktop/css/theme_amelia.min.css',
 		'less/collective.polls.css'],
-                dest : '../desktop/css/amelia.min.css'
+                dest : '../desktop/css/desktop-amelia.min.css'
 	    },
 	    desktopCosmo : {
                 src : [
@@ -179,7 +179,7 @@ module.exports = function(grunt) {
                     '../desktop/css/app.min.css',
 		'../desktop/css/theme_cosmo.min.css',
 		'less/collective.polls.css'],
-                dest : '../desktop/css/cosmo.min.css'
+                dest : '../desktop/css/desktop-cosmo.min.css'
 	    },
 	    desktopFlatly : {
                 src : [
@@ -188,7 +188,7 @@ module.exports = function(grunt) {
                     '../desktop/css/app.min.css',
 		'../desktop/css/theme_flatly.min.css',
 		'less/collective.polls.css'],
-                dest : '../desktop/css/flatly.min.css'
+                dest : '../desktop/css/desktop-flatly.min.css'
 	    },
 	    desktopJournal : {
                 src : [
@@ -197,7 +197,7 @@ module.exports = function(grunt) {
                     '../desktop/css/app.min.css',
 		'../desktop/css/theme_journal.min.css',
 		'less/collective.polls.css'],
-                dest : '../desktop/css/journal.min.css'
+                dest : '../desktop/css/desktop-journal.min.css'
 	    },
 	    desktopReadable : {
                 src : [
@@ -206,7 +206,7 @@ module.exports = function(grunt) {
                     '../desktop/css/app.min.css',
 		'../desktop/css/theme_readable.min.css',
 		'less/collective.polls.css'],
-                dest : '../desktop/css/readable.min.css'
+                dest : '../desktop/css/desktop-readable.min.css'
 	    },
 	    desktopSlate : {
                 src : [
@@ -215,7 +215,7 @@ module.exports = function(grunt) {
                     '../desktop/css/app.min.css',
 		'../desktop/css/theme_slate.min.css',
 		'less/collective.polls.css'],
-                dest : '../desktop/css/slate.min.css'
+                dest : '../desktop/css/desktop-slate.min.css'
 	    },
 	    desktopSuperhero : {
                 src : [
@@ -224,7 +224,7 @@ module.exports = function(grunt) {
                     '../desktop/css/app.min.css',
 		'../desktop/css/theme_superhero.min.css',
 		'less/collective.polls.css'],
-                dest : '../desktop/css/superhero.min.css'
+                dest : '../desktop/css/desktop-superhero.min.css'
 	    },
 	    desktopYeti : {
                 src : [
@@ -233,7 +233,7 @@ module.exports = function(grunt) {
                     '../desktop/css/app.min.css',
 		'../desktop/css/theme_yeti.min.css',
 		'less/collective.polls.css'],
-                dest : '../desktop/css/yeti.min.css'
+                dest : '../desktop/css/desktop-yeti.min.css'
 	    },
 	    desktopCerulean : {
                 src : [
@@ -242,7 +242,7 @@ module.exports = function(grunt) {
                     '../desktop/css/app.min.css',
 		'../desktop/css/theme_cerulean.min.css',
 		'less/collective.polls.css'],
-                dest : '../desktop/css/cerulean.min.css'
+                dest : '../desktop/css/desktop-cerulean.min.css'
 	    },
 	    desktopCyborg : {
                 src : [
@@ -251,7 +251,7 @@ module.exports = function(grunt) {
                     '../desktop/css/app.min.css',
 		'../desktop/css/theme_cyborg.min.css',
 		'less/collective.polls.css'],
-                dest : '../desktop/css/cyborg.min.css'
+                dest : '../desktop/css/desktop-cyborg.min.css'
 	    },
 	    desktopLumen : {
                 src : [
@@ -260,7 +260,7 @@ module.exports = function(grunt) {
                     '../desktop/css/app.min.css',
 		'../desktop/css/theme_lumen.min.css',
 		'less/collective.polls.css'],
-                dest : '../desktop/css/lumen.min.css'
+                dest : '../desktop/css/desktop-lumen.min.css'
 	    },
 	    desktopSimplex : {
                 src : [
@@ -269,7 +269,7 @@ module.exports = function(grunt) {
                     '../desktop/css/app.min.css',
 		'../desktop/css/theme_simplex.min.css',
 		'less/collective.polls.css'],
-                dest : '../desktop/css/simplex.min.css'
+                dest : '../desktop/css/desktop-simplex.min.css'
 	    },
 	    desktopSpacelab : {
                 src : [
@@ -278,7 +278,7 @@ module.exports = function(grunt) {
                     '../desktop/css/app.min.css',
 		'../desktop/css/theme_spacelab.min.css',
 		'less/collective.polls.css'],
-                dest : '../desktop/css/spacelab.min.css'
+                dest : '../desktop/css/desktop-spacelab.min.css'
 	    },
 	    desktopUnited : {
                 src : [
@@ -287,7 +287,7 @@ module.exports = function(grunt) {
                     '../desktop/css/app.min.css',
 		'../desktop/css/theme_united.min.css',
 		'less/collective.polls.css'],
-                dest : '../desktop/css/united.min.css'
+                dest : '../desktop/css/desktop-united.min.css'
 	    },
 
             mobilecss : {
