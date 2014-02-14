@@ -1,0 +1,1196 @@
+/*!
+* jQuery Mobile 1.3.2
+* Git HEAD hash: 528cf0e96940644ea644096bfeb913ed920ffaef <> Date: Fri Jul 19 2013 22:17:57 UTC
+* http://jquerymobile.com
+*
+* Copyright 2010, 2013 jQuery Foundation, Inc. and other contributors
+* Released under the MIT license.
+* http://jquery.org/license
+*
+*/
+
+/* Swatches */
+/* A
+-----------------------------------------------------------------------------------------------------------*/
+.ui-bar-a {
+    border: 1px solid @gray-darker ;
+    background: @gray-darker ;
+    color: @navbar-inverse-link-hover-color ;
+    font-weight: bold;
+    text-shadow: 0 0 0 @navbar-inverse-link-hover-color ;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@gray-darker, 10%) ), to( @gray-darker )); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient( lighten(@gray-darker, 10%) , @gray-darker ); /* Chrome 10+, Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@gray-darker, 10%) , @gray-darker ); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@gray-darker, 10%) , @gray-darker ); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@gray-darker, 10%) , @gray-darker ); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@gray-darker, 10%) , @gray-darker );
+}
+.ui-bar-a .ui-link-inherit {
+    color: @navbar-inverse-link-hover-color ;
+}
+.ui-bar-a a.ui-link {
+    color: @link-color;
+    font-weight: bold;
+}
+.ui-bar-a a.ui-link:visited {
+    color: @link-hover-color;
+}
+.ui-bar-a a.ui-link:hover {
+    color: @link-hover-color;
+}
+.ui-bar-a a.ui-link:active {
+    color: @link-hover-color;
+}
+.ui-bar-a,
+.ui-bar-a input,
+.ui-bar-a select,
+.ui-bar-a textarea,
+.ui-bar-a button {
+     font-family: @font-family-base;
+}
+.ui-body-a,
+.ui-overlay-a {
+    border: 1px solid lighten(@body-bg, 10%);
+    color: @text-color;
+    text-shadow: 0 0 0 @text-color;
+    background: @body-bg;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@body-bg, 5%)), to( @body-bg)); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@body-bg, 5%), @body-bg);
+}
+.ui-overlay-a {
+    background-image: none;
+    border-width: 0;
+}
+.ui-body-a,
+.ui-body-a input,
+.ui-body-a select,
+.ui-body-a textarea,
+.ui-body-a button {
+     font-family: @font-family-base;
+}
+.ui-body-a .ui-link-inherit {
+    color: @text-color;
+}
+.ui-body-a .ui-link {
+    color: @link-hover-color;
+    font-weight: bold;
+}
+.ui-body-a .ui-link:visited {
+    color: @link-hover-color;
+}
+.ui-body-a .ui-link:hover {
+    color: @link-hover-color;
+}
+.ui-body-a .ui-link:active {
+    color: @link-hover-color;
+}
+.ui-btn-up-a {
+    border: 1px solid @gray-light;
+    background: lighten(@gray-lighter, 7%);
+    font-weight: bold;
+    color: @text-color;
+    text-shadow: 0 0 1px 1px 0 0 @gray-lighter;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@gray-lighter, 5%)), to( @gray-lighter)); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( lighten(@gray-lighter, 5%), @gray-lighter); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@gray-lighter, 5%), @gray-lighter); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@gray-lighter, 5%), @gray-lighter); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@gray-lighter, 5%), @gray-lighter); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@gray-lighter, 5%), @gray-lighter);
+}
+.ui-btn-up-a:visited,
+.ui-btn-up-a a.ui-link-inherit {
+    color: @text-color;
+}
+.ui-btn-hover-a {
+    border: 1px solid @gray-light;
+    background: @gray-lighter;
+    font-weight: bold;
+    color: @text-color;
+    text-shadow: 0 1px 0 @gray-lighter;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@gray-lighter, 10%)), to( lighten(@gray-lighter, 15%))); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( lighten(@gray-lighter, 10%), lighten(@gray-lighter, 15%)); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@gray-lighter, 10%), lighten(@gray-lighter, 15%)); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@gray-lighter, 10%), lighten(@gray-lighter, 15%)); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@gray-lighter, 10%), lighten(@gray-lighter, 15%)); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@gray-lighter, 10%), lighten(@gray-lighter, 15%));
+}
+.ui-btn-hover-a:visited,
+.ui-btn-hover-a:hover,
+.ui-btn-hover-a a.ui-link-inherit {
+    color: @text-color;
+}
+.ui-btn-down-a {
+    border: 1px solid @gray-light;
+    background: @gray-lighter;
+    font-weight: bold;
+    color: @text-color;
+    text-shadow: 0 1px 0 @gray-lighter ;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( darken(@gray-lighter, 10%)), to( darken(@gray-lighter, 15%))); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( darken(@gray-lighter, 10%), darken(@gray-lighter, 15%)); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( darken(@gray-lighter, 10%), darken(@gray-lighter, 15%)); /* FF3.6 */
+    background-image:     -ms-linear-gradient( darken(@gray-lighter, 10%), darken(@gray-lighter, 15%)); /* IE10 */
+    background-image:      -o-linear-gradient( darken(@gray-lighter, 10%), darken(@gray-lighter, 15%)); /* Opera 11.10+  */
+    background-image:         linear-gradient( darken(@gray-lighter, 10%), darken(@gray-lighter, 15%));
+}
+.ui-btn-down-a:visited,
+.ui-btn-down-a:hover,
+.ui-btn-down-a a.ui-link-inherit {
+    color: @text-color;
+}
+.ui-btn-up-a,
+.ui-btn-hover-a,
+.ui-btn-down-a {
+    font-family: @font-family-base;
+    text-decoration: none;
+}/* A
+-----------------------------------------------------------------------------------------------------------*/
+.ui-bar-c {
+    border: 1px solid @brand-success;
+    background: @brand-success;
+    color: @navbar-inverse-link-hover-color;
+    font-weight: bold;
+    text-shadow: 0 0px 0 @navbar-inverse-link-hover-color;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@brand-success, 10%)), to( @brand-success)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient( lighten(@brand-success, 10%), @brand-success); /* Chrome 10+, Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@brand-success, 10%), @brand-success); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@brand-success, 10%), @brand-success); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@brand-success, 10%), @brand-success); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@brand-success, 10%), @brand-success);
+}
+.ui-bar-c .ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-bar-c a.ui-link {
+    color: @link-color;
+    font-weight: bold;
+}
+.ui-bar-c a.ui-link:visited {
+    color: @link-hover-color;
+}
+.ui-bar-c a.ui-link:hover {
+    color: @link-hover-color;
+}
+.ui-bar-c a.ui-link:active {
+    color: @link-hover-color;
+}
+.ui-bar-c,
+.ui-bar-c input,
+.ui-bar-c select,
+.ui-bar-c textarea,
+.ui-bar-c button {
+     font-family: @font-family-base;
+}
+.ui-body-c,
+.ui-overlay-c {
+    border: 1px solid lighten(@body-bg, 10%);
+    color: @text-color;
+    text-shadow: 0 0 0 @brand-success;
+    background: @body-bg;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@body-bg, 5%)), to( @body-bg)); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@body-bg, 5%), @body-bg);
+}
+.ui-overlay-c {
+    background-image: none;
+    border-width: 0;
+}
+.ui-body-c,
+.ui-body-c input,
+.ui-body-c select,
+.ui-body-c textarea,
+.ui-body-c button {
+     font-family: @font-family-base;
+}
+.ui-body-c .ui-link-inherit {
+    color: @text-color;
+}
+.ui-body-c .ui-link {
+    color: @link-hover-color;
+    font-weight: bold;
+}
+.ui-body-c .ui-link:visited {
+    color: @link-hover-color;
+}
+.ui-body-c .ui-link:hover {
+    color: @link-hover-color;
+}
+.ui-body-c .ui-link:active {
+    color: @link-hover-color;
+}
+.ui-btn-up-c {
+    border: 1px solid @brand-success;
+    background: lighten(@brand-success, 7%);
+    font-weight: bold;
+    color: @navbar-inverse-link-hover-color;
+    text-shadow: 0 0 1px 1px 0 0 @brand-success;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@brand-success, 5%)), to( @brand-success)); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( lighten(@brand-success, 5%), @brand-success); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@brand-success, 5%), @brand-success); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@brand-success, 5%), @brand-success); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@brand-success, 5%), @brand-success); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@brand-success, 5%), @brand-success);
+}
+.ui-btn-up-c:visited,
+.ui-btn-up-c a.ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-btn-hover-c {
+    border: 1px solid @brand-success;
+    background: lighten(@brand-success, 7%);
+    font-weight: bold;
+    color: @navbar-inverse-link-hover-color;
+    text-shadow: 0 1px 0 @brand-success;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@brand-success, 10%)), to( lighten(@brand-success, 15%))); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( lighten(@brand-success, 10%), lighten(@brand-success, 15%)); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@brand-success, 10%), lighten(@brand-success, 15%)); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@brand-success, 10%), lighten(@brand-success, 15%)); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@brand-success, 10%), lighten(@brand-success, 15%)); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@brand-success, 10%), lighten(@brand-success, 15%));
+}
+.ui-btn-hover-c:visited,
+.ui-btn-hover-c:hover,
+.ui-btn-hover-c a.ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-btn-down-c {
+    border: 1px solid @brand-success;
+    background: @brand-success;
+    font-weight: bold;
+    color: @navbar-inverse-link-hover-color;
+    text-shadow: 0 1px 0 @brand-success;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( darken(@brand-success, 10%)), to( darken(@brand-success, 15%))); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( darken(@brand-success, 10%), darken(@brand-success, 15%)); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( darken(@brand-success, 10%), darken(@brand-success, 15%)); /* FF3.6 */
+    background-image:     -ms-linear-gradient( darken(@brand-success, 10%), darken(@brand-success, 15%)); /* IE10 */
+    background-image:      -o-linear-gradient( darken(@brand-success, 10%), darken(@brand-success, 15%)); /* Opera 11.10+  */
+    background-image:         linear-gradient( darken(@brand-success, 10%), darken(@brand-success, 15%));
+}
+.ui-btn-down-c:visited,
+.ui-btn-down-c:hover,
+.ui-btn-down-c a.ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-btn-up-c,
+.ui-btn-hover-c,
+.ui-btn-down-c {
+    font-family: @font-family-base;
+    text-decoration: none;
+}/* A
+-----------------------------------------------------------------------------------------------------------*/
+.ui-bar-b {
+    border: 1px solid @brand-primary;
+    background: @brand-primary;
+    color: @navbar-inverse-link-hover-color;
+    font-weight: bold;
+    text-shadow: 0 0 0 @navbar-inverse-link-hover-color;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@brand-primary, 10%)), to( @brand-primary)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient( lighten(@brand-primary, 10%), @brand-primary); /* Chrome 10+, Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@brand-primary, 10%), @brand-primary); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@brand-primary, 10%), @brand-primary); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@brand-primary, 10%), @brand-primary); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@brand-primary, 10%), @brand-primary);
+}
+.ui-bar-b .ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-bar-b a.ui-link {
+    color: @link-color;
+    font-weight: bold;
+}
+.ui-bar-b a.ui-link:visited {
+    color: @link-hover-color;
+}
+.ui-bar-b a.ui-link:hover {
+    color: @link-hover-color;
+}
+.ui-bar-b a.ui-link:active {
+    color: @link-hover-color;
+}
+.ui-bar-b,
+.ui-bar-b input,
+.ui-bar-b select,
+.ui-bar-b textarea,
+.ui-bar-b button {
+     font-family: @font-family-base;
+}
+.ui-body-b,
+.ui-overlay-b {
+    border: 1px solid lighten(@body-bg, 10%);
+    color: @text-color;
+    text-shadow: 0 0 0 @brand-primary;
+    background: @body-bg;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@body-bg, 5%)), to( @body-bg)); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@body-bg, 5%), @body-bg);
+}
+.ui-overlay-b {
+    background-image: none;
+    border-width: 0;
+}
+.ui-body-b,
+.ui-body-b input,
+.ui-body-b select,
+.ui-body-b textarea,
+.ui-body-b button {
+     font-family: @font-family-base;
+}
+.ui-body-b .ui-link-inherit {
+    color: @text-color;
+}
+.ui-body-b .ui-link {
+    color: @link-hover-color;
+    font-weight: bold;
+}
+.ui-body-b .ui-link:visited {
+    color: @link-hover-color;
+}
+.ui-body-b .ui-link:hover {
+    color: @link-hover-color;
+}
+.ui-body-b .ui-link:active {
+    color: @link-hover-color;
+}
+.ui-btn-up-b {
+    border: 1px solid @brand-primary;
+    background: lighten(@brand-primary, 7%);
+    font-weight: bold;
+    color: @navbar-inverse-link-hover-color;
+    text-shadow: 0 0 1px 1px 0 0 @brand-primary;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@brand-primary, 5%)), to( @brand-primary)); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( lighten(@brand-primary, 5%), @brand-primary); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@brand-primary, 5%), @brand-primary); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@brand-primary, 5%), @brand-primary); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@brand-primary, 5%), @brand-primary); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@brand-primary, 5%), @brand-primary);
+}
+.ui-btn-up-b:visited,
+.ui-btn-up-b a.ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-btn-hover-b {
+    border: 1px solid @brand-primary;
+    background: lighten(@brand-primary, 7%);
+    font-weight: bold;
+    color: @navbar-inverse-link-hover-color;
+    text-shadow: 0 1px 0 @brand-primary;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@brand-primary, 10%)), to( lighten(@brand-primary, 15%))); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( lighten(@brand-primary, 10%), lighten(@brand-primary, 15%)); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@brand-primary, 10%), lighten(@brand-primary, 15%)); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@brand-primary, 10%), lighten(@brand-primary, 15%)); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@brand-primary, 10%), lighten(@brand-primary, 15%)); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@brand-primary, 10%), lighten(@brand-primary, 15%));
+}
+.ui-btn-hover-b:visited,
+.ui-btn-hover-b:hover,
+.ui-btn-hover-b a.ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-btn-down-b {
+    border: 1px solid @brand-primary;
+    background: @brand-primary;
+    font-weight: bold;
+    color: @navbar-inverse-link-hover-color;
+    text-shadow: 0 1px 0 @brand-primary;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( darken(@brand-primary, 10%)), to( darken(@brand-primary, 15%))); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( darken(@brand-primary, 10%), darken(@brand-primary, 15%)); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( darken(@brand-primary, 10%), darken(@brand-primary, 15%)); /* FF3.6 */
+    background-image:     -ms-linear-gradient( darken(@brand-primary, 10%), darken(@brand-primary, 15%)); /* IE10 */
+    background-image:      -o-linear-gradient( darken(@brand-primary, 10%), darken(@brand-primary, 15%)); /* Opera 11.10+  */
+    background-image:         linear-gradient( darken(@brand-primary, 10%), darken(@brand-primary, 15%));
+}
+.ui-btn-down-b:visited,
+.ui-btn-down-b:hover,
+.ui-btn-down-b a.ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-btn-up-b,
+.ui-btn-hover-b,
+.ui-btn-down-b {
+    font-family: @font-family-base;
+    text-decoration: none;
+}/* A
+-----------------------------------------------------------------------------------------------------------*/
+.ui-bar-e {
+    border: 1px solid @brand-danger;
+    background: @brand-danger;
+    color: @navbar-inverse-link-hover-color;
+    font-weight: bold;
+    text-shadow: 0 0px 0 @navbar-inverse-link-hover-color;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@brand-danger, 10%)), to( @brand-danger)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient( lighten(@brand-danger, 10%), @brand-danger); /* Chrome 10+, Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@brand-danger, 10%), @brand-danger); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@brand-danger, 10%), @brand-danger); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@brand-danger, 10%), @brand-danger); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@brand-danger, 10%), @brand-danger);
+}
+.ui-bar-e .ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-bar-e a.ui-link {
+    color: @link-color;
+    font-weight: bold;
+}
+.ui-bar-e a.ui-link:visited {
+    color: @link-hover-color;
+}
+.ui-bar-e a.ui-link:hover {
+    color: @link-hover-color;
+}
+.ui-bar-e a.ui-link:active {
+    color: @link-hover-color;
+}
+.ui-bar-e,
+.ui-bar-e input,
+.ui-bar-e select,
+.ui-bar-e textarea,
+.ui-bar-e button {
+     font-family: @font-family-base;
+}
+.ui-body-e,
+.ui-overlay-e {
+    border: 1px solid lighten(@body-bg, 10%);
+    color: @text-color;
+    text-shadow: 0 0 0 @brand-danger;
+    background: @body-bg;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@body-bg, 5%)), to( @body-bg)); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@body-bg, 5%), @body-bg);
+}
+.ui-overlay-e {
+    background-image: none;
+    border-width: 0;
+}
+.ui-body-e,
+.ui-body-e input,
+.ui-body-e select,
+.ui-body-e textarea,
+.ui-body-e button {
+     font-family: @font-family-base;
+}
+.ui-body-e .ui-link-inherit {
+    color: @text-color;
+}
+.ui-body-e .ui-link {
+    color: @link-hover-color;
+    font-weight: bold;
+}
+.ui-body-e .ui-link:visited {
+    color: @link-hover-color;
+}
+.ui-body-e .ui-link:hover {
+    color: @link-hover-color;
+}
+.ui-body-e .ui-link:active {
+    color: @link-hover-color;
+}
+.ui-btn-up-e {
+    border: 1px solid @brand-danger;
+    background: lighten(@brand-danger, 7%);
+    font-weight: bold;
+    color: @navbar-inverse-link-hover-color;
+    text-shadow: 0 0 1px 1px 0 0 @brand-danger;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@brand-danger, 5%)), to( @brand-danger)); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( lighten(@brand-danger, 5%), @brand-danger); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@brand-danger, 5%), @brand-danger); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@brand-danger, 5%), @brand-danger); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@brand-danger, 5%), @brand-danger); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@brand-danger, 5%), @brand-danger);
+}
+.ui-btn-up-e:visited,
+.ui-btn-up-e a.ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-btn-hover-e {
+    border: 1px solid @brand-danger;
+    background: lighten(@brand-danger, 7%);
+    font-weight: bold;
+    color: @navbar-inverse-link-hover-color;
+    text-shadow: 0 1px 0 @brand-danger;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@brand-danger, 10%)), to( lighten(@brand-danger, 15%))); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( lighten(@brand-danger, 10%), lighten(@brand-danger, 15%)); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@brand-danger, 10%), lighten(@brand-danger, 15%)); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@brand-danger, 10%), lighten(@brand-danger, 15%)); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@brand-danger, 10%), lighten(@brand-danger, 15%)); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@brand-danger, 10%), lighten(@brand-danger, 15%));
+}
+.ui-btn-hover-e:visited,
+.ui-btn-hover-e:hover,
+.ui-btn-hover-e a.ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-btn-down-e {
+    border: 1px solid @brand-danger;
+    background: @brand-danger;
+    font-weight: bold;
+    color: @navbar-inverse-link-hover-color;
+    text-shadow: 0 1px 0 @brand-danger;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( darken(@brand-danger, 10%)), to( darken(@brand-danger, 15%))); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( darken(@brand-danger, 10%), darken(@brand-danger, 15%)); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( darken(@brand-danger, 10%), darken(@brand-danger, 15%)); /* FF3.6 */
+    background-image:     -ms-linear-gradient( darken(@brand-danger, 10%), darken(@brand-danger, 15%)); /* IE10 */
+    background-image:      -o-linear-gradient( darken(@brand-danger, 10%), darken(@brand-danger, 15%)); /* Opera 11.10+  */
+    background-image:         linear-gradient( darken(@brand-danger, 10%), darken(@brand-danger, 15%));
+}
+.ui-btn-down-e:visited,
+.ui-btn-down-e:hover,
+.ui-btn-down-e a.ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-btn-up-e,
+.ui-btn-hover-e,
+.ui-btn-down-e {
+    font-family: @font-family-base;
+    text-decoration: none;
+}/* A
+-----------------------------------------------------------------------------------------------------------*/
+.ui-bar-d {
+    border: 1px solid @brand-warning;
+    background: @brand-warning;
+    color: @navbar-inverse-link-hover-color;
+    font-weight: bold;
+    text-shadow: 0 0px 0 @navbar-inverse-link-hover-color;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@brand-warning, 10%)), to( @brand-warning)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient( lighten(@brand-warning, 10%), @brand-warning); /* Chrome 10+, Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@brand-warning, 10%), @brand-warning); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@brand-warning, 10%), @brand-warning); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@brand-warning, 10%), @brand-warning); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@brand-warning, 10%), @brand-warning);
+}
+.ui-bar-d .ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-bar-d a.ui-link {
+    color: @link-color;
+    font-weight: bold;
+}
+.ui-bar-d a.ui-link:visited {
+    color: @link-hover-color;
+}
+.ui-bar-d a.ui-link:hover {
+    color: @link-hover-color;
+}
+.ui-bar-d a.ui-link:active {
+    color: @link-hover-color;
+}
+.ui-bar-d,
+.ui-bar-d input,
+.ui-bar-d select,
+.ui-bar-d textarea,
+.ui-bar-d button {
+     font-family: @font-family-base;
+}
+.ui-body-d,
+.ui-overlay-d {
+    border: 1px solid lighten(@body-bg, 10%);
+    color: @text-color;
+    text-shadow: 0 0 0 @brand-warning;
+    background: @body-bg;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@body-bg, 5%)), to( @body-bg)); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@body-bg, 5%), @body-bg);
+}
+.ui-overlay-d {
+    background-image: none;
+    border-width: 0;
+}
+.ui-body-d,
+.ui-body-d input,
+.ui-body-d select,
+.ui-body-d textarea,
+.ui-body-d button {
+     font-family: @font-family-base;
+}
+.ui-body-d .ui-link-inherit {
+    color: @text-color;
+}
+.ui-body-d .ui-link {
+    color: @link-hover-color;
+    font-weight: bold;
+}
+.ui-body-d .ui-link:visited {
+    color: @link-hover-color;
+}
+.ui-body-d .ui-link:hover {
+    color: @link-hover-color;
+}
+.ui-body-d .ui-link:active {
+    color: @link-hover-color;
+}
+.ui-btn-up-d {
+    border: 1px solid @brand-warning;
+    background: lighten(@brand-warning, 7%);
+    font-weight: bold;
+    color: @navbar-inverse-link-hover-color;
+    text-shadow: 0 0 1px 1px 0 0 @brand-warning;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@brand-warning, 5%)), to( @brand-warning)); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( lighten(@brand-warning, 5%), @brand-warning); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@brand-warning, 5%), @brand-warning); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@brand-warning, 5%), @brand-warning); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@brand-warning, 5%), @brand-warning); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@brand-warning, 5%), @brand-warning);
+}
+.ui-btn-up-d:visited,
+.ui-btn-up-d a.ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-btn-hover-d {
+    border: 1px solid @brand-warning;
+    background: lighten(@brand-warning, 7%);
+    font-weight: bold;
+    color: @navbar-inverse-link-hover-color;
+    text-shadow: 0 1px 0 @brand-warning;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@brand-warning, 10%)), to( lighten(@brand-warning, 15%))); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( lighten(@brand-warning, 10%), lighten(@brand-warning, 15%)); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@brand-warning, 10%), lighten(@brand-warning, 15%)); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@brand-warning, 10%), lighten(@brand-warning, 15%)); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@brand-warning, 10%), lighten(@brand-warning, 15%)); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@brand-warning, 10%), lighten(@brand-warning, 15%));
+}
+.ui-btn-hover-d:visited,
+.ui-btn-hover-d:hover,
+.ui-btn-hover-d a.ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-btn-down-d {
+    border: 1px solid @brand-warning;
+    background: @brand-warning;
+    font-weight: bold;
+    color: @navbar-inverse-link-hover-color;
+    text-shadow: 0 1px 0 @brand-warning;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( darken(@brand-warning, 10%)), to( darken(@brand-warning, 15%))); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( darken(@brand-warning, 10%), darken(@brand-warning, 15%)); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( darken(@brand-warning, 10%), darken(@brand-warning, 15%)); /* FF3.6 */
+    background-image:     -ms-linear-gradient( darken(@brand-warning, 10%), darken(@brand-warning, 15%)); /* IE10 */
+    background-image:      -o-linear-gradient( darken(@brand-warning, 10%), darken(@brand-warning, 15%)); /* Opera 11.10+  */
+    background-image:         linear-gradient( darken(@brand-warning, 10%), darken(@brand-warning, 15%));
+}
+.ui-btn-down-d:visited,
+.ui-btn-down-d:hover,
+.ui-btn-down-d a.ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-btn-up-d,
+.ui-btn-hover-d,
+.ui-btn-down-d {
+    font-family: @font-family-base;
+    text-decoration: none;
+}/* A
+-----------------------------------------------------------------------------------------------------------*/
+.ui-bar-f {
+    border: 1px solid @brand-info;
+    background: @brand-info;
+    color: @navbar-inverse-link-hover-color;
+    font-weight: bold;
+    text-shadow: 0 0px 0 @navbar-inverse-link-hover-color;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@brand-info, 10%)), to( @brand-info)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient( lighten(@brand-info, 10%), @brand-info); /* Chrome 10+, Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@brand-info, 10%), @brand-info); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@brand-info, 10%), @brand-info); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@brand-info, 10%), @brand-info); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@brand-info, 10%), @brand-info);
+}
+.ui-bar-f .ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-bar-f a.ui-link {
+    color: @link-color;
+    font-weight: bold;
+}
+.ui-bar-f a.ui-link:visited {
+    color: @link-hover-color;
+}
+.ui-bar-f a.ui-link:hover {
+    color: @link-hover-color;
+}
+.ui-bar-f a.ui-link:active {
+    color: @link-hover-color;
+}
+.ui-bar-f,
+.ui-bar-f input,
+.ui-bar-f select,
+.ui-bar-f textarea,
+.ui-bar-f button {
+     font-family: @font-family-base;
+}
+.ui-body-f,
+.ui-overlay-f {
+    border: 1px solid lighten(@body-bg, 10%);
+    color: @text-color;
+    text-shadow: 0 0 0 @brand-info;
+    background: @body-bg;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@body-bg, 5%)), to( @body-bg)); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@body-bg, 5%), @body-bg); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@body-bg, 5%), @body-bg);
+}
+.ui-overlay-f {
+    background-image: none;
+    border-width: 0;
+}
+.ui-body-f,
+.ui-body-f input,
+.ui-body-f select,
+.ui-body-f textarea,
+.ui-body-f button {
+     font-family: @font-family-base;
+}
+.ui-body-f .ui-link-inherit {
+    color: @text-color;
+}
+.ui-body-f .ui-link {
+    color: @link-hover-color;
+    font-weight: bold;
+}
+.ui-body-f .ui-link:visited {
+    color: @link-hover-color;
+}
+.ui-body-f .ui-link:hover {
+    color: @link-hover-color;
+}
+.ui-body-f .ui-link:active {
+    color: @link-hover-color;
+}
+.ui-btn-up-f {
+    border: 1px solid @brand-info;
+    background: lighten(@brand-info, 7%);
+    font-weight: bold;
+    color: @navbar-inverse-link-hover-color;
+    text-shadow: 0 0 1px 1px 0 0 @brand-info;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@brand-info, 5%)), to( @brand-info)); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( lighten(@brand-info, 5%), @brand-info); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@brand-info, 5%), @brand-info); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@brand-info, 5%), @brand-info); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@brand-info, 5%), @brand-info); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@brand-info, 5%), @brand-info);
+}
+.ui-btn-up-f:visited,
+.ui-btn-up-f a.ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-btn-hover-f {
+    border: 1px solid @brand-info;
+    background: lighten(@brand-info, 7%);
+    font-weight: bold;
+    color: @navbar-inverse-link-hover-color;
+    text-shadow: 0 1px 0 @brand-info;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@brand-info, 10%)), to( lighten(@brand-info, 15%))); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( lighten(@brand-info, 10%), lighten(@brand-info, 15%)); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( lighten(@brand-info, 10%), lighten(@brand-info, 15%)); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@brand-info, 10%), lighten(@brand-info, 15%)); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@brand-info, 10%), lighten(@brand-info, 15%)); /* Opera 11.10+  */
+    background-image:         linear-gradient( lighten(@brand-info, 10%), lighten(@brand-info, 15%));
+}
+.ui-btn-hover-f:visited,
+.ui-btn-hover-f:hover,
+.ui-btn-hover-f a.ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-btn-down-f {
+    border: 1px solid @brand-info;
+    background: @brand-info;
+    font-weight: bold;
+    color: @navbar-inverse-link-hover-color;
+    text-shadow: 0 1px 0 @brand-info;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( darken(@brand-info, 10%)), to( darken(@brand-info, 15%))); /* Saf4+ , Chrome */
+    background-image: -webkit-linear-gradient( darken(@brand-info, 10%), darken(@brand-info, 15%)); /* Chrome 10+ , Saf5.1+  */
+    background-image:    -moz-linear-gradient( darken(@brand-info, 10%), darken(@brand-info, 15%)); /* FF3.6 */
+    background-image:     -ms-linear-gradient( darken(@brand-info, 10%), darken(@brand-info, 15%)); /* IE10 */
+    background-image:      -o-linear-gradient( darken(@brand-info, 10%), darken(@brand-info, 15%)); /* Opera 11.10+  */
+    background-image:         linear-gradient( darken(@brand-info, 10%), darken(@brand-info, 15%));
+}
+.ui-btn-down-f:visited,
+.ui-btn-down-f:hover,
+.ui-btn-down-f a.ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+.ui-btn-up-f,
+.ui-btn-hover-f,
+.ui-btn-down-f {
+    font-family: @font-family-base;
+    text-decoration: none;
+}
+/* Structure */
+/* links within "buttons" 
+-----------------------------------------------------------------------------------------------------------*/
+a.ui-link-inherit {
+    text-decoration: none !important;
+}
+/* Active class used as the "on" state across all themes
+-----------------------------------------------------------------------------------------------------------*/
+.ui-btn-active {
+    border: 1px solid @gray;
+    background: @gray-light;
+    font-weight: bold;
+    color: @navbar-inverse-link-hover-color;
+    cursor: pointer;
+    text-shadow: 0 1px 0 @gray;
+    text-decoration: none;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( lighten(@gray-light, 5%)), to( @gray-light)); /* Saf4 , Chrome */
+    background-image: -webkit-linear-gradient( lighten(@gray-light, 5%), @gray-light); /* Chrome 10 , Saf5.1  */
+    background-image:    -moz-linear-gradient( lighten(@gray-light, 5%), @gray-light); /* FF3.6 */
+    background-image:     -ms-linear-gradient( lighten(@gray-light, 5%), @gray-light); /* IE10 */
+    background-image:      -o-linear-gradient( lighten(@gray-light, 5%), @gray-light); /* Opera 11.10  */
+    background-image:         linear-gradient( lighten(@gray-light, 5%), @gray-light);
+     font-family: @font-family-base;
+}
+.ui-btn-active:visited,
+.ui-btn-active:hover,
+.ui-btn-active a.ui-link-inherit {
+    color: @navbar-inverse-link-hover-color;
+}
+/* button inner top highlight
+-----------------------------------------------------------------------------------------------------------*/
+.ui-btn-inner {
+    border-top: 1px solid   #fff;
+    border-color:           rgba(255,255,255,.3);
+}
+/* corner rounding classes
+-----------------------------------------------------------------------------------------------------------*/
+.ui-corner-all {
+    -webkit-border-radius: .6em;
+    border-radius: .6em;
+}
+/* Form field separator
+-----------------------------------------------------------------------------------------------------------*/
+.ui-br {
+    border-color: rgb(130,130,130);
+    border-color: rgba(130,130,130,.3);
+    border-style: solid;
+}
+/* Interaction cues
+-----------------------------------------------------------------------------------------------------------*/
+.ui-disabled {
+    filter: Alpha(Opacity=30);
+    opacity: .3;
+    zoom: 1;
+}
+.ui-disabled,
+.ui-disabled a {
+    cursor: default !important;
+    pointer-events: none;
+}
+/* Icons
+-----------------------------------------------------------------------------------------------------------*/
+.ui-icon,
+.ui-icon-searchfield:after {
+    background: White;
+    background: rgba(0,0,0,.4);
+    background-image: url(images/icons-18-white.png);
+    background-repeat: no-repeat;
+    -webkit-border-radius:              9px;
+    border-radius:                      9px;
+}
+/* Alt icon color
+-----------------------------------------------------------------------------------------------------------*/
+.ui-icon-alt .ui-icon,
+.ui-icon-alt .ui-icon-searchfield:after {
+    background-color:                       #fff;
+    background-color:                       rgba(255,255,255,.3);
+    background-image: url(images/icons-18-black.png);
+    background-repeat: no-repeat;
+}
+/* No disc
+-----------------------------------------------------------------------------------------------------------*/
+.ui-icon-nodisc .ui-icon,
+.ui-icon-nodisc .ui-icon-searchfield:after,
+.ui-icon-nodisc .ui-icon-alt .ui-icon,
+.ui-icon-nodisc .ui-icon-alt .ui-icon-searchfield:after {
+    background-color: transparent;
+}
+/* Icon sprite
+-----------------------------------------------------------------------------------------------------------*/
+/* plus minus */
+.ui-icon-plus {
+    background-position:    -1px -1px;
+}
+.ui-icon-minus {
+    background-position:    -37px -1px;
+}
+/* delete/close */
+.ui-icon-delete {
+    background-position:    -73px -1px;
+}
+/* arrows */
+.ui-icon-arrow-r {
+    background-position:    -108px -1px;
+}
+.ui-icon-arrow-l {
+    background-position:    -144px -1px;
+}
+.ui-icon-arrow-u {
+    background-position:    -180px -1px;
+}
+.ui-icon-arrow-d {
+    background-position:    -216px -1px;
+}
+/* misc */
+.ui-icon-check {
+    background-position:    -252px -1px;
+}
+.ui-icon-gear {
+    background-position:    -288px -1px;
+}
+.ui-icon-refresh {
+    background-position:    -323px -1px;
+}
+.ui-icon-forward {
+    background-position:    -360px -1px;
+}
+.ui-icon-back {
+    background-position:    -396px -1px;
+}
+.ui-icon-grid {
+    background-position:    -432px -1px;
+}
+.ui-icon-star {
+    background-position:    -467px -1px;
+}
+.ui-icon-alert {
+    background-position:    -503px -1px;
+}
+.ui-icon-info {
+    background-position:    -539px -1px;
+}
+.ui-icon-home {
+    background-position:    -575px -1px;
+}
+/* search */
+.ui-icon-search,
+.ui-icon-searchfield:after {
+    background-position:    -611px -1px;
+}
+/* checkbox radio */
+.ui-icon-checkbox-on {
+    background-position:    -647px -1px;
+}
+.ui-icon-checkbox-off {
+    background-position:    -683px -1px;
+}
+.ui-icon-radio-on {
+    background-position:    -718px -1px;
+}
+.ui-icon-radio-off {
+    background-position:    -754px -1px;
+}
+/* menu edit */
+.ui-icon-bars {
+    background-position:    -788px -1px;
+}
+.ui-icon-edit {
+    background-position:    -824px -1px;
+}
+/* HD/"retina" sprite
+-----------------------------------------------------------------------------------------------------------*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3),
+       only screen and (min--moz-device-pixel-ratio: 1.3),
+       only screen and (min-resolution: 200dpi) {
+    
+    .ui-icon-plus, .ui-icon-minus, .ui-icon-delete, .ui-icon-arrow-r,
+    .ui-icon-arrow-l, .ui-icon-arrow-u, .ui-icon-arrow-d, .ui-icon-check,
+    .ui-icon-gear, .ui-icon-refresh, .ui-icon-forward, .ui-icon-back,
+    .ui-icon-grid, .ui-icon-star, .ui-icon-alert, .ui-icon-info, .ui-icon-home, .ui-icon-bars, .ui-icon-edit,
+    .ui-icon-search, .ui-icon-searchfield:after, 
+    .ui-icon-checkbox-off, .ui-icon-checkbox-on, .ui-icon-radio-off, .ui-icon-radio-on {
+        background-image: url(images/icons-36-white.png);
+        -moz-background-size: 864px 18px;
+        -o-background-size: 864px 18px;
+        -webkit-background-size: 864px 18px;
+        background-size: 864px 18px;
+    }
+    .ui-icon-alt .ui-icon {
+        background-image: url(images/icons-36-black.png);
+    }
+    .ui-icon-plus {
+        background-position:    0 50%;
+    }
+    .ui-icon-minus {
+        background-position:    -36px 50%;
+    }
+    .ui-icon-delete {
+        background-position:    -72px 50%;
+    }
+    .ui-icon-arrow-r {
+        background-position:    -108px 50%;
+    }
+    .ui-icon-arrow-l {
+        background-position:    -144px 50%;
+    }
+    .ui-icon-arrow-u {
+        background-position:    -179px 50%;
+    }
+    .ui-icon-arrow-d {
+        background-position:    -215px 50%;
+    }
+    .ui-icon-check {
+        background-position:    -252px 50%;
+    }
+    .ui-icon-gear {
+        background-position:    -287px 50%;
+    }
+    .ui-icon-refresh {
+        background-position:    -323px 50%;
+    }
+    .ui-icon-forward {
+        background-position:    -360px 50%;
+    }
+    .ui-icon-back {
+        background-position:    -395px 50%;
+    }
+    .ui-icon-grid {
+        background-position:    -431px 50%;
+    }
+    .ui-icon-star {
+        background-position:    -467px 50%;
+    }
+    .ui-icon-alert {
+        background-position:    -503px 50%;
+    }
+    .ui-icon-info {
+        background-position:    -538px 50%;
+    }
+    .ui-icon-home {
+        background-position:    -575px 50%;
+    }
+    .ui-icon-search,
+    .ui-icon-searchfield:after {
+        background-position:    -611px 50%;
+    }
+    .ui-icon-checkbox-on {
+        background-position:    -647px 50%;
+    }
+    .ui-icon-checkbox-off {
+        background-position:    -683px 50%;
+    }
+    .ui-icon-radio-on {
+        background-position:    -718px 50%;
+    }
+    .ui-icon-radio-off {
+        background-position:    -754px 50%;
+    }
+    .ui-icon-bars {
+        background-position:    -788px 50%;
+    
+    }.ui-icon-edit {
+        background-position:    -824px 50%;
+    }
+}
+/* checks,radios */
+.ui-checkbox .ui-icon,
+.ui-selectmenu-list .ui-icon {
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.ui-icon-checkbox-off,
+.ui-icon-radio-off {
+    background-color: transparent;  
+}
+.ui-checkbox-on .ui-icon,
+.ui-radio-on .ui-icon {
+    background-color: #387bbe @gray-light; /* NOTE: this hex should match the active state color. It's repeated here for cascade */
+}
+/* loading icon */
+.ui-icon-loading {
+    background: url(images/ajax-loader.gif);
+    background-size: 46px 46px;
+}
+/* Button corner class
+-----------------------------------------------------------------------------------------------------------*/
+.ui-btn-corner-all {
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+}
+/* radius clip workaround for cleaning up corner trapping */
+.ui-corner-all,
+.ui-btn-corner-all {
+    -webkit-background-clip: padding;
+    background-clip: padding-box;
+}
+/* Overlay / modal
+-----------------------------------------------------------------------------------------------------------*/
+.ui-overlay {
+    background: #666;
+    filter: Alpha(Opacity=50);
+    opacity: .5;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.ui-overlay-shadow {
+    -moz-box-shadow: 0 0 12px           rgba(0,0,0,.6);
+    -webkit-box-shadow: 0 0 12px        rgba(0,0,0,.6);
+    box-shadow: 0 0 12px                rgba(0,0,0,.6);
+}
+.ui-shadow {
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    -webkit-box-shadow: 0 1px 3px  rgba(0,0,0,.2);
+    box-shadow: 0 1px 3px  rgba(0,0,0,.2)
+}
+.ui-bar-a .ui-shadow,
+.ui-bar-b .ui-shadow ,
+.ui-bar-c .ui-shadow  {
+    -moz-box-shadow: 0 1px 0                rgba(255,255,255,.3);
+    -webkit-box-shadow: 0 1px 0             rgba(255,255,255,.3);
+    box-shadow: 0 1px 0                     rgba(255,255,255,.3);
+}
+.ui-shadow-inset {
+    -moz-box-shadow: inset 0 1px 4px        rgba(0,0,0,.2);
+    -webkit-box-shadow: inset 0 1px 4px     rgba(0,0,0,.2);
+    box-shadow: inset 0 1px 4px             rgba(0,0,0,.2);
+}
+.ui-icon-shadow {
+    -moz-box-shadow: 0 1px 0  rgba(255,255,255,.4);
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.4);
+    box-shadow: 0 1px 0 rgba(255,255,255,.4);
+}
+/* Focus state - set here for specificity (note: these classes are added by JavaScript)
+-----------------------------------------------------------------------------------------------------------*/
+.ui-btn:focus, .ui-link-inherit:focus {
+    outline: 0;
+}
+.ui-btn.ui-focus {
+    z-index: 1;
+}
+.ui-focus,
+.ui-btn:focus {
+    -moz-box-shadow: inset 0 0 3px @gray-light, 0 0 9px @gray-light;
+    -webkit-box-shadow: inset 0 0 3px @gray-light, 0 0 9px @gray-light;
+    box-shadow: inset 0 0 3px @gray-light, 0 0 9px @gray-light;
+}
+.ui-input-text.ui-focus,
+.ui-input-search.ui-focus {
+    -moz-box-shadow: 0 0 12px @gray-light;
+    -webkit-box-shadow: 0 0 12px @gray-light;
+    box-shadow: 0 0 12px @gray-light;  
+}
+/* unset box shadow in browsers that don't do it right
+-----------------------------------------------------------------------------------------------------------*/
+.ui-mobile-nosupport-boxshadow * {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+/* ...and bring back focus */
+.ui-mobile-nosupport-boxshadow .ui-focus,
+.ui-mobile-nosupport-boxshadow .ui-btn:focus,
+.ui-mobile-nosupport-boxshadow .ui-link-inherit:focus {
+    outline-width: 1px;
+    outline-style: auto;
+}

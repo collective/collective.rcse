@@ -28,7 +28,7 @@ themes = SimpleVocabulary([
     SimpleTerm(value="simplex", title=_(u"Simplex")),
     SimpleTerm(value="slate", title=_(u"Slate")),
     SimpleTerm(value="spacelab", title=_(u"Spacelab")),
-    SimpleTerm(value="superhero", title=_(u"Superhero")),
+#    SimpleTerm(value="superhero", title=_(u"Superhero")),
     SimpleTerm(value="united", title=_(u"United")),
     SimpleTerm(value="yeti", title=_(u"Yeti")),
     ])
