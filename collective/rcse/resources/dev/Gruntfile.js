@@ -819,7 +819,7 @@ module.exports = function(grunt) {
 					     'recess:desktopThemeSimplex', 'concat:desktopSimplex',
 					     'recess:desktopThemeSlate', 'concat:desktopSlate',
 					     'recess:desktopThemeSpacelab', 'concat:desktopSpacelab',
-					     'recess:desktopThemeSuperhero', 'concat:desktopSuperhero',
+					     //'recess:desktopThemeSuperhero', 'concat:desktopSuperhero',
 					     'recess:desktopThemeUnited', 'concat:desktopUnited',
 					     'recess:desktopThemeYeti', 'concat:desktopYeti',
 					   ]);
@@ -836,7 +836,7 @@ module.exports = function(grunt) {
 					    'recess:mobileThemeSimplex', 'concat:mobilemincsssimplex',
 					    'recess:mobileThemeSlate', 'concat:mobilemincssslate',
 					    'recess:mobileThemeSpacelab', 'concat:mobilemincssspacelab',
-					    'recess:mobileThemeSuperhero', 'concat:mobilemincsssuperhero',
+					    //'recess:mobileThemeSuperhero', 'concat:mobilemincsssuperhero',
 					    'recess:mobileThemeUnited', 'concat:mobilemincssunited',
 					    'recess:mobileThemeYeti', 'concat:mobilemincssyeti',
 					  ]);
