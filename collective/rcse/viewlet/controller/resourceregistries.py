@@ -118,13 +118,16 @@ class DesktopResourceRegistries(ResourcesViewlet):
 class MobileResourceRegistries(ResourcesViewlet):
     def update(self):
         super(MobileResourceRegistries, self).update()
+        theme = "mobile"
+        if self.theme:
+            theme += '-%s' % self.theme
         self.styles_config.append({
             'rendering': 'link',
             'media': 'screen',
             'rel': 'stylesheet',
             'title': '',
             'conditionalcomment': "",
-            'id': "++resource++collective.rcse/css/mobile.min.css"
+            'id': "++resource++collective.rcse/css/%s.min.css" % theme
         })
         self.scripts_config.append({
             'inline': False,

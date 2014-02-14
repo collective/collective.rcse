@@ -323,7 +323,134 @@ module.exports = function(grunt) {
                         'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
                         '../mobile/app.min.css' ],
                 dest : '../mobile/css/mobile.min.css'
-            }
+            },
+
+            mobilemincssamelia : {
+                src : [
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.min.css',
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.theme-1.3.2.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        '../mobile/css/theme_amelia.min.css' ],
+                dest : '../mobile/css/mobile-amelia.min.css'
+            },
+            mobilemincsscerulean : {
+                src : [
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.min.css',
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.theme-1.3.2.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        '../mobile/css/theme_cerulean.min.css' ],
+                dest : '../mobile/css/mobile-cerulean.min.css'
+            },
+            mobilemincsscosmo : {
+                src : [
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.min.css',
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.theme-1.3.2.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        '../mobile/css/theme_cosmo.min.css' ],
+                dest : '../mobile/css/mobile-cosmo.min.css'
+            },
+            mobilemincsscyborg : {
+                src : [
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.min.css',
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.theme-1.3.2.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        '../mobile/css/theme_cyborg.min.css' ],
+                dest : '../mobile/css/mobile-cyborg.min.css'
+            },
+            mobilemincssflatly : {
+                src : [
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.min.css',
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.theme-1.3.2.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        '../mobile/css/theme_flatly.min.css' ],
+                dest : '../mobile/css/mobile-flatly.min.css'
+            },
+            mobilemincssjournal : {
+                src : [
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.min.css',
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.theme-1.3.2.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        '../mobile/css/theme_journal.min.css' ],
+                dest : '../mobile/css/mobile-journal.min.css'
+            },
+            mobilemincsslumen : {
+                src : [
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.min.css',
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.theme-1.3.2.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        '../mobile/css/theme_lumen.min.css' ],
+                dest : '../mobile/css/mobile-lumen.min.css'
+            },
+            mobilemincssreadable : {
+                src : [
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.min.css',
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.theme-1.3.2.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        '../mobile/css/theme_readable.min.css' ],
+                dest : '../mobile/css/mobile-readable.min.css'
+            },
+            mobilemincsssimplex : {
+                src : [
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.min.css',
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.theme-1.3.2.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        '../mobile/css/theme_simplex.min.css' ],
+                dest : '../mobile/css/mobile-simplex.min.css'
+            },
+            mobilemincssslate : {
+                src : [
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.min.css',
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.theme-1.3.2.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        '../mobile/css/theme_slate.min.css' ],
+                dest : '../mobile/css/mobile-slate.min.css'
+            },
+            mobilemincssspacelab : {
+                src : [
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.min.css',
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.theme-1.3.2.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        '../mobile/css/theme_spacelab.min.css' ],
+                dest : '../mobile/css/mobile-spacelab.min.css'
+            },
+            mobilemincsssuperhero : {
+                src : [
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.min.css',
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.theme-1.3.2.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        '../mobile/css/theme_superhero.min.css' ],
+                dest : '../mobile/css/mobile-superhero.min.css'
+            },
+            mobilemincssunited : {
+                src : [
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.min.css',
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.theme-1.3.2.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        '../mobile/css/theme_united.min.css' ],
+                dest : '../mobile/css/mobile-united.min.css'
+            },
+            mobilemincssyeti : {
+                src : [
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.structure-1.3.2.min.css',
+                       'app/bower_components/jquery-mobile-bower/css/jquery.mobile.theme-1.3.2.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        'app/bower_components/mediaelement/build/mediaelementplayer.min.css',
+                        '../mobile/css/theme_yeti.min.css' ],
+                dest : '../mobile/css/mobile-yeti.min.css'
+            },
         },
 
         uglify : {
@@ -511,7 +638,120 @@ module.exports = function(grunt) {
                 src : [ 'less/mobile.less'],
                 dest : '../mobile/app.min.css'
             },
+
 	    // Theme
+	    mobileThemeAmelia : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/amelia/mobile.less' ],
+		dest : '../mobile/css/theme_amelia.min.css'
+	    },
+	    mobileThemeCosmo : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/cosmo/mobile.less' ],
+		dest : '../mobile/css/theme_cosmo.min.css'
+	    },
+	    mobileThemeFlatly : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/flatly/mobile.less' ],
+		dest : '../mobile/css/theme_flatly.min.css'
+	    },
+	    mobileThemeJournal : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/journal/mobile.less' ],
+		dest : '../mobile/css/theme_journal.min.css'
+	    },
+	    mobileThemeReadable : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/readable/mobile.less' ],
+		dest : '../mobile/css/theme_readable.min.css'
+	    },
+	    mobileThemeSlate : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/slate/mobile.less' ],
+		dest : '../mobile/css/theme_slate.min.css'
+	    },
+	    mobileThemeSuperhero : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/superhero/mobile.less' ],
+		dest : '../mobile/css/theme_superhero.min.css'
+	    },
+	    mobileThemeYeti : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/yeti/mobile.less' ],
+		dest : '../mobile/css/theme_yeti.min.css'
+	    },
+	    mobileThemeCerulean : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/cerulean/mobile.less' ],
+		dest : '../mobile/css/theme_cerulean.min.css'
+	    },
+	    mobileThemeCyborg : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/cyborg/mobile.less' ],
+		dest : '../mobile/css/theme_cyborg.min.css'
+	    },
+	    mobileThemeLumen : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/lumen/mobile.less' ],
+		dest : '../mobile/css/theme_lumen.min.css'
+	    },
+	    mobileThemeSimplex : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/simplex/mobile.less' ],
+		dest : '../mobile/css/theme_simplex.min.css'
+	    },
+	    mobileThemeSpacelab : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/spacelab/mobile.less' ],
+		dest : '../mobile/css/theme_spacelab.min.css'
+	    },
+	    mobileThemeUnited : {
+		options : {
+                    compile : true,
+                    compress : true
+                },
+		src : [ 'less/themes/united/mobile.less' ],
+		dest : '../mobile/css/theme_united.min.css'
+	    },
         },
 
         watch : {
@@ -583,7 +823,23 @@ module.exports = function(grunt) {
 					     'recess:desktopThemeUnited', 'concat:desktopUnited',
 					     'recess:desktopThemeYeti', 'concat:desktopYeti',
 					   ]);
-    grunt.registerTask('mobile-dist-css', [ 'recess:mobileless', 'concat:mobilecss' ]);
+
+    grunt.registerTask('mobile-dist-css', [ 'recess:mobileless', 'concat:mobilecss',
+					    'recess:mobileThemeAmelia', 'concat:mobilemincssamelia',
+					    'recess:mobileThemeCerulean', 'concat:mobilemincsscerulean',
+					    'recess:mobileThemeCosmo', 'concat:mobilemincsscosmo',
+					    'recess:mobileThemeCyborg', 'concat:mobilemincsscyborg',
+					    'recess:mobileThemeFlatly', 'concat:mobilemincssflatly',
+					    'recess:mobileThemeJournal', 'concat:mobilemincssjournal',
+					    'recess:mobileThemeLumen', 'concat:mobilemincsslumen',
+					    //'recess:mobileThemeReadable', 'concat:mobilemincssreadable',
+					    'recess:mobileThemeSimplex', 'concat:mobilemincsssimplex',
+					    'recess:mobileThemeSlate', 'concat:mobilemincssslate',
+					    'recess:mobileThemeSpacelab', 'concat:mobilemincssspacelab',
+					    'recess:mobileThemeSuperhero', 'concat:mobilemincsssuperhero',
+					    'recess:mobileThemeUnited', 'concat:mobilemincssunited',
+					    'recess:mobileThemeYeti', 'concat:mobilemincssyeti',
+					  ]);
     grunt.registerTask('dist-css', [  'desktop-dist-css', 'recess:desktopmin',
                                       'mobile-dist-css' , 'recess:mobilemin',
                                       'concat:desktopmincss', 'concat:mobilemincss' ]);
