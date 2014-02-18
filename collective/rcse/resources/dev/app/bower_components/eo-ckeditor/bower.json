@@ -1,0 +1,10 @@
+{
+  "name": "ckeditor-full",
+  "version": "4.2.2",
+  "main": ["ckeditor.js", "skins/moono/editor.css"],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
+}

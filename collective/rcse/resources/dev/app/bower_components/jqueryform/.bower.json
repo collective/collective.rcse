@@ -1,0 +1,22 @@
+{
+  "name": "jquery-form",
+  "version": "3.37.0",
+  "main": "jquery.form.js",
+  "author": "M. Alsup",
+  "dependencies": {
+    "jquery": ">=1.5"
+  },
+  "ignore": [
+    "README.md",
+    "composer.json",
+    "form.jquery.json",
+    "package.json"
+  ],
+  "_cacheHeaders": {
+    "Content-Type": "application/zip",
+    "Content-Disposition": "attachment; filename=form-3.37.0.zip"
+  },
+  "_source": "https://github.com/malsup/form/archive/3.37.0.zip",
+  "_target": "*",
+  "_originalSource": "https://github.com/malsup/form/archive/3.37.0.zip"
+}

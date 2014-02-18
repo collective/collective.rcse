@@ -1,0 +1,22 @@
+{
+  "name": "ckeditor-full",
+  "main": [
+    "ckeditor.js",
+    "skins/moono/editor.css"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "homepage": "https://github.com/eymengunay/ckeditor",
+  "_release": "ee3e385da8",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "ee3e385da8b4ebdb6033c0144e734c446161bae0"
+  },
+  "_source": "git://github.com/eymengunay/ckeditor.git",
+  "_target": "master",
+  "_originalSource": "eo-ckeditor"
+}
