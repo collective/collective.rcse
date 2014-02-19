@@ -1,0 +1,10 @@
+{
+  "name": "tasksplease",
+  "_cacheHeaders": {
+    "Content-Type": "application/zip",
+    "Content-Disposition": "attachment; filename=tasksplease-master.zip"
+  },
+  "_source": "https://github.com/Quimera/tasksplease/archive/master.zip",
+  "_target": "*",
+  "_originalSource": "https://github.com/Quimera/tasksplease/archive/master.zip"
+}
