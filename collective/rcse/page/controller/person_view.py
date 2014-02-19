@@ -7,6 +7,7 @@ from zope import interface
 from zope import schema
 
 from collective.rcse.content import member
+from collective.rcse.content.settings import getDefaultSettings
 from collective.rcse.content.visibility import NAMESPACE
 
 
@@ -64,6 +65,8 @@ class AuthenticatedMemberInfoView(BrowserView):
     @memoize
     def get_settings(self):
         membrane = self.get_membrane()
+        if membrane is None:
+            return getDefaultSettings()
         return membrane.restrictedTraverse('get_settings')
 
     def update(self):
