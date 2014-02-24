@@ -137,7 +137,7 @@
   <adapter factory=".register.RegisterFormAdapter" />
 
   <browser:page
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
       name="register"
       class=".register.RegisterFormWrapper"
       template="templates/form.pt"
