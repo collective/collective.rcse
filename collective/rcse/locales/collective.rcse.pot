@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-02-05 13:29+0000\n"
+"POT-Creation-Date: 2014-02-24 16:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgid "${company}'s public group"
 msgstr ""
 
 #: ./page/desktop/templates/timeline_header_navroot.pt:13
-#: ./viewlet/desktop/templates/portal_header.pt:165
+#: ./viewlet/desktop/templates/portal_header.pt:169
 msgid "${function} in ${company}"
 msgstr ""
 
@@ -71,6 +71,10 @@ msgstr ""
 #: ./page/desktop/templates/group_status.pt:42
 #: ./page/mobile/templates/group_status.pt:42
 msgid "Access: Owners, Readers and Administrators"
+msgstr ""
+
+#: ./viewlet/desktop/templates/portal_header.pt:79
+msgid "Account"
 msgstr ""
 
 #: ./workflow.py:49
@@ -181,12 +185,20 @@ msgstr ""
 msgid "All groups"
 msgstr ""
 
+#: ./settings.py:20
+msgid "Amelia"
+msgstr ""
+
 #: ./profiles/settings/types/collective.rcse.audio.xml
 msgid "An audio file"
 msgstr ""
 
 #: ./profiles/settings/types/collective.rcse.event.xml
 msgid "An event"
+msgstr ""
+
+#: ./profiles/settings/actions.xml
+msgid "App created by Makina Corpus"
 msgstr ""
 
 #: ./action/conditions.py:58
@@ -276,6 +288,10 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
+#: ./settings.py:21
+msgid "Cerulean"
+msgstr ""
+
 #: ./page/desktop/templates/group_edit.pt:42
 #: ./page/mobile/templates/group_edit.pt:33
 msgid "Change state of the current group"
@@ -297,7 +313,7 @@ msgid "City"
 msgstr ""
 
 #: ./page/desktop/templates/addbutton.pt:16
-#: ./viewlet/controller/resourceregistries.py:29
+#: ./viewlet/controller/resourceregistries.py:30
 #: ./viewlet/desktop/templates/modal.pt:16
 msgid "Close"
 msgstr ""
@@ -370,6 +386,10 @@ msgstr ""
 msgid "Corporate name"
 msgstr ""
 
+#: ./settings.py:22
+msgid "Cosmo"
+msgstr ""
+
 #: ./requestaccess/interfaces.py:14
 msgid "Creator ID"
 msgstr ""
@@ -378,7 +398,11 @@ msgstr ""
 msgid "Credits"
 msgstr ""
 
-#: ./content/vocabularies.py:56
+#: ./settings.py:23
+msgid "Cyborg"
+msgstr ""
+
+#: ./content/vocabularies.py:58
 msgid "Date"
 msgstr ""
 
@@ -388,6 +412,10 @@ msgstr ""
 
 #: ./requestaccess/browser/request.py:149
 msgid "Decline access"
+msgstr ""
+
+#: ./settings.py:19
+msgid "Default"
 msgstr ""
 
 #: ./action/delete.py:18
@@ -419,7 +447,7 @@ msgstr ""
 msgid "Discussion added"
 msgstr ""
 
-#: ./viewlet/desktop/templates/portal_header.pt:73
+#: ./viewlet/desktop/templates/portal_header.pt:74
 msgid "Display a menu to access to my personal stuff"
 msgstr ""
 
@@ -435,7 +463,7 @@ msgstr ""
 msgid "Display only content from the current group"
 msgstr ""
 
-#: ./viewlet/desktop/templates/portal_header.pt:21
+#: ./viewlet/desktop/templates/portal_header.pt:19
 msgid "Display the search for members form"
 msgstr ""
 
@@ -484,7 +512,7 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
-#: ./content/vocabularies.py:23
+#: ./content/vocabularies.py:25
 msgid "English"
 msgstr ""
 
@@ -525,7 +553,7 @@ msgstr ""
 msgid "Favorites"
 msgstr ""
 
-#: ./content/vocabularies.py:17
+#: ./content/vocabularies.py:19
 msgid "Female"
 msgstr ""
 
@@ -558,12 +586,16 @@ msgstr ""
 msgid "First name: ${firstname}"
 msgstr ""
 
+#: ./settings.py:24
+msgid "Flatly"
+msgstr ""
+
 #: ./page/desktop/templates/group_edit.pt:61
 #: ./page/mobile/templates/group_edit.pt:49
 msgid "Folder contents"
 msgstr ""
 
-#: ./content/vocabularies.py:24
+#: ./content/vocabularies.py:26
 msgid "French"
 msgstr ""
 
@@ -612,7 +644,7 @@ msgstr ""
 msgid "Group"
 msgstr ""
 
-#: ./viewlet/desktop/templates/portal_header.pt:18
+#: ./viewlet/desktop/templates/portal_header.pt:27
 msgid "Groups"
 msgstr ""
 
@@ -620,7 +652,7 @@ msgstr ""
 msgid "Hide: ${attr}"
 msgstr ""
 
-#: ./content/vocabularies.py:114
+#: ./content/vocabularies.py:116
 #: ./setuphandler.py:185
 msgid "Home"
 msgstr ""
@@ -692,7 +724,7 @@ msgstr ""
 msgid "Invite a person"
 msgstr ""
 
-#: ./content/vocabularies.py:25
+#: ./content/vocabularies.py:27
 msgid "Italian"
 msgstr ""
 
@@ -703,6 +735,10 @@ msgstr ""
 #: ./viewlet/desktop/templates/edit_bar.pt:12
 #: ./viewlet/mobile/templates/edit_bar.pt:11
 msgid "Join this group"
+msgstr ""
+
+#: ./settings.py:25
+msgid "Journal"
 msgstr ""
 
 #: ./content/member.py:89
@@ -764,12 +800,16 @@ msgstr ""
 msgid "Look at the map"
 msgstr ""
 
+#: ./settings.py:26
+msgid "Lumen"
+msgstr ""
+
 #: ./page/desktop/templates/group_status.pt:62
 #: ./page/mobile/templates/group_status.pt:62
 msgid "Make moderated"
 msgstr ""
 
-#: ./content/vocabularies.py:18
+#: ./content/vocabularies.py:20
 msgid "Male"
 msgstr ""
 
@@ -894,11 +934,11 @@ msgstr ""
 msgid "Open filter form"
 msgstr ""
 
-#: ./viewlet/desktop/templates/portal_header.pt:103
+#: ./viewlet/desktop/templates/portal_header.pt:106
 msgid "Open the corresponding content"
 msgstr ""
 
-#: ./viewlet/desktop/templates/portal_header.pt:92
+#: ./viewlet/desktop/templates/portal_header.pt:95
 msgid "Open the notification menu"
 msgstr ""
 
@@ -1032,7 +1072,7 @@ msgstr ""
 msgid "Read it later"
 msgstr ""
 
-#: ./viewlet/controller/resourceregistries.py:28
+#: ./viewlet/controller/resourceregistries.py:29
 msgid "Read more"
 msgstr ""
 
@@ -1057,7 +1097,7 @@ msgstr ""
 msgid "Registred"
 msgstr ""
 
-#: ./content/vocabularies.py:55
+#: ./content/vocabularies.py:57
 msgid "Relevance"
 msgstr ""
 
@@ -1164,7 +1204,7 @@ msgstr ""
 msgid "Sector"
 msgstr ""
 
-#: ./viewlet/desktop/templates/portal_header.pt:118
+#: ./viewlet/desktop/templates/portal_header.pt:121
 msgid "See all notifications"
 msgstr ""
 
@@ -1191,6 +1231,10 @@ msgstr ""
 msgid "Share content"
 msgstr ""
 
+#: ./settings.py:28
+msgid "Simplex"
+msgstr ""
+
 #: ./content/company.py:40
 msgid "Sites"
 msgstr ""
@@ -1201,11 +1245,19 @@ msgstr ""
 msgid "Skype"
 msgstr ""
 
+#: ./settings.py:29
+msgid "Slate"
+msgstr ""
+
 #: ./page/controller/filterbutton.py:37
 msgid "Sort on"
 msgstr ""
 
-#: ./content/vocabularies.py:26
+#: ./settings.py:30
+msgid "Spacelab"
+msgstr ""
+
+#: ./content/vocabularies.py:28
 msgid "Spanish"
 msgstr ""
 
@@ -1230,7 +1282,7 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: ./settings.py:21
+#: ./settings.py:41
 msgid "Subscribe when favorited"
 msgstr ""
 
@@ -1279,6 +1331,10 @@ msgstr ""
 msgid "The request has been validated"
 msgstr ""
 
+#: ./settings.py:53
+msgid "Theme"
+msgstr ""
+
 #: ./page/controller/modify_company.py:57
 #: ./page/controller/register_information.py:73
 msgid "There were errors."
@@ -1288,7 +1344,7 @@ msgstr ""
 msgid "This is the email you will receive information on. It will not be displayed to other users."
 msgstr ""
 
-#: ./content/vocabularies.py:57
+#: ./content/vocabularies.py:59
 #: ./page/controller/articles_view.py:18
 #: ./page/controller/audios_view.py:18
 msgid "Title"
@@ -1332,6 +1388,10 @@ msgstr ""
 
 #: ./profiles/settings/actions.xml
 msgid "Undo Ugh"
+msgstr ""
+
+#: ./settings.py:32
+msgid "United"
 msgstr ""
 
 #: ./page/desktop/templates/group_edit.pt:26
@@ -1423,7 +1483,7 @@ msgstr ""
 msgid "Watch the media"
 msgstr ""
 
-#: ./settings.py:27
+#: ./settings.py:47
 msgid "Watch when favorited"
 msgstr ""
 
@@ -1446,6 +1506,10 @@ msgstr ""
 msgid "Write something interesting for the community"
 msgstr ""
 
+#: ./settings.py:33
+msgid "Yeti"
+msgstr ""
+
 #: ./page/controller/poll_view.py:61
 msgid "You are not authorized to vote"
 msgstr ""
@@ -1456,6 +1520,10 @@ msgstr ""
 
 #: ./requestaccess/manager.py:255
 msgid "You can 't validate your own request"
+msgstr ""
+
+#: ./settings.py:54
+msgid "You can choose a different theme."
 msgstr ""
 
 #: ./action/cioppino_twothumbs.py:47
@@ -1511,11 +1579,11 @@ msgstr ""
 msgid "You need to specify your company name."
 msgstr ""
 
-#: ./settings.py:22
+#: ./settings.py:42
 msgid "You will automatically subscribed to contents you add to your favorites."
 msgstr ""
 
-#: ./settings.py:28
+#: ./settings.py:48
 msgid "You will automatically watch groups you add to your favorites."
 msgstr ""
 

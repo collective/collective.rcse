@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2014-02-05 13:29+0000\n"
+"POT-Creation-Date: 2014-02-24 16:38+0000\n"
 "PO-Revision-Date: 2010-11-13 11:07+0100\n"
 "Last-Translator: YOURNAME <name@email.com>\n"
 "Language-Team: French <plone-fr@lists.plone.org>\n"
@@ -27,7 +27,7 @@ msgid "${company}'s public group"
 msgstr "${company} : groupe public"
 
 #: ./page/desktop/templates/timeline_header_navroot.pt:13
-#: ./viewlet/desktop/templates/portal_header.pt:165
+#: ./viewlet/desktop/templates/portal_header.pt:169
 msgid "${function} in ${company}"
 msgstr "${function} dans ${company}"
 
@@ -73,6 +73,10 @@ msgstr "Accès: Propriétaire, Lecteurs et Administrateurs"
 #: ./page/mobile/templates/group_status.pt:42
 msgid "Access: Owners, Readers and Administrators"
 msgstr "Accès: Propriétaires, Lecteurs et Administrateurs"
+
+#: ./viewlet/desktop/templates/portal_header.pt:79
+msgid "Account"
+msgstr ""
 
 #: ./workflow.py:49
 msgid "Account validation"
@@ -182,6 +186,10 @@ msgstr "Annonceur"
 msgid "All groups"
 msgstr "Tous les groupes"
 
+#: ./settings.py:20
+msgid "Amelia"
+msgstr ""
+
 #: ./profiles/settings/types/collective.rcse.audio.xml
 msgid "An audio file"
 msgstr "Un fichier audio"
@@ -189,6 +197,10 @@ msgstr "Un fichier audio"
 #: ./profiles/settings/types/collective.rcse.event.xml
 msgid "An event"
 msgstr "Un événement"
+
+#: ./profiles/settings/actions.xml
+msgid "App created by Makina Corpus"
+msgstr ""
 
 #: ./action/conditions.py:58
 msgid "Apply only if the user's preference match."
@@ -277,6 +289,10 @@ msgstr "Impossible d'activer le membre ${user}"
 msgid "Cancel"
 msgstr "Annuler"
 
+#: ./settings.py:21
+msgid "Cerulean"
+msgstr ""
+
 #: ./page/desktop/templates/group_edit.pt:42
 #: ./page/mobile/templates/group_edit.pt:33
 msgid "Change state of the current group"
@@ -298,7 +314,7 @@ msgid "City"
 msgstr "Ville"
 
 #: ./page/desktop/templates/addbutton.pt:16
-#: ./viewlet/controller/resourceregistries.py:29
+#: ./viewlet/controller/resourceregistries.py:30
 #: ./viewlet/desktop/templates/modal.pt:16
 msgid "Close"
 msgstr "Fermer"
@@ -371,6 +387,10 @@ msgstr "Contenu créé par ${name}"
 msgid "Corporate name"
 msgstr "Raison sociale"
 
+#: ./settings.py:22
+msgid "Cosmo"
+msgstr ""
+
 #: ./requestaccess/interfaces.py:14
 msgid "Creator ID"
 msgstr ""
@@ -379,7 +399,11 @@ msgstr ""
 msgid "Credits"
 msgstr "Crédits"
 
-#: ./content/vocabularies.py:56
+#: ./settings.py:23
+msgid "Cyborg"
+msgstr ""
+
+#: ./content/vocabularies.py:58
 msgid "Date"
 msgstr "Date"
 
@@ -390,6 +414,10 @@ msgstr "Refuser"
 #: ./requestaccess/browser/request.py:149
 msgid "Decline access"
 msgstr "Refuser l'accès"
+
+#: ./settings.py:19
+msgid "Default"
+msgstr ""
 
 #: ./action/delete.py:18
 #: ./page/controller/users_manage.py:101
@@ -420,7 +448,7 @@ msgstr "Discussion"
 msgid "Discussion added"
 msgstr "Discussion ajoutée"
 
-#: ./viewlet/desktop/templates/portal_header.pt:73
+#: ./viewlet/desktop/templates/portal_header.pt:74
 msgid "Display a menu to access to my personal stuff"
 msgstr "Affiche un menu permettant d'accéder à mes informations personnelles"
 
@@ -436,7 +464,7 @@ msgstr "Afficher les nouveaux contenu de ce groupe dans votre fil d'actualité"
 msgid "Display only content from the current group"
 msgstr "Afficher uniquement le contenu du groupe actuel"
 
-#: ./viewlet/desktop/templates/portal_header.pt:21
+#: ./viewlet/desktop/templates/portal_header.pt:19
 msgid "Display the search for members form"
 msgstr "Affiche le formulaire de recherche des membres du RSE"
 
@@ -485,7 +513,7 @@ msgstr "Activer"
 msgid "Enabled"
 msgstr "Actifs"
 
-#: ./content/vocabularies.py:23
+#: ./content/vocabularies.py:25
 msgid "English"
 msgstr "Anglais"
 
@@ -526,7 +554,7 @@ msgstr "Site externe"
 msgid "Favorites"
 msgstr "Favoris"
 
-#: ./content/vocabularies.py:17
+#: ./content/vocabularies.py:19
 msgid "Female"
 msgstr "Femme"
 
@@ -559,12 +587,16 @@ msgstr "Prénom"
 msgid "First name: ${firstname}"
 msgstr "Prénom : ${firstname}"
 
+#: ./settings.py:24
+msgid "Flatly"
+msgstr ""
+
 #: ./page/desktop/templates/group_edit.pt:61
 #: ./page/mobile/templates/group_edit.pt:49
 msgid "Folder contents"
 msgstr "Contenu du dossier"
 
-#: ./content/vocabularies.py:24
+#: ./content/vocabularies.py:26
 msgid "French"
 msgstr "Français"
 
@@ -613,7 +645,7 @@ msgstr "Google+"
 msgid "Group"
 msgstr "Groupe"
 
-#: ./viewlet/desktop/templates/portal_header.pt:18
+#: ./viewlet/desktop/templates/portal_header.pt:27
 msgid "Groups"
 msgstr "Groupes"
 
@@ -621,7 +653,7 @@ msgstr "Groupes"
 msgid "Hide: ${attr}"
 msgstr "Masquer: ${attr}"
 
-#: ./content/vocabularies.py:114
+#: ./content/vocabularies.py:116
 #: ./setuphandler.py:185
 msgid "Home"
 msgstr "Accueil"
@@ -693,7 +725,7 @@ msgstr "Invitation envoyée"
 msgid "Invite a person"
 msgstr "Inviter un utilisateur"
 
-#: ./content/vocabularies.py:25
+#: ./content/vocabularies.py:27
 msgid "Italian"
 msgstr "Italien"
 
@@ -705,6 +737,10 @@ msgstr "L'élément ainsi que tout son contenu ont été supprimés."
 #: ./viewlet/mobile/templates/edit_bar.pt:11
 msgid "Join this group"
 msgstr "Rejoindre ce groupe"
+
+#: ./settings.py:25
+msgid "Journal"
+msgstr ""
 
 #: ./content/member.py:89
 msgid "Last Name"
@@ -765,12 +801,16 @@ msgstr "Logo"
 msgid "Look at the map"
 msgstr "Voir le plan"
 
+#: ./settings.py:26
+msgid "Lumen"
+msgstr ""
+
 #: ./page/desktop/templates/group_status.pt:62
 #: ./page/mobile/templates/group_status.pt:62
 msgid "Make moderated"
 msgstr "Rendre modéré"
 
-#: ./content/vocabularies.py:18
+#: ./content/vocabularies.py:20
 msgid "Male"
 msgstr "Homme"
 
@@ -895,11 +935,11 @@ msgstr "Ouvrir le formulaire d'ajout"
 msgid "Open filter form"
 msgstr "Ouvrir le formulaire de filtrage"
 
-#: ./viewlet/desktop/templates/portal_header.pt:103
+#: ./viewlet/desktop/templates/portal_header.pt:106
 msgid "Open the corresponding content"
 msgstr "Ouvrir le contenu correspondant"
 
-#: ./viewlet/desktop/templates/portal_header.pt:92
+#: ./viewlet/desktop/templates/portal_header.pt:95
 msgid "Open the notification menu"
 msgstr "Ouvrir le menu des notifications"
 
@@ -1033,7 +1073,7 @@ msgstr "RCSE configuration"
 msgid "Read it later"
 msgstr "Le lire plus tard"
 
-#: ./viewlet/controller/resourceregistries.py:28
+#: ./viewlet/controller/resourceregistries.py:29
 msgid "Read more"
 msgstr "Lire la suite"
 
@@ -1058,7 +1098,7 @@ msgstr "Enregistrer vos informations"
 msgid "Registred"
 msgstr "Enregistré"
 
-#: ./content/vocabularies.py:55
+#: ./content/vocabularies.py:57
 msgid "Relevance"
 msgstr "Pertinence"
 
@@ -1165,7 +1205,7 @@ msgstr "Rechercher une requête"
 msgid "Sector"
 msgstr "Secteur"
 
-#: ./viewlet/desktop/templates/portal_header.pt:118
+#: ./viewlet/desktop/templates/portal_header.pt:121
 msgid "See all notifications"
 msgstr "Voir toutes les notifications"
 
@@ -1192,6 +1232,10 @@ msgstr "Service"
 msgid "Share content"
 msgstr "Voir et paramétrer qui peut faire quoi dans le groupe"
 
+#: ./settings.py:28
+msgid "Simplex"
+msgstr ""
+
 #: ./content/company.py:40
 msgid "Sites"
 msgstr "Sites"
@@ -1202,11 +1246,19 @@ msgstr "Sites"
 msgid "Skype"
 msgstr "Skype"
 
+#: ./settings.py:29
+msgid "Slate"
+msgstr ""
+
 #: ./page/controller/filterbutton.py:37
 msgid "Sort on"
 msgstr "Trier par"
 
-#: ./content/vocabularies.py:26
+#: ./settings.py:30
+msgid "Spacelab"
+msgstr ""
+
+#: ./content/vocabularies.py:28
 msgid "Spanish"
 msgstr "Espagnol"
 
@@ -1231,7 +1283,7 @@ msgstr "Sujet"
 msgid "Submit"
 msgstr "Envoyer"
 
-#: ./settings.py:21
+#: ./settings.py:41
 msgid "Subscribe when favorited"
 msgstr "S'abonner quand ajouté aux favoris"
 
@@ -1280,6 +1332,10 @@ msgstr "La demande a été refusée"
 msgid "The request has been validated"
 msgstr "La demande a été validée"
 
+#: ./settings.py:53
+msgid "Theme"
+msgstr ""
+
 #: ./page/controller/modify_company.py:57
 #: ./page/controller/register_information.py:73
 msgid "There were errors."
@@ -1289,7 +1345,7 @@ msgstr "Il y a eu des erreurs"
 msgid "This is the email you will receive information on. It will not be displayed to other users."
 msgstr "Email sur lequel vous recevrez les informations. Il ne sera pas montré aux autres utilisateurs."
 
-#: ./content/vocabularies.py:57
+#: ./content/vocabularies.py:59
 #: ./page/controller/articles_view.py:18
 #: ./page/controller/audios_view.py:18
 msgid "Title"
@@ -1334,6 +1390,10 @@ msgstr "Annuler J'aime"
 #: ./profiles/settings/actions.xml
 msgid "Undo Ugh"
 msgstr "Annuler Pouah"
+
+#: ./settings.py:32
+msgid "United"
+msgstr ""
 
 #: ./page/desktop/templates/group_edit.pt:26
 msgid "Update group's title and id. The id is the URL representation of the group."
@@ -1424,7 +1484,7 @@ msgstr "Voir les membres actifs"
 msgid "Watch the media"
 msgstr "Voir le média"
 
-#: ./settings.py:27
+#: ./settings.py:47
 msgid "Watch when favorited"
 msgstr "Suivis quand ajouté aux favoris"
 
@@ -1447,6 +1507,10 @@ msgstr "Où"
 msgid "Write something interesting for the community"
 msgstr "Ecrivez quelque chose d'intéressant pour la communuauté"
 
+#: ./settings.py:33
+msgid "Yeti"
+msgstr ""
+
 #: ./page/controller/poll_view.py:61
 msgid "You are not authorized to vote"
 msgstr "Vous n'êtes pas autorisé à voter"
@@ -1458,6 +1522,10 @@ msgstr "Vous n'êtes pas encore enregistré. Veuillez poursuivre."
 #: ./requestaccess/manager.py:255
 msgid "You can 't validate your own request"
 msgstr "Vous ne pouvez valider votre propre demande"
+
+#: ./settings.py:54
+msgid "You can choose a different theme."
+msgstr ""
 
 #: ./action/cioppino_twothumbs.py:47
 msgid "You dislike this. Thanks for the feedback!"
@@ -1512,11 +1580,11 @@ msgstr "Vous devez au moins ajouter un fichier ou un lien d'une vidéo"
 msgid "You need to specify your company name."
 msgstr "Vous devez spécifier le nom de votre entreprise."
 
-#: ./settings.py:22
+#: ./settings.py:42
 msgid "You will automatically subscribed to contents you add to your favorites."
 msgstr "Vous serez automatiquement abonné aux contenus que vous ajoutez à vos favoris."
 
-#: ./settings.py:28
+#: ./settings.py:48
 msgid "You will automatically watch groups you add to your favorites."
 msgstr "Vous suivrez automatiquement les groupes que vous ajouterez à vos favoris."
 

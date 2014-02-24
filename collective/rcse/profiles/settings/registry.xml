@@ -17,6 +17,7 @@
       <value_type type="plone.registry.field.TextLine" />
     </field>
     <value>
+      <element>added</element>
       <element>created</element>
       <element>statechanged</element>
       <element>liked</element>

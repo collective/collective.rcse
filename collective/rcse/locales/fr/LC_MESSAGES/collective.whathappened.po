@@ -105,6 +105,12 @@ msgstr "${who} a demandé accès à ${where}"
 msgid "${who} is waiting for validation"
 msgstr "${who} est en attente de validation"
 
+msgid "${who} have commented ${where}"
+msgstr "${who} ont commentés ${where}"
+
+msgid "${who} has commented ${where}"
+msgstr "${who} a commenté ${where}"
+
 # Transition
 
 msgid "publish_internally"

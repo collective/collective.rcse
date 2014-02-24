@@ -126,6 +126,9 @@
   <utility factory=".utilities.BaseDisplay"
 	   provides="collective.whathappened.utility.IDisplay"
 	   name="default_display" />
+  <utility factory=".utilities.AddedDisplay"
+	   provides="collective.whathappened.utility.IDisplay"
+	   name="added" />
   <utility factory=".utilities.StateChangedDisplay"
 	   provides="collective.whathappened.utility.IDisplay"
 	   name="statechanged" />

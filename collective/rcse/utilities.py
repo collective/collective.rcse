@@ -60,7 +60,10 @@ class BaseDisplay(object):
             except AttributeError:
                 self.where = where
             else:
-                self.where = title.decode('utf-8')
+                try:
+                    self.where = title.decode('utf-8')
+                except UnicodeEncodeError:
+                    self.where = title
         else:
             self.where = where.split('/')[-1]
         for index, who in enumerate(notification.who):
@@ -82,6 +85,34 @@ class BaseDisplay(object):
                                'what': self.what,
                                'where': self.where
                                })
+
+
+class AddedDisplay(BaseDisplay):
+    def display(self, context, request, notification):
+        super(AddedDisplay, self).display(context, request, notification)
+        #  For comment. Possibly for more things ?
+        if context is not None:
+            try:
+                where = notification.where.encode('utf-8')
+                comment = context.restrictedTraverse(where)
+                title = comment.__parent__.__parent__.Title()
+            except KeyError:
+                pass
+            except AttributeError:
+                pass
+            else:
+                try:
+                    self.where = title.decode('utf-8')
+                except UnicodeEncodeError:
+                    self.where = title
+        if self.plural:
+            return _w(u"${who} have commented ${where}",
+                      mapping={'who': self.who,
+                               'where': self.where})
+        else:
+            return _w(u"${who} has commented ${where}",
+                      mapping={'who': self.who,
+                               'where': self.where})
 
 
 class StateChangedDisplay(BaseDisplay):
