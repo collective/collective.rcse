@@ -1,3 +1,4 @@
+from email.header import Header
 import os
 from smtplib import SMTPException
 from AccessControl import Unauthorized
@@ -76,14 +77,16 @@ class SendValidationEmailView(BrowserView):
 
     def sendValidationEmail(self):
         host = getToolByName(self.context, 'MailHost')
+        from_email = host.email_from_address
         portal = getToolByName(self.context, 'portal_url').getPortalObject()
-        subject = portal.Title
+        subject = Header(portal.Title(), 'utf-8').encode()
         validation_url = '%s/@@validate_email?key=%s' % (
             portal.absolute_url(),
             self.memberinfo.email_validation
         )
         mail_template = portal.email_validate_email
         mail_text = mail_template(
+            from_email=from_email,
             subject=subject,
             email=self.memberinfo.email,
             validation_url=validation_url,
@@ -96,14 +99,16 @@ def generateKeyAndSendEmail(context, request, memberinfo):
     key = os.urandom(16).encode('hex')
     memberinfo.email_validation = key
     host = getToolByName(context, 'MailHost')
+    from_email = host.email_from_address
     portal = getToolByName(context, 'portal_url').getPortalObject()
-    subject = portal.Title
+    subject = Header(portal.Title(), 'utf-8').encode()
     validation_url = '%s/@@validate_email?key=%s' % (
         portal.absolute_url(),
         memberinfo.email_validation
     )
     mail_template = portal.email_validate_email
     mail_text = mail_template(
+        from_email=from_email,
         subject=subject,
         email=memberinfo.email,
         validation_url=validation_url,

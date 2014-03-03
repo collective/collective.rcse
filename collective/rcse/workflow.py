@@ -1,8 +1,11 @@
+# -*- coding: utf-8 -*-
+from email.header import Header
 import logging
 
 from Products.CMFPlone.utils import getToolByName
 from zope.globalrequest import getRequest
 from zope.event import notify
+from zope.i18n import translate
 
 from collective.whathappened.storage_manager import StorageManager
 from collective.whathappened.subscription import Subscription
@@ -46,15 +49,18 @@ def handle_user_validation(context, event):
 
 def _sendMail(context, event):
     email = context.email
-    subject = _(u"Account validation")
+    subject = translate(_(u"Account validation"), context=getRequest())
     if event.status['review_state'] == 'enabled':
         validated = True
     else:
         validated = False
     portal_url = getToolByName(context, 'portal_url')
     host = getToolByName(context, 'MailHost')
+    from_email = host.email_from_address
+    subject = Header(subject, 'utf-8').encode()
     mail_template = context.email_user_has_been_validated
     mail_text = mail_template(
+        from_email=from_email,
         subject=subject,
         email=email,
         portal_url=portal_url(),

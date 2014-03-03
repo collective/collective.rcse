@@ -1,9 +1,7 @@
-<tal:email tal:define="lt string:&lt;;
-                  gt string:&gt;;
-		  dummy python:request.response.setHeader('Content-Type', 'text/plain;; charset=UTF-8');"
->From: "<span tal:replace="python:here.email_from_name" />" <span tal:replace="structure lt"/><span tal:replace="python:here.email_from_address" /><span tal:replace="structure gt"/>
+<tal:email tal:define="dummy python:request.response.setHeader('Content-Type', 'text/plain;; charset=UTF-8');"
+>From: <tal:email tal:replace="options/from_email"></tal:email>
 To: <tal:email tal:replace="options/email"></tal:email>
-Subject: <tal:subject i18n:translate="" tal:replace="options/subject"></tal:subject>
+Subject: <tal:subject tal:replace="options/subject"></tal:subject>
 Content-Type: text/plain; charset=UTF-8
 <tal:body tal:condition="options/validated" i18n:translate="">Your account has been validated on <tal:url tal:replace="options/portal_url"></tal:url>.</tal:body>
 <tal:body tal:condition="not:options/validated" i18n:translate="">Your account has been refused on <tal:url tal:replace="options/portal_url"></tal:url>.</tal:body>
