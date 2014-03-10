@@ -26,6 +26,12 @@ module.exports = function(grunt) {
                 src : [ '*.js', '*.css', 'lang/**', 'plugins/**', 'skins/**', 'core/**'],
                 dest : '../ckeditor'
             },
+            ckeditorconfig: {
+                expand : true,
+                cwd : 'js/',
+                src : [ 'config.js' ],
+                dest : '../ckeditor'
+            },
             desktopfont : {
                 expand : true,
                 cwd : 'app/bower_components/font-awesome/',
