@@ -106,12 +106,12 @@ class DesktopResourceRegistries(ResourcesViewlet):
         self.scripts_config.append({
             'inline': False,
             'conditionalcomment': "",
-            'id': "++resource++collective.rcse/js/desktop.min.js"
+            'id': "++resource++ckeditor/ckeditor.js"
         })
         self.scripts_config.append({
             'inline': False,
             'conditionalcomment': "",
-            'id': "++resource++ckeditor/ckeditor.js"
+            'id': "++resource++collective.rcse/js/desktop.min.js"
         })
 
 

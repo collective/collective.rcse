@@ -10,6 +10,12 @@
   formName=null
  */
 
+CKEDITOR.editorConfig = function( config ) {
+    config.language = 'fr';
+    config.extraPlugins = 'sourcedialog';
+    config.removePlugins = 'sourcearea,oembed';
+};
+
 function toggleSelect(selectbutton, id, initialState, formName) {
     /* required selectbutton: you can pass any object that will function as a toggle
      * optional id: id of the the group of checkboxes that needs to be toggled (default=ids:list
