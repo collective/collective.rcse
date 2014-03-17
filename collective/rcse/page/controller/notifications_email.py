@@ -103,10 +103,10 @@ class GetMemberWithNewNotifications(BrowserView):
     def __call__(self):
         membrane_tool = getToolByName(self.context, 'membrane_tool')
         workflow_tool = getToolByName(self.context, "portal_workflow")
-        brains = membrane_tool()
+        brains = membrane_tool.unrestrictedSearchResults()
         members = []
         for brain in brains:
-            member = brain.getObject()
+            member = self.context.unrestrictedTraverse(brain.getPath())
             status = workflow_tool.getStatusOf(
                 "collective_rcse_member_workflow", member
                 )
