@@ -1,0 +1,20 @@
+<tal:email tal:define="dummy python:request.response.setHeader('Content-Type', 'text/plain;; charset=UTF-8');"
+>From: <tal:email tal:replace="options/from_email"></tal:email>
+To: <tal:email tal:replace="options/email"></tal:email>
+Subject: <tal:subject tal:replace="options/subject"></tal:subject>
+Content-Type: text/html; charset=UTF-8
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body><h1 i18n:translate="">You have <span i18n:name="count" tal:content="options/notificationsCount"></span> new notifications!</h1>
+
+<h2 i18n:translate="">Last notifications:</h2>
+<ul>
+  <li tal:repeat="notification python:options['notifications'][:5]">
+    <a tal:content="notification/title" tal:attributes="href notification/url"></a>
+  </li>
+</ul>
+
+<a tal:attributes="href string:${options/portal_url}/@@collective_whathappened_notifications_all" i18n:translate="">See all your notifications.</a>
+</body></html>
+</tal:email>

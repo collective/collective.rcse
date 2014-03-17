@@ -21,6 +21,10 @@ class ISecuritySettings(interface.Interface):
         vocabulary="plone.app.vocabularies.Roles",
         default="Manager",
     )
+    cronKey = schema.ASCIILine(
+        title=_(u"Cron key"),
+        description=_(u"Key used by special pages to use with cron."),
+    )
 
 
 @component.adapter(ISecuritySettings, IRecordModifiedEvent)
