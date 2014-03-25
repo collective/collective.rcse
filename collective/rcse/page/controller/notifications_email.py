@@ -11,6 +11,7 @@ from collective.whathappened.browser.notifications import (
     )
 
 from collective.rcse.page.controller.person_view import GetMemberInfoView
+from collective.rcse.utils import sudo
 
 
 class SendEmail(BrowserView):
@@ -46,6 +47,10 @@ class SendEmail(BrowserView):
         if user_id is None:
             raise ValueError("User parameter is required")
         self.user = user_id
+        self._get_memberinfo()
+
+    @sudo()
+    def _get_memberinfo(self):
         memberview = GetMemberInfoView(self.context, self.request)
         memberview(self.user)
         self.memberinfo = memberview.get_membrane()
@@ -58,6 +63,7 @@ class SendEmail(BrowserView):
     def get_notifications(self):
         self.gatherer = GathererManager(self.context, self.request)
         self.storage = StorageManager(self.context, self.request)
+        self.gatherer.setUser(self.user)
         self.storage.setUser(self.user)
         self.storage.initialize()
         self._updateNotifications()
@@ -65,14 +71,18 @@ class SendEmail(BrowserView):
         self.storage.terminate()
         self.notifications = []
         for notification in notifications:
-            self.notifications.append({
-                    'title': show(self.context, self.request, notification),
-                    'url': _redirectUrl(
-                        self.context, self.request,
-                        self.portal_url, notification.where
-                        )
-                    })
+            self._append_notification(notification)
         self.notificationsCount = len(self.notifications)
+
+    @sudo()
+    def _append_notification(self, notification):
+        self.notifications.append({
+                'title': show(self.context, self.request, notification),
+                'url': _redirectUrl(
+                    self.context, self.request,
+                    self.portal_url, notification.where
+                    )
+                })
 
     def _updateNotifications(self):
         lastCheck = _getLastCheck(self.context, self.storage)
