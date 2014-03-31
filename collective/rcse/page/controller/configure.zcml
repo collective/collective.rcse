@@ -52,6 +52,27 @@
       layer="collective.rcse.layer.CommonLayer"
       permission="zope2.View"
       />
+  <!-- /MAIL VALIDATION -->
+
+  <!-- CRON -->
+
+  <browser:page
+      for="*"
+      name="notification_email_user"
+      class=".notifications_email.SendEmail"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      for="*"
+      name="notification_get_users"
+      class=".notifications_email.GetMemberWithNewNotifications"
+      layer="collective.rcse.layer.CommonLayer"
+      permission="zope2.View"
+      />
+
+  <!-- /CRON -->
 
 <!--
    <browser:page
