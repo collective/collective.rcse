@@ -31,8 +31,8 @@
         />
 
     <upgradeStep
-        source="1074"
-        destination="1075"
+        source="1075"
+        destination="1076"
         title="Remove deleted from member workflow"
         description=""
         profile="collective.rcse:default"

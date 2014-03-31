@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>1075</version>
+  <version>1076</version>
   <dependencies>
     <dependency>profile-collective.etherpad:default</dependency>
     <dependency>profile-collective.whathappened:default</dependency>
