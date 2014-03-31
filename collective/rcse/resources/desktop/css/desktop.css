@@ -3082,7 +3082,7 @@ ul.nav-pills {
 
 #portal-column-one,
 #portal-column-two {
-  padding-top: 68px;
+  padding-top: 20px;
   padding-bottom: 20px;
 }
 
@@ -3520,7 +3520,6 @@ div.documentByLine {
 .container .row #addbutton.col-xs-3.col-sm-3,
 .container .row #portal-filters.col-xs-3.col-sm-3 {
   margin-top: 30px;
-  text-align: center;
 }
 
 .container .row #header-member {

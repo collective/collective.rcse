@@ -994,6 +994,7 @@ var rcseInitScrollableColumns = function(){
 		else
 		    return ;
 	    }
+	    margin += 48;
 	    column.animate({"margin-top": (margin).toString() + 'px'},
 			   {'queue': false,
 			    'duration': 100});
