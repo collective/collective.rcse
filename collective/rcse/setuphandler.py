@@ -378,11 +378,14 @@ def installOnce(context):
 
 def setupDeletedStateInWorkflows(portal):
     wftool = portal.portal_workflow
+    blacklist = ('collective_rcse_member_workflow',)
     #for workflow in all:
     #add new state deleted
     #add transitions delete and undo_delete
     #for all states add delete trnasiations
     for definition in wftool.objectValues():
+        if definition.id in blacklist:
+            continue
         _addDeletedState(definition)
         _addDeleteTransition(definition)
 

@@ -27,3 +27,9 @@ def add_watcher_adapter_name_to_content_rule(context):
     action = storage['watch_on_like'].actions[0]
     if not hasattr(action, 'name') or not action.name:
         setattr(action, 'name', 'group_watchers')
+
+
+def remove_deleted_from_member_workflow(context):
+    wftool = getToolByName(context, 'portal_workflow')
+    workflow = wftool['collective_rcse_member_workflow']
+    workflow.states.deleteStates(('deleted',))

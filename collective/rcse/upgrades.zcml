@@ -30,4 +30,13 @@
         handler=".upgrades.add_watcher_adapter_name_to_content_rule"
         />
 
+    <upgradeStep
+        source="1074"
+        destination="1075"
+        title="Remove deleted from member workflow"
+        description=""
+        profile="collective.rcse:default"
+        handler=".upgrades.remove_deleted_from_member_workflow"
+        />
+
 </configure>
