@@ -3,12 +3,14 @@ from email.header import Header
 from AccessControl import Unauthorized
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
+from zope.browser.interfaces import IBrowserView
 
 from collective.whathappened.gatherer_manager import GathererManager
 from collective.whathappened.storage_manager import StorageManager
 from collective.whathappened.browser.notifications import (
-    _redirectUrl, _getLastCheck, show
+    _redirectUrl, _getLastCheck, show, validateNotification,
     )
+from collective.whathappened.exceptions import NotificationValueError
 
 from collective.rcse.page.controller.person_view import GetMemberInfoView
 from collective.rcse.utils import sudo
@@ -76,11 +78,21 @@ class SendEmail(BrowserView):
 
     @sudo()
     def _append_notification(self, notification):
+        try:
+            content = validateNotification(self.context, notification)
+        except NotificationValueError:
+            return
+        if IBrowserView.providedBy(content):
+            url = content.context.absolute_url() + '/@@' + content.__name__
+        else:
+            context_state = content.restrictedTraverse('plone_context_state')
+            url = context_state.view_url()
+
         self.notifications.append({
                 'title': show(self.context, self.request, notification),
                 'url': _redirectUrl(
                     self.context, self.request,
-                    self.portal_url, notification.where
+                    url, notification.where
                     )
                 })
 
