@@ -15,7 +15,8 @@
           tal:content="view/effective_date"></span>
     <a rel="author" data-rel="dialog" class="fn url"
        tal:attributes="href creator_info/url"
-       tal:content="creator_info/fullname">John</a><br/>
+       tal:content="creator_info/fullname"
+       tal:condition="creator_info/member">John</a><br/>
   </div>
   <div class="editbar" tal:content="structure context/@@collective.rcse.editbar"></div>
   <div class="tilecontent" tal:content="structure view/get_content"></div>

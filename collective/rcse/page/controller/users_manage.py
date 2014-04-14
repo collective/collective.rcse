@@ -102,6 +102,8 @@ class ManageDisabledUserForm(ManageUserForm):
     def handleDelete(self, action):
         data, errors = self.extractData()
         userid = data['user_id']
+        if not userid in self.context:
+            return  # User has already been deleted
         self.context.manage_delObjects([userid])
         msg = _(u"User ${user} has been deleted",
                 mapping={'user': userid})

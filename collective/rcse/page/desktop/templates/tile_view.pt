@@ -2,8 +2,8 @@
     i18n:domain="collective.rcse">
     <div class="panel-heading">
         <div class="media vcard byline" tal:define="creator_info context/creator_memberinfo">
-            <a rel="author" class="pull-left" tal:attributes="href creator_info/url">
-                <img class="media-object img-thumbnail avatar" tal:attributes="src string:${creator_info/photo}/thumb" />
+            <a rel="author" tal:attributes="href creator_info/url" tal:omit-tag="not:creator_info/member">
+                <img class="media-object img-thumbnail avatar pull-left" tal:attributes="src string:${creator_info/photo}/thumb" />
             </a>
             <div class="media-body">
                 <h2 class="media-heading content-title">
@@ -17,7 +17,7 @@
                      tal:content="view/effective_date"></div>&nbsp;
                 <a rel="author" data-rel="dialog" class="author fn url"
                    tal:attributes="href creator_info/url"
-                   tal:omit-tag="not:creator_info/member">
+                   tal:condition="creator_info/member">
                   <tal:name tal:content="creator_info/fullname">John</tal:name>
                   <span tal:condition="creator_info/advertiser"
                     class="icon-bullhorn">
