@@ -58,6 +58,12 @@ def clearCacheKeyGroupTitle(group):
     clearCache(module, fun, IUUID(group))
 
 
+def clearCacheKeyGroupTitleFromUUID(uuid):
+    module = 'collective.rcse.content.vocabularies'
+    fun = '_getGroupTitleFromUUID'
+    clearCache(module, fun, uuid)
+
+
 def getCacheKeyGroupAddPermission(fun, username):
     return username
 

@@ -73,6 +73,9 @@ def companies(context):
 @ram.cache(cache.getCacheKeyGroupTitle)
 def _getGroupTitleFromUUID(uuid):
     group = uuidToObject(uuid)
+    if group is None:
+        cache.clearCacheKeyGroupTitleFromUUID(uuid)
+        return ''
     return group.title
 
 

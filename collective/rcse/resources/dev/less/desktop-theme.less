@@ -114,6 +114,12 @@ header{
     margin-right: 0px;
 }
 
+// Fix for IE9
+// CF: http://stackoverflow.com/q/12019887
+.navbar-inverse {
+    .reset-filter();
+}
+
 /*TRY TO FIX A BUG FROM BOOTSTRAP 3.0.0
 https://github.com/twbs/bootstrap/issues/10390
 */
