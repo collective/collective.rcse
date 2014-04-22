@@ -1,3 +1,4 @@
+from AccessControl import Unauthorized
 from plone.app.uuid.utils import uuidToObject
 from plone.i18n.normalizer.base import baseNormalize
 from plone.memoize import ram
@@ -89,9 +90,12 @@ def _getGroupsWithAddPermission(username):
     terms = []
     brains = catalog(**query)
     for brain in brains:
-        if portal_membership.checkPermission('Add portal content',
-                                             brain.getObject()):
-            terms.append(brain.UID)
+        try:
+            if portal_membership.checkPermission('Add portal content',
+                                                 brain.getObject()):
+                terms.append(brain.UID)
+        except Unauthorized:
+            continue
     return terms
 
 
