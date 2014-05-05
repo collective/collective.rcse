@@ -49,6 +49,12 @@ class IPersonalPreferences(interface.Interface):
                       u"to your favorites."),
         default=True
     )
+    receive_email_notifications = schema.Bool(
+        title=_(u"Receive email notifications"),
+        description=_(u"You will receive emails once a week if you have "
+                      u"new notifications."),
+        default=True
+    )
     theme = schema.Choice(
         title=_(u"Theme"),
         description=_(u"You can choose a different theme."),

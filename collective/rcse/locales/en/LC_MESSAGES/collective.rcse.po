@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2014-02-24 16:38+0000\n"
+"POT-Creation-Date: 2014-05-05 09:13+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -76,7 +76,7 @@ msgstr ""
 msgid "Account"
 msgstr ""
 
-#: ./workflow.py:49
+#: ./workflow.py:52
 msgid "Account validation"
 msgstr ""
 
@@ -397,11 +397,15 @@ msgstr ""
 msgid "Credits"
 msgstr ""
 
+#: ./security.py:25
+msgid "Cron key"
+msgstr ""
+
 #: ./settings.py:23
 msgid "Cyborg"
 msgstr ""
 
-#: ./content/vocabularies.py:58
+#: ./content/vocabularies.py:59
 msgid "Date"
 msgstr ""
 
@@ -497,7 +501,7 @@ msgstr ""
 msgid "Edit Preference Condition"
 msgstr ""
 
-#: ./page/controller/validate_email.py:64
+#: ./page/controller/validate_email.py:65
 msgid "Email has been sent."
 msgstr ""
 
@@ -511,7 +515,7 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
-#: ./content/vocabularies.py:25
+#: ./content/vocabularies.py:26
 msgid "English"
 msgstr ""
 
@@ -519,7 +523,7 @@ msgstr ""
 msgid "Error raise if no valid video has been provided"
 msgstr ""
 
-#: ./page/controller/validate_email.py:66
+#: ./page/controller/validate_email.py:67
 msgid "Error while sending the email."
 msgstr ""
 
@@ -552,7 +556,7 @@ msgstr ""
 msgid "Favorites"
 msgstr ""
 
-#: ./content/vocabularies.py:19
+#: ./content/vocabularies.py:20
 msgid "Female"
 msgstr ""
 
@@ -594,7 +598,7 @@ msgstr ""
 msgid "Folder contents"
 msgstr ""
 
-#: ./content/vocabularies.py:26
+#: ./content/vocabularies.py:27
 msgid "French"
 msgstr ""
 
@@ -651,7 +655,7 @@ msgstr ""
 msgid "Hide: ${attr}"
 msgstr ""
 
-#: ./content/vocabularies.py:116
+#: ./content/vocabularies.py:123
 #: ./setuphandler.py:185
 msgid "Home"
 msgstr ""
@@ -723,7 +727,7 @@ msgstr ""
 msgid "Invite a person"
 msgstr ""
 
-#: ./content/vocabularies.py:27
+#: ./content/vocabularies.py:28
 msgid "Italian"
 msgstr ""
 
@@ -738,6 +742,10 @@ msgstr ""
 
 #: ./settings.py:25
 msgid "Journal"
+msgstr ""
+
+#: ./security.py:26
+msgid "Key used by special pages to use with cron."
 msgstr ""
 
 #: ./content/member.py:89
@@ -808,7 +816,7 @@ msgstr ""
 msgid "Make moderated"
 msgstr ""
 
-#: ./content/vocabularies.py:20
+#: ./content/vocabularies.py:21
 msgid "Male"
 msgstr ""
 
@@ -915,7 +923,7 @@ msgstr ""
 msgid "News"
 msgstr ""
 
-#: ./page/controller/validate_email.py:32
+#: ./page/controller/validate_email.py:33
 msgid "No key provided."
 msgstr ""
 
@@ -1063,7 +1071,7 @@ msgid "Quit this group"
 msgstr ""
 
 #: ./profiles/settings/controlpanel.xml
-#: ./security.py:71
+#: ./security.py:75
 msgid "RCSE Security settings"
 msgstr ""
 
@@ -1077,6 +1085,10 @@ msgstr ""
 
 #: ./page/controller/maintenance.py:29
 msgid "Rebuild membrane catalog"
+msgstr ""
+
+#: ./settings.py:53
+msgid "Receive email notifications"
 msgstr ""
 
 #: ./requestaccess/browser/request.py:113
@@ -1096,7 +1108,7 @@ msgstr ""
 msgid "Registred"
 msgstr ""
 
-#: ./content/vocabularies.py:57
+#: ./content/vocabularies.py:58
 msgid "Relevance"
 msgstr ""
 
@@ -1256,7 +1268,7 @@ msgstr ""
 msgid "Spacelab"
 msgstr ""
 
-#: ./content/vocabularies.py:28
+#: ./content/vocabularies.py:29
 msgid "Spanish"
 msgstr ""
 
@@ -1318,7 +1330,7 @@ msgstr ""
 msgid "The file must be a video. You are trying to use a '${mime_type}'"
 msgstr ""
 
-#: ./page/controller/validate_email.py:34
+#: ./page/controller/validate_email.py:35
 msgid "The key provided is incorrect. Try resending the validation email."
 msgstr ""
 
@@ -1330,7 +1342,7 @@ msgstr ""
 msgid "The request has been validated"
 msgstr ""
 
-#: ./settings.py:53
+#: ./settings.py:59
 msgid "Theme"
 msgstr ""
 
@@ -1343,7 +1355,7 @@ msgstr ""
 msgid "This is the email you will receive information on. It will not be displayed to other users."
 msgstr ""
 
-#: ./content/vocabularies.py:59
+#: ./content/vocabularies.py:60
 #: ./page/controller/articles_view.py:18
 #: ./page/controller/audios_view.py:18
 msgid "Title"
@@ -1397,7 +1409,7 @@ msgstr ""
 msgid "Update group's title and id. The id is the URL representation of the group."
 msgstr ""
 
-#: ./page/controller/users_manage.py:106
+#: ./page/controller/users_manage.py:108
 msgid "User ${user} has been deleted"
 msgstr ""
 
@@ -1521,7 +1533,7 @@ msgstr ""
 msgid "You can 't validate your own request"
 msgstr ""
 
-#: ./settings.py:54
+#: ./settings.py:60
 msgid "You can choose a different theme."
 msgstr ""
 
@@ -1586,7 +1598,11 @@ msgstr ""
 msgid "You will automatically watch groups you add to your favorites."
 msgstr ""
 
-#: ./page/controller/validate_email.py:29
+#: ./settings.py:54
+msgid "You will receive emails once a week if you have new notifications."
+msgstr ""
+
+#: ./page/controller/validate_email.py:30
 msgid "Your account email has already been validated."
 msgstr ""
 
@@ -1594,11 +1610,11 @@ msgstr ""
 msgid "Your can now log in."
 msgstr ""
 
-#: ./page/controller/validate_email.py:58
+#: ./page/controller/validate_email.py:59
 msgid "Your email has already been validated."
 msgstr ""
 
-#: ./page/controller/validate_email.py:17
+#: ./page/controller/validate_email.py:18
 msgid "Your email has been validated."
 msgstr ""
 
