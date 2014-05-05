@@ -95,7 +95,7 @@ def _getGroupsWithAddPermission(username):
                                                  brain.getObject()):
                 terms.append(brain.UID)
         except Unauthorized:
-            continue
+            cache.clearCacheKeyGroupAddPermission(username)
     return terms
 
 
@@ -107,10 +107,10 @@ def groups(context):
     terms = []
     for uid in uids:
         terms.append(SimpleVocabulary.createTerm(
-                unicode(uid),
-                str(uid),
-                _getGroupTitleFromUUID(uid)
-                ))
+            unicode(uid),
+            str(uid),
+            _getGroupTitleFromUUID(uid)
+            ))
     return SimpleVocabulary(terms)
 
 
@@ -124,10 +124,10 @@ def groups_with_home(context):
     uids = _getGroupsWithAddPermission(username)
     for uid in uids:
         terms.append(SimpleVocabulary.createTerm(
-                unicode(uid),
-                str(uid),
-                _getGroupTitleFromUUID(uid)
-                ))
+            unicode(uid),
+            str(uid),
+            _getGroupTitleFromUUID(uid)
+            ))
     return SimpleVocabulary(terms)
 
 
