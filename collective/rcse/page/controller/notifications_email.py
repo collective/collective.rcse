@@ -29,6 +29,9 @@ class SendEmail(BrowserView):
     def __call__(self):
         self.check_key()
         self.get_user()
+        if not self.memberview.get_settings()\
+                .get('receive_email_notifications'):
+            return "IGNORE"
         self.get_portal_url()
         self.get_notifications()
         if self.notificationsCount > 0:
@@ -53,9 +56,9 @@ class SendEmail(BrowserView):
 
     @sudo()
     def _get_memberinfo(self):
-        memberview = GetMemberInfoView(self.context, self.request)
-        memberview(self.user)
-        self.memberinfo = memberview.get_membrane()
+        self.memberview = GetMemberInfoView(self.context, self.request)
+        self.memberview(self.user)
+        self.memberinfo = self.memberview.get_membrane()
 
     def get_portal_url(self):
         portal_state = self.context.restrictedTraverse('plone_portal_state')

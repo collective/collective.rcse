@@ -462,12 +462,8 @@ module.exports = function(grunt) {
             }
         },
 
-        recess : {
+        less : {
             desktopless : {
-                options : {
-                    compile : false,
-                    compress : true
-                },
                 src : [ 'app/bower_components/chosen/chosen.css',
                         'app/bower_components/datatables/media/css/jquery.dataTables.css',
                         'app/bower_components/bootstrap/dist/css/bootstrap.css',
@@ -477,25 +473,21 @@ module.exports = function(grunt) {
             },
             desktopmin : {
                 options : {
-                    compile : false,
-                    compress : true
+                    compress : true,
+		    cleancss: true
                 },
                 src : '../desktop/css/app.css',
                 dest : '../desktop/css/app.min.css'
             },
 
 	    desktopThemeDefaultLess : {
-		options : {
-                    compile : true,
-                    compress : false
-                },
 		src : [ 'less/desktop.less' ],
 		dest : '../desktop/css/theme_default.css'
 	    },
 	    desktopThemeDefaultMin : {
 		options : {
-                    compile : false,
-                    compress : true
+                    compress : true,
+		    cleancss: true
                 },
 		src : '../desktop/css/theme_default.css',
 		dest : '../desktop/css/theme_default.min.css'
@@ -503,128 +495,124 @@ module.exports = function(grunt) {
 
 	    desktopThemeAmelia : {
 		options : {
-                    compile : true,
-                    compress : true
+                    compress : true,
+		    cleancss: true
                 },
 		src : [ 'less/themes/amelia/desktop.less' ],
 		dest : '../desktop/css/theme_amelia.min.css'
 	    },
 	    desktopThemeCosmo : {
 		options : {
-                    compile : true,
-                    compress : true
+                    compress : true,
+		    cleancss: true
                 },
 		src : [ 'less/themes/cosmo/desktop.less' ],
 		dest : '../desktop/css/theme_cosmo.min.css'
 	    },
 	    desktopThemeFlatly : {
 		options : {
-                    compile : true,
-                    compress : true
+                    compress : true,
+		    cleancss: true
                 },
 		src : [ 'less/themes/flatly/desktop.less' ],
 		dest : '../desktop/css/theme_flatly.min.css'
 	    },
 	    desktopThemeJournal : {
 		options : {
-                    compile : true,
-                    compress : true
+                    compress : true,
+		    cleancss: true
                 },
 		src : [ 'less/themes/journal/desktop.less' ],
 		dest : '../desktop/css/theme_journal.min.css'
 	    },
 	    desktopThemeReadable : {
 		options : {
-                    compile : true,
-                    compress : true
+                    compress : true,
+		    cleancss: true
                 },
 		src : [ 'less/themes/readable/desktop.less' ],
 		dest : '../desktop/css/theme_readable.min.css'
 	    },
 	    desktopThemeSlate : {
 		options : {
-                    compile : true,
-                    compress : true
+                    compress : true,
+		    cleancss: true
                 },
 		src : [ 'less/themes/slate/desktop.less' ],
 		dest : '../desktop/css/theme_slate.min.css'
 	    },
 	    desktopThemeSuperhero : {
 		options : {
-                    compile : true,
-                    compress : true
+                    compress : true,
+		    cleancss: true
                 },
 		src : [ 'less/themes/superhero/desktop.less' ],
 		dest : '../desktop/css/theme_superhero.min.css'
 	    },
 	    desktopThemeYeti : {
 		options : {
-                    compile : true,
-                    compress : true
+                    compress : true,
+		    cleancss: true
                 },
 		src : [ 'less/themes/yeti/desktop.less' ],
 		dest : '../desktop/css/theme_yeti.min.css'
 	    },
 	    desktopThemeCerulean : {
 		options : {
-                    compile : true,
-                    compress : true
+                    compress : true,
+		    cleancss: true
                 },
 		src : [ 'less/themes/cerulean/desktop.less' ],
 		dest : '../desktop/css/theme_cerulean.min.css'
 	    },
 	    desktopThemeCyborg : {
 		options : {
-                    compile : true,
-                    compress : true
+                    compress : true,
+		    cleancss: true
                 },
 		src : [ 'less/themes/cyborg/desktop.less' ],
 		dest : '../desktop/css/theme_cyborg.min.css'
 	    },
 	    desktopThemeLumen : {
 		options : {
-                    compile : true,
-                    compress : true
+                    compress : true,
+		    cleancss: true
                 },
 		src : [ 'less/themes/lumen/desktop.less' ],
 		dest : '../desktop/css/theme_lumen.min.css'
 	    },
 	    desktopThemeSimplex : {
 		options : {
-                    compile : true,
-                    compress : true
+                    compress : true,
+		    cleancss: true
                 },
 		src : [ 'less/themes/simplex/desktop.less' ],
 		dest : '../desktop/css/theme_simplex.min.css'
 	    },
 	    desktopThemeSpacelab : {
 		options : {
-                    compile : true,
-                    compress : true
+                    compress : true,
+		    cleancss: true
                 },
 		src : [ 'less/themes/spacelab/desktop.less' ],
 		dest : '../desktop/css/theme_spacelab.min.css'
 	    },
 	    desktopThemeUnited : {
 		options : {
-                    compile : true,
-                    compress : true
+                    compress : true,
+		    cleancss: true
                 },
 		src : [ 'less/themes/united/desktop.less' ],
 		dest : '../desktop/css/theme_united.min.css'
 	    },
 
             mobileless : {
-                options : {
-                    compile : true,
-                    compress : false
-                },
                 src : [ 'less/mobile.less'],
                 dest : '../mobile/css/app.css'
             },
             mobilemin : {
                 options : {
-                    compile : true,
+                    cleancss : true,
                     compress : true
                 },
                 src : [ 'less/mobile.less'],
@@ -634,7 +622,7 @@ module.exports = function(grunt) {
 	    // Theme
 	    mobileThemeAmelia : {
 		options : {
-                    compile : true,
+                    cleancss : true,
                     compress : true
                 },
 		src : [ 'less/themes/amelia/mobile.less' ],
@@ -642,7 +630,7 @@ module.exports = function(grunt) {
 	    },
 	    mobileThemeCosmo : {
 		options : {
-                    compile : true,
+                    cleancss : true,
                     compress : true
                 },
 		src : [ 'less/themes/cosmo/mobile.less' ],
@@ -650,7 +638,7 @@ module.exports = function(grunt) {
 	    },
 	    mobileThemeFlatly : {
 		options : {
-                    compile : true,
+                    cleancss : true,
                     compress : true
                 },
 		src : [ 'less/themes/flatly/mobile.less' ],
@@ -658,7 +646,7 @@ module.exports = function(grunt) {
 	    },
 	    mobileThemeJournal : {
 		options : {
-                    compile : true,
+                    cleancss : true,
                     compress : true
                 },
 		src : [ 'less/themes/journal/mobile.less' ],
@@ -666,7 +654,7 @@ module.exports = function(grunt) {
 	    },
 	    mobileThemeReadable : {
 		options : {
-                    compile : true,
+                    cleancss : true,
                     compress : true
                 },
 		src : [ 'less/themes/readable/mobile.less' ],
@@ -674,7 +662,7 @@ module.exports = function(grunt) {
 	    },
 	    mobileThemeSlate : {
 		options : {
-                    compile : true,
+                    cleancss : true,
                     compress : true
                 },
 		src : [ 'less/themes/slate/mobile.less' ],
@@ -682,7 +670,7 @@ module.exports = function(grunt) {
 	    },
 	    mobileThemeSuperhero : {
 		options : {
-                    compile : true,
+                    cleancss : true,
                     compress : true
                 },
 		src : [ 'less/themes/superhero/mobile.less' ],
@@ -690,7 +678,7 @@ module.exports = function(grunt) {
 	    },
 	    mobileThemeYeti : {
 		options : {
-                    compile : true,
+                    cleancss : true,
                     compress : true
                 },
 		src : [ 'less/themes/yeti/mobile.less' ],
@@ -698,7 +686,7 @@ module.exports = function(grunt) {
 	    },
 	    mobileThemeCerulean : {
 		options : {
-                    compile : true,
+                    cleancss : true,
                     compress : true
                 },
 		src : [ 'less/themes/cerulean/mobile.less' ],
@@ -706,7 +694,7 @@ module.exports = function(grunt) {
 	    },
 	    mobileThemeCyborg : {
 		options : {
-                    compile : true,
+                    cleancss : true,
                     compress : true
                 },
 		src : [ 'less/themes/cyborg/mobile.less' ],
@@ -714,7 +702,7 @@ module.exports = function(grunt) {
 	    },
 	    mobileThemeLumen : {
 		options : {
-                    compile : true,
+                    cleancss : true,
                     compress : true
                 },
 		src : [ 'less/themes/lumen/mobile.less' ],
@@ -722,7 +710,7 @@ module.exports = function(grunt) {
 	    },
 	    mobileThemeSimplex : {
 		options : {
-                    compile : true,
+                    cleancss : true,
                     compress : true
                 },
 		src : [ 'less/themes/simplex/mobile.less' ],
@@ -730,7 +718,7 @@ module.exports = function(grunt) {
 	    },
 	    mobileThemeSpacelab : {
 		options : {
-                    compile : true,
+                    cleancss : true,
                     compress : true
                 },
 		src : [ 'less/themes/spacelab/mobile.less' ],
@@ -738,7 +726,7 @@ module.exports = function(grunt) {
 	    },
 	    mobileThemeUnited : {
 		options : {
-                    compile : true,
+                    cleancss : true,
                     compress : true
                 },
 		src : [ 'less/themes/united/mobile.less' ],
@@ -785,7 +773,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-recess');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-bower-task');
 
     // bower
@@ -797,43 +785,43 @@ module.exports = function(grunt) {
                                     'mobile-dist-js', 'uglify:mobilejs' ]);
 
     // CSS distribution task.
-    grunt.registerTask('desktop-dist-css', [ 'recess:desktopless',
-					     'recess:desktopThemeDefaultLess', 'recess:desktopThemeDefaultMin',
+    grunt.registerTask('desktop-dist-css', [ 'less:desktopless',
+					     'less:desktopThemeDefaultLess', 'less:desktopThemeDefaultMin',
 					     'concat:desktopcss',
-					     'recess:desktopThemeAmelia', 'concat:desktopAmelia',
-					     'recess:desktopThemeCosmo', 'concat:desktopCosmo',
-					     'recess:desktopThemeCerulean', 'concat:desktopCerulean',
-					     'recess:desktopThemeCyborg', 'concat:desktopCyborg',
-					     'recess:desktopThemeFlatly', 'concat:desktopFlatly',
-					     'recess:desktopThemeJournal', 'concat:desktopJournal',
-					     'recess:desktopThemeLumen', 'concat:desktopLumen',
-					     //'recess:desktopThemeReadable', 'concat:desktopReadable',
-					     'recess:desktopThemeSimplex', 'concat:desktopSimplex',
-					     'recess:desktopThemeSlate', 'concat:desktopSlate',
-					     'recess:desktopThemeSpacelab', 'concat:desktopSpacelab',
-					     //'recess:desktopThemeSuperhero', 'concat:desktopSuperhero',
-					     'recess:desktopThemeUnited', 'concat:desktopUnited',
-					     'recess:desktopThemeYeti', 'concat:desktopYeti',
+					     'less:desktopThemeAmelia', 'concat:desktopAmelia',
+					     'less:desktopThemeCosmo', 'concat:desktopCosmo',
+					     'less:desktopThemeCerulean', 'concat:desktopCerulean',
+					     'less:desktopThemeCyborg', 'concat:desktopCyborg',
+					     'less:desktopThemeFlatly', 'concat:desktopFlatly',
+					     'less:desktopThemeJournal', 'concat:desktopJournal',
+					     'less:desktopThemeLumen', 'concat:desktopLumen',
+					     //'less:desktopThemeReadable', 'concat:desktopReadable',
+					     'less:desktopThemeSimplex', 'concat:desktopSimplex',
+					     'less:desktopThemeSlate', 'concat:desktopSlate',
+					     'less:desktopThemeSpacelab', 'concat:desktopSpacelab',
+					     //'less:desktopThemeSuperhero', 'concat:desktopSuperhero',
+					     'less:desktopThemeUnited', 'concat:desktopUnited',
+					     'less:desktopThemeYeti', 'concat:desktopYeti',
 					   ]);
 
-    grunt.registerTask('mobile-dist-css', [ 'recess:mobileless', 'concat:mobilecss',
-					    'recess:mobileThemeAmelia', 'concat:mobilemincssamelia',
-					    'recess:mobileThemeCerulean', 'concat:mobilemincsscerulean',
-					    'recess:mobileThemeCosmo', 'concat:mobilemincsscosmo',
-					    'recess:mobileThemeCyborg', 'concat:mobilemincsscyborg',
-					    'recess:mobileThemeFlatly', 'concat:mobilemincssflatly',
-					    'recess:mobileThemeJournal', 'concat:mobilemincssjournal',
-					    'recess:mobileThemeLumen', 'concat:mobilemincsslumen',
-					    //'recess:mobileThemeReadable', 'concat:mobilemincssreadable',
-					    'recess:mobileThemeSimplex', 'concat:mobilemincsssimplex',
-					    'recess:mobileThemeSlate', 'concat:mobilemincssslate',
-					    'recess:mobileThemeSpacelab', 'concat:mobilemincssspacelab',
-					    //'recess:mobileThemeSuperhero', 'concat:mobilemincsssuperhero',
-					    'recess:mobileThemeUnited', 'concat:mobilemincssunited',
-					    'recess:mobileThemeYeti', 'concat:mobilemincssyeti',
+    grunt.registerTask('mobile-dist-css', [ 'less:mobileless', 'concat:mobilecss',
+					    'less:mobileThemeAmelia', 'concat:mobilemincssamelia',
+					    'less:mobileThemeCerulean', 'concat:mobilemincsscerulean',
+					    'less:mobileThemeCosmo', 'concat:mobilemincsscosmo',
+					    'less:mobileThemeCyborg', 'concat:mobilemincsscyborg',
+					    'less:mobileThemeFlatly', 'concat:mobilemincssflatly',
+					    'less:mobileThemeJournal', 'concat:mobilemincssjournal',
+					    'less:mobileThemeLumen', 'concat:mobilemincsslumen',
+					    //'less:mobileThemeReadable', 'concat:mobilemincssreadable',
+					    'less:mobileThemeSimplex', 'concat:mobilemincsssimplex',
+					    'less:mobileThemeSlate', 'concat:mobilemincssslate',
+					    'less:mobileThemeSpacelab', 'concat:mobilemincssspacelab',
+					    //'less:mobileThemeSuperhero', 'concat:mobilemincsssuperhero',
+					    'less:mobileThemeUnited', 'concat:mobilemincssunited',
+					    'less:mobileThemeYeti', 'concat:mobilemincssyeti',
 					  ]);
-    grunt.registerTask('dist-css', [  'desktop-dist-css', 'recess:desktopmin',
-                                      'mobile-dist-css' , 'recess:mobilemin',
+    grunt.registerTask('dist-css', [  'desktop-dist-css', 'less:desktopmin',
+                                      'mobile-dist-css' , 'less:mobilemin',
                                       'concat:desktopmincss', 'concat:mobilemincss' ]);
 
     // Fonts distribution task.
