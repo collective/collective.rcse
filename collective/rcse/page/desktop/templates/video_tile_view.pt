@@ -15,7 +15,7 @@
                            height python:int(int(width)/1.75);">
     
     
-    <p i18n:translate="" tal:condition="not:view/isTranscoded">Video is being transcoded. Please wait a moment.</p>
+    <p i18n:domain="collective.rcse" i18n:translate="" tal:condition="not:view/isTranscoded">Video is being transcoded. Please wait a moment.</p>
     
     <tal:block tal:condition="view/isTranscoded">
     <video controls

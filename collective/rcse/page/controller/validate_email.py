@@ -21,9 +21,11 @@ class ValidateEmailView(BrowserView):
         memberview = AuthenticatedMemberInfoView(self.context, self.request)
         try:
             memberview.update()
+            self.memberinfo = memberview.get_membrane()
         except ValueError:
             raise Unauthorized
-        self.memberinfo = memberview.get_membrane()
+        if self.memberinfo is None:
+            raise Unauthorized
         key = self.request.get('key', None)
         status = IStatusMessage(self.request)
         if self.memberinfo.email_validation == 'ok':
