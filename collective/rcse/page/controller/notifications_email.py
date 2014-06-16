@@ -29,8 +29,7 @@ class SendEmail(BrowserView):
     def __call__(self):
         self.check_key()
         self.get_user()
-        if not self.memberview.get_settings()\
-                .get('receive_email_notifications'):
+        if not self.check_setting():
             return "IGNORE"
         self.get_portal_url()
         self.get_notifications()
@@ -53,6 +52,11 @@ class SendEmail(BrowserView):
             raise ValueError("User parameter is required")
         self.user = user_id
         self._get_memberinfo()
+
+    @sudo()
+    def check_setting(self):
+        return self.memberview.get_settings()\
+            .get('receive_email_notifications')
 
     @sudo()
     def _get_memberinfo(self):
