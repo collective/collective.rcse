@@ -1,3 +1,4 @@
+from AccessControl import Unauthorized
 from plone.memoize.instance import memoize
 from Products.Five.browser import BrowserView
 from Products.CMFCore.permissions import ReviewPortalContent
@@ -51,7 +52,7 @@ class AuthenticatedMemberInfoView(BrowserView):
     def get_membrain(self):
         """return the member as a brain (Products.Membrane)"""
         if self.memberid is None:
-            raise ValueError("memberid can't be none")
+            raise Unauthorized()
         brains = self.membrane_tool(exact_getUserId=self.memberid)
         if len(brains) == 1:
             return brains[0]
