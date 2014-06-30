@@ -12,7 +12,7 @@ from zope.component.hooks import getSite
 from collective.rcse.i18n import _, _t
 from collective.rcse import cache
 from collective.rcse.settings import IPersonalPreferences, themes as s_themes
-
+from collective.rcse.utils import sudo
 
 themes = s_themes
 
@@ -73,11 +73,16 @@ def companies(context):
 
 @ram.cache(cache.getCacheKeyGroupTitle)
 def _getGroupTitleFromUUID(uuid):
-    group = uuidToObject(uuid)
+    group = getUuidObject(uuid)
     if group is None:
         cache.clearCacheKeyGroupTitleFromUUID(uuid)
         return ''
     return group.title
+
+
+@sudo()
+def getUuidObject(uuid):
+    return uuidToObject(uuid)
 
 
 @ram.cache(cache.getCacheKeyGroupAddPermission)
@@ -90,14 +95,16 @@ def _getGroupsWithAddPermission(username):
     terms = []
     brains = catalog(**query)
     for brain in brains:
-        try:
-            if portal_membership.checkPermission('Add portal content',
-                                                 brain.getObject()):
-                terms.append(brain.UID)
-        except Unauthorized:
-            cache.clearCacheKeyGroupAddPermission(username)
+        if portal_membership.checkPermission('Add portal content',
+                                             getBrainObject(brain)):
+            terms.append(brain.UID)
     return terms
 
+
+@sudo()
+def getBrainObject(brain):
+    return brain.getObject()
+    
 
 def groups(context):
     """Group where the user can add contents."""
