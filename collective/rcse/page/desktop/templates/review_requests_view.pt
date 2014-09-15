@@ -33,18 +33,14 @@
           <td tal:define="memberinfo nocall:context/get_memberinfo;
 			  dummy python:memberinfo(req['userid'])">
 	    <a class="load-content-tile-in-modal"
-	       data-toggle="modal"
-	       href="#content-modal"
-	       tal:attributes="data-href python:memberinfo.url"
+	       tal:attributes="href python:memberinfo.get_membrain().getURL()"
 	       tal:content="memberinfo/fullname">
 	      userid
 	    </a>
 	  </td>
           <td>
             <a class="load-content-tile-in-modal"
-	       data-toggle="modal"
-	       href="#content-modal"
-	       tal:attributes="data-href req/target_path"
+	       tal:attributes="href req/target_path"
 	       tal:content="req/target_title">
 	      Title
             </a>
