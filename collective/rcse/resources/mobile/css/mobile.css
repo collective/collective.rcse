@@ -6604,7 +6604,7 @@ dd.portletFooter {
 }
 .ui-header .ui-btn-right a[href="#panel-right"]:after {
   border-color: rgba(73, 42, 32, 0);
-  border-left-color: #492a20;
+  border-left-color: #3c3c3c;
   border-width: 14px;
   top: 50%;
   margin-top: -14px;
