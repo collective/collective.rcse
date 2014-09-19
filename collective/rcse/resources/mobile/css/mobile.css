@@ -6574,7 +6574,7 @@ dd.portletFooter {
 }
 .ui-header .ui-btn-left a[href="#panel-left"]:after {
   border-color: rgba(73, 42, 32, 0);
-  border-right-color: #492a20;
+  border-right-color: #3C3C3C;
   border-width: 14px;
   top: 50%;
   margin-top: -14px;
@@ -6589,7 +6589,7 @@ dd.portletFooter {
 /* Header Right Arrow */
 .ui-header .ui-btn-right a[href="#panel-right"] {
   position: relative;
-  background: #492a20;
+  background: #3C3C3C;
   border: 1px solid #090301;
 }
 .ui-header .ui-btn-right a[href="#panel-right"]:after,
