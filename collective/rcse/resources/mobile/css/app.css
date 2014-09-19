@@ -56,7 +56,7 @@
 .ui-icon:not(.ui-icon-loading) {
   background: #666666;
   background: rgba(0, 0, 0, 0.4);
-  color: #ffffff;
+  /* color: #ffffff; */
   font-weight: normal;
   text-shadow: none;
 }
@@ -2281,21 +2281,21 @@ dd.portletFooter {
 }
 .ui-header .ui-btn-left a[href="#panel-left"] {
   border: 1px solid #090301 !important;
-  background-image: linear-gradient(left top, #492a20 28%, #2c1913 88%) !important;
-  background-image: -o-linear-gradient(left top, #492a20 28%, #2c1913 88%) !important;
-  background-image: -moz-linear-gradient(left top, #492a20 28%, #2c1913 88%) !important;
-  background-image: -webkit-linear-gradient(left top, #492a20 28%, #2c1913 88%) !important;
-  background-image: -ms-linear-gradient(left top, #492a20 28%, #2c1913 88%) !important;
-  background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0.28, #492a20), color-stop(0.88, #2c1913)) !important;
+  background-image: linear-gradient(left top, #3c3c3c 28%, #111111 88%) !important;
+  background-image: -o-linear-gradient(left top, #3c3c3c 28%, #111111 88%) !important;
+  background-image: -moz-linear-gradient(left top, #3c3c3c 28%, #111111 88%) !important;
+  background-image: -webkit-linear-gradient(left top, #3c3c3c 28%, #111111 88%) !important;
+  background-image: -ms-linear-gradient(left top, #3c3c3c 28%, #111111 88%) !important;
+  background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0.28, #3c3c3c), color-stop(0.88, #111111)) !important;
 }
 .ui-header .ui-btn-right a[href="#panel-right"] {
   border: 1px solid #090301 !important;
-  background-image: linear-gradient(right top, #492a20 28%, #2c1913 88%) !important;
-  background-image: -o-linear-gradient(right top, #492a20 28%, #2c1913 88%) !important;
-  background-image: -moz-linear-gradient(right top, #492a20 28%, #2c1913 88%) !important;
-  background-image: -webkit-linear-gradient(right top, #492a20 28%, #2c1913 88%) !important;
-  background-image: -ms-linear-gradient(right top, #492a20 28%, #2c1913 88%) !important;
-  background-image: -webkit-gradient(linear, right top, left bottom, color-stop(0.28, #492a20), color-stop(0.88, #2c1913)) !important;
+  background-image: linear-gradient(right top, #3c3c3c 28%, #111111 88%) !important;
+  background-image: -o-linear-gradient(right top, #3c3c3c 28%, #111111 88%) !important;
+  background-image: -moz-linear-gradient(right top, #3c3c3c 28%, #111111 88%) !important;
+  background-image: -webkit-linear-gradient(right top, #3c3c3c 28%, #111111 88%) !important;
+  background-image: -ms-linear-gradient(right top, #3c3c3c 28%, #111111 88%) !important;
+  background-image: -webkit-gradient(linear, right top, left bottom, color-stop(0.28, #3c3c3c), color-stop(0.88, #111111)) !important;
 }
 /* Arrow */
 /* Header Left Arrow */
