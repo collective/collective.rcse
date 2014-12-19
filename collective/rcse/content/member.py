@@ -132,7 +132,7 @@ class IMember(model.Schema):
         required=False
     )
     avatar = field.NamedBlobImage(
-        title=_(u"Avatar"),
+        title=_(u"Profile picture"),
         required=False
     )
 

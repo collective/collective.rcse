@@ -782,7 +782,7 @@ msgstr "Adresse"
 
 #: page/controller/register.py:23
 msgid "Login"
-msgstr "Login"
+msgstr "Identifiant"
 
 #: content/company.py:19 page/desktop/templates/companies_directory_view.pt:37
 msgid "Logo"
@@ -1756,3 +1756,7 @@ msgstr "Membre non trouvé dans l'annuaire"
 #: page/desktop/templates/users_manage.pt:50
 msgid "userid"
 msgstr "ID Utilisateur"
+
+
+msgid "Profile picture"
+msgstr "Photo de profil"
