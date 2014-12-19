@@ -85,3 +85,11 @@ msgstr "Se déconnecter"
 #: Archetypes/ExtensibleMetadata.py:83
 msgid "help_tags"
 msgstr "Les mots-clés sont utilisés couramment pour organiser le contenu de façon ad hoc. Un mot-clé par ligne."
+
+
+# Remove internally word from workflows
+msgid "Internally published"
+msgstr "Publié"
+
+msgid "Publish internally"
+msgstr "Publier"

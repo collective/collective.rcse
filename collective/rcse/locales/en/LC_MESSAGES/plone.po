@@ -77,3 +77,10 @@ msgstr ""
 msgid "portlet_label_search_base"
 msgstr ""
 
+
+# Remove internally word from workflows
+msgid "Internally published"
+msgstr "Published"
+
+msgid "Publish internally"
+msgstr "Publish"
