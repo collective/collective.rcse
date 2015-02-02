@@ -118,6 +118,9 @@
   <adapter factory=".adapter.SearchableText_etherpad"
 	   name="SearchableText" />
 
+  <utility factory=".utilities.ManagerRole"
+	       name="Manager" />
+
   <utility factory=".utilities.RcseUserAdder"
 	   provides="Products.membrane.interfaces.IUserAdder"
 	   name="rcse" />

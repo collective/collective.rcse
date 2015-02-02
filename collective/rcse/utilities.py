@@ -1,4 +1,6 @@
 from plone.dexterity import utils
+from plone.app.workflow.interfaces import ISharingPageRole
+from Products.CMFCore import permissions as core_permissions
 from Products.CMFPlone.utils import getToolByName
 from Products.membrane.interfaces import IUserAdder
 from zope import interface
@@ -6,10 +8,21 @@ from zope.component.hooks import getSite
 from zope.i18n import translate
 
 from collective.history.i18n import _ as _h
+from collective.rcse.i18n import _
 from collective.rcse.utils import sudo
 from collective.rcse.page.controller.person_view import GetMemberInfoView
 from collective.whathappened.utility import IDisplay
 from collective.whathappened.i18n import _ as _w
+
+
+class ManagerRole(object):
+    """
+    Taken from plone.app.workflow.localroles to allow Manager in sharing
+    """
+    interface.implements(ISharingPageRole)
+
+    title = _(u"title_can_manage", default=u"Can Manage")
+    required_permission = core_permissions.ModifyPortalContent
 
 
 class RcseUserAdder(object):

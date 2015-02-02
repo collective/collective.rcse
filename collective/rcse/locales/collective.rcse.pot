@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-02-02 11:14+0000\n"
+"POT-Creation-Date: 2015-02-02 14:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1759,6 +1759,11 @@ msgstr ""
 #. Default: "Download this event in iCal format"
 #: ./page/desktop/templates/events_view.pt:73
 msgid "title_add_to_ical"
+msgstr ""
+
+#. Default: "Can manage"
+#: ./utilities.py:24
+msgid "title_can_manage"
 msgstr ""
 
 #. Default: "Edit x items portlet"
