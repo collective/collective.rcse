@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.rcse\n"
-"POT-Creation-Date: 2014-05-05 09:13+0000\n"
+"POT-Creation-Date: 2015-02-02 11:14+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -247,10 +247,6 @@ msgstr ""
 msgid "Audio file"
 msgstr ""
 
-#: ./content/member.py:135
-msgid "Avatar"
-msgstr ""
-
 #: ./page/mobile/templates/vcard_view.pt:17
 msgid "Banned"
 msgstr ""
@@ -275,6 +271,14 @@ msgstr ""
 
 #: ./page/mobile/templates/member_tile_view.pt:50
 msgid "Born the ${birthdate}"
+msgstr ""
+
+#: ./content/vocabularies.py:27
+msgid "Bottom left"
+msgstr ""
+
+#: ./content/vocabularies.py:28
+msgid "Bottom right"
 msgstr ""
 
 #: ./page/controller/users_manage.py:56
@@ -405,7 +409,7 @@ msgstr ""
 msgid "Cyborg"
 msgstr ""
 
-#: ./content/vocabularies.py:59
+#: ./content/vocabularies.py:65
 msgid "Date"
 msgstr ""
 
@@ -470,7 +474,7 @@ msgstr ""
 msgid "Display the search for members form"
 msgstr ""
 
-#: ./page/desktop/templates/article_tile_view.pt:5
+#: ./page/desktop/templates/article_tile_view.pt:9
 #: ./page/desktop/templates/event_tile_view.pt:62
 msgid "Display this image in full view"
 msgstr ""
@@ -501,7 +505,7 @@ msgstr ""
 msgid "Edit Preference Condition"
 msgstr ""
 
-#: ./page/controller/validate_email.py:65
+#: ./page/controller/validate_email.py:67
 msgid "Email has been sent."
 msgstr ""
 
@@ -515,7 +519,7 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
-#: ./content/vocabularies.py:26
+#: ./content/vocabularies.py:32
 msgid "English"
 msgstr ""
 
@@ -523,7 +527,7 @@ msgstr ""
 msgid "Error raise if no valid video has been provided"
 msgstr ""
 
-#: ./page/controller/validate_email.py:67
+#: ./page/controller/validate_email.py:69
 msgid "Error while sending the email."
 msgstr ""
 
@@ -598,7 +602,7 @@ msgstr ""
 msgid "Folder contents"
 msgstr ""
 
-#: ./content/vocabularies.py:27
+#: ./content/vocabularies.py:33
 msgid "French"
 msgstr ""
 
@@ -655,7 +659,7 @@ msgstr ""
 msgid "Hide: ${attr}"
 msgstr ""
 
-#: ./content/vocabularies.py:123
+#: ./content/vocabularies.py:136
 #: ./setuphandler.py:185
 msgid "Home"
 msgstr ""
@@ -680,7 +684,7 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: ./content/article.py:16
+#: ./content/article.py:20
 #: ./content/event.py:19
 #: ./page/controller/articles_view.py:24
 msgid "Image"
@@ -688,6 +692,10 @@ msgstr ""
 
 #: ./page/controller/images_view.py:45
 msgid "Image added"
+msgstr ""
+
+#: ./content/article.py:23
+msgid "Image position"
 msgstr ""
 
 #: ./page/desktop/templates/event_tile_view.pt:10
@@ -727,7 +735,7 @@ msgstr ""
 msgid "Invite a person"
 msgstr ""
 
-#: ./content/vocabularies.py:28
+#: ./content/vocabularies.py:34
 msgid "Italian"
 msgstr ""
 
@@ -923,7 +931,7 @@ msgstr ""
 msgid "News"
 msgstr ""
 
-#: ./page/controller/validate_email.py:33
+#: ./page/controller/validate_email.py:35
 msgid "No key provided."
 msgstr ""
 
@@ -1053,6 +1061,10 @@ msgstr ""
 msgid "Professional mobile phone"
 msgstr ""
 
+#: ./content/member.py:135
+msgid "Profile picture"
+msgstr ""
+
 #: ./requestaccess/browser/invite.py:41
 msgid "Propose access"
 msgstr ""
@@ -1108,7 +1120,7 @@ msgstr ""
 msgid "Registred"
 msgstr ""
 
-#: ./content/vocabularies.py:58
+#: ./content/vocabularies.py:64
 msgid "Relevance"
 msgstr ""
 
@@ -1268,7 +1280,7 @@ msgstr ""
 msgid "Spacelab"
 msgstr ""
 
-#: ./content/vocabularies.py:29
+#: ./content/vocabularies.py:35
 msgid "Spanish"
 msgstr ""
 
@@ -1330,7 +1342,7 @@ msgstr ""
 msgid "The file must be a video. You are trying to use a '${mime_type}'"
 msgstr ""
 
-#: ./page/controller/validate_email.py:35
+#: ./page/controller/validate_email.py:37
 msgid "The key provided is incorrect. Try resending the validation email."
 msgstr ""
 
@@ -1355,7 +1367,7 @@ msgstr ""
 msgid "This is the email you will receive information on. It will not be displayed to other users."
 msgstr ""
 
-#: ./content/vocabularies.py:60
+#: ./content/vocabularies.py:66
 #: ./page/controller/articles_view.py:18
 #: ./page/controller/audios_view.py:18
 msgid "Title"
@@ -1363,6 +1375,14 @@ msgstr ""
 
 #: ./viewlet/desktop/templates/portal_header.pt:6
 msgid "Toggle navigation"
+msgstr ""
+
+#: ./content/vocabularies.py:25
+msgid "Top left"
+msgstr ""
+
+#: ./content/vocabularies.py:26
+msgid "Top right"
 msgstr ""
 
 #: ./content/company.py:29
@@ -1464,6 +1484,7 @@ msgstr ""
 msgid "Video file"
 msgstr ""
 
+#: ./page/desktop/templates/video_tile_view.pt:18
 #: ./page/mobile/templates/video_tile_view.pt:20
 msgid "Video is being transcoded. Please wait a moment."
 msgstr ""
@@ -1602,7 +1623,7 @@ msgstr ""
 msgid "You will receive emails once a week if you have new notifications."
 msgstr ""
 
-#: ./page/controller/validate_email.py:30
+#: ./page/controller/validate_email.py:32
 msgid "Your account email has already been validated."
 msgstr ""
 
@@ -1610,7 +1631,7 @@ msgstr ""
 msgid "Your can now log in."
 msgstr ""
 
-#: ./page/controller/validate_email.py:59
+#: ./page/controller/validate_email.py:61
 msgid "Your email has already been validated."
 msgstr ""
 

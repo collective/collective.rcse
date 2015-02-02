@@ -21,6 +21,12 @@ gender = SimpleVocabulary([
     SimpleTerm(value=u"male", title=_(u"Male")),
 ])
 
+image_position = SimpleVocabulary([
+    SimpleTerm(value=u"top-left", title=_(u"Top left")),
+    SimpleTerm(value=u"top-right", title=_(u"Top right")),
+    SimpleTerm(value=u"bottom-left", title=_(u"Bottom left")),
+    SimpleTerm(value=u"bottom-right", title=_(u"Bottom right")),
+])
 
 languages = SimpleVocabulary([
     SimpleTerm(value=u"English", title=_(u"English")),

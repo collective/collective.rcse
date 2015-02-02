@@ -936,3 +936,29 @@ div.documentByLine {
 footer .container {
   background: transparent;
 }
+.article {
+  padding-bottom: 10px;
+}
+.article .top-left {
+  float: left;
+}
+.article .top-right {
+  float: right;
+}
+.article .spacer {
+  width: 0px;
+}
+.article .spacer.spacer-left {
+  float: left;
+}
+.article .spacer.spacer-right {
+  float: right;
+}
+.article .bottom-left {
+  float: left;
+  clear: left;
+}
+.article .bottom-right {
+  float: right;
+  clear: right;
+}

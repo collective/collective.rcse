@@ -17010,7 +17010,7 @@ $.extend(mejs.MepDefaults,
         }
       });
     }
-  }
+  };
 })(jQuery);
 
 /* Javascript plotting library for jQuery, version 0.8.1.

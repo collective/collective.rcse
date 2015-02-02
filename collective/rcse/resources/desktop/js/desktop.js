@@ -36551,7 +36551,7 @@ if ( typeof define === 'function' && define.amd ) {
         }
       });
     }
-  }
+  };
 })(jQuery);
 
 (function($) {
@@ -44165,8 +44165,9 @@ var rcseUpdateSelect = function(element){
 	});
     });
 }
+
 var rcseUpdateReadMore = function(element){
-    $(element).find(".readmore").removeClass('readmore').readmore({
+    $(element).find(".readmore").readmore({
         moreLink: '<a href="#">' + rcse18n['readmore_more'] + '</a>',
         lessLink: '<a href="#">' + rcse18n['readmore_close'] + '</a>'
     });
@@ -44174,6 +44175,26 @@ var rcseUpdateReadMore = function(element){
 
 var rcseUpdatePoll = function(element) {
     $('.poll-data, .votePortlet form').drawpoll();
+}
+
+var rcseSetSpacerHeight = function(element) {
+  // Set spacer height for bottom floating (in article)
+  var space = function($spacer) {
+    var spaced_height = $spacer.siblings('.spaced').height();
+    var parent_height = $spacer.parent()[0].scrollHeight;
+
+    $spacer.height(parent_height - spaced_height);
+  };
+
+  if (element == undefined) {
+    element = document;
+  }
+
+  $(element).find('.spaced img').load(function() {
+    space($(this).parents('.spaced').siblings('.spacer'));
+    rcseUpdateReadMore(document);
+  });
+
 }
 
 var rcseApplyTransform = function(element) {
@@ -44191,8 +44212,9 @@ var rcseApplyTransform = function(element) {
         .removeClass("lazy").lazyload({skip_invisible: false});
 //    rcseUpdateFluidMedia(element);
     rcseUpdateOthers(element);
-    rcseUpdateReadMore(element);
     rcseUpdatePoll(element);
+    rcseSetSpacerHeight(element);
+    rcseUpdateReadMore(element);
     return element;
 }
 
@@ -44219,6 +44241,7 @@ $(document).on("ready", function() {
     rcseInitFluidMedia();
     rcseInitDeleteConfirmationInModal();
 });
+
 $.webshims.setOptions("basePath", portal_url + "/++resource++webshims/");
 $.webshims.setOptions('forms', {
     customDatalist: true
